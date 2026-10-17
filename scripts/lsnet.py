@@ -137,6 +137,10 @@ def _raw_request(url):
 def _parse_robots(text):
     """Return (rules, crawl_delay) for the group matching us or '*'."""
     groups, cur, agents, last_was_agent = [], None, [], False
+    # Honour the evident intent of malformed files that put several directives
+    # on one line ("User-agent: * Disallow: /" — codes.ohio.gov): split them.
+    text = re.sub(r"\s+(?=(?:user-agent|disallow|allow|crawl-delay|sitemap)\s*:)",
+                  "\n", text, flags=re.I)
     for line in text.splitlines():
         line = line.split("#", 1)[0].strip()
         if ":" not in line:

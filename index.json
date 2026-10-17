@@ -911,6 +911,86 @@
         }
       ]
     },
+    "oh": {
+      "name": "Ohio",
+      "file": "jurisdictions/oh.md",
+      "sha256": "00c61e40c699869277987ce9ab718b7d56f3bd20a1e09877822d385bef87d2e8",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 19,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Ohio Revised Code",
+          "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:\u00a7+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:\u00a7\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code"
+        },
+        {
+          "label": "Ohio session laws / General Assembly bills",
+          "regex": "(?P<prefix>(?:Am\\.\\s*)?(?:Sub\\.\\s*)?)(?P<chamber>[HS])\\.\\s*B\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,4}),?\\s*(?:\\(\\s*)?(?P<ga>\\d{2,3})(?:st|nd|rd|th)\\s+(?:General\\s+Assembly|G\\.\\s?A\\.)|(?P<volume>\\d{2,3})\\s+Ohio\\s+Laws,?\\s*(?:Part\\s+[IVX]+,?\\s*)?(?P<page>\\d{1,5})"
+        },
+        {
+          "label": "Ohio Constitution",
+          "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)"
+        },
+        {
+          "label": "Ohio Rules of Civil Procedure",
+          "regex": "\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Ohio Rules of Evidence",
+          "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})|Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence"
+        },
+        {
+          "label": "Ohio Rules of Appellate Procedure",
+          "regex": "\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Ohio Rules of Criminal Procedure",
+          "regex": "\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+        },
+        {
+          "label": "Rules for the Government of the Bar",
+          "regex": "\\bGov\\.\\s?Bar\\s+R\\.\\s*(?P<rule>[IVXL]+)|Rule\\s+(?P<rule2>[IVXL]+)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+for\\s+the\\s+Government\\s+of\\s+the\\s+Bar"
+        },
+        {
+          "label": "Ohio Rules of Professional Conduct",
+          "regex": "\\bProf\\.\\s?Cond\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})|Ohio\\s+Rules?\\s+of\\s+Prof(?:essional|')l?\\s+Conduct\\s+(?:R(?:ule)?\\.?\\s*)?(?P<rule2>\\d\\.\\d{1,2})|Rule\\s+(?P<rule3>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "Rules of Superintendence for the Courts of Ohio",
+          "regex": "\\bSup\\.\\s?R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+Superintendence"
+        },
+        {
+          "label": "Supreme Court Rules of Practice",
+          "regex": "\\bS\\.\\s?Ct\\.\\s?Prac\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Supreme\\s+Court\\s+Rules?\\s+of\\s+Practice\\s+(?P<rule2>\\d{1,2}\\.\\d{2})"
+        },
+        {
+          "label": "Rules for the Reporting of Opinions",
+          "regex": "\\bRep\\.\\s?Op\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})"
+        },
+        {
+          "label": "Ohio Administrative Code",
+          "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:\u00a7\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code"
+        },
+        {
+          "label": "Ohio public-domain webcite (YYYY-Ohio-N)",
+          "regex": "\\b(?P<year>(?:199[2-9]|20\\d\\d))-Ohio-(?P<number>\\d{1,5})\\b(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?(?:[^()]{0,40}\\((?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.)?"
+        },
+        {
+          "label": "Ohio official and regional reporters",
+          "regex": "(?P<volume>\\d{1,3})\\s+Ohio\\s+(?P<reporter>St\\.(?:\\s?[23]d)?|App\\.(?:\\s?[23]d)?|Misc\\.(?:\\s?2d)?)\\s+(?P<page>\\d{1,4})|(?P<nevolume>\\d{1,3})\\s+N\\.E\\.(?:\\s?[23]d)?\\s+(?P<nepage>\\d{1,4})\\s*\\((?:Ohio|Ohio\\s+Ct\\.\\s+App\\.|Ohio\\s+App\\.)"
+        },
+        {
+          "label": "Ohio appellate docket / unreported forms (district, county, case no.)",
+          "regex": "(?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.\\s+(?P<county>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+No(?:s)?\\.\\s*(?P<caseno>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s*\\(|$)|(?P<county2>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+App\\.\\s+No(?:s)?\\.\\s*(?P<caseno2>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s+and|\\.|$)"
+        },
+        {
+          "label": "Supreme Court of Ohio case number",
+          "regex": "(?:Case\\s+)?No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})\\b"
+        }
+      ]
+    },
     "pa": {
       "name": "Pennsylvania",
       "file": "jurisdictions/pa.md",

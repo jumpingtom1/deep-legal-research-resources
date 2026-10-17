@@ -1,0 +1,1452 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "oh",
+  "name": "Ohio",
+  "compiled": "2026-10-16",
+  "summary": "Statutes and rules: codes.ohio.gov (LSC, official under Ohio's UELMA, R.C. 149.21-149.27) serves one constructible page per Revised Code section, Administrative Code rule and constitution section, plus an authenticated PDF per section; Justia (2025) is the tier-2 fallback for the Revised Code and Constitution and Cornell LII for the Administrative Code (LII can lag by years). Court rules are long full-set PDFs on supremecourt.ohio.gov that WebFetch cuts off early (Civ.R. text stops at Rule 5) — read them with fetch_doc.py or a corpus. Case law: Ohio's public-domain webcite (2023-Ohio-3005, ¶ pinpoints) maps to a PDF URL once the court is known (rod/docs/pdf/{0|district}/{year}/{webcite}.pdf, county→district table in the record); the Reporter of Decisions search (1992-, POST only) resolves webcites, Ohio St.3d cites, case numbers and full text, and finds 'appeals not accepted for review' dispositions by the lower court's webcite. The Register of Ohio and legislature.ohio.gov fail TLS from the shell; codes.ohio.gov's robots.txt is a malformed one-liner whose intent may be to disallow all crawling (see hazards).",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of Ohio",
+        "courtlistener_id": "ohio",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ohio",
+        "reporters": [
+          "Ohio St.3d",
+          "Ohio St.2d",
+          "Ohio St.",
+          "N.E.3d",
+          "N.E.2d",
+          "N.E."
+        ],
+        "public_domain_citation": "2023-Ohio-3005 (YYYY-Ohio-N, ¶ pinpoints; since May 1, 2002, retroactively assigned to website documents from 1992)"
+      },
+      {
+        "name": "Ohio Court of Appeals (First through Twelfth Districts)",
+        "courtlistener_id": "ohioctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ohio Ct. App.",
+        "reporters": [
+          "Ohio App.3d",
+          "Ohio App.2d",
+          "Ohio App.",
+          "N.E.3d",
+          "N.E.2d"
+        ],
+        "public_domain_citation": "2022-Ohio-1555 (Ohio style adds district: '(7th Dist.)')"
+      },
+      {
+        "name": "Ohio Court of Claims",
+        "courtlistener_id": "ohioctcl",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ohio Ct. Cl.",
+        "reporters": [
+          "Ohio Misc.2d",
+          "N.E.3d"
+        ],
+        "public_domain_citation": "2025-Ohio-5905"
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Ohio Revised Code",
+        "examples": [
+          "R.C. 2305.10",
+          "R.C. 2744.03(A)(6)",
+          "Ohio Rev. Code Ann. § 2305.10",
+          "Ohio Rev. Code § 2903.01(B)",
+          "ORC 1.42",
+          "section 2305.10 of the Revised Code",
+          "R.C. 2305.10 to 2305.12"
+        ],
+        "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:§+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:§\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code",
+        "routes_to": [
+          "oh-orc-codes",
+          "oh-orc-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Ohio session laws / General Assembly bills",
+        "examples": [
+          "Am.Sub.S.B. No. 80, 125th General Assembly",
+          "S.B. 17, 126th General Assembly",
+          "Sub.H.B. No. 33 (135th G.A.)",
+          "150 Ohio Laws, Part III, 3888"
+        ],
+        "regex": "(?P<prefix>(?:Am\\.\\s*)?(?:Sub\\.\\s*)?)(?P<chamber>[HS])\\.\\s*B\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,4}),?\\s*(?:\\(\\s*)?(?P<ga>\\d{2,3})(?:st|nd|rd|th)\\s+(?:General\\s+Assembly|G\\.\\s?A\\.)|(?P<volume>\\d{2,3})\\s+Ohio\\s+Laws,?\\s*(?:Part\\s+[IVX]+,?\\s*)?(?P<page>\\d{1,5})",
+        "routes_to": [
+          "oh-session-laws-lis"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Ohio Constitution",
+        "examples": [
+          "Ohio Const. art. I, § 16",
+          "Ohio Const. art. IV, § 2(B)(2)",
+          "Article I, Section 16 of the Ohio Constitution",
+          "Section 16, Article I, Ohio Constitution",
+          "Ohio Constitution, Article I, Section 10a"
+        ],
+        "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*§\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)",
+        "routes_to": [
+          "oh-constitution-codes",
+          "oh-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Ohio Rules of Civil Procedure",
+        "examples": [
+          "Civ.R. 12(B)(6)",
+          "Civ. R. 56(C)",
+          "Ohio R. Civ. P. 12(b)(6)",
+          "Rule 60(B) of the Ohio Rules of Civil Procedure"
+        ],
+        "regex": "\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "routes_to": [
+          "oh-rules-civil"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Ohio Rules of Evidence",
+        "examples": [
+          "Evid.R. 702",
+          "Evid. R. 803(6)",
+          "Ohio R. Evid. 401",
+          "Rule 702 of the Ohio Rules of Evidence"
+        ],
+        "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})|Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence",
+        "routes_to": [
+          "oh-rules-evidence"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Ohio Rules of Appellate Procedure",
+        "examples": [
+          "App.R. 26(B)",
+          "App. R. 12(A)(1)(b)",
+          "Ohio R. App. P. 26",
+          "Rule 26(B) of the Ohio Rules of Appellate Procedure"
+        ],
+        "regex": "\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "routes_to": [
+          "oh-rules-appellate"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Ohio Rules of Criminal Procedure",
+        "examples": [
+          "Crim.R. 11(C)(2)",
+          "Crim. R. 33",
+          "Ohio R. Crim. P. 11",
+          "Rule 11 of the Ohio Rules of Criminal Procedure"
+        ],
+        "regex": "\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+        "routes_to": [
+          "oh-rules-criminal"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules for the Government of the Bar",
+        "examples": [
+          "Gov.Bar R. V(4)(G)",
+          "Gov. Bar R. VI",
+          "Rule V of the Supreme Court Rules for the Government of the Bar"
+        ],
+        "regex": "\\bGov\\.\\s?Bar\\s+R\\.\\s*(?P<rule>[IVXL]+)|Rule\\s+(?P<rule2>[IVXL]+)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+for\\s+the\\s+Government\\s+of\\s+the\\s+Bar",
+        "routes_to": [
+          "oh-rules-govbar"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Ohio Rules of Professional Conduct",
+        "examples": [
+          "Prof.Cond.R. 1.7",
+          "Prof. Cond. R. 8.4(c)",
+          "Ohio Rules of Professional Conduct 1.15",
+          "Rule 1.7 of the Ohio Rules of Professional Conduct"
+        ],
+        "regex": "\\bProf\\.\\s?Cond\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})|Ohio\\s+Rules?\\s+of\\s+Prof(?:essional|')l?\\s+Conduct\\s+(?:R(?:ule)?\\.?\\s*)?(?P<rule2>\\d\\.\\d{1,2})|Rule\\s+(?P<rule3>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "routes_to": [
+          "oh-rules-profconduct"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of Superintendence for the Courts of Ohio",
+        "examples": [
+          "Sup.R. 44(C)(2)",
+          "Sup. R. 11.09",
+          "Rule 26 of the Rules of Superintendence"
+        ],
+        "regex": "\\bSup\\.\\s?R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+Superintendence",
+        "routes_to": [
+          "oh-rules-superintendence"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Supreme Court Rules of Practice",
+        "examples": [
+          "S.Ct.Prac.R. 7.08(B)(4)",
+          "S.Ct. Prac. R. 18.02",
+          "Supreme Court Rule of Practice 7.01"
+        ],
+        "regex": "\\bS\\.\\s?Ct\\.\\s?Prac\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Supreme\\s+Court\\s+Rules?\\s+of\\s+Practice\\s+(?P<rule2>\\d{1,2}\\.\\d{2})",
+        "routes_to": [
+          "oh-rules-practice"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules for the Reporting of Opinions",
+        "examples": [
+          "Rep.Op.R. 3.4",
+          "Rep. Op. R. 2.5"
+        ],
+        "regex": "\\bRep\\.\\s?Op\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})",
+        "routes_to": [
+          "oh-rules-reporting"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Ohio Administrative Code",
+        "examples": [
+          "Ohio Adm.Code 3701-17-01",
+          "Ohio Admin. Code 4123-5-01",
+          "Ohio Adm. Code 4901:1-10-01(A)",
+          "OAC 3701-17-01",
+          "rule 3701-17-01 of the Administrative Code"
+        ],
+        "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:§\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code",
+        "routes_to": [
+          "oh-oac-codes",
+          "oh-oac-lii"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Ohio public-domain webcite (YYYY-Ohio-N)",
+        "examples": [
+          "Harris v. Hilderbrand, 172 Ohio St.3d 471, 2023-Ohio-3005, ¶ 20",
+          "State v. Hurt, 2022-Ohio-2039, ¶ 5 (8th Dist.)",
+          "Hendriks v. GNA Canadian Holding Co., 2d Dist. Montgomery No. 30469, 2026-Ohio-1580",
+          "2025-Ohio-5905 (Ct. Cl.)"
+        ],
+        "regex": "\\b(?P<year>(?:199[2-9]|20\\d\\d))-Ohio-(?P<number>\\d{1,5})\\b(?:,\\s*¶+\\s*(?P<para>\\d+))?(?:[^()]{0,40}\\((?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.)?",
+        "routes_to": [
+          "oh-opinions-rod",
+          "oh-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Ohio official and regional reporters",
+        "examples": [
+          "172 Ohio St.3d 471",
+          "74 Ohio St.3d 186",
+          "65 Ohio St.2d 1",
+          "150 Ohio App.3d 12",
+          "123 N.E.3d 456 (Ohio 2019)",
+          "95 Ohio Misc.2d 1"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Ohio\\s+(?P<reporter>St\\.(?:\\s?[23]d)?|App\\.(?:\\s?[23]d)?|Misc\\.(?:\\s?2d)?)\\s+(?P<page>\\d{1,4})|(?P<nevolume>\\d{1,3})\\s+N\\.E\\.(?:\\s?[23]d)?\\s+(?P<nepage>\\d{1,4})\\s*\\((?:Ohio|Ohio\\s+Ct\\.\\s+App\\.|Ohio\\s+App\\.)",
+        "routes_to": [
+          "oh-opinions-rod",
+          "oh-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Ohio appellate docket / unreported forms (district, county, case no.)",
+        "examples": [
+          "8th Dist. Cuyahoga No. 110732",
+          "7th Dist. Jefferson No. 21 JE 0013",
+          "Jefferson App. No. 21 JE 0013",
+          "10th Dist. Franklin No. 01AP-782, 2001 WL 1664064 (Dec. 31, 2001)",
+          "Cuyahoga App. No. 115771"
+        ],
+        "regex": "(?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.\\s+(?P<county>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+No(?:s)?\\.\\s*(?P<caseno>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s*\\(|$)|(?P<county2>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+App\\.\\s+No(?:s)?\\.\\s*(?P<caseno2>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s+and|\\.|$)",
+        "routes_to": [
+          "oh-opinions-rod",
+          "oh-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Supreme Court of Ohio case number",
+        "examples": [
+          "No. 2022-0784",
+          "Case No. 2026-0866"
+        ],
+        "regex": "(?:Case\\s+)?No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})\\b",
+        "routes_to": [
+          "oh-opinions-rod",
+          "oh-subsequent-history-announcements"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "R.C.": "ohio-revised-code",
+      "Ohio Rev. Code": "ohio-revised-code",
+      "Ohio Rev. Code Ann.": "ohio-revised-code",
+      "ORC": "ohio-revised-code",
+      "Revised Code": "ohio-revised-code",
+      "Ohio Adm.Code": "ohio-administrative-code",
+      "Ohio Admin. Code": "ohio-administrative-code",
+      "OAC": "ohio-administrative-code",
+      "Administrative Code": "ohio-administrative-code",
+      "Ohio Const.": "ohio-constitution",
+      "Ohio Constitution": "ohio-constitution"
+    },
+    "notes": "Ohio style (Supreme Court of Ohio Writing Manual, from memory) differs from Bluebook: 'R.C. 2305.10' (no §), 'Ohio Adm.Code 3701-17-01', 'Civ.R. 12(B)(6)' with capital division letters, 'Section 16, Article I, Ohio Constitution' (section first), and case cites 'Name, 172 Ohio St.3d 471, 2023-Ohio-3005, ¶ 20' or for appeals 'Name, 2022-Ohio-1555, ¶ 10 (7th Dist.)'; pre-2023 manual form '7th Dist. Jefferson No. 21 JE 0013, 2022-Ohio-1555'. Pinpoint is the ¶ number, which is the same in the slip PDF, the official-version PDF and Ohio St.3d (Rep.Op.R. 2.5 requires numbered paragraphs). Rep.Op.R. 3.4: all court-of-appeals opinions issued after May 1, 2002 may be cited regardless of publication. The webcite alone does not name the court; the URL folder needs it: 0 = Supreme Court, 1-12 = district, 13 = Court of Claims. Take the district from the '(Nth Dist.)' parenthetical or the county ('Jefferson App. No.') via the county table in oh-opinions-rod; otherwise resolve with the ROD WebCite search. Routing guards: bare 'Civ.R. 12', 'Evid.R. 702', 'App.R. 26', 'Crim.R. 11' are Ohio house style, but a bare 'Rule 12' or a federal-rule cite must not route here — require the Ohio abbreviation or Ohio context. 'Revised Code' alone also names Washington's code (Revised Code of Washington): route 'R.C. NNNN.NN' (Ohio sections always contain a dot) or 'of the Revised Code' only with Ohio context. The webcite form YYYY-Ohio-N is unique to Ohio and routes on its own. Ranges like 'R.C. 2305.10 to 2305.12' or 'R.C. 2305.10-.12': take the first section; the regex stops at the first section number. 'Section 1.42' of the Revised Code is valid (Title 1 General Provisions). OAC rules may carry a colon in the agency number (4901:1-10-01) — keep it in the URL. Superintendence Rules were renumbered effective July 1, 2026 (e.g. old Sup.R. 44 → 11.09); older opinions cite old numbers. CourtListener ids (ohio, ohioctapp, ohioctcl) are from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "oh-orc-codes",
+      "family": "statutes",
+      "title": "Ohio Revised Code (codes.ohio.gov)",
+      "publisher": "Ohio Legislative Service Commission (LSC)",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "https://codes.ohio.gov/about: UELMA (R.C. 149.21 to 149.27) designates LSC official publisher; electronic Revised Code and Administrative Code 'are official publications (R.C. 149.21 and 149.22)'. Authenticated PDF per section; the stamp verifies integrity, not freedom from error. Unannotated; repeals and court invalidations are not noted.",
+      "coverage": "Current Revised Code, one page per section (Titles 1-63 incl. Title 1 General Provisions), with prior versions for some sections; per-section authenticated PDF; chapter pages hold the full text of every section in the chapter.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://codes.ohio.gov/ohio-revised-code/section-{section}",
+        "pattern_rules": "section = the R.C. number verbatim with its dot and any letter (2305.10, 2903.01, 1.42, 2305.131). Short form https://codes.ohio.gov/orc/{section} redirects to the same page. Chapter page: /ohio-revised-code/chapter-{chapter} (full text of all sections; 2305 = 233K chars). Title index: /ohio-revised-code/title-{title} lists chapters only (no section ranges); the chapter is the part before the dot, so no index hop is needed. Authenticated PDF: /assets/laws/revised-code/authenticated/{title}/{chapter}/{section}/{M-D-YYYY effective}/{section}-{M-D-YYYY}.pdf — the date segment is not derivable; take the 'Download Authenticated PDF' link from the section page.",
+        "index_url": "https://codes.ohio.gov/ohio-revised-code",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "robots.txt (HTTP 200, text/plain, 26 bytes, Last-Modified 2021-04-01) is the single line 'User-agent: * Disallow: /' with no newline. An RFC 9309 / Python parser reads it as a user-agent named '* Disallow: /' with no rules, so fetch_doc.py reports 'robots.txt permits' and WebFetch also fetched pages; but the evident intent is to disallow all crawlers. Caller decision needed (see open_questions).",
+        "notes": "Built URLs on this host were gated for WebFetch (section-2305.10 timed out on approval the first time, then went through once the URL appeared in a WebSearch result); use fetch_doc.py for constructed URLs. Section pages are 4-12K chars — no truncation. Chapter pages can exceed 200K chars — use the section page instead."
+      },
+      "currency": {
+        "where": "every section page: banner under the search box, plus 'Effective:' and 'Latest Legislation:' lines above the text",
+        "observed": "Effective: August 3, 2006 / Latest Legislation: Senate Bill 17 - 126th General Assembly"
+      },
+      "hazards": [
+        "robots.txt is a malformed one-liner 'User-agent: * Disallow: /' — parsers treat it as no rules, but the publisher's evident intent is to disallow all automated crawling; treat as a policy question, not a green light for bulk crawling",
+        "no global 'current through' date — LSC updates 'on an ongoing basis' as it completes act review, so very recent acts may be missing",
+        "repealed sections vanish without notice; renumbered sections appear only under the new number",
+        "court invalidations not noted",
+        "chapter pages are very long (WebFetch truncation)",
+        "authenticated PDF URL contains the effective date — not constructible"
+      ],
+      "probe": {
+        "citation": "R.C. 2305.10",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-2305.10",
+        "expect": "(A) Except as provided in division (C) or (E) of this section"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, body '(A) Except as provided in division (C) or (E) of', not truncated, 'Effective: August 3, 2006'. fetch_doc.py info: html 9,151 chars. Second citation R.C. 2903.01 (/section-2903.01): fetch_doc grep 'No person shall purposely, and with prior calculation and design' at offset 1083. Also section-1.42 ok; /orc/2305.10 redirects to the section page. Authenticated PDF /assets/laws/revised-code/authenticated/23/2305/2305.10/8-3-2006/2305.10-8-3-2006.pdf: 3 pp, body present."
+      },
+      "notes": "No bulk download or public statute API found (WebSearch for bulk XML/API returned only page URLs)."
+    },
+    {
+      "id": "oh-orc-justia",
+      "family": "statutes",
+      "title": "Justia — Ohio Revised Code (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'These codes may not be the most recent version' and points to official sources.",
+      "coverage": "Ohio Revised Code editions; unversioned URL serves the 2025 edition (2023, 2024 and earlier editions under /codes/ohio/{year}/).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/ohio/title-{title}/chapter-{chapter}/section-{section_dashed}/",
+        "pattern_rules": "title and chapter unpadded integers; chapter = part of the section number before the dot; title = Ohio title number containing that chapter (chapter 2305 → title-23, 2903 → title-29; generally the leading 1-2 digits of the chapter, odd-numbered titles only — confirm on https://law.justia.com/codes/ohio/ if unsure). section_dashed = section with the dot replaced by a hyphen (2305.10 → section-2305-10). Year-specific: insert /{year}/ after /ohio/.",
+        "index_url": "https://law.justia.com/codes/ohio/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable to the shell (Cloudflare challenge on robots.txt)",
+        "notes": "fetch_doc.py: 'REFUSED: law.justia.com refused automated access earlier (robots.txt challenge)'. WebFetch only; a built section URL (2903.01) went through without approval."
+      },
+      "currency": {
+        "where": "page header and Universal Citation line",
+        "observed": "2025 Ohio Revised Code; 'OH Rev Code § 2305.10 (2025)'"
+      },
+      "hazards": [
+        "edition lags the official text by up to a year",
+        "shell blocked by Cloudflare",
+        "title index does not show section ranges (not needed: chapter is in the section number)"
+      ],
+      "probe": {
+        "citation": "R.C. 2305.10",
+        "url": "https://law.justia.com/codes/ohio/title-23/chapter-2305/section-2305-10/",
+        "expect": "Except as provided in division (C) or (E) of this"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, 'Except as provided in division (C) or (E) of this'; '2025 Ohio Revised Code'; 'OH Rev Code § 2305.10 (2025)'; complete through (G). Second citation R.C. 2903.01 at /title-29/chapter-2903/section-2903-01/: YES, '(A) No person shall purposely, and with prior calculation and design'."
+      },
+      "notes": "public.law has no Ohio edition and Cornell LII does not host the Revised Code (see absent)."
+    },
+    {
+      "id": "oh-session-laws-lis",
+      "family": "statutes",
+      "title": "Ohio General Assembly legislation API (bill versions incl. enrolled acts)",
+      "publisher": "Ohio Legislative Service Commission / Legislative Information Systems",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Government API behind legislature.ohio.gov; no official-status statement seen. Enrolled ('EN') PDFs carry blank signature/effective-date blocks.",
+      "coverage": "Bills of the 129th and 126th General Assemblies probed, with all versions (introduced → enrolled); 135th GA HB 33 listing also returned. Earlier coverage not established.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_{ga}/legislation/{type}{number}/{formatted_version}_{version_id}/pdf",
+        "pattern_rules": "ga = General Assembly number (126, 129, 135); type = hb | sb (also hjr/sjr/hcr/scr presumably, unverified); number unpadded. The version folder is not fixed (SB 202/129th and SB 17/126th enrolled = 05_EN, but 135th HB 33 07_EN 404s): GET https://search-prod.lis.state.oh.us/api/v2/general_assembly_{ga}/legislation/{type}{number} first — a JSON array of versions with formatted_version, version_id ('IN','EN',…), version label, effective_date and governor_signed_date.",
+        "index_url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_{ga}/legislation/{type}{number}",
+        "navigation": "GET the bill JSON → pick the version with version_id 'EN' (as enrolled) → GET …/{formatted_version}_{version_id}/pdf",
+        "format": "json"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "none (robots.txt 404, 'SOLAR API - Page Not Found')",
+        "notes": "Bill JSON for an omnibus bill (HB 33, 135th) is 267K chars — too big for WebFetch; use the shell."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "version folder must be read from the JSON",
+        "Ohio session-law volume cites ('150 Ohio Laws, Part III, 3888') cannot be mapped to this API — only GA + bill number can",
+        "enrolled PDF shows blank Approved/Effective lines; take dates from the JSON or the R.C. section's 'Latest Legislation' line"
+      ],
+      "probe": {
+        "citation": "Sub.S.B. No. 202, 129th General Assembly",
+        "url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_129/legislation/sb202/05_EN/pdf",
+        "expect": "To enact section 2305.402 of the Revised Code to specify"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 5 pp, 'AN ACT To enact section 2305.402 of the Revised Code'; WebFetch same text, '(Substitute Senate Bill Number 202)'. Second: S.B. 17, 126th GA → /general_assembly_126/legislation/sb17/05_EN/pdf, 77 pp PDF. Bill JSON /general_assembly_129/legislation/sb202 lists versions with 'version_id'."
+      },
+      "notes": "Found via a WebSearch result URL. Session laws as bound volumes (Laws of Ohio) not located online."
+    },
+    {
+      "id": "oh-constitution-codes",
+      "family": "constitution",
+      "title": "Ohio Constitution (codes.ohio.gov)",
+      "publisher": "Ohio Legislative Service Commission",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Hosted by LSC with the official Revised Code; the About page's UELMA statement names only the Revised Code and Administrative Code.",
+      "coverage": "Constitution of 1851 as amended (Articles I-XIX, 1851 and 1912 schedules), one page per section with effective date.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://codes.ohio.gov/ohio-constitution/section-{article_arabic}.{section}",
+        "pattern_rules": "article Roman numeral → Arabic (I → 1, IV → 4, XVIII → 18); section verbatim incl. lower-case letter (Art. I § 10a → section-1.10a). Index https://codes.ohio.gov/ohio-constitution lists articles only.",
+        "index_url": "https://codes.ohio.gov/ohio-constitution",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "robots.txt (HTTP 200, text/plain, 26 bytes, Last-Modified 2021-04-01) is the single line 'User-agent: * Disallow: /' with no newline. An RFC 9309 / Python parser reads it as a user-agent named '* Disallow: /' with no rules, so fetch_doc.py reports 'robots.txt permits' and WebFetch also fetched pages; but the evident intent is to disallow all crawlers. Caller decision needed (see open_questions).",
+        "notes": "Not WebFetch-probed (built URLs on this host are gated); same host and page template as oh-orc-codes."
+      },
+      "currency": {
+        "where": "'Effective:' line above each section",
+        "observed": "Effective: January 1, 1913 (Art. I § 16)"
+      },
+      "hazards": [
+        "robots.txt is a malformed one-liner 'User-agent: * Disallow: /' — parsers treat it as no rules, but the publisher's evident intent is to disallow all automated crawling; treat as a policy question, not a green light for bulk crawling"
+      ],
+      "probe": {
+        "citation": "Ohio Const. art. I, § 16",
+        "url": "https://codes.ohio.gov/ohio-constitution/section-1.16",
+        "expect": "All courts shall be open, and every person, for an injury"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py grep: 'All courts shall be open, and every person, for an injury' at offset 713; 1,084 chars. Second: art. IV, § 2 at /section-4.2: '(A) The Supreme Court shall, until otherwise provided by law, consist of seven judges'. art. I § 10a at /section-1.10a: heading present."
+      },
+      "notes": "legislature.ohio.gov also links the constitution but fails TLS from the shell (see oh-constitution-legislature)."
+    },
+    {
+      "id": "oh-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — Ohio Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'This Constitution may not be the most recent version.'",
+      "coverage": "Preamble, Articles I-XVIII, 1851 and 1912 schedules; one page per section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/ohio/article-{article_roman_lower}/section-{section}/",
+        "pattern_rules": "article as lower-case Roman numeral (article-i, article-iv, article-xvi); section number as in the citation. Article pages list section links only; the index lists articles only.",
+        "index_url": "https://law.justia.com/constitution/ohio/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "WebFetch only."
+      },
+      "currency": {
+        "where": "disclaimer only",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "no date; may lag amendments",
+        "index lists only up to Article XVIII (official has XIX)",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "Ohio Const. art. I, § 16",
+        "url": "https://law.justia.com/constitution/ohio/article-i/section-16/",
+        "expect": "All courts shall be open, and every person, for an"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES 'All courts shall be open, and every person, for an'. Index and article-i pages are link lists (body NOT PRESENT); article-i links e.g. /article-i/section-16/."
+      },
+      "notes": "Only one section probed."
+    },
+    {
+      "id": "oh-constitution-legislature",
+      "family": "constitution",
+      "title": "Ohio General Assembly website (legislature.ohio.gov) — laws pages",
+      "publisher": "Ohio General Assembly",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Not reached.",
+      "coverage": "Legislature site; reportedly links to codes.ohio.gov for the Constitution and Revised Code.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.legislature.ohio.gov/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "tls-error",
+        "robots_txt": "unreadable: curl 'SSL certificate problem: unable to get local issuer certificate'",
+        "notes": "Shell TLS failure; not retried by another route."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "TLS chain fails from the sandbox"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.legislature.ohio.gov/robots.txt",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "curl robots.txt: TLS 'unable to get local issuer certificate'; not fetched further. Use oh-constitution-codes."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-civil",
+      "family": "court_rules",
+      "title": "Ohio Rules of Civil Procedure (full set PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 927 pp., 2,137,404 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/civil/CivilProcedure.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Ohio Rules of Civil Procedure' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "WebFetch window ends after Rule 5 of 86 (Rule 12 is at ~160K chars). The PDF is 927 pages because it includes staff notes and the Appendix of Forms (forms from ~p. 229). Use fetch_doc.py or the corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "July 1, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "WebFetch text stops after Rule 5",
+        "staff notes follow each rule; Appendix of Forms is most of the page count"
+      ],
+      "probe": {
+        "citation": "Civ.R. 12(B)",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/civil/CivilProcedure.pdf",
+        "expect": "Every defense, in law or fact, to a claim for relief"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 927 pp, 2,137,404 chars; 'RULE 12. Defenses and Objections' at offset 160,622 (p. 66); 12(B) 'Every defense, in law or fact, to a claim for relief' at 162,269. WebFetch: Rule 12(B) NOT PRESENT — text stops after Rule 5 ('[Content truncated due to length...]')."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-evidence",
+      "family": "court_rules",
+      "title": "Ohio Rules of Evidence (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 102 pp., 185,608 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/evidence/evidence.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Ohio Rules of Evidence' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "July 1, 2025"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "Rule 702 sits at ~99K chars — at or past the WebFetch window edge"
+      ],
+      "probe": {
+        "citation": "Evid.R. 702",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/evidence/evidence.pdf",
+        "expect": "A witness may testify as an expert if the proponent demonstrates"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 102 pp, 185,608 chars; 'RULE 702. Testimony by Experts.' at offset 98,861 (p. 59), text 'A witness may testify as an expert if the proponent demonstrates'. Second: 'Rule 616(C) Specific contradiction' staff note at p. 56."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-appellate",
+      "family": "court_rules",
+      "title": "Ohio Rules of Appellate Procedure (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 83 pp., 182,195 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/appellate/AppellateProcedure.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Ohio Rules of Appellate Procedure' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "July 1, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "headings mix 'RULE 12.' and 'Rule 26.' capitalisation"
+      ],
+      "probe": {
+        "citation": "App.R. 26(A)",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/appellate/AppellateProcedure.pdf",
+        "expect": "Application for Reconsideration; Application for En Banc Consideration"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 83 pp, 182,195 chars; 'Rule 26. Application for Reconsideration; Application for En Banc Consideration' at offset 146,619 (p. 64); 'RULE 12. Determination and Judgment on Appeal.' at 100,128."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-criminal",
+      "family": "court_rules",
+      "title": "Ohio Rules of Criminal Procedure (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 193 pp., 374,255 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/criminal/CriminalProcedure.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Ohio Rules of Criminal Procedure' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "July 1, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation"
+      ],
+      "probe": {
+        "citation": "Crim.R. 11.1",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/criminal/CriminalProcedure.pdf",
+        "expect": "Standard Notice Concerning Possession or Purchase of a Firearm"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 193 pp, 374,255 chars; 'RULE 11.1. Standard Notice Concerning Possession or Purchase of a Firearm.' at offset 77,826 (p. 35)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-govbar",
+      "family": "court_rules",
+      "title": "Supreme Court Rules for the Government of the Bar of Ohio (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 276 pp., 715,862 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/govbar/govbar.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Supreme Court Rules for the Government of the Bar of Ohio' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "Sept. 6, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "Roman-numbered rules with numbered sections (Gov.Bar R. V(4)(G) = Rule V, Section 4(G))"
+      ],
+      "probe": {
+        "citation": "Gov.Bar R. V",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/govbar/govbar.pdf",
+        "expect": "RULE V. DISCIPLINARY PROCEDURE Section 1. Board of Professional Conduct"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 276 pp, 715,862 chars; 'RULE V. DISCIPLINARY PROCEDURE Section 1. Board of Professional Conduct' at offset 102,791 (p. 41)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-profconduct",
+      "family": "court_rules",
+      "title": "Ohio Rules of Professional Conduct (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 207 pp., 537,206 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/ProfConduct/profConductRules.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Ohio Rules of Professional Conduct' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "Jan. 1, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "heading form 'RULE 1.7:' with a colon; curly apostrophes in text"
+      ],
+      "probe": {
+        "citation": "Prof.Cond.R. 1.7",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/ProfConduct/profConductRules.pdf",
+        "expect": "A lawyer’s acceptance or continuation of representation of a client creates"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 207 pp, 537,206 chars; 'RULE 1.7: CONFLICT OF INTEREST: CURRENT CLIENTS (a) A lawyer’s acceptance or continuation' at offset 111,437 (p. 41)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-superintendence",
+      "family": "court_rules",
+      "title": "Rules of Superintendence for the Courts of Ohio (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 536 pp., 780,009 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/superintendence/Superintendence.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Rules of Superintendence for the Courts of Ohio' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "Aug. 6, 2026"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation",
+        "2026 restructuring renumbered the rules (effective July 1, 2026): pre-2026 citations (e.g. Sup.R. 44-47 public access) must be mapped via the commentary or the 'Rules of Superintendence Restructuring' page"
+      ],
+      "probe": {
+        "citation": "Sup.R. 11.09 (former Sup.R. 44)",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/superintendence/Superintendence.pdf",
+        "expect": "Rule 44 was renumbered to Rule 11.09"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 536 pp, 780,009 chars; commentary 'Rule 44 was renumbered to Rule 11.09 as part of the 2026 restructuring' at offset 572,431 (p. 349). Search for 'RULE 44.' found no rule heading — old numbers are gone."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-practice",
+      "family": "court_rules",
+      "title": "Supreme Court Rules of Practice (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Full rule set with staff notes/commentary; 128 pp., 254,512 chars of text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/practice/rulesofpractice.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Supreme Court Rules of Practice' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "May 1, 2025"
+      },
+      "hazards": [
+        "single long PDF; WebFetch truncation"
+      ],
+      "probe": {
+        "citation": "S.Ct.Prac.R. 7.01",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/practice/rulesofpractice.pdf",
+        "expect": "Rule 7.01. Institution of Jurisdictional Appeal"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 128 pp, 254,512 chars; table of contents lists 'Rule 7.01. Institution of Jurisdictional Appeal' and 'Rule 7.02. Memorandum in Support of Jurisdiction' (p. 11)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-rules-reporting",
+      "family": "court_rules",
+      "title": "Supreme Court Rules for the Reporting of Opinions (PDF)",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published by the Supreme Court of Ohio on its Ohio Rules of Court page; no official/unofficial statement in the PDF.",
+      "coverage": "Rules on publication, webcites, numbered paragraphs and citability of opinions; 8 pp. Short enough for one WebFetch window.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/reporting/Report.pdf",
+        "pattern_rules": "Fixed path; one PDF for the whole set. Re-confirm from the Ohio Rules of Court page if it 404s.",
+        "index_url": "https://www.supremecourt.ohio.gov/laws-rules/ohio-rules-of-court",
+        "navigation": "Ohio Rules of Court page → 'Supreme Court Rules for the Reporting of Opinions' link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Not WebFetch-probed: the built PDF URL waited on approval (evidence.pdf timed out). Expect the ~100K-char WebFetch window seen on the Civil Rules PDF; use fetch_doc.py grep/section or a corpus."
+      },
+      "currency": {
+        "where": "Ohio Rules of Court page, 'Amended Effective Date' column next to the link (not inside the PDF)",
+        "observed": "July 1, 2012"
+      },
+      "hazards": [],
+      "probe": {
+        "citation": "Rep.Op.R. 3.4",
+        "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/reporting/Report.pdf",
+        "expect": "All opinions of the courts of appeals issued after May 1, 2002 may be cited"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 8 pp, 7,676 chars; Rep.Op.R. 3.4 'All opinions of the courts of appeals issued after May 1, 2002 may be cited as legal authority'; Rep.Op.R. 2.5 numbered paragraphs."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-oac-codes",
+      "family": "admin_code",
+      "title": "Ohio Administrative Code (codes.ohio.gov)",
+      "publisher": "Ohio Legislative Service Commission",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "https://codes.ohio.gov/about: under UELMA (R.C. 149.21-149.27) LSC's electronic Administrative Code is an official publication; authenticated PDF per rule.",
+      "coverage": "All rules in effect, published on their effective dates as filed through the electronic rule-filing system; one page per rule; chapter pages.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://codes.ohio.gov/ohio-administrative-code/rule-{rule}",
+        "pattern_rules": "rule verbatim incl. the colon in agency numbers (3701-17-01, 4123-5-01, 4901:1-10-01). Chapter: /ohio-administrative-code/chapter-{agency}-{chapter} (e.g. chapter-3701-17). Authenticated PDF: /assets/laws/administrative-code/authenticated/{agency}/{division or 0}/{chapter}/{rule}_{YYYYMMDD effective}.pdf — date not derivable; take the link from the rule page.",
+        "index_url": "https://codes.ohio.gov/ohio-administrative-code",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "robots.txt (HTTP 200, text/plain, 26 bytes, Last-Modified 2021-04-01) is the single line 'User-agent: * Disallow: /' with no newline. An RFC 9309 / Python parser reads it as a user-agent named '* Disallow: /' with no rules, so fetch_doc.py reports 'robots.txt permits' and WebFetch also fetched pages; but the evident intent is to disallow all crawlers. Caller decision needed (see open_questions).",
+        "notes": "Rule pages 4-12K chars, no truncation."
+      },
+      "currency": {
+        "where": "rule page: 'Effective:' and 'Promulgated Under:' lines; WebFetch also reported a 'Last updated' line",
+        "observed": "Effective: July 17, 2025 / Last updated July 17, 2025 at 7:45 AM"
+      },
+      "hazards": [
+        "robots.txt is a malformed one-liner 'User-agent: * Disallow: /' — parsers treat it as no rules, but the publisher's evident intent is to disallow all automated crawling; treat as a policy question, not a green light for bulk crawling",
+        "rescinded rules vanish without notice",
+        "court invalidations not noted"
+      ],
+      "probe": {
+        "citation": "Ohio Adm.Code 3701-17-01",
+        "url": "https://codes.ohio.gov/ohio-administrative-code/rule-3701-17-01",
+        "expect": "As used in rules 3701-17-01 to 3701-17-26 of the Administrative"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES 'As used in rules 3701-17-01 to 3701-17-26 of the Administrative'; 'Effective: July 17, 2025'; not truncated. fetch_doc.py: 12,038 chars. Second: rule-4123-5-01 'The administrator of workers' compensation may reorganize the work'. Colon form rule-4901:1-10-01 resolves. Authenticated PDF …/3701/0/17/3701-17-01_20250717.pdf: 7 pp."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-oac-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — Ohio Administrative Code",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party mirror: 'State regulations are updated quarterly'.",
+      "coverage": "Ohio Administrative Code, one page per rule, with Notes (effective date, five-year review dates, promulgated under).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-{rule}",
+        "pattern_rules": "rule verbatim (3701-17-01, 4123-5-01). Colon rules (4901:1-10-01) not tested.",
+        "index_url": "https://www.law.cornell.edu/regulations/ohio",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay: 10; /regulations allowed",
+        "notes": "Respect the 10-second crawl delay."
+      },
+      "currency": {
+        "where": "page header and Notes 'Effective:'",
+        "observed": "State regulations are updated quarterly; Notes 'Effective: 1/1/2018'"
+      },
+      "hazards": [
+        "STALE: for 3701-17-01 LII's Notes show Effective 1/1/2018 while the official rule is effective July 17, 2025 (LII says 'two versions available' — default view may be the old one); always compare the effective date with oh-oac-codes before quoting"
+      ],
+      "probe": {
+        "citation": "Ohio Adm.Code 3701-17-01",
+        "url": "https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-3701-17-01",
+        "expect": "As used in rules 3701-17-01 to 3701-17-26 of the Administrative"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES 'As used in rules 3701-17-01 to 3701-17-26 of the Administrative'; 'Effective: 1/1/2018'. fetch_doc.py 13,781 chars, same. Second: Ohio-Admin-Code-4123-5-01 'may reorganize the work of the bureau', 'Effective: 12/12/2019'."
+      },
+      "notes": "regulations.justia.com also mirrors the OAC but is outside the tier-2 allowlist (only law.justia.com)."
+    },
+    {
+      "id": "oh-register",
+      "family": "admin_register",
+      "title": "Register of Ohio",
+      "publisher": "Ohio Legislative Service Commission (with Common Sense Initiative)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "codes.ohio.gov/about calls it 'an electronic gazette published by LSC'; the search page shows no official-status text.",
+      "coverage": "Proposed, adopted, emergency and no-change rule filings with rule text, summaries, fiscal analyses and hearing notices.",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "",
+        "pattern_rules": "Search form fields: rule number parts (Agency #, Division #, Chapter #, Rule #, Supp #), agency, keywords in title, hearing/effective/file date ranges, limit (all/active/no-change/emergency). Form method not established.",
+        "index_url": "https://www.registerofohio.state.oh.us/rules/search",
+        "navigation": "search by rule number → filing record",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "tls-error",
+        "robots_txt": "unreadable: TLS 'unable to get local issuer certificate' (both www and bare host)",
+        "notes": "fetch_doc.py: 'TLS certificate chain does not verify from this sandbox'. WebFetch reads the search page (URL from a WebSearch result)."
+      },
+      "currency": {
+        "where": "none observed",
+        "observed": ""
+      },
+      "hazards": [
+        "shell TLS failure",
+        "search results not probed",
+        "session ids (;jsessionid=…) in indexed URLs"
+      ],
+      "probe": {
+        "citation": "Register of Ohio rule search",
+        "url": "https://www.registerofohio.state.oh.us/rules/search",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: search page with Agency #/Division #/Chapter #/Rule # fields; no filing links. Shell: TLS failure. No filing probed."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-opinions-rod",
+      "family": "case_law",
+      "title": "Supreme Court of Ohio Reporter of Decisions — Opinions & Announcements",
+      "publisher": "Supreme Court of Ohio, Office of the Reporter of Decisions",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Rep.Op.R. 3.3 requires all court-of-appeals and Court of Claims opinions to be posted here; the site posts 'Ohio Official Reports versions' replacing slip opinions (announcement 2026-Ohio-3997 'SLIP OPINIONS REPLACED BY OHIO OFFICIAL REPORTS VERSIONS'); PDF cite line then carries the Ohio St.3d cite.",
+      "coverage": "Supreme Court: 1992- (1995 search returned 516 items incl. 74 Ohio St.3d 186 = 1995-Ohio-166; webcites retroactively assigned to pre-2002 website documents). Courts of Appeals: sparse 1999-2000 (1999: 234 rows; 1993, 1997: 0), comprehensive from about 2001 (2001 and 2002 both hit the 1000-row cap). Court of Claims (folder 13): present (2025: 163 rows). Also daily Case Announcements (merit decisions, jurisdictional decisions, motion rulings, official-version releases), each with its own webcite.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.supremecourt.ohio.gov/rod/docs/pdf/{court}/{year}/{year}-Ohio-{number}.pdf",
+        "pattern_rules": "From webcite YYYY-Ohio-N: year = YYYY, number = N unpadded. court = 0 for the Supreme Court (and its Case Announcements), 1-12 for the appellate district, 13 for the Court of Claims. The webcite does not encode the court: use the '(Nth Dist.)' parenthetical, or the county ('Jefferson App. No.', '8th Dist. Cuyahoga No.') mapped by this fixed table — 1 = Hamilton; 2 = Champaign, Clark, Darke, Greene, Miami, Montgomery; 3 = Allen, Auglaize, Crawford, Defiance, Hancock, Hardin, Henry, Logan, Marion, Mercer, Paulding, Putnam, Seneca, Shelby, Union, Van Wert, Wyandot; 4 = Adams, Athens, Gallia, Highland, Hocking, Jackson, Lawrence, Meigs, Pickaway, Pike, Ross, Scioto, Vinton, Washington; 5 = Ashland, Coshocton, Delaware, Fairfield, Guernsey, Holmes, Knox, Licking, Morgan, Morrow, Muskingum, Perry, Richland, Stark, Tuscarawas; 6 = Erie, Fulton, Huron, Lucas, Ottawa, Sandusky, Williams, Wood; 7 = Belmont, Carroll, Columbiana, Harrison, Jefferson, Mahoning, Monroe, Noble; 8 = Cuyahoga; 9 = Lorain, Medina, Summit, Wayne; 10 = Franklin; 11 = Ashtabula, Geauga, Lake, Portage, Trumbull; 12 = Brown, Butler, Clermont, Clinton, Fayette, Madison, Preble, Warren. Never cycle through folders; if the court is unknown, resolve the webcite with the ROD search (oh-subsequent-history-announcements pattern_rules / script). ASP.NET form at https://www.supremecourt.ohio.gov/rod/docs/ (POST only; a plain GET with the field names is ignored and returns the default newest-first listing, and a GET carrying __VIEWSTATE returns 404). POST fields (prefix ctl00$MainContent$): tbQueryText (full text, quotes for phrases), ddlCourt (0 Supreme Court, 1-12 districts, 13 Court of Claims, 98 Misc., 99 All Sources, 100 All District Courts), ddlDecidedYearMin/Max (1992-2026), ddlCounty, tbCaseNumber, tbAuthor, tbWebCiteYear + tbWebCiteNumber (unique lookup, other filters ignored), tbCitation (e.g. '172 Ohio St.3d 471' → webcite), ddlRowsPerPage, btnSubmit=Submit, plus the page's hidden __VIEWSTATE/__VIEWSTATEGENERATOR. Rows give caption, case no., topics, author, reporter cite or county, decided/posted dates, WebCite. Results cap at 1000 rows.",
+        "index_url": "https://www.supremecourt.ohio.gov/rod/docs/",
+        "navigation": "constructible from webcite + court; else ROD search (POST) → row WebCite → PDF",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "WebFetch reads these PDFs, but constructed URLs wait on approval — use fetch_doc.py for constructed URLs. Long opinions (75K chars for 2022-Ohio-2039) fit; very long ones may exceed WebFetch's window. Search is POST-only (ASP.NET viewstate); a plain GET returns only the newest-first default listing (582 rows on 2026-10-16)."
+      },
+      "currency": {
+        "where": "search rows show Decided/Posted dates; default listing is newest first",
+        "observed": "newest item posted 10/16/2026 (2026-Ohio-4060)"
+      },
+      "hazards": [
+        "webcite does not name the court — the URL folder must come from the district/county",
+        "slip PDFs are replaced in place by the official version (cite line changes; ¶ numbers do not)",
+        "pagination is slip pagination; pinpoint by ¶ not by Ohio St.3d page",
+        "search is POST-only",
+        "pre-2001 appellate coverage sparse; pre-1992 none",
+        "search results cap at 1000 rows"
+      ],
+      "probe": {
+        "citation": "Harris v. Hilderbrand, 172 Ohio St.3d 471, 2023-Ohio-3005",
+        "url": "https://www.supremecourt.ohio.gov/rod/docs/pdf/0/2023/2023-Ohio-3005.pdf",
+        "expect": "In this appeal from the Seventh District Court of Appeals, we"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: /rod/docs/pdf/0/2023/2023-Ohio-3005.pdf 12 pp, '[Cite as Harris v. Hilderbrand, 172 Ohio St.3d 471, 2023-Ohio-3005.]', '{¶ 1} In this appeal from the Seventh District Court of Appeals'; slip page numbers 2,3,4 with 'January Term, 2023' running heads (no Ohio St.3d page breaks). Appellate: /7/2022/2022-Ohio-1555.pdf (Jefferson) 19 pp; /8/2022/2022-Ohio-2039.pdf (Cuyahoga) 43 pp; /2/2026/2026-Ohio-1580.pdf (Montgomery) 'SECOND APPELLATE DISTRICT MONTGOMERY COUNTY'; /1/2026/2026-Ohio-1178 (Hamilton), /11/2026/2026-Ohio-3514 (Trumbull) ok; /0/2022/2022-Ohio-1555.pdf 404 (wrong court folder). WebFetch on search-result URLs in /rod/docs/pdf/0/ (2023-Ohio-3741, 2024-Ohio-989, 2024-Ohio-2967, 2018-Ohio-1429) returned full text, not truncated; built opinion URL 2023-Ohio-3005 was gated. ROD POST search: WebCite 2022-1555 → 1 row 'Harris v. Hilderbrand 21 JE 0013 … Jefferson … 2022-Ohio-1555'; Citation '172 Ohio St.3d 471' → 2023-Ohio-3005; Case No. 2022-0784 → same."
+      },
+      "notes": "Pre-May-2002 appellate decisions are usually cited by WL number plus district/county/case number; resolve via ROD case-number search for the district. Justices' annual opinion lists exist at /docs/SCO/justices/{name}/Opinions.pdf (search results; not probed)."
+    },
+    {
+      "id": "oh-cases-justia",
+      "family": "case_law",
+      "title": "Justia — Ohio case law",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation of the court-posted opinions.",
+      "coverage": "Supreme Court of Ohio, Courts of Appeals (First-Twelfth Districts), Court of Claims, Court of Common Pleas collections (year ranges not checked).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/ohio/{court-slug}/{year}/{docket-slug}.html",
+        "pattern_rules": "court-slug: supreme-court-of-ohio | first-district-court-of-appeals … twelfth-district-court-of-appeals | court-of-claims | court-of-common-pleas. year = decision year. Supreme Court docket '2022-0784' → '2022-0784'. Appellate case no. lower-cased with spaces → hyphens ('21 JE 0013' → '21-je-0013'). Year listing https://law.justia.com/cases/ohio/{court-slug}/{year}/ lists every decision if a guess 404s.",
+        "index_url": "https://law.justia.com/cases/ohio/",
+        "navigation": "court → year listing → case",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "WebFetch only; built case URLs went through."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "shell blocked",
+        "may hold the slip version only",
+        "case-number slug variants"
+      ],
+      "probe": {
+        "citation": "Harris v. Hilderbrand, 2023-Ohio-3005",
+        "url": "https://law.justia.com/cases/ohio/supreme-court-of-ohio/2023/2022-0784.html",
+        "expect": "In this appeal from the Seventh District Court of Appeals,"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES '{¶ 1} In this appeal from the Seventh District Court of Appeals,' {¶ 1}-{¶ 34}, complete. Second: /seventh-district-court-of-appeals/2022/21-je-0013.html '[Cite as Harris v. Hilderbrand, 2022-Ohio-1555.]', ¶ markers preserved."
+      },
+      "notes": ""
+    },
+    {
+      "id": "oh-subsequent-history-announcements",
+      "family": "subsequent_history",
+      "title": "Supreme Court of Ohio Case Announcements (jurisdictional decisions) via ROD full-text search",
+      "publisher": "Supreme Court of Ohio",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Each Case Announcement is itself cited by webcite (e.g. '[Cite as 10/13/2026 Case Announcements, 2026-Ohio-3977.]').",
+      "coverage": "Case Announcements from 1992 (1995-Ohio-423 'Merit Docket') to date; sections include 'APPEALS ACCEPTED FOR REVIEW', 'APPEALS NOT ACCEPTED FOR REVIEW', merit decisions, reconsideration, dismissals, official versions released. Each not-accepted entry names the lower case: '2026-0866. Lewis v. BMW of Westlake. Cuyahoga App. No. 115771, 2026-Ohio-1870.'",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://www.supremecourt.ohio.gov/rod/docs/pdf/0/{year}/{year}-Ohio-{number}.pdf",
+        "pattern_rules": "From the decision below: POST the ROD search with ddlCourt=0 and tbQueryText='\"YYYY-Ohio-N\"' (the lower court's webcite, quoted) → rows list every Supreme Court opinion and Case Announcement mentioning it (2022-Ohio-1555 → 2022-Ohio-3135 (accepted, 9/13/2022), 2023-Ohio-3005 (merit opinion), 2023-Ohio-3042 (announcement); 2026-Ohio-1870 → 2026-Ohio-3977 (not accepted, 10/13/2026), 2026-Ohio-3073). Open the announcement PDF (folder 0) and find the lower webcite under the disposition heading. For pre-2002 or unpublished decisions without a webcite, search the lower case number or party name. ASP.NET form at https://www.supremecourt.ohio.gov/rod/docs/ (POST only; a plain GET with the field names is ignored and returns the default newest-first listing, and a GET carrying __VIEWSTATE returns 404). POST fields (prefix ctl00$MainContent$): tbQueryText (full text, quotes for phrases), ddlCourt (0 Supreme Court, 1-12 districts, 13 Court of Claims, 98 Misc., 99 All Sources, 100 All District Courts), ddlDecidedYearMin/Max (1992-2026), ddlCounty, tbCaseNumber, tbAuthor, tbWebCiteYear + tbWebCiteNumber (unique lookup, other filters ignored), tbCitation (e.g. '172 Ohio St.3d 471' → webcite), ddlRowsPerPage, btnSubmit=Submit, plus the page's hidden __VIEWSTATE/__VIEWSTATEGENERATOR. Rows give caption, case no., topics, author, reporter cite or county, decided/posted dates, WebCite. Results cap at 1000 rows.",
+        "index_url": "https://www.supremecourt.ohio.gov/rod/docs/",
+        "navigation": "ROD POST full-text search on the lower webcite → Case Announcements row → PDF (folder 0)",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "Search is POST-only (WebFetch cannot run it); the announcement PDFs are WebFetch- and fetch_doc-readable."
+      },
+      "currency": {
+        "where": "announcement date in the cite line",
+        "observed": "[Cite as 10/13/2026 Case Announcements, 2026-Ohio-3977.]"
+      },
+      "hazards": [
+        "POST-only search",
+        "announcement wording: 'APPEALS NOT ACCEPTED FOR REVIEW' (older: 'DISCRETIONARY APPEALS NOT ACCEPTED' / 'jurisdiction declined' — phrase search for these returned 0 rows in 2026, so search the webcite, not the phrase)",
+        "one lower decision can appear in several announcements (jurisdiction, merit decision, reconsideration)"
+      ],
+      "probe": {
+        "citation": "Lewis v. BMW of Westlake, 2026-Ohio-1870 (8th Dist.) → S.Ct. No. 2026-0866",
+        "url": "https://www.supremecourt.ohio.gov/rod/docs/pdf/0/2026/2026-Ohio-3977.pdf",
+        "expect": "APPEALS NOT ACCEPTED FOR REVIEW"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "ROD POST tbQueryText '\"2026-Ohio-1870\"' (court 0) → 2 rows incl. 2026-Ohio-3977; fetch_doc grep in 2026-Ohio-3977.pdf (10 pp): 'APPEALS NOT ACCEPTED FOR REVIEW … 2026-0866. Lewis v. BMW of Westlake. Cuyahoga App. No. 115771, 2026-Ohio-1870.' Second: '\"2022-Ohio-1555\"' → 2022-Ohio-3135 ('Appeals accepted for review'), 2023-Ohio-3005, 2023-Ohio-3042."
+      },
+      "notes": "The Clerk's online docket (oh-docket-clerk) also shows jurisdictional dispositions per Supreme Court case number."
+    },
+    {
+      "id": "oh-docket-clerk",
+      "family": "subsequent_history",
+      "title": "Supreme Court of Ohio Clerk — online docket (case information)",
+      "publisher": "Supreme Court of Ohio, Office of the Clerk",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Court's own docket system; no statement seen.",
+      "coverage": "Supreme Court cases by case year/number, with docket, parties, decision and issues tabs; search by caption and prior (lower-court) case number.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.supremecourt.ohio.gov/clerk/ecms/#/caseinfo/{case_year}/{case_seq}",
+        "pattern_rules": "Supreme Court case No. 2022-0784 → #/caseinfo/2022/0784. The page is an Ember single-page app; data comes from POST Ajax.ashx (actions include CaseSearch with paramPriorCaseNumber, GetCaseInfo-style CaseInfo model) carrying an X-CSRF-TOKEN header — not probed.",
+        "index_url": "https://www.supremecourt.ohio.gov/clerk/ecms/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "www.supremecourt.ohio.gov: User-agent * — Disallow /cms/ and /Content/ODCMB/ only; /docs/ and /rod/ allowed",
+        "notes": "fetch_doc.py returns 0 chars of text (JS shell): usable as a link only."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript-only app",
+        "POST JSON endpoint with CSRF header"
+      ],
+      "probe": {
+        "citation": "Supreme Court No. 2022-0784",
+        "url": "https://www.supremecourt.ohio.gov/clerk/ecms/#/caseinfo/2022/0784",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: html, 0 chars of text (SPA). site.min.js shows route '/caseinfo/:caseyear/:casenumber' and ajaxCall('Ajax.ashx', …) with action 'CaseSearch' and 'paramPriorCaseNumber'."
+      },
+      "notes": ""
+    }
+  ],
+  "absent": [
+    {
+      "family": "statutes",
+      "what": "public.law edition of Ohio law",
+      "evidence": "public.law covers only CA, CO, FL, NV, NY, OR, TX (per the DE run's check of the public.law home page, 2026-10-16); no Ohio site.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "Cornell LII Ohio Revised Code / Constitution",
+      "evidence": "LII hosts the Ohio Administrative Code (/regulations/ohio); no Revised Code collection was found (LII state pages link out to official sites).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "Official bulk download / API for the Revised Code or Administrative Code",
+      "evidence": "codes.ohio.gov offers per-section HTML and authenticated PDFs only; WebSearch for bulk XML/API found nothing beyond page URLs.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Free Ohio St.3d / Ohio App.3d page pagination",
+      "evidence": "Official-version PDFs carry the Ohio St.3d volume and first page in the cite line but slip page numbers inside (2023-Ohio-3005: pages '2', '3', '4'); Ohio pinpoints by ¶ instead.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "ROD documents before 1992",
+      "evidence": "ROD year selector starts at 1992; Supreme Court 1995 rows exist; Courts of Appeals 1993 and 1997 returned 0 rows.",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "oh-opinions-rod",
+      "why": "ASP.NET POST search (fields listed in pattern_rules) resolves webcite → court/county, Ohio St.3d/Ohio App.3d cite → webcite, case number → decision, and full text; with the county→district table it makes every webcite a deterministic PDF URL."
+    },
+    {
+      "source_id": "oh-subsequent-history-announcements",
+      "why": "Same POST search on the quoted lower-court webcite returns every Supreme Court announcement (accepted / not accepted / merit) that mentions it — automatic subsequent-history check."
+    },
+    {
+      "source_id": "oh-session-laws-lis",
+      "why": "Public JSON API (search-prod.lis.state.oh.us/api/v2/general_assembly_{ga}/legislation/{bill}) lists every bill version with effective and signing dates and PDF/HTML paths."
+    },
+    {
+      "source_id": "oh-docket-clerk",
+      "why": "Ember app backed by POST Ajax.ashx with CaseSearch (incl. paramPriorCaseNumber) and case-info actions — could map a lower-court case number to the Supreme Court docket; CSRF header and terms need review before use."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "oh-rules-civil",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/civil/CivilProcedure.pdf",
+      "why": "927 pp / 2.1M chars; WebFetch text stops after Rule 5 of 86",
+      "split_hint": "'RULE N. Title' headings (e.g. 'RULE 12. Defenses and Objections'); staff notes follow each rule; stop before 'APPENDIX OF FORMS' or ingest forms as extra boundaries",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-evidence",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/evidence/evidence.pdf",
+      "why": "102 pp / 186K chars; Rule 702 at ~99K chars, at the WebFetch window edge",
+      "split_hint": "'RULE 702. Testimony by Experts.' headings; staff notes follow",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-appellate",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/appellate/AppellateProcedure.pdf",
+      "why": "83 pp / 182K chars; App.R. 26 at ~147K chars",
+      "split_hint": "'RULE 12.' / 'Rule 26.' headings (mixed case)",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-criminal",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/criminal/CriminalProcedure.pdf",
+      "why": "193 pp / 374K chars",
+      "split_hint": "'RULE 11.1.' headings",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-govbar",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/govbar/govbar.pdf",
+      "why": "276 pp / 716K chars",
+      "split_hint": "'RULE V. TITLE' Roman headings, then 'Section N.' subunits",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-profconduct",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/ProfConduct/profConductRules.pdf",
+      "why": "207 pp / 537K chars; Rule 1.7 at ~111K chars",
+      "split_hint": "'RULE 1.7: TITLE' headings (colon)",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-superintendence",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/superintendence/Superintendence.pdf",
+      "why": "536 pp / 780K chars; renumbered July 1, 2026",
+      "split_hint": "check heading form after the 2026 restructuring (rules now numbered N.NN)",
+      "bulk": ""
+    },
+    {
+      "source_id": "oh-rules-practice",
+      "url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/practice/rulesofpractice.pdf",
+      "why": "128 pp / 255K chars",
+      "split_hint": "'Rule 7.01. Title' headings",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "codes.ohio.gov robots.txt is the single line 'User-agent: * Disallow: /' (no newline). Parsers (fetch_doc.py, WebFetch) treat it as no rules, so rows are marked shell ok; if the project reads it as intended (disallow all), oh-orc-codes, oh-constitution-codes and oh-oac-codes become blocked-robots and Justia/LII become the only routes.",
+    "Rules-of-court PDFs other than Civ.R. were not WebFetch-probed (built URLs gated); window position assumed from the Civ.R. probe.",
+    "Register of Ohio: shell TLS failure; search form method and per-filing URLs not established.",
+    "Clerk docket Ajax.ashx endpoint not probed (CSRF header).",
+    "LIS API: enrolled-version folder varies (135th HB 33 07_EN 404); earliest General Assembly covered not established.",
+    "Ohio Constitution on codes.ohio.gov and Justia constitution only WebFetch/script-probed on one route each for the second citation.",
+    "CourtListener ids (ohio, ohioctapp, ohioctcl) unverified."
+  ]
+}
