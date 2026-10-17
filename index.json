@@ -2,6 +2,89 @@
   "generated": "2026-10-17",
   "schema_version": 1,
   "jurisdictions": {
+    "ak": {
+      "name": "Alaska",
+      "file": "jurisdictions/ak.md",
+      "sha256": "2bc5b83c1d99bb70695b2b86085ebb4f7854b5160fcf63c321abf48cac242833",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 13,
+        "reported": 2,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Alaska Statutes",
+          "regex": "(?<![A-Za-z])(?:AS|Alaska\\s+Stat(?:utes|\\.)?(?:\\s+Ann\\.)?\\s*\u00a7\u00a7?)\\s*(?P<title>\\d{2})\\.(?P<chapter>\\d{2})\\.(?P<section>\\d{3})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Session Laws of Alaska",
+          "regex": "ch\\.\\s*(?P<chapter>\\d+),?\\s*(?:FSSLA|SSSLA|TSSLA|SLA)\\s*(?P<year>(?:19|20)\\d\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Constitution",
+          "regex": "Alaska\\s+Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+Alaska\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Rules of Civil Procedure",
+          "regex": "Alaska\\s+(?:R\\.\\s*Civ\\.\\s*P\\.|Civil\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Alaska\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Rules of Criminal Procedure",
+          "regex": "Alaska\\s+(?:R\\.\\s*Crim\\.\\s*P\\.|Criminal\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Alaska\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Rules of Evidence",
+          "regex": "Alaska\\s+(?:R\\.\\s*Evid\\.|Evidence\\s+Rule)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Alaska\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Rules of Appellate Procedure",
+          "regex": "Alaska\\s+(?:R\\.\\s*App\\.\\s*P\\.|Appellate\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Alaska Rules of Administration",
+          "regex": "Alaska\\s+(?:R\\.\\s*Admin\\.|Administrative\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Alaska court rules, Alaska practitioners' short forms without state name",
+          "regex": "(?P<set>Civil|Criminal|Evidence|Appellate|Administrative|Probate|CINA|Delinquency)\\s+Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Alaska Administrative Code",
+          "regex": "(?P<title>\\d{1,2})\\s+AAC\\s+(?P<chapter>\\d{2,3})\\.(?P<section>\\d{3})|Alaska\\s+Admin\\.\\s*Code\\s+tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*\u00a7\\s*(?P<chapter2>\\d{2,3})\\.(?P<section2>\\d{3})",
+          "context_required": false
+        },
+        {
+          "label": "Reported Alaska cases (Pacific Reporter, Alaska court parenthetical)",
+          "regex": "(?P<vol>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Alaska(?:\\s+App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Alaska slip and unpublished opinions (opinion / MO&J numbers)",
+          "regex": "Op(?:inion)?\\.?\\s*No\\.\\s*(?P<opno>\\d{4})[^()]{0,40}\\(Alaska|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)[^()]{0,30}\\(Alaska|Alaska\\s+App\\.\\s*Mem\\.\\s*Op\\.\\s*(?:&|and)\\s*J\\.\\s*No\\.\\s*(?P<moj>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Alaska appellate docket numbers, bare",
+          "regex": "(?:(?:Supreme\\s+Court|Court\\s+of\\s+Appeals)\\s+)?No\\.\\s*(?P<docket>[SA]-?\\d{4,5})",
+          "context_required": true
+        },
+        {
+          "label": "Petition for hearing dispositions",
+          "regex": "pet(?:ition|\\.)\\s+for\\s+hearing\\s+(?P<disp>denied|granted|dismissed)",
+          "context_required": true
+        }
+      ]
+    },
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
@@ -847,11 +930,12 @@
     "mi": {
       "name": "Michigan",
       "file": "jurisdictions/mi.md",
-      "sha256": "afad8d88a8666c6495f5a8191b77d58667e238c5c96de4026c99e25a0dfe7b64",
+      "sha256": "5452460e4b3af36b25f350117af85bc248b79e84de0d1a4394f9663a48883339",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 12,
-        "reported": 3
+        "verified_independent": 6,
+        "reported": 3,
+        "blocked": 6
       },
       "citation_patterns": [
         {
@@ -881,7 +965,7 @@
         },
         {
           "label": "Michigan Rules of Professional Conduct",
-          "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Prof(?:essional|'?l\\.?)\\s*Conduct\\s*(?P<rule>\\d\\.\\d{1,2})",
+          "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Prof(?:essional|'?l)?\\.?\\s*Conduct,?\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})",
           "context_required": false
         },
         {
@@ -901,7 +985,7 @@
         },
         {
           "label": "Michigan Reports / Michigan Appeals Reports",
-          "regex": "(?P<volume>\\d{1,3})\\s+Mich\\.?(?:\\s*(?P<app>App)\\.?)?\\s+(?P<page>\\d{1,4})\\b",
+          "regex": "(?P<volume>\\d{1,3}|_{2,})\\s+Mich\\.?(?:\\s*(?P<app>App)\\.?)?\\s+(?P<page>\\d{1,4}|_{2,})(?!\\w)",
           "context_required": false
         },
         {

@@ -54,6 +54,14 @@
    ],
    "blocked_sources": []
   },
+  "appellate-records.courts.alaska.gov": {
+   "status": "allowed",
+   "sources": [
+    "ak-opinions-cms",
+    "ak-subsequent-history-cms"
+   ],
+   "blocked_sources": []
+  },
   "appellate.nccourts.org": {
    "status": "allowed",
    "sources": [
@@ -104,6 +112,13 @@
    "status": "allowed",
    "sources": [
     "ga-rules-uscr-assets"
+   ],
+   "blocked_sources": []
+  },
+  "aws.state.ak.us": {
+   "status": "allowed",
+   "sources": [
+    "ak-online-public-notices"
    ],
    "blocked_sources": []
   },
@@ -158,6 +173,17 @@
    "sources": [
     "co-crs-olls",
     "co-constitution-olls"
+   ],
+   "blocked_sources": []
+  },
+  "courts.alaska.gov": {
+   "status": "allowed",
+   "sources": [
+    "ak-rules-civil",
+    "ak-rules-criminal",
+    "ak-rules-evidence",
+    "ak-rules-appellate",
+    "ak-rules-administrative"
    ],
    "blocked_sources": []
   },
@@ -269,6 +295,7 @@
   "govt.westlaw.com": {
    "status": "blocked",
    "sources": [
+    "ak-cases-westlaw-govt",
     "ca-ccr-westlaw",
     "md-rules-westlaw",
     "ny-nycrr-westlaw",
@@ -334,6 +361,8 @@
   "law.justia.com": {
    "status": "allowed",
    "sources": [
+    "ak-statutes-justia",
+    "ak-cases-justia",
     "az-ars-justia",
     "az-cases-justia",
     "ca-codes-justia",
@@ -493,6 +522,14 @@
    "status": "blocked",
    "sources": [
     "tx-session-laws-lrl"
+   ],
+   "blocked_sources": []
+  },
+  "ltgov.alaska.gov": {
+   "status": "allowed",
+   "sources": [
+    "ak-constitution-ltgov",
+    "ak-online-public-notices"
    ],
    "blocked_sources": []
   },
@@ -826,6 +863,15 @@
    ],
    "blocked_sources": []
   },
+  "www.akleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "ak-statutes-akleg",
+    "ak-session-laws-akleg",
+    "ak-aac-akleg"
+   ],
+   "blocked_sources": []
+  },
   "www.appeals2.az.gov": {
    "status": "allowed",
    "sources": [
@@ -877,7 +923,7 @@
    ]
   },
   "www.courts.michigan.gov": {
-   "status": "allowed",
+   "status": "blocked",
    "sources": [
     "mi-rules-mcr",
     "mi-rules-mre",
@@ -991,6 +1037,7 @@
   "www.law.cornell.edu": {
    "status": "allowed",
    "sources": [
+    "ak-aac-lii",
     "az-aac-lii",
     "ca-ccr-lii",
     "co-ccr-lii",

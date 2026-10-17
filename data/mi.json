@@ -3,7 +3,7 @@
   "jurisdiction": "mi",
   "name": "Michigan",
   "compiled": "2026-10-17",
-  "summary": "Statutes: legislature.mi.gov serves one PDF per MCL section at a constructible URL (documents/mcl/pdf/MCL-{chapter}-{section}.pdf) with a 'Complete Through PA N of YYYY' line; WebFetch reads them but built URLs are permission-gated, and the shell is refused (robots.txt answered with a bot check). Justia (2025) is a constructible tier-2 fallback. Constitution: the whole-text PDF mcl-chap1.pdf truncates in WebFetch at Art. IV. Court rules: courts.michigan.gov publishes MCR chapters as HTML pages and MRE / MRPC as PDFs; WebFetch reads them, but robots.txt disallows everything to the shell. Admin Code: ARS (ars.apps.lara.state.mi.us) serves rule-set PDFs by GET and works from the shell; Cornell LII mirrors per rule. Case law: courts.michigan.gov opinion and order PDFs (slip) plus free Michigan Appeals Reports bound-volume PDFs with official pagination; Justia covers Supreme Court and Court of Appeals published/unpublished opinions and orders by docket number.",
+  "summary": "Statutes: legislature.mi.gov serves one PDF per MCL section at a constructible URL (documents/mcl/pdf/MCL-{chapter}-{section}.pdf) with 'Complete Through PA N of YYYY'; WebFetch reads them but built URLs need user approval and the shell is refused (bot check on robots.txt), so Justia (2025, constructible) is the practical second fetch. Constitution: mcl-chap1.pdf (truncates at Art. IV). Court rules (MCR, MRE, MRPC), opinions, bound Mich App volumes and Supreme Court leave orders are only on www.courts.michigan.gov, whose robots.txt disallows everything: blocked, link-only, with no tier-2 text for the rules. Admin Code: ARS rule-set PDFs by GET (shell ok) and Cornell LII. Case law: Justia (Supreme Court; Court of Appeals published, unpublished, orders) by docket, slip pagination only.",
   "citation_map": {
     "courts": [
       {
@@ -113,9 +113,11 @@
         "label": "Michigan Rules of Professional Conduct",
         "examples": [
           "Mich. R. Prof'l Conduct 1.10",
-          "Michigan Rule of Professional Conduct 8.4"
+          "Michigan Rule of Professional Conduct 8.4",
+          "Mich. R. Prof. Conduct 1.7",
+          "Michigan Rules of Professional Conduct, Rule 1.7"
         ],
-        "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Prof(?:essional|'?l\\.?)\\s*Conduct\\s*(?P<rule>\\d\\.\\d{1,2})",
+        "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Prof(?:essional|'?l)?\\.?\\s*Conduct,?\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})",
         "routes_to": [
           "mi-rules-mrpc"
         ]
@@ -168,12 +170,11 @@
           "People v Seals, 285 Mich App 1; 776 NW2d 314 (2009)",
           "Rayford v American House Roseville I, LLC, 512 Mich 103 (2025)",
           "285 Mich. App. 1",
-          "463 Mich. 143"
+          "463 Mich. 143",
+          "Barkley v City of Southfield, ___ Mich App ___; ___ NW3d ___ (2026) (Docket No. 369608)"
         ],
-        "regex": "(?P<volume>\\d{1,3})\\s+Mich\\.?(?:\\s*(?P<app>App)\\.?)?\\s+(?P<page>\\d{1,4})\\b",
+        "regex": "(?P<volume>\\d{1,3}|_{2,})\\s+Mich\\.?(?:\\s*(?P<app>App)\\.?)?\\s+(?P<page>\\d{1,4}|_{2,})(?!\\w)",
         "routes_to": [
-          "mi-coa-bound-volumes",
-          "mi-opinions-courts",
           "mi-cases-justia"
         ]
       },
@@ -186,7 +187,6 @@
         ],
         "regex": "(?P<volume>\\d{1,4})\\s+N\\.?\\s*W\\.?\\s*(?P<series>[23])d\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Mich\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
         "routes_to": [
-          "mi-opinions-courts",
           "mi-cases-justia"
         ]
       },
@@ -199,7 +199,6 @@
         ],
         "regex": "Docket\\s+No(?:s)?\\.?\\s*(?P<docket>\\d{6})\\b",
         "routes_to": [
-          "mi-opinions-courts",
           "mi-cases-justia"
         ],
         "context_required": true
@@ -214,8 +213,8 @@
         ],
         "regex": "\\blv\\s+(?:den|gtd|gtd\\s+in\\s+part)\\s+(?P<volume>\\d{1,3}|_+)\\s+Mich\\s+(?P<page>\\d{1,4}|_+)",
         "routes_to": [
-          "mi-subsequent-history-msc-orders",
-          "mi-cases-justia"
+          "mi-cases-justia",
+          "mi-subsequent-history-msc-orders"
         ]
       },
       {
@@ -227,7 +226,6 @@
         ],
         "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Mich\\.|Mich\\.\\s*(?:App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
         "routes_to": [
-          "mi-opinions-courts",
           "mi-cases-justia"
         ]
       }
@@ -241,7 +239,7 @@
       "Mich. Comp. Laws Ann.": "MCL",
       "MSA": "MSA (Michigan Statutes Annotated, superseded numbering: convert to MCL via the MCL tables, no free route)"
     },
-    "notes": "MCL numbers are chapter.section (600.5805 = chapter 600, section 5805); the chapter is the leading digits before the dot, so the per-section PDF URL is fully determined: MCL-{chapter}-{section with letters upper-cased}.pdf. Michigan's own style (Michigan Appellate Opinion Manual) drops periods: 'MCL 600.5805', 'MCR 2.116(C)(10)', 'MRE 702', 'Const 1963, art 1, § 17', '285 Mich App 1; 776 NW2d 314 (2009)', 'lv den 505 Mich 1023'. Bluebook: Mich. Comp. Laws § 600.5805; Mich. Ct. R. 2.116; Mich. R. Evid. 702. A range 'MCL 600.5801-600.5869' is a span: the regex captures the first section only. Old 'MSA 27A.5805' (Michigan Statutes Annotated) numbering is not routed. Bare 'R 408.10011' and bare 'Docket No. 359401' are generic and need Michigan context (context_required). 'Const 1963' alone is used only by Michigan in practice, but 'Mich' is preferred. No public-domain citation: Michigan cites to Mich / Mich App (official, West-published) and NW2d/NW3d; unpublished COA opinions are cited by docket number and issue date (MCR 7.215(C)). CourtListener ids mich / michctapp are from memory and unverified. 'MRPC' is also Minnesota's abbreviation, so bare 'MRPC 1.7' is not routed by a Michigan pattern (Minnesota's record owns it); with Michigan context, read it from mi-rules-mrpc. 'Act N of YYYY' collides with Pennsylvania's form and is not routed; use 'YYYY PA N'."
+    "notes": "MCL numbers are chapter.section (600.5805 = chapter 600, section 5805); the chapter is the leading digits before the dot, so the per-section PDF URL is fully determined: MCL-{chapter}-{section with letters upper-cased}.pdf. Michigan's own style (Michigan Appellate Opinion Manual) drops periods: 'MCL 600.5805', 'MCR 2.116(C)(10)', 'MRE 702', 'Const 1963, art 1, § 17', '285 Mich App 1; 776 NW2d 314 (2009)', 'lv den 505 Mich 1023'. Bluebook: Mich. Comp. Laws § 600.5805; Mich. Ct. R. 2.116; Mich. R. Evid. 702. A range 'MCL 600.5801-600.5869' is a span: the regex captures the first section only. Old 'MSA 27A.5805' (Michigan Statutes Annotated) numbering is not routed. Bare 'R 408.10011' and bare 'Docket No. 359401' are generic and need Michigan context (context_required). 'Const 1963' alone is used only by Michigan in practice, but 'Mich' is preferred. No public-domain citation: Michigan cites to Mich / Mich App (official, West-published) and NW2d/NW3d; unpublished COA opinions are cited by docket number and issue date (MCR 7.215(C)). CourtListener ids mich / michctapp are from memory and unverified. 'MRPC' is also Minnesota's abbreviation, so bare 'MRPC 1.7' is not routed by a Michigan pattern (Minnesota's record owns it); with Michigan context, read it from mi-rules-mrpc. 'Act N of YYYY' collides with Pennsylvania's form and is not routed; use 'YYYY PA N'. Court rules (MCR, MRE, MRPC) route to link-only rows: www.courts.michigan.gov is blocked (robots Disallow: /) and no tier-2 host carries them, so cite them by number and never quote. Case law routes to Justia first (slip pagination only); official Mich/Mich App pages and MSC leave orders have no permitted route. Blank-slip '___ Mich App ___' forms are matched by the reports pattern."
   },
   "sources": [
     {
@@ -273,10 +271,12 @@
         "observed": "Rendered Monday, September 28, 2026 … Complete Through PA 103 of 2026"
       },
       "hazards": [
+        "every built URL needs user approval in WebFetch; if not approved, find the PDF URL by web search or fall back to mi-mcl-justia",
         "built URLs are WebFetch-gated (need approval)",
         "shell refused at robots.txt (bot check)",
         "repealed sections show only a repeal notice; ranges are filed under the first number",
-        "letter suffixes must be upper-cased in the file name"
+        "letter suffixes must be upper-cased in the file name",
+        "independent second citation (MCL 600.2912a → MCL-600-2912A.pdf) untestable: WebFetch gated and fetch_doc.py refused"
       ],
       "probe": {
         "citation": "MCL 257.201",
@@ -286,9 +286,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 2026-10-16: MCL-257-201.pdf body YES 'When a reference is made in this act to \"division\",'; 'History: 1949, Act 300'; 'Complete Through PA 103 of 2026'; not truncated. Pattern also confirmed on MCL-600-5040.pdf, MCL-750-567.pdf, MCL-750-46.pdf (repeal notices, 3 chapters). Built URL mcl-600-5805.pdf: PROVENANCE_REQUIRED (gated)."
+        "evidence": "WebFetch 2026-10-16: MCL-257-201.pdf body YES 'When a reference is made in this act to \"division\",'; 'History: 1949, Act 300'; 'Complete Through PA 103 of 2026'; not truncated. Pattern also confirmed on MCL-600-5040.pdf, MCL-750-567.pdf, MCL-750-46.pdf (repeal notices, 3 chapters). Built URL mcl-600-5805.pdf: PROVENANCE_REQUIRED (gated). | Independent check 2026-10-17: MCL-257-201.pdf 'When a reference is made in this act to \"division\",'; Complete Through PA 103 of 2026; second citation MCL 600.2912a FAILED (gated + script refused)"
       },
       "notes": "Bulk: the policy page says the full MCL is available as PDF and XML by directory browsing at https://legislature.mi.gov/documents/mcl/ with monthly archives since 2013 (documents/mcl/archive/{YYYY}/{Month}/…); the directory URL itself was gated for WebFetch and refused to the shell, so it is recorded, not verified."
     },
@@ -303,8 +303,8 @@
       "coverage": "MCL sections, acts, chapter indexes; Public Act lookups.",
       "access": {
         "mode": "index-anchored",
-        "url_pattern": "https://legislature.mi.gov/Laws/MCL?objectName=mcl-{chapter}-{section}",
-        "pattern_rules": "objectName pattern recalled from memory; not fetched (gated). Chapter pages: https://legislature.mi.gov/Home/GetObject?objectName=mcl-chap{N} list acts with section ranges, e.g. '(18.1101-18.1594)'.",
+        "url_pattern": "",
+        "pattern_rules": "No working per-section pattern: Laws/MCL?objectName=mcl-600-5805 served E.R.O. No. 2007-2 (§ 18.44) in the independent check, and GetObject?objectName=mcl-chap600 served chapter 18. Chapter pages list acts with section ranges.",
         "index_url": "https://legislature.mi.gov/Laws/ChapterIndex",
         "navigation": "ChapterIndex (chapter numbers and titles only, NO section ranges) → GetObject?objectName=mcl-chap{N} (acts with section ranges) → Laws/MCL?objectName=mcl-Act-{n}-of-{year} or section page.",
         "format": "html"
@@ -321,13 +321,14 @@
         "observed": "Michigan Compiled Laws Complete Through PA 103 of 2026"
       },
       "hazards": [
+        "objectName pages can serve an unrelated object (mcl-600-5805 → E.R.O. 2007-2): check the section number in the heading",
         "GetObject returned the wrong chapter (chap18 for chap600)",
         "built URLs gated",
         "ChapterIndex shows no section ranges"
       ],
       "probe": {
-        "citation": "MCL 600.5805",
-        "url": "https://legislature.mi.gov/Laws/MCL?objectName=mcl-600-5805",
+        "citation": "MCL chapter index",
+        "url": "https://legislature.mi.gov/Laws/ChapterIndex",
         "expect": ""
       },
       "verification": {
@@ -335,7 +336,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: PROVENANCE_REQUIRED (permission not answered) on the section page and on https://www.legislature.mi.gov/. ChapterIndex OK: 'Michigan Compiled Laws Complete Through PA 103 of 2026', links GetObject?objectName=mcl-chap{N}."
+        "evidence": "WebFetch: PROVENANCE_REQUIRED (permission not answered) on the section page and on https://www.legislature.mi.gov/. ChapterIndex OK: 'Michigan Compiled Laws Complete Through PA 103 of 2026', links GetObject?objectName=mcl-chap{N}. | Independent check 2026-10-17: FAILED — objectName=mcl-600-5805 returned E.R.O. No. 2007-2, section 18.44"
       },
       "notes": "Use as a link target; read text from mi-mcl-pdf. LitWebServices API reported at https://legislature.mi.gov/litwebservices/litwebservices.asmx (not probed)."
     },
@@ -350,8 +351,8 @@
       "coverage": "2025 Michigan Compiled Laws, per-section pages; earlier editions (2010–2024) by year path.",
       "access": {
         "mode": "constructible",
-        "url_pattern": "https://law.justia.com/codes/michigan/chapter-{chapter}/statute-act-{act}-of-{year}/division-{act}-{year}-{division}/section-{chapter}-{section}/",
-        "pattern_rules": "Act and division (the act's internal chapter, e.g. RJA chapter 58) are NOT derivable from the MCL number: chapter page lists acts with section ranges (Act 236 of 1961: 600.101-600.9948); act page lists divisions with ranges ('(600.5801...600.5869)'). Section slug: dot → hyphen (600-5805). Acts without divisions: section directly under statute-act-… (unverified).",
+        "url_pattern": "https://law.justia.com/codes/michigan/chapter-{chapter}/statute-act-{act}-of-{year}/[division-{act}-{year}-{division}/]section-{chapter}-{section}/",
+        "pattern_rules": "Act and division (the act's internal chapter, e.g. RJA chapter 58) are NOT derivable from the MCL number: chapter page lists acts with section ranges (Act 236 of 1961: 600.101-600.9948); act page lists divisions with ranges ('(600.5801...600.5869)'). Section slug: dot → hyphen (600-5805). Omit the division segment when the act page lists sections directly (verified: Act 170 of 1964 → chapter-691/statute-act-170-of-1964/section-691-1407/).",
         "index_url": "https://law.justia.com/codes/michigan/chapter-{chapter}/",
         "navigation": "chapter-{N}/ (acts with ranges) → statute-act-{a}-of-{y}/ (divisions with ranges) → section page",
         "format": "html"
@@ -375,14 +376,14 @@
       "probe": {
         "citation": "MCL 600.5805",
         "url": "https://law.justia.com/codes/michigan/chapter-600/statute-act-236-of-1961/division-236-1961-58/section-600-5805/",
-        "expect": "Sec. 5805. (1) A person shall not bring or maintain"
+        "expect": "A person shall not bring or maintain"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 2026-10-16: body YES 'Sec. 5805. (1) A person shall not bring or maintain'; through (16)(c) plus History; not truncated. Chapter-600 and act pages show section ranges."
+        "evidence": "WebFetch 2026-10-16: body YES 'Sec. 5805. (1) A person shall not bring or maintain'; through (16)(c) plus History; not truncated. Chapter-600 and act pages show section ranges. | Independent check 2026-10-17: 'Sec. 5805.' '(1) A person shall not bring or maintain'; '2025 Michigan Compiled Laws'; not truncated; second citation MCL 691.1407 ok"
       },
       "notes": ""
     },
@@ -426,9 +427,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 2026-10-16: art 1 § 17 YES 'No person shall be compelled in any criminal case to'; art 6 § 1 NOT PRESENT; 'Page 1 of 93'; truncated mid-heading at Art. IV § 34."
+        "evidence": "WebFetch 2026-10-16: art 1 § 17 YES 'No person shall be compelled in any criminal case to'; art 6 § 1 NOT PRESENT; 'Page 1 of 93'; truncated mid-heading at Art. IV § 34. | Independent check 2026-10-17: art 1 § 17 'No person shall be compelled in any criminal case to'; Page 31 of 93; cut at '§ 34 Bills, re'; second citation Const 1963, art 4, § 24 ok"
       },
       "notes": ""
     },
@@ -443,22 +444,22 @@
       "coverage": "Michigan Constitution of 1963 (not probed).",
       "access": {
         "mode": "index-anchored",
-        "url_pattern": "",
+        "url_pattern": "https://law.justia.com/constitution/michigan/article-{article_roman_lower}/",
         "pattern_rules": "",
         "index_url": "https://law.justia.com/constitution/michigan/",
-        "navigation": "not probed",
+        "navigation": "index → article-{roman, lower-case}/ → section link",
         "format": "html"
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "law.justia.com robots.txt answered with Cloudflare challenge",
         "notes": "Not fetched (budget)."
       },
       "currency": {
-        "where": "unknown",
-        "observed": ""
+        "where": "none stated",
+        "observed": "Justia: may not be the most recent version"
       },
       "hazards": [
         "unprobed"
@@ -473,7 +474,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Not fetched; Justia constitution path pattern known from other states."
+        "evidence": "Not fetched; Justia constitution path pattern known from other states. | Independent check 2026-10-17: index lists preamble and articles; Article I at /constitution/michigan/article-i/; article/section pages not fetched"
       },
       "notes": ""
     },
@@ -494,18 +495,19 @@
         "navigation": "",
         "format": "html"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "www.courts.michigan.gov robots.txt: Disallow: / (applies to fetch_doc.py)",
-        "notes": "WebFetch read chapter 1 in full (URL from search). Built chapter URLs need approval. Large chapters (2 Civil Procedure, 6 Criminal, 7 Appellate) likely exceed the ~100K WebFetch window (untested)."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: WebFetch read chapter 1 in full (URL from search). Built chapter URLs need approval. Large chapters (2 Civil Procedure, 6 Criminal, 7 Appellate) likely exceed the ~100K WebFetch window (untested)."
       },
       "currency": {
         "where": "top of each chapter page; separate 'Updated' page",
         "observed": "Chapter Updated with MSC Order(s) Effective on January 1, 2026"
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "built URLs gated",
         "shell disallowed by robots",
         "likely WebFetch truncation on long chapters",
@@ -517,11 +519,11 @@
         "expect": "These rules are to be construed, administered, and employed by"
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: MCR 1.105 YES 'These rules are to be construed, administered, and employed by'; last rule 1.201; not truncated. Chapter 2 (MCR 2.116) built URL: PROVENANCE_REQUIRED."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: MCR 1.105 YES 'These rules are to be construed, administered, and employed by'; last rule 1.201; not truncated. Chapter 2 (MCR 2.116) built URL: PROVENANCE_REQUIRED.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
       "notes": ""
     },
@@ -542,18 +544,19 @@
         "navigation": "rules page → Michigan Rules of Evidence PDF (index not fetched; URL taken from a search result)",
         "format": "pdf"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "Disallow: /",
-        "notes": "Whole document fits one WebFetch window."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: Whole document fits one WebFetch window."
       },
       "currency": {
         "where": "PDF header",
         "observed": "Updated with MSC order(s) effective on 1/28/2026"
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "cache-buster path segment changes",
         "shell disallowed"
       ],
@@ -563,11 +566,11 @@
         "expect": "A witness who is qualified as an expert by knowledge"
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: MRE 702 YES 'A witness who is qualified as an expert by knowledge'; ends at Rule 1102; not truncated."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: MRE 702 YES 'A witness who is qualified as an expert by knowledge'; ends at Rule 1102; not truncated.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
       "notes": ""
     },
@@ -588,18 +591,19 @@
         "navigation": "rules page → MRPC PDF",
         "format": "pdf"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "ok (truncated)",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "Disallow: /",
-        "notes": "WebFetch window 1 ends in Rule 1.10(c)(2); rest needs offset=100000 (130,109 chars total)."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: WebFetch window 1 ends in Rule 1.10(c)(2); rest needs offset=100000 (130,109 chars total)."
       },
       "currency": {
         "where": "PDF page header",
         "observed": "Last Updated 1/1/2025"
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "WebFetch truncation after Rule 1.10",
         "shell disallowed"
       ],
@@ -609,13 +613,13 @@
         "expect": "A lawyer shall not represent a client if the representation"
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: MRPC 1.7 YES 'A lawyer shall not represent a client if the representation'; truncated after 1.10(c)(2); 130,109 chars."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: MRPC 1.7 YES 'A lawyer shall not represent a client if the representation'; truncated after 1.10(c)(2); 130,109 chars.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
-      "notes": ""
+      "notes": "No tier-2 text source (Justia, LII, public.law checked by the verifier)."
     },
     {
       "id": "mi-admincode-ars",
@@ -631,7 +635,7 @@
         "url_pattern": "https://ars.apps.lara.state.mi.us/AdminCode/DownloadAdminCodeFile?FileName=R%20{first}%20to%20R%20{last}.pdf",
         "pattern_rules": "File name is the rule set's range ('R 408.10001 to R 408.10098.pdf'), not derivable from a single rule number. Append &ReturnHTML=True for HTML. Listing by GET: https://ars.apps.lara.state.mi.us/AdminCode/DeptBureauAdminCode?Department={department name, URL-encoded}[&Bureau={bureau}] — rows show each rule set's first and last rule. The home search form (AdminCode/AdminCode, field RuleNumber) is POST-only; a GET ?RuleNumber= returns the blank form.",
         "index_url": "https://ars.apps.lara.state.mi.us/AdminCode/AdminCode",
-        "navigation": "DeptBureauAdminCode?Department=… (GET) → row whose range covers the rule → DownloadAdminCodeFile PDF. Use fetch_doc.py links on the listing and filter on the part number (e.g. '408\\.100').",
+        "navigation": "DeptBureauAdminCode?Department=… (GET) → row whose range covers the rule → DownloadAdminCodeFile PDF. Use fetch_doc.py links on the listing and filter on the part number (e.g. '408\\.100'). Filter on the bare part number (no 'R ' prefix): link text is 'PDF'/'HTML' and URLs encode the space as %20, so 'R 338\\.3' returns 0 links.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -658,9 +662,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 8-page PDF, 16,094 chars; verify 'An employer shall comply with all of the following' VERIFIED p.2. Second citation R 336.1201 (EGLE listing → 'R 336.1201 to R 336.1299.pdf', 73 pp): verify 'a person shall not install, construct, reconstruct, relocate, or modify any process' VERIFIED p.1."
+        "evidence": "fetch_doc.py: 8-page PDF, 16,094 chars; verify 'An employer shall comply with all of the following' VERIFIED p.2. Second citation R 336.1201 (EGLE listing → 'R 336.1201 to R 336.1299.pdf', 73 pp): verify 'a person shall not install, construct, reconstruct, relocate, or modify any process' VERIFIED p.1. | Independent check 2026-10-17: verify 'An employer shall comply with all of the following' VERIFIED p.2 (8 pp); second citation Mich Admin Code, R 338.303 ok"
       },
       "notes": ""
     },
@@ -703,9 +707,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 3,301 chars, body 'Rule 11. An employer shall comply with all of the following'; Last-Modified 2 Aug 2025. Second: Mich-Admin-Code-R-336-1201 body present ('a person shall not install, construct, reconstruct')."
+        "evidence": "fetch_doc.py: 3,301 chars, body 'Rule 11. An employer shall comply with all of the following'; Last-Modified 2 Aug 2025. Second: Mich-Admin-Code-R-336-1201 body present ('a person shall not install, construct, reconstruct'). | Independent check 2026-10-17: verify 'An employer shall comply with all of the following' VERIFIED; Last-Modified 2 Aug 2025; second citation Mich Admin Code, R 338.303 ok"
       },
       "notes": ""
     },
@@ -752,7 +756,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: landing page OK (links to 2026 listing and CONTENTdm archive); 2026 listing PROVENANCE_REQUIRED; fetch_doc.py REFUSED (bot check on robots.txt)."
+        "evidence": "WebFetch: landing page OK (links to 2026 listing and CONTENTdm archive); 2026 listing PROVENANCE_REQUIRED; fetch_doc.py REFUSED (bot check on robots.txt). | Independent check 2026-10-17: landing page links 2026 listing and CONTENTdm archive; no issue PDF URLs on page"
       },
       "notes": ""
     },
@@ -773,18 +777,19 @@
         "navigation": "Case search at courts.michigan.gov (by docket or party) → case page → opinion/order PDF links. Not verified: the case page URL was gated and robots disallows the shell.",
         "format": "pdf"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "www.courts.michigan.gov: Disallow: / (fetch_doc.py refused)",
-        "notes": "WebFetch read PDFs whose URLs came from search results; built URLs (case page, site root) were gated."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: WebFetch read PDFs whose URLs came from search results; built URLs (case page, site root) were gated."
       },
       "currency": {
         "where": "none stated",
         "observed": ""
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "file names contain an internal sequence number — not constructible",
         "majority / concurrence / dissent are separate PDFs",
         "slip pagination only",
@@ -797,11 +802,11 @@
         "expect": "SHAPIRO, P.J. (concurring). I concur in the result only."
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: caption EGLE v Brotherton, No. 359401, UNPUBLISHED, Mackinac CC; body 'SHAPIRO, P.J. (concurring). I concur in the result only.'; no reporter cite. Second: SC order 169336_37_01.pdf (People v Cao) read OK."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: caption EGLE v Brotherton, No. 359401, UNPUBLISHED, Mackinac CC; body 'SHAPIRO, P.J. (concurring). I concur in the result only.'; no reporter cite. Second: SC order 169336_37_01.pdf (People v Cao) read OK.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
       "notes": "Mich Bar (michbar.org) mirrors opinions but is not an allowed source."
     },
@@ -822,18 +827,19 @@
         "navigation": "publications → Court of Appeals bound volumes (listing page not fetched)",
         "format": "pdf"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "ok (truncated)",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "Disallow: /",
-        "notes": "WebFetch window 1 ended at p. 46 of vol. 285 (115,086 chars extracted in all — whole volume text likely not fully extracted)."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: WebFetch window 1 ended at p. 46 of vol. 285 (115,086 chars extracted in all — whole volume text likely not fully extracted)."
       },
       "currency": {
         "where": "title page",
         "observed": "Michigan Appeals Reports, vol. 285 (July 14 – Oct. 13, 2009)"
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "very long PDFs; WebFetch truncation",
         "cache-buster path segment",
         "shell disallowed"
@@ -844,11 +850,11 @@
         "expect": "Cases Decided in the Michigan Court of Appeals"
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: title page present; running heads '285 MICH APP 1'; People v Seals at p. 1 (Docket Nos. 282215, 282216); truncated at p. 46."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: title page present; running heads '285 MICH APP 1'; People v Seals at p. 1 (Docket Nos. 282215, 282216); truncated at p. 46.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
       "notes": "The only free source of official Mich App pagination found."
     },
@@ -883,7 +889,8 @@
       "hazards": [
         "docket suffix variants; base slug may be a concurrence",
         "WebFetch truncation on long opinions",
-        "shell blocked"
+        "shell blocked",
+        "slip pagination only — no official Mich / Mich App page numbers"
       ],
       "probe": {
         "citation": "Rayford v American House Roseville I, LLC, No. 163989 (Mich. July 31, 2025)",
@@ -893,9 +900,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 2026-10-16: body YES; truncated at 100K of 118,108 chars. Second: court-of-appeals-unpublished/2023/359401.html → Shapiro concurrence, Jan. 12, 2023."
+        "evidence": "WebFetch 2026-10-16: body YES; truncated at 100K of 118,108 chars. Second: court-of-appeals-unpublished/2023/359401.html → Shapiro concurrence, Jan. 12, 2023. | Independent check 2026-10-17: Rayford 163989 'In this case, we address whether an employer can contractually'; truncated at 100K of 118,108; second citation Barkley v City of Southfield, No. 369608 (Mich. Ct. App. Aug. 6, 2026) ok"
       },
       "notes": ""
     },
@@ -916,18 +923,19 @@
         "navigation": "case search (COA docket) → related Supreme Court case → order PDF; or search engine by party name",
         "format": "pdf"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
-        "robots_txt": "Disallow: /",
-        "notes": "Order PDF read when URL came from a search result."
+        "robots_txt": "www.courts.michigan.gov robots.txt: User-agent: * / Disallow: / — blocked for every route by policy",
+        "notes": "Blocked by policy (SCHEMA robots table). WebFetch had read this document on 2026-10-16 before the policy was settled; it is not used. Cite by number / link only, never quote. Earlier note: Order PDF read when URL came from a search result."
       },
       "currency": {
         "where": "none stated",
         "observed": ""
       },
       "hazards": [
+        "host blocked for every route (robots Disallow: /): link only, never quote",
         "no verified docket → order lookup; in practice found by party name",
         "shell disallowed"
       ],
@@ -937,11 +945,11 @@
         "expect": "On order of the Court, the application for leave to appeal"
       },
       "verification": {
-        "status": "verified",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
-        "result": "OK",
-        "evidence": "WebFetch 2026-10-16: SC 169336, COA 373185, Ingham CC 22-000721-FH, Feb. 27, 2026; 'On order of the Court, the application for leave to appeal the October 6, 2025'; leave denied."
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED — robots.txt on www.courts.michigan.gov disallows the path (rule: Disallow: / for User-agent *). (Earlier WebFetch reads, no longer usable: WebFetch 2026-10-16: SC 169336, COA 373185, Ingham CC 22-000721-FH, Feb. 27, 2026; 'On order of the Court, the application for leave to appeal the October 6, 2025'; leave denied.) | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED (Disallow: /); not WebFetched per policy"
       },
       "notes": "Lookup from the decision below is effectively party-name only for this record until the case search is verified."
     }
@@ -951,6 +959,36 @@
       "family": "case_law",
       "what": "Public-domain (vendor-neutral) citation format",
       "evidence": "Michigan cites Mich / Mich App (official reports) and NW2d; unpublished opinions by docket number and issue date. No neutral format seen on any probed opinion.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "court_rules",
+      "what": "Allowed text source for the Michigan Court Rules (MCR)",
+      "evidence": "Official text only on www.courts.michigan.gov (robots Disallow: /, blocked). Verifier checked Justia (codes/michigan has only MCL), Cornell LII (states/michigan links out), public.law (no Michigan site) and site-restricted searches for MCR 2.116 / 7.305: none.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "court_rules",
+      "what": "Allowed text source for the Michigan Rules of Evidence (MRE)",
+      "evidence": "Official PDF on www.courts.michigan.gov (blocked). Justia, LII and public.law carry no MRE (checked for MRE 702, 404).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "court_rules",
+      "what": "Allowed text source for the Michigan Rules of Professional Conduct (MRPC)",
+      "evidence": "Official PDF on www.courts.michigan.gov (blocked). LII ethics paths redirect to wex/legal_ethics; Justia and public.law have none (checked MRPC 1.7, 8.4).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "Allowed route for official Mich App / Mich page numbers",
+      "evidence": "Mich App bound-volume PDFs exist only on www.courts.michigan.gov (blocked); Justia gives slip pagination only (Barkley, No. 369608: slip markers, no reporter cite).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "subsequent_history",
+      "what": "Allowed route for Michigan Supreme Court leave-denied / leave-granted orders",
+      "evidence": "Orders are posted only on www.courts.michigan.gov (blocked); Justia lists MSC opinions but not leave orders. Reports must say 'lv den' history was not checked against the order text.",
       "date": "2026-10-17"
     }
   ],
@@ -971,24 +1009,9 @@
       "why": "93-page PDF; WebFetch stops at Art. IV § 34 heading. Ingest is blocked unless the shell can reach legislature.mi.gov (robots bot check today).",
       "split_hint": "'§ N Catchline.' headings under 'ARTICLE N' lines",
       "bulk": "https://legislature.mi.gov/documents/mcl/ (PDF/XML, per policy page)"
-    },
-    {
-      "source_id": "mi-rules-mrpc",
-      "url": "https://www.courts.michigan.gov/siteassets/rules-instructions-administrative-orders/rules-of-professional-conduct/michigan-rules-of-professional-conduct.pdf",
-      "why": "WebFetch stops in Rule 1.10 (130K chars). courts.michigan.gov robots disallows the shell, so ingest needs another permitted route.",
-      "split_hint": "'Rule N.NN Title' headings",
-      "bulk": ""
-    },
-    {
-      "source_id": "mi-rules-mcr",
-      "url": "https://www.courts.michigan.gov/siteassets/rules-instructions-administrative-orders/michigan-court-rules/michigan-court-rules-responsive-html5.zip/Michigan_Court_Rules/Court_Rules_Chapter_2/Court_Rules_Chapter_2.htm",
-      "why": "Chapters 2, 6, 7 are long single pages expected to exceed the WebFetch window (untested); robots disallows the shell.",
-      "split_hint": "'Rule N.NNN Title' headings",
-      "bulk": ""
     }
   ],
   "open_questions": [
-    "Does WebFetch read MCR chapter 2 (MCR 2.116) fully, or truncate? Built URL was gated.",
     "Verify the courts.michigan.gov case search / case page URL (c/courts/coa/case/{docket}) and whether it links the Supreme Court docket for subsequent history.",
     "Verify Laws/MCL?objectName=mcl-{ch}-{sec} HTML pages and the documents/mcl/ bulk XML directory (both gated).",
     "Why GetObject?objectName=mcl-chap600 returned chapter 18.",
@@ -996,6 +1019,7 @@
     "Range of Mich App bound volumes online, and whether Michigan Reports bound volumes are also posted.",
     "Justia Michigan Constitution page not probed; public.law and Cornell LII coverage of MCL / MCR not checked.",
     "COA opinion file type letters (O/D) and coverage start year unverified.",
-    "CourtListener ids mich / michctapp unverified."
+    "CourtListener ids mich / michctapp unverified.",
+    "mi-mcl-pdf: no new citation could be tested by the independent check (WebFetch gated, fetch_doc.py refused at legislature.mi.gov). Re-test MCL-600-2912A.pdf when either route is available."
   ]
 }
