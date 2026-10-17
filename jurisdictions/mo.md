@@ -19,10 +19,10 @@ Statutes and constitution: revisor.mo.gov (unofficial, uncertified) serves one s
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Revised Statutes of Missouri (RSMo) | `Mo. Rev. Stat. § 516.120`; `RSMo § 516.120`; `section 516.120, RSMo 2016`; `section 537.765.3, RSMo`; `§ 516.120 RSMo Cum. Supp. 2024`; `516.120 RSMo`; `Mo. Ann. Stat. § 537.765`; `sections 516.110 and 516.120, RSMo` | `mo-rsmo-revisor` → `mo-rsmo-justia` |
+| Revised Statutes of Missouri (RSMo) | `Mo. Rev. Stat. § 516.120`; `RSMo § 516.120`; `section 516.120, RSMo 2016`; `section 537.765.3, RSMo`; `§ 516.120 RSMo Cum. Supp. 2024`; `516.120 RSMo`; `Mo. Ann. Stat. § 537.765`; `sections 516.110 and 516.120, RSMo`; `R.S.Mo. § 287.120`; `V.A.M.S. § 516.120`; `section 537.080 of the Revised Statutes of Missouri` | `mo-rsmo-revisor` → `mo-rsmo-justia` |
 | RSMo bare section (no RSMo / Mo. marker) *(only once this jurisdiction is known)* | `section 516.120`; `§ 537.765.3` | `mo-rsmo-revisor` → `mo-rsmo-justia` |
 | Missouri Constitution | `Mo. Const. art. I, § 10`; `Mo. Const. art. V, sec. 10`; `Article V, Section 10 of the Missouri Constitution`; `article I, section 2 of the Missouri Constitution` | `mo-constitution-revisor` → `mo-constitution-justia` |
-| Missouri Supreme Court Rules (marked) | `Mo. Sup. Ct. R. 55.27(a)(6)`; `Mo. Sup. Ct. R. 4-1.7`; `Mo. R. Civ. P. 55.27`; `Mo. R. Crim. P. 24.035`; `Missouri Supreme Court Rule 84.04`; `Rule 55.27(a)(6) of the Missouri Rules of Civil Procedure`; `Mo. R. Prof'l Conduct 4-1.7` | `mo-rules-courts` → `mo-rules-clerkhandbook` |
+| Missouri Supreme Court Rules (marked) | `Mo. Sup. Ct. R. 55.27(a)(6)`; `Mo. Sup. Ct. R. 4-1.7`; `Mo. R. Civ. P. 55.27`; `Mo. R. Crim. P. 24.035`; `Missouri Supreme Court Rule 84.04`; `Rule 55.27(a)(6) of the Missouri Rules of Civil Procedure`; `Mo. R. Prof'l Conduct 4-1.7`; `Missouri Rule of Professional Conduct 4-8.4` | `mo-rules-courts` → `mo-rules-clerkhandbook` |
 | Missouri Supreme Court Rules (bare "Rule 55.27", "Rule 4-1.7") *(only once this jurisdiction is known)* | `Rule 55.27(a)(6)`; `Rule 84.04(d)`; `Rule 4-1.7`; `Rule 74.04(c)` | `mo-rules-courts` → `mo-rules-clerkhandbook` |
 | Missouri Code of State Regulations | `10 CSR 10-6.060`; `20 CSR 2150-2.001`; `Mo. Code Regs. Ann. tit. 10, § 10-6.060` | `mo-csr-sos` → `mo-csr-lii` |
 | Missouri Register | `51 Mo. Reg. 1313`; `49 Mo. Reg. 1520 (Oct. 1, 2024)` | `mo-register-sos` |
@@ -34,10 +34,10 @@ Statutes and constitution: revisor.mo.gov (unofficial, uncertified) serves one s
 
 Regexes (case-insensitive):
 
-- Revised Statutes of Missouri (RSMo): `Mo\.\s*(?:Rev|Ann)\.\s*Stat\.\s*(?:\(\d{4}\)\s*)?(?:§+\s*)?(?P<section>\d{1,3}\.\d{3,4})(?!\d)|RSMo\.?\s*(?:\(\d{4}\)\s*)?§+\s*(?P<section2>\d{1,3}\.\d{3,4})(?!\d)|(?:§+|sec(?:tion)?s?\.?)\s*(?P<section3>\d{1,3}\.\d{3,4})(?!\d)(?:\.\d+)*(?:\([0-9a-z]+\))*(?:(?:,\s*|\s+(?:and|or|to|through)\s+)\d{1,3}\.\d{3,4}(?:\.\d+)*(?:\([0-9a-z]+\))*)*,?\s+RSMo\b|(?<![\d.§])(?P<section4>\d{1,3}\.\d{3,4})(?:\.\d+)*,?\s+RSMo\b`
+- Revised Statutes of Missouri (RSMo): `Mo\.\s*(?:Rev|Ann)\.\s*Stat\.\s*(?:\(\d{4}\)\s*)?(?:§+\s*)?(?P<section>\d{1,3}\.\d{3,4})(?!\d)|(?:RSMo|R\.\s*S\.\s*Mo|V\.\s*A\.\s*M\.\s*S)\.?\s*(?:\(\d{4}\)\s*)?§+\s*(?P<section2>\d{1,3}\.\d{3,4})(?!\d)|(?:§+|sec(?:tion)?s?\.?)\s*(?P<section3>\d{1,3}\.\d{3,4})(?!\d)(?:\.\d+)*(?:\([0-9a-z]+\))*(?:(?:,\s*|\s+(?:and|or|to|through)\s+)\d{1,3}\.\d{3,4}(?:\.\d+)*(?:\([0-9a-z]+\))*)*,?\s+RSMo\b|(?<![\d.§])(?P<section4>\d{1,3}\.\d{3,4})(?:\.\d+)*,?\s+RSMo\b|(?:§+|sec(?:tion)?\.?)\s*(?P<section5>\d{1,3}\.\d{3,4})(?!\d)(?:\.\d+)*(?:\([0-9a-z]+\))*\s+of\s+the\s+Revised\s+Statutes\s+of\s+Missouri`
 - RSMo bare section (no RSMo / Mo. marker): `(?:§+|sec(?:tion)?\.?)\s*(?P<section>\d{1,3}\.\d{3,4})(?!\d)(?:\.\d+)*`
 - Missouri Constitution: `Mo\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*(?:§|sec\.?|section)\s*(?P<section>\d+(?:\([a-z]\))?)|Article\s+(?P<article2>[IVXL]+),?\s+(?:Section|§)\s*(?P<section2>\d+(?:\([a-z]\))?)\s+of\s+the\s+Missouri\s+Constitution`
-- Missouri Supreme Court Rules (marked): `(?:Mo\.\s*Sup\.\s*Ct\.\s*R(?:ule)?\.?|Mo\.\s*R\.\s*(?:Civ|Crim|App)\.\s*P\.|Mo\.\s*R\.\s*Prof'?l\s*Conduct|Missouri\s+Supreme\s+Court\s+Rule)\s*(?P<rule>\d{1,3}-\d\.\d{1,2}|\d{1,3}(?:\.\d{1,3})?)|Rule\s+(?P<rule2>\d{1,3}(?:\.\d{1,3})?)(?:\([0-9a-z]+\))*\s+of\s+the\s+Missouri\s+(?:Supreme\s+Court\s+)?Rules`
+- Missouri Supreme Court Rules (marked): `(?:Mo\.\s*Sup\.\s*Ct\.\s*R(?:ule)?\.?|Mo\.\s*R\.\s*(?:Civ|Crim|App)\.\s*P\.|Mo\.\s*R\.\s*Prof'?l\s*Conduct|Missouri\s+Supreme\s+Court\s+Rule|Missouri\s+Rules?\s+of\s+Professional\s+Conduct)\s*(?P<rule>\d{1,3}-\d\.\d{1,2}|\d{1,3}(?:\.\d{1,3})?)|Rule\s+(?P<rule2>\d{1,3}(?:\.\d{1,3})?)(?:\([0-9a-z]+\))*\s+of\s+the\s+Missouri\s+(?:Supreme\s+Court\s+)?Rules`
 - Missouri Supreme Court Rules (bare "Rule 55.27", "Rule 4-1.7"): `Rules?\s+(?P<rule>\d{1,3}-\d\.\d{1,2}|\d{1,3}\.\d{2,3})(?!\d)`
 - Missouri Code of State Regulations: `(?P<title>\d{1,2})\s+CSR\s+(?P<division>\d{1,4})-(?P<chapter>\d{1,3})(?:\.(?P<rule>\d{3,4}))?|Mo\.\s*Code\s+(?:of\s+State\s+)?Regs?\.\s*(?:Ann\.\s*)?tit\.\s*(?P<title2>\d{1,2}),?\s*§\s*(?P<division2>\d{1,4})-(?P<chapter2>\d{1,3})(?:\.(?P<rule2>\d{3,4}))?`
 - Missouri Register: `(?P<volume>\d{1,2})\s+Mo\.\s*Reg\.\s*(?P<page>\d{1,5})`
@@ -57,7 +57,7 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 
 ### `mo-rsmo-revisor` — Revised Statutes of Missouri (RSMo) online
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Missouri Revisor of Statutes (Joint Committee on Legislative Research) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Missouri Revisor of Statutes (Joint Committee on Legislative Research) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All chapters of RSMo, current text with effective date, history, prior revisions and annotations; future-effective and multiply-enacted versions listed under 'All versions'.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -72,12 +72,12 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** annotations (case notes) follow the statute text on the same page: stop quoting at the history line '(RSMo 1939 ...)' / '--------'
 - **Hazard:** Missouri subsection style 537.765.3 must be trimmed to 537.765 for the URL
 - **Probe:** Mo. Rev. Stat. § 516.120 → `https://revisor.mo.gov/main/OneSection.aspx?section=516.120` — expect: "All actions upon contracts, obligations or liabilities, express or implied"
-- **Evidence (2026-10-17):** fetch_doc.py --research: 200, html 10,599 chars; header 'Title XXXV CIVIL PROCEDURE AND LIMITATIONS', 'Effective - 28 Aug 1939', '516.120. What actions within five years. — Within five years:'. Second citation 537.765 (Title XXXVI): 7,117 chars, '1. Contributory fault, as a complete bar to plaintiff's recovery'. WebFetch on 537.765: PROVENANCE_REQUIRED (gated).
+- **Evidence (2026-10-17):** fetch_doc.py --research: 200, html 10,599 chars; header 'Title XXXV CIVIL PROCEDURE AND LIMITATIONS', 'Effective - 28 Aug 1939', '516.120. What actions within five years. — Within five years:'. Second citation 537.765 (Title XXXVI): 7,117 chars, '1. Contributory fault, as a complete bar to plaintiff's recovery'. WebFetch on 537.765: PROVENANCE_REQUIRED (gated). | Independent check 2026-10-17: fetch_doc.py 10,599 chars, '516.120. What actions within five years.'; second citation Mo. Rev. Stat. § 490.065 ok
 - **Notes:** Other useful pages: RefsToSect.aspx?section={section} (sections citing this one); MultiEnact.aspx (all multiply-enacted sections); rx.aspx (repeal & transfer). Constitution is on the same host (mo-constitution-revisor).
 
 ### `mo-rsmo-justia` — Justia — Missouri Revised Statutes (2025)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Annual snapshots of RSMo; current edition labelled '2025 Missouri Revised Statutes'; older years (2005-2024) under /codes/missouri/{year}/.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -92,13 +92,13 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** title Roman numeral needed for URL (index hop)
 - **Hazard:** script route refused (bot check)
 - **Probe:** Mo. Rev. Stat. § 516.120 → `https://law.justia.com/codes/missouri/title-xxxv/chapter-516/section-516-120/` — expect: "Within five years: (1) All actions upon contracts, obligations or"
-- **Evidence (2026-10-17):** WebFetch: YES, body 'Within five years: (1) All actions upon contracts, obligations or'; '2025 Missouri Revised Statutes'; not truncated. Second citation 537.765 at /title-xxxvi/chapter-537/section-537-765/: 'Contributory fault, as a complete bar to plaintiff's recovery in'.
+- **Evidence (2026-10-17):** WebFetch: YES, body 'Within five years: (1) All actions upon contracts, obligations or'; '2025 Missouri Revised Statutes'; not truncated. Second citation 537.765 at /title-xxxvi/chapter-537/section-537-765/: 'Contributory fault, as a complete bar to plaintiff's recovery in'. | Independent check 2026-10-17: WebFetch YES 'Within five years: (1) All actions upon contracts'; script REFUSED as recorded; second citation Mo. Rev. Stat. § 490.065 (title-xxxiii) ok
 
 ## B. Constitution
 
 ### `mo-constitution-revisor` — Constitution of Missouri (revisor.mo.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Missouri Revisor of Statutes · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Missouri Revisor of Statutes · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Constitution of 1945 as amended, per section, with source notes, effective dates and annotations.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -113,11 +113,11 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** whole-article pages are long (Art. I 138K chars)
 - **Hazard:** annotations follow the text
 - **Probe:** Mo. Const. art. I, § 10 → `https://revisor.mo.gov/main/OneSection.aspx?section=I%20%20%20%2010&constit=y` — expect: "That no person shall be deprived of life, liberty or property"
-- **Evidence (2026-10-17):** fetch_doc.py: 28,795 chars; 'I Section 10. Due process of law. — That no person shall be deprived of life'. Second: Art. V § 10 (V%20%20%20%2010): 'Transfer of cases from court of appeals to supreme court', effective 02 Sep 1976.
+- **Evidence (2026-10-17):** fetch_doc.py: 28,795 chars; 'I Section 10. Due process of law. — That no person shall be deprived of life'. Second: Art. V § 10 (V%20%20%20%2010): 'Transfer of cases from court of appeals to supreme court', effective 02 Sep 1976. | Independent check 2026-10-17: fetch_doc.py 28,795 chars, 'deprived of life' matched; second citation Mo. Const. art. III, § 23 ok
 
 ### `mo-constitution-justia` — Justia — Missouri Constitution
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Constitution of Missouri per section.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -129,13 +129,13 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** tier 2
 - **Hazard:** lettered-section slugs unverified
 - **Probe:** Mo. Const. art. I, § 10 → `https://law.justia.com/constitution/missouri/article-i/section-10/` — expect: "That no person shall be deprived of life, liberty or"
-- **Evidence (2026-10-17):** WebFetch: YES, 'That no person shall be deprived of life, liberty or'; 'Source: Const. of 1875, Art. I, Sec. 30.'; not truncated.
+- **Evidence (2026-10-17):** WebFetch: YES, 'That no person shall be deprived of life, liberty or'; 'Source: Const. of 1875, Art. I, Sec. 30.'; not truncated. | Independent check 2026-10-17: WebFetch YES 'That no person shall be deprived of life, liberty or'; second citation Mo. Const. art. III, § 23 ok
 
 ## C. Court rules
 
 ### `mo-rules-clerkhandbook` — Clerk Handbooks — Supreme Court Rules database (courts.mo.gov Domino)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Office of State Courts Administrator · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Office of State Courts Administrator · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court Rules, one document per rule subdivision, with Subject, Adopted date and 'Revised / Effective Date'; latest effective date seen September 3, 2024 (repeal of 16.07).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -147,12 +147,13 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Official status:** Staff reference database ('Clerk Handbooks'); no official-status statement. Treat as a mirror of the rules; check its 'Revised / Effective Date' against the official page's 'Most Recently Effective'.
 - **Hazard:** may lag the official rule pages (secondary staff copy)
 - **Hazard:** search results ranked by relevance, not rule number
+- **Hazard:** SearchView returns other rules that mention the number (Query 74.04 also returned 55.27): take only the link whose text equals the rule number
 - **Probe:** Rule 55.27(a)(6) → `https://www.courts.mo.gov/courts/ClerkHandbooksP2RulesOnly.nsf/c0c6ffa99df4993f86256ba50057dcb8/a9fdabe676220f8986256ca600521544` — expect: "Failure to state a claim upon which relief can be granted"
-- **Evidence (2026-10-17):** fetch_doc.py: 6,571 chars; '55.27. Defenses and Objections ... (a) How Presented. Every defense, in law or fact'; Revised/Effective January 1, 2012 (matches official page). SearchView Query=55.27 -> 55.27 link first. Second: 84.04 (Revised/Effective January 1, 2018) and 4-1.7 doc d06710dff1830d2686256ca600521205 ('RULE 4-1.7: CONFLICT OF INTEREST: CURRENT CLIENTS', July 1, 2007).
+- **Evidence (2026-10-17):** fetch_doc.py: 6,571 chars; '55.27. Defenses and Objections ... (a) How Presented. Every defense, in law or fact'; Revised/Effective January 1, 2012 (matches official page). SearchView Query=55.27 -> 55.27 link first. Second: 84.04 (Revised/Effective January 1, 2018) and 4-1.7 doc d06710dff1830d2686256ca600521205 ('RULE 4-1.7: CONFLICT OF INTEREST: CURRENT CLIENTS', July 1, 2007). | Independent check 2026-10-17: fetch_doc.py 6,571 chars, 'Failure to state a claim' matched; second citation Rule 74.04 ok
 
 ### `mo-rules-courts` — Missouri Supreme Court Rules (per-rule pages, courts.mo.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Supreme Court of Missouri / Office of State Courts Administrator · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Supreme Court of Missouri / Office of State Courts Administrator · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All Supreme Court Rules: Rules 1-18 (Bar and Judiciary; Rule 4 = Rules of Professional Conduct, cited 4-1.7), civil procedure 41-101, criminal procedure 19-36, juvenile, probate, etc. One page per rule subdivision (55.27, 84.04, 4-1.7) with comments and adoption history.
 - **Read via (in order):** **fetch tool**
 - **Access:** `search-only` · format html
@@ -165,21 +166,22 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** page ids opaque (search hop)
 - **Hazard:** script refused (403)
 - **Hazard:** index tree links not readable by WebFetch
+- **Hazard:** search hop fragile: WebSearch for Rule 74.04 ranked the Clerk Handbook copy first and the official page (id=199744) second
 - **Probe:** Rule 55.27 → `https://www.courts.mo.gov/page.jsp?id=199658` — expect: "Every defense, in law or fact, to a claim in"
-- **Evidence (2026-10-17):** WebFetch: YES, Rule 55.27 body 'Every defense, in law or fact, to a claim in'; 'Most Recently Effective: January 01, 2012'; not truncated. Second: Rule 4-1.7 (id 198912): '(a) Except as provided in Rule 4-1.7(b), a lawyer shall'; 'Most Recently Effective: July 01, 2007'. fetch_doc.py: HTTP 403 REFUSED.
+- **Evidence (2026-10-17):** WebFetch: YES, Rule 55.27 body 'Every defense, in law or fact, to a claim in'; 'Most Recently Effective: January 01, 2012'; not truncated. Second: Rule 4-1.7 (id 198912): '(a) Except as provided in Rule 4-1.7(b), a lawyer shall'; 'Most Recently Effective: July 01, 2007'. fetch_doc.py: HTTP 403 REFUSED. | Independent check 2026-10-17: WebFetch YES 'Every defense, in law or fact, to a claim in any pleading'; script 403 as recorded; second citation Rule 74.04 (page.jsp?id=199744) ok
 
 ## D. Administrative code
 
 ### `mo-csr-sos` — Code of State Regulations (CSR)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Missouri Secretary of State, Administrative Rules Division · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Missouri Secretary of State, Administrative Rules Division · text: **fetch-and-quote** · official: unknown
 - **Coverage:** All 20+ titles, current edition, one PDF per division chapter; archived editions linked per title.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
   - Pattern: `https://www.sos.mo.gov/cmsimages/adrules/csr/current/{title}csr/{title}c{division}-{chapter}.pdf`
   - Placeholders: 10 CSR 10-6.060 -> 10csr/10c10-6.pdf ; 20 CSR 2150-2.001 -> 20csr/20c2150-2.pdf. Some files carry a suffix (10c20-7a.pdf), so confirm on the title index. Path case varies in links (CMSImages/AdRules vs cmsimages/adrules); both served.
   - Index: `https://www.sos.mo.gov/adrules/csr/current/{title}csr/{title}csr`
-  - Navigation: title index (e.g. /adrules/csr/current/10csr/10csr) -> 'Chapter N' link under the division heading -> chapter PDF -> find the rule heading '{title} CSR {division}-{chapter}.{rule}'.
+  - Navigation: title index (e.g. /adrules/csr/current/19csr/19csr) -> every chapter link's text is only 'Chapter N' (the division appears only in headings and file names), so filter links by file name: fetch_doc.py links {index} '{title}c{division}-' -> pick '{title}c{division}-{chapter}.pdf' (or suffixed variant) -> find the rule heading '{title} CSR {division}-{chapter}.{rule}'.
 - **Automation:** WebFetch gated · shell ok · robots: curl of /robots.txt through the proxy got a Cloudflare 'Just a moment...' page; fetch_doc.py check reported robots permits and fetched pages and PDFs without a challenge.
   - Chapter PDFs are long (10c10-6 = 164 pages, 1.27M chars) and two-column: extracted text interleaves columns, so quote with fetch_doc.py verify on short spans or ingest with layout extraction.
 - **Currency:** footer of every PDF page: Secretary of State name and date — observed: "Denny Hoskins (6/30/26) CODE OF STATE REGULATIONS"
@@ -188,12 +190,14 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** very long chapter PDFs exceed WebFetch window
 - **Hazard:** irregular file suffixes (10c20-7a)
 - **Hazard:** possible Cloudflare challenge for some clients
+- **Hazard:** title-index link text is only 'Chapter N': filter by file name ({title}c{division}-)
+- **Hazard:** rescinded rules disappear from the SOS PDFs but LII may still serve a page (19 CSR 30-1.010)
 - **Probe:** 10 CSR 10-6.060 → `https://www.sos.mo.gov/CMSImages/AdRules/csr/current/10csr/10c10-6.pdf` — expect: "PURPOSE: This rule defines sources required to obtain permits"
-- **Evidence (2026-10-17):** fetch_doc.py: PDF 164 pp, 1,275,288 chars, last-modified 22 Jun 2026; heading '10 CSR 10-6.060 Construction Permits Required' at p.41 with 'PURPOSE: This rule defines sources required to obtain permits'. Second: 20 CSR 2150-2.001 in 20c2150-2.pdf (28 pp): 'PURPOSE: This rule defines terms used in Chapter 334, RSMo'. Footer '(5/31/26)'. WebFetch on title index: gated.
+- **Evidence (2026-10-17):** fetch_doc.py: PDF 164 pp, 1,275,288 chars, last-modified 22 Jun 2026; heading '10 CSR 10-6.060 Construction Permits Required' at p.41 with 'PURPOSE: This rule defines sources required to obtain permits'. Second: 20 CSR 2150-2.001 in 20c2150-2.pdf (28 pp): 'PURPOSE: This rule defines terms used in Chapter 334, RSMo'. Footer '(5/31/26)'. WebFetch on title index: gated. | Independent check 2026-10-17: fetch_doc.py PDF 164 pp, 'PURPOSE: This rule defines sources required to obtain permits' at p.41; second citation 19 CSR 30-1.011 (19csr/19c30-1.pdf) ok
 
 ### `mo-csr-lii` — Cornell LII — Missouri Code of State Regulations
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Legal Information Institute · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Legal Information Institute · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-rule HTML pages for the CSR.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -204,27 +208,29 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Currency:** none on page; HTTP Last-Modified only — observed: "Last-Modified: Sun, 03 Aug 2025"
 - **Official status:** Third-party compilation.
 - **Hazard:** tier 2; possibly stale (Aug 2025)
+- **Hazard:** serves pages for rescinded rules (19 CSR 30-1.010): confirm against the SOS chapter PDF
 - **Probe:** 10 CSR 10-6.060 → `https://www.law.cornell.edu/regulations/missouri/10-CSR-10-6-060` — expect: "PURPOSE: This rule defines sources required to obtain permits to construct"
-- **Evidence (2026-10-17):** fetch_doc.py: 90,554 chars; '10 CSR 10-6.060 - Construction Permits Required ... PURPOSE: This rule defines'. Second: 20-CSR-2150-2-001: 'PURPOSE: This rule defines terms used in Chapter 334, RSMo'.
+- **Evidence (2026-10-17):** fetch_doc.py: 90,554 chars; '10 CSR 10-6.060 - Construction Permits Required ... PURPOSE: This rule defines'. Second: 20-CSR-2150-2-001: 'PURPOSE: This rule defines terms used in Chapter 334, RSMo'. | Independent check 2026-10-17: fetch_doc.py 90,554 chars, 'PURPOSE: This rule defines sources' matched; Last-Modified 03 Aug 2025; second citation 19 CSR 30-1.011 ok
 
 ## D. Administrative register
 
 ### `mo-register-sos` — Missouri Register
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Missouri Secretary of State, Administrative Rules Division · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Missouri Secretary of State, Administrative Rules Division · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Semi-monthly issues; year pages listed back to 2007 on the Register index; current Volume 51 (2026).
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
   - Index: `https://www.sos.mo.gov/adrules/moreg/moreg`
-  - Navigation: Register index -> year page (/adrules/moreg/{year}) or latest issue link -> issue page /adrules/moreg/{year}/v{vol}/n{num} shows 'Volume V, Number N (Pages a-b)' -> PDF (e.g. /CMSImages/AdRules/moreg/2026/v51n20Oct15/v51n20.pdf). To resolve '51 Mo. Reg. 1313' pick the issue whose page range contains the page.
+  - Navigation: Register index /adrules/moreg/moreg -> latest issue page /adrules/moreg/{year}/v{vol}/n{num} -> PDF; past years: /adrules/moreg/{year} lists every issue PDF directly ('October 1, 2024 - Volume 49, Number 19'). Link text has no page ranges: to resolve '49 Mo. Reg. 1437' pick issues by date and open the PDF cover ('Pages 1437—1484').
 - **Automation:** WebFetch untested · shell ok · robots: as mo-csr-sos
-  - fetch_doc.py links on /adrules/moreg/2026 returned only sidebar links (issue list may be script-rendered); the index page's latest-issue link worked.
+  - Past-year pages list issue PDFs directly (2024 checked independently); the 2026 year page returned only sidebar links.
 - **Currency:** PDF cover — observed: "Volume 51, Number 20 October 15, 2026 Pages 1313–1404"
 - **Official status:** Published by the Secretary of State; no certification statement seen.
-- **Hazard:** year pages may not expose issue links to a plain fetch
+- **Hazard:** current-year page (/adrules/moreg/2026) exposed only sidebar links to fetch_doc.py; past-year pages (2024) list every issue PDF
+- **Hazard:** issue link text lacks page ranges: open covers to resolve a page cite
 - **Hazard:** issue PDF file names include a date slug (v51n20Oct15) - not constructible
 - **Probe:** 51 Mo. Reg. 1313 → `https://www.sos.mo.gov/CMSImages/AdRules/moreg/2026/v51n20Oct15/v51n20.pdf` — expect: "Volume 51, Number 20 October 15, 2026 Pages 1313"
-- **Evidence (2026-10-17):** fetch_doc.py: PDF 92 pp, 671,011 chars, last-modified 07 Oct 2026; cover 'Volume 51, Number 20 October 15, 2026 Pages 1313–1404'. Located via /adrules/moreg/moreg -> /adrules/moreg/2026/v51/n20.
+- **Evidence (2026-10-17):** fetch_doc.py: PDF 92 pp, 671,011 chars, last-modified 07 Oct 2026; cover 'Volume 51, Number 20 October 15, 2026 Pages 1313–1404'. Located via /adrules/moreg/moreg -> /adrules/moreg/2026/v51/n20. | Independent check 2026-10-17: fetch_doc.py PDF 92 pp, 'Volume 51, Number 20 October 15, 2026 Pages 1313–1404'; second citation 49 Mo. Reg. 1437 (2024/v49n19Oct1/v49n19.pdf) ok
 
 ## E. Case law
 
@@ -244,12 +250,12 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** WebFetch errors on opinion PDFs
 - **Hazard:** slip pagination only
 - **Probe:** State v. Harris, No. SC101233 (Mo. banc June 23, 2026) → `https://www.courts.mo.gov/file.jsp?id=236410` — expect: "In his sole point on appeal, Harris contends"
-- **Evidence (2026-10-17):** fetch_doc.py: 'refused: HTTP 403' (file.jsp?id=236410, page.jsp?id=58122, 103681). WebFetch: CLIENT_ERROR 'error while fetching' on file.jsp?id=236410, 236411 and page.jsp?id=12086 listing.
+- **Evidence (2026-10-17):** fetch_doc.py: 'refused: HTTP 403' (file.jsp?id=236410, page.jsp?id=58122, 103681). WebFetch: CLIENT_ERROR 'error while fetching' on file.jsp?id=236410, 236411 and page.jsp?id=12086 listing. | Re-confirmed blocked 2026-10-17: WebFetch file.jsp?id=236410 CLIENT_ERROR 'There was an error while fetching.'
 - **Notes:** Link to these PDFs as the official slip opinion when the minutes give the id; quote from Justia.
 
 ### `mo-cases-justia` — Justia — Missouri Supreme Court and Court of Appeals opinions
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court 1852-2026; Court of Appeals 1891-2026 (year listings). Modern pages carry slip pagination, no S.W.3d cite.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -263,44 +269,48 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - **Hazard:** tier 2
 - **Hazard:** slip pagination only
 - **Hazard:** decision year required in URL
+- **Hazard:** year listings are not strictly in date order
+- **Hazard:** WebFetch shows slip page numbers as bare numerals: pinpoint pages ambiguous - check the PDF copy
 - **Probe:** State v. Harris, No. SC101233 (Mo. banc June 23, 2026) → `https://law.justia.com/cases/missouri/supreme-court/2026/sc101233.html` — expect: "In his sole point on appeal, Harris contends the circuit court"
-- **Evidence (2026-10-17):** WebFetch: YES, 'In his sole point on appeal, Harris contends the circuit court'; slip pp. 1-16; not truncated. Second: court-of-appeals/2024/ed112690.html 'Mary Beth Fryman sued The Board of Regents of Southeast Missouri State'.
+- **Evidence (2026-10-17):** WebFetch: YES, 'In his sole point on appeal, Harris contends the circuit court'; slip pp. 1-16; not truncated. Second: court-of-appeals/2024/ed112690.html 'Mary Beth Fryman sued The Board of Regents of Southeast Missouri State'. | Independent check 2026-10-17: WebFetch YES 'In his sole point on appeal, Harris contends the circuit court'; slip pagination; second citation Whitehead v. Moore, No. WD87588 (2025/wd87588.html) ok
 
 ## F. Subsequent history
 
 ### `mo-coa-minutes` — Missouri Court of Appeals post-opinion motion minutes (Western District)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Missouri Court of Appeals, Western District · text: **link-only** · official: official
-- **Coverage:** Post-Opinion Motion Rulings listed by date (Oct 2024 - June 2025 seen); PDFs via file.jsp.
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Missouri Court of Appeals, Western District · text: **link-only** · official: official
+- **Coverage:** Post-Opinion Motion Rulings, Western District, Oct 2024 - June 24, 2025 only (list appears stale).
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format pdf
   - Index: `https://www.courts.mo.gov/page.jsp?id=2557`
-  - Navigation: page lists 'Post-Opinion Motion Rulings of <date>' -> PDF (file.jsp?id=N) listing WD docket numbers. Eastern/Southern District equivalents not located.
+  - Navigation: page lists 'Post-Opinion Motion Rulings of <date>' but its file.jsp links are not visible to WebFetch; use only as a link, or locate a ruling PDF by WebSearch.
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: not disallowed
   - fetch_doc.py 403 on page.jsp; WebFetch read the page and one ruling PDF (file.jsp?id=214050).
 - **Currency:** list — observed: "Post-Opinion Motion Rulings of October 1, 2024"
 - **Official status:** Court's own post-opinion motion rulings (rehearing / transfer-to-Supreme-Court motions).
+- **Hazard:** index links not visible to WebFetch and page.jsp/file.jsp refused to script: ruling PDFs reachable only via WebSearch hits
+- **Hazard:** list stale: newest entry June 24, 2025
 - **Hazard:** only Western District found
-- **Hazard:** script refused (403)
-- **Probe:** WD85884 post-opinion motions → `https://www.courts.mo.gov/file.jsp?id=214050` — expect: "Motion Rulings"
-- **Evidence (2026-10-17):** WebFetch: page.jsp?id=2557 'Missouri Court of Appeals – Western District Minutes'; file.jsp?id=214050 = Motion Rulings report Oct 29, 2024 listing WD85884 ... WD86806.
+- **Probe:** WD85884 post-opinion motions → `https://www.courts.mo.gov/page.jsp?id=2557` — expect: "Post-Opinion Motion Rulings of June 24, 2025"
+- **Evidence (2026-10-17):** WebFetch: page.jsp?id=2557 lists 'Post-Opinion Motion Rulings of <date>' (Oct 1, 2024 - June 24, 2025) and file.jsp?id=214050 (found by WebSearch) read as a WD Motion Rulings report. Independent check 2026-10-17: the index exposes no file.jsp links to WebFetch and fetch_doc.py gets 403, so a fresh run cannot get from the index to any ruling PDF; newest entry June 24, 2025.
 
 ### `mo-sc-minutes` — Supreme Court of Missouri minutes (hand-downs, transfers, writs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Supreme Court of Missouri · text: **fetch-and-quote** · official: official
-- **Coverage:** Minutes from May 1998 to date (643 entries in the view): opinions handed down (with file.jsp links) and 'Applications for Transfer' dispositions, each naming the Court of Appeals docket (e.g. 'transfer from the Missouri Court of Appeals, ED113496, denied').
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Supreme Court of Missouri · text: **fetch-and-quote** · official: official
+- **Coverage:** Minutes view lists 641 'Minutes of <date>' entries from May 1998 to date, but NOT every session: hand-down minutes exist outside the view (Minutes of June 23, 2026, found by WebSearch at doc b3132bb9f649b0c186258e1f004c9e11, is absent; 2026 entries jump June 2 -> July 7). Entries give opinions handed down (file.jsp links) and 'Applications for Transfer' dispositions naming the Court of Appeals docket.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format html
   - Index: `https://www.courts.mo.gov/SUP/index.nsf/cfc8c4b5bc15cb158625661d0073593c?OpenView&Start=1&Count=1000`
-  - Navigation: view lists 'Minutes of <date>' links newest first -> minutes page -> grep for the Court of Appeals docket (ED/WD/SD number) or SC number. Transfer applications are decided weeks after the appeals opinion: scan minutes dated 1-3 months after it. Domino ?SearchView returned no hits (full-text index not usable).
+  - Navigation: view lists 'Minutes of <date>' links newest first -> minutes page -> grep for the Court of Appeals docket (ED/WD/SD number) or SC number; use 'fetch_doc.py links' for file.jsp ids. Transfer applications are decided weeks after the appeals opinion: scan minutes dated 1-3 months after it. Sessions missing from the view can sometimes be found by WebSearch ('"Minutes of <date>" site:courts.mo.gov SUP'). Domino ?SearchView returned no hits.
 - **Automation:** WebFetch untested · shell ok · robots: /SUP/ not disallowed
   - Domino .nsf pages return 200 to fetch_doc.py although page.jsp/file.jsp return 403.
 - **Currency:** view lists newest minutes first — observed: "Minutes of September 29, 2026"
 - **Official status:** The Court's own minutes, signed by the Chief Justice; courts.mo.gov opinions page says minutes cover rehearing motions, transfer applications and writ petitions.
+- **Hazard:** the minutes list is incomplete (no June 23, 2026 entry although that minutes document exists): absence from the list is not evidence of no transfer ruling or hand-down - also check Justia / WebSearch
 - **Hazard:** no docket search: date-window scan
-- **Hazard:** opinion links point to file.jsp (refused to script)
+- **Hazard:** opinion links (file.jsp) show only via fetch_doc.py links, not grep text; file.jsp itself refused to script
 - **Probe:** CBAM, LLC v. ALPS Acquisitions, LLC, ED113496, transfer denied → `https://www.courts.mo.gov/SUP/index.nsf/cfc8c4b5bc15cb158625661d0073593c/a984ebacb282c9d786258e810054d46d?OpenDocument` — expect: "application for transfer from the Missouri Court of Appeals, ED113496, denied"
-- **Evidence (2026-10-17):** fetch_doc.py: minutes of Sept 29, 2026, 6,791 chars; 'Applications for Transfer and Recommendations for Transfer' with ED113496, SD39269, WD87003 denials. View: 643 minutes, oldest 'Minutes of May 26, 1998'. Minutes of June 23, 2026 list SC101233 with link file.jsp?id=236410.
+- **Evidence (2026-10-17):** fetch_doc.py: minutes of Sept 29, 2026, 6,791 chars; 'Applications for Transfer and Recommendations for Transfer' with ED113496, SD39269, WD87003 denials. View: 641 'Minutes of' links, oldest 'Minutes of May 26, 1998'. Minutes of June 23, 2026 (doc b3132bb9f649b0c186258e1f004c9e11, reached from WebSearch, NOT listed in the view) list SC101233 with link file.jsp?id=236410. | Independent check 2026-10-17: fetch_doc.py 6,791 chars, 'application for transfer from the Missouri Court of Appeals, ED113496, denied'; second citation WD88246 transfer sustained (Minutes of July 7, 2026) ok
 
 ## Not available (do not look for these again)
 
@@ -323,3 +333,6 @@ Missouri style cites sections as 'section 516.120, RSMo 2016' or 'RSMo Cum. Supp
 - Eastern and Southern District post-opinion motion minutes not located.
 - Clerk Handbooks rules database currency vs official rule pages: check a rule amended after Sept 2024.
 - Justia case slugs before ~2000 not verified.
+- mo-coa-minutes: Western District post-opinion rulings index exposes no PDF links to WebFetch and is stale (June 24, 2025); find a reachable current source for Court of Appeals rehearing/transfer-motion rulings.
+- mo-sc-minutes: why some minutes (e.g. June 23, 2026) are missing from the Domino view; look for another view of the same database that lists all sessions.
+- Justia constitution lettered-section slugs (art. I § 18(a)) untested.

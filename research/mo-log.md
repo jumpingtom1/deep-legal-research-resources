@@ -109,3 +109,6 @@ All probes on 2026-10-17 by `research`. "WF" = WebFetch; "script" = `scripts/fet
 
 ## G — Citation map
 Built from memory and the pages above (RSMo style "section 516.120, RSMo 2016"; dotted subsections 537.765.3; "(Mo. banc YYYY)", "(Mo. App. E.D. YYYY)"; dockets SC/ED/WD/SD). `build.py --check`: no ERROR/WARN for mo.json. `build.py --cross`: no line involving mo (one unrelated sc/pa line).
+
+## Fix pass (2026-10-17, from research/mo-verify.json)
+Applied the independent check: 11 rows marked `by: independent`, with second citations appended. mo-coa-minutes downgraded to `reported`: its index exposes no file.jsp links to WebFetch and is stale (June 24, 2025). mo-sc-minutes: the view omits some sessions; the June 23, 2026 minutes document was reached via WebSearch and is not in the view. Hazard added and evidence corrected; the count is 641. mo-csr-sos: navigation now filters links by file name. mo-register-sos: past-year pages do list issue PDFs. Regex: added R.S.Mo., V.A.M.S., "section X of the Revised Statutes of Missouri" and "Missouri Rule(s) of Professional Conduct". No new fetches. `--check` and `--cross` are clean.

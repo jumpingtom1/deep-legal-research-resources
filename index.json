@@ -1352,16 +1352,17 @@
     "mo": {
       "name": "Missouri",
       "file": "jurisdictions/mo.md",
-      "sha256": "03baafda6c66d7624d5197be865cb4cc2c80b0de3b15ddf403894ed47a656d66",
+      "sha256": "2eeff1f7b9a649d5bbc5b0b54b0dd237d38ae3844e28dd86827114b0cbd94066",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 12,
-        "blocked": 1
+        "verified_independent": 11,
+        "blocked": 1,
+        "reported": 1
       },
       "citation_patterns": [
         {
           "label": "Revised Statutes of Missouri (RSMo)",
-          "regex": "Mo\\.\\s*(?:Rev|Ann)\\.\\s*Stat\\.\\s*(?:\\(\\d{4}\\)\\s*)?(?:\u00a7+\\s*)?(?P<section>\\d{1,3}\\.\\d{3,4})(?!\\d)|RSMo\\.?\\s*(?:\\(\\d{4}\\)\\s*)?\u00a7+\\s*(?P<section2>\\d{1,3}\\.\\d{3,4})(?!\\d)|(?:\u00a7+|sec(?:tion)?s?\\.?)\\s*(?P<section3>\\d{1,3}\\.\\d{3,4})(?!\\d)(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*(?:(?:,\\s*|\\s+(?:and|or|to|through)\\s+)\\d{1,3}\\.\\d{3,4}(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*)*,?\\s+RSMo\\b|(?<![\\d.\u00a7])(?P<section4>\\d{1,3}\\.\\d{3,4})(?:\\.\\d+)*,?\\s+RSMo\\b",
+          "regex": "Mo\\.\\s*(?:Rev|Ann)\\.\\s*Stat\\.\\s*(?:\\(\\d{4}\\)\\s*)?(?:\u00a7+\\s*)?(?P<section>\\d{1,3}\\.\\d{3,4})(?!\\d)|(?:RSMo|R\\.\\s*S\\.\\s*Mo|V\\.\\s*A\\.\\s*M\\.\\s*S)\\.?\\s*(?:\\(\\d{4}\\)\\s*)?\u00a7+\\s*(?P<section2>\\d{1,3}\\.\\d{3,4})(?!\\d)|(?:\u00a7+|sec(?:tion)?s?\\.?)\\s*(?P<section3>\\d{1,3}\\.\\d{3,4})(?!\\d)(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*(?:(?:,\\s*|\\s+(?:and|or|to|through)\\s+)\\d{1,3}\\.\\d{3,4}(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*)*,?\\s+RSMo\\b|(?<![\\d.\u00a7])(?P<section4>\\d{1,3}\\.\\d{3,4})(?:\\.\\d+)*,?\\s+RSMo\\b|(?:\u00a7+|sec(?:tion)?\\.?)\\s*(?P<section5>\\d{1,3}\\.\\d{3,4})(?!\\d)(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Revised\\s+Statutes\\s+of\\s+Missouri",
           "context_required": false
         },
         {
@@ -1376,7 +1377,7 @@
         },
         {
           "label": "Missouri Supreme Court Rules (marked)",
-          "regex": "(?:Mo\\.\\s*Sup\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Mo\\.\\s*R\\.\\s*(?:Civ|Crim|App)\\.\\s*P\\.|Mo\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Missouri\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}-\\d\\.\\d{1,2}|\\d{1,3}(?:\\.\\d{1,3})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,3})?)(?:\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Missouri\\s+(?:Supreme\\s+Court\\s+)?Rules",
+          "regex": "(?:Mo\\.\\s*Sup\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Mo\\.\\s*R\\.\\s*(?:Civ|Crim|App)\\.\\s*P\\.|Mo\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Missouri\\s+Supreme\\s+Court\\s+Rule|Missouri\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<rule>\\d{1,3}-\\d\\.\\d{1,2}|\\d{1,3}(?:\\.\\d{1,3})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,3})?)(?:\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Missouri\\s+(?:Supreme\\s+Court\\s+)?Rules",
           "context_required": false
         },
         {
