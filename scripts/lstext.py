@@ -77,8 +77,30 @@ class _HTMLText(html.parser.HTMLParser):
             self.out.append(data)
 
 
+def _sniff_encoding(b, declared=None):
+    """Header charset > <meta charset> > BOM > strict UTF-8 > Windows-1252."""
+    if declared:
+        return declared
+    if b[:3] == b"\xef\xbb\xbf":
+        return "utf-8-sig"
+    m = re.search(rb"""<meta[^>]+charset\s*=\s*["']?([\w-]+)""", b[:4096], re.I)
+    if m:
+        return m.group(1).decode("ascii", "replace")
+    try:
+        b.decode("utf-8")
+        return "utf-8"
+    except UnicodeDecodeError:
+        return "cp1252"
+
+
 def html_text(html_bytes, encoding=None):
-    s = html_bytes.decode(encoding or "utf-8", "replace")
+    enc = _sniff_encoding(html_bytes, encoding)
+    if enc.lower() in ("iso-8859-1", "latin-1", "latin1", "us-ascii", "ascii"):
+        enc = "cp1252"          # what browsers actually use for these labels
+    try:
+        s = html_bytes.decode(enc, "replace")
+    except LookupError:
+        s = html_bytes.decode("utf-8", "replace")
     p = _HTMLText()
     p.feed(s)
     text = html.unescape("".join(p.out))

@@ -48,6 +48,7 @@
   "advance.lexis.com": {
    "status": "allowed",
    "sources": [
+    "co-crs-lexis",
     "ga-code-lexis",
     "nj-admincode-lexis"
    ],
@@ -70,6 +71,21 @@
    ],
    "blocked_sources": []
   },
+  "apps.azcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-dockets-appellate"
+   ],
+   "blocked_sources": []
+  },
+  "apps.azsos.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-aac-sos",
+    "az-register-sos"
+   ],
+   "blocked_sources": []
+  },
   "archives.lib.state.ma.us": {
    "status": "allowed",
    "sources": [
@@ -84,10 +100,39 @@
    ],
    "blocked_sources": []
   },
+  "azrules.westgroup.com": {
+   "status": "blocked",
+   "sources": [
+    "az-rules-westlaw"
+   ],
+   "blocked_sources": []
+  },
   "california.public.law": {
    "status": "allowed",
    "sources": [
     "ca-codes-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "coa1.azcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-opinions-coa1-azcourts"
+   ],
+   "blocked_sources": []
+  },
+  "colorado.public.law": {
+   "status": "allowed",
+   "sources": [
+    "co-crs-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "content.leg.colorado.gov": {
+   "status": "allowed",
+   "sources": [
+    "co-crs-olls",
+    "co-constitution-olls"
    ],
    "blocked_sources": []
   },
@@ -220,9 +265,14 @@
   "law.justia.com": {
    "status": "allowed",
    "sources": [
+    "az-ars-justia",
+    "az-cases-justia",
     "ca-codes-justia",
     "ca-const-justia",
     "ca-opinions-justia",
+    "co-crs-justia",
+    "co-constitution-justia",
+    "co-cases-justia",
     "de-code-justia",
     "de-constitution-justia",
     "de-cases-justia",
@@ -268,6 +318,13 @@
    "status": "allowed",
    "sources": [
     "fl-laws-of-florida"
+   ],
+   "blocked_sources": []
+  },
+  "leg.colorado.gov": {
+   "status": "blocked",
+   "sources": [
+    "co-session-laws"
    ],
    "blocked_sources": []
   },
@@ -394,6 +451,14 @@
    ],
    "blocked_sources": []
   },
+  "olls.info": {
+   "status": "allowed",
+   "sources": [
+    "co-crs-olls",
+    "co-constitution-olls"
+   ],
+   "blocked_sources": []
+  },
   "pub.njleg.gov": {
    "status": "allowed",
    "sources": [
@@ -428,6 +493,13 @@
    "status": "allowed",
    "sources": [
     "nc-ncac-oah"
+   ],
+   "blocked_sources": []
+  },
+  "research.coloradojudicial.gov": {
+   "status": "allowed",
+   "sources": [
+    "co-opinions-research"
    ],
    "blocked_sources": []
   },
@@ -520,6 +592,46 @@
     "fl-rules-appellate-floridabar",
     "fl-rules-criminal-floridabar",
     "fl-rules-judadmin-floridabar"
+   ],
+   "blocked_sources": []
+  },
+  "www.appeals2.az.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-opinions-coa2"
+   ],
+   "blocked_sources": []
+  },
+  "www.azcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-rules-amendments-azcourts",
+    "az-opinions-supreme-azcourts",
+    "az-dockets-appellate"
+   ],
+   "blocked_sources": []
+  },
+  "www.azleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "az-ars-azleg",
+    "az-constitution-azleg"
+   ],
+   "blocked_sources": []
+  },
+  "www.coloradojudicial.gov": {
+   "status": "allowed",
+   "sources": [
+    "co-rules-changes",
+    "co-opinions-judicial",
+    "co-subsequent-history-sc"
+   ],
+   "blocked_sources": []
+  },
+  "www.coloradosos.gov": {
+   "status": "allowed",
+   "sources": [
+    "co-register-sos"
    ],
    "blocked_sources": []
   },
@@ -616,7 +728,9 @@
   "www.law.cornell.edu": {
    "status": "allowed",
    "sources": [
+    "az-aac-lii",
     "ca-ccr-lii",
+    "co-ccr-lii",
     "de-admincode-lii",
     "fl-fac-lii",
     "ga-admincode-lii",
@@ -666,6 +780,8 @@
   "www.lexisnexis.com": {
    "status": "allowed",
    "sources": [
+    "co-crs-lexis",
+    "co-rules-lexis",
     "nj-admincode-lexis",
     "nj-register-lexis"
    ],
@@ -803,6 +919,13 @@
    "status": "allowed",
    "sources": [
     "ma-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.sos.state.co.us": {
+   "status": "allowed",
+   "sources": [
+    "co-ccr-sos"
    ],
    "blocked_sources": []
   },
