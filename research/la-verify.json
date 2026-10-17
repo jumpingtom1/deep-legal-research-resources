@@ -1,0 +1,269 @@
+{
+  "jurisdiction": "la",
+  "date": "2026-10-17",
+  "rows": [
+    {
+      "id": "la-codes-legis",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact: 'Every act whatever of man that causes damage to another' (2,540 chars)",
+      "generalised_citation": "La. Code Crim. Proc. art. 930.8",
+      "generalised_url": "https://legis.la.gov/legis/Law.aspx?d=112949",
+      "generalised_outcome": "ok",
+      "instruction_problems": "None for the route. Currency string on LawSearch.aspx still says 'through the 2025 First Extraordinary Session' although pages carry Acts 2026 history (e.g. RS 14:30.1), so the observed string understates currency.",
+      "suggested_fix": "Note that the LawSearch currency line lags the article pages; cite the Acts history at the foot of each page instead."
+    },
+    {
+      "id": "la-rs-legis",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact: 'A public entity is responsible under Civil Code Article 2317' (4,605 chars)",
+      "generalised_citation": "La. R.S. 14:30.1",
+      "generalised_url": "https://legis.la.gov/legis/Law.aspx?d=150048",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Web search (site:legis.la.gov \"RS 14:30.1\" + catchline) returned TWO live ids, d=150048 and d=78398, both headed 'RS 14:30.1' with the same text but differently formatted Acts history (eff. dates only on 150048). A fresh run cannot tell which is canonical.",
+      "suggested_fix": "Add hazard: duplicate Law.aspx ids can exist for one section; prefer the id whose history lists effective dates / matches LawPrint, and confirm heading."
+    },
+    {
+      "id": "la-codes-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'Every act whatever of man that causes damage to another'; '2025 Louisiana Laws'; not truncated",
+      "generalised_citation": "La. R.S. 14:30.1",
+      "generalised_url": "https://law.justia.com/codes/louisiana/revised-statutes/title-14/rs-14-30-1/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "pattern_rules do not say how decimal sections map; '.' becomes '-' (14:30.1 -> rs-14-30-1). Untested for decimal code articles.",
+      "suggested_fix": "Add to pattern_rules: decimal point → hyphen (rs-14-30-1; presumably article-2317-1)."
+    },
+    {
+      "id": "la-const-legis",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact: 'All courts shall be open, and every person shall have an adequate remedy'",
+      "generalised_citation": "La. Const. art. V, § 10",
+      "generalised_url": "https://www.legis.la.gov/legis/Law.aspx?d=206447",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Web search 'legis.la.gov Law.aspx \"CONST 5 10\"' found the id first hit; heading 'CONST 5 10' confirmed. WebFetch still untested.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-const-senate-pdf",
+      "outcome": "confirmed",
+      "probe_evidence": "Script grep p.15 'Section 22. All courts shall be open, and every' (columns interleaved); cover '(As amended through calendar year 2023)'",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Two-column interleaving confirmed: the Art. I § 22 line is spliced with § 18 bail text, so only short quotes verify.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-const-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'All courts shall be open, and every person shall have'; disclaimer 'may not be the most recent version'",
+      "generalised_citation": "La. Const. art. V, § 10",
+      "generalised_url": "https://law.justia.com/constitution/louisiana/Article5.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-rules-urca",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact Rule 2-18.1 p.22; title '(As amended, with amendments effective as of July 1, 2026)'",
+      "generalised_citation": "Uniform Rules, Courts of Appeal, Rule 4-3",
+      "generalised_url": "https://www.fifthcircuit.org/pdf/URCA_eff07012026.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "uniform.aspx carries TWO Uniform Rules PDF links: 'Download the Uniform Rules ... (PDF)' (current) and an older 'Uniform Rules of Louisiana Courts of Appeal' -> 2023RevisedUniformRules.pdf. A run filtering on the title text could take the stale 2023 file. Rule 4-3 text p.26 (second grep match; first is a cross-reference).",
+      "suggested_fix": "Navigation: take the link whose text begins 'Download the Uniform Rules'; ignore 2023RevisedUniformRules.pdf; check the '(As amended ... effective as of' title line."
+    },
+    {
+      "id": "la-lac-doa",
+      "outcome": "discrepancy",
+      "probe_evidence": "Script: index grep 'current through the last amended date'; 33v03.docx now extracts 1,976,234 chars",
+      "generalised_citation": "LAC 33:III.501",
+      "generalised_url": "https://www.doa.la.gov/media/q4eanemv/33v03.docx",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Record says the .docx is unreadable (shell http-error, text link-only). With .docx support the script route works: `links <index> .docx` (157 links, text 'Title 33:III, Environmental Quality: Air'); `verify` exact 'The provisions of this Chapter apply to the owner and operator' PASSED at offset 197063. Traps: (1) whole-part files have a table of contents first, so grep '§501\\. Scope' hits the TOC (offset 1459) before the body (offset 197015); (2) the file never contains 'LAC 33:III.501' — sections are headed '§{section}. {catchline}' inside the part file; (3) pages=1 (no page numbers); (4) titles split into parts/volumes (33v03, 46v01, 01v01-03) so map title:part -> link text 'Title {t}:{Roman part}' not file name.",
+      "suggested_fix": "Upgrade: read_via script; text fetch-and-quote; shell ok; navigation 'index -> link text \"Title {t}:{part}\" (or \"Title {t},\" for unsplit titles) -> .docx -> fetch_doc.py grep \"§{section}\\. \" and take the match after the TOC (or section --start \"§{section}\\. \" past the TOC)'. Currency: index 'Last Amended Date' plus file last-modified (33v03: 28 Apr 2026). Make it the tier-1 route ahead of la-lac-lii."
+    },
+    {
+      "id": "la-lac-lii",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact 'The provisions of this Chapter apply to the owner and operator'; 'State regulations are updated quarterly'",
+      "generalised_citation": "LAC 33:V.109",
+      "generalised_url": "https://www.law.cornell.edu/regulations/louisiana/La-Admin-Code-tit-33-SS-V-109",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Pages report last-modified Aug 2025 (33:III.501 and 33:V.109), so LII may lag over a year, not a quarter; the official .docx (Apr 2026) is newer.",
+      "suggested_fix": "Add hazard: LII LAC copy last updated ~Aug 2025; demote below la-lac-doa now that .docx reads."
+    },
+    {
+      "id": "la-register-doa",
+      "outcome": "discrepancy",
+      "probe_evidence": "Script: listing has 10 '{Month} Edition' links 2601-2610.docx; 2603.docx extracts 748,092 chars",
+      "generalised_citation": "LR 52:336 (March 2026)",
+      "generalised_url": "https://www.doa.la.gov/media/wscpjapv/2603.docx",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Record says .docx unreadable; script now reads it. grep 'LR 52:336' found 189 'LR 52:' matches incl. 'LR 52:336 (March 2026), effective March 2, 2026'. No page breaks in extraction (pages=1), so an LR vol:page cannot be located by page directly: use the CUMULATIVE INDEX at the end of the latest edition ('Pages Issue 1-194 January 195-329 February ...') to pick the edition, then the opening CONTENTS list (entries end with start page numbers, e.g. '... Hurricane Ida 330') to find the item. Only 2026 (LR 52) editions are linked.",
+      "suggested_fix": "Upgrade: read_via script; text fetch-and-quote; shell ok; navigation 'LR 52:{page} -> cumulative index in latest edition gives the issue -> that edition .docx -> CONTENTS page numbers -> grep heading'. Keep hazard: earlier volumes not online here."
+    },
+    {
+      "id": "la-ca2-la2nd",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify exact 'Judgment rendered October 14, 2026.' (13 pp)",
+      "generalised_citation": "J. Calhoun One, L.L.C. v. Jeems Bayou Production Corp., No. 55,997-CA (La. App. 2 Cir. 12/18/24)",
+      "generalised_url": "https://www.la2nd.org/wp-content/uploads/2024/12/55997ca.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Listing links 'case number'/'View'/'Download' all point to the same PDF; fine. Slip pagination only, as stated.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-ca5-fifthcircuit",
+      "outcome": "confirmed",
+      "probe_evidence": "Script verify 'No. 26-CA-27' p.1; home list 'Case # Case Title 26-CA-27'",
+      "generalised_citation": "No. 26-KH-460 (La. App. 5 Cir.) writ disposition",
+      "generalised_url": "https://www.fifthcircuit.org/dmzdocs/WI/Writ%20Disposition/2026/5B3F96C5-DA97-4397-AAB8-6CE4713D63E4.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Home-page PDF links have NO anchor text ('(no text)' in fetch_doc.py links), so 'row for the case number -> PDF link' cannot be done with a links filter. Links appear in the same order as case numbers in the page text (checked 2: 26-C-483, 26-KH-460); confirm by reading 'No. …' on page 1. 26-CA-27 has both an opinion (OI/PO) and a rehearing ruling (RE).",
+      "suggested_fix": "Navigation: list dmzdocs links in order and pair with case numbers from `grep '2\\d-[A-Z]{1,2}-\\d+'` on the home page; always confirm 'No. {docket}' in the PDF."
+    },
+    {
+      "id": "la-sc-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'We granted the State's application to consider whether defendant's claim that the'",
+      "generalised_citation": "Cousain v. Smitty's Supply, Inc., 2025-C-01318 (La. 6/29/26)",
+      "generalised_url": "https://law.justia.com/cases/louisiana/supreme-court/2026/2025-c-01318.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Year in URL is year decided (2026), not the docket year (2025) — rule stated but easy to miss. PDF without ?ts= read by script (19 pp, cases.justia.com robots permits). 2026 listing still ends July 31, 2026 (27 entries): ~2.5-month lag.",
+      "suggested_fix": "State explicitly: PDF URL works without ?ts=; listing lags months behind the court."
+    },
+    {
+      "id": "la-ca-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 2026cw0629 page has no body, PDF link only (as recorded)",
+      "generalised_citation": "State v. Taylor, 56,618-KA (La. App. 2 Cir. 12/23/25)",
+      "generalised_url": "https://law.justia.com/cases/louisiana/second-circuit-court-of-appeal/2025/56-618-ka.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Second Circuit slug is '56-618-ka' (comma -> hyphen, type suffix kept, lower case) — not documented ('other circuits untested'). PDF https://cases.justia.com/louisiana/second-circuit-court-of-appeal/2025-56-618-ka.pdf read by script. The citation-map example '56,618 (La. App. 2 Cir. 12/17/25)' has the wrong date: Justia dates 56,618-KA December 23, 2025.",
+      "suggested_fix": "Add Second Circuit slug rule '{NN}-{NNN}-{type}'; fix example date to 12/23/25."
+    },
+    {
+      "id": "la-rules-district",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch www.lasc.org: no visible text, only base/viewport metadata (shared fetch for 4 lasc rows)",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Record says WebFetch 'gated'/timed out; this run WebFetch returned promptly with no visible text (only base/viewport meta) — still unreadable, but 'gated' is not what happened.",
+      "suggested_fix": "automation.webfetch: 'fail (empty Blazor shell)' rather than 'gated'."
+    },
+    {
+      "id": "la-rules-supreme",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch www.lasc.org: no visible text, only base/viewport metadata",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Record says WebFetch 'gated'/timed out; this run WebFetch returned promptly with no visible text (only base/viewport meta) — still unreadable, but 'gated' is not what happened.",
+      "suggested_fix": "Same as la-rules-district."
+    },
+    {
+      "id": "la-sc-lasc",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch www.lasc.org: no visible text, only base/viewport metadata",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Record says WebFetch 'gated'/timed out; this run WebFetch returned promptly with no visible text (only base/viewport meta) — still unreadable, but 'gated' is not what happened.",
+      "suggested_fix": "Same as la-rules-district."
+    },
+    {
+      "id": "la-subsequent-lasc",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch www.lasc.org: no visible text, only base/viewport metadata",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Record says WebFetch 'gated'/timed out; this run WebFetch returned promptly with no visible text (only base/viewport meta) — still unreadable, but 'gated' is not what happened.",
+      "suggested_fix": "Same as la-rules-district."
+    },
+    {
+      "id": "la-ca1-lafcca",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'OPINIONS 2026 Loading... Documents Loading'; no decision links",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-ca3-la3circuit",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'Search and review published court opinions issued by the Louisiana Third Circuit'; calendar __doPostBack only",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "la-ca4-la4th",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: 'Select a search category, then choose a search method.'; WebForm_DoPostBack only",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    }
+  ],
+  "regex_tests": [
+    {
+      "citation": "Article 2317.1 of the Louisiana Civil Code",
+      "matched_label": "Louisiana Civil Code",
+      "expected_label": "Louisiana Civil Code"
+    },
+    {
+      "citation": "La. R.S. 23:1032(A)(1)(a)",
+      "matched_label": "Louisiana Revised Statutes (+ bare R.S. variant)",
+      "expected_label": "Louisiana Revised Statutes"
+    },
+    {
+      "citation": "La. Code Crim. Proc. art. 701(D)",
+      "matched_label": "Louisiana Code of Criminal Procedure",
+      "expected_label": "Louisiana Code of Criminal Procedure"
+    },
+    {
+      "citation": "Louisiana Code of Evidence Article 412.2",
+      "matched_label": "Louisiana Code of Evidence (+ bare)",
+      "expected_label": "Louisiana Code of Evidence"
+    },
+    {
+      "citation": "Smith v. Jones, 2023-C-01045 (La. 3/22/24), 382 So. 3d 76",
+      "matched_label": "Louisiana public-domain (docket + court/date) citations (+ bare docket, bare So.)",
+      "expected_label": "Louisiana public-domain (docket + court/date) citations"
+    },
+    {
+      "citation": "Hoffman v. Doe, 24-312 (La. App. 3 Cir. 11/6/24), 403 So.3d 512",
+      "matched_label": "Louisiana public-domain (docket + court/date) citations (+ bare So.)",
+      "expected_label": "Louisiana public-domain (docket + court/date) citations"
+    },
+    {
+      "citation": "LAC 43:XIX.137",
+      "matched_label": "Louisiana Administrative Code",
+      "expected_label": "Louisiana Administrative Code"
+    },
+    {
+      "citation": "La. Const. art. XII, § 10(A)",
+      "matched_label": "Louisiana Constitution of 1974",
+      "expected_label": "Louisiana Constitution of 1974"
+    },
+    {
+      "citation": "section 2800.6 of Title 9 of the Revised Statutes",
+      "matched_label": null,
+      "expected_label": "Louisiana Revised Statutes (bare, context_required)"
+    },
+    {
+      "citation": "Tex. Code Crim. Proc. art. 38.22",
+      "matched_label": null,
+      "expected_label": "null (Texas; correct non-match)"
+    }
+  ],
+  "overall": "21 rows: 19 confirmed, 2 discrepancy (la-lac-doa, la-register-doa: the new .docx support makes both script-readable, so they can become fetch-and-quote, shell ok), 0 failed, no BLOCKED rows. legis.la.gov, Senate PDF, URCA, LII, 2nd and 5th Circuit routes reproduce by script; Justia rows by WebFetch, cases.justia.com PDFs by script without ?ts=. Fixes: Justia decimal (rs-14-30-1) and 2nd Cir slug (56-618-ka) rules; Fifth Circuit links have no anchor text; uniform.aspx also links a stale 2023 URCA PDF; duplicate legis ids for RS 14:30.1; legis currency line lags Acts 2026 history; LII LAC last updated Aug 2025; example 56,618 date should be 12/23/25. Regex: prose 'Section N of Title T of the Revised Statutes' (no 'Louisiana') misses. 14 WebFetch calls."
+}
