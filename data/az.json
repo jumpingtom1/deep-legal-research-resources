@@ -1,0 +1,929 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "az",
+  "name": "Arizona",
+  "compiled": "2026-10-16",
+  "summary": "Statutes: azleg.gov per-section pages are constructible (/ars/{title}/{section zero-padded to 5, '.' -> '-'}.htm) and read cleanly by fetch_doc.py, but robots.txt sets Crawl-delay 120 (two minutes per request); azleg says its online ARS is unofficial (official edition is Thomson Reuters) and shows law effective the following January 1. Justia's 2025 ARS is a constructible tier-2 fallback. Constitution: azleg.gov /const/{article}/{section}.htm. Court rules: the only free official text is Westlaw's govt site (azrules.westgroup.com / govt.westlaw.com/azrules), which refuses automated access; no tier-2 copy exists. Admin Code and Register: apps.azsos.gov chapter/issue PDFs (WebFetch reads them; the shell route is refused by a bot check); Cornell LII mirrors the A.A.C. per section. Case law: Supreme Court opinion PDFs at www.azcourts.gov/Portals/0/OpinionFiles/Supreme/{year}/{docket}.pdf; the Court of Appeals search pages are JavaScript apps with a token-protected API, so Justia (1965-2026, both divisions, memorandum decisions included) is the practical route; apps.azcourts.gov docket PDFs give subsequent history (descendant/predecessor case numbers) while a case is recent.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Arizona Supreme Court",
+        "courtlistener_id": "ariz",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ariz.",
+        "reporters": [
+          "Ariz.",
+          "P.3d",
+          "P.2d",
+          "P."
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Arizona Court of Appeals (Division One and Division Two)",
+        "courtlistener_id": "arizctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ariz. Ct. App.",
+        "reporters": [
+          "Ariz.",
+          "Ariz. App.",
+          "P.3d",
+          "P.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Arizona Tax Court",
+        "courtlistener_id": "ariztaxct",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ariz. Tax Ct.",
+        "reporters": [
+          "Ariz.",
+          "P.3d"
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Arizona Revised Statutes",
+        "examples": [
+          "A.R.S. § 12-542",
+          "Ariz. Rev. Stat. Ann. § 12-542",
+          "Ariz. Rev. Stat. § 13-1105(A)(1)",
+          "A.R.S. § 12-341.01",
+          "ARS 41-1092.01",
+          "A.R.S. §§ 12-541 to -542",
+          "section 12-821.01 of the Arizona Revised Statutes",
+          "Arizona Revised Statutes section 13-1105"
+        ],
+        "regex": "(?:A\\.\\s?R\\.\\s?S\\.|\\bARS|Ariz(?:ona)?\\.?\\s+Rev(?:ised)?\\.?\\s+Stat(?:utes)?\\.?(?:\\s+Ann\\.?)?)\\s*(?:(?:§+|sec(?:tion|\\.)?)\\s*)?(?P<title>\\d{1,2})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Revised\\s+Statutes",
+        "routes_to": [
+          "az-ars-azleg",
+          "az-ars-justia"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Arizona Constitution",
+        "examples": [
+          "Ariz. Const. art. 2, § 4",
+          "Ariz. Const. art. II, § 4",
+          "Ariz. Const. art. 6, § 14",
+          "Ariz. Const. art. 2, § 2.1",
+          "Article 2, Section 4 of the Arizona Constitution"
+        ],
+        "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:§|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution",
+        "routes_to": [
+          "az-constitution-azleg"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Arizona Rules of Civil Procedure",
+        "examples": [
+          "Ariz. R. Civ. P. 12(b)(6)",
+          "Rule 56 of the Arizona Rules of Civil Procedure",
+          "Ariz.R.Civ.P. 26.1"
+        ],
+        "regex": "Ariz\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Arizona Rules of Evidence",
+        "examples": [
+          "Ariz. R. Evid. 702",
+          "Rule 803(6) of the Arizona Rules of Evidence"
+        ],
+        "regex": "Ariz\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Evidence",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Arizona Rules of Civil Appellate Procedure (ARCAP)",
+        "examples": [
+          "ARCAP 13(a)(7)",
+          "Ariz. R. Civ. App. P. 21",
+          "Rule 13 of the Arizona Rules of Civil Appellate Procedure"
+        ],
+        "regex": "(?:ARCAP|Ariz\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Arizona Rules of Criminal Procedure",
+        "examples": [
+          "Ariz. R. Crim. P. 32.1(a)",
+          "Rule 15.1 of the Arizona Rules of Criminal Procedure"
+        ],
+        "regex": "Ariz\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of the Supreme Court of Arizona (incl. Rule 42 ERs, Rule 111)",
+        "examples": [
+          "Ariz. R. Sup. Ct. 111(c)",
+          "Ariz. R. Sup. Ct. 42, ER 1.7",
+          "Rule 42, ER 1.8 of the Rules of the Supreme Court",
+          "Ariz. Sup. Ct. R. 31"
+        ],
+        "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Arizona Administrative Code",
+        "examples": [
+          "A.A.C. R9-10-101",
+          "Ariz. Admin. Code R4-23-110",
+          "Ariz. Admin. Code § R9-10-101",
+          "Ariz. Admin. Code R9-10-101(12)"
+        ],
+        "regex": "(?:A\\.\\s?A\\.\\s?C\\.|Ariz(?:ona)?\\.?\\s*Admin(?:istrative)?\\.?\\s*Code)\\s*(?:§\\s*)?R(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)",
+        "routes_to": [
+          "az-aac-sos",
+          "az-aac-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Arizona Administrative Register",
+        "examples": [
+          "8 A.A.R. 3559",
+          "32 Ariz. Admin. Reg. 2539"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+(?:A\\.\\s?A\\.\\s?R\\.|Ariz\\.\\s*Admin\\.\\s*Reg\\.)\\s*(?P<page>\\d{1,5})",
+        "routes_to": [
+          "az-register-sos"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Arizona Reports (Ariz.) and old Arizona Appeals Reports (Ariz. App.)",
+        "examples": [
+          "City of Mesa v. Ryan, 256 Ariz. 350 (App. 2023)",
+          "State v. Smith, 250 Ariz. 69, ¶ 12 (2020)",
+          "Foster v. Ames, 5 Ariz. App. 116 (1967)",
+          "123 Ariz. 456, 601 P.2d 589 (1979)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Ariz\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?:,\\s*(?:¶+\\s*\\d+|\\d+))*(?:,\\s*\\d{1,4}\\s+P\\.(?:\\s*[23]d)?\\s+\\d{1,5})?(?:\\s*\\((?P<appct>App\\.\\s*)?(?P<year>\\d{4})\\))?",
+        "routes_to": [
+          "az-cases-justia",
+          "az-opinions-supreme-azcourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Pacific Reporter with an Arizona parenthetical",
+        "examples": [
+          "540 P.3d 912 (Ariz. 2024)",
+          "530 P.3d 1234 (Ariz. Ct. App. 2023)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ariz\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "az-cases-justia",
+          "az-opinions-supreme-azcourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Appellate docket numbers (Supreme Court and Court of Appeals)",
+        "examples": [
+          "No. CV-24-0143-PR",
+          "CR-23-0236-PR",
+          "CV-24-0251-T/AP",
+          "1 CA-CV 24-0785",
+          "No. 2 CA-CV 2023-0108",
+          "1 CA-CV 25-1023 FC"
+        ],
+        "regex": "\\b(?P<type>CV|CR|SB|JC|WC|TX)-(?P<yy>\\d{2})-(?P<num>\\d{4})-(?P<sub>[A-Z]{1,4}(?:/[A-Z]{1,2})?)\\b|\\b(?P<div>[12])\\s*CA-(?P<ctype>CV|CR|SA|JV|MH|IC|UB|TX|CC)\\s+(?P<cyear>\\d{4}|\\d{2})-(?P<cnum>\\d{4})(?:\\s+(?P<suffix>[A-Z]{2,4}))?",
+        "routes_to": [
+          "az-opinions-supreme-azcourts",
+          "az-cases-justia",
+          "az-dockets-appellate"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Memorandum decisions / Westlaw cites with Arizona parenthetical",
+        "examples": [
+          "Anguiano v. Kile, 1 CA-CV 26-0175, 2026 WL 1234567, at *2, ¶ 8 (Ariz. App. Oct. 15, 2026) (mem. decision)",
+          "2024 WL 2812345 (Ariz. Ct. App. June 3, 2024)",
+          "2025 Ariz. App. Unpub. LEXIS 123"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?(?:,\\s*¶+\\s*\\d+)?\\s*\\(Ariz\\.|Ariz\\.\\s*(?:App\\.\\s*(?:Unpub\\.\\s*)?)?LEXIS\\s+(?P<lexis>\\d+))",
+        "routes_to": [
+          "az-cases-justia"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "A.R.S.": "ars",
+      "ARS": "ars",
+      "Ariz. Rev. Stat.": "ars",
+      "Ariz. Rev. Stat. Ann.": "ars",
+      "Arizona Revised Statutes": "ars",
+      "A.A.C.": "aac",
+      "Ariz. Admin. Code": "aac",
+      "A.A.R.": "aar",
+      "Ariz. Admin. Reg.": "aar",
+      "ARCAP": "civ-app-p",
+      "Ariz. R. Civ. App. P.": "civ-app-p",
+      "Ariz. R. Civ. P.": "civ-p",
+      "Ariz. R. Crim. P.": "crim-p",
+      "Ariz. R. Evid.": "evid",
+      "Ariz. R. Sup. Ct.": "sup-ct",
+      "Ariz. Sup. Ct. R.": "sup-ct",
+      "ER": "sup-ct-42"
+    },
+    "notes": "Arizona has no public-domain citation; opinions use numbered paragraphs, and Arizona courts pinpoint by ¶ (e.g. '256 Ariz. 350, ¶ 12 (App. 2023)'), so a slip PDF gives a pinpoint without reporter pages. Arizona style puts Court of Appeals cites as '(App. YYYY)'; Bluebook uses '(Ariz. Ct. App. YYYY)'. 'Ariz. App.' is the closed Arizona Appeals Reports (1965-1976 era, per memory); later Court of Appeals opinions are in 'Ariz.'. Memorandum decisions: from memory, Ariz. R. Sup. Ct. 111(c) allows citing memorandum decisions issued on or after Jan. 1, 2015 for persuasive value, with the docket number, date and '(mem. decision)'; the Justia copies carry the legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE' (rule text itself not fetched; Westlaw is blocked). 'Petition for review denied' dispositions appear in the subsequent-history parenthetical ('review denied'). Routing guards: bare 'Rule 12(b)(6)', 'Rule 702', 'ER 1.7' and 'Rule 42' must not route here without an 'Ariz.' prefix or Arizona context ('ER' numbering is also used by other states' rules of professional conduct). 'A.R.S.' is unique to Arizona, but 'ARS' alone is a common acronym: route only when followed by a TT-SSS section number. Docket numbers 'CV-24-0143-PR' resemble other states' forms; route on them only with Arizona context; '1 CA-CV' / '2 CA-CR' are Arizona-specific. A '§§ 12-541 to -542' range is two sections: the regex takes the first. Statute URL keys: title unpadded (/ars/1/, /ars/12/); section zero-padded to 5 digits with '.' replaced by '-' (12-341.01 -> /ars/12/00341-01.htm). CourtListener ids from memory, unverified."
+  },
+  "sources": [
+    {
+      "id": "az-ars-azleg",
+      "family": "statutes",
+      "title": "Arizona Revised Statutes (Arizona Legislature)",
+      "publisher": "Arizona State Legislature (Legislative Council)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Title index page (https://www.azleg.gov/arsDetail/?title=12): 'The official version of the Arizona Revised Statutes is published by Thomson Reuters.' and the online version is 'primarily maintained for legislative drafting purposes'.",
+      "coverage": "All ARS titles; one HTML page per section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.azleg.gov/ars/{title}/{section:05d}{-decimal}.htm",
+        "pattern_rules": "title = integer, unpadded, including single-digit titles (/ars/1/, /ars/12/, /ars/41/; /ars/01/00213.htm is 404). section = the part after the hyphen, zero-padded to 5 digits; a decimal point becomes a hyphen and the decimal digits are kept as written: 12-542 -> /ars/12/00542.htm; 13-1105 -> /ars/13/01105.htm; 12-341.01 -> /ars/12/00341-01.htm; 41-1092.01 -> /ars/41/01092-01.htm. The bare .htm page is the section text only (no navigation); the wrapper https://www.azleg.gov/viewdocument/?docName=https://www.azleg.gov/ars/{title}/{section}.htm serves the same text with site chrome and the currency banner.",
+        "index_url": "https://www.azleg.gov/arsDetail/?title={title}",
+        "navigation": "Title index lists every chapter WITH section ranges ('Chapter 5 LIMITATIONS OF ACTIONS Sec: 12-501-12-559.03') and every section as a viewdocument link; not needed for URL construction.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * — Crawl-delay: 120; disallows /search/, /xml/, /FormatDocument.asp, /FormatForPrint.asp, /DocumentsForBill.asp, WordPress paths; /ars/, /arsDetail/, /viewdocument/, /const/ allowed",
+        "notes": "Crawl-delay 120 s: fetch_doc.py waits two minutes between azleg.gov requests, so plan few azleg fetches per run (cache helps). WebFetch in this environment would only fetch azleg URLs that had appeared in an earlier search/fetch result (permission prompts for constructed /ars/ URLs went unanswered); the viewdocument wrapper for 22-101 taken from the title-22 index fetched fine."
+      },
+      "currency": {
+        "where": "banner on arsDetail title index and viewdocument wrapper pages; not on bare /ars/ pages (use the Last-Modified header there)",
+        "observed": "updated to include the revised sections from the 57th Legislature, 2nd Regular Session"
+      },
+      "hazards": [
+        "Crawl-delay 120 s on www.azleg.gov",
+        "text shows the version effective January 1 of the year after the latest session, so it can be ahead of the law in force mid-year",
+        "publisher disclaims official status (Thomson Reuters edition is official)",
+        "/xml/ is robots-disallowed: no permitted bulk route"
+      ],
+      "probe": {
+        "citation": "A.R.S. § 12-542",
+        "url": "https://www.azleg.gov/ars/12/00542.htm",
+        "expect": "Except as provided in section 12-551 there shall be commenced"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: /ars/12/00542.htm 1,035 chars, 'Except as provided in section 12-551 there shall be commenced', Last-Modified 9 Sep 2026; /ars/13/01105.htm 'A. A person commits first degree murder if:'; /ars/12/00341-01.htm and /ars/41/01092-01.htm both body present. WebFetch: viewdocument wrapper for A.R.S. § 22-101 'A. The board of supervisors shall divide the county into', complete, with 57th Legislature currency banner. /ars/1/00213.htm body present; /ars/01/00213.htm 404."
+      },
+      "notes": "Title index (arsDetail) is ~70-80K characters of text, within one WebFetch window."
+    },
+    {
+      "id": "az-ars-justia",
+      "family": "statutes",
+      "title": "Justia — Arizona Revised Statutes (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; pages labelled '2025 Arizona Revised Statutes'; title page has no currency disclaimer.",
+      "coverage": "ARS editions 2005-2025 (year listing pages 2017-2025 seen); the unversioned URL serves 2025.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/arizona/title-{title}/section-{title}-{section}/",
+        "pattern_rules": "No chapter or article segment. section verbatim with '.' replaced by '-': 12-559.03 -> /title-12/section-12-559-03/; 13-751 -> /title-13/section-13-751/. Year-specific: insert /{year}/ after /arizona/ (e.g. /codes/arizona/2021/title-13/section-13-751/). Old 2005 edition uses a different form (/codes/arizona/2005/title12/00542.html).",
+        "index_url": "https://law.justia.com/codes/arizona/title-{title}/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable: law.justia.com answers robots.txt with a Cloudflare challenge (fetch_doc.py refusal recorded 2026-10-16)",
+        "notes": "WebFetch only."
+      },
+      "currency": {
+        "where": "page heading and Universal Citation line",
+        "observed": "2025 Arizona Revised Statutes; 'AZ Rev Stat § 12-559.03 (2025)'"
+      },
+      "hazards": [
+        "edition lags official compilation (2025 edition while azleg shows 57th Leg. 2nd Reg. Sess. 2026)",
+        "shell blocked by Cloudflare",
+        "title index lists sections only (no chapter links or section ranges)"
+      ],
+      "probe": {
+        "citation": "A.R.S. § 12-559.03",
+        "url": "https://law.justia.com/codes/arizona/title-12/section-12-559-03/",
+        "expect": "A. Except as provided in subsections B, C and D"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body present 'A. Except as provided in subsections B, C and D'; '2025 Arizona Revised Statutes'. Second: /title-13/section-13-751/ 'A. If the state has filed a notice of intent'. 2005 edition /2005/title12/00542.html body present."
+      },
+      "notes": "public.law and Cornell LII do not host the ARS (not separately probed; see absent)."
+    },
+    {
+      "id": "az-constitution-azleg",
+      "family": "constitution",
+      "title": "Arizona Constitution (Arizona Legislature)",
+      "publisher": "Arizona State Legislature",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official/unofficial statement on the constitution index; the site disclaims official status for the ARS only.",
+      "coverage": "Constitution of 1912 as amended; one HTML page per section; articles 1-30 (articles 23-24 absent from the index; 6.1 present).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.azleg.gov/const/{article}/{section}.htm",
+        "pattern_rules": "article = Arabic number (convert Roman: II -> 2, VI -> 6); section = Arabic; a decimal section uses an underscore (Art. 2 § 2.1 -> /const/2/2_1.htm). Article 6.1 folder name not verified. Wrapper with currency banner: https://www.azleg.gov/viewDocument/?docName=https://www.azleg.gov/const/{article}/{section}.htm. Article listing: https://www.azleg.gov/constitution/?article={article}.",
+        "index_url": "https://www.azleg.gov/Constitution/",
+        "navigation": "Index links constitution?article=N; each article page lists viewDocument links per section.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see az-ars-azleg (Crawl-delay 120)",
+        "notes": "WebFetch not run: constructed azleg URLs required a permission approval that went unanswered in this session."
+      },
+      "currency": {
+        "where": "constitution index page banner",
+        "observed": "updated to include the revised sections from the 55th Legislature, 1st Regular Session"
+      },
+      "hazards": [
+        "stale currency banner (refers to 2021 session, next update 'January 2022') — check later amendments",
+        "Crawl-delay 120 s",
+        "'.p.htm' style URLs 404 (/const/2/4.p.htm)"
+      ],
+      "probe": {
+        "citation": "Ariz. Const. art. 2, § 4",
+        "url": "https://www.azleg.gov/const/2/4.htm",
+        "expect": "No person shall be deprived of life, liberty, or property"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: /const/2/4.htm 'Section 4. No person shall be deprived of life, liberty, or' (136 chars); /const/6/14.htm 'The superior court shall have original jurisdiction'; /const/2/2_1.htm 'Victims' bill of rights' body present."
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-rules-westlaw",
+      "family": "court_rules",
+      "title": "Arizona Court Rules (Westlaw government site)",
+      "publisher": "Arizona Supreme Court via Thomson Reuters (govt.westlaw.com/azrules)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "azcourts.gov 'Court Rules' menu link points to http://azrules.westgroup.com/; no statement could be read.",
+      "coverage": "All statewide rule sets (Civ. P., Evid., ARCAP, Crim. P., Sup. Ct. incl. Rule 42 ERs, Fam. Law P., etc.), per memory.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "http://azrules.westgroup.com/",
+        "navigation": "azcourts.gov/rules -> 'Court Rules' -> azrules.westgroup.com -> govt.westlaw.com/azrules",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "blocked-challenge",
+        "robots_txt": "azrules.westgroup.com and govt.westlaw.com both answer robots.txt with a bot check",
+        "notes": "No Westlaw rules URL was surfaced by search, so WebFetch could not be attempted. www.azcourts.gov/azrules/Help returned HTTP 403 Cloudflare challenge to fetch_doc.py; WebFetch on it errored 'There was an error while fetching'."
+      },
+      "currency": {
+        "where": "not reachable",
+        "observed": ""
+      },
+      "hazards": [
+        "host refuses automated access",
+        "no tier-2 copy of Arizona rules on Justia, LII or public.law",
+        "the /azrules/ path on www.azcourts.gov triggers a Cloudflare challenge that makes fetch_doc.py mark ALL of www.azcourts.gov refused for the day — never request it from the script"
+      ],
+      "probe": {
+        "citation": "Ariz. R. Civ. P. 12(b)(6)",
+        "url": "http://azrules.westgroup.com/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: 'REFUSED: azrules.westgroup.com answers robots.txt with a bot check'; same for govt.westlaw.com."
+      },
+      "notes": "Rule text can be linked, never quoted, unless a future run finds an official PDF set."
+    },
+    {
+      "id": "az-rules-amendments-azcourts",
+      "family": "court_rules",
+      "title": "Arizona Supreme Court rule-amendment orders and pending petitions",
+      "publisher": "Arizona Supreme Court",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Signed court orders (e.g. 'Final Rules Order R-18-0002') posted on azcourts.gov/rules.",
+      "coverage": "Orders amending rules and pending rule petitions; not a consolidated rule text.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Order PDFs under /Portals/0/20/{year} Rules/…; ids not derivable.",
+        "index_url": "https://www.azcourts.gov/rules/Recent-Amendments",
+        "navigation": "azcourts.gov/rules -> Recent Amendments -> order PDF",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "www.azcourts.gov: disallows /*/ctl/, /admin/, DNN system folders; /rules, /Portals allowed",
+        "notes": "Only the /rules landing page was fetched (links listed); individual orders not probed."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "amendment orders only — not the rule as amended"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.azcourts.gov/rules",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py read /rules: links to Recent-Amendments and a 2018 'Final Rules Order R-18-0002' PDF; no order opened."
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-aac-sos",
+      "family": "admin_code",
+      "title": "Arizona Administrative Code (Secretary of State, chapter PDFs)",
+      "publisher": "Arizona Secretary of State, Administrative Rules Division",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Register contents page says 'The Register as published by the Division is the official version.'; no comparable statement seen for Code chapter files.",
+      "coverage": "One file per chapter, Title_{TT}/{T}-{CC}.pdf (some chapters also as .rtf).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://apps.azsos.gov/public_services/Title_{title:02d}/{title}-{chapter:02d}.pdf",
+        "pattern_rules": "From observed URLs: Title_17/17-09.pdf, Title_09/9-09.rtf, Title_09/9-03.rtf — folder title 2-digit padded, file title unpadded, chapter 2-digit padded. Section R9-10-101 lives in chapter file 9-10. Not verified on a live chapter (the 17-09 file is a recodified stub).",
+        "index_url": "https://apps.azsos.gov/public_services/Title_{title:02d}/",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "apps.azsos.gov and azsos.gov answer robots.txt with a bot check (fetch_doc.py REFUSED)",
+        "notes": "WebFetch read the 17-09 PDF; it could not read the 9-09 .rtf ('[binary data]'). Long chapter PDFs will truncate in WebFetch."
+      },
+      "currency": {
+        "where": "chapter file header ('Supp. YY-Q')",
+        "observed": "Supp. 14-3 (17-09, recodified stub)"
+      },
+      "hazards": [
+        "shell route refused by bot check",
+        ".rtf files unreadable by WebFetch",
+        "long chapter PDFs truncate in WebFetch",
+        "pattern seen only on a recodified stub chapter"
+      ],
+      "probe": {
+        "citation": "17 A.A.C. 9 (recodified)",
+        "url": "https://apps.azsos.gov/public_services/Title_17/17-09.pdf",
+        "expect": "This Chapter was recodified to 13 A.A.C. 13"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: 17-09.pdf header 'Supp. 14-3', editor's note 'recodified to 13 A.A.C. 13'; no section text. 9-09.rtf: '[binary data]'. Shell refused by bot check."
+      },
+      "notes": "Needs a live-chapter probe (e.g. Title_09/9-10.pdf for R9-10-101) by a run that can WebFetch it."
+    },
+    {
+      "id": "az-aac-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — Arizona Administrative Code",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party mirror; per-section history notes cite A.A.R. and Supp. numbers.",
+      "coverage": "Per-section pages for A.A.C. titles, including repealed/renumbered stubs.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R{title}-{chapter}-{section}",
+        "pattern_rules": "Citation 'R9-10-101' -> Ariz-Admin-Code-SS-R9-10-101 (no padding). Browse: /regulations/arizona/title-{title}/chapter-{chapter}.",
+        "index_url": "https://www.law.cornell.edu/regulations/arizona",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay: 10; /regulations allowed (per Delaware record)",
+        "notes": "Respect 10-second crawl delay."
+      },
+      "currency": {
+        "where": "history note at foot of section",
+        "observed": "Last-Modified 30 Jul 2025; notes list amendments with 'Supp.' numbers"
+      },
+      "hazards": [
+        "may lag the official Code (Last-Modified July 2025)",
+        "repealed/renumbered sections still have pages"
+      ],
+      "probe": {
+        "citation": "A.A.C. R9-10-101",
+        "url": "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R9-10-101",
+        "expect": "In addition to the definitions in A.R.S. §§ 36-401(A) and 36-439"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 54,978 chars, 'In addition to the definitions in A.R.S. §§ 36-401(A) and 36-439'; history '8 A.A.R. 3559, effective August 1, 2002 (Supp. 02-3)'. Second: R4-23-110 'In addition to definitions in A.R.S. § 32-1901'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-register-sos",
+      "family": "admin_register",
+      "title": "Arizona Administrative Register",
+      "publisher": "Arizona Secretary of State, Administrative Rules Division",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "2026 contents page: 'The Register as published by the Division is the official version.'",
+      "coverage": "Weekly issues; yearly contents pages /register/{YYYY}/contents.htm (2009-2026 seen in search); 2026 = Volume 32.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://apps.azsos.gov/public_services/register/{YYYY}/{issue}/contents.pdf",
+        "pattern_rules": "Volume = year - 1994 (2026 -> Vol. 32). The yearly contents page gives each issue number with its page range; pick the issue whose range contains the cited A.A.R. page. The 'contents.pdf' file holds the whole issue, not only the contents.",
+        "index_url": "https://apps.azsos.gov/public_services/register/{YYYY}/contents.htm",
+        "navigation": "yearly contents.htm -> issue whose page range covers the page -> {issue}/contents.pdf",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "bot check on robots.txt (fetch_doc.py REFUSED)",
+        "notes": "WebFetch truncated Issue 42 partway through p. 2560 of 2539-2634."
+      },
+      "currency": {
+        "where": "2026 contents page",
+        "observed": "Issue 42, Friday, October 16, 2026 (pp. 2539-2634)"
+      },
+      "hazards": [
+        "WebFetch truncation of issue PDFs",
+        "shell refused"
+      ],
+      "probe": {
+        "citation": "32 A.A.R. 2539 (Oct. 16, 2026)",
+        "url": "https://apps.azsos.gov/public_services/register/2026/42/contents.pdf",
+        "expect": "PARTICIPATE IN RULEMAKING"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 2026 contents.htm lists 'Volume 32', Issue 42 pp. 2539-2634; issue PDF: Information p. 2540, Participate in Rulemaking p. 2541, rulemaking notices from p. 2543; truncated in p. 2560."
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-opinions-supreme-azcourts",
+      "family": "case_law",
+      "title": "Arizona Supreme Court opinions (azcourts.gov OpinionFiles)",
+      "publisher": "Arizona Supreme Court",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Slip opinions; the official reporter is Arizona Reports ('Ariz.'), not printed on the PDFs (Cravens PDF shows no reporter cite).",
+      "coverage": "Opinions page offers 'Search By Year' 2002-2026.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.azcourts.gov/Portals/0/OpinionFiles/Supreme/{year}/{type}{yy}{num}{sub}.pdf",
+        "pattern_rules": "From the docket number: 'CV-24-0143-PR' filed in 2025 -> /Supreme/2025/CV240143PR.pdf (hyphens removed; folder = year the opinion was FILED, not the docket year). Only one docket verified; sub-types with a slash (T/AP) unverified. The year listing https://www.azcourts.gov/Default.aspx?startDate={YYYY}-01-01&endDate={YYYY}-12-31&court=Supreme&TabId=9535 is a JavaScript (Elm) app whose rows come from a token-protected DNN API — fetch tools see no rows.",
+        "index_url": "https://www.azcourts.gov/opinions",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "disallows /*/ctl/, /admin/, DNN system folders; /Portals allowed",
+        "notes": "fetch_doc.py read the PDF (15 pp, 34,371 chars). Later in the run www.azcourts.gov/azrules/Help returned a Cloudflare 403 and fetch_doc.py then refused the whole host for the day. WebFetch of an azcourts Portals PDF taken from a fetch result was not permitted in this session."
+      },
+      "currency": {
+        "where": "none; Last-Modified header",
+        "observed": "Last-Modified Tue, 10 Jun 2025 (opinion filed Apr 29, 2025)"
+      },
+      "hazards": [
+        "slip pagination; pinpoint by ¶ instead",
+        "amended opinions: the case page links a separate '…AmendedOpinion.PDF'; OpinionFiles copy may be replaced in place (Last-Modified after filing date)",
+        "year listings are a JS app",
+        "Cloudflare challenge on some azcourts.gov paths can lock the script out of the whole host for a day"
+      ],
+      "probe": {
+        "citation": "Cravens v. Montano, No. CV-24-0143-PR (Ariz. Apr. 29, 2025)",
+        "url": "https://www.azcourts.gov/Portals/0/OpinionFiles/Supreme/2025/CV240143PR.pdf",
+        "expect": "We consider the meaning of the phrase “in connection with"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock)."
+      },
+      "notes": "High-profile case pages (https://www.azcourts.gov/News-Info/{docket}) link briefs and amended opinions."
+    },
+    {
+      "id": "az-opinions-coa1-azcourts",
+      "family": "case_law",
+      "title": "Court of Appeals Division One — Decisions (coa1.azcourts.gov)",
+      "publisher": "Arizona Court of Appeals, Division One",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Opinions page notes later proceedings 'may affect the legal status of any Opinion'; slip decisions.",
+      "coverage": "Opinions and memorandum decisions; search covers Division One and Supreme Court (app flags courts: Division1, Supreme).",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "",
+        "pattern_rules": "The Search Decisions page is an Elm app (Elm.Views.Opinions.Main) calling a DNN service ('Azcourts/Opinions': GetOpinions, GetDecisions, GetOpinionFiles) with ModuleId/TabId/anti-forgery headers; GET guesses at /API/Azcourts/Opinions/GetOpinions returned 404. Decision PDF URL form not found (guesses under /Portals/0/OpinionFiles/Div1/ and coa1 /Portals/1/ 404).",
+        "index_url": "https://coa1.azcourts.gov/Decisions/SearchDecisions",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "same DNN robots as www.azcourts.gov; /Decisions allowed",
+        "notes": "Pages fetch (shell) but hold no decision rows. Use az-cases-justia for text."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "JS-only search; token-protected API"
+      ],
+      "probe": {
+        "citation": "Fuller v. Scottsdale, 1 CA-CV 24-0785 (Ariz. App. Jan. 15, 2026) (mem. decision)",
+        "url": "https://coa1.azcourts.gov/Decisions/SearchDecisions",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: page 295,958 bytes, app container only, no PDF links; Opinions page text explains posting, no rows."
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-opinions-coa2",
+      "family": "case_law",
+      "title": "Court of Appeals Division Two — decisions (appeals2.az.gov)",
+      "publisher": "Arizona Court of Appeals, Division Two",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Not reached.",
+      "coverage": "Recent decisions listing at /odsplus/recentdecisions.cfm (linked from azcourts.gov opinions search page).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "http://www.appeals2.az.gov/odsplus/recentdecisions.cfm",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "http-error",
+        "robots_txt": "unreachable: robots.txt returns an HTML error page, so fetch_doc.py treats the host as disallowed",
+        "notes": "WebFetch permission for the listing was not granted in this session."
+      },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "robots.txt unreachable",
+        "http (not https) links"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "http://www.appeals2.az.gov/odsplus/recentdecisions.cfm",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: 'robots.txt on www.appeals2.az.gov unreachable after a retry' (HTML error page)."
+      },
+      "notes": "Justia carries Division Two memorandum decisions (2 CA-CR 2026-0161-PR seen)."
+    },
+    {
+      "id": "az-cases-justia",
+      "family": "case_law",
+      "title": "Justia — Arizona case law",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party; no reporter citation for the decision itself, no Universal Citation line.",
+      "coverage": "Supreme Court (year pages, e.g. 2024); Court of Appeals 1965-2026 split into division/published-unpublished collections; Territorial Supreme Court.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/arizona/{court-slug}/{year}/{docket-slug}.html",
+        "pattern_rules": "Supreme: court-slug 'supreme-court'; docket lower-cased, '/' -> '-' (CV-23-0284-PR -> cv-23-0284-pr; CV-24-0251-T/AP -> cv-24-0251-t-ap). Court of Appeals memorandum decisions: 'court-of-appeals-division-one-unpublished' / 'court-of-appeals-division-two-unpublished'; docket lower-cased, spaces -> '-' (1 CA-CV 26-0175 -> 1-ca-cv-26-0175; '1 CA-CV 25-1023 FC' -> 1-ca-cv-25-1023-fc). Slug for published Court of Appeals opinions not verified — use the year listing https://law.justia.com/cases/arizona/court-of-appeals/{year}/.",
+        "index_url": "https://law.justia.com/cases/arizona/",
+        "navigation": "year listing -> decision page (listing shows 500 of N per page)",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "WebFetch only. Court of Appeals 2026 listing showed 'first 500 of 1,141'."
+      },
+      "currency": {
+        "where": "none; newest listing entry dated Oct. 16, 2026",
+        "observed": ""
+      },
+      "hazards": [
+        "no Ariz./P.3d pagination; pinpoint by ¶",
+        "year listing paginates (500 per page)",
+        "published vs unpublished collections use different slugs"
+      ],
+      "probe": {
+        "citation": "City of Mesa v. Ryan, No. CV-23-0284-PR (Ariz. Oct. 17, 2024)",
+        "url": "https://law.justia.com/cases/arizona/supreme-court/2024/cv-23-0284-pr.html",
+        "expect": "Under A.R.S. § 12-821.01(A), a person with a claim against"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: full opinion ¶1-¶22, '¶1 Under A.R.S. § 12-821.01(A), a person with a claim against'. Second: Anguiano v. Kile, 1 CA-CV 26-0175 (unpublished slug) full text through ¶19, legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE.'"
+      },
+      "notes": ""
+    },
+    {
+      "id": "az-dockets-appellate",
+      "family": "subsequent_history",
+      "title": "Arizona appellate case dockets (apps.azcourts.gov docket PDFs)",
+      "publisher": "Arizona Supreme Court / Court of Appeals clerks",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Docket footer: information 'may not reflect all case activity and is subject to change without notice'.",
+      "coverage": "Supreme Court (ASC) and Division One (1CA) dockets with predecessor and descendant case numbers, decision type/date, disposition, proceeding entries. Only some dockets are present: open or recently active cases (CR-26-0026-PR, CV-26-0046-PR, 1 CA-CV 24-0785, 1 CA-CV 26-0175 found; closed CV-24-0143-PR and several 2025 dockets 404). Division Two dockets: 2CA guesses 404.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://apps.azcourts.gov/aacc/appella/{court}/{type}/{type}{yy}{num}.pdf",
+        "pattern_rules": "court = ASC | 1CA. Supreme 'CV-26-0046-PR' -> ASC/CV/CV260046.PDF; Division One '1 CA-CV 24-0785' -> 1CA/CV/CV240785.pdf (sub-type suffix dropped). Search engines index these with backslashes (ASC\\CV\\…); forward slashes work. Extension case-insensitive on the server as observed (.PDF and .pdf both seen).",
+        "index_url": "https://www.azcourts.gov/appellatecourtcases",
+        "navigation": "Decision below's docket PDF -> 'D E S C E N D E N T C A S E (S)' line gives the Supreme Court PR number -> open that ASC docket for status/disposition; reverse via 'P R E D E C E S S O R'.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "docket footer",
+        "observed": "Case Docket as of 10-Aug-2026"
+      },
+      "hazards": [
+        "docket PDFs disappear (404) for closed/older cases",
+        "Division Two dockets not found by this pattern",
+        "review dispositions of closed cases must then be found by party name (Justia / Supreme Court opinion or order)"
+      ],
+      "probe": {
+        "citation": "Fuller v. Scottsdale, 1 CA-CV 24-0785 -> ASC CV-26-0046-PR",
+        "url": "https://apps.azcourts.gov/aacc/appella/1CA/CV/CV240785.pdf",
+        "expect": "ASC CV-26-0046-PR"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py and WebFetch (backslash URL from search): 'MEMORANDUM DECISION' 15-Jan-2026, descendant 'ASC CV-26-0046-PR', 'Case Docket as of 10-Aug-2026'; ASC/CV/CV260046.PDF status 'Pending'; ASC/CR/CR260026.PDF lists predecessor '1 CA-SA 25-0153'."
+      },
+      "notes": "The public case search (https://apps.azcourts.gov/publicaccess/ and the Party-Case / Lower Court Case Number indexes) is the human route; not probed."
+    }
+  ],
+  "absent": [
+    {
+      "family": "court_rules",
+      "what": "Any fetchable official or tier-2 text of Arizona court rules",
+      "evidence": "Official text only on Westlaw govt site (bot check). Justia, LII and public.law host no Arizona rules (no results in searches; LII Arizona offering is the Admin Code).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain (vendor-neutral) citation format",
+      "evidence": "Opinions carry docket numbers and ¶ numbers only; Arizona cites to 'Ariz.' / P.3d or WL for memorandum decisions (Cravens slip PDF, Justia pages).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "Permitted bulk ARS download",
+      "evidence": "azleg.gov robots.txt disallows /xml/; no other bulk route seen.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Free official reporter (Ariz.) pagination",
+      "evidence": "Slip PDFs and Justia copies show no Ariz. page numbers for the decision itself; Arizona pinpoints by ¶, which the slip text carries.",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "az-opinions-coa1-azcourts",
+      "why": "DNN service 'Azcourts/Opinions' (GetOpinions, GetDecisions, GetOpinionFiles) behind the Elm search app returns structured decision rows for Division One and the Supreme Court; needs ModuleId/TabId/anti-forgery headers from the page."
+    },
+    {
+      "source_id": "az-dockets-appellate",
+      "why": "Docket PDFs are constructible from the docket number and list predecessor/descendant cases, decision type, disposition and filings — a script can walk decision-below -> petition for review -> disposition."
+    },
+    {
+      "source_id": "az-ars-azleg",
+      "why": "Constructible per-section URLs plus title indexes with section ranges; a cached ARS map would avoid the 120 s crawl delay on repeated lookups."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "az-register-sos",
+      "url": "https://apps.azsos.gov/public_services/register/2026/42/contents.pdf",
+      "why": "Issue PDFs truncate in WebFetch (Issue 42 stopped in p. 2560 of 2539-2634) and the shell route is refused.",
+      "split_hint": "notice headings (NOTICE OF PROPOSED/FINAL RULEMAKING) per agency",
+      "bulk": ""
+    },
+    {
+      "source_id": "az-aac-sos",
+      "url": "https://apps.azsos.gov/public_services/Title_09/9-10.pdf",
+      "why": "Chapter PDFs (e.g. 9 A.A.C. 10, health care institutions) are long; the shell route is refused and WebFetch truncates around 100K characters. URL from the pattern, not fetched.",
+      "split_hint": "section headings 'R9-10-NNN.' at left margin",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "Arizona Supreme Court OpinionFiles pattern verified on one docket only; a second docket (and T/AP sub-types) needs a probe on a day when www.azcourts.gov is not locked out in the script cache.",
+    "Division One and Division Two decision PDF URL forms not found; the Division One DNN API endpoint path and headers not established.",
+    "Westlaw azrules: WebFetch never attempted (no search-surfaced URL); confirm whether WebFetch can read it.",
+    "A.A.C. chapter-PDF pattern seen only on a recodified stub (17-09) and .rtf files; probe a live chapter (9-10).",
+    "Ariz. R. Sup. Ct. 111(c) memorandum-decision citation rule stated from memory; rule text unreachable.",
+    "Constitution Article 6.1 folder name (/const/6.1/ vs /const/6_1/) unverified.",
+    "CourtListener ids (ariz, arizctapp, ariztaxct) unverified.",
+    "WebFetch in this session only fetched URLs surfaced by WebSearch/WebFetch; constructed azleg and azcourts URLs were refused for want of permission — WebFetch status of az-constitution-azleg and azcourts PDFs is untested."
+  ]
+}

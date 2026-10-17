@@ -65,7 +65,7 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.azleg.gov/ars/{title}/{section:05d}{-decimal}.htm`
-  - Placeholders: title = integer, unpadded (/ars/12/, /ars/41/; single-digit titles see notes). section = the part after the hyphen, zero-padded to 5 digits; a decimal point becomes a hyphen and the decimal digits are kept as written: 12-542 -> /ars/12/00542.htm; 13-1105 -> /ars/13/01105.htm; 12-341.01 -> /ars/12/00341-01.htm; 41-1092.01 -> /ars/41/01092-01.htm. The bare .htm page is the section text only (no navigation); the wrapper https://www.azleg.gov/viewdocument/?docName=https://www.azleg.gov/ars/{title}/{section}.htm serves the same text with site chrome and the currency banner.
+  - Placeholders: title = integer, unpadded, including single-digit titles (/ars/1/, /ars/12/, /ars/41/; /ars/01/00213.htm is 404). section = the part after the hyphen, zero-padded to 5 digits; a decimal point becomes a hyphen and the decimal digits are kept as written: 12-542 -> /ars/12/00542.htm; 13-1105 -> /ars/13/01105.htm; 12-341.01 -> /ars/12/00341-01.htm; 41-1092.01 -> /ars/41/01092-01.htm. The bare .htm page is the section text only (no navigation); the wrapper https://www.azleg.gov/viewdocument/?docName=https://www.azleg.gov/ars/{title}/{section}.htm serves the same text with site chrome and the currency banner.
   - Index: `https://www.azleg.gov/arsDetail/?title={title}`
   - Navigation: Title index lists every chapter WITH section ranges ('Chapter 5 LIMITATIONS OF ACTIONS Sec: 12-501-12-559.03') and every section as a viewdocument link; not needed for URL construction.
 - **Automation:** WebFetch ok · shell ok · robots: User-agent * — Crawl-delay: 120; disallows /search/, /xml/, /FormatDocument.asp, /FormatForPrint.asp, /DocumentsForBill.asp, WordPress paths; /ars/, /arsDetail/, /viewdocument/, /const/ allowed
@@ -77,8 +77,8 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 - **Hazard:** publisher disclaims official status (Thomson Reuters edition is official)
 - **Hazard:** /xml/ is robots-disallowed: no permitted bulk route
 - **Probe:** A.R.S. § 12-542 → `https://www.azleg.gov/ars/12/00542.htm` — expect: "Except as provided in section 12-551 there shall be commenced"
-- **Evidence (2026-10-16):** fetch_doc.py: /ars/12/00542.htm 1,035 chars, 'Except as provided in section 12-551 there shall be commenced', Last-Modified 9 Sep 2026; /ars/13/01105.htm 'A. A person commits first degree murder if:'; /ars/12/00341-01.htm and /ars/41/01092-01.htm both body present. WebFetch: viewdocument wrapper for A.R.S. § 22-101 'A. The board of supervisors shall divide the county into', complete, with 57th Legislature currency banner.
-- **Notes:** Single-digit titles: see open_questions for /ars/1/ vs /ars/01/. Title index (arsDetail) is ~70-80K characters of text, within one WebFetch window.
+- **Evidence (2026-10-16):** fetch_doc.py: /ars/12/00542.htm 1,035 chars, 'Except as provided in section 12-551 there shall be commenced', Last-Modified 9 Sep 2026; /ars/13/01105.htm 'A. A person commits first degree murder if:'; /ars/12/00341-01.htm and /ars/41/01092-01.htm both body present. WebFetch: viewdocument wrapper for A.R.S. § 22-101 'A. The board of supervisors shall divide the county into', complete, with 57th Legislature currency banner. /ars/1/00213.htm body present; /ars/01/00213.htm 404.
+- **Notes:** Title index (arsDetail) is ~70-80K characters of text, within one WebFetch window.
 
 ### `az-ars-justia` — Justia — Arizona Revised Statutes (2025)
 
@@ -330,7 +330,6 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 
 ## Open questions
 
-- Single-digit ARS titles: /ars/1/00213.htm vs /ars/01/00213.htm — result recorded in the log if the background probe finished.
 - Arizona Supreme Court OpinionFiles pattern verified on one docket only; a second docket (and T/AP sub-types) needs a probe on a day when www.azcourts.gov is not locked out in the script cache.
 - Division One and Division Two decision PDF URL forms not found; the Division One DNN API endpoint path and headers not established.
 - Westlaw azrules: WebFetch never attempted (no search-surfaced URL); confirm whether WebFetch can read it.

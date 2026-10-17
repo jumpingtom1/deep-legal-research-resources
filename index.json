@@ -5,7 +5,7 @@
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
-      "sha256": "c02129b61b899abcb51b3ed2e27f9605103ac6c5c7124d61d594e029c7de2412",
+      "sha256": "d748e3c9109b8b0afa31d6416f059b343ae3f6e151af2979aa1fdb4a701594a4",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 8,

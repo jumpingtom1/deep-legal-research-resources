@@ -89,6 +89,7 @@ def _refused():
 
 
 def mark_refused(host, reason):
+    """host may be a hostname (host-wide refusal) or a full URL (that URL only)."""
     d = _refused()
     d[host] = {"reason": reason, "at": time.strftime("%Y-%m-%dT%H:%M:%S")}
     _refused_file().write_text(json.dumps(d, indent=1))
@@ -97,8 +98,9 @@ def mark_refused(host, reason):
 def check_not_refused(host):
     r = _refused().get(host)
     if r and time.time() - time.mktime(time.strptime(r["at"], "%Y-%m-%dT%H:%M:%S")) < 86400:
+        scope = "this address" if "://" in host else "this host"
         raise RefusedError(f"{host} refused automated access earlier "
-                           f"({r['reason']}, {r['at']}); off for the rest of the day.")
+                           f"({r['reason']}, {r['at']}); {scope} is off for the rest of the day.")
 
 
 # ------------------------------------------------------------------ politeness
@@ -281,6 +283,7 @@ def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
     if not allow_unlisted:
         check_allowlist(url, hosts)
     check_not_refused(host)
+    check_not_refused(url)
     key = hashlib.sha256(url.encode()).hexdigest()[:32]
     cdir = _cache_dir("docs")
     meta_f, body_f = cdir / f"{key}.json", cdir / f"{key}.bin"
@@ -324,10 +327,15 @@ def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
         reason = f"HTTP {code}"
         hl = {k.lower(): v for k, v in headers.items()}
         if hl.get("cf-mitigated", "").lower() == "challenge":
+            # A bot challenge is a host-wide policy: off for the day.
             reason += " (Cloudflare challenge)"
-        mark_refused(final_host or host, reason)
-        raise RefusedError(f"{final_host or host} refused automated access: {reason}. "
-                           "Do not retry by another route.")
+            mark_refused(final_host or host, reason)
+            raise RefusedError(f"{final_host or host} refused automated access: {reason}. "
+                               "Do not retry by another route.")
+        # A plain 401/403/451 on one document refuses that document only.
+        mark_refused(final, reason)
+        raise RefusedError(f"{final} refused: {reason}. Do not retry this address by "
+                           "another route; other pages on the host are unaffected.")
     if code >= 400:
         raise FetchError(f"HTTP {code} for {url}")
     wall = _looks_like_bot_wall(headers, body, expect)
