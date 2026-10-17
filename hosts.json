@@ -1,10 +1,38 @@
 {
  "generated": "2026-10-16",
  "hosts": {
+  "128archive.com": {
+   "status": "allowed",
+   "sources": [
+    "ma-rule23-128archive"
+   ],
+   "blocked_sources": []
+  },
+  "1dca.flcourts.gov": {
+   "status": "blocked",
+   "sources": [
+    "fl-opinions-flcourts"
+   ],
+   "blocked_sources": []
+  },
+  "acis.flcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "fl-docket-acis"
+   ],
+   "blocked_sources": []
+  },
   "appellatecases.courtinfo.ca.gov": {
    "status": "blocked",
    "sources": [
     "ca-appellate-dockets"
+   ],
+   "blocked_sources": []
+  },
+  "archives.lib.state.ma.us": {
+   "status": "allowed",
+   "sources": [
+    "ma-register-statelib"
    ],
    "blocked_sources": []
   },
@@ -56,6 +84,20 @@
    ],
    "blocked_sources": []
   },
+  "florida.public.law": {
+   "status": "allowed",
+   "sources": [
+    "fl-statutes-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "flrules.org": {
+   "status": "allowed",
+   "sources": [
+    "fl-far-flrules"
+   ],
+   "blocked_sources": []
+  },
   "govt.westlaw.com": {
    "status": "blocked",
    "sources": [
@@ -72,6 +114,23 @@
    ],
    "blocked_sources": []
   },
+  "ilcourtsaudio.blob.core.windows.net": {
+   "status": "allowed",
+   "sources": [
+    "il-rules-supreme",
+    "il-rules-evidence",
+    "il-opinions-courts",
+    "il-subsequent-history-pla"
+   ],
+   "blocked_sources": []
+  },
+  "ilga.gov": {
+   "status": "blocked",
+   "sources": [
+    "il-constitution-ilga"
+   ],
+   "blocked_sources": []
+  },
   "law.justia.com": {
    "status": "allowed",
    "sources": [
@@ -81,8 +140,25 @@
     "de-code-justia",
     "de-constitution-justia",
     "de-cases-justia",
+    "fl-statutes-justia",
+    "fl-constitution-justia",
+    "fl-cases-justia",
+    "fl-subsequent-history-justia",
+    "il-ilcs-justia",
+    "il-constitution-justia",
+    "il-cases-justia",
+    "ma-gl-justia",
+    "ma-constitution-justia",
+    "ma-cases-justia",
     "ny-laws-justia",
     "ny-cases-justia"
+   ],
+   "blocked_sources": []
+  },
+  "laws.flrules.org": {
+   "status": "allowed",
+   "sources": [
+    "fl-laws-of-florida"
    ],
    "blocked_sources": []
   },
@@ -105,6 +181,23 @@
    "status": "allowed",
    "sources": [
     "ny-laws-senate-api"
+   ],
+   "blocked_sources": []
+  },
+  "library.law.fsu.edu": {
+   "status": "allowed",
+   "sources": [
+    "fl-sc-fsu-archive"
+   ],
+   "blocked_sources": []
+  },
+  "malegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "ma-gl-malegislature",
+    "ma-gl-api",
+    "ma-session-laws",
+    "ma-constitution-malegislature"
    ],
    "blocked_sources": []
   },
@@ -151,6 +244,24 @@
    ],
    "blocked_sources": []
   },
+  "supremecourt.flcourts.gov": {
+   "status": "blocked",
+   "sources": [
+    "fl-rules-flcourts",
+    "fl-opinions-flcourts"
+   ],
+   "blocked_sources": []
+  },
+  "www-media.floridabar.org": {
+   "status": "allowed",
+   "sources": [
+    "fl-rules-civil-floridabar",
+    "fl-rules-appellate-floridabar",
+    "fl-rules-criminal-floridabar",
+    "fl-rules-judadmin-floridabar"
+   ],
+   "blocked_sources": []
+  },
   "www.courts.ca.gov": {
    "status": "allowed",
    "sources": [
@@ -160,19 +271,109 @@
     "ca-opinions-courts"
    ]
   },
+  "www.floridabar.org": {
+   "status": "allowed",
+   "sources": [
+    "fl-rules-civil-floridabar",
+    "fl-rules-appellate-floridabar",
+    "fl-rules-criminal-floridabar",
+    "fl-rules-judadmin-floridabar"
+   ],
+   "blocked_sources": []
+  },
+  "www.flrules.org": {
+   "status": "allowed",
+   "sources": [
+    "fl-fac-flrules"
+   ],
+   "blocked_sources": []
+  },
+  "www.flsenate.gov": {
+   "status": "allowed",
+   "sources": [
+    "fl-statutes-flsenate",
+    "fl-constitution-flsenate"
+   ],
+   "blocked_sources": []
+  },
+  "www.ilga.gov": {
+   "status": "blocked",
+   "sources": [
+    "il-ilcs-ilga",
+    "il-constitution-ilga",
+    "il-admincode-jcar"
+   ],
+   "blocked_sources": []
+  },
+  "www.illinoiscourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "il-rules-supreme",
+    "il-rules-evidence",
+    "il-rules-appellate-local",
+    "il-opinions-courts",
+    "il-subsequent-history-pla"
+   ],
+   "blocked_sources": []
+  },
+  "www.ilsos.gov": {
+   "status": "blocked",
+   "sources": [
+    "il-register-sos"
+   ],
+   "blocked_sources": []
+  },
   "www.law.cornell.edu": {
    "status": "allowed",
    "sources": [
     "ca-ccr-lii",
     "de-admincode-lii",
+    "fl-fac-lii",
+    "il-admincode-lii",
+    "ma-cmr-lii",
     "ny-nycrr-cornell"
+   ],
+   "blocked_sources": []
+  },
+  "www.leg.state.fl.us": {
+   "status": "allowed",
+   "sources": [
+    "fl-statutes-online-sunshine",
+    "fl-constitution-online-sunshine"
    ],
    "blocked_sources": []
   },
   "www.lexisnexis.com": {
    "status": "blocked",
    "sources": [
-    "ca-official-reports-lexis"
+    "ca-official-reports-lexis",
+    "ma-mass-reports-lexis"
+   ],
+   "blocked_sources": []
+  },
+  "www.ma-appellatecourts.org": {
+   "status": "blocked",
+   "sources": [
+    "ma-docket-appellatecourts"
+   ],
+   "blocked_sources": []
+  },
+  "www.mass.gov": {
+   "status": "allowed",
+   "sources": [
+    "ma-rules-civil",
+    "ma-rules-civil-pdf",
+    "ma-rules-criminal",
+    "ma-rules-appellate",
+    "ma-rules-sjc",
+    "ma-rules-sjc-pdf",
+    "ma-rules-appeals-court",
+    "ma-rules-superior",
+    "ma-guide-evidence",
+    "ma-guide-evidence-pdf",
+    "ma-cmr-massgov",
+    "ma-opinions-massgov",
+    "ma-far-lists-massgov"
    ],
    "blocked_sources": []
   },
@@ -194,6 +395,13 @@
    "sources": [
     "ny-laws-senate",
     "ny-const-senate"
+   ],
+   "blocked_sources": []
+  },
+  "www.sec.state.ma.us": {
+   "status": "allowed",
+   "sources": [
+    "ma-register-sos"
    ],
    "blocked_sources": []
   }

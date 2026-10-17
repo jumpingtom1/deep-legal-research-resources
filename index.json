@@ -111,6 +111,205 @@
         }
       ]
     },
+    "fl": {
+      "name": "Florida",
+      "file": "jurisdictions/fl.md",
+      "sha256": "16b770e3fce3d7597949fd12d345d343ad7736a6df99a1b7e101ef04edd910d5",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 16,
+        "reported": 3,
+        "blocked": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Florida Statutes",
+          "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*\u00a7+\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:\u00a7+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-\u2013]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)"
+        },
+        {
+          "label": "Florida Evidence Code (Fla. Stat. ch. 90)",
+          "regex": "(?:Fla\\.\\s*Stat\\.?\\s*\u00a7+\\s*(?P<section>90\\.\\d{3,4})|(?:\u00a7+|sec(?:tion|\\.)?|s\\.)\\s*(?P<section2>90\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:Florida\\s+Evidence\\s+Code|Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.))"
+        },
+        {
+          "label": "Laws of Florida (session laws)",
+          "regex": "ch(?:apter|\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)-(?P<chapter>\\d{1,4}),?(?:\\s*\u00a7+\\s*\\d+,?)?\\s+Laws\\s+of\\s+(?:Fla\\.|Florida)"
+        },
+        {
+          "label": "Florida Constitution",
+          "regex": "Fla\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|art(?:icle|\\.)\\s*(?P<article2>[IVX]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section2>\\d+[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:Fla\\.\\s*Const\\.|of\\s+the\\s+(?:Florida|Fla\\.)\\s+Constitution)"
+        },
+        {
+          "label": "Florida Rules of Civil Procedure",
+          "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Florida Rules of Criminal Procedure",
+          "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+        },
+        {
+          "label": "Florida Rules of Appellate Procedure",
+          "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Florida Rules of General Practice and Judicial Administration",
+          "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})"
+        },
+        {
+          "label": "Florida Administrative Code",
+          "regex": "Fla\\.\\s*Admin\\.\\s*Code\\s*(?:Ann\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})|r(?:ule)?\\.?\\s*(?P<rule2>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:F\\.\\s*A\\.\\s*C\\.|Florida\\s+Administrative\\s+Code)"
+        },
+        {
+          "label": "Florida Administrative Register",
+          "regex": "(?P<volume>\\d{2})\\s+Fla\\.\\s*Admin\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?:Florida\\s+Administrative\\s+Register|FAR),?\\s*Vol(?:ume|\\.)\\s*(?P<volume2>\\d{2}),?\\s*(?:No\\.|Number)\\s*(?P<number>\\d{1,3})"
+        },
+        {
+          "label": "Reported Florida cases (Southern Reporter)",
+          "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Fla\\.(?:\\s*(?P<dca>[1-6](?:st|nd|d|rd|th))\\s*DCA|\\s*Dist\\.\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Florida Law Weekly (slip-opinion cites)",
+          "regex": "(?P<volume>\\d{1,2})\\s+Fla\\.\\s*L\\.\\s*Weekly\\s+(?:Supp\\.\\s+)?(?P<series>[SDC])?(?P<page>\\d{1,5})"
+        },
+        {
+          "label": "Florida appellate docket numbers (pre- and post-2023 ACIS forms)",
+          "regex": "\\b(?P<court>SC|[1-6]D)(?P<year>\\d{4}|\\d{2})-(?P<seq>\\d{1,4})\\b"
+        },
+        {
+          "label": "Westlaw unreported cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Fla\\."
+        }
+      ]
+    },
+    "il": {
+      "name": "Illinois",
+      "file": "jurisdictions/il.md",
+      "sha256": "f0208fa70b9cf34f6bacade5e62afd6149ee2f0fa1c149548ec07678f8c7e00f",
+      "compiled": "2026-10-16",
+      "counts": {
+        "blocked": 4,
+        "verified": 8,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Illinois Compiled Statutes (ILCS)",
+          "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act)"
+        },
+        {
+          "label": "Illinois Constitution of 1970",
+          "regex": "Ill\\.\\s*Const\\.\\s*(?:\\(?1970\\)?,?\\s*)?art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+(?:\\.\\d+)?)|article\\s+(?P<article2>[IVX]+),\\s+section\\s+(?P<section2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Illinois\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Illinois)"
+        },
+        {
+          "label": "Illinois Supreme Court Rules",
+          "regex": "Ill\\.\\s*S(?:up)?\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Illinois\\s+Supreme\\s+Court\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Supreme\\s+Court\\s+Rules"
+        },
+        {
+          "label": "Illinois Rules of Professional Conduct of 2010",
+          "regex": "Ill\\.\\s*R\\.\\s*Prof(?:'|\u2019)?l\\.?\\s*Conduct\\s*(?:\\(2010\\)\\s*)?R\\.\\s*(?P<rule>\\d\\.\\d+[a-z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[a-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "Illinois Rules of Evidence",
+          "regex": "Ill\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Illinois\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Evidence"
+        },
+        {
+          "label": "Illinois Administrative Code",
+          "regex": "(?P<title>\\d{1,2})\\s+Ill\\.\\s*Adm(?:in)?\\.\\s*Code\\s*(?:\u00a7+\\s*)?(?P<section>\\d{3,4}\\.\\d+[a-z]?)|Ill\\.\\s*Admin\\.\\s*Code\\s+tit\\.\\s*(?P<title2>\\d{1,2}),\\s*\u00a7+\\s*(?P<section2>\\d{3,4}\\.\\d+[a-z]?)"
+        },
+        {
+          "label": "Illinois Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Ill\\.\\s*Reg\\.\\s*(?P<page>\\d{1,3},\\d{3}|\\d+)"
+        },
+        {
+          "label": "Public-domain citations (Ill. S. Ct. R. 6, from July 1, 2011)",
+          "regex": "(?P<year>(?:20)\\d\\d)\\s+IL\\s+(?:App\\s+\\((?P<district>1st|2d|3d|4th|5th)\\)\\s+)?(?P<number>\\d{6})(?P<wc>WC)?(?:-(?P<suffix>U[BC]?|B|C))?(?:,\\s*\u00b6\u00b6?\\s*(?P<para>\\d+))?"
+        },
+        {
+          "label": "Reporter citations (Ill. 2d, Ill. App. 3d, Ill. Dec., N.E. with Illinois parenthetical)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Ill\\.\\s*(?:(?P<app>App\\.)\\s*)?(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,4})(?![\\d.])|(?P<decvol>\\d{1,3})\\s+Ill\\.\\s*Dec\\.\\s*(?P<decpage>\\d{1,4})|(?P<nevol>\\d{1,4})\\s+N\\.E\\.\\s*(?:[23]d\\s+)?(?P<nepage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?:Ill\\.(?:\\s*App\\.(?:\\s*Ct\\.)?)?)\\s*(?:\\d\\w*\\s*Dist\\.\\s*)?(?P<neyear>\\d{4})\\)"
+        },
+        {
+          "label": "Appellate Court docket numbers",
+          "regex": "\\bNo(?:s)?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<wc>WC)?\\b"
+        },
+        {
+          "label": "Westlaw cites with Illinois parenthetical",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ill\\."
+        }
+      ]
+    },
+    "ma": {
+      "name": "Massachusetts",
+      "file": "jurisdictions/ma.md",
+      "sha256": "59b122033291504d3502bf025f17fe1734006ee002700ded867e6551c56c3624",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 21,
+        "reported": 3,
+        "blocked": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Massachusetts General Laws",
+          "regex": "(?:(?:M\\.\\s?G\\.\\s?L\\.?|MGL|G\\.\\s?L\\.|ALM\\s+GL|Mass\\.\\s*Gen\\.\\s*Laws(?:\\s+Ann\\.)?|Mass\\.\\s*Ann\\.\\s*Laws)\\s*(?:c|ch|chapter)\\.?\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\s*,?\\s*(?:\u00a7\u00a7?|s\\.|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,3}[A-Z]{0,3}(?:\u00bd|1/2)?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,3}[A-Z]{0,3})(?:\\([a-z0-9]+\\))*\\s+of\\s+chapter\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2}),?\\s+(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,3}[A-Z]{0,3})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws)"
+        },
+        {
+          "label": "Massachusetts Session Laws (Acts / St.)",
+          "regex": "(?:\\bSt\\.|\\bStat\\.|\\bActs\\s+(?:of\\s+)?)\\s*(?P<year>1[6-9]\\d{2}|20\\d{2}),?\\s*(?:c\\.|ch\\.|chapter)\\s*(?P<chapter>\\d+)"
+        },
+        {
+          "label": "Massachusetts Constitution",
+          "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:\u00a7\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution"
+        },
+        {
+          "label": "Massachusetts Rules of Civil Procedure",
+          "regex": "Mass\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Massachusetts Rules of Criminal Procedure",
+          "regex": "Mass\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+        },
+        {
+          "label": "Massachusetts Rules of Appellate Procedure",
+          "regex": "Mass\\.\\s*R\\.\\s*A(?:pp)?\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Rules of the Supreme Judicial Court (incl. Rules of Professional Conduct, SJC Rule 3:07)",
+          "regex": "(?:S\\.\\s?J\\.\\s?C\\.|SJC|Supreme\\s+Judicial\\s+Court)\\s+Rule\\s+(?P<rule>\\d:\\d{2}[A-Z]?)|Mass\\.\\s*R\\.\\s*Prof\\.\\s*C(?:onduct)?\\.\\s*(?P<rpc>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d:\\d{2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Supreme\\s+Judicial\\s+Court"
+        },
+        {
+          "label": "Appeals Court Rules (incl. Rule 23.0, formerly 1:28)",
+          "regex": "(?:Mass\\.\\s*App\\.\\s*Ct\\.\\s*R\\.|Appeals\\s+Court\\s+Rule|M\\.A\\.C\\.\\s+Rule)\\s*(?P<rule>\\d{1,2}\\.\\d|1:\\d{2})|(?:rule|Rule)\\s+(?P<rule2>1:28|23\\.0)\\b"
+        },
+        {
+          "label": "Superior Court Rules",
+          "regex": "(?:Super(?:ior)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Superior\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,2}[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Superior\\s+Court(?:\\s+Rules)?"
+        },
+        {
+          "label": "Massachusetts Guide to Evidence",
+          "regex": "Mass\\.\\s*G(?:uide|\\.)\\s*Evid\\.\\s*\u00a7\\s*(?P<section>\\d{3,4})|(?:Section|\u00a7)\\s*(?P<section2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Guide\\s+to\\s+Evidence"
+        },
+        {
+          "label": "Code of Massachusetts Regulations",
+          "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|Code\\s+Mass\\.\\s+Regs\\.)\\s*(?:\u00a7\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})"
+        },
+        {
+          "label": "Massachusetts Register",
+          "regex": "(?:Mass\\.|Massachusetts)\\s*Reg(?:ister|\\.)\\s*(?:#|No\\.\\s*|Issue\\s*)\\s*(?P<issue>\\d{3,4})"
+        },
+        {
+          "label": "Massachusetts Reports / Appeals Court Reports / N.E. with Mass. parenthetical",
+          "regex": "(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?!App\\.\\s*D)(?P<app>App\\.\\s+Ct\\.\\s+)?(?P<page>\\d{1,4})\\b|(?P<nevol>\\d{1,3})\\s+N\\.E\\.(?:2d|3d)?\\s+(?P<nepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<ct>Mass\\.(?:\\s+App\\.(?:\\s+Ct\\.)?)?)\\s*\\d{4}\\)"
+        },
+        {
+          "label": "Massachusetts appellate docket numbers (SJC-, FAR-, YY-P-, YY-J-)",
+          "regex": "\\b(?P<sjc>SJC-\\d{4,5})\\b|\\b(?P<far>FAR-\\d{4,5})\\b|\\b(?P<ac>(?:19|20)?\\d{2}-[PJ]-\\d{1,4})\\b"
+        },
+        {
+          "label": "Further appellate review dispositions",
+          "regex": "further\\s+appellate\\s+review\\s+(?P<disp>denied|granted|allowed)(?:,\\s*(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?P<page>\\d{1,4}))?"
+        }
+      ]
+    },
     "ny": {
       "name": "New York",
       "file": "jurisdictions/ny.md",
