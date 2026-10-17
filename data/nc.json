@@ -203,9 +203,9 @@
         ],
         "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*C\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
         "routes_to": [
-          "nc-reports-volumes",
+          "nc-cases-justia",
           "nc-opinions-appellate-listing",
-          "nc-cases-justia"
+          "nc-reports-volumes"
         ]
       },
       {
@@ -252,16 +252,27 @@
       },
       {
         "family": "case_law",
+        "label": "Business Court Westlaw / Lexis cites",
+        "examples": [
+          "2023 WL 4567890 (N.C. Super. Ct. May 1, 2023)",
+          "2019 NCBC LEXIS 12"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.\\s*Super\\.|NCBC\\s*LEXIS\\s+(?P<lexis>\\d+))",
+        "routes_to": [
+          "nc-business-court-opinions"
+        ]
+      },
+      {
+        "family": "case_law",
         "label": "Westlaw / Lexis unreported cites",
         "examples": [
           "2023 WL 123456 (N.C. Ct. App. Jan. 3, 2023)",
-          "2024 N.C. App. LEXIS 12",
-          "2019 NCBC LEXIS 12"
+          "2024 N.C. App. LEXIS 12"
         ],
-        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.|(?:N\\.C\\.(?:\\s*App\\.)?|NCBC)\\s*LEXIS\\s+(?P<lexis>\\d+))",
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.(?!\\s*Super)|N\\.C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))",
         "routes_to": [
-          "nc-opinions-appellate-listing",
-          "nc-cases-justia"
+          "nc-cases-justia",
+          "nc-opinions-appellate-listing"
         ]
       }
     ],
@@ -283,7 +294,7 @@
       "Business Corporation Act": "55",
       "Workers' Compensation Act": "97"
     },
-    "notes": "Order matters: try the 1A-1 and 8C-1 rule patterns before the General Statutes pattern, because 'N.C.G.S. § 1A-1, Rule 12' also matches the statute regex as § 1A-1 (a stub page). The statute URL needs no code key: chapter and section come straight from 'G.S. {chapter}-{section}'; law_aliases maps rule-set and act names to their chapter. 'G.S.' is guarded by requiring the dotted form 'G.S.'; bare 'Rule 12', 'Rules of Civil Procedure' or 'Rules of Evidence' route here only with 'North Carolina'/'N.C.' or 1A-1/8C-1 context. 'S.L. YYYY-N' is also used by other states (e.g. Idaho), so route session laws here only with N.C. context. NC sections are always chapter-hyphen-section, so '§§ 1-52 to 1-56' is a span: take the first; '§§ 7B-903, -906.1' gives 7B-903 then 7B-906.1. Official reporters N.C. and N.C. App. are free as whole-volume PDFs on nccourts.gov (nc-reports-volumes); S.E.2d/S.E.3d are West. Universal citations ('2021-NCSC-1', '2021-NCCOA-1', ¶ pinpoints) were a parallel cite for opinions filed from Jan. 1, 2021; the Supreme Court withdrew the order on Jan. 11, 2023. Business Court 'YYYY NCBC N' is a court-assigned public-domain cite. Unpublished COA opinions (N.C. R. App. P. 30(e)) are cited by docket 'No. COA##-###' plus date and '(unpublished)'. Supreme docket suffixes: A (appeal of right), PA (PDR allowed), P (petition), -2 for a second matter. 'disc. review denied, ___ N.C. ___' is found on the Supreme Court docket sheet (nc-subsequent-history-dockets). CourtListener ids from memory, unverified (Business Court opinions may sit under ncsuperct)."
+    "notes": "Order matters: try the 1A-1 and 8C-1 rule patterns before the General Statutes pattern, because 'N.C.G.S. § 1A-1, Rule 12' also matches the statute regex as § 1A-1 (a stub page). The statute URL needs no code key: chapter and section come straight from 'G.S. {chapter}-{section}'; law_aliases maps rule-set and act names to their chapter. 'G.S.' is guarded by requiring the dotted form 'G.S.'; bare 'Rule 12', 'Rules of Civil Procedure' or 'Rules of Evidence' route here only with 'North Carolina'/'N.C.' or 1A-1/8C-1 context. 'S.L. YYYY-N' is also used by other states (e.g. Idaho), so route session laws here only with N.C. context. NC sections are always chapter-hyphen-section, so '§§ 1-52 to 1-56' is a span: take the first; '§§ 7B-903, -906.1' gives 7B-903 then 7B-906.1. Official reporters N.C. and N.C. App. are free as whole-volume PDFs on nccourts.gov (nc-reports-volumes); S.E.2d/S.E.3d are West. Universal citations ('2021-NCSC-1', '2021-NCCOA-1', ¶ pinpoints) were a parallel cite for opinions filed from Jan. 1, 2021; the Supreme Court withdrew the order on Jan. 11, 2023. Business Court 'YYYY NCBC N' is a court-assigned public-domain cite. Unpublished COA opinions (N.C. R. App. P. 30(e)) are cited by docket 'No. COA##-###' plus date and '(unpublished)'. Supreme docket suffixes: A (appeal of right), PA (PDR allowed), P (petition), -2 for a second matter. 'disc. review denied, ___ N.C. ___' is found on the Supreme Court docket sheet (nc-subsequent-history-dockets). CourtListener ids from memory, unverified (Business Court opinions may sit under ncsuperct). Westlaw cites with a '(N.C. Super. Ct.' parenthetical (and NCBC LEXIS) are Business Court decisions: they route to nc-business-court-opinions; the general WL pattern excludes them with a negative lookahead (?!\\s*Super). Reported-case text routes to Justia first, because the official volume PDFs have not been read."
   },
   "sources": [
     {
@@ -329,9 +340,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch (ncleg.gov/... GS_1-52.html): body present, 'Within three years an action (1) Upon a contract', complete through (20). G.S. 14-17: '(a) A murder which shall be perpetrated by means of a', complete. Script: GS_1-52 5,444 chars, last-modified 16 Apr 2026; GS_15A-1415, GS_160D-102, GS_75-1.1, GS_143B-135.40 all 200 with text; PDF GS_1-52.pdf 2 pp."
+        "evidence": "WebFetch (ncleg.gov/... GS_1-52.html): body present, 'Within three years an action (1) Upon a contract', complete through (20). G.S. 14-17: '(a) A murder which shall be perpetrated by means of a', complete. Script: GS_1-52 5,444 chars, last-modified 16 Apr 2026; GS_15A-1415, GS_160D-102, GS_75-1.1, GS_143B-135.40 all 200 with text; PDF GS_1-52.pdf 2 pp. | Independent check 2026-10-16: Script: GS_1-52 5,444 chars, 'Within three years an action' found; landing 'changes through S.L. 2026-30.'; second citation N.C. Gen. Stat. § 20-138.1; G.S. 7B-1111 ok"
       },
       "notes": "Two different chapters with letter suffixes and decimal sections prove the pattern (1-52, 14-17, 15A-1415, 160D-102, 75-1.1, 143B-135.40). library.ncleg.gov, house.ncleg.gov, ncleg.net and ftp.ncleg.gov serve the same paths (seen in search results); cite www.ncleg.gov."
     },
@@ -347,7 +358,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://law.justia.com/codes/north-carolina/chapter-{chapter_lower}/article-{article_lower}/section-{chapter_lower}-{section}/",
-        "pattern_rules": "chapter and suffix lower-case (chapter-1, chapter-1a); the article number is NOT in the citation and must come from the chapter page, which shows no section ranges. A chapter without articles omits the article segment (chapter-1a/section-1a-1/). Year editions: insert /{year}/ after /north-carolina/.",
+        "pattern_rules": "chapter and suffix lower-case (chapter-1, chapter-1a); the article number is NOT in the citation and must come from the chapter page, which shows no section ranges. A chapter without articles omits the article segment (chapter-1a/section-1a-1/). Year editions: insert /{year}/ after /north-carolina/. Decimal points in the section become hyphens in the slug (75-1.1 → section-75-1-1, verified chapter-75/article-1/section-75-1-1/); always take the section link from the article page.",
         "index_url": "https://law.justia.com/codes/north-carolina/",
         "navigation": "chapter page (/codes/north-carolina/chapter-{n}/) → article link (titles only, no ranges; pick by subject or try the article page) → article page lists sections → section page. Verified: chapter-1 → article-5 → section-1-52.",
         "format": "html"
@@ -367,19 +378,20 @@
         "article hop: article number not derivable and article links show no section ranges",
         "no text for the Rules of Civil Procedure (1A-1) — page has only the lead-in",
         "edition lags the official text",
-        "shell blocked by Cloudflare"
+        "shell blocked by Cloudflare",
+        "section slug replaces dots with hyphens (section-75-1-1); constructing section-75-1.1 misses"
       ],
       "probe": {
         "citation": "N.C. Gen. Stat. § 1-52",
         "url": "https://law.justia.com/codes/north-carolina/chapter-1/article-5/section-1-52/",
-        "expect": "Within three years an action (1) Upon a contract, obligation"
+        "expect": "Within three years an action"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present through (20), 'NC Gen Stat § 1-52 (2025)'. chapter-1a/section-1a-1: Rule 12(b) body NOT PRESENT; chapter-1a index lists only § 1A-1."
+        "evidence": "WebFetch: body present through (20), 'NC Gen Stat § 1-52 (2025)'. chapter-1a/section-1a-1: Rule 12(b) body NOT PRESENT; chapter-1a index lists only § 1A-1. | Independent check 2026-10-16: WebFetch: 'Within three years an action -' then '(1) Upon a contract'; 'NC Gen Stat § 1-52 (2025)'.; second citation N.C. Gen. Stat. § 75-1.1 ok"
       },
       "notes": ""
     },
@@ -423,9 +435,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 200 html, grep 'SESSION LAW 2023-134 HOUSE BILL 259' found; SL2026-30.pdf 2 pp. WebFetch not run."
+        "evidence": "Script: 200 html, grep 'SESSION LAW 2023-134 HOUSE BILL 259' found; SL2026-30.pdf 2 pp. WebFetch not run. | Independent check 2026-10-16: Script: SL2023-134.html 2,386,462 chars, 'SESSION LAW 2023-134 HOUSE BILL 259' found.; second citation S.L. 2025-2 ok"
       },
       "notes": ""
     },
@@ -470,9 +482,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Sec. 18 body present, last section Sec. 38, not truncated. Script: Article4 Sec. 12 '(1) Supreme Court. The Supreme Court shall have jurisdiction'; NCConstitution.html 116,397 chars, last-modified 10 Jun 2026."
+        "evidence": "WebFetch: Sec. 18 body present, last section Sec. 38, not truncated. Script: Article4 Sec. 12 '(1) Supreme Court. The Supreme Court shall have jurisdiction'; NCConstitution.html 116,397 chars, last-modified 10 Jun 2026. | Independent check 2026-10-16: Script: Article1 23,082 chars, 'All courts shall be open; every person for an injury' found.; second citation N.C. Const. art. IX, § 2 ok"
       },
       "notes": ""
     },
@@ -487,8 +499,8 @@
       "coverage": "Preamble and Article I on preamble.html; other articles one page each.",
       "access": {
         "mode": "index-anchored",
-        "url_pattern": "https://law.justia.com/constitution/north-carolina/article_{roman_lower}.html",
-        "pattern_rules": "Article I is on preamble.html (#I); others article_{roman lower-case}.html (article_iv.html seen in the index).",
+        "url_pattern": "https://law.justia.com/constitution/north-carolina/{page}",
+        "pattern_rules": "Art. I → preamble.html#I; Arts. II-VI → article_{roman_lower}.html (article_iv.html); Arts. VII-XIV share one page → article_vii-xiv.html#{ROMAN} (art. IX → article_vii-xiv.html#IX, verified). Prefer taking the link from the index.",
         "index_url": "https://law.justia.com/constitution/north-carolina/",
         "navigation": "index → article link",
         "format": "html"
@@ -506,7 +518,8 @@
       },
       "hazards": [
         "stale: Article I ends at Sec. 37; the official text has Sec. 38",
-        "shell blocked"
+        "shell blocked",
+        "Articles VII-XIV share article_vii-xiv.html; article_ix.html does not exist"
       ],
       "probe": {
         "citation": "N.C. Const. art. I, § 18",
@@ -516,9 +529,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Sec. 18 body present; Article I ends at Sec. 37 (official ends at Sec. 38) — stale copy."
+        "evidence": "WebFetch: Sec. 18 body present; Article I ends at Sec. 37 (official ends at Sec. 38) — stale copy. | Independent check 2026-10-16: WebFetch: Sec. 18 present; Article I ends Sec. 37; 'This Constitution may not be the most recent version.'; second citation N.C. Const. art. IX, § 2 ok"
       },
       "notes": "Last resort only."
     },
@@ -562,9 +575,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: GS_1A-1,_Rule_12.html 7,210 chars, '(6) Failure to state a claim upon which relief can be granted' found. WebFetch Chapter_1A.html: Rule 12(b) 'Every defense, in law or fact, to a claim for'; Rule 56(c) NOT PRESENT (truncated at Rule 20)."
+        "evidence": "Script: GS_1A-1,_Rule_12.html 7,210 chars, '(6) Failure to state a claim upon which relief can be granted' found. WebFetch Chapter_1A.html: Rule 12(b) 'Every defense, in law or fact, to a claim for'; Rule 56(c) NOT PRESENT (truncated at Rule 20). | Independent check 2026-10-16: Script: Rule_12 7,210 chars, '(6) Failure to state a claim upon which relief can be granted'.; second citation N.C. R. Civ. P. 56(c) ok"
       },
       "notes": "Rule list from the Chapter1A section page: 1-65, 67-70, 83, 84, 44.1, 68.1."
     },
@@ -607,9 +620,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 6,276 chars, 'Rule 702. Testimony by experts. (a) If scientific, technical' found. WebFetch not run."
+        "evidence": "Script: 6,276 chars, 'Rule 702. Testimony by experts. (a) If scientific, technical' found. WebFetch not run. | Independent check 2026-10-16: Script: Rule_702 6,276 chars, '(a) If scientific, technical or other specialized knowledge will assist' found.; second citation N.C. R. Evid. 404(b) ok"
       },
       "notes": ""
     },
@@ -656,7 +669,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch of the rules page: no rule text, link to 'Codified 2 September 2025' PDF. Current PDF not fetched (provenance gate timed out). Older 1 March 2023 codification PDF: Rule 28(b) NOT PRESENT, WebFetch stops in Rule 18(c)(8)."
+        "evidence": "WebFetch of the rules page: no rule text, link to 'Codified 2 September 2025' PDF. Current PDF not fetched (provenance gate timed out). Older 1 March 2023 codification PDF: Rule 28(b) NOT PRESENT, WebFetch stops in Rule 18(c)(8). | Independent check 2026-10-16: Script REFUSED (nccourts.gov robots bot check). WebFetch rules page: link 'Codified 2 September 2025'; no rule text.; PDF not read (Codified PDF (link taken from the page) not readable here: WebFetch permission request timed out (harness provenance gate, not site refusal). Script route refused, so the rule text remains unverified; row stays link-only in practice.)"
       },
       "notes": ""
     },
@@ -703,7 +716,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch of the rules page: no rule text; link to the 6 August 2025 codification PDF. PDF not fetched."
+        "evidence": "WebFetch of the rules page: no rule text; link to the 6 August 2025 codification PDF. PDF not fetched. | Independent check 2026-10-16: Script REFUSED. WebFetch rules page: link 'Codified 6 August 2025'; no rule text.; PDF not read (PDF not read: WebFetch permission not answered (harness gate, not site refusal). Rule text unverified.)"
       },
       "notes": ""
     },
@@ -729,28 +742,29 @@
         "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "www.nccourts.gov: robots.txt answers HTTP 403 (CloudFront 'Request blocked') — script refuses as bot check",
-        "notes": "Rules pages are WebFetch-readable; PDFs expected to exceed the WebFetch window (2023 appellate codification stopped in Rule 18). The script route is refused for www.nccourts.gov, so corpus ingestion by script is not possible either."
+        "notes": "WebFetch reads the codified PDF through Rule 16 and stops inside Appendix 2. Script refused for www.nccourts.gov (robots bot check), so corpus ingest by script is not possible."
       },
       "currency": {
-        "where": "rules page link text",
+        "where": "rules page link text (not in the PDF; PDF history notes cite 'Order Dated 20 August 2025')",
         "observed": "Codified 2 September 2025"
       },
       "hazards": [
-        "single long PDF; WebFetch truncation",
+        "WebFetch truncation inside Appendix 2 (rules 1-16 reachable)",
+        "PDF cover has no 'Codified' string — currency only from the rules-page link text",
         "file name/VersionId change on recodification",
         "shell blocked (CloudFront 403)"
       ],
       "probe": {
         "citation": "N.C. Bus. Ct. R. 7.1",
-        "url": "https://www.nccourts.gov/courts/supreme-court/court-rules/north-carolina-business-court-rules",
-        "expect": ""
+        "url": "https://www.nccourts.gov/assets/inline-files/Business%20Court%20Rules%20-%20Codified%202%20September%202025_0.pdf?VersionId=YbShRXHN681b6gF9gPfkab60_wMQOxF4",
+        "expect": "General provisions. (a) Business Court judge presides."
       },
       "verification": {
-        "status": "reported",
+        "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
-        "result": "FAIL",
-        "evidence": "WebFetch of the rules page: no rule text; link to 'Codified 2 September 2025' PDF; last order effective 2 September 2025. PDF not fetched."
+        "by": "independent",
+        "result": "OK",
+        "evidence": "WebFetch of rules page: link 'Codified 2 September 2025'; script REFUSED (nccourts.gov bot check). | Independent check 2026-10-16: WebFetch of the codified PDF read Rule 7.1 'General provisions. (a) Business Court judge presides.'; Rules 1-16 reachable, truncation inside Appendix 2; second citation N.C. Bus. Ct. R. 7.1 ok"
       },
       "notes": ""
     },
@@ -769,9 +783,10 @@
         "pattern_rules": "All path segments lower-case, spaces URL-encoded as %20. Title and chapter folder names include descriptive names that are not in the citation (e.g. 'title 15a - environmental quality/chapter 02 - environmental management/subchapter b/15a ncac 02b .0202.html'), so take them from the index. Also .pdf and .doc; subchapter compilation '.../subchapter b/subchapter b rules.pdf'. Second verified: 10a ncac 13f .0101 under 'title 10a - health and human services/chapter 13 - nc medical care commission/subchapter f/'.",
         "index_url": "http://reports.oah.state.nc.us/ncac.asp",
         "navigation": "ncac.asp → ncac.asp?folderName=\\Title {T} - {Name} → ?folderName=\\Title …\\Chapter {CC} - {Name} (lists every rule file in every subchapter) → rule .html/.pdf",
-        "format": "html"
+        "format": "html",
+        "read_via": "No tool route reaches this host (script: https reset; WebFetch: approval gate). Read the text from nc-ncac-lii and disclose its lag; check the latest amendment date here by link."
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
         "webfetch": "untested",
         "shell": "http-error",
@@ -786,7 +801,8 @@
         "http only; https resets",
         "folder names not derivable from the citation",
         "Word-exported HTML (large CSS header before text)",
-        "slow chapter listings"
+        "slow chapter listings",
+        "no read route: fetch_doc.py fails (https connection reset) and WebFetch could not be approved — independent check 2026-10-16 failed by every route"
       ],
       "probe": {
         "citation": "15A NCAC 02B .0202",
@@ -798,7 +814,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "curl over http: 200 text/html 32,770 bytes, '15A NCAC 02B .0202 DEFINITIONS'; History Note ends 'Amended Eff. June 1, 2026'. Neither fetch_doc.py (https reset) nor WebFetch (permission timeout) read it."
+        "evidence": "curl over http: 200 text/html 32,770 bytes, '15A NCAC 02B .0202 DEFINITIONS'; History Note ends 'Amended Eff. June 1, 2026'. Neither fetch_doc.py (https reset) nor WebFetch (permission timeout) read it. | Independent check 2026-10-16 FAILED: script 'robots.txt unreachable … Connection reset by peer'; WebFetch permission timed out. Link-only."
       },
       "notes": "The only current official text; LII (nc-ncac-lii) lags by at least one amendment."
     },
@@ -814,7 +830,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.law.cornell.edu/regulations/north-carolina/{title}-N-C-Admin-Code-{chapter:02d}{subchapter}-{rule}",
-        "pattern_rules": "title verbatim upper-case (15A, 10A); chapter two digits plus subchapter letter (02B, 13F); rule four digits WITHOUT the leading dot (0202). 15A NCAC 02B .0202 → 15A-N-C-Admin-Code-02B-0202. Browse: /regulations/north-carolina/title-15A/chapter-02/subchapter-B/section-.0200.",
+        "pattern_rules": "title verbatim upper-case (15A, 10A); chapter two digits plus subchapter letter (02B, 13F); rule four digits WITHOUT the leading dot (0202). 15A NCAC 02B .0202 → 15A-N-C-Admin-Code-02B-0202. Browse: /regulations/north-carolina/title-15A/chapter-02/subchapter-B/section-.0200. When the citation has no subchapter letter, omit it (21 NCAC 46 .1801 → 21-N-C-Admin-Code-46-1801, verified).",
         "index_url": "https://www.law.cornell.edu/regulations/north-carolina",
         "navigation": "",
         "format": "html"
@@ -842,9 +858,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 25,259 chars, definition (1) found; history ends 'Amended Eff. June 1, 2022'. 10A-N-C-Admin-Code-13F-0102: 8,205 chars, 'Activities of daily living' found."
+        "evidence": "Script: 25,259 chars, definition (1) found; history ends 'Amended Eff. June 1, 2022'. 10A-N-C-Admin-Code-13F-0102: 8,205 chars, 'Activities of daily living' found. | Independent check 2026-10-16: Script: definition (1) '\"Acute toxicity to aquatic life\" means lethality' found; history ends 6/1/2022.; second citation 21 NCAC 46 .1801 ok"
       },
       "notes": "Practical second fetch only for rules not amended since LII's last refresh."
     },
@@ -860,7 +876,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://files.nc.gov/oah/documents/{YYYY-MM}/Volume-{vol}-Issue-{issue:02d}-{Month}-{DD}-{YYYY}.pdf",
-        "pattern_rules": "Folder is the upload month, which may differ from the issue date; take the link from the listing. Register cites give volume:issue and page (41:08 NCR 652).",
+        "pattern_rules": "Not constructible: real hrefs carry ?VersionId=… and sometimes _0/_1 suffixes (Volume-40-Issue-07-October-1-2025_0.pdf); the folder is the upload month. Always copy the href from the listing. Register cites give volume:issue and page (41:08 NCR 652).",
         "index_url": "https://www.oah.nc.gov/documents/north-carolina-register",
         "navigation": "listing (newest first, ?page=N) → issue PDF on files.nc.gov",
         "format": "pdf"
@@ -878,7 +894,8 @@
       },
       "hazards": [
         "WebFetch truncation within an issue",
-        "upload-month folder not equal to issue date"
+        "upload-month folder not equal to issue date",
+        "file names may carry _0/_1 suffixes and ?VersionId — follow links, don't construct"
       ],
       "probe": {
         "citation": "41:08 NCR 652 (Oct. 15, 2026)",
@@ -888,9 +905,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 110 pp PDF, cover line found. WebFetch: cover 'VOLUME 41 ● ISSUE 08 ● Pages 652 – 756', truncated at p. 710."
+        "evidence": "Script: 110 pp PDF, cover line found. WebFetch: cover 'VOLUME 41 ● ISSUE 08 ● Pages 652 – 756', truncated at p. 710. | Independent check 2026-10-16: Script: 110 pp, 'NORTH CAROLINA REGISTER VOLUME 41 ● ISSUE 08 ● Pages 652 – 756'.; second citation 41:07 NCR 541 ok"
       },
       "notes": ""
     },
@@ -936,9 +953,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "curl/script: 2024 Supreme listing has 'Cato Corp. v. Zurich Am. Ins. Co., (353PA23 - Published)', pdf=44232; COA 2024 listing shows '(24-417 - Unpublished)'; index-search GET 'Cato' returned 25 headnote results with N.C. App. cites."
+        "evidence": "curl/script: 2024 Supreme listing has 'Cato Corp. v. Zurich Am. Ins. Co., (353PA23 - Published)', pdf=44232; COA 2024 listing shows '(24-417 - Unpublished)'; index-search GET 'Cato' returned 25 headnote results with N.C. App. cites. | Independent check 2026-10-16: Script: 2024 listing 'Cato Corp. v. Zurich Am. Ins. Co., (353PA23 - Published)'.; second citation Sneed v. Johnston, No. 130PA24 (N.C. Aug. 14, 2026) ok"
       },
       "notes": "Docket sheets (nc-subsequent-history-dockets) also link the slip opinion."
     },
@@ -983,7 +1000,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "robots.txt 'User-agent: * Disallow: /opinions/'; fetch_doc.py REFUSED."
+        "evidence": "robots.txt 'User-agent: * Disallow: /opinions/'; fetch_doc.py REFUSED. | Re-confirmed blocked 2026-10-16: fetch_doc check REFUSED 'Disallow: /opinions/'; WebFetch permission timed out (not a site answer)."
       },
       "notes": "Link to it in reports; read the text elsewhere."
     },
@@ -1018,7 +1035,8 @@
       },
       "hazards": [
         "no plain-GET filter found",
-        "shell blocked"
+        "shell blocked",
+        "?page=N offsets shift as opinions are added; the page-200 probe date will drift"
       ],
       "probe": {
         "citation": "Kozec v. Murphy, COA22-433 (N.C. Ct. App. Dec. 29, 2022)",
@@ -1028,9 +1046,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: page 200 items dated December 29, 2022 (Kozec v. Murphy, COA22-433) with PDF links ?c=2&pdf=41876."
+        "evidence": "WebFetch: page 200 items dated December 29, 2022 (Kozec v. Murphy, COA22-433) with PDF links ?c=2&pdf=41876. | Independent check 2026-10-16: WebFetch page 200: 'Kozec v. Murphy', December 29, 2022, COA22-433, pdf=41876."
       },
       "notes": "Prefer nc-opinions-appellate-listing (year pages, GET headnote search)."
     },
@@ -1077,9 +1095,9 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: detail page links nccoa292.pdf (2,390 KB, tag 'Court of Appeals'); vol. 366 page links ncsct366.pdf (4,806 KB, 'Supreme Court'). PDFs not read."
+        "evidence": "WebFetch: detail page links nccoa292.pdf (2,390 KB, tag 'Court of Appeals'); vol. 366 page links ncsct366.pdf (4,806 KB, 'Supreme Court'). PDFs not read. | Independent check 2026-10-16: Script REFUSED. WebFetch detail page: links nccoa292.pdf, 2,390 KB, title 'COA Volume 292'.; PDF not read (Volume PDF not read: WebFetch permission not answered (harness gate). Whether official page numbers are reachable is still untested, yet the citation map routes reported cases here first.)"
       },
-      "notes": "The only free source of official N.C./N.C. App. page numbers."
+      "notes": "The only free source of official N.C./N.C. App. page numbers. Until a volume PDF is read, use volumes as links only; route case text to nc-cases-justia."
     },
     {
       "id": "nc-business-court-opinions",
@@ -1124,7 +1142,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch listing: 'LUCAS v. HOPPER, 2026 NCBC 39', April 23, 2026, 24-CVS-502, PDF '2026%20NCBC%2039.pdf'. Detail page (2026 NCBC 1): metadata only, no body. PDF body not read."
+        "evidence": "WebFetch listing: 'LUCAS v. HOPPER, 2026 NCBC 39', April 23, 2026, 24-CVS-502, PDF '2026%20NCBC%2039.pdf'. Detail page (2026 NCBC 1): metadata only, no body. PDF body not read. | Independent check 2026-10-16: Script REFUSED. WebFetch listing: 'LUCAS v. HOPPER, 2026 NCBC 39', April 23, 2026, 24-CVS-502.; PDF not read (Opinion PDF not read: WebFetch permission not answered (harness gate). Body text still unverified.)"
       },
       "notes": "Business Court appeals go directly to the Supreme Court (G.S. 7A-27(a)(2)), so look for the appeal in Supreme Court dockets."
     },
@@ -1170,11 +1188,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present, slip pages -2- to -15-, ends 'MODIFIED AND AFFIRMED.', no N.C./S.E.2d cite. COA: /court-of-appeals/2024/23-1013.html body present, 'This matter concerns a dispute between a church in Wilmington'."
+        "evidence": "WebFetch: body present, slip pages -2- to -15-, ends 'MODIFIED AND AFFIRMED.', no N.C./S.E.2d cite. COA: /court-of-appeals/2024/23-1013.html body present, 'This matter concerns a dispute between a church in Wilmington'. | Independent check 2026-10-16: WebFetch: 'This is a companion case to North State Deli, LLC'; -2- to -15-; not truncated.; second citation Sneed v. Johnston, No. 130PA24 (N.C. Aug. 14, 2026) ok"
       },
-      "notes": "Practical read route for opinion text, since the official PDFs are robots-disallowed."
+      "notes": "Practical read route for opinion text, since the official PDFs are robots-disallowed. The body cites other cases by N.C./N.C. App. cites; only the opinion's own reporter cite is missing."
     },
     {
       "id": "nc-subsequent-history-dockets",
@@ -1217,9 +1235,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: docket GET 353PA23 → 1 case; sheet shows 'PDR … Allowed 05-21-2024', COA 23-305, 21CVS9525; orders GET → 7 orders; order 428065 PDF 1 p, 'From N.C. Court of Appeals ( 23-305 )'."
+        "evidence": "Script: docket GET 353PA23 → 1 case; sheet shows 'PDR … Allowed 05-21-2024', COA 23-305, 21CVS9525; orders GET → 7 orders; order 428065 PDF 1 p, 'From N.C. Court of Appeals ( 23-305 )'. | Independent check 2026-10-16: Script: order 428065 PDF, 'Allowed by order of the Court in conference, this the 21st of May 2024.'; second citation Sneed v. Johnston, No. 130PA24 ok"
       },
       "notes": "'disc. review denied' / 'disc. review allowed' parentheticals map to the PDR row of the Supreme Court docket sheet and the order PDF."
     }
@@ -1282,7 +1300,7 @@
     {
       "source_id": "nc-rules-business-court",
       "url": "https://www.nccourts.gov/courts/supreme-court/court-rules/north-carolina-business-court-rules",
-      "why": "Single codified PDF (2 Sept 2025) with decimal rules (7.1, 10.9).",
+      "why": "Single codified PDF (2 Sept 2025); WebFetch reads Rules 1-16 and stops inside Appendix 2. Script ingest blocked by nccourts.gov CloudFront 403.",
       "split_hint": "'Rule N.N' headings",
       "bulk": ""
     },
@@ -1315,6 +1333,9 @@
     "N.C. Reports / N.C. App. volume PDFs: coverage range and whether WebFetch reaches a given page not tested.",
     "NCAC: whether WebFetch can read the http-only reports.oah.state.nc.us; fetch_doc.py would need an http robots check.",
     "CourtListener ids nc, ncctapp, ncsuperct unverified; Business Court mapping uncertain.",
-    "Exact last filing date carrying 2022-NCCOA/NCSC universal cites not confirmed (withdrawal order dated Jan. 11, 2023)."
+    "Exact last filing date carrying 2022-NCCOA/NCSC universal cites not confirmed (withdrawal order dated Jan. 11, 2023).",
+    "NCAC (nc-ncac-oah) failed by every tool route in the independent check (script https reset; WebFetch approval timeout): find a readable route or keep link-only with LII as the read route.",
+    "Appellate Rules, General Rules of Practice, NCBC opinion PDFs and report-volume PDFs: WebFetch approval timed out in both research and independent check (harness gate, not a refusal) — re-probe and record truncation points.",
+    "Business Court Rules PDF: WebFetch truncates inside Appendix 2 — corpus candidate, but the script is refused on nccourts.gov."
   ]
 }

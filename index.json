@@ -556,11 +556,11 @@
     "nc": {
       "name": "North Carolina",
       "file": "jurisdictions/nc.md",
-      "sha256": "4705ef122b0278c99032ed38da1b5e371ec2450c619b250118ca0ecf0c7026aa",
+      "sha256": "479ee6af7172df5fecfd85083348951bec3b51a5e996a54197c20201c6b4181e",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 13,
-        "reported": 6,
+        "verified_independent": 14,
+        "reported": 5,
         "blocked": 1
       },
       "citation_patterns": [
@@ -621,8 +621,12 @@
           "regex": "(?:No\\.\\s*)?\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})"
         },
         {
+          "label": "Business Court Westlaw / Lexis cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.\\s*Super\\.|NCBC\\s*LEXIS\\s+(?P<lexis>\\d+))"
+        },
+        {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.|(?:N\\.C\\.(?:\\s*App\\.)?|NCBC)\\s*LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.(?!\\s*Super)|N\\.C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))"
         }
       ]
     },
