@@ -130,6 +130,15 @@
    ],
    "blocked_sources": []
   },
+  "codes.ohio.gov": {
+   "status": "allowed",
+   "sources": [
+    "oh-orc-codes",
+    "oh-constitution-codes",
+    "oh-oac-codes"
+   ],
+   "blocked_sources": []
+  },
   "colorado.public.law": {
    "status": "allowed",
    "sources": [
@@ -348,6 +357,9 @@
     "nv-cases-justia",
     "ny-laws-justia",
     "ny-cases-justia",
+    "oh-orc-justia",
+    "oh-constitution-justia",
+    "oh-cases-justia",
     "pa-cons-statutes-justia",
     "pa-constitution-justia",
     "pa-cases-justia",
@@ -601,6 +613,13 @@
    "sources": [
     "ga-admincode-sos",
     "ga-admin-bulletin"
+   ],
+   "blocked_sources": []
+  },
+  "search-prod.lis.state.oh.us": {
+   "status": "allowed",
+   "sources": [
+    "oh-session-laws-lis"
    ],
    "blocked_sources": []
   },
@@ -866,6 +885,7 @@
     "nj-admincode-lii",
     "nv-nac-lii",
     "ny-nycrr-cornell",
+    "oh-oac-lii",
     "pa-rules-lii",
     "pa-admincode-lii",
     "tx-tac-lii",
@@ -900,6 +920,13 @@
    "status": "allowed",
    "sources": [
     "ga-legis-session-laws"
+   ],
+   "blocked_sources": []
+  },
+  "www.legislature.ohio.gov": {
+   "status": "allowed",
+   "sources": [
+    "oh-constitution-legislature"
    ],
    "blocked_sources": []
   },
@@ -1058,6 +1085,13 @@
     "pa-admincode-pacode"
    ]
   },
+  "www.registerofohio.state.oh.us": {
+   "status": "allowed",
+   "sources": [
+    "oh-register"
+   ],
+   "blocked_sources": []
+  },
   "www.sec.state.ma.us": {
    "status": "allowed",
    "sources": [
@@ -1083,6 +1117,24 @@
    "status": "allowed",
    "sources": [
     "dc-scotus-docket"
+   ],
+   "blocked_sources": []
+  },
+  "www.supremecourt.ohio.gov": {
+   "status": "allowed",
+   "sources": [
+    "oh-rules-civil",
+    "oh-rules-evidence",
+    "oh-rules-appellate",
+    "oh-rules-criminal",
+    "oh-rules-govbar",
+    "oh-rules-profconduct",
+    "oh-rules-superintendence",
+    "oh-rules-practice",
+    "oh-rules-reporting",
+    "oh-opinions-rod",
+    "oh-subsequent-history-announcements",
+    "oh-docket-clerk"
    ],
    "blocked_sources": []
   },
