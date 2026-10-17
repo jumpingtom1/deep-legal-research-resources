@@ -419,20 +419,20 @@
     "pa": {
       "name": "Pennsylvania",
       "file": "jurisdictions/pa.md",
-      "sha256": "89bd0d0c20a1c591e85bdc0b884baf91244a6787a4f8c2e76dad5d9d35af5fcd",
+      "sha256": "0ffdc9bf6717f85485dbde66b67b05df43e2c84d07623bbc129944a6cf4dee73",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 10,
+        "verified_independent": 10,
         "blocked": 4
       },
       "citation_patterns": [
         {
           "label": "Pennsylvania Consolidated Statutes (Pa.C.S.)",
-          "regex": "(?P<title>\\d{1,2})\\s+Pa\\.?\\s*(?:C\\.\\s*S\\.(?:\\s*A\\.)?|Cons\\.?\\s+Stat\\.?(?:\\s+Ann\\.?)?)\\s*\u00a7+\\s*(?P<section>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?![\\d.]*\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Pennsylvania\\s+Consolidated\\s+Statutes|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+(?P<codename>Judicial\\s+Code|Crimes\\s+Code|Vehicle\\s+Code|Domestic\\s+Relations\\s+Code|Probate,\\s+Estates\\s+and\\s+Fiduciaries\\s+Code|Uniform\\s+Commercial\\s+Code)"
+          "regex": "(?P<title>\\d{1,2})\\s+Pa\\.?\\s*(?:C\\.\\s*S\\.(?:\\s*A\\.)?|Cons\\.?\\s+Stat\\.?(?:\\s+Ann\\.?)?|(?P<bb>Stat\\.\\s+and\\s+Cons\\.\\s+Stat\\.(?:\\s+Ann\\.?)?))\\s*\u00a7+\\s*(?P<section>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?![\\d.]*\\d)(?(bb)(?!-\\d))|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Pennsylvania\\s+Consolidated\\s+Statutes|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+(?P<codename>Judicial\\s+Code|Crimes\\s+Code|Vehicle\\s+Code|Domestic\\s+Relations\\s+Code|Probate,\\s+Estates\\s+and\\s+Fiduciaries\\s+Code|Uniform\\s+Commercial\\s+Code)"
         },
         {
           "label": "Purdon's unconsolidated statutes (P.S.)",
-          "regex": "(?P<title>\\d{1,2})\\s+(?:P\\.\\s*S\\.(?:\\s*A\\.)?|Pa\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?(?:-\\d+(?:\\.\\d+)?)?[A-Za-z]?)"
+          "regex": "(?P<title>\\d{1,2})\\s+(?:P\\.\\s*S\\.(?:\\s*A\\.)?|Pa\\.\\s*Stat\\.(?:\\s+and\\s+Cons\\.\\s+Stat\\.)?(?:\\s*Ann\\.)?)\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?(?:-\\d+(?:\\.\\d+)?)?[A-Za-z]?)"
         },
         {
           "label": "Pennsylvania session laws / act citations",
@@ -440,7 +440,7 @@
         },
         {
           "label": "Pennsylvania Constitution",
-          "regex": "Pa\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Constitution"
+          "regex": "Pa\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Constitution"
         },
         {
           "label": "Pennsylvania statewide procedural rules (Pa.R.C.P., Pa.R.A.P., Pa.R.Crim.P., Pa.R.E., Pa.R.J.C.P.)",

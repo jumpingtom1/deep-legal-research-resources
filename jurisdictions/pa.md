@@ -20,10 +20,10 @@ Statutes: palegis.us serves Pa.C.S. and the Constitution per section by a constr
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Pennsylvania Consolidated Statutes (Pa.C.S.) | `42 Pa.C.S. § 5524`; `42 Pa.C.S.A. § 5524(7)`; `13 Pa. C.S. § 2725`; `42 Pa. Cons. Stat. § 5524.1`; `18 Pa. Cons. Stat. Ann. § 2502(a)`; `42 PA Cons Stat § 5524 (2025)`; `18 Pa.C.S. §§ 2501-2502`; `42 Pa.C.S. § 62A01`; `Section 5524 of Title 42 of the Pennsylvania Consolidated Statutes`; `section 3802 of the Pennsylvania Vehicle Code` | `pa-cons-statutes-palegis` → `pa-cons-statutes-justia` |
-| Purdon's unconsolidated statutes (P.S.) | `73 P.S. § 201-2`; `73 P.S. § 201-9.2(a)`; `43 P.S. § 260.1`; `35 P.S. § 10231.103`; `73 Pa. Stat. Ann. § 201-2` | `pa-uncons-statutes-palegis` |
+| Pennsylvania Consolidated Statutes (Pa.C.S.) | `42 Pa.C.S. § 5524`; `42 Pa.C.S.A. § 5524(7)`; `13 Pa. C.S. § 2725`; `42 Pa. Cons. Stat. § 5524.1`; `18 Pa. Cons. Stat. Ann. § 2502(a)`; `42 PA Cons Stat § 5524 (2025)`; `18 Pa.C.S. §§ 2501-2502`; `42 Pa.C.S. § 62A01`; `Section 5524 of Title 42 of the Pennsylvania Consolidated Statutes`; `section 3802 of the Pennsylvania Vehicle Code`; `42 Pa. Stat. and Cons. Stat. Ann. § 5524 (West 2024)` | `pa-cons-statutes-palegis` → `pa-cons-statutes-justia` |
+| Purdon's unconsolidated statutes (P.S.) | `73 P.S. § 201-2`; `73 P.S. § 201-9.2(a)`; `43 P.S. § 260.1`; `35 P.S. § 10231.103`; `73 Pa. Stat. Ann. § 201-2`; `73 Pa. Stat. and Cons. Stat. Ann. § 201-2 (West 2024)` | `pa-uncons-statutes-palegis` |
 | Pennsylvania session laws / act citations | `Act of Dec. 17, 1968, P.L. 1224, No. 387`; `Act of December 17, 1968, P.L.1224, No.387`; `Act 36 of 2026`; `Act No. 387 of 1968` | `pa-uncons-statutes-palegis` |
-| Pennsylvania Constitution | `Pa. Const. art. I, § 11`; `PA. CONST. art. V, § 10(c)`; `Article I, Section 11 of the Pennsylvania Constitution`; `Article I, § 8 of the Pennsylvania Constitution` | `pa-constitution-palegis` → `pa-constitution-justia` |
+| Pennsylvania Constitution | `Pa. Const. art. I, § 11`; `PA. CONST. art. V, § 10(c)`; `Article I, Section 11 of the Pennsylvania Constitution`; `Article I, § 8 of the Pennsylvania Constitution`; `Pa. Const. art. I, sec. 8` | `pa-constitution-palegis` → `pa-constitution-justia` |
 | Pennsylvania statewide procedural rules (Pa.R.C.P., Pa.R.A.P., Pa.R.Crim.P., Pa.R.E., Pa.R.J.C.P.) | `Pa.R.C.P. 1035.2`; `Pa.R.C.P. No. 1035.2(1)`; `Pa. R. Civ. P. 1035.2`; `Pa.R.A.P. 126(b)`; `Pa.R.A.P. 1925(b)`; `Pa.R.Crim.P. 600`; `Pa. R. Crim. P. 704`; `Pa.R.E. 803(25)`; `Pa.R.J.C.P. 1408`; `Rule 1035.2 of the Pennsylvania Rules of Civil Procedure`; `Rule 126 of the Pennsylvania Rules of Appellate Procedure`; `231 Pa. Code r. 1035.2` | `pa-rules-lii` → `pa-rules-pacode` |
 | Pennsylvania Code (agency regulations) | `25 Pa. Code § 93.4`; `55 Pa. Code § 187.26`; `25 Pa. Code §§ 1021.96a-1021.97`; `Title 25, Section 93.4 of the Pennsylvania Code` | `pa-admincode-lii` → `pa-admincode-pacode` |
 | Pennsylvania Bulletin | `46 Pa.B. 3797`; `49 Pa. B. 1335`; `56 Pa.B. 120 (Jan. 10, 2026)` | `pa-bulletin-pacode` |
@@ -36,10 +36,10 @@ Statutes: palegis.us serves Pa.C.S. and the Constitution per section by a constr
 
 Regexes (case-insensitive):
 
-- Pennsylvania Consolidated Statutes (Pa.C.S.): `(?P<title>\d{1,2})\s+Pa\.?\s*(?:C\.\s*S\.(?:\s*A\.)?|Cons\.?\s+Stat\.?(?:\s+Ann\.?)?)\s*§+\s*(?P<section>\d+[A-Z]?\d*(?:\.\d+)?)(?![\d.]*\d)|(?:sec(?:tion|\.)|§)\s*(?P<section2>\d+[A-Z]?\d*(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title2>\d{1,2})\s+of\s+the\s+Pennsylvania\s+Consolidated\s+Statutes|(?:sec(?:tion|\.)|§)\s*(?P<section3>\d+[A-Z]?\d*(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Pennsylvania\s+(?P<codename>Judicial\s+Code|Crimes\s+Code|Vehicle\s+Code|Domestic\s+Relations\s+Code|Probate,\s+Estates\s+and\s+Fiduciaries\s+Code|Uniform\s+Commercial\s+Code)`
-- Purdon's unconsolidated statutes (P.S.): `(?P<title>\d{1,2})\s+(?:P\.\s*S\.(?:\s*A\.)?|Pa\.\s*Stat\.(?:\s*Ann\.)?)\s*§+\s*(?P<section>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?[A-Za-z]?)`
+- Pennsylvania Consolidated Statutes (Pa.C.S.): `(?P<title>\d{1,2})\s+Pa\.?\s*(?:C\.\s*S\.(?:\s*A\.)?|Cons\.?\s+Stat\.?(?:\s+Ann\.?)?|(?P<bb>Stat\.\s+and\s+Cons\.\s+Stat\.(?:\s+Ann\.?)?))\s*§+\s*(?P<section>\d+[A-Z]?\d*(?:\.\d+)?)(?![\d.]*\d)(?(bb)(?!-\d))|(?:sec(?:tion|\.)|§)\s*(?P<section2>\d+[A-Z]?\d*(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title2>\d{1,2})\s+of\s+the\s+Pennsylvania\s+Consolidated\s+Statutes|(?:sec(?:tion|\.)|§)\s*(?P<section3>\d+[A-Z]?\d*(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Pennsylvania\s+(?P<codename>Judicial\s+Code|Crimes\s+Code|Vehicle\s+Code|Domestic\s+Relations\s+Code|Probate,\s+Estates\s+and\s+Fiduciaries\s+Code|Uniform\s+Commercial\s+Code)`
+- Purdon's unconsolidated statutes (P.S.): `(?P<title>\d{1,2})\s+(?:P\.\s*S\.(?:\s*A\.)?|Pa\.\s*Stat\.(?:\s+and\s+Cons\.\s+Stat\.)?(?:\s*Ann\.)?)\s*§+\s*(?P<section>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?[A-Za-z]?)`
 - Pennsylvania session laws / act citations: `Act\s+of\s+(?P<date>[A-Z][a-z]{2,8}\.?\s+\d{1,2},\s+(?P<year>\d{4})),\s*P\.\s*L\.\s*(?P<page>\d+),\s*No\.\s*(?P<act>\d+)|Act\s+(?:No\.\s*)?(?P<act2>\d{1,4})\s+of\s+(?P<year2>\d{4})`
-- Pennsylvania Constitution: `Pa\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+(?:Section|§)\s*(?P<section2>\d+)(?:\([a-z0-9]+\))*\s+of\s+the\s+Pennsylvania\s+Constitution`
+- Pennsylvania Constitution: `Pa\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*(?:§|sec(?:tion|\.))\s*(?P<section>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+(?:Section|§)\s*(?P<section2>\d+)(?:\([a-z0-9]+\))*\s+of\s+the\s+Pennsylvania\s+Constitution`
 - Pennsylvania statewide procedural rules (Pa.R.C.P., Pa.R.A.P., Pa.R.Crim.P., Pa.R.E., Pa.R.J.C.P.): `(?P<set>Pa\.\s*R\.\s*(?:C\.\s*P\.|Civ\.\s*P\.|A\.\s*P\.|App\.\s*P\.|Crim\.\s*P\.|E\.|Evid\.|J\.\s*C\.\s*P\.))\s*(?:No\.\s*)?(?P<rule>\d+(?:\.\d+)?)|Rule\s+(?P<rule2>\d+(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Pennsylvania\s+Rules\s+of\s+(?P<setname>Civil\s+Procedure|Appellate\s+Procedure|Criminal\s+Procedure|Evidence|Juvenile\s+Court\s+Procedure)|(?P<title>2\d\d)\s+Pa\.\s*Code\s+r(?:ule)?\.\s*(?P<rule3>\d+(?:\.\d+)?)`
 - Pennsylvania Code (agency regulations): `(?P<title>\d{1,3})\s+Pa\.\s*Code\s*§+\s*(?P<section>\d+\.\d+[a-z]?)|Title\s+(?P<title2>\d{1,3}),?\s+(?:Section|§)\s*(?P<section2>\d+\.\d+[a-z]?)\s+of\s+the\s+Pennsylvania\s+Code`
 - Pennsylvania Bulletin: `(?P<volume>\d{1,2})\s+Pa\.\s*B\.\s*(?P<page>\d{1,5})`
@@ -54,13 +54,13 @@ Short forms → URL key:
 
 Judicial Code → `42`; Crimes Code → `18`; Vehicle Code → `75`; Domestic Relations Code → `23`; Probate, Estates and Fiduciaries Code → `20`; PEF Code → `20`; Uniform Commercial Code → `13`; Pa. UCC → `13`; Business Corporation Law of 1988 → `15`; BCL → `15`; Statutory Construction Act → `1`; Pa.R.C.P. → `231`; Pa. R. Civ. P. → `231`; Pa.R.A.P. → `210`; Pa. R. App. P. → `210`; Pa.R.Crim.P. → `234`; Pa. R. Crim. P. → `234`; Pa.R.E. → `225`; Pa. R. Evid. → `225`; Pa.R.J.C.P. → `237`; UTPCPL → `sessYr=1968&actNum=387`; Unfair Trade Practices and Consumer Protection Law → `sessYr=1968&actNum=387`; 73 P.S. § 201- → `sessYr=1968&actNum=387`
 
-Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn=24; 102 → chpt=1, sctn=2; 62A01 → chpt=62A, sctn=1); a decimal goes in subsctn (5524.1 → sctn=24&subsctn=1). Title 13 (UCC) needs div = the leading digit of the section (13 § 2725 → div=2; § 9102 → div=9); other titles take div=00. (verified for 15, 18, 20, 23, 42, 75). Title 0 = Constitution (chpt = article, sctn = section). P.S. (Purdon's) is West's unofficial compilation of unconsolidated acts: a P.S. title/section does NOT map to a free URL; palegis.us files unconsolidated law by act year + act number (UTPCPL = Act 387 of 1968 = 73 P.S. § 201-1 et seq.), and the act text carries no P.S. numbers. Resolve the act from the citing text (courts usually give 'Act of Dec. 17, 1968, P.L. 1224, No. 387') or from law_aliases; P.S. section hyphens (201-2) are part of the section, not a range. '§§ 2501-2502' in a Pa.C.S. cite is a range: the regex takes 2501. Bare 'Vehicle Code', 'Judicial Code', 'Crimes Code' are shared with other jurisdictions (and the federal Judicial Code) — the prose pattern requires 'Pennsylvania'; bare 'Rule 1925(b)' or 'Rule 600' must not route here without Pa.R.*. Court rules are Pa. Code titles: Pa.R.C.P. = 231, Pa.R.A.P. = 210, Pa.R.Crim.P. = 234, Pa.R.E. = 225, Pa.R.J.C.P. = 237 (see law_aliases). Citability: Pa.R.A.P. 126(b) — non-precedential Superior Court memoranda filed after May 1, 2019 may be cited for persuasive value (verified on LII). Commonwealth Court unreported opinions filed after Jan. 15, 2008 are citable for persuasive value under its IOP § 414 (from memory, unverified). Docket codes: Superior EDA/MDA/WDA (pre-~2003 'PGH', 'PHL', 'HBG' and 2-digit years); Supreme EAP/MAP/WAP (appeals), EAL/MAL/WAL (allocatur petitions), EM/MM/WM (misc.); Commonwealth C.D./M.D. 'PA Super N' numbers appear on precedential Superior slip opinions only; the pacourts API cannot be searched by it — search by caption/docket. Official reporters Pa. Super. and Pa. Cmwlth. ceased in the late 1990s (from memory); modern cites are to A.3d. CourtListener ids pa / pasuperct / pacommwct are from memory, unverified.
+Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn=24; 102 → chpt=1, sctn=2; 62A01 → chpt=62A, sctn=1); a decimal goes in subsctn (5524.1 → sctn=24&subsctn=1). Title 13 (UCC) needs div = the leading digit of the section (13 § 2725 → div=2; § 9102 → div=9); other titles take div=00. (verified for 15, 18, 20, 23, 42, 75). Title 0 = Constitution (chpt = article, sctn = section). P.S. (Purdon's) is West's unofficial compilation of unconsolidated acts: a P.S. title/section does NOT map to a free URL; palegis.us files unconsolidated law by act year + act number (UTPCPL = Act 387 of 1968 = 73 P.S. § 201-1 et seq.), and the act text carries no P.S. numbers. Resolve the act from the citing text (courts usually give 'Act of Dec. 17, 1968, P.L. 1224, No. 387') or from law_aliases; P.S. section hyphens (201-2) are part of the section, not a range. '§§ 2501-2502' in a Pa.C.S. cite is a range: the regex takes 2501. Bare 'Vehicle Code', 'Judicial Code', 'Crimes Code' are shared with other jurisdictions (and the federal Judicial Code) — the prose pattern requires 'Pennsylvania'; bare 'Rule 1925(b)' or 'Rule 600' must not route here without Pa.R.*. Court rules are Pa. Code titles: Pa.R.C.P. = 231, Pa.R.A.P. = 210, Pa.R.Crim.P. = 234, Pa.R.E. = 225, Pa.R.J.C.P. = 237 (see law_aliases). Citability: Pa.R.A.P. 126(b) — non-precedential Superior Court memoranda filed after May 1, 2019 may be cited for persuasive value (verified on LII). Commonwealth Court unreported opinions filed after Jan. 15, 2008 are citable for persuasive value under its IOP § 414 (from memory, unverified). Docket codes: Superior EDA/MDA/WDA (pre-~2003 'PGH', 'PHL', 'HBG' and 2-digit years); Supreme EAP/MAP/WAP (appeals), EAL/MAL/WAL (allocatur petitions), EM/MM/WM (misc.); Commonwealth C.D./M.D. 'PA Super N' numbers appear on precedential Superior slip opinions only; the pacourts API cannot be searched by it — search by caption/docket. Official reporters Pa. Super. and Pa. Cmwlth. ceased in the late 1990s (from memory); modern cites are to A.3d. CourtListener ids pa / pasuperct / pacommwct are from memory, unverified. Bluebook 21st ed. uses 'Pa. Stat. and Cons. Stat. Ann.' for BOTH Pa.C.S. and P.S.: a hyphenated section (201-2) routes to P.S. only; an unhyphenated one matches both patterns — try the Pa.C.S. URL first ('could not be found' means it is a P.S. cite) and then the P.S. act route. (Side effect: a Pa.C.S. range written in the Bluebook form, '§§ 2501-2502', is also sent to P.S.; the Pa.C.S. abbreviations are unaffected.)
 
 ## A. Statutes / code
 
 ### `pa-cons-statutes-palegis` — Pennsylvania Consolidated Statutes (palegis.us)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All Pa.C.S. titles (1–79, with reserved titles) plus Title 0 = Constitution; per-section, per-chapter and whole-title HTML, PDF and Word; amendment history per title.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -70,7 +70,7 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
   - Navigation: Index lists titles with History/HTML/PDF/Word links; it shows no section ranges. Construct the iFrame URL directly; history?ttl_id={title} lists amending acts.
   - Read via: script route only (fetch_doc.py). WebFetch is refused (ROBOTS_DISALLOWED) because robots.txt returns 403 to it.
 - **Automation:** WebFetch blocked · shell ok · robots: 200 to the script's UA: only a 'UserWay/Scanner' group (Disallow /cfdocs/, /legislation/bills/*); no '*' group. curl's default UA and WebFetch get 403 on robots.txt.
-  - Second independent fetch for quotes must come from pa-cons-statutes-justia (WebFetch) or a second script read of the whole-chapter or whole-title rendering. Legacy legis.state.pa.us cfdocs URLs redirect to a palegis nav shell (wrong parameter names) — rebuild the URL instead.
+  - Coordinator decision 2026-10-16: the script route is accepted — palegis.us robots.txt has rules only for one named ADA-scanner user agent (UserWay/Scanner), so the script's honest UA is permitted; the fetch tool's refusal is its own WAF problem (robots.txt returns 403 to it), not a site policy against automation. Second independent fetch for quotes must come from pa-cons-statutes-justia (WebFetch) or a second script read of the whole-chapter or whole-title rendering. Legacy legis.state.pa.us cfdocs URLs redirect to a palegis nav shell (wrong parameter names) — rebuild the URL instead.
 - **Currency:** none on section pages; title history page (history?ttl_id={title}) lists latest amending act — observed: "Title 42 history: 'Amended Jul. 20, 2026, P.L.436, No.36'"
 - **Official status:** https://www.palegis.us/legal: information is 'presented AS IS without warranty' and 'not intended to replace official versions'. No UELMA authentication statement found.
 - **Hazard:** WebFetch blocked (robots.txt 403 to it)
@@ -79,13 +79,14 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** decimal sections use subsctn, not sctn
 - **Hazard:** unknown URLs return a 'could not be found' page with HTTP 200
 - **Hazard:** whole-title PDFs are very large (Title 42: 845 pp, 2.6M chars)
+- **Hazard:** the first section of a chapter (sctn=1, e.g. 23 § 3301) returns the chapter heading and section list before the body (5,149 chars) — anchor extraction on '§ {section}.'
 - **Probe:** 42 Pa.C.S. § 5524 → `https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=42&div=00.&chpt=55&sctn=24&subsctn=0` — expect: "The following actions and proceedings must be commenced within two years"
-- **Evidence (2026-10-16):** fetch_doc read: '§ 5524. Two year limitation.' body + history notes, 2,277 chars. Also 18 § 2502 (chpt=25&sctn=2), 13 § 2725 (div=2), 13 § 9102 (div=9), 42 § 5524.1 (subsctn=1), 42 § 102, 42 § 62A01, 75 § 3802, 15 § 1702, 20 § 2101, 18 § 6301. WebFetch: ROBOTS_DISALLOWED.
+- **Evidence (2026-10-16):** fetch_doc read: '§ 5524. Two year limitation.' body + history notes, 2,277 chars. Also 18 § 2502 (chpt=25&sctn=2), 13 § 2725 (div=2), 13 § 9102 (div=9), 42 § 5524.1 (subsctn=1), 42 § 102, 42 § 62A01, 75 § 3802, 15 § 1702, 20 § 2101, 18 § 6301. WebFetch: ROBOTS_DISALLOWED. | Independent check 2026-10-16: script: '§ 5524. Two year limitation. The following actions and proceedings must be commenced within two years'; 2,277 chars. WebFetch: ROBOTS_DISALLOWED (as recorded); second citation 23 Pa.C.S. § 3301; 13 Pa.C.S. § 9109 ok
 - **Notes:** No statute bulk download: https://www.palegis.us/data offers only Bill History XML zips (1969–), RSS and member data. Whole-title PDF/HTML/Word downloads are the practical bulk route (corpus_candidates).
 
 ### `pa-uncons-statutes-palegis` — Pennsylvania unconsolidated statutes by act (palegis.us)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Unconsolidated acts as amended, filed by act year and act number (year list back to the 1700s); act pages list sections and amending acts.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -95,7 +96,7 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
   - Navigation: Index → Act Year → act → HTML text. Browse-by-name letter pages are JS-filled (names absent from the static HTML).
   - Read via: script route only; WebFetch refused on palegis.us (robots).
 - **Automation:** WebFetch blocked · shell ok · robots: see pa-cons-statutes-palegis
-  - Whole-act HTML (UTPCPL 67,617 chars) reads in full via the script.
+  - Coordinator decision 2026-10-16: the script route is accepted — palegis.us robots.txt has rules only for one named ADA-scanner user agent (UserWay/Scanner), so the script's honest UA is permitted; the fetch tool's refusal is its own WAF problem (robots.txt returns 403 to it), not a site policy against automation. Whole-act HTML (UTPCPL 67,617 chars) reads in full via the script.
 - **Currency:** none stated; act page lists amending legislation
 - **Official status:** Same palegis.us legal notice ('AS IS without warranty'). Purdon's Pennsylvania Statutes (P.S.) is a West publication; no free official P.S.-numbered compilation exists.
 - **Hazard:** P.S. title/section not derivable to an act
@@ -103,13 +104,14 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** iFrame=true required
 - **Hazard:** WebFetch blocked
 - **Hazard:** no tier-2 fallback (Justia has no P.S. text)
+- **Hazard:** P.S.→act mapping: only the UTPCPL (73 P.S. § 201-x → Act 387 of 1968) is recorded in law_aliases; any other P.S. cite needs the act's short title and year from the citing text (or outside knowledge) before the act page can be built
 - **Probe:** 73 P.S. § 201-2 (UTPCPL § 2, Act of Dec. 17, 1968, P.L. 1224, No. 387) → `https://www.palegis.us/statutes/unconsolidated/law-information/view-statute?iFrame=true&txtType=HTM&SessYr=1968&ActNum=0387.&SessInd=0` — expect: "Section 2. Definitions.--As used in this act."
-- **Evidence (2026-10-16):** fetch_doc: 67,617 chars; 'Section 2. Definitions.--As used in this act.'; compiler's notes present; no 'P.S.' strings. law-information?sessYr=1968&sessInd=0&actNum=387 → 'Act No. 387 of 1968 UNFAIR TRADE PRACTICES AND CONSUMER PROTECTION LAW'. Only one act probed.
+- **Evidence (2026-10-16):** fetch_doc: 67,617 chars; 'Section 2. Definitions.--As used in this act.'; compiler's notes present; no 'P.S.' strings. law-information?sessYr=1968&sessInd=0&actNum=387 → 'Act No. 387 of 1968 UNFAIR TRADE PRACTICES AND CONSUMER PROTECTION LAW'. Only one act probed. | Independent check 2026-10-16: script verify: 'Section 2. Definitions.--As used in this act.' VERIFIED; 67,617 chars; second citation 43 P.S. § 260.1 → Wage Payment and Collection Law, Act No. 329 of 1961 ok
 - **Notes:** Per-section view within an act ('View Sections') not reverse-engineered.
 
 ### `pa-cons-statutes-justia` — Justia — Pennsylvania Consolidated Statutes (2025)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Pa.C.S. titles, editions 2010, 2012, 2014–2025 (no 2011, 2013). Despite the header, no Purdon's (P.S.) text: /title-73/ is the empty Pa.C.S. Title 73 (Townships).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -124,13 +126,13 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** shell blocked by Cloudflare
 - **Hazard:** no P.S. coverage despite the header
 - **Probe:** 42 Pa.C.S. § 5524 → `https://law.justia.com/codes/pennsylvania/title-42/chapter-55/section-5524/` — expect: "The following actions and proceedings must be commenced within two"
-- **Evidence (2026-10-16):** WebFetch: body present, '2025 Pennsylvania Consolidated & Unconsolidated Statutes'. Second citation 13 Pa.C.S. § 2725 at /title-13/chapter-27/section-2725/: '(a) General rule.--An action for breach of any contract for'.
+- **Evidence (2026-10-16):** WebFetch: body present, '2025 Pennsylvania Consolidated & Unconsolidated Statutes'. Second citation 13 Pa.C.S. § 2725 at /title-13/chapter-27/section-2725/: '(a) General rule.--An action for breach of any contract for'. | Independent check 2026-10-16: 'The following actions and proceedings must be commenced within two years'; '2025 Pennsylvania Consolidated & Unconsolidated Statutes'; '42 PA Cons Stat § 5524 (2025)'; second citation 18 Pa.C.S. § 2502 ok
 
 ## B. Constitution
 
 ### `pa-constitution-palegis` — Constitution of Pennsylvania (palegis.us, Title 0)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 1** · Pennsylvania General Assembly — Legislative Data Processing Center · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Constitution of 1968 as amended; per-section HTML and whole PDF (82 pp).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -139,31 +141,32 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
   - Index: `https://www.palegis.us/statutes/consolidated`
   - Read via: script route only; WebFetch refused (robots).
 - **Automation:** WebFetch blocked · shell ok · robots: see pa-cons-statutes-palegis
+  - Coordinator decision 2026-10-16: the script route is accepted — palegis.us robots.txt has rules only for one named ADA-scanner user agent (UserWay/Scanner), so the script's honest UA is permitted; the fetch tool's refusal is its own WAF problem (robots.txt returns 403 to it), not a site policy against automation. 
 - **Currency:** none stated
 - **Official status:** palegis.us legal notice ('AS IS without warranty').
 - **Hazard:** WebFetch blocked
 - **Hazard:** iFrame=true required
 - **Probe:** Pa. Const. art. I, § 11 → `https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=0&div=00.&chpt=1&sctn=11&subsctn=0` — expect: "All courts shall be open; and every man for an injury done"
-- **Evidence (2026-10-16):** fetch_doc: '§ 11. Courts to be open; suits against the Commonwealth.' body present. Second citation art. V, § 10 (chpt=5&sctn=10) ok. PDF ttl=0: 82 pp, 244,320 chars.
+- **Evidence (2026-10-16):** fetch_doc: '§ 11. Courts to be open; suits against the Commonwealth.' body present. Second citation art. V, § 10 (chpt=5&sctn=10) ok. PDF ttl=0: 82 pp, 244,320 chars. | Independent check 2026-10-16: script: '§ 11. Courts to be open; suits against the Commonwealth. All courts shall be open'; second citation Pa. Const. art. I, § 8 ok
 
 ### `pa-constitution-justia` — Justia — Pennsylvania Constitution
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Whole constitution on one page, anchors #article1..#article11.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/constitution/pennsylvania/#article{article_arabic}`
-  - Placeholders: single page; anchor does not change what WebFetch reads — Articles VI–XI need offset=100000.
+  - Placeholders: single page; anchor does not change what WebFetch reads. Window 1 (offset 0) covers Arts. I–V (ends in the Art. V schedule); offset=100000 covers to Art. VIII § 11, ending mid-word; Arts. IX–XI have no WebFetch route (use pa-constitution-palegis via the script).
   - Index: `https://law.justia.com/constitution/pennsylvania/`
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: unreadable by the script (Cloudflare challenge on robots.txt)
-  - 139,081 chars; WebFetch window 1 ends inside the Article V schedule.
+  - 139,081 chars; WebFetch reaches only Arts. I–VIII § 11 across two windows.
 - **Currency:** none stated
 - **Official status:** Third-party compilation; no currency date.
-- **Hazard:** page exceeds WebFetch window (Art. VI–XI need offset)
 - **Hazard:** no currency statement
+- **Hazard:** WebFetch covers Arts. I–VIII § 11 only (offset=100000 window ends mid-word in Art. VIII § 11); Arts. IX–XI unreachable by WebFetch
 - **Probe:** Pa. Const. art. I, § 11 → `https://law.justia.com/constitution/pennsylvania/` — expect: "All courts shall be open; and every man for an"
-- **Evidence (2026-10-16):** WebFetch: Art. I § 11 'All courts shall be open; and every man for an'; truncated at Art. V schedule, 139,081 chars.
-- **Notes:** This is the only WebFetch route to constitutional text (palegis.us is robots-blocked to WebFetch).
+- **Evidence (2026-10-16):** WebFetch: Art. I § 11 'All courts shall be open; and every man for an'; truncated at Art. V schedule, 139,081 chars. | Independent check 2026-10-16: Art. I § 11 'All courts shall be open; and every man for an injury'; window 1 truncated in Art. V schedule; second citation Pa. Const. art. VIII, § 1 ok
+- **Notes:** Only WebFetch route to constitutional text (palegis.us is refused to WebFetch); for Arts. IX–XI use the script route to palegis.us.
 
 ## C. Court rules
 
@@ -181,12 +184,12 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Official status:** Not readable: robots.txt disallows all paths for '*'.
 - **Hazard:** robots.txt blocks all automated access
 - **Probe:** Pa.R.C.P. 1035.2 → `https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/231/chapter1000/s1035.2.html`
-- **Evidence (2026-10-16):** fetch_doc REFUSED (robots Disallow: /); WebFetch ROBOTS_DISALLOWED.
+- **Evidence (2026-10-16):** fetch_doc REFUSED (robots Disallow: /); WebFetch ROBOTS_DISALLOWED. | Re-confirmed blocked 2026-10-16: WebFetch: ROBOTS_DISALLOWED
 - **Notes:** Use pa-rules-lii to read rule text; cite/link the Pa. Code location.
 
 ### `pa-rules-lii` — Cornell LII — Pennsylvania Code court-rule titles (201–246)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Titles 201, 204, 207, 210, 225, 231, 234, 237, 246 (no 255 local rules). Per-rule pages with Pa.B. history notes.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -198,11 +201,11 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Currency:** page footer and Notes (latest Pa.B. cite) — observed: "State regulations are updated quarterly; Notes '46 Pa.B. 3797'"
 - **Official status:** Third-party mirror of the Pa. Code; 'State regulations are updated quarterly'.
 - **Hazard:** quarterly or worse lag (index last modified Aug 2025)
-- **Hazard:** wrong slug returns the index page, not a 404
 - **Hazard:** rescinded-and-replaced rules can show only the OLD rule: Pa.R.Crim.P. 600 page has no body, Notes say 'rescinded … effective 7/1/2013'
 - **Hazard:** no local rules (Title 255)
+- **Hazard:** LII silently returns the index or title page (~2.9K–4.7K chars, HTTP 200) for a bad address (wrong slug form, dot vs hyphen, unknown section) — never a 404. Accept a page only if its text contains the cited '§ {section}' / 'r. {rule}' heading or Notes line and is longer than ~5K chars (short rules excepted); otherwise browse /regulations/pennsylvania/title-{title}.
 - **Probe:** Pa.R.C.P. 1035.2 → `https://www.law.cornell.edu/regulations/pennsylvania/231-Pa-Code-r-1035.2` — expect: "After the relevant pleadings are closed, but within such time"
-- **Evidence (2026-10-16):** WebFetch: body present, 'State regulations are updated quarterly', 46 Pa.B. 3797. Second citation Pa.R.A.P. 126 (/210-Pa-Code-r-126): '(a) When citing authority, a party should direct the court's'; 49 Pa.B. 1335. Script: Pa.R.E. 803 present (51 Pa.B. 7438); Pa.R.Crim.P. 600 body missing.
+- **Evidence (2026-10-16):** WebFetch: body present, 'State regulations are updated quarterly', 46 Pa.B. 3797. Second citation Pa.R.A.P. 126 (/210-Pa-Code-r-126): '(a) When citing authority, a party should direct the court's'; 49 Pa.B. 1335. Script: Pa.R.E. 803 present (51 Pa.B. 7438); Pa.R.Crim.P. 600 body missing. | Independent check 2026-10-16: WebFetch and script: 'After the relevant pleadings are closed, but within such time'; 'State regulations are updated quarterly'; 46 Pa.B. 3797; second citation Pa.R.Crim.P. 704 ok
 - **Notes:** With pacodeandbulletin.gov robots-blocked, this tier-2 mirror is the only automated text route for PA court rules; always compare its latest Pa.B. note with recent Supreme Court rule orders (pa-opinions-pacourts, posting type 'Rules').
 
 ## D. Administrative code
@@ -221,11 +224,11 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Official status:** Not readable: robots.txt disallows all paths.
 - **Hazard:** robots.txt blocks all automated access
 - **Probe:** 25 Pa. Code § 93.4 → `https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/025/025toc.html`
-- **Evidence (2026-10-16):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc REFUSED on a /Display/pacode URL; WebFetch ROBOTS_DISALLOWED.
+- **Evidence (2026-10-16):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc REFUSED on a /Display/pacode URL; WebFetch ROBOTS_DISALLOWED. | Re-confirmed blocked 2026-10-16: WebFetch: ROBOTS_DISALLOWED
 
 ### `pa-admincode-lii` — Cornell LII — Pennsylvania Code (agency regulations)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Pa. Code titles 1–70 and 101–107 (index list), per-section pages with Pa.B. history notes.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -237,10 +240,10 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Currency:** page footer and Notes — observed: "State regulations are updated quarterly; Notes '30 Pa.B. 6059'"
 - **Official status:** Third-party mirror; 'State regulations are updated quarterly'.
 - **Hazard:** quarterly or worse lag
-- **Hazard:** wrong slug returns index page
 - **Hazard:** dot vs hyphen differs between agency sections and court rules
+- **Hazard:** LII silently returns the index or title page (~2.9K–4.7K chars, HTTP 200) for a bad address (wrong slug form, dot vs hyphen, unknown section) — never a 404. Accept a page only if its text contains the cited '§ {section}' / 'r. {rule}' heading or Notes line and is longer than ~5K chars (short rules excepted); otherwise browse /regulations/pennsylvania/title-{title}.
 - **Probe:** 25 Pa. Code § 93.4 → `https://www.law.cornell.edu/regulations/pennsylvania/25-Pa-Code-SS-93-4` — expect: "(a) Statewide water uses. Except when otherwise specified in law"
-- **Evidence (2026-10-16):** WebFetch: body present; latest note 30 Pa.B. 6059. Script: 55 Pa. Code § 187.26 and 37 Pa. Code § 79.1 bodies present.
+- **Evidence (2026-10-16):** WebFetch: body present; latest note 30 Pa.B. 6059. Script: 55 Pa. Code § 187.26 and 37 Pa. Code § 79.1 bodies present. | Independent check 2026-10-16: 'Except when otherwise specified in law or regulation, the uses set'; 'updated quarterly'; 30 Pa.B. 6059; second citation 55 Pa. Code § 3490.4 ok
 - **Notes:** Only automated text route for PA regulations.
 
 ## D. Administrative register
@@ -259,7 +262,7 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** robots.txt blocks all automated access
 - **Hazard:** no tier-2 mirror
 - **Probe:** 46 Pa.B. 3797 → `https://www.pacodeandbulletin.gov/robots.txt`
-- **Evidence (2026-10-16):** robots.txt 200: 'User-agent: *' 'Disallow: /'.
+- **Evidence (2026-10-16):** robots.txt 200: 'User-agent: *' 'Disallow: /'. | Re-confirmed blocked 2026-10-16: WebFetch robots.txt: ROBOTS_DISALLOWED
 
 ## E. Case law
 
@@ -278,12 +281,12 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** POST-only search
 - **Hazard:** docket sheets return HTTP 401 to automation
 - **Probe:** No. 1996 EDA 2025 → `https://ujsportal.pacourts.us/Report/PacDocketSheet?docketNumber=1996%20EDA%202025`
-- **Evidence (2026-10-16):** fetch_doc: 'REFUSED: ujsportal.pacourts.us refused automated access: HTTP 401'.
+- **Evidence (2026-10-16):** fetch_doc: 'REFUSED: ujsportal.pacourts.us refused automated access: HTTP 401'. | Re-confirmed blocked 2026-10-16: fetch_doc (record's route): 'REFUSED: ... refused automated access earlier (HTTP 401)', exit 3
 - **Notes:** Docket sheets would be the deterministic link from a Superior Court docket to its allocatur docket; that link is unavailable to automation.
 
 ### `pa-opinions-pacourts` — Unified Judicial System of Pennsylvania — Court Opinions and Postings
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Administrative Office of Pennsylvania Courts · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 1** · Administrative Office of Pennsylvania Courts · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court, Superior Court and Commonwealth Court postings from 1998 (API year=1998: 137 / 142 / 187 items) to today. Includes opinions, memoranda, judgment orders, per curiam orders, allocatur dispositions, rule orders, judgment lists.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
@@ -299,13 +302,14 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** caption abbreviations (first initials, 'FCB' for First Commonwealth Bank) defeat party-name search
 - **Hazard:** courtDocketNumber API parameter ignored
 - **Hazard:** file names carry opaque numeric suffixes — take them from the API, never construct
+- **Hazard:** Supreme listing page can show a spurious 'No opinions found!' banner above real postings — use the API
 - **Probe:** In re D.E., 2026 PA Super 231, No. 910 MDA 2026 (Pa. Super. Oct. 16, 2026) → `https://www.pacourts.us/assets/opinions/Superior/out/J-S36002-26o%20-%20106963096377907878.pdf` — expect: "J.E. (Father), biological father of D.E. (a son born in November 2024)"
-- **Evidence (2026-10-16):** WebFetch: '2026 PA Super 231'; complete to 'Judgment Entered'; slip pages. API captionText='1996 EDA 2025' → 'Com. v. Ly, C.' memorandum (script and WebFetch). Supreme: Carr v. FCB, J-27A-2026mo, 'JUSTICE MUNDY DECIDED: SEPTEMBER 10, 2026' complete. Commonwealth: 987CD24_9-29-26.pdf complete.
+- **Evidence (2026-10-16):** WebFetch: '2026 PA Super 231'; complete to 'Judgment Entered'; slip pages. API captionText='1996 EDA 2025' → 'Com. v. Ly, C.' memorandum (script and WebFetch). Supreme: Carr v. FCB, J-27A-2026mo, 'JUSTICE MUNDY DECIDED: SEPTEMBER 10, 2026' complete. Commonwealth: 987CD24_9-29-26.pdf complete. | Independent check 2026-10-16: 'J.E. (Father), biological father of D.E.'; '2026 PA Super 231'; ends 'Judgment Entered'; slip pages; second citation V.N. Costello v. UCBR, No. 789 C.D. 2025 (Pa. Cmwlth. Oct. 15, 2026) ok
 - **Notes:** Superior Court memoranda carry 'NON-PRECEDENTIAL DECISION - SEE SUPERIOR COURT O.P. 65.37'; precedential opinions carry 'YYYY PA Super N'. Commonwealth Court publication status is in the API's PublicationType (Precedential / Non-Precedential).
 
 ### `pa-cases-justia` — Justia — Pennsylvania case law
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme, Superior (memoranda and judgment orders included) and Commonwealth Court; 2026 listings: Superior 2,271 items, Commonwealth 611. Earlier ranges not checked.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -320,13 +324,13 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** slip text, no reporter pagination
 - **Hazard:** year listings truncate in WebFetch
 - **Probe:** Carr v. First Commonwealth Bank, No. 22 WAP 2025 (Pa. Sept. 10, 2026) → `https://law.justia.com/cases/pennsylvania/supreme-court/2026/22-wap-2025.html` — expect: "The question raised in this discretionary appeal is whether the"
-- **Evidence (2026-10-16):** WebFetch: body complete. Also Com. v. James, /superior-court/2026/2753-eda-2024.html ('2026 PA Super 211', complete) and /commonwealth-court/2026/987-c-d-2024.html ('Shahbaz Ather (Appellant) appeals from the March').
+- **Evidence (2026-10-16):** WebFetch: body complete. Also Com. v. James, /superior-court/2026/2753-eda-2024.html ('2026 PA Super 211', complete) and /commonwealth-court/2026/987-c-d-2024.html ('Shahbaz Ather (Appellant) appeals from the March'). | Independent check 2026-10-16: 'The question raised in this discretionary appeal is whether the'; complete; Sept. 10, 2026; second citation Costello v. UCBR, No. 789 C.D. 2025 ok
 
 ## F. Subsequent history
 
 ### `pa-allocatur-pacourts` — Supreme Court allocatur dispositions (Petitions for Allowance of Appeal) on pacourts.us
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Administrative Office of Pennsylvania Courts · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-16 (independent) · **Tier 1** · Administrative Office of Pennsylvania Courts · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court orders granting/denying petitions for allowance of appeal (dockets NNN EAL/MAL/WAL YYYY), posting type 'Petitions for Allowance of Appeal' (code paa); 1998–present per the API year range. Later decisions on granted appeals carry EAP/MAP/WAP dockets.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `search-only` · format pdf
@@ -340,7 +344,7 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - **Hazard:** caption abbreviations (FCB) make name search miss
 - **Hazard:** docket sheets that would link the dockets are blocked (UJS portal 401)
 - **Probe:** Carr v. First Commonwealth Bank (Pa. Super. 2025) → allocatur granted, 97 & 98 WAL 2025 → `https://www.pacourts.us/assets/opinions/Supreme/out/98WAL2025%20-%20106510072326969493.pdf` — expect: "the Petition for Allowance of Appeal is GRANTED."
-- **Evidence (2026-10-16):** API year=2025 captionText=Carr → 'No. 98 WAL 2025 (Granted)', paa; WebFetch of PDF: GRANTED, 16 Sept. 2025, no Superior docket or date. Script: 391 MAL 2026 order 'DENIED.' likewise names no docket below.
+- **Evidence (2026-10-16):** API year=2025 captionText=Carr → 'No. 98 WAL 2025 (Granted)', paa; WebFetch of PDF: GRANTED, 16 Sept. 2025, no Superior docket or date. Script: 391 MAL 2026 order 'DENIED.' likewise names no docket below. | Independent check 2026-10-16: 'the Petition for Allowance of Appeal is GRANTED.'; 97 & 98 WAL 2025; Sept. 16, 2025; no docket below; second citation Commonwealth v. Smith, D., Pet., No. 187 EAL 2026 ok
 - **Notes:** Merits decision then appears under the WAP docket (Carr: 22 WAP 2025, decided Sept. 10, 2026).
 
 ## Not available (do not look for these again)
@@ -359,7 +363,6 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 
 ## Open questions
 
-- WebFetch refuses palegis.us with ROBOTS_DISALLOWED while fetch_doc.py reads robots.txt as 200 with no '*' group (curl's default UA gets 403). Confirm with the maintainers that the script route is acceptable here; if not, Pa.C.S. and constitution text fall back to Justia only.
 - No tier-1 automated route for court rules or agency regulations: pacodeandbulletin.gov robots.txt is 'Disallow: /' for all agents. Check whether pacourts.us rules-committee pages host full current rule sets (not probed).
 - LII Pa.R.Crim.P. 600 shows the rescinded pre-2013 rule without body; extent of stale/replaced rules on LII unknown.
 - LII slug for Rules of Professional Conduct (204 Pa. Code § 81.4, Rule 1.7) not found; Title 246 = Minor Court Civil Rules assumed, not confirmed.
@@ -367,3 +370,4 @@ Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn
 - Earliest Justia Pennsylvania case-law years not checked; pacourts API coverage below 1998 not tested beyond month=1&year=1998 (0 items).
 - palegis.us per-section URL within an unconsolidated act ('View Sections') not determined.
 - CourtListener ids pa / pasuperct / pacommwct unverified.
+- P.S.→act table: only UTPCPL is recorded. Build a curated map of common P.S. titles/sections to act year/number (verifier confirmed 43 P.S. § 260.1 → Act 329 of 1961 'Wage Payment and Collection Law'; candidates 43 P.S. § 951 → 1955/222, 77 P.S. → 1915/338 unverified).
