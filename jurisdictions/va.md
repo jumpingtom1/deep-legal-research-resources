@@ -1,6 +1,6 @@
 # Virginia (VA) — free legal sources
 
-_Generated from `data/va.json` (compiled 2026-10-16, schema v1). Do not edit by hand._
+_Generated from `data/va.json` (compiled 2026-10-17, schema v1). Do not edit by hand._
 
 **Rules.** Use only the sources below for this jurisdiction. Never construct a URL that is not a `constructible` pattern here; for `index-anchored` sources fetch the index and follow real links. Quote only from rows marked VERIFIED, and only under the skill's two-fetch rule. Tier 2 text must be disclosed in the report with its currency string. A BLOCKED host is never fetched by any route.
 
@@ -19,35 +19,39 @@ Statutes, Constitution and Administrative Code: law.lis.virginia.gov (Division o
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Code of Virginia | `Va. Code Ann. § 8.01-243`; `Code § 8.01-243(A)`; `Va. Code § 18.2-67.2:1`; `section 19.2-8 of the Code of Virginia`; `Code of Virginia § 1-219.1`; `§ 8.01-243 of the Code of Virginia`; `Va. Code Ann. § 8.9A-102` | `va-code-lis` → `va-code-api` → `va-code-justia` |
+| Code of Virginia | `Va. Code Ann. § 8.01-243`; `Va. Code § 18.2-67.2:1`; `section 19.2-8 of the Code of Virginia`; `Code of Virginia § 1-219.1`; `§ 8.01-243 of the Code of Virginia`; `Va. Code Ann. § 8.9A-102`; `Code of Va. § 8.01-243` | `va-code-lis` → `va-code-api` → `va-code-justia` |
+| Code of Virginia — Virginia-style bare 'Code §' (context required) *(only once this jurisdiction is known)* | `Code § 8.01-243(A)`; `Code §§ 8.01-228 through 8.01-256` | `va-code-lis` → `va-code-api` → `va-code-justia` |
 | Constitution of Virginia | `Va. Const. art. I, § 11`; `Va. Const. art. VI, § 1`; `Article VI, Section 1 of the Constitution of Virginia`; `Article I, § 14 of the Virginia Constitution` | `va-constitution-lis` → `va-constitution-justia` |
-| Rules of the Supreme Court of Virginia (all Parts) | `Rule 3:20`; `Va. Sup. Ct. R. 5:17`; `Rule 5A:1(f)`; `Rule 1:1`; `Rules of the Supreme Court of Virginia, Rule 3:20` | `va-rules-scv` |
-| Virginia Rules of Evidence (Part Two of the Rules) | `Va. R. Evid. 2:702`; `Virginia Rule of Evidence 2:803(6)`; `Rule 2:702` | `va-rules-scv` |
+| Rules of the Supreme Court of Virginia (all Parts, with Virginia marker) | `Va. Sup. Ct. R. 5:17`; `Rules of the Supreme Court of Virginia, Rule 3:20`; `Rule 5A:1(f) of the Rules of the Supreme Court of Virginia`; `Virginia Rule 3:20` | `va-rules-scv` |
+| Rules of the Supreme Court of Virginia — bare 'Rule N:N' (context required) *(only once this jurisdiction is known)* | `Rule 3:20`; `Rule 5A:1(f)`; `Rule 1:1`; `Rule 2:702` | `va-rules-scv` |
+| Virginia Rules of Evidence (Part Two of the Rules) | `Va. R. Evid. 2:702`; `Virginia Rule of Evidence 2:803(6)` | `va-rules-scv` |
 | Virginia Administrative Code | `9VAC20-60-12`; `12 VAC 5-371-10`; `12 Va. Admin. Code § 5-371-10`; `12VAC5-371` | `va-admincode-lis` → `va-admincode-lii` |
 | Virginia Register of Regulations | `36:23 VA.R. 2385`; `36:23 Va. Reg. Regs. 2385`; `Virginia Register Volume 42, Issue 23` | `va-register-dls` |
 | Reported Virginia cases (Va., Va. App., S.E.) | `Horn v. Webb, 302 Va. 70 (2023)`; `Kuykendall v. Commonwealth, 85 Va. App. 118 (2025)`; `Bon Secours-DePaul Med. Ctr., Inc. v. Rogakos-Russell, 910 S.E.2d 16 (Va. 2025)`; `Wallace v. Commonwealth, 65 Va. App. 80, 774 S.E.2d 482 (2015)` | `va-opinions-scv` → `va-opinions-cav` → `va-cases-justia` |
-| Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D) | `Record No. 250701`; `Record No. 0476-25-1`; `Norwood v. Commonwealth, No. 1741-23-3, 2024 Va. App. LEXIS 650 (Nov. 12, 2024)`; `Court of Appeals No. 1973-23-4` | `va-opinions-scv` → `va-opinions-cav` → `va-scv-unpublished-orders` → `va-cases-justia` |
+| Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D) (context required) *(only once this jurisdiction is known)* | `Record No. 250701`; `Record No. 0476-25-1`; `Norwood v. Commonwealth, No. 1741-23-3, 2024 Va. App. LEXIS 650 (Nov. 12, 2024)`; `Court of Appeals No. 1973-23-4` | `va-opinions-scv` → `va-opinions-cav` → `va-scv-unpublished-orders` → `va-cases-justia` |
 | Westlaw / Lexis unreported cites | `2024 Va. App. LEXIS 650`; `2023 Va. LEXIS 45`; `2025 WL 1234567 (Va. Ct. App. June 3, 2025)` | `va-opinions-scv` → `va-opinions-cav` → `va-cases-justia` |
 
 Regexes (case-insensitive):
 
-- Code of Virginia: `Va\.\s*Code(?:\s+Ann\.)?\s*§+\s*(?P<section>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])|(?:Code\s+of\s+Virginia|Virginia\s+Code)\s*§+\s*(?P<section2>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])|(?:sec(?:tion|\.)|§)\s*(?P<section3>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?:\([A-Za-z0-9]+\))*\s+of\s+the\s+Code\s+of\s+Virginia|\bCode\s*§+\s*(?P<section4>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])`
-- Constitution of Virginia: `Va\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+[A-Za-z]?)|Article\s+(?P<article2>[IVXL]+),?\s*(?:Section|§)\s*(?P<section2>\d+[A-Za-z]?)\s+of\s+the\s+(?:Constitution\s+of\s+Virginia|Virginia\s+Constitution)`
-- Rules of the Supreme Court of Virginia (all Parts): `(?:Va\.\s*Sup\.\s*Ct\.\s*R\.|Rules?\s+of\s+(?:the\s+)?Supreme\s+Court\s+of\s+Virginia,?\s*(?:Rule\s*)?|\bRule)\s*(?P<rule>\d{1,2}[A-D]?:\d+[A-Z]?)`
-- Virginia Rules of Evidence (Part Two of the Rules): `(?:Va\.\s*R\.\s*Evid\.|Virginia\s+Rules?\s+of\s+Evidence)\s*(?P<rule>2:\d{3}[A-Z]?)|\bRule\s+(?P<rule2>2:\d{3}[A-Z]?)`
-- Virginia Administrative Code: `(?P<title>\d{1,2})\s*VAC\s*(?P<agency>\d{1,3})-(?P<chapter>\d{1,4})(?:-(?P<section>\d{1,4}))?|(?P<title2>\d{1,2})\s+Va\.\s*Admin\.\s*Code\s*§*\s*(?P<agency2>\d{1,3})-(?P<chapter2>\d{1,4})(?:-(?P<section2>\d{1,4}))?`
-- Virginia Register of Regulations: `(?P<volume>\d{1,2}):(?P<issue>\d{1,2})\s+(?:VA\.\s*R\.|Va\.\s*Reg\.\s*Regs\.)\s*(?P<page>\d+)|Virginia\s+Register\s+Volume\s+(?P<volume2>\d{1,2}),\s*Issue\s+(?P<issue2>\d{1,2})`
-- Reported Virginia cases (Va., Va. App., S.E.): `(?P<volume>\d{1,3})\s+(?P<reporter>Va\.\s*App\.|Va\.)\s+(?P<page>\d{1,4})(?!\d)|(?P<volume2>\d{1,4})\s+S\.E\.(?:\s*(?P<series>[23])d)?\s+(?P<page2>\d{1,4})(?:,\s*\d+)?\s*\((?:Va\.)`
-- Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D): `Record\s+No\.\s*(?P<scv>\d{6})(?![\d-])|(?:Record\s+)?No\.\s*(?P<cav>\d{4}-\d{2}-\d)(?!\d)`
-- Westlaw / Lexis unreported cites: `(?P<year>(?:19|20)\d\d)\s+(?:Va\.\s*(?P<app>App\.\s*)?LEXIS\s+(?P<lexis>\d+)|WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(Va\.)`
+- Code of Virginia: `(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*Code(?:\s+Ann\.)?\s*§+\s*(?P<section>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])|(?<!West\s)(?:Code\s+of\s+Va\.|Code\s+of\s+Virginia|Virginia\s+Code)\s*§+\s*(?P<section2>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])|(?:sec(?:tion|\.)|§)\s*(?P<section3>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?:\([A-Za-z0-9]+\))*\s+of\s+the\s+Code\s+of\s+Virginia`
+- Code of Virginia — Virginia-style bare 'Code §' (context required): `(?<!Va\.\s)(?<!Va\.)(?<!Virginia\s)\bCode\s*§+\s*(?P<section>\d{1,2}(?:\.\d{1,2})?[A-Z]?-\d+(?:\.\d+)*(?::\d+)?)(?![\d])`
+- Constitution of Virginia: `(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+[A-Za-z]?)|Article\s+(?P<article2>[IVXL]+),?\s*(?:Section|§)\s*(?P<section2>\d+[A-Za-z]?)\s+of\s+the\s+(?:Constitution\s+of\s+Virginia|Virginia\s+Constitution)`
+- Rules of the Supreme Court of Virginia (all Parts, with Virginia marker): `(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*Sup\.\s*Ct\.\s*R\.\s*(?P<rule>\d{1,2}[A-D]?:\d+[A-Z]?)(?!-\d)|Rules?\s+of\s+(?:the\s+)?Supreme\s+Court\s+of\s+Virginia,?\s*(?:Rule\s*)?(?P<rule2>\d{1,2}[A-D]?:\d+[A-Z]?)(?!-\d)|\bRule\s+(?P<rule3>\d{1,2}[A-D]?:\d+[A-Z]?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Rules\s+of\s+(?:the\s+)?Supreme\s+Court\s+of\s+Virginia|(?<!West\s)Virginia\s+Rule\s+(?P<rule4>\d{1,2}[A-D]?:\d+[A-Z]?)(?!-\d)`
+- Rules of the Supreme Court of Virginia — bare 'Rule N:N' (context required): `\bRule\s+(?P<rule>\d{1,2}[A-D]?:\d+[A-Z]?)(?![\d-])`
+- Virginia Rules of Evidence (Part Two of the Rules): `(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)(?:Va\.\s*R\.\s*Evid\.|(?<!West\s)Virginia\s+Rules?\s+of\s+Evidence)\s*(?P<rule>2:\d{3}[A-Z]?)`
+- Virginia Administrative Code: `(?P<title>\d{1,2})\s*VAC\s*(?P<agency>\d{1,3})-(?P<chapter>\d{1,4})(?:-(?P<section>\d{1,4}))?|(?P<title2>\d{1,2})\s+(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*Admin\.\s*Code\s*§*\s*(?P<agency2>\d{1,3})-(?P<chapter2>\d{1,4})(?:-(?P<section2>\d{1,4}))?`
+- Virginia Register of Regulations: `(?P<volume>\d{1,2}):(?P<issue>\d{1,2})\s+(?:VA\.\s*R\.|(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*Reg\.\s*Regs\.)\s*(?P<page>\d+)|Virginia\s+Register\s+Volume\s+(?P<volume2>\d{1,2}),\s*Issue\s+(?P<issue2>\d{1,2})`
+- Reported Virginia cases (Va., Va. App., S.E.): `(?P<volume>\d{1,3})\s+(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)(?P<reporter>Va\.\s*App\.|Va\.)\s+(?P<page>\d{1,4})(?!\d)|(?P<volume2>\d{1,4})\s+S\.E\.(?:\s*(?P<series>[23])d)?\s+(?P<page2>\d{1,4})(?:,\s*\d+)?\s*\((?:Va\.)`
+- Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D) (context required): `Record\s+No\.\s*(?P<scv>\d{6})(?![\d-])|(?:Record\s+)?No\.\s*(?P<cav>\d{4}-\d{2}-\d)(?!\d)`
+- Westlaw / Lexis unreported cites: `(?P<year>(?:19|20)\d\d)\s+(?:(?<!W\.\s)(?<!W\.)(?<!W\s)(?<!West\s)Va\.\s*(?P<app>App\.\s*)?LEXIS\s+(?P<lexis>\d+)|WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(Va\.)`
 
-No law_aliases are needed: Code of Virginia URLs take the section number alone (/vacode/{section}/), because the title is part of the section number. Section numbers may contain a dotted title (8.01, 18.2, 8.9A), a dotted section (1-219.1, 8.01-227.23) and a colon suffix (18.2-67.2:1); keep the colon in URLs. Virginia's own style is 'Code § 8.01-243'. The bare 'Code §' alternative routes here only with Virginia context, because other jurisdictions also say 'Code §'. A range such as '§§ 8.01-228 through 8.01-256' is a span of sections, not one section. After 'Code §§' or 'Va. Code Ann. §§' the regex captures only the first section; a bare '§§ a through b of the Code of Virginia' is not matched, so take the first section by hand. Court rules are cited 'Rule 3:20' (Part:number, with a colon). A bare 'Rule N:NN' with a colon is distinctively Virginian, but 'Rule 12' (no colon) is not. Part Two holds the Virginia Rules of Evidence ('Va. R. Evid. 2:702'). S.E./S.E.2d is shared with GA, NC, SC and WV, so it routes here only with a '(Va.' parenthetical. Va. and Va. App. are the official reporters, with no free pagination. Supreme Court record numbers are 6 digits (YY + 4-digit sequence, e.g. 250701); Court of Appeals record numbers are NNNN-YY-D (D = 1-4, the region). Rules 5:1(f) and 5A:1(f) permit citing unpublished dispositions as informative, not binding. The usual form is 'Name v. Name, No. 0139-25-1 (Va. Ct. App. Oct. 13, 2026)' or a Va. App. LEXIS / WL cite. A WL or LEXIS number cannot be resolved to a free URL: search by party name in the vacourts.gov listings (va-opinions-*) or on Justia. There is no public-domain citation format. The CourtListener ids 'va' and 'vactapp' come from memory and are unverified.
+No law_aliases are needed: Code of Virginia URLs take the section number alone (/vacode/{section}/), because the title is part of the section number. Section numbers may contain a dotted title (8.01, 18.2, 8.9A), a dotted section (1-219.1, 8.01-227.23) and a colon suffix (18.2-67.2:1); keep the colon in URLs. Virginia's own style is 'Code § 8.01-243'. The bare 'Code §' alternative routes here only with Virginia context, because other jurisdictions also say 'Code §'. A range such as '§§ 8.01-228 through 8.01-256' is a span of sections, not one section. After 'Code §§' or 'Va. Code Ann. §§' the regex captures only the first section; a bare '§§ a through b of the Code of Virginia' is not matched, so take the first section by hand. Court rules are cited 'Rule 3:20' (Part:number, with a colon). A bare 'Rule N:NN' with a colon is distinctively Virginian, but 'Rule 12' (no colon) is not. Part Two holds the Virginia Rules of Evidence ('Va. R. Evid. 2:702'). S.E./S.E.2d is shared with GA, NC, SC and WV, so it routes here only with a '(Va.' parenthetical. Va. and Va. App. are the official reporters, with no free pagination. Supreme Court record numbers are 6 digits (YY + 4-digit sequence, e.g. 250701); Court of Appeals record numbers are NNNN-YY-D (D = 1-4, the region). Rules 5:1(f) and 5A:1(f) permit citing unpublished dispositions as informative, not binding. The usual form is 'Name v. Name, No. 0139-25-1 (Va. Ct. App. Oct. 13, 2026)' or a Va. App. LEXIS / WL cite. A WL or LEXIS number cannot be resolved to a free URL: search by party name in the vacourts.gov listings (va-opinions-*) or on Justia. There is no public-domain citation format. The CourtListener ids 'va' and 'vactapp' come from memory and are unverified. West Virginia guard: every 'Va.'-prefixed alternative has a negative lookbehind for 'W.', 'W ' and 'West ', and the bare 'Code §' alternative refuses a preceding 'Va.'/'Virginia', so 'W. Va. Code § 55-2-12', 'West Virginia Code § …' and 'W. Va. LEXIS' do not route here. West Virginia will have its own record (wv). 'Code of Va. § …' is accepted. Cross-state routing: bare 'Code § X' (also used by D.C., Idaho and others), bare 'Rule N:N' (New Jersey 'Rule 1:36-3', Massachusetts 'S.J.C. Rule 1:03' / 'Appeals Court Rule 1:28') and bare 'Record No.' / 'No. NNNN-YY-D' docket forms are separate patterns marked context_required: route them to Virginia only with Virginia context. The distinctive patterns require 'Va.', 'Virginia' or 'Rules of the Supreme Court of Virginia', and a rule number followed by '-N' (New Jersey style) is refused.
 
 ## A. Statutes / code
 
 ### `va-code-api` — Virginia Law web service (JSON/XML API) — Code of Virginia sections
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Virginia General Assembly, DLAS · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Virginia General Assembly, DLAS · text: **fetch-and-quote** · official: unknown
 - **Coverage:** GET services for Code titles, chapters and sections, plus the Constitution, Administrative Code, Charters, Authorities, Compacts and Uncodified Acts; documented at /jsonapi/ and /xmlapi/.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format json
@@ -55,17 +59,17 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
   - Placeholders: section verbatim (8.01-243). Returns JSON with TitleNumber, ChapterList[{ChapterNum, ArticleNum, SectionNumber, SectionTitle, Body (HTML)}]. Lists: /api/CoVTitlesGetListOfJson, /api/CoVChaptersGetListOfJson/{title}, /api/CoVSectionsGetListOfJson/{title}/{chapter}. Constitution: /api/ConstitutionSectionDetailsJson/{article_arabic}/{section}. Admin Code: /api/AdministrativeCodeGetSectionDetailsJson/{title}/{agency}/{chapter}/{section}/{point}/{colon} (pass 0 for no point/colon). The server appends a trailing slash by redirect.
   - Index: `https://law.lis.virginia.gov/jsonapi/`
 - **Automation:** WebFetch untested · shell ok · robots: none (404)
-  - fetch_doc.py reads it as text (kind=html); the Body field contains HTML markup, so compare quotes against the rendered page.
+  - fetch_doc.py reads it as text (kind=html); the Body field contains HTML markup, so compare quotes against the rendered page. WebFetch untested: built URLs are gated.
 - **Currency:** none stated in JSON
 - **Official status:** The /developers page says the Virginia Law website data is available via a web service. It makes no official-status claim.
 - **Hazard:** Body is HTML inside JSON (tags and escaped newlines)
 - **Probe:** Va. Code Ann. § 8.01-243 → `https://law.lis.virginia.gov/api/CoVSectionsGetSectionDetailsJson/8.01-243/` — expect: "Unless otherwise provided in this section or by other statute, every action"
-- **Evidence (2026-10-16):** fetch_doc.py: 5,094 chars JSON, 'ChapterNum':'4', 'ArticleNum':'3', Body begins 'A. Unless otherwise provided in this section or by other statute'. Also /api/ConstitutionSectionDetailsJson/1/11 → Body 'That no person shall be deprived of his life, liberty, or property'; /api/AdministrativeCodeGetSectionDetailsJson/9/20/60/10/0/0 → JSON for 9VAC20-60-10 [Repealed].
+- **Evidence (2026-10-17):** fetch_doc.py: 5,094 chars JSON, 'ChapterNum':'4', 'ArticleNum':'3', Body begins 'A. Unless otherwise provided in this section or by other statute'. Also /api/ConstitutionSectionDetailsJson/1/11 → Body 'That no person shall be deprived of his life, liberty, or property'; /api/AdministrativeCodeGetSectionDetailsJson/9/20/60/10/0/0 → JSON for 9VAC20-60-10 [Repealed]. | Independent check 2026-10-17: fetch_doc.py: 5,094 chars; Body 'A. Unless otherwise provided in this section or by other statute, every action'; second citation Va. Code Ann. § 46.2-852 ok
 - **Notes:** A second machine route on the same host as va-code-lis. It is not an independent publisher, so it does not count as an independent second fetch.
 
 ### `va-code-lis` — Code of Virginia (Virginia Law portal, law.lis.virginia.gov)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Virginia General Assembly, Division of Legislative Automated Systems (DLAS) · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Virginia General Assembly, Division of Legislative Automated Systems (DLAS) · text: **fetch-and-quote** · official: unknown
 - **Coverage:** All titles of the Code of Virginia, one section per page, with a history line. A separate '2026 Updates' table of contents lists the sections that took effect July 1, 2026. Full-chapter pages: /vacodefull/title{title}/chapter{chapter}/.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -80,13 +84,15 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** repealed sections return a page with a short 'Repealed by Acts …' notice and no former text (e.g. 18.2-62, 18.2-67.2:1)
 - **Hazard:** built URLs are permission-gated for WebFetch
 - **Hazard:** colon section numbers (18.2-67.2:1) must keep the colon
+- **Hazard:** MULTI-VERSION SECTIONS: some pages (e.g. /vacode/55.1-1245/, ~45K chars) say 'This section has more than one version with varying effective dates', and the FIRST heading can be a FUTURE version (e.g. effective July 1, 2028), with the current one '(Effective until July 1, 2027)' after it. Choose the version whose effective-date line covers the relevant date, and quote that effective-date line with the text.
+- **Hazard:** colon URLs confirmed (18.2-308.2:2)
 - **Probe:** Va. Code Ann. § 8.01-243 → `https://law.lis.virginia.gov/vacode/8.01-243/` — expect: "Unless otherwise provided in this section or by other statute, every action"
-- **Evidence (2026-10-16):** WebFetch: YES, body 'Unless otherwise provided in this section or by other statute, every action'; A-E complete; no currency line. Second title: WebFetch /vacode/19.2-8 'A prosecution for a misdemeanor, or any pecuniary fine, forfeiture,'. fetch_doc.py: /vacode/title8.01/chapter4/section8.01-243/ 8,729 chars and /vacode/title18.2/chapter4/section18.2-32/ 5,013 chars, both with body text; /vacode/8.01-243/ 8,142 chars.
+- **Evidence (2026-10-17):** WebFetch: YES, body 'Unless otherwise provided in this section or by other statute, every action'; A-E complete; no currency line. Second title: WebFetch /vacode/19.2-8 'A prosecution for a misdemeanor, or any pecuniary fine, forfeiture,'. fetch_doc.py: /vacode/title8.01/chapter4/section8.01-243/ 8,729 chars and /vacode/title18.2/chapter4/section18.2-32/ 5,013 chars, both with body text; /vacode/8.01-243/ 8,142 chars. | Independent check 2026-10-17: WebFetch YES: 'Unless otherwise provided in this section or by other statute, every action'; A-E, page date 10/17/2026; second citation Va. Code Ann. § 55.1-1245 (also § 18.2-308.2:2) ok
 - **Notes:** Read the section page via fetch_doc.py for exact text. The JSON API (va-code-api) is the same data in machine form.
 
 ### `va-code-justia` — Justia — Code of Virginia (2025)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Code of Virginia editions 2006, 2010-2025; the unversioned URL serves the 2025 edition, so July 1, 2026 amendments are missing.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -101,14 +107,14 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** shell blocked by challenge
 - **Hazard:** chapter navigation shows no section ranges
 - **Probe:** Va. Code Ann. § 8.01-243 → `https://law.justia.com/codes/virginia/title-8-01/chapter-4/section-8-01-243/` — expect: "Unless otherwise provided in this section or by other statute,"
-- **Evidence (2026-10-16):** WebFetch: YES, A-E complete, '2025 Code of Virginia', 'VA Code § 8.01-243 (2025)'. Second title: /title-1/chapter-2-1/section-1-219-1/ body 'A. The right to private property being a fundamental right,'. fetch_doc.py: REFUSED.
+- **Evidence (2026-10-17):** WebFetch: YES, A-E complete, '2025 Code of Virginia', 'VA Code § 8.01-243 (2025)'. Second title: /title-1/chapter-2-1/section-1-219-1/ body 'A. The right to private property being a fundamental right,'. fetch_doc.py: REFUSED. | Independent check 2026-10-17: WebFetch YES: 'Unless otherwise provided in this section or by other statute'; '2025 Code of Virginia'; second citation Va. Code Ann. § 46.2-852 ok
 - **Notes:** public.law has no Virginia edition; Cornell LII links out to LIS for the Code.
 
 ## B. Constitution
 
 ### `va-constitution-lis` — Constitution of Virginia (Virginia Law portal)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Virginia General Assembly, DLAS · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Virginia General Assembly, DLAS · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Constitution of 1971 as amended; one section per page, with notes on amendments. Also a one-page full text (/constitutionfull) and a PDF (/constitution.pdf, 58 pp.).
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -123,37 +129,38 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** /constitutionfull truncated by WebFetch at Art. VII § 9
 - **Hazard:** date on page is the render date
 - **Probe:** Va. Const. art. I, § 14 → `https://law.lis.virginia.gov/constitution/article1/section14/` — expect: "That the people have a right to uniform government; and,"
-- **Evidence (2026-10-16):** WebFetch: YES, 'Section 14. Government should be uniform', complete. fetch_doc.py: article1/section11 body 'That no person shall be deprived of his life, liberty, or property'; article6/section1 body 'The judicial power of the Commonwealth shall be vested in a Supreme Court'. /constitution/article1/ = TOC-ONLY.
+- **Evidence (2026-10-17):** WebFetch: YES, 'Section 14. Government should be uniform', complete. fetch_doc.py: article1/section11 body 'That no person shall be deprived of his life, liberty, or property'; article6/section1 body 'The judicial power of the Commonwealth shall be vested in a Supreme Court'. /constitution/article1/ = TOC-ONLY. | Independent check 2026-10-17: WebFetch YES: 'That the people have a right to uniform government; and,'; complete; second citation Va. Const. art. II, § 1 ok
 - **Notes:** Amendments on the November 3, 2026 ballot are not yet reflected; re-check after certification.
 
 ### `va-constitution-justia` — Justia — Virginia Constitution
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Whole constitution on one page (constitution.html, ~139K chars).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/constitution/virginia/constitution.html`
-  - Placeholders: single page; WebFetch reads to Art. VIII § 5 in the first window, use offset=100000 for later articles
+  - Placeholders: single page; window 1 ends at Art. VIII § 5(c), window 2 (offset=100000) ends at Art. X § 10; for Art. XI-XII use va-constitution-lis
   - Index: `https://law.justia.com/constitution/virginia/`
 - **Automation:** WebFetch ok (truncated) · shell blocked-challenge · robots: unreadable (challenge)
-  - WebFetch window 1 ends mid-Art. VIII § 5(c).
+  - WebFetch window 1 ends mid-Art. VIII § 5(c); window 2 ends mid-Art. X § 10 (independent check 2026-10-16).
 - **Currency:** none stated
 - **Official status:** Third-party compilation; no currency date.
 - **Hazard:** page exceeds the WebFetch window
 - **Hazard:** currency unknown; compare with va-constitution-lis
+- **Hazard:** WebFetch window 2 (offset=100000) stops mid-Art. X § 10; Art. XI § 1 onward was not returned. Read Arts. X-XII from va-constitution-lis per-section pages.
 - **Probe:** Va. Const. art. I, § 11 → `https://law.justia.com/constitution/virginia/constitution.html` — expect: "That no person shall be deprived of his life, liberty"
-- **Evidence (2026-10-16):** WebFetch: Art. I § 11 and Art. VI § 1 bodies present; 138,774 chars, truncated at Art. VIII § 5(c) ('the Boa').
+- **Evidence (2026-10-17):** WebFetch: Art. I § 11 and Art. VI § 1 bodies present; 138,774 chars, truncated at Art. VIII § 5(c) ('the Boa'). | Independent check 2026-10-17: WebFetch: Art. I § 11 present; 138,774 chars, window 1 truncated at Art. VIII § 5(c)
 
 ## C. Court rules
 
 ### `va-rules-scv` — Rules of the Supreme Court of Virginia (full set PDF)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Supreme Court of Virginia · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Supreme Court of Virginia · text: **fetch-and-quote** · official: unknown
 - **Coverage:** All Parts: 1 (general), 1A (foreign attorneys), 2 (Virginia Rules of Evidence), 2A, 3 (civil), 3A (criminal), 3B/3C, 4 (pretrial), 5 (Supreme Court), 5A (Court of Appeals), 6 (State Bar), 7A-7C, 8, 9, 10, 11. 631 pp., ~1.12M chars.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format pdf
   - Pattern: `https://www.vacourts.gov/static/courts/scv/rulesofcourt.pdf`
-  - Placeholders: Fixed URL (/courts/scv/rulesofcourt.pdf and /static/... both resolve). Locate a rule by its heading 'Rule {part}:{n}.' (e.g. 'Rule 3:20.' p. 203; 'Rule 5:17.' p. 402; 'Rule 5A:1.' p. 462). Evidence rules use 'Rule 2:702 TESTIMONY BY EXPERTS' (no period, capitals; p. 142).
+  - Placeholders: Fixed URL (/courts/scv/rulesofcourt.pdf and /static/... both resolve). Locate a rule by its heading 'Rule {part}:{n}.' (e.g. 'Rule 3:20.' p. 203; 'Rule 5:17.' p. 402; 'Rule 5A:1.' p. 462). Grep 'Rule {part}:{n}' WITHOUT trailing punctuation: heading styles vary, especially in Part Two (evidence), e.g. 'Rule 2:702 TESTIMONY BY EXPERTS' (no period, p. 142) but 'Rule 2:803. HEARSAY EXCEPTIONS…' (with period).
   - Index: `https://vacourts.gov/courts/scv/rules`
   - Navigation: rules page → 'Rules of Supreme Court of Virginia' PDF link
 - **Automation:** WebFetch ok (truncated) · shell ok · robots: vacourts.gov: User-agent * disallows /core/, /profiles/, /admin/, /search/, /user/*, /node/add/ — /static/ and /opinions/ allowed
@@ -162,16 +169,16 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Official status:** Rules page (https://vacourts.gov/courts/scv/rules) describes the PDF as the Rules 'as currently effective', posted when amendments take effect. It makes no official/authentication statement; the tracked-change versions are expressly 'unofficial'.
 - **Hazard:** WebFetch truncation in Part 1A (about 9% of the document)
 - **Hazard:** no edition date on the cover; PDF Last-Modified 15 Sep 2026
-- **Hazard:** evidence-rule headings use a different style from other rules
+- **Hazard:** evidence-rule headings vary (with or without a period, in capitals): grep 'Rule 2:NNN' without punctuation
 - **Probe:** Rule 3:20 → `https://www.vacourts.gov/static/courts/scv/rulesofcourt.pdf` — expect: "Any party may make a motion for summary judgment at any time"
-- **Evidence (2026-10-16):** fetch_doc.py: pdf 631 pp, 1,118,593 chars; grep finds 'Rule 3:20. Motion for Summary Judgment. Any party may make a motion' (p. 203), 'Rule 5:17. Petition for Appeal.' (p. 402), 'Rule 2:702 TESTIMONY BY EXPERTS' (p. 142). WebFetch: Rule 1:1(a) present; 3:20 and 5:17 NOT PRESENT; truncated at Rule 1A:1.
+- **Evidence (2026-10-17):** fetch_doc.py: pdf 631 pp, 1,118,593 chars; grep finds 'Rule 3:20. Motion for Summary Judgment. Any party may make a motion' (p. 203), 'Rule 5:17. Petition for Appeal.' (p. 402), 'Rule 2:702 TESTIMONY BY EXPERTS' (p. 142). WebFetch: Rule 1:1(a) present; 3:20 and 5:17 NOT PRESENT; truncated at Rule 1A:1. | Independent check 2026-10-17: WebFetch: Rule 1:1 present, 3:20 NOT PRESENT, cut in Rule 1A:1 ('For pu'); script p.203 Rule 3:20 found; second citation Va. Sup. Ct. R. 5A:12; Va. R. Evid. 2:803 ok
 - **Notes:** law.lis.virginia.gov does not host the court rules (its Virginia Law menu lists only Code, Admin Code, Constitution, Charters, Authorities, Compacts and Uncodified Acts). Amendment orders: /courts/scv/amend. Rule 5:1(f) and 5A:1(f) govern citing unpublished dispositions.
 
 ## D. Administrative code
 
 ### `va-admincode-lis` — Virginia Administrative Code (Virginia Law portal)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Virginia General Assembly, DLAS (for the Virginia Code Commission) · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Virginia General Assembly, DLAS (for the Virginia Code Commission) · text: **fetch-and-quote** · official: unknown
 - **Coverage:** All VAC titles; one section per page with Historical Notes citing the Register volume/issue; emergency regulations listed separately.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -185,12 +192,12 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** repealed sections return a stub '(Repealed.)' page with Historical Notes only
 - **Hazard:** date on page is the render date
 - **Probe:** 12VAC5-371-10 → `https://law.lis.virginia.gov/admincode/title12/agency5/chapter371/section10/` — expect: "The following words and terms when used in this chapter"
-- **Evidence (2026-10-16):** WebFetch: YES, 'The following words and terms when used in this chapter'; not truncated; last note 'Volume 42, Issue 23, eff. August 13, 2026.' fetch_doc.py: 12VAC5-371-10 (17,049 chars) and 9VAC20-60-12 ('A. Chapter 11.1 (§ 10.1-1182 et seq.) and Chapter 14') bodies present.
+- **Evidence (2026-10-17):** WebFetch: YES, 'The following words and terms when used in this chapter'; not truncated; last note 'Volume 42, Issue 23, eff. August 13, 2026.' fetch_doc.py: 12VAC5-371-10 (17,049 chars) and 9VAC20-60-12 ('A. Chapter 11.1 (§ 10.1-1182 et seq.) and Chapter 14') bodies present. | Independent check 2026-10-17: WebFetch YES: 'The following words and terms when used in this chapter'; 'Volume 42, Issue 23, eff. August 13, 2026'; second citation 9VAC25-210-10 ok
 - **Notes:** JSON route: va-code-api's AdministrativeCodeGetSectionDetailsJson.
 
 ### `va-admincode-lii` — Cornell LII — Virginia Administrative Code
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** VAC sections with Register history notes.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -204,13 +211,13 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** STALE: 12VAC5-371-10 notes stop at 38:04 (2021) while the official page cites 42:23 (eff. Aug. 13, 2026); always compare with va-admincode-lis
 - **Hazard:** Last-Modified Aug 2025
 - **Probe:** 12VAC5-371-10 → `https://www.law.cornell.edu/regulations/virginia/12VAC5-371-10` — expect: "The following words and terms when used in this chapter"
-- **Evidence (2026-10-16):** fetch_doc.py: 14,923 chars; body 'The following words and terms when used in this chapter shall'; second: 9VAC20-60-12 body 'A. Chapter 11.1 (§ 10.1-1182 et seq.)'. Last-Modified 7 Aug 2025.
+- **Evidence (2026-10-17):** fetch_doc.py: 14,923 chars; body 'The following words and terms when used in this chapter shall'; second: 9VAC20-60-12 body 'A. Chapter 11.1 (§ 10.1-1182 et seq.)'. Last-Modified 7 Aug 2025. | Independent check 2026-10-17: fetch_doc.py: 14,923 chars; 'The following words and terms when used in this chapter shall'; last note 38:04; second citation 9VAC25-210-10 ok
 
 ## D. Administrative register
 
 ### `va-register-dls` — Virginia Register of Regulations
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Virginia Code Commission (Division of Legislative Services) · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Virginia Code Commission (Division of Legislative Services) · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Online issue tables of contents from 25:01 (Sep. 15, 2008) to 43:04 (Oct. 5, 2026), with a per-action HTML page and a whole-issue PDF.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format html
@@ -225,24 +232,25 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** details.aspx ids are not derivable
 - **Hazard:** two-column issue PDFs interleave columns in text extraction
 - **Hazard:** issue PDF > WebFetch window
+- **Hazard:** Some details.aspx pages return an empty navigation shell (e.g. id=12500, 3,522 chars, no action text). Fall back to the issue PDF (vol{VV}/iss{II}/v{VV}i{II}.pdf) and its printed page numbers.
 - **Probe:** 36:23 VA.R. (July 6, 2020) — 12VAC5-371 final regulation → `https://register.dls.virginia.gov/details.aspx?id=8079` — expect: "The following words and terms when used in this chapter"
-- **Evidence (2026-10-16):** WebFetch: Vol. 36 Iss. 23, July 6, 2020, 12VAC5-371 final regulation, text present, R20-6336, not truncated. fetch_doc.py: v36i23.pdf 108 pp (12VAC5-371-10 found p. 59); v43i04.pdf 98 pp; toc.aspx?voliss=36:23 lists 12VAC5-371 → details.aspx ids.
+- **Evidence (2026-10-17):** WebFetch: Vol. 36 Iss. 23, July 6, 2020, 12VAC5-371 final regulation, text present, R20-6336, not truncated. fetch_doc.py: v36i23.pdf 108 pp (12VAC5-371-10 found p. 59); v43i04.pdf 98 pp; toc.aspx?voliss=36:23 lists 12VAC5-371 → details.aspx ids. | Independent check 2026-10-17: WebFetch YES: 'Vol. 36 Iss. 23 - July 06, 2020'; 12VAC5-371 text present, not truncated; second citation 43:04 Va. Reg. Regs. (Oct. 5, 2026) actions; 42:23 issue PDF ok
 - **Notes:** Town Hall (townhall.virginia.gov) tracks regulatory actions; not probed.
 
 ## E. Case law
 
 ### `va-opinions-cav` — Court of Appeals of Virginia published and unpublished opinions (vacourts.gov)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Court of Appeals of Virginia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Court of Appeals of Virginia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Published opinions 5/2/1995-present (4,148 links); unpublished (memorandum) opinions, stated as 3/5/2002-present (13,542 links).
-- **Read via (in order):** **script** → **fetch tool**
+- **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
   - Pattern: `https://www.vacourts.gov/opinions/opncavwp/{record_nohyphen}.pdf`
   - Placeholders: record_nohyphen = Record No. NNNN-YY-D with the hyphens removed: 0476-25-1 → 0476251.pdf; 0139-25-1 → 0139251.pdf. Published and unpublished opinions share the folder. Listings (single huge HTML pages, newest first): published https://vacourts.gov/wpcap (→ webdev.vacourts.gov/dynamic/wpcap.htm, ~1.06M chars); unpublished https://vacourts.gov/wpcau (~3.37M chars). Use fetch_doc.py grep on a listing to find a record or party.
   - Index: `https://vacourts.gov/opinions/home`
   - Navigation: opinions/home → Court of Appeals 'Published Opinions … In PDF Format' (/wpcap) or 'Unpublished Opinions' (/wpcau) → row → PDF
-- **Automation:** WebFetch ok · shell ok · robots: allowed (see va-opinions-scv)
-  - WebFetch read a search-sourced opncavwp PDF (it held the wrong document, see hazards). Long published opinions (0476251.pdf, 48 pp, 105,801 chars) slightly exceed one WebFetch window, so use fetch_doc.py.
+- **Automation:** WebFetch gated · shell ok · robots: allowed (see va-opinions-scv)
+  - WebFetch: URLs built from the record number time out on permission (gated); only URLs that came from search results went through. Use fetch_doc.py as the primary route. WebFetch read a search-sourced opncavwp PDF (it held the wrong document, see hazards). Long published opinions (0476251.pdf, 48 pp, 105,801 chars) slightly exceed one WebFetch window, so use fetch_doc.py.
 - **Currency:** listing, newest first — observed: "0476251 John Antonio Fennell v. Commonwealth of Virginia 10/13/2026"
 - **Official status:** Slip opinions; published opinions are later reported in Va. App. (print).
 - **Hazard:** WRONG-DOCUMENT FILES: 0956112.pdf, listed as Franklin Taylor v. Commonwealth (Record No. 0956-11-2, 10/23/2012), actually serves a 2013 'Cases Appealed to Supreme Court' list. Always confirm the caption 'Record No.' in the PDF.
@@ -250,20 +258,20 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** listing pages far exceed WebFetch
 - **Hazard:** one 8-character file name in the unpublished listing (0120224u)
 - **Probe:** Fennell v. Commonwealth, Record No. 0476-25-1 (Va. Ct. App. Oct. 13, 2026) (published) → `https://www.vacourts.gov/opinions/opncavwp/0476251.pdf` — expect: "Appealing the revocation of his suspended sentence, John Antonio Fennell contends"
-- **Evidence (2026-10-16):** fetch_doc.py: 0476251.pdf 48 pp, 'Record No. 0476-25-1', 'PUBLISHED OPINION BY JUDGE STUART A. RAPHAEL'; unpublished 0139251.pdf 15 pp, 'Record No. 0139-25-1', 'MEMORANDUM OPINION BY JUDGE KEVIN M. DUFFAN'.
+- **Evidence (2026-10-17):** fetch_doc.py: 0476251.pdf 48 pp, 'Record No. 0476-25-1', 'PUBLISHED OPINION BY JUDGE STUART A. RAPHAEL'; unpublished 0139251.pdf 15 pp, 'Record No. 0139-25-1', 'MEMORANDUM OPINION BY JUDGE KEVIN M. DUFFAN'. | Independent check 2026-10-17: WebFetch gated (permission timeout); fetch_doc.py confirmed: 48 pp, 'Record No. 0476-25-1', 'Appealing the revocation of his suspended sentence'; second citation Recycled Properties, LLC v. City Council of Chesapeake, Record No. 0657-25-1 (Va. Ct. App. Oct. 13, 2026) (unpublished) ok
 
 ### `va-opinions-scv` — Supreme Court of Virginia opinions and published orders (vacourts.gov)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Supreme Court of Virginia / Office of the Executive Secretary · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Supreme Court of Virginia / Office of the Executive Secretary · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Opinions and published orders by date issued since 6/9/1995 (listing dates go back to 1995; 3,051 PDF links).
-- **Read via (in order):** **script** → **fetch tool**
+- **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
   - Pattern: `https://www.vacourts.gov/opinions/opnscvwp/1{record}.pdf`
   - Placeholders: record = 6-digit Supreme Court record number; prefix '1': Record No. 250701 → 1250701.pdf, 241067 → 1241067.pdf. It redirects to /static/opinions/opnscvwp/…. Some records have suffixed extra files (1260169d, 1111207o, 1101909r, 1042743s, 8-character names), so check the listing for a second document on the same record. Listing (one ~2M-char HTML page, newest first, with case name, date and a one-paragraph summary): https://vacourts.gov/scndex, which redirects to https://webdev.vacourts.gov/dynamic/scndex.htm. There is no GET search (vacourts.gov /search/ is robots-disallowed), so find by record number or party with fetch_doc.py grep on the listing.
   - Index: `https://vacourts.gov/scndex`
   - Navigation: opinions/home → 'By Date Issued (since 6/9/95)' (/scndex) → row: record number, name, date, summary → PDF
-- **Automation:** WebFetch ok · shell ok · robots: vacourts.gov: /opinions and /static allowed; /search/ disallowed
-  - WebFetch reads search-sourced PDFs (1240138.pdf, 1151296.pdf); built URLs may be gated. The 2M-char listing is far beyond WebFetch, so use fetch_doc.py grep. Opinions are released, typically on Thursdays.
+- **Automation:** WebFetch gated · shell ok · robots: vacourts.gov: /opinions and /static allowed; /search/ disallowed
+  - WebFetch: URLs built from the record number time out on permission (gated); only URLs that came from search results went through. Use fetch_doc.py as the primary route. WebFetch reads search-sourced PDFs (1240138.pdf, 1151296.pdf); built URLs may be gated. The 2M-char listing is far beyond WebFetch, so use fetch_doc.py grep. Opinions are released, typically on Thursdays.
 - **Currency:** listing, newest first — observed: "250701 Commonwealth v. Kuykendall 09/03/2026 (top row)"
 - **Official status:** Slip opinions with slip pagination only; published orders say they 'shall be published in the Virginia Reports' (the official reporter is print, not free).
 - **Hazard:** slip pagination only; no Va./S.E.2d cites
@@ -271,11 +279,11 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** suffixed second files on some records
 - **Hazard:** a PDF at a listed filename can hold the wrong document (see va-opinions-cav); confirm the Record No. in the caption
 - **Probe:** Commonwealth v. Kuykendall, Record No. 250701 (Va. Sept. 3, 2026) → `https://www.vacourts.gov/opinions/opnscvwp/1250701.pdf` — expect: "Samuel Marvin Kuykendall committed aggravated sexual battery of a 10-year-old girl."
-- **Evidence (2026-10-16):** fetch_doc.py: 1250701.pdf 14 pp, 31,506 chars, caption 'Record No. 250701 … OPINION BY JUSTICE D. ARTHUR KELSEY'; 1241067.pdf order 'Record No. 241067 Court of Appeals No. 1741-23-3'. WebFetch: 1240138.pdf (order, Record No. 240138) and 1151296.pdf complete, no own reporter cite.
+- **Evidence (2026-10-17):** fetch_doc.py: 1250701.pdf 14 pp, 31,506 chars, caption 'Record No. 250701 … OPINION BY JUSTICE D. ARTHUR KELSEY'; 1241067.pdf order 'Record No. 241067 Court of Appeals No. 1741-23-3'. WebFetch: 1240138.pdf (order, Record No. 240138) and 1151296.pdf complete, no own reporter cite. | Independent check 2026-10-17: WebFetch gated; fetch_doc.py confirmed: 14 pp, 'Record No. 250701', 'Samuel Marvin Kuykendall committed aggravated sexual battery'; second citation Pinnacle Flooring Solutions, LLC v. Premier Homes Group, Record No. 250618 (Va. July 30, 2026) ok
 
 ### `va-scv-unpublished-orders` — Supreme Court of Virginia unpublished orders (argued cases)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Supreme Court of Virginia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Supreme Court of Virginia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Unpublished orders in argued cases, grouped by year issued (2014-2026 on the page).
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -283,16 +291,17 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
   - Placeholders: record = 6-digit record number without the '1' prefix (250511.pdf). Constructible once you know an unpublished order exists; confirm on the index page.
   - Index: `https://vacourts.gov/courts/scv/orders_unpublished/home`
   - Navigation: index page (by year) → record-number link → PDF
-- **Automation:** WebFetch untested · shell ok · robots: allowed
+- **Automation:** WebFetch gated · shell ok · robots: allowed
+  - WebFetch: URLs built from the record number time out on permission (gated); only URLs that came from search results went through. Use fetch_doc.py as the primary route. 
 - **Currency:** index page year headings — observed: "Issued 2026"
 - **Official status:** Page states unpublished orders for cases argued before the full court are posted there.
 - **Hazard:** not every disposition is here: petition-for-appeal refusals are not posted
 - **Probe:** Horn v. Webb, Record No. 250511 (Va. July 16, 2026) (unpublished order) → `https://vacourts.gov/static/courts/scv/orders_unpublished/250511.pdf` — expect: "Three years ago, this Court decided Horn v. Webb, 302 Va. 70"
-- **Evidence (2026-10-16):** fetch_doc.py: 15 pp, 32,608 chars; 'Record No. 250511 Court of Appeals No. 1973-23-4'; body 'Three years ago, this Court decided Horn v. Webb, 302 Va. 70 (2023)'.
+- **Evidence (2026-10-17):** fetch_doc.py: 15 pp, 32,608 chars; 'Record No. 250511 Court of Appeals No. 1973-23-4'; body 'Three years ago, this Court decided Horn v. Webb, 302 Va. 70 (2023)'. | Independent check 2026-10-17: WebFetch not sent (gated); fetch_doc.py: 15 pp, 'Three years ago, this Court decided Horn v. Webb, 302 Va. 70'; second citation Cunningham v. Commonwealth, Record No. 250327 (unpublished order) ok
 
 ### `va-cases-justia` — Justia — Virginia case law
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court of Virginia (year pages; range not checked); Court of Appeals 1985-2026 (court-of-appeals-published and court-of-appeals-unpublished slugs).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -307,33 +316,35 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** shell blocked
 - **Hazard:** slip text, no reporter pagination
 - **Hazard:** published/unpublished slug mixing in listings
+- **Hazard:** Long opinions exceed one WebFetch window (e.g. 112,588 chars; dissent cut at 100K), so make a second WebFetch at offset=100000.
 - **Probe:** Under Wild Skies, Inc. v. NRA, Record No. 240683 (Va. May 29, 2025) → `https://law.justia.com/cases/virginia/supreme-court/2025/240683.html` — expect: "Under Wild Skies, Inc. (“UWS”) appeals the judgment of the Court of"
-- **Evidence (2026-10-16):** WebFetch: full body, Record No. 240683, May 29, 2025, not truncated. CAV: /court-of-appeals-unpublished/2025/0003-25-4.html, Bailey v. Bailey, memorandum opinion, complete.
+- **Evidence (2026-10-17):** WebFetch: full body, Record No. 240683, May 29, 2025, not truncated. CAV: /court-of-appeals-unpublished/2025/0003-25-4.html, Bailey v. Bailey, memorandum opinion, complete. | Independent check 2026-10-17: WebFetch YES: 'Under Wild Skies, Inc. (“UWS”) appeals the judgment'; Record No. 240683, May 29, 2025; second citation Fennell v. Commonwealth, No. 0476-25-1 (Va. Ct. App. Oct. 13, 2026) ok
 - **Notes:** Justia also archives dated copies of the Court of Appeals 'Cases Appealed to Supreme Court' list (e.g. /court-of-appeals-published/2026/8888-88-1-4.html), which help with older subsequent history.
 
 ## F. Subsequent history
 
 ### `va-subsequent-history-acms` — Supreme Court of Virginia / Court of Appeals case information (eapps ACMS)
 
-- **Status:** REPORTED 2026-10-16 · **Tier 1** · Office of the Executive Secretary, Supreme Court of Virginia · text: **link-only** · official: unknown
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Office of the Executive Secretary, Supreme Court of Virginia · text: **link-only** · official: unknown
 - **Coverage:** Docket status of Supreme Court and Court of Appeals cases, including petition-for-appeal refusals (expected; not seen).
 - **Access:** `search-only` · format html
   - Placeholders: Supreme Court: https://eapps.courts.state.va.us/acms-public ; Court of Appeals: https://eapps.courts.state.va.us/cav-public
   - Index: `https://eapps.courts.state.va.us/acms-public`
   - Navigation: interactive case search (not reachable by the tools)
 - **Automation:** WebFetch gated · shell http-error · robots: robots.txt request lands on /unavailable/unauthorized.html ('Unauthorized Access.')
-  - fetch_doc.py: HTTP 500 on /acms-public and /cav-public. WebFetch timed out on permission. Not retried.
+  - fetch_doc.py: HTTP 500 on /acms-public and /cav-public. WebFetch timed out on permission. Not retried. Independent check 2026-10-16: fetch_doc.py now gets an 8,918-char 'Terms and Conditions of Use' (EULA) page; case search sits behind accepting it, so no case data is reachable.
 - **Currency:** unknown
 - **Official status:** Linked from https://vacourts.gov/courts/scv/home as 'Supreme Court of Virginia Case Information'.
 - **Hazard:** not machine-reachable
 - **Hazard:** likely JS app
+- **Hazard:** gated behind a terms-of-use (EULA) acceptance page; do not click through automatically
 - **Probe:**  → `https://eapps.courts.state.va.us/acms-public`
-- **Evidence (2026-10-16):** fetch_doc.py: 'FETCH ERROR: HTTP 500'; robots.txt → 'Unauthorized Access.' page.
+- **Evidence (2026-10-17):** fetch_doc.py: 'FETCH ERROR: HTTP 500'; robots.txt → 'Unauthorized Access.' page. | Independent check 2026-10-16: /acms-public now serves an 8,918-char 'Terms and Conditions of Use' EULA page (not HTTP 500); WebFetch gated. Still link-only.
 - **Notes:** This is the only place where refusals of petitions for appeal from unpublished Court of Appeals decisions and circuit courts can be looked up by record number. The skill must report such history as unverifiable from free sources.
 
 ### `va-subsequent-history-cav-list` — Court of Appeals of Virginia — 'Cases Appealed to Supreme Court of Virginia' (rolling PDF)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Court of Appeals of Virginia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Court of Appeals of Virginia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Published Court of Appeals opinions only: those appealed to the Supreme Court, and those disposed of (Refused, Petition Withdrawn, reversed by opinion …) with the Supreme Court record number. Only the current version is at this URL; it is overwritten on each update.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
@@ -347,8 +358,9 @@ No law_aliases are needed: Code of Virginia URLs take the section number alone (
 - **Hazard:** only the latest snapshot is online here; earlier entries drop off
 - **Hazard:** published Court of Appeals opinions only
 - **Hazard:** petition-for-appeal refusals appear only as one word ('Refused') with the record number; no refusal order text is published
+- **Hazard:** DATES CAN BE WRONG: the list gives the Kuykendall Supreme Court opinion as 'rendered on September 23, 2026', but the opinion and scndex say September 3, 2026. Use the list only to find the record number, and take decision dates from the Supreme Court opinion or scndex.
 - **Probe:** Kuykendall v. Commonwealth, Record No. 0577-24-3 (Va. Ct. App. 2025) → Supreme Court Record No. 250701 → `https://www.vacourts.gov/opinions/opncavwp/8888881.pdf` — expect: "Judgment of Court of Appeals reversed, annulled, and final judgment entered by opinion"
-- **Evidence (2026-10-16):** fetch_doc.py: 2 pp, 'DATE: October 6, 2026'; Kuykendall 0577-24-3 '(250701)'; Tessema 0865-24-4 'Refused (251005)'; Harwood 1600-24-4 'Refused (250988)'.
+- **Evidence (2026-10-17):** fetch_doc.py: 2 pp, 'DATE: October 6, 2026'; Kuykendall 0577-24-3 '(250701)'; Tessema 0865-24-4 'Refused (251005)'; Harwood 1600-24-4 'Refused (250988)'. | Independent check 2026-10-17: WebFetch YES: 'DATE: October 6, 2026'; Kuykendall 0577-24-3 '...final judgment entered by opinion'
 
 ## Not available (do not look for these again)
 

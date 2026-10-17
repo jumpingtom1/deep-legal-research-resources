@@ -1433,56 +1433,66 @@
     "va": {
       "name": "Virginia",
       "file": "jurisdictions/va.md",
-      "sha256": "b733c9400365971ad54137fabc3374b8e46845c59c2d10646ef989676d0fcfd4",
-      "compiled": "2026-10-16",
+      "sha256": "523875307871cf4ecb3a522562a0b7a1a2923de6e78cc0abfb6e6bc45c115f24",
+      "compiled": "2026-10-17",
       "counts": {
-        "verified": 14,
+        "verified_independent": 14,
         "reported": 1
       },
       "citation_patterns": [
         {
           "label": "Code of Virginia",
-          "regex": "Va\\.\\s*Code(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:Code\\s+of\\s+Virginia|Virginia\\s+Code)\\s*\u00a7+\\s*(?P<section2>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Virginia|\\bCode\\s*\u00a7+\\s*(?P<section4>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])",
+          "regex": "(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*Code(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?<!West\\s)(?:Code\\s+of\\s+Va\\.|Code\\s+of\\s+Virginia|Virginia\\s+Code)\\s*\u00a7+\\s*(?P<section2>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Virginia",
           "context_required": false
+        },
+        {
+          "label": "Code of Virginia \u2014 Virginia-style bare 'Code \u00a7' (context required)",
+          "regex": "(?<!Va\\.\\s)(?<!Va\\.)(?<!Virginia\\s)\\bCode\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])",
+          "context_required": true
         },
         {
           "label": "Constitution of Virginia",
-          "regex": "Va\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s*(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Constitution\\s+of\\s+Virginia|Virginia\\s+Constitution)",
+          "regex": "(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s*(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Constitution\\s+of\\s+Virginia|Virginia\\s+Constitution)",
           "context_required": false
         },
         {
-          "label": "Rules of the Supreme Court of Virginia (all Parts)",
-          "regex": "(?:Va\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Rules?\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia,?\\s*(?:Rule\\s*)?|\\bRule)\\s*(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)",
+          "label": "Rules of the Supreme Court of Virginia (all Parts, with Virginia marker)",
+          "regex": "(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)(?!-\\d)|Rules?\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia,?\\s*(?:Rule\\s*)?(?P<rule2>\\d{1,2}[A-D]?:\\d+[A-Z]?)(?!-\\d)|\\bRule\\s+(?P<rule3>\\d{1,2}[A-D]?:\\d+[A-Z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia|(?<!West\\s)Virginia\\s+Rule\\s+(?P<rule4>\\d{1,2}[A-D]?:\\d+[A-Z]?)(?!-\\d)",
           "context_required": false
+        },
+        {
+          "label": "Rules of the Supreme Court of Virginia \u2014 bare 'Rule N:N' (context required)",
+          "regex": "\\bRule\\s+(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)(?![\\d-])",
+          "context_required": true
         },
         {
           "label": "Virginia Rules of Evidence (Part Two of the Rules)",
-          "regex": "(?:Va\\.\\s*R\\.\\s*Evid\\.|Virginia\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>2:\\d{3}[A-Z]?)|\\bRule\\s+(?P<rule2>2:\\d{3}[A-Z]?)",
+          "regex": "(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)(?:Va\\.\\s*R\\.\\s*Evid\\.|(?<!West\\s)Virginia\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>2:\\d{3}[A-Z]?)",
           "context_required": false
         },
         {
           "label": "Virginia Administrative Code",
-          "regex": "(?P<title>\\d{1,2})\\s*VAC\\s*(?P<agency>\\d{1,3})-(?P<chapter>\\d{1,4})(?:-(?P<section>\\d{1,4}))?|(?P<title2>\\d{1,2})\\s+Va\\.\\s*Admin\\.\\s*Code\\s*\u00a7*\\s*(?P<agency2>\\d{1,3})-(?P<chapter2>\\d{1,4})(?:-(?P<section2>\\d{1,4}))?",
+          "regex": "(?P<title>\\d{1,2})\\s*VAC\\s*(?P<agency>\\d{1,3})-(?P<chapter>\\d{1,4})(?:-(?P<section>\\d{1,4}))?|(?P<title2>\\d{1,2})\\s+(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*Admin\\.\\s*Code\\s*\u00a7*\\s*(?P<agency2>\\d{1,3})-(?P<chapter2>\\d{1,4})(?:-(?P<section2>\\d{1,4}))?",
           "context_required": false
         },
         {
           "label": "Virginia Register of Regulations",
-          "regex": "(?P<volume>\\d{1,2}):(?P<issue>\\d{1,2})\\s+(?:VA\\.\\s*R\\.|Va\\.\\s*Reg\\.\\s*Regs\\.)\\s*(?P<page>\\d+)|Virginia\\s+Register\\s+Volume\\s+(?P<volume2>\\d{1,2}),\\s*Issue\\s+(?P<issue2>\\d{1,2})",
+          "regex": "(?P<volume>\\d{1,2}):(?P<issue>\\d{1,2})\\s+(?:VA\\.\\s*R\\.|(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*Reg\\.\\s*Regs\\.)\\s*(?P<page>\\d+)|Virginia\\s+Register\\s+Volume\\s+(?P<volume2>\\d{1,2}),\\s*Issue\\s+(?P<issue2>\\d{1,2})",
           "context_required": false
         },
         {
           "label": "Reported Virginia cases (Va., Va. App., S.E.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+(?P<reporter>Va\\.\\s*App\\.|Va\\.)\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?:Va\\.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)(?P<reporter>Va\\.\\s*App\\.|Va\\.)\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?:Va\\.)",
           "context_required": false
         },
         {
-          "label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D)",
+          "label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D) (context required)",
           "regex": "Record\\s+No\\.\\s*(?P<scv>\\d{6})(?![\\d-])|(?:Record\\s+)?No\\.\\s*(?P<cav>\\d{4}-\\d{2}-\\d)(?!\\d)",
-          "context_required": false
+          "context_required": true
         },
         {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)",
           "context_required": false
         }
       ]
