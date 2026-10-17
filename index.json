@@ -378,16 +378,16 @@
     "id": {
       "name": "Idaho",
       "file": "jurisdictions/id.md",
-      "sha256": "94111eb73ef45012e12f47e563e7d3c5fce814a8484822248de91e846b05a56f",
+      "sha256": "748f245d9739c4e65ac74b1d2eb48131813a4b5b39d2b27e4ca13696ab62a028",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 13,
+        "verified_independent": 13,
         "blocked": 1
       },
       "citation_patterns": [
         {
           "label": "Idaho Code",
-          "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code"
+          "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code|chapter\\s+(?P<chapter4>\\d{1,3}[A-Z]?),\\s*title\\s+(?P<title4>\\d{1,2}),\\s*Idaho\\s+Code"
         },
         {
           "label": "Idaho Session Laws",
@@ -399,7 +399,7 @@
         },
         {
           "label": "Idaho court rules (I.R.C.P., I.A.R., I.R.E., I.C.R., I.C.A.R., I.R.F.L.P., I.M.C.R., I.J.R., I.I.R., I.R.E.F.S.)",
-          "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)"
+          "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule|Idaho\\s+Rules?\\s+of\\s+(?:Evidence|Civil\\s+Procedure|Criminal\\s+Procedure|Appellate\\s+Procedure)(?:\\s+Rule)?)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)"
         },
         {
           "label": "Idaho Rules of Professional Conduct",
