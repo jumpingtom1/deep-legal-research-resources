@@ -3,7 +3,7 @@
   "jurisdiction": "la",
   "name": "Louisiana",
   "compiled": "2026-10-17",
-  "summary": "Statutes: legis.la.gov serves every law as a small Law.aspx?d={id} page (unofficial per its disclaimer). The five codes (Civil, Civil Procedure, Criminal Procedure, Evidence, Children's) have GET table-of-contents pages that map article → id, but the Revised Statutes and Constitution TOCs are POST-only, so R.S. ids must be found by web search or read from Justia (constructible, 2025 edition, WebFetch only). Court rules: the Uniform Rules of the Courts of Appeal are an official PDF on fifthcircuit.org; Supreme Court and District Court rules sit on lasc.org, a Blazor app neither tool can read. Admin code: the official LAC and Register are .docx only (unreadable); Cornell LII has a constructible per-section LAC. Case law: lasc.org is unreadable, so Supreme Court opinions come from Justia (court news-release PDFs on cases.justia.com, script-readable); the Second Circuit has GET year listings (2009–), the Fifth Circuit lists recent PDFs, and the First, Third and Fourth Circuits need JavaScript or POST — use Justia. Writ dispositions (subsequent history) have no readable free source.",
+  "summary": "Statutes: legis.la.gov serves every law as a small Law.aspx?d={id} page (unofficial per its disclaimer). The five codes (Civil, Civil Procedure, Criminal Procedure, Evidence, Children's) have GET table-of-contents pages that map article → id, but the Revised Statutes and Constitution TOCs are POST-only, so R.S. ids must be found by web search or read from Justia (constructible, 2025 edition, WebFetch only). Court rules: the Uniform Rules of the Courts of Appeal are an official PDF on fifthcircuit.org; Supreme Court and District Court rules sit on lasc.org, a Blazor app neither tool can read. Admin code: the official LAC (per-part files) and 2026 Register editions are .docx files that fetch_doc.py reads; Cornell LII has a constructible per-section LAC but lags (Aug 2025). Case law: lasc.org is unreadable, so Supreme Court opinions come from Justia (court news-release PDFs on cases.justia.com, script-readable); the Second Circuit has GET year listings (2009–), the Fifth Circuit lists recent PDFs, and the First, Third and Fourth Circuits need JavaScript or POST — use Justia. Writ dispositions (subsequent history) have no readable free source.",
   "citation_map": {
     "courts": [
       {
@@ -100,9 +100,11 @@
         "examples": [
           "R.S. 9:2800",
           "R.S. 14:30.1",
-          "R.S. 49:953"
+          "R.S. 49:953",
+          "section 2800.6 of Title 9 of the Revised Statutes",
+          "Section 2800 of Title 9 of the Revised Statutes"
         ],
-        "regex": "(?<![\\w.])R\\.\\s*S\\.\\s*(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)",
+        "regex": "(?<![\\w.])R\\.\\s*S\\.\\s*(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)|(?:Section|§)\\s*(?P<section2>\\d+(?:\\.\\d+)?)\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Revised\\s+Statutes",
         "routes_to": [
           "la-rs-legis",
           "la-codes-justia"
@@ -216,7 +218,8 @@
           "La. C.E. art. 702",
           "LSA-C.E. art. 404(B)",
           "Louisiana Code of Evidence article 702",
-          "Article 702 of the Louisiana Code of Evidence"
+          "Article 702 of the Louisiana Code of Evidence",
+          "Louisiana Code of Evidence Article 412.2"
         ],
         "regex": "(?:\\bLa\\.\\s*Code\\s*(?:of\\s*)?Evid(?:ence)?\\.?(?:\\s*Ann\\.)?|\\bLa\\.\\s*C\\.\\s*E\\.|\\bLSA[\\s\\-–]*C\\.\\s*E\\.|Louisiana\\s+Code\\s+of\\s+Evidence)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s*(?:,|\\s+of\\s+the)\\s*(?:La\\.\\s*C\\.\\s*E\\.|Louisiana\\s+Code\\s+of\\s+Evidence)",
         "routes_to": [
@@ -377,8 +380,8 @@
         ],
         "regex": "\\bLAC\\s*(?P<title>\\d{1,2}):(?P<part>[IVXLC]+)\\.(?P<section>\\d+(?:\\.\\d+)?)|\\bLa\\.\\s*Admin\\.\\s*Code\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*(?:pt\\.\\s*(?P<part2>[IVXLC]+),?\\s*§+\\s*(?P<section2>\\d+)|§+\\s*(?P<part3>[IVXLC]+)-(?P<section3>\\d+))",
         "routes_to": [
-          "la-lac-lii",
-          "la-lac-doa"
+          "la-lac-doa",
+          "la-lac-lii"
         ]
       },
       {
@@ -404,7 +407,7 @@
           "State v. Pinion, 2006-2346 (La. 10/26/07), 968 So.2d 131",
           "State v. Sagastume, 2022-32, p. 4 (La. App. 5 Cir. 11/16/22), 353 So.3d 318",
           "2020-0456 (La. App. 1 Cir. 3/11/21)",
-          "56,618 (La. App. 2 Cir. 12/17/25)",
+          "56,618 (La. App. 2 Cir. 12/23/25)",
           "25-467 (La. App. 3 Cir. 3/27/26)",
           "2024-0123 (La. App. 4 Cir. 6/5/24)",
           "2026 CW 0629 (La. App. 1 Cir. 8/28/26)"
@@ -554,7 +557,7 @@
       "La. Const.": "CONST",
       "La. Const. of 1974": "CONST"
     },
-    "notes": "Civil-law jurisdiction: the Civil Code, Code of Civil Procedure, Code of Criminal Procedure, Code of Evidence and Children's Code are cited by ARTICLE ('art.'), never by section; the Revised Statutes are cited title:section ('La. R.S. 9:2800', no § in Louisiana style; Bluebook 'La. Rev. Stat. Ann. § 9:2800'). law_aliases map each code abbreviation to the legis.la.gov TOC folder key. GUARD: Texas, California and other states also have a 'Civil Code', 'Code of Civil Procedure' and 'Code of Criminal Procedure' (Texas cites 'art.' too); bare 'Civil Code article', 'C.C.P. art.', 'Code of Criminal Procedure article', 'C.E. art.' and bare 'R.S. 9:2800' are context_required and route here only with a Louisiana marker (La./LSA-/Louisiana/'(La.' court parenthetical) elsewhere in the query. Louisiana has used a public-domain/vendor-neutral form since 1994 (La. Sup. Ct. Gen. Admin. Rules Part G § 8, from memory): docket number + court + exact date in parentheses, e.g. '2022-K-01824 (La. 12/8/23)', '2022-32 (La. App. 5 Cir. 11/16/22)', '56,618 (La. App. 2 Cir. …)'; the '(La.' / '(La. App. N Cir.' parenthetical is what makes it distinctive. Docket formats differ by court: Supreme Court YYYY-TT-NNNNN (older YYYY-NNNN); 1st Cir. YYYY CA/CW/KA NNNN; 2nd Cir. NN,NNN-CA; 3rd Cir. YY-NNN; 4th Cir. YYYY-CA-NNNN; 5th Cir. YY-CA-NNN. Bare dockets, bare So. 2d/So. 3d (Southern Reporter is shared with AL, FL, MS) and bare 'writ denied' are context_required. Subsequent history in Louisiana is almost always a Supreme Court WRIT disposition ('writ denied, 2021-01234 (La. 1/12/22), 330 So. 3d 1234'), not 'review denied'/'cert. denied'. Court rules: Supreme Court Rules use Roman numerals (Rule X, § 5); District Court Rules decimals (9.5); Uniform Rules of the Courts of Appeal 'N-N.N' (2-18.1). LAC citations use title:part(Roman).section ('LAC 33:III.501'); the Louisiana Register is cited 'LR vol:page'. CourtListener ids are from memory and unverified; CourtListener uses one id ('lactapp') for all five circuits, so filter by circuit in the parenthetical."
+    "notes": "Civil-law jurisdiction: the Civil Code, Code of Civil Procedure, Code of Criminal Procedure, Code of Evidence and Children's Code are cited by ARTICLE ('art.'), never by section; the Revised Statutes are cited title:section ('La. R.S. 9:2800', no § in Louisiana style; Bluebook 'La. Rev. Stat. Ann. § 9:2800'). law_aliases map each code abbreviation to the legis.la.gov TOC folder key. GUARD: Texas, California and other states also have a 'Civil Code', 'Code of Civil Procedure' and 'Code of Criminal Procedure' (Texas cites 'art.' too); bare 'Civil Code article', 'C.C.P. art.', 'Code of Criminal Procedure article', 'C.E. art.' and bare 'R.S. 9:2800' are context_required and route here only with a Louisiana marker (La./LSA-/Louisiana/'(La.' court parenthetical) elsewhere in the query. Louisiana has used a public-domain/vendor-neutral form since 1994 (La. Sup. Ct. Gen. Admin. Rules Part G § 8, from memory): docket number + court + exact date in parentheses, e.g. '2022-K-01824 (La. 12/8/23)', '2022-32 (La. App. 5 Cir. 11/16/22)', '56,618 (La. App. 2 Cir. …)'; the '(La.' / '(La. App. N Cir.' parenthetical is what makes it distinctive. Docket formats differ by court: Supreme Court YYYY-TT-NNNNN (older YYYY-NNNN); 1st Cir. YYYY CA/CW/KA NNNN; 2nd Cir. NN,NNN-CA; 3rd Cir. YY-NNN; 4th Cir. YYYY-CA-NNNN; 5th Cir. YY-CA-NNN. Bare dockets, bare So. 2d/So. 3d (Southern Reporter is shared with AL, FL, MS) and bare 'writ denied' are context_required. Subsequent history in Louisiana is almost always a Supreme Court WRIT disposition ('writ denied, 2021-01234 (La. 1/12/22), 330 So. 3d 1234'), not 'review denied'/'cert. denied'. Court rules: Supreme Court Rules use Roman numerals (Rule X, § 5); District Court Rules decimals (9.5); Uniform Rules of the Courts of Appeal 'N-N.N' (2-18.1). LAC citations use title:part(Roman).section ('LAC 33:III.501'); the Louisiana Register is cited 'LR vol:page'. CourtListener ids are from memory and unverified; CourtListener uses one id ('lactapp') for all five circuits, so filter by circuit in the parenthetical. Prose 'Section N of Title T of the Revised Statutes' without 'Louisiana' is in the context_required bare-R.S. pattern (independent check 2026-10-17)."
   },
   "sources": [
     {
@@ -582,14 +585,15 @@
         "notes": "Law.aspx pages are small (1.6–10K chars) so neither tool truncates. The Civil Code TOC (~867K chars) far exceeds the fetch tool's window; resolve article→id with the script. WebFetch was tested only on a search-result URL (it worked); built Law.aspx URLs may need per-URL approval, so the script is primary. legis.la.gov and www.legis.la.gov serve the same pages; 'Legis'/'legis' path case is ignored."
       },
       "currency": {
-        "where": "LawSearch.aspx page header (not on Law.aspx section pages)",
+        "where": "LawSearch.aspx page header (not on Law.aspx pages); lags the article pages — use the Acts history at the foot of each page",
         "observed": "Laws have been updated through the 2025 First Extraordinary Session."
       },
       "hazards": [
         "document id not derivable from the article number (TOC hop required)",
         "Civil Code TOC page ~867K characters — far beyond the fetch tool window",
         "no currency line on the article pages themselves",
-        "site disclaims official/authoritative status"
+        "site disclaims official/authoritative status",
+        "LawSearch 'updated through the 2025 First Extraordinary Session' line understates currency: pages already carry Acts 2026 history (e.g. RS 14:30.1)"
       ],
       "probe": {
         "citation": "La. Civ. Code art. 2315",
@@ -599,9 +603,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: CC TOC folder=67 link 'CC 2315' → d=109369; body 'Art. 2315. Liability for acts causing damages A. Every act whatever of man'. Also CE 702 (d=72506) 'A witness who is qualified as an expert'; CCP 966 (d=112309) 'A party may move for a summary judgment'; C.Cr.P. 894 (d=112888) body present."
+        "evidence": "Script: CC TOC folder=67 link 'CC 2315' → d=109369; body 'Art. 2315. Liability for acts causing damages A. Every act whatever of man'. Also CE 702 (d=72506) 'A witness who is qualified as an expert'; CCP 966 (d=112309) 'A party may move for a summary judgment'; C.Cr.P. 894 (d=112888) body present. | Independent check 2026-10-17: Script verify exact: 'Every act whatever of man that causes damage to another' (2,540 chars); second citation La. Code Crim. Proc. art. 930.8 ok"
       },
       "notes": "Folder TOCs for CC/CCP/CCRP/CE/CHC are plain GET pages with direct Law.aspx links; this is the deterministic route for the codes."
     },
@@ -630,13 +634,15 @@
         "notes": "Search-result Law.aspx URLs pass the fetch tool; built ones may be gated, so prefer the script. A bare site: search for 'RS 9:2800' returned wrong sections; adding the catchline found it."
       },
       "currency": {
-        "where": "LawSearch.aspx page header (not on Law.aspx section pages)",
+        "where": "LawSearch.aspx page header (not on Law.aspx pages); lags the article pages — use the Acts history at the foot of each page",
         "observed": "Laws have been updated through the 2025 First Extraordinary Session."
       },
       "hazards": [
         "no GET route from citation to page (POST-only TOC and lookup form)",
         "web-search discovery is unreliable — always confirm the 'RS t:s' heading",
-        "no currency line on section pages"
+        "no currency line on section pages",
+        "LawSearch 'updated through the 2025 First Extraordinary Session' line understates currency: pages already carry Acts 2026 history (e.g. RS 14:30.1)",
+        "duplicate live ids for one section: RS 14:30.1 is at d=150048 and d=78398 (same text, differently formatted Acts history; only 150048 shows eff. dates) — prefer the id whose history lists effective dates and matches LawPrint, and always confirm the 'RS t:s' heading"
       ],
       "probe": {
         "citation": "La. R.S. 9:2800",
@@ -646,9 +652,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script and WebFetch: heading 'RS 9:2800', body 'A. A public entity is responsible under Civil Code Article'; not truncated (4,605 chars). Also LawPrint.aspx?d=107250 same body; RS 9:1590 (d=106718) body present."
+        "evidence": "Script and WebFetch: heading 'RS 9:2800', body 'A. A public entity is responsible under Civil Code Article'; not truncated (4,605 chars). Also LawPrint.aspx?d=107250 same body; RS 9:1590 (d=106718) body present. | Independent check 2026-10-17: Script verify exact: 'A public entity is responsible under Civil Code Article 2317' (4,605 chars); second citation La. R.S. 14:30.1 ok"
       },
       "notes": "Ask the skill maintainers whether a script that drives the LawSearch POST form (ddlLawBodies=RS, tbFirstNumber, tbSecondNumber) is acceptable; it would make RS deterministic."
     },
@@ -664,7 +670,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/louisiana/{body}/{item}/",
-        "pattern_rules": "RS: body='revised-statutes/title-{title}', item='rs-{title}-{section}' (La. R.S. 9:2800 → /revised-statutes/title-9/rs-9-2800/). Codes: body ∈ civil-code, code-of-civil-procedure, code-of-criminal-procedure, code-of-evidence, children-s-code; item='article-{article}' (CC 2315 → /civil-code/article-2315/; CE 702 → /code-of-evidence/article-702/). Unversioned URL = 2025 edition; insert /{year}/ after /louisiana/ for older editions.",
+        "pattern_rules": "RS: body='revised-statutes/title-{title}', item='rs-{title}-{section}' (La. R.S. 9:2800 → /revised-statutes/title-9/rs-9-2800/). Codes: body ∈ civil-code, code-of-civil-procedure, code-of-criminal-procedure, code-of-evidence, children-s-code; item='article-{article}' (CC 2315 → /civil-code/article-2315/; CE 702 → /code-of-evidence/article-702/). Unversioned URL = 2025 edition; insert /{year}/ after /louisiana/ for older editions. Decimal points become hyphens: La. R.S. 14:30.1 → /revised-statutes/title-14/rs-14-30-1/ (verified); presumably CC 2317.1 → /civil-code/article-2317-1/ (untested).",
         "index_url": "https://law.justia.com/codes/louisiana/",
         "navigation": "",
         "format": "html"
@@ -692,9 +698,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: CC 2315 body present, '2025 Louisiana Laws'; RS 9:2800 at /revised-statutes/title-9/rs-9-2800/ ('A public entity is responsible under Civil Code Article 2317'); CE 702 at /code-of-evidence/article-702/ body present."
+        "evidence": "WebFetch: CC 2315 body present, '2025 Louisiana Laws'; RS 9:2800 at /revised-statutes/title-9/rs-9-2800/ ('A public entity is responsible under Civil Code Article 2317'); CE 702 at /code-of-evidence/article-702/ body present. | Independent check 2026-10-17: WebFetch: 'Every act whatever of man that causes damage to another'; '2025 Louisiana Laws'; not truncated; second citation La. R.S. 14:30.1 ok"
       },
       "notes": "Constructible fallback for Revised Statutes when no legis.la.gov id can be found."
     },
@@ -723,11 +729,12 @@
         "notes": ""
       },
       "currency": {
-        "where": "LawSearch.aspx page header (not on Law.aspx section pages)",
+        "where": "LawSearch.aspx page header (not on Law.aspx pages); lags the article pages — use the Acts history at the foot of each page",
         "observed": "Laws have been updated through the 2025 First Extraordinary Session."
       },
       "hazards": [
-        "section ids not derivable; TOC is postback-only"
+        "section ids not derivable; TOC is postback-only",
+        "LawSearch 'updated through the 2025 First Extraordinary Session' line understates currency: pages already carry Acts 2026 history (e.g. RS 14:30.1)"
       ],
       "probe": {
         "citation": "La. Const. art. I, § 22",
@@ -737,9 +744,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: heading 'CONST 1 22', '§22. Access to Courts Section 22. All courts shall be open'."
+        "evidence": "Script: heading 'CONST 1 22', '§22. Access to Courts Section 22. All courts shall be open'. | Independent check 2026-10-17: Script verify exact: 'All courts shall be open, and every person shall have an adequate remedy'; second citation La. Const. art. V, § 10 ok"
       },
       "notes": ""
     },
@@ -784,9 +791,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: PDF 108 pp, last-modified 30 Jan 2024; cover 'Louisiana Constitution of 1974 … January 8, 2024'; grep found Art. I § 22 on page 15 (columns interleaved)."
+        "evidence": "Script: PDF 108 pp, last-modified 30 Jan 2024; cover 'Louisiana Constitution of 1974 … January 8, 2024'; grep found Art. I § 22 on page 15 (columns interleaved). | Independent check 2026-10-17: Script grep p.15 'Section 22. All courts shall be open, and every' (columns interleaved); cover '(As amended through calendar year 2023)'"
       },
       "notes": "Corpus candidate only after a newer edition is published; check for post-2023 amendments on legis.la.gov first."
     },
@@ -830,9 +837,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I § 22 body present, page complete through § 27; index page is TOC only."
+        "evidence": "WebFetch: Art. I § 22 body present, page complete through § 27; index page is TOC only. | Independent check 2026-10-17: WebFetch: 'All courts shall be open, and every person shall have'; disclaimer 'may not be the most recent version'; second citation La. Const. art. V, § 10 ok"
       },
       "notes": ""
     },
@@ -850,7 +857,7 @@
         "url_pattern": "",
         "pattern_rules": "single PDF; file name carries the effective date and changes with each amendment",
         "index_url": "https://www.fifthcircuit.org/uniform.aspx",
-        "navigation": "uniform.aspx → 'Download the Uniform Rules of Louisiana Courts of Appeal (PDF)' → PDF; rules are headed 'Rule N-N.' with subsections 'N-N.N.'. The uniform.aspx page also carries the rule text as HTML.",
+        "navigation": "uniform.aspx → take the link whose text begins 'Download the Uniform Rules of Louisiana Courts of Appeal (PDF)' (URCA_eff{MMDDYYYY}.pdf); IGNORE the second link titled 'Uniform Rules of Louisiana Courts of Appeal' → 2023RevisedUniformRules.pdf (stale 2023 copy); confirm the '(As amended, with amendments effective as of …)' title line. Rules are headed 'Rule N-N.' with subsections 'N-N.N.'; grep may hit a cross-reference first (Rule 4-3 body is the second match, p. 26).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -865,7 +872,8 @@
         "observed": "(As amended, with amendments effective as of July 1, 2026)"
       },
       "hazards": [
-        "file name changes per amendment"
+        "file name changes per amendment",
+        "uniform.aspx also links a stale 2023 copy (2023RevisedUniformRules.pdf)"
       ],
       "probe": {
         "citation": "Uniform Rules of Louisiana Courts of Appeal, Rule 2-18.1",
@@ -875,9 +883,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 32 pp, last-modified 13 Jul 2026; Rule 2-18.1 'An application for rehearing shall state with particularity' on p. 22."
+        "evidence": "Script: 32 pp, last-modified 13 Jul 2026; Rule 2-18.1 'An application for rehearing shall state with particularity' on p. 22. | Independent check 2026-10-17: Script verify exact Rule 2-18.1 p.22; title '(As amended, with amendments effective as of July 1, 2026)'; second citation Uniform Rules, Courts of Appeal, Rule 4-3 ok"
       },
       "notes": "Each circuit also posts local rules (e.g. https://www.la2nd.org/local-rules-of-court/, https://www.fifthcircuit.org/localrules.aspx); not probed."
     },
@@ -900,10 +908,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "none: /robots.txt returns the empty Blazor HTML shell (200), no rules",
-        "notes": "Script gets HTTP 200 with zero extractable characters on /, /Opinions, /Actions, /robots.txt — content is rendered over SignalR. WebFetch of https://www.lasc.org/ timed out on the approval prompt."
+        "notes": "Script: 200 with 0 extractable characters on every path (content rendered over SignalR). WebFetch (independent check 2026-10-17) returned promptly with only base/viewport metadata — empty Blazor shell; an earlier WebFetch timed out on the approval prompt."
       },
       "currency": {
         "where": "none observed",
@@ -922,7 +930,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Script: lasc.org home 200 text/html, 0 extractable chars (Blazor prerender markers only). No rules URL found by web search."
+        "evidence": "Script: lasc.org home 200 text/html, 0 extractable chars (Blazor prerender markers only). No rules URL found by web search. | Independent check 2026-10-17: WebFetch www.lasc.org: no visible text, only base/viewport metadata"
       },
       "notes": ""
     },
@@ -945,10 +953,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "none (Blazor shell served for /robots.txt)",
-        "notes": "see la-rules-supreme"
+        "notes": "Script: 200 with 0 extractable characters on every path (content rendered over SignalR). WebFetch (independent check 2026-10-17) returned promptly with only base/viewport metadata — empty Blazor shell; an earlier WebFetch timed out on the approval prompt."
       },
       "currency": {
         "where": "none observed",
@@ -967,7 +975,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Not reachable as text; web search surfaced only a non-vetted third-party copy (courtrules.net, not used)."
+        "evidence": "Not reachable as text; web search surfaced only a non-vetted third-party copy (courtrules.net, not used). | Independent check 2026-10-17: WebFetch www.lasc.org: no visible text, only base/viewport metadata (shared fetch for 4 lasc rows)"
       },
       "notes": ""
     },
@@ -985,38 +993,41 @@
         "url_pattern": "",
         "pattern_rules": "Files live at /media/{random-slug}/{TT}[vNN[-NN]].docx (e.g. 31.docx, 33v03.docx); the slug is random, so take the link from the index.",
         "index_url": "https://www.doa.la.gov/doa/osr/louisiana-administrative-code/",
-        "navigation": "index → 'Title N, …' (Title 33 and others split by part: 'Title 33:III, Environmental Quality: Air') → .docx download.",
-        "format": "docx"
+        "navigation": "fetch_doc.py links <index> .docx (157 links) → link text 'Title {t}:{Roman part}, …' for split titles (e.g. 'Title 33:III, Environmental Quality: Air' → 33v03.docx) or 'Title {t}, …' for unsplit titles — map by link text, not file name (33v03, 46v01, 01v01-03) → fetch_doc.py grep/section on the .docx with '§{section}\\. '. The string 'LAC 33:III.501' never appears; sections are headed '§501. Scope and Applicability'. Each part file opens with a table of contents, so the FIRST hit is the TOC (33:III §501 at offset 1459) — take the second / heading-anchored match (body at offset ~197015).",
+        "format": "docx",
+        "read_via": "fetch_doc.py (reads .docx)"
       },
-      "text": "link-only",
+      "text": "fetch-and-quote",
       "automation": {
         "webfetch": "fail",
-        "shell": "http-error",
+        "shell": "ok",
         "robots_txt": "none (404)",
-        "notes": "Index page reads fine with the script. The .docx files download (31.docx 200, 578 KB) but neither tool extracts text: fetch_doc.py treats them as HTML and returns the raw ZIP bytes; WebFetch returns '[binary data]'. Quote LAC from la-lac-lii instead, or add .docx extraction to the script."
+        "notes": "fetch_doc.py extracts the .docx as one page (no page numbers); whole-part files are large (33v03.docx ≈ 1.98M chars). WebFetch returns '[binary data]'."
       },
       "currency": {
-        "where": "index page table 'LAC Title / Last Amended Date'",
-        "observed": "Title 4, Administration August 2026; Title 31, Elections June 2025"
+        "where": "index page table 'LAC Title / Last Amended Date' plus the .docx Last-Modified header",
+        "observed": "Title 4, Administration August 2026; 33v03.docx last-modified 28 Apr 2026"
       },
       "hazards": [
         "Word .docx only — no HTML or PDF",
-        "random media slugs",
-        "whole-title files (hundreds of KB to MB)"
+        "random media slugs: take links from the index",
+        "part files open with a TOC: first grep hit is the TOC entry",
+        "no page numbers in extraction",
+        "citation string 'LAC t:p.s' never appears in the file"
       ],
       "probe": {
-        "citation": "LAC 31 (Elections)",
-        "url": "https://www.doa.la.gov/doa/osr/louisiana-administrative-code/",
-        "expect": "Titles of the Louisiana Administrative Code are current through the last amended date"
+        "citation": "LAC 33:III.501",
+        "url": "https://www.doa.la.gov/media/q4eanemv/33v03.docx",
+        "expect": "The provisions of this Chapter apply to the owner and operator"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: index 43,708 chars with title list and last-amended table; 31.docx downloaded (last-modified 30 Jan 2026) but text not extractable; WebFetch on 31.docx: '[binary data]'."
+        "evidence": "Script: index 43,708 chars with title list and last-amended table; 31.docx downloaded (last-modified 30 Jan 2026); WebFetch on .docx: '[binary data]' (script now extracts .docx). | Independent check 2026-10-17: Script: index grep 'current through the last amended date'; 33v03.docx now extracts 1,976,234 chars; second citation LAC 33:III.501 ok"
       },
-      "notes": "Corpus candidate if .docx extraction is added (official text, whole titles)."
+      "notes": "Tier-1 route for LAC text; la-lac-lii is the fallback."
     },
     {
       "id": "la-lac-lii",
@@ -1048,7 +1059,8 @@
       },
       "hazards": [
         "quarterly lag behind the Register",
-        "decimal sections untested"
+        "decimal sections untested",
+        "pages last updated ~Aug 2025 (33:III.501, 33:V.109) despite 'updated quarterly' — over a year behind the official .docx (Apr 2026)"
       ],
       "probe": {
         "citation": "LAC 33:III.501",
@@ -1058,9 +1070,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 'A. Applicability. The provisions of this Chapter apply to the owner and operator'; history notes through 'LR 5169 (1/1/2025)'. Second URL LAC 28:I.101 → 200 (2,736 chars)."
+        "evidence": "Script: 'A. Applicability. The provisions of this Chapter apply to the owner and operator'; history notes through 'LR 5169 (1/1/2025)'. Second URL LAC 28:I.101 → 200 (2,736 chars). | Independent check 2026-10-17: Script verify exact 'The provisions of this Chapter apply to the owner and operator'; 'State regulations are updated quarterly'; second citation LAC 33:V.109 ok"
       },
       "notes": ""
     },
@@ -1078,15 +1090,16 @@
         "url_pattern": "",
         "pattern_rules": "media/{slug}/{YYMM}.docx (2610.docx = October 2026); slug random.",
         "index_url": "https://www.doa.la.gov/doa/osr/louisiana-register/",
-        "navigation": "index → '{Month} Edition' link → .docx",
-        "format": "docx"
+        "navigation": "LR 52:{page} → the newest edition's CUMULATIVE INDEX at its end ('Pages Issue 1-194 January 195-329 February …') gives the issue → that '{Month} Edition' .docx → its opening CONTENTS list (entries end with start page numbers) → grep the item heading. Extraction has no page breaks, so a page number cannot be read directly. Only 2026 (LR 52) editions are linked.",
+        "format": "docx",
+        "read_via": "fetch_doc.py (reads .docx)"
       },
-      "text": "link-only",
+      "text": "fetch-and-quote",
       "automation": {
         "webfetch": "fail",
-        "shell": "http-error",
+        "shell": "ok",
         "robots_txt": "none (404)",
-        "notes": ".docx not extractable by either tool (see la-lac-doa)."
+        "notes": "2603.docx extracts ~748K chars as one page; WebFetch returns binary data."
       },
       "currency": {
         "where": "edition list",
@@ -1094,19 +1107,20 @@
       },
       "hazards": [
         ".docx only",
-        "no archive of earlier years found on the page"
+        "no page breaks in extraction — locate pages via cumulative index and CONTENTS",
+        "only 2026 (LR 52) editions online here; earlier volumes not found"
       ],
       "probe": {
-        "citation": "LR 52 (October 2026)",
-        "url": "https://www.doa.la.gov/doa/osr/louisiana-register/",
-        "expect": "October Edition"
+        "citation": "LR 52:336 (March 2026)",
+        "url": "https://www.doa.la.gov/media/wscpjapv/2603.docx",
+        "expect": "LR 52:336 (March 2026)"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: listing has January–October Edition links (2601.docx … 2610.docx) and an upcoming-publication .xlsm."
+        "evidence": "Script: listing has January–October Edition links (2601.docx … 2610.docx) and an upcoming-publication .xlsm. | Independent check 2026-10-17: Script: listing has 10 '{Month} Edition' links 2601-2610.docx; 2603.docx extracts 748,092 chars; second citation LR 52:336 (March 2026) ok"
       },
       "notes": "LR volume = year − 1974 (LR 13 = 1987, LR 51 = 2025), from history notes."
     },
@@ -1129,10 +1143,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "none (Blazor shell served for /robots.txt)",
-        "notes": "Script: 200 with 0 characters on every path. WebFetch of the home page timed out awaiting approval. Web searches found no lasc.org opinion PDF URL."
+        "notes": "Script: 200 with 0 extractable characters on every path (content rendered over SignalR). WebFetch (independent check 2026-10-17) returned promptly with only base/viewport metadata — empty Blazor shell; an earlier WebFetch timed out on the approval prompt."
       },
       "currency": {
         "where": "none observed",
@@ -1151,7 +1165,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Script: lasc.org /, /Opinions, /Actions, /News_Releases all 200 with 0 extractable characters."
+        "evidence": "Script: lasc.org /, /Opinions, /Actions, /News_Releases all 200 with 0 extractable characters. | Independent check 2026-10-17: WebFetch www.lasc.org: no visible text, only base/viewport metadata"
       },
       "notes": ""
     },
@@ -1167,7 +1181,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/louisiana/supreme-court/{year}/{docket_lower}.html",
-        "pattern_rules": "year = year decided; docket in lower case with hyphens as printed (2022-K-01824 → 2022-k-01824.html). PDF: https://cases.justia.com/louisiana/supreme-court/{year}-{docket_lower}.pdf (the ?ts= suffix is optional, untested without). Older dockets (pre-2019, e.g. 2006-2346) not tested.",
+        "pattern_rules": "year = year DECIDED, not the docket year (2025-C-01318 decided 2026 → /2026/2025-c-01318.html); docket in lower case with hyphens as printed (2022-K-01824 → 2022-k-01824.html). PDF: https://cases.justia.com/louisiana/supreme-court/{year}-{docket_lower}.pdf (works without the ?ts= suffix — verified). Older dockets (pre-2019, e.g. 2006-2346) not tested.",
         "index_url": "https://law.justia.com/cases/louisiana/supreme-court/{year}/",
         "navigation": "year listing → case page → 'Download PDF' (cases.justia.com).",
         "format": "html",
@@ -1187,7 +1201,8 @@
       "hazards": [
         "no So. 3d pagination — slip pages only",
         "listing incomplete (writ actions and per curiams may be missing)",
-        "law.justia.com shell-blocked"
+        "law.justia.com shell-blocked",
+        "listing lags the court by months (2026 listing still ended July 31, 2026 on 2026-10-17)"
       ],
       "probe": {
         "citation": "State v. Sagastume, 2022-K-01824 (La. 12/8/23)",
@@ -1197,9 +1212,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present; PDF via script 11 pp, begins 'FOR IMMEDIATE NEWS RELEASE NEWS RELEASE #054 FROM: CLERK OF SUPREME COURT'."
+        "evidence": "WebFetch: body present; PDF via script 11 pp, begins 'FOR IMMEDIATE NEWS RELEASE NEWS RELEASE #054 FROM: CLERK OF SUPREME COURT'. | Independent check 2026-10-17: WebFetch: 'We granted the State's application to consider whether defendant's claim that the'; second citation Cousain v. Smitty's Supply, Inc., 2025-C-01318 (La. 6/29/26) ok"
       },
       "notes": ""
     },
@@ -1290,9 +1305,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: listing 2025 780 links, 2010 1,005 links; PDF 13 pp begins 'Judgment rendered October 14, 2026. Application for rehearing'."
+        "evidence": "Script: listing 2025 780 links, 2010 1,005 links; PDF 13 pp begins 'Judgment rendered October 14, 2026. Application for rehearing'. | Independent check 2026-10-17: Script verify exact 'Judgment rendered October 14, 2026.' (13 pp); second citation J. Calhoun One, L.L.C. v. Jeems Bayou Production Corp., No. 55,997-CA (La. App. 2 Cir. 12/18/24) ok"
       },
       "notes": "Writ ('-CW'/'-KW') dispositions are in the same listing."
     },
@@ -1400,7 +1415,7 @@
         "url_pattern": "",
         "pattern_rules": "PDFs at /dmzdocs/{OI/PO|RE|WI/Writ Disposition}/{YYYY}/{GUID}.pdf — GUID names; percent-encode the space ('Writ%20Disposition').",
         "index_url": "https://www.fifthcircuit.org/",
-        "navigation": "home page 'Case # / Case Title' list → PDF link. searchopinions.aspx (case year + number) is a POST form.",
+        "navigation": "home page 'Case # / Case Title' list → PDF. The dmzdocs PDF links have NO anchor text ('(no text)' in fetch_doc.py links), so a links filter on the case number fails: list the /dmzdocs/ links in page order and pair them with the case numbers from grep '2\\d-[A-Z]{1,2}-\\d+' on the home page (same order; checked 26-C-483, 26-KH-460), then confirm 'No. {docket}' on PDF page 1. One case can have several PDFs (26-CA-27: opinion OI/PO and rehearing RE). searchopinions.aspx (case year + number) is a POST form.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -1417,7 +1432,8 @@
       "hazards": [
         "GUID file names",
         "only recent decisions reachable by GET",
-        "space in writ path"
+        "space in writ path",
+        "PDF links carry no anchor text — pair by order, confirm docket in the PDF"
       ],
       "probe": {
         "citation": "No. 26-CA-27 (La. App. 5 Cir.)",
@@ -1427,9 +1443,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 8 pp, last-modified 23 Sep 2026; writ disposition 26-C-483 PDF (3 pp) also read."
+        "evidence": "Script: 8 pp, last-modified 23 Sep 2026; writ disposition 26-C-483 PDF (3 pp) also read. | Independent check 2026-10-17: Script verify 'No. 26-CA-27' p.1; home list 'Case # Case Title 26-CA-27'; second citation No. 26-KH-460 (La. App. 5 Cir.) writ disposition ok"
       },
       "notes": ""
     },
@@ -1445,7 +1461,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/louisiana/{court}/{year}/{docket_slug}.html",
-        "pattern_rules": "court ∈ first-circuit-court-of-appeal, second-circuit-court-of-appeal, third-circuit-court-of-appeal, fourth-circuit-court-of-appeal, fifth-circuit-court-of-appeal. First Circuit docket slug = docket lower case without spaces (2026 CW 0629 → 2026cw0629). Other circuits' slugs untested — use the year listing. PDF: https://cases.justia.com/louisiana/{court}/{year}-{docket_slug}.pdf",
+        "pattern_rules": "court ∈ first-circuit-court-of-appeal, second-circuit-court-of-appeal, third-circuit-court-of-appeal, fourth-circuit-court-of-appeal, fifth-circuit-court-of-appeal. First Circuit docket slug = docket lower case without spaces (2026 CW 0629 → 2026cw0629). Second Circuit slug = docket with the comma turned into a hyphen, type suffix kept, lower case (56,618-KA → 56-618-ka; /second-circuit-court-of-appeal/2025/56-618-ka.html, PDF …/second-circuit-court-of-appeal/2025-56-618-ka.pdf, verified). Third–Fifth Circuit slugs untested — use the year listing. PDF: https://cases.justia.com/louisiana/{court}/{year}-{docket_slug}.pdf",
         "index_url": "https://law.justia.com/cases/louisiana/{court}/{year}/",
         "navigation": "year listing → case page → Download PDF",
         "format": "html",
@@ -1474,9 +1490,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: listing 1991–2026; case page has no body text, links PDF; script read the PDF: 2 pages, 1 character (scan)."
+        "evidence": "WebFetch: listing 1991–2026; case page has no body text, links PDF; script read the PDF: 2 pages, 1 character (scan). | Independent check 2026-10-17: WebFetch: 2026cw0629 page has no body, PDF link only (as recorded); second citation State v. Taylor, 56,618-KA (La. App. 2 Cir. 12/23/25) ok"
       },
       "notes": ""
     },
@@ -1499,10 +1515,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "none (Blazor shell)",
-        "notes": "see la-sc-lasc"
+        "notes": "Script: 200 with 0 extractable characters on every path (content rendered over SignalR). WebFetch (independent check 2026-10-17) returned promptly with only base/viewport metadata — empty Blazor shell; an earlier WebFetch timed out on the approval prompt."
       },
       "currency": {
         "where": "none",
@@ -1522,7 +1538,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "lasc.org returns empty Blazor shell; Justia 2026 Supreme Court listing (27 entries) has no writ-action lists."
+        "evidence": "lasc.org returns empty Blazor shell; Justia 2026 Supreme Court listing (27 entries) has no writ-action lists. | Independent check 2026-10-17: WebFetch www.lasc.org: no visible text, only base/viewport metadata"
       },
       "notes": ""
     }
@@ -1571,10 +1587,6 @@
     {
       "source_id": "la-ca2-la2nd",
       "why": "GET year listings (2009–present) with case number, date, disposition, parish and PDF link — parseable table."
-    },
-    {
-      "source_id": "la-lac-doa",
-      "why": "Whole-title .docx files: add .docx text extraction to fetch_doc.py (python-docx or unzip word/document.xml)."
     }
   ],
   "corpus_candidates": [
@@ -1595,18 +1607,18 @@
     {
       "source_id": "la-lac-doa",
       "url": "https://www.doa.la.gov/doa/osr/louisiana-administrative-code/",
-      "why": "Official LAC exists only as whole-title .docx files no tool reads; ingest would make official LAC text quotable.",
+      "why": "Official LAC as whole-part .docx files (up to ~2M chars) — script-readable but huge and TOC-first; ingest per section would speed lookup.",
       "split_hint": "'§NNN. Title' section headings within Part/Chapter",
       "bulk": "per-title .docx downloads from the index"
     }
   ],
   "open_questions": [
-    "lasc.org (Supreme Court opinions, news releases, writ actions, Supreme Court Rules, District Court Rules) is a Blazor Server app: neither tool gets text, and WebFetch of the home page timed out on approval. Need a real lasc.org opinion/rules PDF URL (a human browser session) to test whether static PDFs are served.",
+    "lasc.org (Supreme Court opinions, news releases, writ actions, Supreme Court Rules, District Court Rules) is a Blazor Server app: neither tool gets text, and WebFetch returns an empty shell (one earlier call timed out on approval). Need a real lasc.org opinion/rules PDF URL (a human browser session) to test whether static PDFs are served.",
     "First Circuit (CivicLive) decision listings load by JavaScript from robots-disallowed /portal/svc/ paths — is there any static listing?",
     "Third and Fourth Circuit opinion searches are POST-only; GET variants were not found.",
-    "Do legis.la.gov Law.aspx d= ids stay stable when a section is amended? (2006 Justia ids still match current ids for RS 9:2800.)",
     "Louisiana Register archive for years before 2026 not found on the OSR page.",
     "Justia slug forms for the 2nd–5th Circuits and for pre-2019 Supreme Court dockets untested.",
-    "CourtListener ids 'la' and 'lactapp' unverified."
+    "CourtListener ids 'la' and 'lactapp' unverified.",
+    "legis.la.gov has duplicate live ids for some sections (RS 14:30.1: d=150048 and d=78398) — which is canonical, and do ids change on amendment?"
   ]
 }
