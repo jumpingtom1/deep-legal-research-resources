@@ -1,0 +1,229 @@
+{
+ "jurisdiction": "ia",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "ia-acts-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 'CHAPTER 64 IMPROVEMENTS TO REAL PROPERTY — UNSAFE OR DEFECTIVE CONDITIONS'",
+   "generalised_citation": "2019 Iowa Acts ch. 92",
+   "generalised_url": "https://www.legis.iowa.gov/docs/publications/iactc/88.1/CH0092.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-code-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch (built URL, no approval prompt): YES; footer 'Iowa Code 2026, Section 614.1 (30, 0)', not truncated",
+   "generalised_citation": "Iowa Code § 668.3 (also 2024 edition § 216.6)",
+   "generalised_url": "https://www.legis.iowa.gov/docs/code/668.3.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Script: 668.3.pdf 2 pp. '668.3 Comparative fault'; /docs/code/2024/216.6.pdf footer 'Iowa Code 2024, Section 216.6'."
+  },
+  {
+   "id": "ia-code-volumes-legis",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script Vol VI: 1,581 pp; title 'CODE OF IOWA 2026'; exact 'Iowa Code 2026' 0 matches",
+   "generalised_citation": "Iowa Code § 668.3 / § 614.1 in official volume",
+   "generalised_url": "https://www.legis.iowa.gov/docs/publications/ICV/1594660.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Expect string 'Iowa Code 2026' is not in Vol VI (it reads 'CODE OF IOWA 2026', '2026 IOWA CODE'). Navigation's example grep '614.1 Period.' is not in Vol VI either: ch. 614 and 668 are in Vol VIII. No chapter-to-volume map is given, so a fresh run must download and grep up to eight 4-6M-char PDFs (Vol VI, VII both missed).",
+   "suggested_fix": "Change expect to '2026 IOWA CODE' or 'CODE OF IOWA'; add each volume's chapter range (Vol VIII holds Title XV incl. ch. 614, 668; Vol VI ~ch. 486-5xx), or say each volume's front contents lists chapter → 'VIII-780' page."
+  },
+  {
+   "id": "ia-code-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: YES; '2025 Iowa Code', 'IA Code § 614.1 (2025)'",
+   "generalised_citation": "Iowa Code § 668.3 (title XV from legis Iowa Code page 'Ch. 595 - 686D')",
+   "generalised_url": "https://law.justia.com/codes/iowa/title-xv/chapter-668/section-668-3/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-constitution-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 'Sec. 8. Personal security — searches and seizures. The right of the people…'",
+   "generalised_citation": "Iowa Const. art. I, § 6",
+   "generalised_url": "https://www.legis.iowa.gov/docs/publications/ICP/1518288.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Index link re-read: 'Iowa Constitution - Codified' still → ICP/1518288.pdf; 'Sec. 6. Laws uniform.' found."
+  },
+  {
+   "id": "ia-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: YES 'The right of the people to keep and bear arms'; disclaimer only",
+   "generalised_citation": "Iowa Const. art. I, § 6",
+   "generalised_url": "https://law.justia.com/constitution/iowa/article-i/section-6/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-courtrules-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch ch. 5: YES; header 'December 2022'; reaches Rule 5.1103, not truncated",
+   "generalised_citation": "Iowa R. Crim. P. 2.24",
+   "generalised_url": "https://www.legis.iowa.gov/docs/ACO/CourtRulesChapter/2.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Script: ch. 2 is 103 pp., 196,950 chars (≈2x fetch window; answers open question); body heading 'Rule 2.24 Motions after trial.' p. 30."
+  },
+  {
+   "id": "ia-iac-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: '641—1.1(139A) Definitions. For the purpose of these rules…'",
+   "generalised_citation": "Iowa Admin. Code r. 281—12.1",
+   "generalised_url": "https://www.legis.iowa.gov/docs/iac/chapter/281.12.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Rule PDF /docs/iac/rule/281.12.1.pdf also served (1 p.)."
+  },
+  {
+   "id": "ia-iac-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 'For the purpose of these rules, the following definitions will apply'; LM 01 Aug 2025",
+   "generalised_citation": "Iowa Admin. Code r. 281—12.1",
+   "generalised_url": "https://www.law.cornell.edu/regulations/iowa/Iowa-Code-r-281-12.1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-iab-legis",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 'ARC 0647D … EDUCATION DEPARTMENT[281] Notice of Intended Action'",
+   "generalised_citation": "ARC 0642D, IAB 10/14/26",
+   "generalised_url": "https://www.legis.iowa.gov/docs/aco/arc/0642D.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-opinions-iowacourts",
+   "outcome": "confirmed",
+   "probe_evidence": "Script (same-day cache): 'A plaintiff appeals from a district court judgment dismissing his medical malpractice claims'. WebFetch: PROVENANCE_REQUIRED",
+   "generalised_citation": "Klein v. Iowa Pub. Info. Bd., No. 20-0657 (Iowa Dec. 30, 2021)",
+   "generalised_url": "https://www.iowacourts.gov/iowa-courts/supreme-court/supreme-court-opinions/case/20-0657",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Case page links 'PDF of the Opinion' → /courtcases/12502/embed/SupremeCourtOpinion, 'Date Published: Dec 30, 2021'; PDF not fetched (crawl-delay budget). links filter 'Opinion' returns archive nav links first; filter 'courtcases' isolates the PDFs."
+  },
+  {
+   "id": "ia-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: YES 'APPEL, Justice. In this case, defendant John Donahue appeals his'; not truncated",
+   "generalised_citation": "Godfrey v. State, 898 N.W.2d 844 (Iowa 2017), No. 15-0695",
+   "generalised_url": "https://law.justia.com/cases/iowa/supreme-court/2017/150695.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Pattern says docket 'YY-NNNN with hyphen', but 2017 slugs are unhyphenated (150695.html); only the year-listing fallback finds it. Godfrey page is 115K chars, fetch tool cut at 100K.",
+   "suggested_fix": "State that pre-2018 (at least 2017) Justia slugs drop the hyphen ({YY}{NNNN}.html); try both forms before the listing."
+  },
+  {
+   "id": "ia-docket-ecourts",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: PROVENANCE_REQUIRED; script: 90-char frameset 'This page uses frames…' as described",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-further-review-casepage",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: case/19-1674 links 'Application for Further Review', both 11098 opinion PDFs",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Expect text 'COURT OF APPEALS DECISION VACATED' is in the linked Supreme Court PDF, not the case page (confirmed via Justia copy). Not generalised: iowacourts.gov crawl-delay budget.",
+   "suggested_fix": "Make the expect string one found on the case page itself (e.g. 'Application for Further Review')."
+  },
+  {
+   "id": "ia-further-review-orders",
+   "outcome": "confirmed",
+   "probe_evidence": "Script (same-day cache): 'review orders with the status of Granted'; 25-0461 Peer v. IRC II. WebFetch: PROVENANCE_REQUIRED",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ia-subsequent-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch 2021/19-1674.html: YES 'On review from the Iowa Court of Appeals'; 'COURT OF APPEALS DECISION VACATED'",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": "Closes the record's gap: a COA-then-Supreme-Court pair (Daniels v. Holtz, 19-1674) is on Justia under the SC year with the same docket."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "Iowa Code § 216.6(1)(a)",
+   "matched_label": "Iowa Code",
+   "expected_label": "Iowa Code"
+  },
+  {
+   "citation": "section 668.3 of the Code of Iowa",
+   "matched_label": "Iowa Code",
+   "expected_label": "Iowa Code"
+  },
+  {
+   "citation": "Iowa Code section 17A.19(10)(f)",
+   "matched_label": "Iowa Code",
+   "expected_label": "Iowa Code"
+  },
+  {
+   "citation": "Iowa R. Civ. P. 1.904(2)",
+   "matched_label": "Iowa Court Rules (named sets)",
+   "expected_label": "Iowa Court Rules (named sets)"
+  },
+  {
+   "citation": "Iowa Const. art. III, § 29",
+   "matched_label": "Iowa Constitution",
+   "expected_label": "Iowa Constitution"
+  },
+  {
+   "citation": "article III, section 29 of the Iowa Constitution",
+   "matched_label": "Iowa Constitution",
+   "expected_label": "Iowa Constitution"
+  },
+  {
+   "citation": "Klein v. Iowa Pub. Info. Bd., 968 N.W.2d 220 (Iowa 2021)",
+   "matched_label": "Reported Iowa cases (N.W. / Iowa Reports)",
+   "expected_label": "Reported Iowa cases (N.W. / Iowa Reports)"
+  },
+  {
+   "citation": "281 IAC 12.1(256)",
+   "matched_label": "Iowa Administrative Code",
+   "expected_label": "Iowa Administrative Code"
+  },
+  {
+   "citation": "Iowa Admin. Code r. 281-12.1(256)",
+   "matched_label": "Iowa Administrative Code",
+   "expected_label": "Iowa Administrative Code"
+  },
+  {
+   "citation": "State v. Doe, No. 23-1234, 2024 WL 123456 (Iowa Ct. App. Jan. 10, 2024)",
+   "matched_label": "Iowa slip opinions and unpublished Court of Appeals opinions (docket + Iowa parenthetical)",
+   "expected_label": "Iowa slip opinions and unpublished Court of Appeals opinions (docket + Iowa parenthetical)"
+  },
+  {
+   "citation": "further review denied (Iowa Mar. 4, 2025)",
+   "matched_label": "Iowa further-review dispositions",
+   "expected_label": "Iowa further-review dispositions"
+  },
+  {
+   "citation": "Iowa Code Ann. § 668.3",
+   "matched_label": "Iowa Code",
+   "expected_label": "Iowa Code"
+  }
+ ],
+ "overall": "All 16 rows reachable (14 VERIFIED, 2 REPORTED; no BLOCKED). legis.iowa.gov script routes generalise cleanly (Acts, Code, constitution, court rules, IAC, IAB). One discrepancy: official volume row's expect string 'Iowa Code 2026' is absent and its '614.1 Period.' example is in Vol VIII, not VI; no chapter-to-volume map. Justia 2017 case slugs lack the hyphen the pattern prescribes. iowacourts.gov WebFetch is gated (PROVENANCE_REQUIRED) as recorded; script works, kept to two network hits (others were same-day cache). All 12 test citations routed correctly; extra matches only on context_required generic patterns. Regexes were tested from the md file."
+}
