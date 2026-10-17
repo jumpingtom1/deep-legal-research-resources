@@ -33,6 +33,7 @@
   "advance.lexis.com": {
    "status": "allowed",
    "sources": [
+    "ga-code-lexis",
     "nj-admincode-lexis"
    ],
    "blocked_sources": []
@@ -48,6 +49,13 @@
    "status": "allowed",
    "sources": [
     "ma-register-statelib"
+   ],
+   "blocked_sources": []
+  },
+  "assets.georgiacourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-rules-uscr-assets"
    ],
    "blocked_sources": []
   },
@@ -96,6 +104,13 @@
    "sources": [
     "ny-const-dos",
     "ny-register-dos"
+   ],
+   "blocked_sources": []
+  },
+  "efast.gaappeals.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-coa-opinions"
    ],
    "blocked_sources": []
   },
@@ -183,6 +198,9 @@
     "fl-constitution-justia",
     "fl-cases-justia",
     "fl-subsequent-history-justia",
+    "ga-code-justia",
+    "ga-constitution-justia",
+    "ga-cases-justia",
     "id-statutes-justia",
     "id-constitution-justia",
     "id-cases-justia",
@@ -306,6 +324,13 @@
    ],
    "blocked_sources": []
   },
+  "pubdoc.gasupreme.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-sc-docket-pubdoc"
+   ],
+   "blocked_sources": []
+  },
   "public.leginfo.state.ny.us": {
    "status": "blocked",
    "sources": [
@@ -321,11 +346,26 @@
    ],
    "blocked_sources": []
   },
+  "rules.sos.ga.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-admincode-sos",
+    "ga-admin-bulletin"
+   ],
+   "blocked_sources": []
+  },
   "search.txcourts.gov": {
    "status": "blocked",
    "sources": [
     "tx-cases-tames",
     "tx-subsequent-tames"
+   ],
+   "blocked_sources": []
+  },
+  "sos.ga.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-constitution-sos"
    ],
    "blocked_sources": []
   },
@@ -432,6 +472,35 @@
    ],
    "blocked_sources": []
   },
+  "www.gaappeals.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-rules-coa-html",
+    "ga-rules-coa-pdf",
+    "ga-coa-opinions",
+    "ga-coa-docket-cert"
+   ],
+   "blocked_sources": []
+  },
+  "www.gabar.org": {
+   "status": "allowed",
+   "sources": [
+    "ga-rules-prof-conduct-gabar"
+   ],
+   "blocked_sources": []
+  },
+  "www.gasupreme.us": {
+   "status": "allowed",
+   "sources": [
+    "ga-sc-opinions-list",
+    "ga-cert-lists"
+   ],
+   "blocked_sources": [
+    "ga-rules-supreme",
+    "ga-rules-uscr-gasupreme",
+    "ga-sc-opinion-pdfs"
+   ]
+  },
   "www.ilga.gov": {
    "status": "blocked",
    "sources": [
@@ -465,6 +534,7 @@
     "ca-ccr-lii",
     "de-admincode-lii",
     "fl-fac-lii",
+    "ga-admincode-lii",
     "id-idapa-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
@@ -481,6 +551,13 @@
    "sources": [
     "fl-statutes-online-sunshine",
     "fl-constitution-online-sunshine"
+   ],
+   "blocked_sources": []
+  },
+  "www.legis.ga.gov": {
+   "status": "allowed",
+   "sources": [
+    "ga-legis-session-laws"
    ],
    "blocked_sources": []
   },

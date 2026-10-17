@@ -180,6 +180,75 @@
         }
       ]
     },
+    "ga": {
+      "name": "Georgia",
+      "file": "jurisdictions/ga.md",
+      "sha256": "4b00cf1ebadee7bea8cce2953cf0cafaba88a79b77215a060e31186d01c55da0",
+      "compiled": "2026-10-16",
+      "counts": {
+        "reported": 4,
+        "verified": 14,
+        "blocked": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Official Code of Georgia Annotated",
+          "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?|Code\\s+Section)\\s*\u00a7*\\s*|(?:sec(?:tion|\\.)|\u00a7)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])"
+        },
+        {
+          "label": "Georgia Laws (session laws)",
+          "regex": "Ga\\.\\s*L\\.\\s*(?P<year>(?:18|19|20)\\d\\d),\\s*p\\.\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Ga\\.\\s*Laws\\s+(?P<page2>\\d+)"
+        },
+        {
+          "label": "Georgia Constitution of 1983",
+          "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|\u00b6)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)"
+        },
+        {
+          "label": "Uniform Superior Court Rules",
+          "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|Ga\\.\\s*Unif\\.\\s*Super\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules"
+        },
+        {
+          "label": "Rules of the Supreme Court of Georgia",
+          "regex": "(?:Ga\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|(?:Georgia\\s+)?Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+Supreme\\s+Court\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia"
+        },
+        {
+          "label": "Rules of the Court of Appeals of Georgia",
+          "regex": "(?:Ga\\.\\s*Ct\\.\\s*App\\.\\s*R\\.|(?:Court\\s+of\\s+Appeals|COA)\\s+Rule)\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Court\\s+of\\s+Appeals\\s+of\\s+Georgia"
+        },
+        {
+          "label": "Georgia Rules of Professional Conduct (State Bar Rule 4-102(d))",
+          "regex": "(?:Ga\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|GRPC)\\s*(?P<rule>\\d\\.\\d+)|Rule\\s+(?P<rule2>\\d\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Georgia\\s+Rules\\s+of\\s+Professional\\s+Conduct|Bar\\s+Rule\\s+(?P<barrule>\\d-\\d{3}(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Rules and Regulations of the State of Georgia",
+          "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))"
+        },
+        {
+          "label": "Georgia Rules and Regulations Monthly Bulletin",
+          "regex": "(?:Georgia\\s+Monthly\\s+Bulletin\\s+for|Ga\\.\\s*Admin\\.\\s*Bulletin\\s*\\()\\s*(?P<month>[A-Z][a-z]+)\\s+(?P<year>(?:19|20)\\d\\d)"
+        },
+        {
+          "label": "Georgia Reports / Georgia Appeals Reports (Ga., Ga. App.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Ga\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)"
+        },
+        {
+          "label": "South Eastern Reporter with a Georgia parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.?\\s*E\\.?\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ga\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Georgia appellate docket numbers (Supreme Court S..., Court of Appeals A...)",
+          "regex": "\\b(?P<docket>(?P<court>[SA])(?P<yy>\\d{2})(?P<kind>[A-Z])(?P<number>\\d{4}))\\b"
+        },
+        {
+          "label": "Westlaw / Lexis cites for Georgia decisions",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ga\\.|Ga\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        },
+        {
+          "label": "Georgia certiorari history",
+          "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)|(?P<physical>physical\\s+precedent\\s+only)"
+        }
+      ]
+    },
     "id": {
       "name": "Idaho",
       "file": "jurisdictions/id.md",
