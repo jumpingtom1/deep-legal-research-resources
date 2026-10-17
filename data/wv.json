@@ -40,9 +40,10 @@
           "W. Va. Code Ann. § 29A-5-4",
           "W. Va. Code §§ 55-7-13a to -13d",
           "West Virginia Code § 55-7-8a",
-          "section 8a, article 7, chapter 55 of the Code of West Virginia"
+          "section 8a, article 7, chapter 55 of the Code of West Virginia",
+          "W. Va. Code, 23-4-1c"
         ],
-        "regex": "(?:W\\.\\s*Va\\.\\s*Code(?:\\s+Ann\\.)?|West\\s+Virginia\\s+Code|Code\\s+of\\s+West\\s+Virginia)\\s*,?\\s*§+\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])|sec(?:tion|\\.)\\s+(?P<section2>\\d{1,3}[A-Za-z]?),\\s+art(?:icle|\\.)\\s+(?P<article2>\\d{1,2}[A-Z]?),\\s+ch(?:apter|\\.)\\s+(?P<chapter2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Code\\s+of\\s+West\\s+Virginia|West\\s+Virginia\\s+Code)",
+        "regex": "(?:W\\.\\s*Va\\.\\s*Code(?:\\s+Ann\\.)?|West\\s+Virginia\\s+Code|Code\\s+of\\s+West\\s+Virginia)(?:\\s*,\\s*§*|\\s*§+)\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])|sec(?:tion|\\.)\\s+(?P<section2>\\d{1,3}[A-Za-z]?),\\s+art(?:icle|\\.)\\s+(?P<article2>\\d{1,2}[A-Z]?),\\s+ch(?:apter|\\.)\\s+(?P<chapter2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Code\\s+of\\s+West\\s+Virginia|West\\s+Virginia\\s+Code)",
         "routes_to": [
           "wv-code-legislature",
           "wv-code-justia",
@@ -57,7 +58,7 @@
           "§55-7-8a",
           "§ 61-2-1 of this code"
         ],
-        "regex": "§\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])",
+        "regex": "(?<!R\\.\\s)(?<!R\\.)§\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])",
         "routes_to": [
           "wv-code-legislature",
           "wv-code-justia"
@@ -246,15 +247,28 @@
       },
       {
         "family": "case_law",
-        "label": "West Virginia Reports (official reporter) with parallel S.E./S.E.2d",
+        "label": "West Virginia Reports (official reporter) with parallel S.E./S.E.2d — Supreme Court of Appeals",
         "examples": [
           "Painter v. Peavy, 192 W. Va. 189, 451 S.E.2d 755 (1994)",
           "State v. Guthrie, 194 W. Va. 657, 461 S.E.2d 163 (1995)",
           "Syl. Pt. 3, Aetna Cas. & Sur. Co. v. Fed. Ins. Co. of N.Y., 148 W. Va. 160, 133 S.E.2d 770 (1963)"
         ],
-        "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4}))?",
+        "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*\\d+)*(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4}))?(?![^()]{0,40}\\(\\s*(?:W\\.\\s*Va\\.\\s*)?Ct\\.\\s*App\\.)",
         "routes_to": [
           "wv-sca-opinions",
+          "wv-cases-justia"
+        ],
+        "context_required": false
+      },
+      {
+        "family": "case_law",
+        "label": "West Virginia Reports / S.E.2d — Intermediate Court of Appeals '(Ct. App. YYYY)'",
+        "examples": [
+          "250 W. Va. 378, 385, 903 S.E.2d 247, 254 (Ct. App. 2024)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*\\d+)*(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)*)?\\s*\\(\\s*(?:W\\.\\s*Va\\.\\s*)?Ct\\.\\s*App\\.\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "wv-ica-opinions",
           "wv-cases-justia"
         ],
         "context_required": false
@@ -353,7 +367,7 @@
       "TCR": "tcr",
       "W. Va. R. Prof'l Conduct": "rpc"
     },
-    "notes": "West Virginia Code sections are always chapter-article-section (55-7-8a); the URL is https://code.wvlegislature.gov/{chapter}-{article}-{section}/ with letters in either case (site links use upper case: 55-7-8A). Older state and court style writes '§55-7-8a' with no 'W. Va. Code' prefix and the prose form 'section 8a, article 7, chapter 55 of the Code of West Virginia'; the bare § form is context_required because Kentucky-, Tennessee- and Arkansas-style three-part numbers look the same. A '§§ 55-7-13a to -13d' range is a span: the regex takes only the first section (the (?![\\w-]) guard keeps '13a' from swallowing the range). Code of State Rules: Bluebook 'W. Va. Code R. § 110-1H-1' = title 110, series 1H, section 1; the SOS lookup key pads the series to two digits (110-01H) while Cornell LII uses the unpadded form (110-1H-1). Case law: the official reporter is West Virginia Reports (W. Va.), printed by West with S.E./S.E.2d parallels; neither is free online, so free texts carry slip pagination only. West Virginia opinions put holdings in numbered syllabus points ('Syl. Pt. 3'), which are cited as pinpoints. Memorandum decisions are citable under R. App. P. 21(e) if labelled '(memorandum decision)'. The Intermediate Court of Appeals (W. Va. Ct. App.) has decided cases since July 2022 with dockets 'YY-ICA-N'. No public-domain citation format exists. Bare 'Rule N of the Rules of Civil Procedure', bare dockets and syllabus points are generic and route only with West Virginia context. CourtListener ids 'wva' and 'wvactapp' are from memory and unverified. Westlaw cites ('2023 WL …') cannot be resolved to a free URL: search by party name instead."
+    "notes": "West Virginia Code sections are always chapter-article-section (55-7-8a); the URL is https://code.wvlegislature.gov/{chapter}-{article}-{section}/ with letters in either case (site links use upper case: 55-7-8A). Older state and court style writes '§55-7-8a' with no 'W. Va. Code' prefix and the prose form 'section 8a, article 7, chapter 55 of the Code of West Virginia'; the bare § form is context_required because Kentucky-, Tennessee- and Arkansas-style three-part numbers look the same. A '§§ 55-7-13a to -13d' range is a span: the regex takes only the first section (the (?![\\w-]) guard keeps '13a' from swallowing the range). Code of State Rules: Bluebook 'W. Va. Code R. § 110-1H-1' = title 110, series 1H, section 1; the SOS lookup key pads the series to two digits (110-01H) while Cornell LII uses the unpadded form (110-1H-1). Case law: the official reporter is West Virginia Reports (W. Va.), printed by West with S.E./S.E.2d parallels; neither is free online, so free texts carry slip pagination only. West Virginia opinions put holdings in numbered syllabus points ('Syl. Pt. 3'), which are cited as pinpoints. Memorandum decisions are citable under R. App. P. 21(e) if labelled '(memorandum decision)'. The Intermediate Court of Appeals (W. Va. Ct. App.) has decided cases since July 2022 with dockets 'YY-ICA-N'. No public-domain citation format exists. Bare 'Rule N of the Rules of Civil Procedure', bare dockets and syllabus points are generic and route only with West Virginia context. CourtListener ids 'wva' and 'wvactapp' are from memory and unverified. Westlaw cites ('2023 WL …') cannot be resolved to a free URL: search by party name instead. Fixes 2026-10-17 after the independent check: (1) ICA opinions are reported in West Virginia Reports and S.E.2d with a '(Ct. App. YYYY)' parenthetical ('250 W. Va. 378, 903 S.E.2d 247 (Ct. App. 2024)'); a separate pattern routes them to wv-ica-opinions, and the Supreme Court reporter pattern refuses them with a negative lookahead. (2) The older court style 'W. Va. Code, 23-4-1c' (comma, no §) is now matched. (3) The bare-§ pattern has a lookbehind so it does not fire inside 'W. Va. Code R. § 45-13-1'."
   },
   "sources": [
     {
@@ -397,9 +411,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, body '(a) In addition to the causes of action which survive', (a)-(f) complete, not truncated; footer 'Copyright © 2026 West Virginia Code'. fetch_doc: 200 html 13,029 chars, heading '§55-7-8a. Actions which survive' at offset 6714. Second citation W. Va. Code § 61-2-1 at /61-2-1/: fetch_doc body 'Murder by poison, lying in wait, imprisonment, starving'."
+        "evidence": "WebFetch: YES, body '(a) In addition to the causes of action which survive', (a)-(f) complete, not truncated; footer 'Copyright © 2026 West Virginia Code'. fetch_doc: 200 html 13,029 chars, heading '§55-7-8a. Actions which survive' at offset 6714. Second citation W. Va. Code § 61-2-1 at /61-2-1/: fetch_doc body 'Murder by poison, lying in wait, imprisonment, starving'. | Independent check 2026-10-17: WebFetch YES '(a) In addition to the causes of action which survive at'; (a)-(f) complete; 'updated regularly' footer; second citation W. Va. Code § 46A-6-102 ok"
       },
       "notes": "Bill history on each page lists amending bills by session (e.g. 2025 HB3162 for § 55-7-8a)."
     },
@@ -444,9 +458,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 200 application/pdf, 436 pages, 656,691 chars, Last-Modified = fetch time; starts 'WEST VIRGINIA CODE CHAPTER 55' then '§55-1-1. When writing required.'"
+        "evidence": "fetch_doc: 200 application/pdf, 436 pages, 656,691 chars, Last-Modified = fetch time; starts 'WEST VIRGINIA CODE CHAPTER 55' then '§55-1-1. When writing required.' | Independent check 2026-10-17: fetch_doc 436 pp: '§55-1-1. When writing required. No action shall be brought'; footer 'October 17, 2026 Page 1 of 436'; second citation W. Va. Code § 46A-6-102 ok"
       },
       "notes": "Best bulk route for the Code (one request per chapter, ~150 chapters with letter suffixes)."
     },
@@ -491,7 +505,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc: REFUSED: robots.txt on www.wvlegislature.gov disallows /WVCODE/WV_CON.cfm (rule: Disallow: /WVCODE/)."
+        "evidence": "fetch_doc: REFUSED: robots.txt on www.wvlegislature.gov disallows /WVCODE/WV_CON.cfm (rule: Disallow: /WVCODE/). | Re-confirmed blocked 2026-10-17: fetch_doc check: REFUSED robots.txt disallows /WVCODE/WV_CON.cfm (Disallow: /WVCODE/), exit 3"
       },
       "notes": ""
     },
@@ -535,9 +549,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, body 'Murder by poison, lying in wait, imprisonment, starving, or by'; '2025 West Virginia Code'; 'WV Code § 61-2-1 (2025)'; not truncated."
+        "evidence": "WebFetch: YES, body 'Murder by poison, lying in wait, imprisonment, starving, or by'; '2025 West Virginia Code'; 'WV Code § 61-2-1 (2025)'; not truncated. | Independent check 2026-10-17: WebFetch YES 'Murder by poison, lying in wait, imprisonment, starving, or by'; '2025 West Virginia Code'; second citation W. Va. Code § 46A-6-102 ok"
       },
       "notes": "Only one section probed on Justia; the pattern follows Justia's standard code layout."
     },
@@ -549,13 +563,13 @@
       "tier": 1,
       "official_status": "unknown",
       "official_status_evidence": "Scanned/compiled bound volumes on the Legislature's publications page; no authentication statement.",
-      "coverage": "Acts 1863 to 2025 (2023 onward split into Vol_1/Vol_2/Vol_3), plus 1872 constitutional convention and municipal charters volumes.",
+      "coverage": "Acts 1863 to 2025. Most years from 1990 on are split into volumes (Acts_{year}_Vol_1.pdf, Vol_2, sometimes Vol_3; 1992 is not split). Some files cover two years (Acts_1967-1968.pdf) and there are extra-session files (Acts_2003_2ES.pdf, Acts_1916_3ES.pdf). Also the 1872 constitutional convention and municipal charter volumes.",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www.wvlegislature.gov/legisdocs/publications/acts/Acts_{year}[_Vol_{n}].pdf",
-        "pattern_rules": "Older years are a single Acts_{year}.pdf; recent years are split (Acts_2025_Vol_1.pdf, Acts_2024_Vol_3.pdf) and the unsplit name 404s (Acts_2023.pdf → 404). Take the exact file from the index. Inside a volume, chapters start 'CHAPTER N' followed by the bill number.",
+        "pattern_rules": "File names are not derivable. Years from 1990 on are usually split (Acts_2019_Vol_1.pdf, Acts_2025_Vol_1.pdf) and the unsplit name 404s (Acts_2023.pdf → 404). There are also two-year and extra-session files. Take the exact file from the index and try each volume of the year. Inside a volume, grep 'CHAPTER N (' with the parenthesis: the chapter heading is followed by the bill number, and a bare 'CHAPTER N' also hits budget text.",
         "index_url": "https://www.wvlegislature.gov/Educational/publications.cfm#acts",
-        "navigation": "publications page → Acts section → year/volume PDF → search 'CHAPTER N'",
+        "navigation": "publications page → Acts section → year/volume PDF (try each volume) → grep 'CHAPTER N ('",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -582,9 +596,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: application/pdf, 1,088 pages, Last-Modified 14 Mar 2026; grep 'CHAPTER 1' at p. 37: 'ACTS SECOND REGULAR SESSION, 2025 CHAPTER 1 (H. B. 3272'. Acts_2023.pdf → HTTP 404 (split volumes)."
+        "evidence": "fetch_doc: application/pdf, 1,088 pages, Last-Modified 14 Mar 2026; grep 'CHAPTER 1' at p. 37: 'ACTS SECOND REGULAR SESSION, 2025 CHAPTER 1 (H. B. 3272'. Acts_2023.pdf → HTTP 404 (split volumes). | Independent check 2026-10-17: fetch_doc p.37: 'ACTS SECOND REGULAR SESSION, 2025 CHAPTER 1 (H. B. 3272 - By Delegates Akers'; second citation 2019 W. Va. Acts ch. 5 (S.B. 324) ok"
       },
       "notes": "Enrolled bills per session are also linked from each Code section's 'Signed Bills' block."
     },
@@ -600,7 +614,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://code.wvlegislature.gov/west-virginia-constitution",
-        "pattern_rules": "Single page; articles headed 'ARTICLE VIII.' and sections '§1.' preceded by a catch-line (e.g. 'Safeguards for Life, Liberty and Property §10.'). Locate by article heading, then '§N.'.",
+        "pattern_rules": "Single page. In the body, article headings have NO period ('ARTICLE X Taxation and Finance', 'ARTICLE VIII Judicial Power'), so grep 'ARTICLE {roman} ' with a trailing space. The first hit is the table of contents and 'ARTICLE X\\.' matches only the contents. Then find '§N.' within the article; it follows a catch-line, e.g. 'Safeguards for Life, Liberty and Property §10.'.",
         "index_url": "https://code.wvlegislature.gov/west-virginia-constitution",
         "navigation": "",
         "format": "html"
@@ -610,7 +624,7 @@
         "webfetch": "ok (truncated)",
         "shell": "ok",
         "robots_txt": "permitted",
-        "notes": "WebFetch: page text 134,777 chars; window 1 ends in Art. VII § 14 — Articles VIII onward need offset=100000. fetch_doc reads the whole page (277,437 chars)."
+        "notes": "WebFetch reports 134,777–134,778 characters; window 1 ends in Art. VII § 14, and offset=100000 reaches the end. fetch_doc reads the whole page (277,437 chars)."
       },
       "currency": {
         "where": "page heading",
@@ -628,9 +642,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. III § 10 YES 'No person shall be deprived of life, liberty, or property,'; Art. VIII § 1 NOT PRESENT (truncated in Art. VII § 14). fetch_doc: 277,437 chars; Art. VIII § 1 at offset 106,557 'The judicial power of the State shall be vested solely'."
+        "evidence": "WebFetch: Art. III § 10 YES 'No person shall be deprived of life, liberty, or property,'; Art. VIII § 1 NOT PRESENT (truncated in Art. VII § 14). fetch_doc: 277,437 chars; Art. VIII § 1 at offset 106,557 'The judicial power of the State shall be vested solely'. | Independent check 2026-10-17: WebFetch YES Art. III §10 'No person shall be deprived of life, liberty, or property'; truncated Art. VII §14; second citation W. Va. Const. art. X, § 1 ok"
       },
       "notes": "Corpus candidate."
     },
@@ -674,9 +688,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 211,905 chars; grep at offset 84,625: 'ARTICLE VIII 8-1. Judicial power. The judicial power of the state shall be vested solely'."
+        "evidence": "fetch_doc: 211,905 chars; grep at offset 84,625: 'ARTICLE VIII 8-1. Judicial power. The judicial power of the state shall be vested solely'. | Independent check 2026-10-17: fetch_doc offset 84,621: 'ARTICLE VIII 8-1. Judicial power. The judicial power of the state shall be vested solely'; second citation W. Va. Const. art. III, § 17 ok"
       },
       "notes": ""
     },
@@ -721,9 +735,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: § 3-10 YES 'No person shall be deprived of life, liberty, or property,'; single page; truncated in Art. VIII (section 8-13); no currency statement."
+        "evidence": "WebFetch: § 3-10 YES 'No person shall be deprived of life, liberty, or property,'; single page; truncated in Art. VIII (section 8-13); no currency statement. | Independent check 2026-10-17: WebFetch YES §3-10 'No person shall be deprived of life, liberty, or property'; truncated in §8-13; second citation W. Va. Const. art. X, § 1 ok"
       },
       "notes": ""
     },
@@ -739,7 +753,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/rules-civil-procedure-contents",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 12. Defenses and objections' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. R. Civ. P. 12(b)' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -749,7 +763,7 @@
         "webfetch": "ok (truncated)",
         "shell": "ok",
         "robots_txt": "www.courtswv.gov: Drupal default — disallows /admin/, /search/, /user/*, /node/add/; /legal-community/ and /sites/default/pubfilesmnt/ allowed",
-        "notes": "WebFetch window 1 ends in Rule 23(f)(2); a URL typed from the pattern needed approval once (gated), the same URL from a search result went through. Page is 268,988 characters as extracted by fetch_doc.py, beyond the ~100K WebFetch window: use fetch_doc.py (grep/section) or the corpus."
+        "notes": "WebFetch window 1 ends in Rule 23(f)(2)/(g)(2); a URL typed from the pattern needed approval once (gated), the same URL from a search result went through. Page is 268,988 characters as extracted by fetch_doc.py, beyond the ~100K WebFetch window: use fetch_doc.py (grep/section) or the corpus. WebFetch reports 127,744 characters in total, so offset=100000 may reach later rules."
       },
       "currency": {
         "where": "none stated on the page; individual rules carry bracketed '[Effective …]' / '[Amended …]' notes",
@@ -758,7 +772,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. R. Civ. P. 12(b)",
@@ -768,9 +782,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch (search-sourced URL): Rule 12(b) YES 'Every defense to a claim for relief in any pleading'; Rule 56(a) NOT PRESENT; truncated in Rule 23(f)(2); no currency statement (first, built-URL attempt was PROVENANCE_REQUIRED). fetch_doc: 268,988 chars; Rule 12 at offset 54,061; Rule 56 'Summary judgment. (a) Motion for summary judgment' at offset 221,933."
+        "evidence": "WebFetch (search-sourced URL): Rule 12(b) YES 'Every defense to a claim for relief in any pleading'; Rule 56(a) NOT PRESENT; truncated in Rule 23(f)(2); no currency statement (first, built-URL attempt was PROVENANCE_REQUIRED). fetch_doc: 268,988 chars; Rule 12 at offset 54,061; Rule 56 'Summary judgment. (a) Motion for summary judgment' at offset 221,933. | Independent check 2026-10-17: WebFetch YES 'Every defense to a claim for relief in any pleading'; truncated in Rule 23(g)(2) (record: 23(f)(2)); second citation W. Va. R. Civ. P. 56 ok"
       },
       "notes": ""
     },
@@ -786,7 +800,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/rules-evidence-contents",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 702. Testimony by Expert Witnesses' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. R. Evid. 702' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -805,7 +819,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. R. Evid. 702",
@@ -815,9 +829,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 101,132 chars; 'Rule 702. Testimony by Expert Witnesses (a) If scientific, technical, or other specialized knowledge' at offset 59,165. WebFetch not run."
+        "evidence": "fetch_doc: 101,132 chars; 'Rule 702. Testimony by Expert Witnesses (a) If scientific, technical, or other specialized knowledge' at offset 59,165. WebFetch not run. | Independent check 2026-10-17: fetch_doc offset 59,211: 'Rule 702. Testimony by Expert Witnesses (a) If scientific, technical'; second citation W. Va. R. Evid. 404 ok"
       },
       "notes": ""
     },
@@ -833,7 +847,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/rules-appellate-procedure",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 21. Memorandum decisions' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. R. App. P. 21(e)' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -852,7 +866,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. R. App. P. 21(e)",
@@ -862,9 +876,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 180,778 chars; Rule 21 at offset 102,673; 21(e) 'Memorandum decisions may be cited in any court or administrative tribunal in this State'. WebFetch not run."
+        "evidence": "fetch_doc: 180,778 chars; Rule 21 at offset 102,673; 21(e) 'Memorandum decisions may be cited in any court or administrative tribunal in this State'. WebFetch not run. | Independent check 2026-10-17: fetch_doc offset 104,807: '(e) Citation of memorandum decisions. Memorandum decisions may be cited in any court'; second citation W. Va. R. App. P. 10 ok"
       },
       "notes": ""
     },
@@ -880,7 +894,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/rules-criminal-procedure-contents",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 35. Correction or reduction of sentence' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. R. Crim. P. 35(a)' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -899,7 +913,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. R. Crim. P. 35(a)",
@@ -909,9 +923,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 148,932 chars; 'Rule 35. Correction or reduction of sentence. (a) Correction of sentence' at offset 110,712. WebFetch not run."
+        "evidence": "fetch_doc: 148,932 chars; 'Rule 35. Correction or reduction of sentence. (a) Correction of sentence' at offset 110,712. WebFetch not run. | Independent check 2026-10-17: fetch_doc offset 110,791: '(a) Correction of sentence. - The court may correct an illegal sentence at any time'; second citation W. Va. R. Crim. P. 11 ok"
       },
       "notes": ""
     },
@@ -927,7 +941,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/wv-trial-court-rules-contents",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 24.01. Generally' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. Tr. Ct. R. 24.01' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -946,7 +960,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. Tr. Ct. R. 24.01",
@@ -956,9 +970,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 220,561 chars; 'Rule 24. Preparation and Submission of Orders. Rule 24.01. Generally.' at offset 142,091. WebFetch not run."
+        "evidence": "fetch_doc: 220,561 chars; 'Rule 24. Preparation and Submission of Orders. Rule 24.01. Generally.' at offset 142,091. WebFetch not run. | Independent check 2026-10-17: fetch_doc offset 142,121: 'Rule 24.01. Generally. (a) Unless otherwise directed by the presiding judicial officer'; second citation W. Va. Tr. Ct. R. 22.01 ok"
       },
       "notes": ""
     },
@@ -974,7 +988,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.courtswv.gov/legal-community/court-rules/west-virginia-rules-professional-conduct",
-        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading 'Rule 1.7 Conflict of Interest; Current Clients' (e.g. grep 'Rule 12\\. ' — the first hit is usually the contents line, the second the rule itself).",
+        "pattern_rules": "One HTML page holds the whole rule set (table of contents, then every rule in order). Locate a rule by its heading ('W. Va. R. Prof'l Conduct 1.7' → heading as in the probe). To find the rule itself, grep the rule number together with its heading text (e.g. 'Rule 56\\. Summary judgment'), or take the hit that is followed by '(a)'. Do not count hits: the first is the table of contents, and cross-references ('under Rule 56. All parties' inside Rule 12) can come before the rule. In this set the headings have NO period after the number ('Rule 1.6 Confidentiality of Information', 'Rule 1.7 Conflict of Interest; Current Clients'). Grep 'Rule N.N {Heading}' without a period. The table of contents uses ':' where the body uses ';' ('Conflict of Interest: Current Clients'), and the comments cite rule numbers many times.",
         "index_url": "https://www.courtswv.gov/legal-community/court-rules",
         "navigation": "court rules index → rule-set link → single full-text page",
         "format": "html"
@@ -993,7 +1007,7 @@
       "hazards": [
         "whole rule set on one long page (WebFetch truncation)",
         "no currency statement for the set",
-        "first grep hit for 'Rule N.' is the table of contents"
+        "the first hit for a rule number is the table of contents and cross-references can come before the rule: anchor on the heading text"
       ],
       "probe": {
         "citation": "W. Va. R. Prof'l Conduct 1.7",
@@ -1003,9 +1017,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 385,913 chars; 'Rule 1.7 Conflict of Interest; Current Clients (a) Except as provided in paragraph (b)' at offset 82,093. WebFetch not run."
+        "evidence": "fetch_doc: 385,913 chars; 'Rule 1.7 Conflict of Interest; Current Clients (a) Except as provided in paragraph (b)' at offset 82,093. WebFetch not run. | Independent check 2026-10-17: fetch_doc offset 82,147: '(a) Except as provided in paragraph (b), a lawyer shall not represent a client'; second citation W. Va. R. Prof'l Conduct 1.6 ok"
       },
       "notes": ""
     },
@@ -1023,7 +1037,7 @@
         "url_pattern": "https://apps.sos.wv.gov/adlaw/csr/rule.aspx?rule={title}-{series:02d}{suffix}",
         "pattern_rules": "rule key = title + '-' + series zero-padded to two digits + letter suffix (110-01H, 64-21, 78-03); the unpadded '110-1H' returns an empty table. The rule page lists versions (Date Effective, Active/Historical) linking ruleview.aspx?document={id}; ruleview lists the filings with readfile.aspx?DocId={id}&Format=PDF (also WORD). Neither id is derivable: follow the links.",
         "index_url": "https://apps.sos.wv.gov/adlaw/csr/",
-        "navigation": "rule.aspx?rule={key} → 'Active' row → ruleview.aspx?document={id} → 'Final File' PDF → readfile.aspx?DocId={id}&Format=PDF",
+        "navigation": "rule.aspx?rule={key} → 'Active' row → ruleview.aspx?document={id} → 'Final File' PDF → readfile.aspx?DocId={id}&Format=PDF (if the PDF has no text, use the same row's Word link: readfile.aspx?DocId={id}&Format=WORD&KeyWord=)",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -1040,7 +1054,9 @@
       "hazards": [
         "two-hop id-based navigation",
         "older rules are scanned images with no text layer (110-15 active 1993 version: 249 pages, 248 characters)",
-        "series must be zero-padded in the lookup key"
+        "series must be zero-padded in the lookup key",
+        "Even recent final-file PDFs can be image scans: the active 2017 PDF for 45-13 (DocId=49358, 26 pp) gives 25 characters. Use the Word file from the same row (readfile.aspx?DocId={id}&Format=WORD&KeyWord=), which fetch_doc.py reads as .docx, before falling back to LII.",
+        "ruleview lists several filings with PDFs; only the date/status column shows which is the 'Final File'."
       ],
       "probe": {
         "citation": "W. Va. Code R. § 110-1H-1",
@@ -1050,9 +1066,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: rule.aspx?rule=110-01H → Active 4/28/2026 'Valuation of Timberland and Managed Timberland' → ruleview document=18270 → DocId=58902 PDF, 11 pp, 32,214 chars, 'TITLE-SERIES: 110-01H'. Second: rule=78-03 lists Active 6/28/2023 version. Scan-only example: DocId=20946 (110-15) 249 pp, 248 chars."
+        "evidence": "fetch_doc: rule.aspx?rule=110-01H → Active 4/28/2026 'Valuation of Timberland and Managed Timberland' → ruleview document=18270 → DocId=58902 PDF, 11 pp, 32,214 chars, 'TITLE-SERIES: 110-01H'. Second: rule=78-03 lists Active 6/28/2023 version. Scan-only example: DocId=20946 (110-15) 249 pp, 248 chars. | Independent check 2026-10-17: fetch_doc DocId=58902 PDF 11 pp: 'NOTICE OF FINAL FILING AND ADOPTION OF A LEGISLATIVE RULE'; second citation W. Va. Code R. § 45-13-1 ok"
       },
       "notes": "Final-file PDFs begin with the agency's notice form; the rule text follows."
     },
@@ -1095,9 +1111,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 2,741 chars, Last-Modified 08 Aug 2025; '1.1. Scope. -- This legislative rule establishes the procedure for the classification'; '1.4. Effective Date. -- May 1, 1999'. Second: W-Va-C-S-R-SS-110-15-1 '1.1. Scope. -- These legislative regulations explain and clarify'."
+        "evidence": "fetch_doc: 2,741 chars, Last-Modified 08 Aug 2025; '1.1. Scope. -- This legislative rule establishes the procedure for the classification'; '1.4. Effective Date. -- May 1, 1999'. Second: W-Va-C-S-R-SS-110-15-1 '1.1. Scope. -- These legislative regulations explain and clarify'. | Independent check 2026-10-17: fetch_doc: '1.1. Scope. -- This legislative rule establishes the procedure for the classification'; 'updated quarterly'; second citation W. Va. Code R. § 45-13-1 ok"
       },
       "notes": ""
     },
@@ -1109,7 +1125,7 @@
       "tier": 1,
       "official_status": "unknown",
       "official_status_evidence": "Official publication of the Secretary of State; no statement on the online copy.",
-      "coverage": "Weekly issues 2003-2026 (year selector), e.g. Vol. XLIII (43) Issue 33, Aug. 21, 2026.",
+      "coverage": "Weekly issues; the year selector runs from 2026 back to about 1983. Example: Vol. XLIII (43), Issue 41, Oct. 16, 2026.",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://apps.sos.wv.gov/adlaw/registers/readpdf.aspx?did={id}",
@@ -1127,14 +1143,14 @@
       },
       "currency": {
         "where": "listing rows",
-        "observed": "Friday, August 21, 2026 XLIII (43) 33"
+        "observed": "Friday, October 16, 2026 XLIII (43) 41"
       },
       "hazards": [
         "image-only PDFs: no text to quote without OCR",
         "id-based URLs"
       ],
       "probe": {
-        "citation": "W. Va. Reg. Vol. XLIII (2026)",
+        "citation": "W. Va. Reg. Vol. XLIII, Issue 41 (Oct. 16, 2026)",
         "url": "https://apps.sos.wv.gov/adlaw/registers/readpdf.aspx?did=40275",
         "expect": ""
       },
@@ -1143,7 +1159,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc: listing 200 (5,345 chars, years 2003-2026); issue PDF did=40275 application/pdf 74 pp, 73 chars extracted (scanned)."
+        "evidence": "fetch_doc: listing 200 (5,345 chars, years 2003-2026); issue PDF did=40275 application/pdf 74 pp, 73 chars extracted (scanned). | Independent check 2026-10-17: WebFetch listing: newest 'Friday, October 16, 2026 XLIII (43) 41', View links; did=40275 74 pp, 73 chars"
       },
       "notes": "Use the register only to find filing dates; quote rule text from wv-csr-sos final-file PDFs."
     },
@@ -1159,7 +1175,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.courtswv.gov/appellate-courts/supreme-court-of-appeals/opinions/prior-terms?combine={party_or_term}&field_sca_opinion_year_value={YYYY}&field_case_type_sca_value={type}&field_decision_type_sca_value={SO|MD|Per Curiam|SEP|Order}",
-        "pattern_rules": "Plain GET (verified 2026-10-17): every parameter optional; 'combine' is a free-text match on case name (combine=Morrison → 7 rows; combine=Gasvoda → 2). Searching an ICA docket (combine=25-ICA-78) finds nothing, and docket searches are unreliable — search the party name. Year values 1991-2026 or All. Rows give date filed, docket, case name, case type, decision type and the PDF link. PDF URLs are https://www.courtswv.gov/sites/default/pubfilesmnt/{YYYY-MM}/{file}.pdf where YYYY-MM is the upload month (older opinions were re-uploaded 2023-11/12) and the file name varies (22-765-bunn-p.pdf, 25-884 Memorandum Decision.pdf, 32783.pdf) — never construct it; take it from the row.",
+        "pattern_rules": "Plain GET (verified 2026-10-17): every parameter optional; 'combine' is a free-text match on case name (combine=Morrison → 7 rows; combine=Gasvoda → 2). Searching an ICA docket (combine=25-ICA-78) finds nothing, and docket searches are unreliable — search the party name. Year values 1991-2026 or All. Rows give date filed, docket, case name, case type, decision type and the PDF link. PDF URLs are https://www.courtswv.gov/sites/default/pubfilesmnt/{YYYY-MM}/{file}.pdf where YYYY-MM is the upload month (older opinions were re-uploaded 2023-11/12) and the file name varies (22-765-bunn-p.pdf, 25-884 Memorandum Decision.pdf, 32783.pdf) — never construct it; take it from the row. Filtered listings are paginated at about 10 rows per page; add &page=N (from 0).",
         "index_url": "https://www.courtswv.gov/appellate-courts/supreme-court-of-appeals/opinions/prior-terms",
         "navigation": "GET prior-terms with filters → row → pubfilesmnt PDF (current term: /appellate-courts/supreme-court-of-appeals/opinions)",
         "format": "pdf"
@@ -1189,9 +1205,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: GET prior-terms?field_sca_opinion_year_value=2024&field_case_type_sca_value=CIV-O → row 22-765 SO → PDF 46 pp, 82,086 chars; caption 'September 2024 Term … No. 22-765'; no reporter cite. Second: 25-884 memorandum decision (2 pp) '(ICA No. 25-ICA-78)'."
+        "evidence": "fetch_doc: GET prior-terms?field_sca_opinion_year_value=2024&field_case_type_sca_value=CIV-O → row 22-765 SO → PDF 46 pp, 82,086 chars; caption 'September 2024 Term … No. 22-765'; no reporter cite. Second: 25-884 memorandum decision (2 pp) '(ICA No. 25-ICA-78)'. | Independent check 2026-10-17: fetch_doc 22-765-bunn-p.pdf 46 pp: 'AFFIRMED IN PART, REVERSED IN PART, AND REMANDED'; second citation St. Joseph's Hosp. of Buckhannon, Inc. v. Stonewall Jackson Mem'l Hosp. Co., No. 24-347 (W. Va. Nov. 13, 2025) ok"
       },
       "notes": "Decision-type codes: SO signed opinion, MD memorandum decision, SEP separate opinion, Per Curiam, Order."
     },
@@ -1202,7 +1218,7 @@
       "publisher": "Intermediate Court of Appeals of West Virginia",
       "tier": 1,
       "official_status": "unofficial",
-      "official_status_evidence": "Slip opinions; reported opinions appear in S.E.2d (not free).",
+      "official_status_evidence": "Slip opinions. Reported ICA opinions appear in West Virginia Reports and S.E.2d with a '(Ct. App. YYYY)' parenthetical, e.g. '250 W. Va. 378, 903 S.E.2d 247 (Ct. App. 2024)'. Neither reporter is free.",
       "coverage": "July 2022-2026; 1,398 decisions in the archive (single page, 633K characters, unfiltered).",
       "access": {
         "mode": "search-only",
@@ -1236,9 +1252,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: GET prior-terms?field_ica_opinion_year_value=2023&field_decision_type_value=SO → 30 rows incl. 22-ICA-208 → PDF 29 pp, 49,514 chars, 'No. 22-ICA-208 … REVERSED AND REMANDED … Filed: December 8, 2023'."
+        "evidence": "fetch_doc: GET prior-terms?field_ica_opinion_year_value=2023&field_decision_type_value=SO → 30 rows incl. 22-ICA-208 → PDF 29 pp, 49,514 chars, 'No. 22-ICA-208 … REVERSED AND REMANDED … Filed: December 8, 2023'. | Independent check 2026-10-17: fetch_doc 22-ICA-208 Opinion.pdf 29 pp: 'No. 18-C-182 REVERSED AND REMANDED'; second citation Dan Ryan Builders, Inc. v. Evanston Ins. Co., No. 24-ICA-481 (W. Va. Ct. App. Nov. 13, 2025) ok"
       },
       "notes": ""
     },
@@ -1273,7 +1289,8 @@
       "hazards": [
         "bare docket slug can be a separate opinion, not the majority",
         "some entries unlinked",
-        "shell blocked"
+        "shell blocked",
+        "year listings (2025: 501 entries) run past the WebFetch window, which ends near May; use offset=100000 or page 2 for earlier months"
       ],
       "probe": {
         "citation": "Folse v. Rollyson, No. 22-ICA-243 (W. Va. Ct. App. Nov. 16, 2023)",
@@ -1283,9 +1300,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 22-ica-243 YES 'SCARR, Judge: Petitioner, Mr. Jay Folse, appeals the October 13,', complete. SCA 2024 listing: 22-765-0.html = signed opinion, 22-765.html = separate opinion (fetched: separate only). /2023/22-ica-208.html → fetch error (entry unlinked)."
+        "evidence": "WebFetch: 22-ica-243 YES 'SCARR, Judge: Petitioner, Mr. Jay Folse, appeals the October 13,', complete. SCA 2024 listing: 22-765-0.html = signed opinion, 22-765.html = separate opinion (fetched: separate only). /2023/22-ica-208.html → fetch error (entry unlinked). | Independent check 2026-10-17: WebFetch YES 'SCARR, Judge: Petitioner, Mr. Jay Folse, appeals the October 13'; complete; second citation No. 24-347 (W. Va. Nov. 13, 2025) ok"
       },
       "notes": ""
     },
@@ -1301,7 +1318,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.courtswv.gov/appellate-courts/supreme-court-of-appeals/opinions/prior-terms?combine={party}",
-        "pattern_rules": "Party-name search only: combine={ICA docket} returns 'No Entries Found.' even when the SCA decision's caption cites that docket. Search a distinctive party name (combine=Gasvoda → 25-884 MD (2026) and 23-143 md (2024)), then confirm '(ICA No. …)' in the PDF caption. Parties may be reversed on appeal.",
+        "pattern_rules": "Party-name search only: combine={ICA docket} returns 'No Entries Found.' even when the SCA decision's caption cites that docket. Search a distinctive party name (combine=Gasvoda → 25-884 MD (2026) and 23-143 md (2024)), then grep the PDF for the ICA docket: memorandum decisions show '(ICA No. YY-ICA-N)', signed opinions show 'Intermediate Court of Appeals of West Virginia No. YY-ICA-N' (23-325). Common names return many unrelated rows (combine=Folse gave 10+). Parties may be reversed on appeal.",
         "index_url": "https://www.courtswv.gov/appellate-courts/supreme-court-of-appeals/opinions/prior-terms",
         "navigation": "GET prior-terms?combine={party} → candidate rows → PDF caption shows '(ICA No. YY-ICA-N)'",
         "format": "pdf"
@@ -1329,9 +1346,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: SCA combine=Gasvoda → 25-884 MD; PDF 2 pp '(ICA No. 25-ICA-78)'. ICA combine=Gasvoda → 25-ICA-78_MD.pdf (2025-10). SCA combine=25-ICA-78 → 'No Entries Found.'"
+        "evidence": "fetch_doc: SCA combine=Gasvoda → 25-884 MD; PDF 2 pp '(ICA No. 25-ICA-78)'. ICA combine=Gasvoda → 25-ICA-78_MD.pdf (2025-10). SCA combine=25-ICA-78 → 'No Entries Found.' | Independent check 2026-10-17: fetch_doc combine=Gasvoda -> 25-884 MD PDF: 'No. 25-884 (JCN: 2019025668) (ICA No. 25-ICA-78)'; second citation Folse v. Rollyson, No. 22-ICA-87 -> No. 23-325 (W. Va. 2025) ok"
       },
       "notes": ""
     },
@@ -1365,7 +1382,8 @@
       },
       "hazards": [
         "free-form file names",
-        "only summaries, not reasons"
+        "only summaries, not reasons",
+        "the SCA order-lists index's default view showed 06/26/2025 as its newest list on 2026-10-17, though the year filter offers 2026; whether later SCA lists exist was not resolved — check the 2026 filter"
       ],
       "probe": {
         "citation": "SCA order list June 26, 2025",
@@ -1375,9 +1393,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc: 3 pp, 4,496 chars, entries like 'No. 24-120 (Ohio CC-35-2022-C-26) Affirmed (5-0)'. WebFetch (search-sourced ICA '2024-11-4 Order and Decision List.pdf'): ICA list dated November 4, 2024, first entry No. 23-ICA-351 'Reversed and Remanded'."
+        "evidence": "fetch_doc: 3 pp, 4,496 chars, entries like 'No. 24-120 (Ohio CC-35-2022-C-26) Affirmed (5-0)'. WebFetch (search-sourced ICA '2024-11-4 Order and Decision List.pdf'): ICA list dated November 4, 2024, first entry No. 23-ICA-351 'Reversed and Remanded'. | Independent check 2026-10-17: fetch_doc OrderListJune262025.pdf: 'No. 24-120 (Ohio CC-35-2022-C-26) Affirmed (5-0)'; second citation ICA Order and Decision List, Oct. 5, 2026 ok"
       },
       "notes": ""
     }
@@ -1498,6 +1516,7 @@
     "Other court rule sets (Family Court, Magistrate Court civil/criminal, child abuse and neglect, juvenile, post-conviction habeas, administrative appeals, judicial discipline) are linked from the court rules index but not probed.",
     "CourtListener ids 'wva' and 'wvactapp' unverified.",
     "Whether West Virginia has enacted UELMA and designated an authenticated online Code was not established; no statement found on code.wvlegislature.gov.",
-    "code.wvlegislature.gov/robots.txt could not be read directly (connection reset); fetch_doc's check reported it permits the paths used."
+    "code.wvlegislature.gov/robots.txt could not be read directly (connection reset); fetch_doc's check reported it permits the paths used.",
+    "SCA order-lists page: default view's newest entry is 06/26/2025; whether 2026 lists exist under the year filter is unresolved."
   ]
 }

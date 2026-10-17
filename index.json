@@ -3996,22 +3996,22 @@
     "wv": {
       "name": "West Virginia",
       "file": "jurisdictions/wv.md",
-      "sha256": "e901a447c63dd7d97ee4acf3828a4130afec177cdc3272e5ce45520549df1b9c",
+      "sha256": "8867b52ab40042bdfee48f6f0797c1251a63a565f00fdc5ce6c2a95b892ce944",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 20,
+        "verified_independent": 20,
         "blocked": 1,
         "reported": 1
       },
       "citation_patterns": [
         {
           "label": "West Virginia Code",
-          "regex": "(?:W\\.\\s*Va\\.\\s*Code(?:\\s+Ann\\.)?|West\\s+Virginia\\s+Code|Code\\s+of\\s+West\\s+Virginia)\\s*,?\\s*\u00a7+\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])|sec(?:tion|\\.)\\s+(?P<section2>\\d{1,3}[A-Za-z]?),\\s+art(?:icle|\\.)\\s+(?P<article2>\\d{1,2}[A-Z]?),\\s+ch(?:apter|\\.)\\s+(?P<chapter2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Code\\s+of\\s+West\\s+Virginia|West\\s+Virginia\\s+Code)",
+          "regex": "(?:W\\.\\s*Va\\.\\s*Code(?:\\s+Ann\\.)?|West\\s+Virginia\\s+Code|Code\\s+of\\s+West\\s+Virginia)(?:\\s*,\\s*\u00a7*|\\s*\u00a7+)\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])|sec(?:tion|\\.)\\s+(?P<section2>\\d{1,3}[A-Za-z]?),\\s+art(?:icle|\\.)\\s+(?P<article2>\\d{1,2}[A-Z]?),\\s+ch(?:apter|\\.)\\s+(?P<chapter2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Code\\s+of\\s+West\\s+Virginia|West\\s+Virginia\\s+Code)",
           "context_required": false
         },
         {
           "label": "West Virginia Code (bare section, in-state style '\u00a755-7-8a')",
-          "regex": "\u00a7\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])",
+          "regex": "(?<!R\\.\\s)(?<!R\\.)\u00a7\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,2}[A-Z]?)-(?P<section>\\d{1,3}[A-Za-z]?)(?![\\w-])",
           "context_required": true
         },
         {
@@ -4080,8 +4080,13 @@
           "context_required": false
         },
         {
-          "label": "West Virginia Reports (official reporter) with parallel S.E./S.E.2d",
-          "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4}))?",
+          "label": "West Virginia Reports (official reporter) with parallel S.E./S.E.2d \u2014 Supreme Court of Appeals",
+          "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*\\d+)*(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4}))?(?![^()]{0,40}\\(\\s*(?:W\\.\\s*Va\\.\\s*)?Ct\\.\\s*App\\.)",
+          "context_required": false
+        },
+        {
+          "label": "West Virginia Reports / S.E.2d \u2014 Intermediate Court of Appeals '(Ct. App. YYYY)'",
+          "regex": "(?P<volume>\\d{1,3})\\s+W\\.\\s*Va\\.\\s+(?P<page>\\d{1,4})(?!\\d)(?:,\\s*\\d+)*(?:,\\s*(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*2d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)*)?\\s*\\(\\s*(?:W\\.\\s*Va\\.\\s*)?Ct\\.\\s*App\\.\\s*(?P<year>\\d{4})\\)",
           "context_required": false
         },
         {
