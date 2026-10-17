@@ -3577,16 +3577,21 @@
     "vt": {
       "name": "Vermont",
       "file": "jurisdictions/vt.md",
-      "sha256": "0896ed41d92b7e523494566830ccce5003842c9c1f1aa2a7ae10646658d76cd8",
+      "sha256": "3c7dd91443645dfdbe4963f6f045e1c4b3e5e0659242a0d266a5e57dbce729e5",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 11,
+        "verified_independent": 11,
         "reported": 2
       },
       "citation_patterns": [
         {
           "label": "Vermont Statutes Annotated",
-          "regex": "(?P<title>\\d{1,2}[A-C]?)\\s+V\\.\\s?S\\.\\s?A\\.(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?!\\d)|Vt\\.\\s*Stat\\.\\s*Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}[A-C]?),?\\s*\u00a7+\\s*(?P<section2>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?!\\d)|(?:[Ss]ec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title3>\\d{1,2}[A-C]?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated|Title\\s+(?P<title4>\\d{1,2}[A-C]?),\\s+(?:[Ss]ection|\u00a7)\\s*(?P<section4>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated",
+          "regex": "(?<!\\d)9A\\s+V\\.\\s?S\\.\\s?A\\.(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<ucc_section>\\d+[A-Z]?-\\d+[a-z]?)|(?P<title>\\d{1,2}[A-C]?)\\s+V\\.\\s?S\\.\\s?A\\.(?:\\s+Ann\\.)?\\s*(?:\u00a7\u00a7\\s*(?P<range_start>\\d+[a-z]?(?:\\.\\d+[a-z]?)?)\\s*(?:-|\u2013|to|through)\\s*(?P<range_end>\\d+[a-z]?(?:\\.\\d+[a-z]?)?)|\u00a7+\\s*(?P<section>\\d+[a-z]?(?:\\.\\d+[a-z]?)?))(?!\\d)|Vt\\.\\s*Stat\\.\\s*Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}[A-C]?),?\\s*(?:\u00a7\u00a7\\s*(?P<range_start2>\\d+[a-z]?(?:\\.\\d+[a-z]?)?)\\s*(?:-|\u2013|to|through)\\s*(?P<range_end2>\\d+[a-z]?(?:\\.\\d+[a-z]?)?)|\u00a7+\\s*(?P<section2>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?))(?!\\d)|(?:[Ss]ec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title3>\\d{1,2}[A-C]?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated|Title\\s+(?P<title4>\\d{1,2}[A-C]?),\\s+(?:[Ss]ection|\u00a7)\\s*(?P<section4>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Statutes Annotated appendices (3, 10, 16, 24 App.)",
+          "regex": "(?P<title>3|10|16|24)\\s+(?:App\\.\\s*V\\.\\s?S\\.\\s?A\\.|V\\.\\s?S\\.\\s?A\\.\\s*App\\.)\\s*(?:ch\\.\\s*(?P<chapter>\\d+[A-Z]?),?\\s*)?\u00a7+\\s*(?:(?P<chapter2>\\d+[A-Z]?)-)?(?P<section>\\d+[a-z]?)(?!\\d)",
           "context_required": false
         },
         {

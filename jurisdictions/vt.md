@@ -19,7 +19,8 @@ Statutes: legislature.vermont.gov per-section pages (unofficial, 2026 session) n
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Vermont Statutes Annotated | `12 V.S.A. § 512`; `9 V.S.A. § 2453(a)`; `13 V.S.A. § 2301`; `9A V.S.A. § 2-101`; `11A V.S.A. § 8.30`; `Vt. Stat. Ann. tit. 12, § 512`; `Vt. Stat. Ann. tit. 9, § 2453`; `section 2453 of Title 9 of the Vermont Statutes Annotated`; `Title 12, section 512 of the Vermont Statutes Annotated` | `vt-statutes-leg` → `vt-statutes-justia` |
+| Vermont Statutes Annotated | `12 V.S.A. § 512`; `9 V.S.A. § 2453(a)`; `13 V.S.A. § 2301`; `9A V.S.A. § 2-101`; `11A V.S.A. § 8.30`; `Vt. Stat. Ann. tit. 12, § 512`; `Vt. Stat. Ann. tit. 9, § 2453`; `section 2453 of Title 9 of the Vermont Statutes Annotated`; `Title 12, section 512 of the Vermont Statutes Annotated`; `23 V.S.A. § 1201`; `23 V.S.A. §§ 1201-1205`; `section 6086 of Title 10 of the Vermont Statutes Annotated` | `vt-statutes-leg` → `vt-statutes-justia` |
+| Vermont Statutes Annotated appendices (3, 10, 16, 24 App.) | `24 App. V.S.A. ch. 3, § 1`; `3 V.S.A. App. § 1`; `24 V.S.A. App. § 3-1` | `vt-statutes-leg` |
 | Vermont Acts and Resolves (session laws), distinctive forms | `2023, No. 181 (Adj. Sess.), § 2`; `1971, No. 185 (Adj. Sess.)`; `2023 Vt. Acts & Resolves No. 181`; `1975, No. 248 (Adj. Sess.), § 2` | `vt-session-laws` |
 | Vermont Acts (bare 'YYYY, No. N' / 'Act N of YYYY') *(only once this jurisdiction is known)* | `2025, No. 1`; `Act 153 of 2026`; `1959, No. 261, § 3` | `vt-session-laws` |
 | Vermont Constitution | `Vt. Const. ch. I, art. 11`; `Vt. Const. ch. II, § 28`; `Vt. Const. ch. I, art. 22`; `Chapter I, Article 11 of the Vermont Constitution`; `Article 11 of Chapter I of the Vermont Constitution`; `Chapter II, § 37 of the Vermont Constitution` | `vt-constitution-leg` → `vt-constitution-justia` |
@@ -34,7 +35,8 @@ Statutes: legislature.vermont.gov per-section pages (unofficial, 2026 session) n
 
 Regexes (case-insensitive):
 
-- Vermont Statutes Annotated: `(?P<title>\d{1,2}[A-C]?)\s+V\.\s?S\.\s?A\.(?:\s+Ann\.)?\s*§+\s*(?P<section>\d+[a-z]?(?:[-.]\d+[a-z]?)?)(?!\d)|Vt\.\s*Stat\.\s*Ann\.\s*tit\.\s*(?P<title2>\d{1,2}[A-C]?),?\s*§+\s*(?P<section2>\d+[a-z]?(?:[-.]\d+[a-z]?)?)(?!\d)|(?:[Ss]ec(?:tion|\.)|§)\s*(?P<section3>\d+[a-z]?(?:[-.]\d+[a-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title3>\d{1,2}[A-C]?)\s+of\s+the\s+Vermont\s+Statutes\s+Annotated|Title\s+(?P<title4>\d{1,2}[A-C]?),\s+(?:[Ss]ection|§)\s*(?P<section4>\d+[a-z]?(?:[-.]\d+[a-z]?)?)\s+of\s+the\s+Vermont\s+Statutes\s+Annotated`
+- Vermont Statutes Annotated: `(?<!\d)9A\s+V\.\s?S\.\s?A\.(?:\s+Ann\.)?\s*§+\s*(?P<ucc_section>\d+[A-Z]?-\d+[a-z]?)|(?P<title>\d{1,2}[A-C]?)\s+V\.\s?S\.\s?A\.(?:\s+Ann\.)?\s*(?:§§\s*(?P<range_start>\d+[a-z]?(?:\.\d+[a-z]?)?)\s*(?:-|–|to|through)\s*(?P<range_end>\d+[a-z]?(?:\.\d+[a-z]?)?)|§+\s*(?P<section>\d+[a-z]?(?:\.\d+[a-z]?)?))(?!\d)|Vt\.\s*Stat\.\s*Ann\.\s*tit\.\s*(?P<title2>\d{1,2}[A-C]?),?\s*(?:§§\s*(?P<range_start2>\d+[a-z]?(?:\.\d+[a-z]?)?)\s*(?:-|–|to|through)\s*(?P<range_end2>\d+[a-z]?(?:\.\d+[a-z]?)?)|§+\s*(?P<section2>\d+[a-z]?(?:[-.]\d+[a-z]?)?))(?!\d)|(?:[Ss]ec(?:tion|\.)|§)\s*(?P<section3>\d+[a-z]?(?:[-.]\d+[a-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title3>\d{1,2}[A-C]?)\s+of\s+the\s+Vermont\s+Statutes\s+Annotated|Title\s+(?P<title4>\d{1,2}[A-C]?),\s+(?:[Ss]ection|§)\s*(?P<section4>\d+[a-z]?(?:[-.]\d+[a-z]?)?)\s+of\s+the\s+Vermont\s+Statutes\s+Annotated`
+- Vermont Statutes Annotated appendices (3, 10, 16, 24 App.): `(?P<title>3|10|16|24)\s+(?:App\.\s*V\.\s?S\.\s?A\.|V\.\s?S\.\s?A\.\s*App\.)\s*(?:ch\.\s*(?P<chapter>\d+[A-Z]?),?\s*)?§+\s*(?:(?P<chapter2>\d+[A-Z]?)-)?(?P<section>\d+[a-z]?)(?!\d)`
 - Vermont Acts and Resolves (session laws), distinctive forms: `(?P<year>(?:18|19|20)\d\d),\s*No\.\s*(?P<number>\d{1,3})\s*\((?:Adj|Sp)\.\s*Sess\.\)|(?P<year2>(?:18|19|20)\d\d)\s+Vt\.\s*Acts\s*(?:&|and)\s*Resolves\s+No\.\s*(?P<number2>\d{1,3})`
 - Vermont Acts (bare 'YYYY, No. N' / 'Act N of YYYY'): `(?P<year>(?:18|19|20)\d\d),\s*No\.\s*(?P<number>\d{1,3})(?!\d|,\s*(?:19|20)\d\d)|Act\s+(?:No\.\s*)?(?P<number2>\d{1,3})\s+of\s+(?P<year2>(?:19|20)\d\d)`
 - Vermont Constitution: `Vt\.\s*Const\.\s*ch\.\s*(?P<chapter>I{1,2}),?\s*(?:art\.\s*(?P<article>\d+)|§\s*(?P<section>\d+))|Chapter\s+(?P<chapter2>I{1,2}),?\s+(?:Article\s+(?P<article2>\d+)|(?:Section|§)\s*(?P<section2>\d+))\s+of\s+the\s+Vermont\s+Constitution|Article\s+(?P<article3>\d+)(?:th|st|nd|rd)?\s+of\s+Chapter\s+(?P<chapter3>I{1,2})\s+of\s+the\s+Vermont\s+Constitution`
@@ -47,13 +49,13 @@ Regexes (case-insensitive):
 - Vermont Superior Court docket numbers and decisions: `(?P<yy>\d{2})-(?P<div>CV|CR|FA|PR|ENV|JV|DM|FS|SC)-(?P<seq>\d{3,5})`
 - Westlaw / Lexis cites with Vermont parenthetical: `(?P<year>(?:19|20)\d\d)\s+(?:WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(Vt\.|Vt\.\s*(?:Super\.\s*)?LEXIS\s+(?P<lexis>\d+))`
 
-Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12, § 512'. Titles carry letter suffixes (9A UCC, 11A business corporations, 11B, 11C). In-code cross-references read 'section 512 of this title' and carry no state marker: route them only with Vermont context. Bare 'section N of Title T' is not claimed here (it would collide with Delaware's 'Section 141(k) of Title 8'); the prose forms routed here name 'the Vermont Statutes Annotated'. A '§§ 1131-1133' range is a span, not a hyphenated section; hyphenated sections exist only in Title 9A (UCC article-section, e.g. 2-101) and dotted ones in 11A/11B/11C (8.30). Session laws are cited 'YYYY, No. N (Adj. Sess.), § S' (the year is the session year; even-year adjourned sessions are '(Adj. Sess.)'). Bare 'YYYY, No. N' and 'Act N of YYYY' are generic and need Vermont context. Constitution: two chapters; Chapter I is cited by article ('ch. I, art. 11'), Chapter II by section ('ch. II, § 28'). Historic ordinal forms ('Article 11th') appear in older opinions. Court rules: V.R.C.P., V.R.Cr.P., V.R.A.P., V.R.E., V.R.F.P., V.R.P.P., V.R.E.C.P., V.R.Pr.C. (professional conduct); bare 'Rule 12(b)(6)' must not route here without context. Case law: public-domain citation 'YYYY VT N, ¶ P' since 2003 (paragraph-numbered pinpoints, vendor-neutral); parallel cites to Vt. (official Vermont Reports) and A.2d/A.3d. Unpublished three-justice entry orders (V.R.A.P. 33.1) carry only the docket ('No. 25-AP-364') and are not precedent. Supreme Court dockets: 'YY-AP-NNN' from about 2021; earlier 'YYYY-NNN'. The opinion PDF names derive from the docket (op25-345.pdf; eo25-364.pdf; eo2008-164.pdf; suffixes like '_3' or '.bail_' occur), so go through the library search. Superior Court dockets 'YY-CV-NNNNN' etc. are generic. CourtListener ids 'vt' and 'vtsuperct' are from memory and unverified.
+Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12, § 512'. Titles carry letter suffixes (9A UCC, 11A business corporations, 11B, 11C). In-code cross-references read 'section 512 of this title' and carry no state marker: route them only with Vermont context. Bare 'section N of Title T' is not claimed here (it would collide with Delaware's 'Section 141(k) of Title 8'); the prose forms routed here name 'the Vermont Statutes Annotated'. A '§§ 1201-1205' range is a span, not a hyphenated section: the statute regex captures it as range_start/range_end (fetch range_start, then each section through range_end); hyphenated sections exist only in Title 9A (UCC article-section, e.g. 2-101) and dotted ones in 11A/11B/11C (8.30). Session laws are cited 'YYYY, No. N (Adj. Sess.), § S' (the year is the session year; even-year adjourned sessions are '(Adj. Sess.)'). Bare 'YYYY, No. N' and 'Act N of YYYY' are generic and need Vermont context. Constitution: two chapters; Chapter I is cited by article ('ch. I, art. 11'), Chapter II by section ('ch. II, § 28'). Historic ordinal forms ('Article 11th') appear in older opinions. Court rules: V.R.C.P., V.R.Cr.P., V.R.A.P., V.R.E., V.R.F.P., V.R.P.P., V.R.E.C.P., V.R.Pr.C. (professional conduct); bare 'Rule 12(b)(6)' must not route here without context. Case law: public-domain citation 'YYYY VT N, ¶ P' since 2003 (paragraph-numbered pinpoints, vendor-neutral); parallel cites to Vt. (official Vermont Reports) and A.2d/A.3d. Unpublished three-justice entry orders (V.R.A.P. 33.1) carry only the docket ('No. 25-AP-364') and are not precedent. Supreme Court dockets: 'YY-AP-NNN' from about 2021; earlier 'YYYY-NNN'. The opinion PDF names derive from the docket (op25-345.pdf; eo25-364.pdf; eo2008-164.pdf; suffixes like '_3' or '.bail_' occur), so go through the library search. Superior Court dockets 'YY-CV-NNNNN' etc. are generic. CourtListener ids 'vt' and 'vtsuperct' are from memory and unverified. Appendices: the site cites them '24 App. V.S.A. ch. 3, § 1'; practitioners also write '3 V.S.A. App. § 1' or '24 V.S.A. App. § 3-1' (chapter-section); the appendix pattern routes all three.
 
 ## A. Statutes / code
 
 ### `vt-session-laws` — Acts and Resolves (as-enacted act PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont General Assembly · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont General Assembly · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Acts of each biennium as enacted, with act summaries; probed 2024 (Act 181) and 2026 (Act 153).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -68,17 +70,17 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** long PDFs
 - **Hazard:** pre-2000s acts not probed
 - **Probe:** 2025, No. 153 (Adj. Sess.) → `https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT153/ACT153%20As%20Enacted.pdf` — expect: "An act relating to miscellaneous amendments to laws relating to"
-- **Evidence (2026-10-17):** fetch_doc: PDF 33 pp., 49,898 chars, 'No. 153. An act relating to miscellaneous amendments to laws relating to motor vehicles. (S.326)'. Second: /Documents/2024/Docs/ACTS/ACT181/… 171 pp., 'An act relating to community resilience and biodiversity'. loadBillActs/2026/regular → JSON with ActLink.
+- **Evidence (2026-10-17):** fetch_doc: PDF 33 pp., 49,898 chars, 'No. 153. An act relating to miscellaneous amendments to laws relating to motor vehicles. (S.326)'. Second: /Documents/2024/Docs/ACTS/ACT181/… 171 pp., 'An act relating to community resilience and biodiversity'. loadBillActs/2026/regular → JSON with ActLink. | Independent check 2026-10-17: fetch_doc grep: 'No. 153. An act relating to miscellaneous amendments to laws relating to motor vehicles' (33 pp.); second citation 2019, No. 131 (Adj. Sess.) ok
 - **Notes:** Older Acts and Resolves volumes were not looked for.
 
 ### `vt-statutes-leg` — The Vermont Statutes Online
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont General Assembly / Office of Legislative Counsel · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont General Assembly / Office of Legislative Counsel · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All titles of the V.S.A. including appendices (3, 10, 16, 24 Appendix); per-section HTML pages and whole-chapter pages; current through the latest session.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://legislature.vermont.gov/statutes/section/{title:02d}{title_suffix}/{chapter:03d}{chapter_suffix}/{section:05d}{section_suffix}`
-  - Placeholders: title = 2-digit zero-padded plus any letter suffix (01, 09, 12, 09A, 11A). chapter = 3-digit zero-padded plus any suffix (023, 063, 002A). section = numeric part zero-padded to 5 digits, lower-case letter suffix kept (00512, 02453, 02451a). Title 9A (UCC) '§ 2-101' → chapter = article (002), section = part after the hyphen (00101). Titles 11A/11B/11C decimal sections '§ 8.30' → chapter 008, section '00008.30'. The CHAPTER is not encoded in the citation: take it from the title index, whose chapter rows show section ranges ('Chapter 023 : Limitation of Time for Commencement of Actions Contains: §§ 461 - 595'). A wrong chapter returns HTTP 200 with an empty shell '(Cite as: V.S.A. )' — treat that as not found. Whole chapter: https://legislature.vermont.gov/statutes/fullchapter/{title}/{chapter}.
+  - Placeholders: title = 2-digit zero-padded plus any letter suffix (01, 09, 12, 09A, 11A). chapter = 3-digit zero-padded plus any suffix (023, 063, 002A). section = numeric part zero-padded to 5 digits, lower-case letter suffix kept (00512, 02453, 02451a). Title 9A (UCC) '§ 2-101' → chapter = article (002), section = part after the hyphen (00101). Titles 11A/11B/11C decimal sections '§ 8.30' → chapter 008, section '00008.30'. The CHAPTER is not encoded in the citation: take it from the title index, whose chapter rows show section ranges ('Chapter 023 : Limitation of Time for Commencement of Actions Contains: §§ 461 - 595'). A wrong chapter returns HTTP 200 with an empty shell '(Cite as: V.S.A. )' — treat that as not found. Whole chapter: https://legislature.vermont.gov/statutes/fullchapter/{title}/{chapter}. Appendices: title key '{title:02d}APPENDIX' (03APPENDIX, 10APPENDIX, 16APPENDIX, 24APPENDIX); URL https://legislature.vermont.gov/statutes/section/{title:02d}APPENDIX/{chapter:03d}/{section:05d} — chapter comes from the citation ('ch. 3' or the part before the hyphen in 'App. § 3-1'), e.g. 24 App. V.S.A. ch. 3, § 1 → /section/24APPENDIX/003/00001 ('(Cite as: 24 App. V.S.A. ch. 3, § 1)'). Appendix title index: /statutes/title/24APPENDIX. Ranges '§§ a-b': fetch each section; they may straddle chapters.
   - Index: `https://legislature.vermont.gov/statutes/title/{title:02d}`
   - Navigation: title index (/statutes/title/12) → the chapter whose 'Contains: §§ a - b' range covers the section → chapter page (/statutes/chapter/12/023) lists per-section links → section page. Verified: 12 V.S.A. § 512 → /section/12/023/00512; 9 V.S.A. § 2453 → /section/09/063/02453; 13 V.S.A. § 2301 → /section/13/053/02301; 9A V.S.A. § 2-101 → /section/09A/002/00101; 11A V.S.A. § 8.30 → /section/11A/008/00008.30.
 - **Automation:** WebFetch ok · shell ok · robots: User-agent: * Crawl-delay: 30; Disallow only /bill/loadBillDetailedStatus/, /bill/loadBillRollCalls/, /bill/loadBillRollCallDetails/, /bill/loadBillsIntroduced/
@@ -90,13 +92,15 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** unofficial copy per the publisher
 - **Hazard:** 30-second crawl-delay
 - **Hazard:** repealed sections show only a repeal note (12 V.S.A. §§ 1131-1133)
+- **Hazard:** '§§ a-b' citations are spans across several section pages (possibly several chapters), not one hyphenated section
+- **Hazard:** appendix sections restart numbering per chapter (24 App. ch. 3, § 1), so the chapter must come from the citation
 - **Probe:** 12 V.S.A. § 512 → `https://legislature.vermont.gov/statutes/section/12/023/00512` — expect: "Actions for the following causes shall be commenced within three years"
-- **Evidence (2026-10-17):** fetch_doc verify: VERIFIED at offset 5117 (7,100-char page). Also 9 V.S.A. § 2453 ('(a) Unfair methods of competition in commerce and unfair'), 13 V.S.A. § 2301 ('Murder committed by means of poison'), 9A § 2-101, 11A § 8.30 bodies present. Wrong chapter /09/062/02453 → 200 empty shell. WebFetch on /12/027/01131: page complete, unofficial-copy note and 2026-session banner.
+- **Evidence (2026-10-17):** fetch_doc verify: VERIFIED at offset 5117 (7,100-char page). Also 9 V.S.A. § 2453 ('(a) Unfair methods of competition in commerce and unfair'), 13 V.S.A. § 2301 ('Murder committed by means of poison'), 9A § 2-101, 11A § 8.30 bodies present. Wrong chapter /09/062/02453 → 200 empty shell. WebFetch on /12/027/01131: page complete, unofficial-copy note and 2026-session banner. | Independent check 2026-10-17: WebFetch YES 'Actions for the following causes shall be commenced within three'; banner '...include the actions of the 2026 session'; second citation 23 V.S.A. § 1201 ok
 - **Notes:** Fullchapter pages (/statutes/fullchapter/12/023, 33,857 chars) hold every section of a chapter. 'Acts Affecting VSA Sections' (/bill/acts-affecting-statutes/2026) lists recent amendments.
 
 ### `vt-statutes-justia` — Justia — Vermont Statutes (2025)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Vermont Statutes editions; unversioned URL serves the 2025 edition.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -111,13 +115,13 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** edition lags the official site by up to a year
 - **Hazard:** shell blocked by bot check
 - **Probe:** 12 V.S.A. § 512 → `https://law.justia.com/codes/vermont/title-12/chapter-23/section-512/` — expect: "Actions for the following causes shall be commenced within three"
-- **Evidence (2026-10-17):** WebFetch: body present, '2025 Vermont Statutes', not truncated. Second citation 9 V.S.A. § 2453 (/title-9/chapter-63/section-2453/): '(a) Unfair methods of competition in commerce and unfair or'.
+- **Evidence (2026-10-17):** WebFetch: body present, '2025 Vermont Statutes', not truncated. Second citation 9 V.S.A. § 2453 (/title-9/chapter-63/section-2453/): '(a) Unfair methods of competition in commerce and unfair or'. | Independent check 2026-10-17: WebFetch YES 'Actions for the following causes shall be commenced within three'; '2025 Vermont Statutes'; not truncated; second citation 23 V.S.A. § 1201 ok
 
 ## B. Constitution
 
 ### `vt-constitution-leg` — Constitution of the State of Vermont (Vermont General Assembly)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont General Assembly · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont General Assembly · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Whole constitution on one page: Chapter I (Declaration of Rights, Articles 1-22) and Chapter II (Plan or Frame of Government, §§ 1-76).
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -130,11 +134,11 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Official status:** Hosted on legislature.vermont.gov beside the 'unofficial' Statutes Online; the constitution page itself carries no official/unofficial statement.
 - **Hazard:** the 'amended through March 31, 2021' heading is stale: the page includes the 2022 Article 22 (personal reproductive liberty)
 - **Probe:** Vt. Const. ch. I, art. 11 → `https://legislature.vermont.gov/statutes/constitution-of-the-state-of-vermont` — expect: "That the people have a right to hold themselves, their"
-- **Evidence (2026-10-17):** WebFetch: ch. I art. 11 YES, ch. II § 76 YES, not truncated. fetch_doc verify at offset 10279; Article 22 '[Personal reproductive liberty]' at 13650; ch. II § 28 '[Courts of justice]' at 28714.
+- **Evidence (2026-10-17):** WebFetch: ch. I art. 11 YES, ch. II § 76 YES, not truncated. fetch_doc verify at offset 10279; Article 22 '[Personal reproductive liberty]' at 13650; ch. II § 28 '[Courts of justice]' at 28714. | Independent check 2026-10-17: WebFetch YES art. 11; heading 'AMENDED THROUGH MARCH 31, 2021'; Article 22 and ch. II § 76 present; second citation Vt. Const. ch. II, § 37 ok
 
 ### `vt-constitution-justia` — Justia — Vermont Constitution
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Whole constitution on one page; stale (lacks 2022 Article 22).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -148,7 +152,7 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** stale text: Article 22 NOT PRESENT
 - **Hazard:** shell blocked
 - **Probe:** Vt. Const. ch. I, art. 11 → `https://law.justia.com/constitution/vermont/` — expect: "That the people have a right to hold themselves, their"
-- **Evidence (2026-10-17):** WebFetch: art. 11 YES; Article 22 NOT PRESENT; § 20 text cut mid-word then §§ 21-76 continue.
+- **Evidence (2026-10-17):** WebFetch: art. 11 YES; Article 22 NOT PRESENT; § 20 text cut mid-word then §§ 21-76 continue. | Independent check 2026-10-17: WebFetch YES art. 11; 'This Constitution may not be the most recent version.'; Article 22 absent; § 20 cut mid-word
 - **Notes:** Last resort only; prefer vt-constitution-leg.
 
 ## C. Court rules
@@ -175,11 +179,11 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 
 ### `vt-rules-promulgated` — Vermont Supreme Court promulgation orders (rule amendments, last two years)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont Supreme Court / Vermont Judiciary · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont Supreme Court / Vermont Judiciary · text: **fetch-and-quote** · official: official
 - **Coverage:** Amended rule text and Reporter's Notes for amendments promulgated in the last two years (V.R.C.P., V.R.Cr.P., V.R.A.P., V.R.E., V.R.F.P., V.R.P.P., V.R.E.C.P., admission rules, administrative orders). NOT a consolidated rule set.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
-  - Placeholders: Link slugs are the PDF name with punctuation removed (PROMULGATED-VRCP55(a)--STAMPED.pdf → https://www.vtcourts.gov/PROMULGATEDVRCP55aSTAMPED), which redirects to /sites/default/files/documents/…; take links from the index, never build them.
+  - Placeholders: Link slugs are irregular (some drop all punctuation, e.g. /PROMULGATEDVRCP55aSTAMPED; others keep hyphens, e.g. PROMULGATED-VRPP13--STAMPED, PROMULGATED--VRE106--STAMPED). Never build them: take every URL from the links on the index page (fetch_doc.py links). Order titles also vary ('Promulgation Order Amending Rule …' vs 'Order Promulgating Amendments to Rule …'), so do not match on the title wording. The index also lists FORCOMMENT emergency orders.
   - Index: `https://www.vtcourts.gov/attorneys/rules/promulgated`
   - Navigation: promulgated index → PDF for the rule → amended text with new matter underlined; proposed amendments at /attorneys/rules/proposed
 - **Automation:** WebFetch untested · shell ok · robots: www.vtcourts.gov: Drupal default (Disallow /admin/, /search/, /user/*, /node/add/ …); /attorneys/rules and /sites/default/files allowed
@@ -190,7 +194,7 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** underline/strike-through markup lost in text extraction
 - **Hazard:** orders older than two years drop off the index
 - **Probe:** V.R.C.P. 55(a) → `https://www.vtcourts.gov/PROMULGATEDVRCP55aSTAMPED` — expect: "Promulgation Order Amending Rule 55(a) of the Vermont Rules of Civil Procedure"
-- **Evidence (2026-10-17):** fetch_doc: redirect to …/PROMULGATED-VRCP55%28a%29--STAMPED.pdf, 1 p., 3,233 chars; verify at offset 177; amended Rule 55(a) text and 'Reporter's Notes—2027 Amendment' present.
+- **Evidence (2026-10-17):** fetch_doc: redirect to …/PROMULGATED-VRCP55%28a%29--STAMPED.pdf, 1 p., 3,233 chars; verify at offset 177; amended Rule 55(a) text and 'Reporter's Notes—2027 Amendment' present. | Independent check 2026-10-17: fetch_doc: 'OCTOBER TERM, 2026 Promulgation Order Amending Rule 55(a) of the Vermont Rules of Civil Procedure'; second citation V.R.Cr.P. 49 ok
 - **Notes:** The judiciary's rules page links full rule texts only to LexisNexis (vt-rules-lexis).
 
 ## D. Administrative code
@@ -205,7 +209,7 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
   - Index: `https://www.lexisnexis.com/hottopics/codeofvtrules/`
   - Navigation: interactive browser only
 - **Automation:** WebFetch fail · shell unreadable-format · robots: permits the path
-  - Same Lexis container as vt-rules-lexis (statutes container tested: 0 chars to the script, empty to WebFetch); not separately fetched.
+  - Fetched directly by the independent check: 302 to an advance.lexis.com container (different config from vt-rules-lexis), then empty content to WebFetch.
 - **Currency:** none readable
 - **Official status:** Secretary of State APA page and the rules-posting site link 'Code of Vermont Rules' here; the SOS links individual CVR entries (CVR 04-000-001 Rule on Rulemaking) to advance.lexis.com.
 - **Hazard:** JavaScript-only
@@ -215,7 +219,7 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 
 ### `vt-admincode-lii` — Cornell LII — Vermont Administrative Code (Code of Vermont Rules)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Code of Vermont Rules by agency → subagency → chapter → rule.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format html
@@ -230,13 +234,13 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** long rules truncated by WebFetch
 - **Hazard:** currency only via rule history notes
 - **Probe:** Code Vt. R. 13-140-001 → `https://www.law.cornell.edu/regulations/vermont/13-001-Code-Vt-R-13-140-001-X` — expect: "Permissible Exposure Limit"
-- **Evidence (2026-10-17):** fetch_doc verify at offset 17521 (123,545 chars). WebFetch: YES, 'Section 1 General Provisions 1.1 Purpose These regulations, as authorized'; truncated at 100K before Notes.
+- **Evidence (2026-10-17):** fetch_doc verify at offset 17521 (123,545 chars). WebFetch: YES, 'Section 1 General Provisions 1.1 Purpose These regulations, as authorized'; truncated at 100K before Notes. | Independent check 2026-10-17: fetch_doc grep: '1.2.48 Permissible Exposure Limit - Airborne concentration of asbestos' (123,545 chars); second citation CVR 04-000-001 (Rule on Rulemaking) ok
 
 ## D. Administrative register
 
 ### `vt-register-sos` — Proposed Rules Postings (Secretary of State APA notices)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont Secretary of State · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont Secretary of State · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Current proposed and emergency rule notices (number, agency, legal authority, persons affected, economic impact, posting date); RSS and calendar.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format html
@@ -249,14 +253,15 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Official status:** 'A Service of the Office of the Secretary of State'; Vermont has no printed register: notices are posted here and in newspapers of record (sos.vermont.gov/…/apa-rules/notices-of-rulemaking).
 - **Hazard:** notices only, not adopted rule text
 - **Hazard:** detail pages script-driven
+- **Hazard:** rolling list: counts and the probe rule change as postings age; for a durable check use rssFeed.php or search.php
 - **Probe:** 26P032 (Home Health Services) → `https://secure.vermont.gov/SOS/rules/index.php` — expect: "Home Health Services."
-- **Evidence (2026-10-17):** fetch_doc: 11,366 chars; '29 Rules Found'; 26P032 Agency of Human Services 'Home Health Services.' Oct 07, 2026. rssFeed.php: RSS 2.0, 27,624 chars, items 'Rule:26P001'.
+- **Evidence (2026-10-17):** fetch_doc: 11,366 chars; '29 Rules Found'; 26P032 Agency of Human Services 'Home Health Services.' Oct 07, 2026. rssFeed.php: RSS 2.0, 27,624 chars, items 'Rule:26P001'. | Independent check 2026-10-17: fetch_doc: '29 Rules Found'; 'Home Health Services. Oct 07, 2026 Agency of Human Services'
 
 ## E. Case law
 
 ### `vt-opinions-courts` — Opinions, Decisions and Order Library (Vermont Judiciary)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont Judiciary · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont Judiciary · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court opinions and three-justice entry orders (sparse 2003-2005; full listing pages from 2006), plus Superior Court Civil, Criminal, Family, Probate and Environmental Division decisions. Library pages for 1998 and 2001 return no Supreme Court items.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `search-only` · format pdf
@@ -266,24 +271,24 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
   - Navigation: GET search URL → row → /media/{id} → PDF
 - **Automation:** WebFetch ok · shell ok · robots: Drupal default: Disallow /search/, /admin/, /user/*, /media/oembed …; /opinions-decisions, /media/{id} and /sites/default/files allowed
   - Supreme Court opinion PDFs are 20-50K chars and fit one WebFetch window (2026 VT 44 complete to ¶ 38).
-- **Currency:** listing date column — observed: "latest Supreme Court rows dated 10/09/2026"
+- **Currency:** listing date column (10/09/2026 = newest Supreme row of any document type; newest Opinion-type row was 10/05/2026) — observed: "latest Supreme Court rows dated 10/09/2026"
 - **Official status:** Opinion PDFs: 'subject to motions for reargument under V.R.A.P. 40 as well as formal revision before publication in the Vermont Reports.'
 - **Hazard:** slip opinions: Vermont Reports page numbers absent (pinpoint by ¶, which is official)
 - **Hazard:** entry orders of three-justice panels are not precedent
 - **Hazard:** trial-court PDFs are scans with OCR errors ('7ermont Superior Court')
 - **Hazard:** searching a trial docket does not find the appeal
 - **Probe:** Ford v. Polomsky, 2026 VT 44 (No. 25-AP-345) → `https://www.vtcourts.gov/sites/default/files/documents/op25-345.pdf` — expect: "Plaintiff appeals a civil division order dismissing his claim"
-- **Evidence (2026-10-17):** Search ?search_api_fulltext=25-AP-345 + Supreme facet → 1 row, /media/20708 → op25-345.pdf, 19 pp., '2026 VT 44'; verify at offset 1363. WebFetch: YES, complete to ¶ 38. Second: /media/20731 → eo25-364.pdf entry order (State v. Skinner); 2008 listing → eo2008-164.pdf '2008 VT 138'; 'No. 2015-376' search → op15-376_3.pdf (2016 VT 102).
+- **Evidence (2026-10-17):** Search ?search_api_fulltext=25-AP-345 + Supreme facet → 1 row, /media/20708 → op25-345.pdf, 19 pp., '2026 VT 44'; verify at offset 1363. WebFetch: YES, complete to ¶ 38. Second: /media/20731 → eo25-364.pdf entry order (State v. Skinner); 2008 listing → eo2008-164.pdf '2008 VT 138'; 'No. 2015-376' search → op15-376_3.pdf (2016 VT 102). | Independent check 2026-10-17: WebFetch YES 'Plaintiff appeals a civil division order dismissing his claim'; 2026 VT 44; complete to ¶ 38; second citation Wich v. Corcoran, 2026 VT 47 (No. 25-AP-423) ok
 - **Notes:** Vermont has no intermediate appellate court. The Environmental Division (land use, Act 250) publishes many decisions in the same library (facet 3).
 
 ### `vt-cases-justia` — Justia — Vermont Supreme Court decisions
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Vermont Supreme Court, year pages 1950-2026.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format html
   - Pattern: `https://law.justia.com/cases/vermont/supreme-court/{year}/{docket_lower}.html`
-  - Placeholders: Modern slugs are the lower-case docket ('23-ap-003'); older slugs not checked — take them from the year page. PDF copy at cases.justia.com/vermont/supreme-court/{year}-{docket}.pdf.
+  - Placeholders: Modern slugs are the lower-case docket ('23-ap-003'); pre-2021 slugs use the old docket '{yyyy}-{nnn}.html' (2019/2019-045.html, 2019 VT 88). PDF copy at cases.justia.com/vermont/supreme-court/{year}-{docket}.pdf.
   - Index: `https://law.justia.com/cases/vermont/supreme-court/{year}/`
   - Navigation: year page → case link
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: unreadable (bot check)
@@ -293,28 +298,29 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 - **Hazard:** shell blocked
 - **Hazard:** slip text
 - **Probe:** Rawley v. Heymann, 2023 VT 64 (No. 23-AP-003) → `https://law.justia.com/cases/vermont/supreme-court/2023/23-ap-003.html` — expect: "In this declaratory-judgment action, plaintiffs appeal the trial court's grant of"
-- **Evidence (2026-10-17):** WebFetch: full opinion through the dissent, '2023 VT 64'. Year page 2023 lists 22-ap-324, 23-ap-177 … with docket slugs; root lists years 1950-2026.
+- **Evidence (2026-10-17):** WebFetch: full opinion through the dissent, '2023 VT 64'. Year page 2023 lists 22-ap-324, 23-ap-177 … with docket slugs; root lists years 1950-2026. | Independent check 2026-10-17: WebFetch YES 'In this declaratory-judgment action, plaintiffs appeal the trial court's grant of'; 2023 VT 64; second citation Commercial Construction Endeavors v. Ohio Security Ins. Co., 2019 VT 88 (No. 2019-045) ok
 - **Notes:** Main free route for Supreme Court opinions before 2003-2006, which the judiciary library lacks.
 
 ## F. Subsequent history
 
 ### `vt-subsequent-history` — Vermont Supreme Court appeals in the judiciary library
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Vermont Judiciary · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Vermont Judiciary · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** The Supreme Court is the only appellate court; appeals from every Superior Court division and the Environmental Division go to it directly. Reargument (V.R.A.P. 40) dispositions follow in the same library; U.S. Supreme Court certiorari is the only further review.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `search-only` · format pdf
   - Pattern: `https://www.vtcourts.gov/opinions-decisions?search_api_fulltext={party}&f%5B0%5D=court_division_opinions_library_%3A7`
-  - Placeholders: Search by PARTY NAME with the Supreme facet: the trial-court docket (e.g. 25-CV-01449) is not indexed and the appellate caption gives only 'On Appeal from Superior Court, Lamoille Unit, Civil Division'. Confirm the match from the caption's unit/division and trial judge.
+  - Placeholders: Trial-court decisions ARE indexed, but only in an unpadded lower-case docket form: normalise 'YY-TT-NNNNN' to lower-case type with leading zeros stripped from the sequence ('25-CV-01449' → '25-cv-1449'); the padded upper-case form returns 0 rows. The appellate caption names only the unit and division ('On Appeal from Superior Court, Lamoille Unit, Civil Division'), not the trial docket, so search the Supreme Court side by PARTY NAME (Supreme facet, or no facet to see trial and appellate rows together) and confirm unit, division and trial judge from the caption.
   - Index: `https://www.vtcourts.gov/opinions-decisions`
-  - Navigation: party-name GET search (Supreme facet) → /media/{id} → PDF caption
+  - Navigation: normalised trial docket search ('25-cv-1449') → trial row; party-name GET search → Supreme row → /media/{id} → PDF caption
 - **Automation:** WebFetch ok · shell ok · robots: see vt-opinions-courts
 - **Currency:** none stated
 - **Official status:** Slip opinions and entry orders.
-- **Hazard:** party-name search only
-- **Hazard:** trial docket search returns nothing
+- **Hazard:** trial docket must be normalised (lower-case, no leading zeros) — padded form returns nothing
+- **Hazard:** appellate caption lacks the trial docket: link by party name
+- **Hazard:** parties may be reversed or abbreviated in trial file names ('ford v polomsky')
 - **Probe:** Ford v. Polomsky, No. 25-CV-01449 (Vt. Super. Ct. Sept. 24, 2025) → 2026 VT 44 → `https://www.vtcourts.gov/opinions-decisions?search_api_fulltext=Polomsky` — expect: "John Ford v. Marek Polomsky, MD and University of Vermont Medical Center"
-- **Evidence (2026-10-17):** fetch_doc links: 'Polomsky' → /media/20708 (Supreme, 25-AP-345, 2026 VT 44) and /media/19500 (Lamoille civil entry, Case No. 25-CV-01449). Search '25-CV-01449' → 0 rows. Caption of op25-345: 'Superior Court, Lamoille Unit, Civil Division', Benjamin Battles, J.
+- **Evidence (2026-10-17):** fetch_doc links: 'Polomsky' → /media/20708 (Supreme, 25-AP-345, 2026 VT 44) and /media/19500 (Lamoille civil entry, Case No. 25-CV-01449). Search '25-CV-01449' → 0 rows. Caption of op25-345: 'Superior Court, Lamoille Unit, Civil Division', Benjamin Battles, J. | Correction 2026-10-17 (independent check): search '25-cv-1449' → /media/19500; '25-CV-01449' → 0 rows. | Independent check 2026-10-17: WebFetch: row 'John Ford v. Marek Polomsky, MD and University of Vermont Medical Center' 25-AP-345 present; second citation Wich v. Corcoran (No. 25-AP-423) <- Orange Unit trial decision ok
 - **Notes:** Three-justice entry orders also dispose of appeals and are listed under the same docket form.
 
 ## Not available (do not look for these again)
@@ -328,7 +334,6 @@ Statutes: Vermont style is '12 V.S.A. § 512'; Bluebook 'Vt. Stat. Ann. tit. 12,
 ## Open questions
 
 - Whether the Vermont Reports (official, 'Vt.') page numbers are available free anywhere: not found.
-- Justia slug form for pre-2021 Vermont dockets (YYYY-NNN) not checked.
 - vt-session-laws and vt-register-sos not WebFetch-probed; vt-rules-promulgated PDFs not WebFetch-probed.
 - Older Acts and Resolves (before the 2000s) not located.
 - CourtListener ids 'vt' and 'vtsuperct' unverified.
