@@ -982,10 +982,11 @@
    "status": "allowed",
    "sources": [
     "ak-statutes-akleg",
-    "ak-session-laws-akleg",
     "ak-aac-akleg"
    ],
-   "blocked_sources": []
+   "blocked_sources": [
+    "ak-session-laws-akleg"
+   ]
   },
   "www.appeals2.az.gov": {
    "status": "allowed",

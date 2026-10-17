@@ -5,17 +5,16 @@
     "ak": {
       "name": "Alaska",
       "file": "jurisdictions/ak.md",
-      "sha256": "2bc5b83c1d99bb70695b2b86085ebb4f7854b5160fcf63c321abf48cac242833",
+      "sha256": "28d02826e1be6186879151be54429670eeec7b9e8e228f04e672c14b55234b0e",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 13,
-        "reported": 2,
-        "blocked": 1
+        "verified_independent": 14,
+        "blocked": 2
       },
       "citation_patterns": [
         {
           "label": "Alaska Statutes",
-          "regex": "(?<![A-Za-z])(?:AS|Alaska\\s+Stat(?:utes|\\.)?(?:\\s+Ann\\.)?\\s*\u00a7\u00a7?)\\s*(?P<title>\\d{2})\\.(?P<chapter>\\d{2})\\.(?P<section>\\d{3})(?!\\d)",
+          "regex": "(?<![A-Za-z])(?:AS|Alaska\\s+Stat(?:utes|\\.)?(?:\\s+Ann\\.)?\\s*\u00a7\u00a7?)\\s*(?P<title>\\d{1,2})\\.(?P<chapter>\\d{2})\\.(?P<section>\\d{3})(?!\\d)|sec(?:tion|\\.)\\s+(?P<title2>\\d{1,2})\\.(?P<chapter2>\\d{2})\\.(?P<section2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Alaska\\s+Statutes",
           "context_required": false
         },
         {
@@ -25,7 +24,7 @@
         },
         {
           "label": "Alaska Constitution",
-          "regex": "Alaska\\s+Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+Alaska\\s+Constitution",
+          "regex": "Alaska\\s+Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+Alaska\\s+Constitution|sec(?:tion|\\.)\\s+(?P<section3>\\d+)\\s+of\\s+(?:the\\s+)?Alaska\\s+Constitution,?\\s+art(?:icle|\\.)\\s+(?P<article3>[IVXL]+)|art(?:icle|\\.)\\s+(?P<article4>[IVXL]+),?\\s+sec(?:tion|\\.)\\s+(?P<section4>\\d+)\\s+of\\s+the\\s+Alaska\\s+Constitution",
           "context_required": false
         },
         {
@@ -55,7 +54,7 @@
         },
         {
           "label": "Alaska court rules, Alaska practitioners' short forms without state name",
-          "regex": "(?P<set>Civil|Criminal|Evidence|Appellate|Administrative|Probate|CINA|Delinquency)\\s+Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)",
+          "regex": "(?P<set>Civil|Criminal|Evidence|Appellate|Administrative)\\s+Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)",
           "context_required": true
         },
         {

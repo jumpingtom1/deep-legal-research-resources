@@ -19,9 +19,9 @@ Statutes and the Administrative Code: akleg.gov's interactive pages are JavaScri
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Alaska Statutes | `AS 09.10.070`; `Alaska Stat. § 09.10.070`; `AS 11.41.100(a)(1)`; `AS 11.41.410 - 11.41.470`; `Alaska Stat. §§ 09.10.010-.240`; `former AS 09.10.070` | `ak-statutes-akleg` → `ak-statutes-justia` |
+| Alaska Statutes | `AS 09.10.070`; `Alaska Stat. § 09.10.070`; `AS 11.41.100(a)(1)`; `AS 11.41.410 - 11.41.470`; `Alaska Stat. §§ 09.10.010-.240`; `former AS 09.10.070`; `AS 9.10.070`; `section 34.03.220 of the Alaska Statutes` | `ak-statutes-akleg` → `ak-statutes-justia` |
 | Session Laws of Alaska | `ch. 70, SLA 1996`; `§ 1, ch. 166, SLA 1988` | `ak-session-laws-akleg` |
-| Alaska Constitution | `Alaska Const. art. I, § 22`; `Alaska Const. art. IV, § 1`; `Article I, Section 22 of the Alaska Constitution`; `article I, section 7 of the Alaska Constitution` | `ak-constitution-ltgov` |
+| Alaska Constitution | `Alaska Const. art. I, § 22`; `Alaska Const. art. IV, § 1`; `Article I, Section 22 of the Alaska Constitution`; `article I, section 7 of the Alaska Constitution`; `section 1 of the Alaska Constitution, article VIII`; `article VIII, section 3 of the Alaska Constitution` | `ak-constitution-ltgov` |
 | Alaska Rules of Civil Procedure | `Alaska R. Civ. P. 12(b)(6)`; `Alaska Civil Rule 82`; `Rule 56(c) of the Alaska Rules of Civil Procedure` | `ak-rules-civil` |
 | Alaska Rules of Criminal Procedure | `Alaska R. Crim. P. 35.1`; `Alaska Criminal Rule 11` | `ak-rules-criminal` |
 | Alaska Rules of Evidence | `Alaska R. Evid. 702`; `Alaska Evidence Rule 404(b)` | `ak-rules-evidence` |
@@ -36,89 +36,88 @@ Statutes and the Administrative Code: akleg.gov's interactive pages are JavaScri
 
 Regexes (case-insensitive):
 
-- Alaska Statutes: `(?<![A-Za-z])(?:AS|Alaska\s+Stat(?:utes|\.)?(?:\s+Ann\.)?\s*§§?)\s*(?P<title>\d{2})\.(?P<chapter>\d{2})\.(?P<section>\d{3})(?!\d)`
+- Alaska Statutes: `(?<![A-Za-z])(?:AS|Alaska\s+Stat(?:utes|\.)?(?:\s+Ann\.)?\s*§§?)\s*(?P<title>\d{1,2})\.(?P<chapter>\d{2})\.(?P<section>\d{3})(?!\d)|sec(?:tion|\.)\s+(?P<title2>\d{1,2})\.(?P<chapter2>\d{2})\.(?P<section2>\d{3})(?:\([a-z0-9]+\))*\s+of\s+the\s+Alaska\s+Statutes`
 - Session Laws of Alaska: `ch\.\s*(?P<chapter>\d+),?\s*(?:FSSLA|SSSLA|TSSLA|SLA)\s*(?P<year>(?:19|20)\d\d)`
-- Alaska Constitution: `Alaska\s+Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+Section\s+(?P<section2>\d+)\s+of\s+the\s+Alaska\s+Constitution`
+- Alaska Constitution: `Alaska\s+Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+Section\s+(?P<section2>\d+)\s+of\s+the\s+Alaska\s+Constitution|sec(?:tion|\.)\s+(?P<section3>\d+)\s+of\s+(?:the\s+)?Alaska\s+Constitution,?\s+art(?:icle|\.)\s+(?P<article3>[IVXL]+)|art(?:icle|\.)\s+(?P<article4>[IVXL]+),?\s+sec(?:tion|\.)\s+(?P<section4>\d+)\s+of\s+the\s+Alaska\s+Constitution`
 - Alaska Rules of Civil Procedure: `Alaska\s+(?:R\.\s*Civ\.\s*P\.|Civil\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)|Rule\s+(?P<rule2>\d+(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Alaska\s+Rules\s+of\s+Civil\s+Procedure`
 - Alaska Rules of Criminal Procedure: `Alaska\s+(?:R\.\s*Crim\.\s*P\.|Criminal\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)|Rule\s+(?P<rule2>\d+(?:\.\d+)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Alaska\s+Rules\s+of\s+Criminal\s+Procedure`
 - Alaska Rules of Evidence: `Alaska\s+(?:R\.\s*Evid\.|Evidence\s+Rule)\s*(?P<rule>\d{3,4})|Rule\s+(?P<rule2>\d{3,4})(?:\([a-z0-9]+\))*\s+of\s+the\s+Alaska\s+Rules\s+of\s+Evidence`
 - Alaska Rules of Appellate Procedure: `Alaska\s+(?:R\.\s*App\.\s*P\.|Appellate\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)`
 - Alaska Rules of Administration: `Alaska\s+(?:R\.\s*Admin\.|Administrative\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)`
-- Alaska court rules, Alaska practitioners' short forms without state name: `(?P<set>Civil|Criminal|Evidence|Appellate|Administrative|Probate|CINA|Delinquency)\s+Rule\s+(?P<rule>\d+(?:\.\d+)?)`
+- Alaska court rules, Alaska practitioners' short forms without state name: `(?P<set>Civil|Criminal|Evidence|Appellate|Administrative)\s+Rule\s+(?P<rule>\d+(?:\.\d+)?)`
 - Alaska Administrative Code: `(?P<title>\d{1,2})\s+AAC\s+(?P<chapter>\d{2,3})\.(?P<section>\d{3})|Alaska\s+Admin\.\s*Code\s+tit\.\s*(?P<title2>\d{1,2}),?\s*§\s*(?P<chapter2>\d{2,3})\.(?P<section2>\d{3})`
 - Reported Alaska cases (Pacific Reporter, Alaska court parenthetical): `(?P<vol>\d{1,4})\s+P\.(?:\s*[23]d)?\s+(?P<page>\d{1,5})(?:,\s*\d+)?\s*\((?P<court>Alaska(?:\s+App\.)?)\s*(?P<year>\d{4})\)`
 - Alaska slip and unpublished opinions (opinion / MO&J numbers): `Op(?:inion)?\.?\s*No\.\s*(?P<opno>\d{4})[^()]{0,40}\(Alaska|(?P<wlyear>(?:19|20)\d\d)\s+WL\s+(?P<wl>\d+)[^()]{0,30}\(Alaska|Alaska\s+App\.\s*Mem\.\s*Op\.\s*(?:&|and)\s*J\.\s*No\.\s*(?P<moj>\d+)`
 - Alaska appellate docket numbers, bare: `(?:(?:Supreme\s+Court|Court\s+of\s+Appeals)\s+)?No\.\s*(?P<docket>[SA]-?\d{4,5})`
 - Petition for hearing dispositions: `pet(?:ition|\.)\s+for\s+hearing\s+(?P<disp>denied|granted|dismissed)`
 
-Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. § 09.10.070' in Bluebook; the regex requires the AS / Alaska Stat. prefix and the two-two-three digit form, reads 'AS 11.41.410 - 11.41.470' (a range) as its first section, and the print URL takes a range directly (secStart/secEnd). Bare 'AS' only routes with the dotted NN.NN.NNN number. The Administrative Code is '7 AAC 160.900' (title, chapter, section). Court rules are cited by Alaska courts as 'Civil Rule 82', 'Evidence Rule 702', 'Criminal Rule 35.1', 'Appellate Rule 214', 'Administrative Rule 37.5' without the state name: these short forms are shared with other states and are context_required; Bluebook forms 'Alaska R. Civ. P.', 'Alaska R. Evid.' carry the marker. Bare 'Rule 12(b)(6)' must not route here. Case law: no public-domain citation; reporter cites are P./P.2d/P.3d with '(Alaska YYYY)' or '(Alaska App. YYYY)'. Slip cites use the opinion number ('Op. No. 7834' Supreme; Court of Appeals numbers are in a separate, lower series, e.g. 2814) and docket numbers S-NNNNN (Supreme) / A-NNNNN (Court of Appeals). Court of Appeals memorandum opinions (MO&Js) carry their own numbers and are non-precedential under Appellate Rule 214(d). Supreme Court review of the Court of Appeals is by petition for hearing (Appellate Rules 302-305).
+Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. § 09.10.070' in Bluebook; the regex requires the AS / Alaska Stat. prefix and the two-two-three digit form, reads 'AS 11.41.410 - 11.41.470' (a range) as its first section, and the print URL takes a range directly (secStart/secEnd). Bare 'AS' only routes with the dotted NN.NN.NNN number. The Administrative Code is '7 AAC 160.900' (title, chapter, section). Court rules are cited by Alaska courts as 'Civil Rule 82', 'Evidence Rule 702', 'Criminal Rule 35.1', 'Appellate Rule 214', 'Administrative Rule 37.5' without the state name: these short forms are shared with other states and are context_required; Bluebook forms 'Alaska R. Civ. P.', 'Alaska R. Evid.' carry the marker. Bare 'Rule 12(b)(6)' must not route here. Case law: no public-domain citation; reporter cites are P./P.2d/P.3d with '(Alaska YYYY)' or '(Alaska App. YYYY)'. Slip cites use the opinion number ('Op. No. 7834' Supreme; Court of Appeals numbers are in a separate, lower series, e.g. 2814) and docket numbers S-NNNNN (Supreme) / A-NNNNN (Court of Appeals). Court of Appeals memorandum opinions (MO&Js) carry their own numbers and are non-precedential under Appellate Rule 214(d). Supreme Court review of the Court of Appeals is by petition for hearing (Appellate Rules 302-305). The short-form rule pattern covers only Civil, Criminal, Evidence, Appellate and Administrative Rules (sets with source rows); Probate, CINA, Delinquency and other sets (PDFs on https://courts.alaska.gov/rules/) have no row and are not routed. One-digit titles ('AS 9.10.070') are zero-padded to two digits for the print URL. Prose forms 'section 34.03.220 of the Alaska Statutes' and 'section 1 of the Alaska Constitution, article VIII' are matched.
 
 ## A. Statutes / code
 
 ### `ak-session-laws-akleg` — Session Laws of Alaska (SLA chapter PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska State Legislature · text: **link-only** · official: unknown
+- **Status:** BLOCKED 2026-10-17 · **Tier 1** · Alaska State Legislature · text: **link-only** · official: unknown
 - **Coverage:** Chapter PDFs by year from 1959 (e.g. SLA 1963, 1996); older years are OCR'd scans.
-- **Read via (in order):** **fetch tool**
 - **Access:** `link-only` · format pdf
   - Placeholders: Observed form https://www.akleg.gov/pdf/billfiles/SLAs/SLA%20{year}/CH%20{chapter}%20SLA%20{year}.pdf (from a search result); not tested on a second chapter, so treat as link-only.
   - Index: `https://www.akleg.gov/basis/start.asp`
   - Navigation: start.asp → 'Session Laws and Resolves {year}' → chapter PDF
-- **Automation:** WebFetch ok · shell blocked-robots · robots: www.akleg.gov: 200; Disallow /PDF/, /cgi-bin/, /basis/get_jrn_page.asp and other legacy paths; /basis/statutes.asp and /basis/aac.asp permitted. fetch_doc.py matches 'Disallow: /PDF/' case-insensitively and so refuses lower-case /pdf/ URLs.
-  - fetch_doc.py refuses /pdf/billfiles/... citing 'Disallow: /PDF/' (case-insensitive match). WebFetch of a search-result URL returned the text.
+- **Automation:** WebFetch blocked · shell blocked-robots · robots: www.akleg.gov: 200; Disallow /PDF/, /cgi-bin/, /basis/get_jrn_page.asp and other legacy paths; /basis/statutes.asp and /basis/aac.asp permitted. fetch_doc.py matches 'Disallow: /PDF/' case-insensitively and so refuses lower-case /pdf/ URLs.
+  - robots.txt 'Disallow: /PDF/' covers /pdf/billfiles/ (paths matched case-insensitively; www.akleg.gov is IIS). Not fetched by any route; cite and link only.
 - **Currency:** none stated
-- **Official status:** Enrolled chapter PDFs posted by the Legislature; no official-status statement seen.
-- **Hazard:** OCR errors in older chapters (e.g. 'I' for '1')
-- **Hazard:** script route refused by robots rule
-- **Probe:** ch. 70, SLA 1996 → `https://www.akleg.gov/pdf/billfiles/SLAs/SLA%201996/CH%2070%20SLA%201996.pdf` — expect: "Amending the statute of limitations applicable to civil actions brought"
-- **Evidence (2026-10-17):** WebFetch: 'Laws of Alaska 1996, Chapter 70 (HB 18)', first words as expect; text layer with OCR errors. Script: REFUSED robots.
-- **Notes:** Session-law citation style: 'ch. 70, SLA 1996' or '§ 1, ch. 166, SLA 1988'.
+- **Official status:** Enrolled chapter PDFs posted by the Legislature; not fetched (robots).
+- **Hazard:** robots-disallowed on every route
+- **Probe:** ch. 70, SLA 1996 → `https://www.akleg.gov/pdf/billfiles/SLAs/SLA%201996/CH%2070%20SLA%201996.pdf`
+- **Evidence (2026-10-17):** fetch_doc.py check: REFUSED robots.txt on www.akleg.gov disallows /pdf/billfiles/SLAs/SLA%201996/CH%2070%20SLA%201996.pdf (rule: Disallow: /PDF/), exit 3. | Re-confirmed blocked 2026-10-17: Not WebFetched (policy: Disallow /PDF/ covers /pdf/). fetch_doc.py check: REFUSED robots 'Disallow: /PDF/', exit 3
+- **Notes:** Session-law citation style: 'ch. 70, SLA 1996' or '§ 1, ch. 166, SLA 1988'. An earlier WebFetch read of this PDF (2026-10-17) predates the case-insensitive robots policy and is withdrawn.
 
 ### `ak-statutes-akleg` — Alaska Statutes (Alaska Legislature BASIS)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska State Legislature, Legislative Affairs Agency · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska State Legislature, Legislative Affairs Agency · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All 47 titles of the Alaska Statutes, current edition (labelled 'Alaska Statutes 2025'). Section text only; the print endpoint omits history notes and annotations.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.akleg.gov/basis/statutes.asp?media=print&secStart={TT.CC.SSS}&secEnd={TT.CC.SSS}`
-  - Placeholders: Use the citation's section number exactly as printed, with two-digit title and chapter and three-digit section (AS 09.10.070 → secStart=09.10.070&secEnd=09.10.070; AS 11.41.100 → 11.41.100). The same number goes in both parameters for one section. A range (AS 09.10.010 - 09.10.240) puts the first section in secStart and the last in secEnd, and returns every section between them; never read 'AS 11.41.410 - 11.41.470' as a single section. secStart={TT}&secEnd={TT}.99.999 returns a whole title (Title 9: 589,488 chars). The interactive page statutes.asp#09.10.070 is a JavaScript shell: the #fragment is not sent to the server and the page has no section text. Title TOC: statutes.asp?media=js&type=TOC&title={n} lists chapters (no section ranges).
+  - Placeholders: Use the citation's section number with two-digit title (zero-pad a one-digit title: 'AS 9.10.070' → 09.10.070) and chapter and three-digit section (AS 09.10.070 → secStart=09.10.070&secEnd=09.10.070; AS 11.41.100 → 11.41.100). The same number goes in both parameters for one section. A range (AS 09.10.010 - 09.10.240) puts the first section in secStart and the last in secEnd, and returns every section between them; never read 'AS 11.41.410 - 11.41.470' as a single section. secStart={TT}&secEnd={TT}.99.999 returns a whole title (Title 9: 589,488 chars). The interactive page statutes.asp#09.10.070 is a JavaScript shell: the #fragment is not sent to the server and the page has no section text. Title TOC: statutes.asp?media=js&type=TOC&title={n} lists chapters (no section ranges).
   - Index: `https://www.akleg.gov/basis/statutes.asp`
 - **Automation:** WebFetch gated · shell ok · robots: www.akleg.gov: 200; Disallow /PDF/, /cgi-bin/, /basis/get_jrn_page.asp and other legacy paths; /basis/statutes.asp and /basis/aac.asp permitted. fetch_doc.py matches 'Disallow: /PDF/' case-insensitively and so refuses lower-case /pdf/ URLs.
   - WebFetch refused the built print URL and the #anchor URL (PROVENANCE_REQUIRED). WebFetch of the search-result URL /basis/statUTES.asp returned only the title list (JS shell) and a cached 'Alaska Statutes 2024' label, while the live page (script) says 2025. Use the script route with the print URL. Whole-title print pages are 0.5MB+ and are not for the fetch tool.
-- **Currency:** statutes.asp page header / breadcrumb (not on the print page) — observed: "Alaska Statutes 2025"
+- **Currency:** statutes.asp page header / breadcrumb (not on the print page); the print page that is quoted carries no currency line, so read it from statutes.asp — observed: "Alaska Statutes 2025"
 - **Official status:** Alaska Court System law library guide (https://courts.alaska.gov/library/aklegal.htm): 'The official publisher of the Alaska Statutes is LexisNexis' (13-volume print set, biennial with annual supplement). No UELMA authentication statement found on akleg.gov.
 - **Hazard:** interactive statutes.asp page is a JavaScript shell; #anchors are not fetchable
 - **Hazard:** print endpoint omits history and annotations
 - **Hazard:** section ranges are expressed 'AS x - y' and must not be read as one section
 - **Hazard:** whole-title print pages exceed 500K chars
 - **Probe:** AS 09.10.070 → `https://www.akleg.gov/basis/statutes.asp?media=print&secStart=09.10.070&secEnd=09.10.070` — expect: "unless the action is commenced within two years of the accrual of the cause of action"
-- **Evidence (2026-10-17):** Script: 200 html 1,132 chars, 'Sec. 09.10.070. Actions for torts...'; verify of expect string VERIFIED. Second citation AS 11.41.100 → 7,196 chars 'Sec. 11.41.100. Murder in the first degree.' Range 09.10.010-09.10.240 → 17,804 chars with every Sec. heading. Bare statutes.asp#09.10.070 → 2,327-char shell, 0 matches.
+- **Evidence (2026-10-17):** Script: 200 html 1,132 chars, 'Sec. 09.10.070. Actions for torts...'; verify of expect string VERIFIED. Second citation AS 11.41.100 → 7,196 chars 'Sec. 11.41.100. Murder in the first degree.' Range 09.10.010-09.10.240 → 17,804 chars with every Sec. heading. Bare statutes.asp#09.10.070 → 2,327-char shell, 0 matches. | Independent check 2026-10-17: WebFetch PROVENANCE_REQUIRED (gated). Script verify: VERIFIED 'unless the action is commenced within two years...' (1,132 chars); second citation AS 34.03.220; range AS 11.41.410 - 11.41.470 ok
 - **Notes:** The same statutes.js serves /basis/aac.asp (see ak-aac-akleg). The Statute Information Retrieval System (/basis/Statutes/Sirs/34) tracks pending bills affecting a section.
 
 ### `ak-statutes-justia` — Alaska Statutes on Justia
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Annual editions; edition list on /codes/alaska/2020/ shows 2025, 2024, 2023, 2020 (older years 1997-2019 also exist).
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format html
-  - Pattern: `https://law.justia.com/codes/alaska/{year}/title-{title}/chapter-{chapter:02d}/section-{TT}-{CC}-{SSS}/`
-  - Placeholders: Observed on the 2020 edition: title unpadded (title-9), chapter two-digit (chapter-10), section slug = section number with dots as hyphens (section-09-10-070). Chapter pages list section links; title pages list chapters without section ranges. Newer editions (2025) not fetched; follow the edition links rather than building the year.
+  - Pattern: `https://law.justia.com/codes/alaska/title-{title}/chapter-{chapter:02d}/[article-{n}/]section-{TT}-{CC}-{SSS}/`
+  - Placeholders: Current (2025) edition lives at UNYEARED URLs: /codes/alaska/title-34/chapter-03/article-6/section-34-03-220/ (AS 34.03.220). Title unpadded, chapter two-digit, section slug = section number with dots as hyphens. Chapters divided into articles add an /article-{n}/ level and the chapter page lists only articles, so the article number is not derivable: take it from the chapter page. Year-prefixed URLs (/codes/alaska/2020/title-9/chapter-10/section-09-10-070/) are prior editions. Title pages list chapters without section ranges.
   - Index: `https://law.justia.com/codes/alaska/`
-  - Navigation: edition page /codes/alaska/{year}/ → title-{n}/ → chapter-{cc}/ → section link
+  - Navigation: /codes/alaska/title-{n}/ → chapter-{cc}/ → article-{n}/ (if the chapter lists articles) → section link
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com/robots.txt answers 403 Cloudflare 'Just a moment...' challenge
   - Script route refused (robots.txt challenge). WebFetch works on URLs reached from search results and fetched pages.
 - **Currency:** edition year in URL; notice at top — observed: "These codes may not be the most recent version."
 - **Official status:** Page notice 'These codes may not be the most recent version.'
 - **Hazard:** edition year must be chosen; older editions carry 'There Is a Newer Version' banners
 - **Hazard:** script route blocked
+- **Hazard:** article level between chapter and section is not derivable from the citation
 - **Probe:** AS 09.10.070 (2020 ed.) → `https://law.justia.com/codes/alaska/2020/title-9/chapter-10/section-09-10-070/` — expect: "(a) Except as otherwise provided by law, a person may"
-- **Evidence (2026-10-17):** WebFetch: body present, first words '(a) Except as otherwise provided by law, a person may'; title-9 and chapter-10 index pages fetched; script REFUSED (challenge).
+- **Evidence (2026-10-17):** WebFetch: body present, first words '(a) Except as otherwise provided by law, a person may'; title-9 and chapter-10 index pages fetched; script REFUSED (challenge). | Independent check 2026-10-17: YES: '(a) Except as otherwise provided by law, a person may'; 'These codes may not be the most recent version.'; second citation AS 34.03.220 (2025 ed.) ok
 
 ## B. Constitution
 
 ### `ak-constitution-ltgov` — Constitution of the State of Alaska (Lieutenant Governor)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Office of the Lieutenant Governor · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Office of the Lieutenant Governor · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Full text, Articles I-XV with '[Amended YYYY]' notes; single HTML page (105,195 chars) plus the 64-page pocket PDF.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format html
@@ -130,14 +129,15 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Official status:** No official-status statement on the page; the court law library guide says the Constitution is published in Volume 1 of the Alaska Statutes (LexisNexis).
 - **Hazard:** page length near the 100K fetch-tool limit
 - **Hazard:** section headings are '22. Right of Privacy' without '§'
+- **Hazard:** each section heading also appears in the table of contents at the top (offset < ~6K): skip that first grep hit
 - **Probe:** Alaska Const. art. I, § 22 → `https://ltgov.alaska.gov/information/alaskas-constitution/` — expect: "The right of the people to privacy is recognized and shall not be infringed"
-- **Evidence (2026-10-17):** Script: 200 html 105,195 chars; expect VERIFIED; second citation art. I, § 7 'No person shall be deprived of life, liberty, or property, without due process of law' VERIFIED. PDF 64 pp, 116,813 chars, last-modified 12 Mar 2026.
+- **Evidence (2026-10-17):** Script: 200 html 105,195 chars; expect VERIFIED; second citation art. I, § 7 'No person shall be deprived of life, liberty, or property, without due process of law' VERIFIED. PDF 64 pp, 116,813 chars, last-modified 12 Mar 2026. | Independent check 2026-10-17: WebFetch PROVENANCE_REQUIRED (gated). Script verify VERIFIED 'The right of the people to privacy is recognized...' (105,195 chars); second citation Alaska Const. art. VIII, § 3 ok
 
 ## C. Court rules
 
 ### `ak-rules-administrative` — Alaska Rules of Administration
 
-- **Status:** REPORTED 2026-10-17 · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Complete unannotated rule set, one PDF (72 pp, 493,151 chars), with SCO amendment histories after each rule.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -150,13 +150,14 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** single long PDF (corpus candidate)
 - **Hazard:** two-column layout
 - **Hazard:** intermittent connection resets
-- **Probe:** Alaska R. Admin. 37.5 → `https://courts.alaska.gov/rules/docs/adm.pdf` — expect: "Rule 37.5"
-- **Evidence (2026-10-17):** Script: pdf 72 pp, 493,151 chars, last-modified 07 Oct 2026. Body not quote-verified.
+- **Hazard:** grep 'Rule N.' plus the first word of the title only: headings use curly apostrophes (Attorney’s) and adjacent-column text interleaves
+- **Probe:** Alaska R. Admin. 37.5 → `https://courts.alaska.gov/rules/docs/adm.pdf` — expect: "Rule 37.5. Access to Court Records."
+- **Evidence (2026-10-17):** Script: pdf 72 pp, 493,151 chars, last-modified 07 Oct 2026. Body not quote-verified. | Independent check 2026-10-17: Script (WebFetch gated): 'Rule 37.5. Access to Court Records.' p. 32; last-modified 07 Oct 2026
 - **Notes:** Other sets on the same page: Adoption (adop.pdf), Bar Rules (bar.pdf), CINA (cina.pdf), Code of Judicial Conduct (cjc.pdf), Delinquency (del.pdf), District Court Civil (dciv.pdf), Minor Offense (mo.pdf), Probate (prob.pdf), Professional Conduct (prof.pdf), Evidence Commentary (evcomm.pdf); Civil Rule 90.3 and commentary separately (civ90-3.pdf). Supreme Court Orders (SCO) adopting amendments: https://courts.alaska.gov/sco/index.htm.
 
 ### `ak-rules-appellate` — Alaska Rules of Appellate Procedure
 
-- **Status:** REPORTED 2026-10-17 · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Complete unannotated rule set, one PDF (56 pp, 356,901 chars), with SCO amendment histories after each rule.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -169,12 +170,13 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** single long PDF (corpus candidate)
 - **Hazard:** two-column layout
 - **Hazard:** intermittent connection resets
-- **Probe:** Alaska R. App. P. 214 → `https://courts.alaska.gov/rules/docs/app.pdf` — expect: "Rule 214"
-- **Evidence (2026-10-17):** Script: pdf 56 pp, 356,901 chars, last-modified 24 Jul 2025. Body not quote-verified (grep 'Rule 302.' 0 matches: two-column headings split).
+- **Hazard:** grep 'Rule N.' plus the first word of the title only: headings use curly apostrophes (Attorney’s) and adjacent-column text interleaves
+- **Probe:** Alaska R. App. P. 214 → `https://courts.alaska.gov/rules/docs/app.pdf` — expect: "Rule 214. Summary Disposition of Appeals."
+- **Evidence (2026-10-17):** Script: pdf 56 pp, 356,901 chars, last-modified 24 Jul 2025. Body not quote-verified (grep 'Rule 302.' 0 matches: two-column headings split). | Independent check 2026-10-17: Script (WebFetch gated): 'Rule 214. Summary Disposition of Appeals.' p. 22; last-modified 24 Jul 2025
 
 ### `ak-rules-civil` — Alaska Rules of Civil Procedure
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Complete unannotated rule set, one PDF (150 pp, 955,507 chars), with SCO amendment histories after each rule.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format pdf
@@ -187,12 +189,13 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** single long PDF (corpus candidate)
 - **Hazard:** two-column layout
 - **Hazard:** intermittent connection resets
+- **Hazard:** grep 'Rule N.' plus the first word of the title only: headings use curly apostrophes (Attorney’s) and adjacent-column text interleaves
 - **Probe:** Alaska R. Civ. P. 12(b)(6) → `https://courts.alaska.gov/rules/docs/civ.pdf` — expect: "failure to state a claim upon which relief can be granted"
-- **Evidence (2026-10-17):** Script: pdf 150 pp, 955,507 chars; expect VERIFIED on p. 32; Rule 12 heading on p. 32. WebFetch (search-result URL COURTS.ALASKA.GOV/rules/docs/civ.pdf): 'Content truncated', stops in Rule 6 history; Rule 12(b) NOT PRESENT.
+- **Evidence (2026-10-17):** Script: pdf 150 pp, 955,507 chars; expect VERIFIED on p. 32; Rule 12 heading on p. 32. WebFetch (search-result URL COURTS.ALASKA.GOV/rules/docs/civ.pdf): 'Content truncated', stops in Rule 6 history; Rule 12(b) NOT PRESENT. | Independent check 2026-10-17: Script verify VERIFIED 'failure to state a claim upon which relief can be granted' p. 32; last-modified 29 Apr 2026; second citation Alaska Civil Rule 82 ok
 
 ### `ak-rules-criminal` — Alaska Rules of Criminal Procedure
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Complete unannotated rule set, one PDF (80 pp, 474,580 chars), with SCO amendment histories after each rule.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -205,12 +208,13 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** single long PDF (corpus candidate)
 - **Hazard:** two-column layout
 - **Hazard:** intermittent connection resets
+- **Hazard:** grep 'Rule N.' plus the first word of the title only: headings use curly apostrophes (Attorney’s) and adjacent-column text interleaves
 - **Probe:** Alaska R. Crim. P. 35.1 → `https://courts.alaska.gov/rules/docs/crpro.pdf` — expect: "Rule 35.1. Post-Conviction Procedure."
-- **Evidence (2026-10-17):** Script: pdf 80 pp, 474,580 chars; grep 'Rule 35.1. Post-Conviction Procedure.' at p. 61.
+- **Evidence (2026-10-17):** Script: pdf 80 pp, 474,580 chars; grep 'Rule 35.1. Post-Conviction Procedure.' at p. 61. | Independent check 2026-10-17: Script grep 'Rule 35.1. Post-Conviction Procedure.' p. 61; last-modified 09 Oct 2026; second citation Alaska Criminal Rule 11 ok
 
 ### `ak-rules-evidence` — Alaska Rules of Evidence
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Supreme Court (Alaska Court System) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Complete unannotated rule set, one PDF (26 pp, 159,059 chars), with SCO amendment histories after each rule.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -223,14 +227,15 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** single long PDF (corpus candidate)
 - **Hazard:** two-column layout
 - **Hazard:** intermittent connection resets
+- **Hazard:** grep 'Rule N.' plus the first word of the title only: headings use curly apostrophes (Attorney’s) and adjacent-column text interleaves
 - **Probe:** Alaska R. Evid. 702 → `https://courts.alaska.gov/rules/docs/ev.pdf` — expect: "Rule 702. Testimony by Experts."
-- **Evidence (2026-10-17):** Script: pdf 26 pp, 159,059 chars; 'Rule 702. Testimony by Experts.' on p. 19 (two-column interleave with a note on Rule 613). Commentary is a separate PDF: https://courts.alaska.gov/rules/docs/evcomm.pdf
+- **Evidence (2026-10-17):** Script: pdf 26 pp, 159,059 chars; 'Rule 702. Testimony by Experts.' on p. 19 (two-column interleave with a note on Rule 613). Commentary is a separate PDF: https://courts.alaska.gov/rules/docs/evcomm.pdf | Independent check 2026-10-17: Script grep 'Rule 702. Testimony by Experts.' p. 19; last-modified 24 Dec 2024; second citation Alaska Evidence Rule 404(b) ok
 
 ## D. Administrative code
 
 ### `ak-aac-akleg` — Alaska Administrative Code (Alaska Legislature BASIS)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska State Legislature (hosting); regulations filed with the Lieutenant Governor · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska State Legislature (hosting); regulations filed with the Lieutenant Governor · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All AAC titles 1-20 (current). Print endpoint gives section text without history notes.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -244,11 +249,11 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** print endpoint omits history notes and Register numbers
 - **Hazard:** aac.asp landing page is a JS shell
 - **Probe:** 7 AAC 160.900 → `https://www.akleg.gov/basis/aac.asp?media=print&secStart=7.160.900&secEnd=7.160.900` — expect: "The following documents referenced in 7 AAC 105 - 7 AAC 160 are adopted by reference"
-- **Evidence (2026-10-17):** Script: 200 html 18,874 chars, '7 AAC 160.900. Requirements adopted by reference.'; second citation 18 AAC 75.400 → 5,689 chars '18 AAC 75.400. Applicability.'; 'Register' 0 matches.
+- **Evidence (2026-10-17):** Script: 200 html 18,874 chars, '7 AAC 160.900. Requirements adopted by reference.'; second citation 18 AAC 75.400 → 5,689 chars '18 AAC 75.400. Applicability.'; 'Register' 0 matches. | Independent check 2026-10-17: Script verify VERIFIED 'The following documents referenced in 7 AAC 105 - 7 AAC 160...'; second citation 3 AAC 26.020 ok
 
 ### `ak-aac-lii` — Alaska Administrative Code on Cornell LII
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-section pages with history notes (Register numbers).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -261,14 +266,14 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Official status:** Third-party republication.
 - **Hazard:** may lag the akleg text (last-modified July 2025)
 - **Probe:** 7 AAC 160.900 → `https://www.law.cornell.edu/regulations/alaska/7-AAC-160.900` — expect: "are adopted by reference"
-- **Evidence (2026-10-17):** Script: 200 html 125,488 chars; expect VERIFIED; history note 'Eff. 2/1/2010, Register 193; am 8/25/2010, Register 195'. 18-AAC-75.400 → 200, 8,615 chars.
+- **Evidence (2026-10-17):** Script: 200 html 125,488 chars; expect VERIFIED; history note 'Eff. 2/1/2010, Register 193; am 8/25/2010, Register 195'. 18-AAC-75.400 → 200, 8,615 chars. | Independent check 2026-10-17: Script verify VERIFIED 'are adopted by reference'; last-modified 30 Jul 2025; second citation 3 AAC 26.020 ok
 - **Notes:** Use for history notes / Register numbers, which the akleg print page omits.
 
 ## D. Administrative register
 
 ### `ak-online-public-notices` — Alaska Online Public Notice System (regulation notices)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · State of Alaska / Office of the Lieutenant Governor · text: **link-only** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · State of Alaska / Office of the Lieutenant Governor · text: **link-only** · official: official
 - **Coverage:** Active and archived public notices, including proposed and adopted regulations, by department.
 - **Access:** `search-only` · format html
   - Pattern: `https://aws.state.ak.us/OnlinePublicNotices/Notices/Search.aspx?status=4&cat=10&subcat={9|10}`
@@ -282,7 +287,7 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** notices, not a compiled register
 - **Hazard:** ASP.NET postback paging
 - **Probe:** adopted regulation notices → `https://aws.state.ak.us/OnlinePublicNotices/Notices/Search.aspx?status=4&cat=10&subcat=10` — expect: "Online Public Notice"
-- **Evidence (2026-10-17):** Script: 200 html 56,686 chars; search form with Status/Title/Full Text/Department fields.
+- **Evidence (2026-10-17):** Script: 200 html 56,686 chars; search form with Status/Title/Full Text/Department fields. | Independent check 2026-10-17: Script: 56,686 chars, 'Online Public Notice Search' form; second citation proposed regulation notices (subcat=9) ok
 - **Notes:** The historic Alaska Administrative Journal (Lt. Governor, 1990s) survives as PDFs, e.g. https://aws.state.ak.us/onlinepublicnotices/Files/AAJ/aaj49.pdf ('ISSUE 49, December 6, 1999', 34 pp) — script-verified; historical only.
 
 ## E. Case law
@@ -293,18 +298,18 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Coverage:** 1960-present published opinions plus selected unpublished opinions.
 - **Access:** `search-only` · format html
   - Index: `https://govt.westlaw.com/akcases/Index`
-- **Automation:** WebFetch untested · shell blocked-challenge · robots: govt.westlaw.com/robots.txt returns Cloudflare 'Attention Required!' page
+- **Automation:** WebFetch gated · shell blocked-challenge · robots: govt.westlaw.com/robots.txt returns Cloudflare 'Attention Required!' page
   - Script REFUSED (robots.txt challenge). Not retried by any other route.
 - **Currency:** none observed
 - **Official status:** Court law library guide: all Supreme Court and Court of Appeals opinions from 1960 published in West's Pacific Reporter, through the latest advance sheets, without West headnotes.
 - **Hazard:** Cloudflare challenge
 - **Probe:**  → `https://govt.westlaw.com/akcases/Index`
-- **Evidence (2026-10-17):** Script: REFUSED robots.txt challenge; curl robots.txt → Cloudflare 'Attention Required! | Cloudflare'.
+- **Evidence (2026-10-17):** Script: REFUSED robots.txt challenge; curl robots.txt → Cloudflare 'Attention Required! | Cloudflare'. | Re-confirmed blocked 2026-10-17: WebFetch PROVENANCE_REQUIRED (not answered); script check REFUSED robots.txt bot challenge, exit 3
 - **Notes:** Linked from https://courts.alaska.gov/library/aklegal.htm. The only free full archive that the court itself points to.
 
 ### `ak-opinions-cms` — Alaska appellate opinions, MO&Js and orders (Appellate Case Management System)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska Court System, Clerk of the Appellate Courts · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Court System, Clerk of the Appellate Courts · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court slip opinions (listing dates 2022-2026; 87 rows show 'No Document Available' once a P.3d cite is assigned); Court of Appeals slip opinions (2018-2026, 62 without documents); Supreme Court and Court of Appeals MO&Js (2022-2026 rows; many without documents); Court of Appeals summary dispositions; published Supreme Court orders. Docket pages for all appellate cases. Older text is not here.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -315,25 +320,25 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Automation:** WebFetch untested · shell ok · robots: appellate-records.courts.alaska.gov: robots.txt 404 (IIS 'File or directory not found')
   - Listing pages are ~105K chars of text (Supreme) — at the fetch-tool limit. The legacy courts.alaska.gov/ops/sp-{no}.pdf pattern returns 404. Weekly release: opinions Fridays 9 a.m.; MO&Js Wednesdays.
 - **Currency:** date headings on the listing — observed: "Friday, October 16, 2026"
-- **Official status:** Slip PDFs: 'This opinion is subject to correction before publication in the PACIFIC REPORTER.' Listing page: documents are downloadable 'until they are published in the official reporter' (P.2d/P.3d, Alaska Reporter).
+- **Official status:** Supreme Court slip PDFs: 'This opinion is subject to correction before publication in the PACIFIC REPORTER.' Court of Appeals slip PDFs: 'The text of this opinion can be corrected before ... Pacific Reporter.' Listing page: documents are downloadable 'until they are published in the official reporter' (P.2d/P.3d, Alaska Reporter).
 - **Hazard:** documents removed after P.3d publication (no free official text for older cases)
 - **Hazard:** slip pagination only
 - **Hazard:** opaque tokens in PDF/docket URLs
 - **Hazard:** MO&Js: non-precedential (App. R. 214(d))
 - **Probe:** King v. Carty, No. S-19268, Op. No. 7834 (Alaska Oct. 9, 2026) → `https://appellate-records.courts.alaska.gov/CMSPublic/Search/CaseNumber?CaseNumber=S-19268&TrialCourtNumber=` — expect: "Scott King v. Courtenay Carty"
-- **Evidence (2026-10-17):** Script: listing isCOA=False → row 'S19268 7834 Scott King v. Courtenay Carty'; PDF sp-7834.pdf 15 pp, 'Supreme Court No. S-19268 ... OPINION No. 7834'. CaseNumber GET search → full match S19268, 'Opinion Issued', 3DI-23-00110CI. Second citation: Marino v. State, No. A-13337, Op. No. 2814 (Alaska App. Aug. 22, 2025) → ap-2814.pdf 58 pp. Court of Appeals MO&J PDF A-14138 carries the Rule 214(d) legend.
+- **Evidence (2026-10-17):** Script: listing isCOA=False → row 'S19268 7834 Scott King v. Courtenay Carty'; PDF sp-7834.pdf 15 pp, 'Supreme Court No. S-19268 ... OPINION No. 7834'. CaseNumber GET search → full match S19268, 'Opinion Issued', 3DI-23-00110CI. Second citation: Marino v. State, No. A-13337, Op. No. 2814 (Alaska App. Aug. 22, 2025) → ap-2814.pdf 58 pp. Court of Appeals MO&J PDF A-14138 carries the Rule 214(d) legend. | Independent check 2026-10-17: Script: CaseNumber=S-19268 → 'S19268 Scott King v. Courtenay Carty 204 Appeal Opinion Issued'; second citation Collins v. State, No. A-12816, Op. No. 2833 (Alaska App. Oct. 2, 2026) ok
 - **Notes:** Court of Appeals MO&Js say they 'do not create legal precedent' but may be cited for persuasive value (Appellate Rule 214(d)); the court page says MO&Js and summary dispositions are retained for three months, but the MO&J listing still shows rows back to 2022. An email list for slip opinions exists at list.state.ak.us (archive disallowed by robots).
 
 ### `ak-cases-justia` — Alaska Supreme Court and Court of Appeals decisions on Justia
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court by year (2007, 2023, 2024 verified; includes entries marked '(Unpublished)'); Court of Appeals 1980-2026 per index.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format html
   - Pattern: `https://law.justia.com/cases/alaska/{supreme-court|court-of-appeals}/{year}/`
   - Placeholders: Opinion slugs are the docket number lower-case with an optional suffix: /supreme-court/2024/s-18521.html, /2023/s-18114.html, /2007/s-12164-1.html. The suffix is not predictable, so take the link from the year listing.
   - Index: `https://law.justia.com/cases/alaska/`
-  - Navigation: year listing → case link (docket shown)
+  - Navigation: /cases/alaska/{supreme-court|court-of-appeals}/ (year links are on the per-court page, not /cases/alaska/) → year listing → case link (docket shown); e.g. /cases/alaska/court-of-appeals/2025/a-13337.html
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com/robots.txt answers 403 Cloudflare challenge
   - Year pages have no links to other years; the court index lists years.
 - **Currency:** none stated
@@ -341,29 +346,32 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **Hazard:** slug suffix unpredictable
 - **Hazard:** script route blocked
 - **Hazard:** no official pagination
+- **Hazard:** long opinions exceed the fetch-tool limit (Marino, A-13337: 116,385 chars, cut at 100K; use offset)
 - **Probe:** West v. Municipality of Anchorage, 174 P.3d 224 (Alaska 2007) → `https://law.justia.com/cases/alaska/supreme-court/2007/s-12164-1.html` — expect: "A dog bit or pawed a seven-week-old baby, causing several"
-- **Evidence (2026-10-17):** WebFetch: full text incl. dissent and footnote 44; '174 P.3d 224 (Alaska 2007)', docket S-12164. 2024 listing first rows s-18729 (Dec 18, 2024), s-18521; COA index 1980-2026.
+- **Evidence (2026-10-17):** WebFetch: full text incl. dissent and footnote 44; '174 P.3d 224 (Alaska 2007)', docket S-12164. 2024 listing first rows s-18729 (Dec 18, 2024), s-18521; COA index 1980-2026. | Independent check 2026-10-17: YES: 'A dog bit or pawed a seven-week-old baby, causing several'; 174 P.3d 224 (Alaska 2007); second citation Marino v. State, No. A-13337, Op. No. 2814 (Alaska App. Aug. 22, 2025) ok
 
 ## F. Subsequent history
 
 ### `ak-subsequent-history-cms` — Petitions for hearing (Supreme Court review of Court of Appeals) in the Appellate CMS
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Alaska Court System · text: **fetch-and-quote** · official: unofficial
-- **Coverage:** Each Court of Appeals docket page lists 'Related Appellate Cases' including the Supreme Court '302 Petition for Hearing' case with its S-number and status; the S-case docket shows the disposition (grant/deny orders, opinion). Supreme Court published orders listing: /CMSPublic/Home/PublishedOrders?isCOA=False.
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Alaska Court System · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** Each Court of Appeals docket page lists 'Related Appellate Cases'; the Supreme Court petition is the row whose Case Type is '302 Petition for Hearing' (the Relationship column may read 'Petition for Hearing' or 'Same Trial Court Number'). The S-case Case Summary shows only status (e.g. 'Closed', 'No Opinions'); the outcome appears on its Docket tab as a 'Disposition Order' entry, often without granted/denied wording, which may require the order document. Supreme Court published orders listing: /CMSPublic/Home/PublishedOrders?isCOA=False.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format html
   - Pattern: `https://appellate-records.courts.alaska.gov/CMSPublic/Search/CaseNumber?CaseNumber=A-{NNNNN}&TrialCourtNumber=`
-  - Placeholders: Search the Court of Appeals case number by GET, open the Case/General link from the result, read 'Related Appellate Cases' (Relationship 'Petition for Hearing'), follow the S-number link. Searching the A-number as TrialCourtNumber finds nothing; party search in the Supreme Court (CourtTypeString=SC) also finds the petition.
+  - Placeholders: Search the Court of Appeals case number by GET, open the Case/General link from the result, find the 'Related Appellate Cases' row with Case Type '302 Petition for Hearing' (do not rely on the Relationship column), follow its S-number link, then open the Docket tab (Case/Docket?q={token}) and read the 'Disposition Order' entry. Searching the A-number as TrialCourtNumber finds nothing; party search in the Supreme Court (CourtTypeString=SC) also finds the petition.
   - Index: `https://appellate-records.courts.alaska.gov/CMSPublic/`
-  - Navigation: CaseNumber GET → Case/General?q={token} → Related Appellate Cases → S-number docket
+  - Navigation: CaseNumber GET → Case/General?q={token} → Related Appellate Cases (Case Type '302 Petition for Hearing') → S-case → Docket tab → 'Disposition Order'
 - **Automation:** WebFetch untested · shell ok · robots: appellate-records.courts.alaska.gov: robots.txt 404 (IIS 'File or directory not found')
   - US Supreme Court certiorari is not tracked here.
 - **Currency:** docket status — observed: "Briefing Stage (S19597, opened 2025-11-04)"
 - **Official status:** Court docket records.
 - **Hazard:** docket tokens opaque
 - **Hazard:** A-number not searchable as trial-court number
+- **Hazard:** disposition shown only as 'Disposition Order' on the Docket tab, often without grant/deny wording
+- **Hazard:** Relationship column unreliable (e.g. 'Same Trial Court Number')
 - **Probe:** Marino v. State, No. A-13337 (Alaska App. Aug. 22, 2025) → S-19597 → `https://appellate-records.courts.alaska.gov/CMSPublic/Search/CaseNumber?CaseNumber=A-13337&TrialCourtNumber=` — expect: "A13337"
-- **Evidence (2026-10-17):** Script: A-13337 search → Case/General page: Opinion 2814 Reverse/Remand 8/22/2025; Related Appellate Cases 'S19597 State of Alaska v. Gregory Marino 302 Petition for Hearing ... Briefing Stage'. Party search SC 'Marino' → S19597 opened 2025-11-04. TrialCourtNumber=A-13337 → no match.
+- **Evidence (2026-10-17):** Script: A-13337 search → Case/General page: Opinion 2814 Reverse/Remand 8/22/2025; Related Appellate Cases 'S19597 State of Alaska v. Gregory Marino 302 Petition for Hearing ... Briefing Stage'. Party search SC 'Marino' → S19597 opened 2025-11-04. TrialCourtNumber=A-13337 → no match. | Independent check 2026-10-17: Script: A-13337 docket 'Related Appellate Cases' → 'S19597 State of Alaska v. Gregory Marino 302 Petition for Hearing ... Briefing Stage'; second citation Baines v. State, No. A-13596 → S-18846 ok
 - **Notes:** Appellate Rules 302-305 govern petitions for hearing.
 
 ## Not available (do not look for these again)
@@ -373,6 +381,7 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 - **statutes** — public.law edition of the Alaska Statutes: alaska.public.law: CONNECT tunnel 502 at the proxy. (2026-10-17)
 - **statutes** — Official bulk download (XML/JSON) of the Alaska Statutes: None linked from akleg.gov/basis/start.asp; the nearest equivalent is the whole-title print URL (secStart=09&secEnd=09.99.999, 589,488 chars). (2026-10-17)
 - **admin_register** — A current periodic Alaska administrative register: Lt. Governor regulations page routes notices to newspapers and the Online Public Notice System; the Alaska Administrative Journal PDFs are 1990s only; 'Register NNN' is the AAC supplement number. (2026-10-17)
+- **statutes** — Fetchable (robots-permitted) official source for Session Laws of Alaska text: akleg.gov SLA PDFs sit under /pdf/billfiles/, disallowed by 'Disallow: /PDF/' (case-insensitive policy); no other tier-1 or tier-2 host for session-law text found. (2026-10-17)
 
 ## Corpus candidates (maintainers)
 
@@ -387,8 +396,6 @@ Statutes are cited 'AS 09.10.070' in Alaska courts' own style and 'Alaska Stat. 
 ## Open questions
 
 - WebFetch was refused (PROVENANCE_REQUIRED) on built akleg print URLs, the ltgov constitution page and the CMS URLs; an independent verifier with URL permissions should retest WebFetch on ak-statutes-akleg, ak-aac-akleg, ak-constitution-ltgov and ak-opinions-cms.
-- Appellate and Administration rule PDFs: rule headings did not grep cleanly (two-column split); body quote-verification pending.
-- fetch_doc.py treats akleg's 'Disallow: /PDF/' as covering lower-case /pdf/ (RFC 9309 paths are case-sensitive); should session-law PDFs be allowed for the script?
 - Does the Appellate CMS keep MO&J and summary-disposition PDFs longer than the three months the court page states (MO&J listing rows go back to 2022, many without documents)?
 - Where the Supreme Court publishes orders denying petitions for hearing other than on the S-case docket page (PublishedOrders listing not inspected).
 - Exact first year on Justia's Alaska Supreme Court index and whether a 2025 Justia statutes edition is complete.
