@@ -234,15 +234,6 @@
    ],
    "blocked_sources": []
   },
-  "data.capitol.hawaii.gov": {
-   "status": "allowed",
-   "sources": [
-    "hi-hrs-capitol",
-    "hi-session-laws",
-    "hi-constitution-capitol"
-   ],
-   "blocked_sources": []
-  },
   "dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -1056,9 +1047,11 @@
    "blocked_sources": []
   },
   "www.capitol.hawaii.gov": {
-   "status": "blocked",
+   "status": "allowed",
    "sources": [
-    "hi-hrs-capitol-www"
+    "hi-hrs-capitol",
+    "hi-session-laws",
+    "hi-constitution-capitol"
    ],
    "blocked_sources": []
   },

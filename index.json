@@ -653,17 +653,16 @@
     "hi": {
       "name": "Hawaii",
       "file": "jurisdictions/hi.md",
-      "sha256": "7d66f383e1143f366e1265adda5cb9569ba79f8e5ed23cc9a515d67c048afdd6",
+      "sha256": "eb31865e4a858f983f9230c7343f7467d2caae4f2ddcb4c5cde0edd17f7f9aef",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 14,
-        "blocked": 1,
-        "reported": 2
+        "reported": 5,
+        "verified_independent": 11
       },
       "citation_patterns": [
         {
           "label": "Hawaii Revised Statutes",
-          "regex": "(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rev(?:ised)?\\.?\\s*Stat(?:utes|s)?\\.?(?:\\s+Ann\\.)?|\\bHRS)\\s*\u00a7*\\s*(?P<chapter>\\d{1,3}[A-Z]?)(?::(?P<article>\\d{1,2}[A-Z]?))?-(?P<section>\\d{1,4}(?:\\.\\d{1,2})?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]?)(?::(?P<article2>\\d{1,2}[A-Z]?))?-(?P<section2>\\d{1,4}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Revised\\s+Statutes|HRS)",
+          "regex": "(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rev(?:ised)?\\.?\\s*Stat(?:utes|s)?\\.?(?:\\s+Ann\\.)?|\\bHRS)\\s*\u00a7*\\s*(?P<chapter>\\d{1,3}[A-Z]?)(?::(?P<article>\\d{1,2}[A-Z]?))?-(?P<section>\\d{1,4}(?:\\.\\d{1,2})?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]?)(?::(?P<article2>\\d{1,2}[A-Z]?))?-(?P<section2>\\d{1,4}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Revised\\s+Statutes|HRS)|(?:\\bHRS|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rev(?:ised)?\\.?\\s*Stat(?:utes|s)?\\.?)\\s*(?:ch(?:apter|\\.)|c\\.)\\s*(?P<chapter3>\\d{1,3}[A-Z]?)(?![\\d-])|(?:ch(?:apter|\\.))\\s*(?P<chapter4>\\d{1,3}[A-Z]?),?\\s+(?:of\\s+the\\s+)?(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Revised\\s+Statutes|HRS)",
           "context_required": false
         },
         {
@@ -693,7 +692,7 @@
         },
         {
           "label": "Hawaii Rules of Evidence (HRS chapter 626)",
-          "regex": "(?:\\bHRE\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Evid\\.\\s*)(?P<rule>\\d{3,4}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules\\s+of\\s+Evidence\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules\\s+of\\s+Evidence",
+          "regex": "(?:\\bHRE\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Evid\\.\\s*)(?P<rule>\\d{3,4}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules?\\s+of\\s+Evidence\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules?\\s+of\\s+Evidence|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules?\\s+of\\s+Evidence\\s+(?P<rule4>\\d{3,4}(?:\\.\\d{1,2})?)",
           "context_required": false
         },
         {
