@@ -105,3 +105,16 @@ Tool notes: WebFetch returned `PROVENANCE_REQUIRED` ("permission request ... not
 | https://www.supremecourt.gov/docket/docketfiles/html/public/25-1349.html | script | "Lower Ct: Supreme Court of North Dakota"; "Case Numbers: (20250066)"; "Decision Date: March 4, 2026"; "Jun 17 2026 DISTRIBUTED for Conference of 9/28/2026." |
 | https://www.supremecourt.gov/docket/docketfiles/html/public/24A635.html | script | "Lower Ct: Supreme Court of North Dakota"; "Case Numbers: (20240022)" |
 | https://www.supremecourt.gov/docket/docketfiles/html/public/26A210.html | script | lower court is a U.S. Court of Appeals (not ND) |
+
+## E (cont.) — citation-example sourcing and official reports
+| URL | Tool | Result |
+|---|---|---|
+| https://law.justia.com/cases/north-dakota/supreme-court/2023/20220322.html | WF | cites "Egbert v. City of Dunseith, 24 N.W.2d 907, 910 (N.D. 1946)", Julson, Pulkrabek, Ista; no N.D. Reports or Ct. App. cites |
+| WS "\"Egbert v. City of Dunseith\" \"74 N.D.\"" | WS | result "Anderson v. City of Fargo … 186 N.W. 378, 48 N.D. 722"; library.nd.gov …/ReportsofCases/v17.pdf |
+| https://www.library.nd.gov/robots.txt | script | Drupal default; /statedocs/ not disallowed |
+| https://www.library.nd.gov/statedocs/SupremeCourt/ReportsofCases/v17.pdf | script | PDF 771 pp, 2,007,409 chars; "Hon. D. E. Morgan, Chief Justice"; table "17 N. D. 302" |
+| …/ReportsofCases/v1.pdf, v48.pdf, v79.pdf | script check | allowlisted; robots.txt permits |
+| …/ReportsofCases/v48.pdf | script | PDF 1,430 pp; "ANDERSON v. CITY OF FARGO 723 Order affirmed" at PDF p. 745 |
+
+## Checks
+`python3 scripts/build.py --check`: no output for nd (rc 0). `python3 scripts/build.py --cross`: "0 cross-jurisdiction match(es)". An earlier --cross run hung (maintainer since fixed recompilation) and was stopped.

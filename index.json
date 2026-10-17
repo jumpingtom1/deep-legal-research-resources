@@ -2421,6 +2421,78 @@
         }
       ]
     },
+    "nd": {
+      "name": "North Dakota",
+      "file": "jurisdictions/nd.md",
+      "sha256": "621cc25f31fb0a74bf5ff9ec337015f816cd38676b62a07f429106db448a26c2",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 12,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "North Dakota Century Code",
+          "regex": "(?:\\bN\\.\\s?D\\.\\s?C\\.\\s?C\\.|\\bNDCC\\b|\\bN\\.\\s?D\\.\\s*Cent(?:ury)?\\.?\\s*Code(?:\\s+Ann\\.)?)\\s*,?\\s*(?:\u00a7\u00a7?\\s*|ch(?:apter|\\.)\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<chapter>\\d{2}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{2,3}(?:\\.\\d{1,2})?))?(?![\\d.]*\\d)|(?:[Ss]ec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<chapter2>\\d{2}(?:\\.\\d{1,2})?)-(?P<section2>\\d{2,3}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?North\\s+Dakota\\s+Century\\s+Code",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota session laws",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+N\\.\\s?D\\.\\s*(?:Sess\\.\\s*)?Laws,?\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota Constitution",
+          "regex": "N\\.\\s?D\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)\\s+of\\s+the\\s+(?:North\\s+Dakota|N\\.\\s?D\\.)\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota rules of procedure and evidence (N.D.R.Civ.P., Crim.P., App.P., Ev., Ct.)",
+          "regex": "N\\.\\s?D\\.\\s?R\\.\\s?(?P<set>Civ\\.\\s?P|Crim\\.\\s?P|App\\.\\s?P|Ev(?:id)?|Ct|Juv\\.\\s?P)\\.\\s*(?P<rule>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*,\\s*N\\.\\s?D\\.\\s?R\\.\\s?(?P<set2>Civ\\.\\s?P|Crim\\.\\s?P|App\\.\\s?P|Ev(?:id)?|Ct|Juv\\.\\s?P)\\.",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota Rules of Professional Conduct / Lawyer Discipline / Supreme Court Administrative Rules",
+          "regex": "N\\.\\s?D\\.\\s?R\\.\\s*(?P<set>Prof\\.\\s*Conduct|Lawyer\\s+Discipl\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)*),\\s*N\\.\\s?D\\.\\s?R\\.\\s*(?:Prof\\.\\s*Conduct|Lawyer\\s+Discipl\\.)|N\\.\\s?D\\.\\s*Sup\\.\\s*Ct\\.\\s*Admin\\.\\s*R(?:ule)?\\.?\\s*(?P<rule3>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule4>\\d\\.\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+North\\s+Dakota\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota Administrative Code",
+          "regex": "(?:\\bN\\.\\s?D\\.\\s?A\\.\\s?C\\.|\\bN\\.\\s?D\\.\\s*Admin\\.?\\s*Code)\\s*(?:\u00a7\\s*|ch(?:apter|\\.)\\s*)?(?P<title>\\d{1,3}(?:\\.\\d)?)-(?P<article>\\d{2}(?:\\.\\d{1,2})?)-(?P<chapter>\\d{2}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{2,3}(?:\\.\\d{1,2})?))?",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota Administrative Rules Supplement",
+          "regex": "Administrative\\s+Rules\\s+Supplement\\s+(?:(?P<year>(?:19|20)\\d\\d)-)?(?P<number>\\d{3})",
+          "context_required": true
+        },
+        {
+          "label": "North Dakota public-domain citation (1997-)",
+          "regex": "(?<![\\w.])(?P<year>199[7-9]|20\\d\\d)\\s+ND\\s+(?P<app>App\\s+)?(?P<number>\\d{1,3})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter with (N.D. YYYY)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(N\\.\\s?D\\.\\s*(?:Ct\\.\\s*App\\.\\s*)?(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter (generic, no court parenthetical)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+          "context_required": true
+        },
+        {
+          "label": "North Dakota Reports (official reporter, 1890-1953)",
+          "regex": "(?<![\\d.])(?P<volume>\\d{1,2})\\s+N\\.\\s?D\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "North Dakota Supreme Court docket number",
+          "regex": "No\\.\\s*(?P<docket>(?:19|20)\\d{6})(?!\\d)",
+          "context_required": true
+        }
+      ]
+    },
     "ne": {
       "name": "Nebraska",
       "file": "jurisdictions/ne.md",

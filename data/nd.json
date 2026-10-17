@@ -3,7 +3,7 @@
   "jurisdiction": "nd",
   "name": "North Dakota",
   "compiled": "2026-10-17",
-  "summary": "Statutes, constitution, administrative code and quarterly rule supplements are official PDFs on ndlegis.gov with constructible URLs (chapter PDFs t{title}c{chapter}.pdf; constit/a{NN}.pdf; acdata/pdf/{t-a-c}.pdf) read reliably by fetch_doc.py; WebFetch needs approval for built ndlegis URLs. Court rules are per-rule HTML pages on ndcourts.gov that WebFetch reads, but ndcourts.gov refuses the script (Cloudflare) and opinion and docket pages were gated for WebFetch, so Supreme Court opinion text is read from Justia (docket-keyed URLs) for now. Justia also covers the Century Code (chapter pages) and constitution; Cornell LII mirrors the Administrative Code per section. Public-domain cites 'YYYY ND N' since 1997; certiorari via supremecourt.gov dockets.",
+  "summary": "Statutes, constitution, administrative code and quarterly rule supplements are official PDFs on ndlegis.gov with constructible URLs (chapter PDFs t{title}c{chapter}.pdf; constit/a{NN}.pdf; acdata/pdf/{t-a-c}.pdf) read reliably by fetch_doc.py; WebFetch needs approval for built ndlegis URLs. Court rules are per-rule HTML pages on ndcourts.gov that WebFetch reads, but ndcourts.gov refuses the script (Cloudflare) and opinion and docket pages were gated for WebFetch, so Supreme Court opinion text is read from Justia (docket-keyed URLs) for now. The ND State Library serves scanned North Dakota Reports volumes (official pagination, pre-1953) as per-volume PDFs. Justia also covers the Century Code (chapter pages) and constitution; Cornell LII mirrors the Administrative Code per section. Public-domain cites 'YYYY ND N' since 1997; certiorari via supremecourt.gov dockets.",
   "citation_map": {
     "courts": [
       {
@@ -156,8 +156,10 @@
         "family": "case_law",
         "label": "North Western Reporter with (N.D. YYYY)",
         "examples": [
-          "State v. Smith, 238 N.W.2d 662 (N.D. 1976)",
-          "512 N.W.2d 397 (N.D. Ct. App. 1994)"
+          "Egbert v. City of Dunseith, 24 N.W.2d 907, 910 (N.D. 1946)",
+          "State v. Julson, 202 N.W.2d 145, 151 (N.D. 1972)",
+          "Pulkrabek v. Morton Cnty., 389 N.W.2d 609, 615 (N.D. 1986)",
+          "Anderson v. City of Fargo, 186 N.W. 378 (N.D. 1922)"
         ],
         "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(N\\.\\s?D\\.\\s*(?:Ct\\.\\s*App\\.\\s*)?(?P<year>\\d{4})\\)",
         "routes_to": [
@@ -170,7 +172,7 @@
         "label": "North Western Reporter (generic, no court parenthetical)",
         "examples": [
           "980 N.W.2d 914",
-          "20 N.W.3d 101"
+          "451 N.W.2d 118, 121"
         ],
         "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
         "routes_to": [
@@ -183,11 +185,12 @@
         "family": "case_law",
         "label": "North Dakota Reports (official reporter, 1890-1953)",
         "examples": [
-          "79 N.D. 1",
-          "45 N.D. 410"
+          "48 N.D. 722",
+          "Anderson v. City of Fargo, 48 N.D. 722, 186 N.W. 378 (1922)"
         ],
         "regex": "(?<![\\d.])(?P<volume>\\d{1,2})\\s+N\\.\\s?D\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
         "routes_to": [
+          "nd-reports-library",
           "nd-cases-justia"
         ]
       },
@@ -726,6 +729,53 @@
       "notes": ""
     },
     {
+      "id": "nd-reports-library",
+      "family": "case_law",
+      "title": "North Dakota Reports (Reports of Cases), scanned volumes",
+      "publisher": "North Dakota State Library",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Scans of the official reporter (Reports of Cases in the Supreme Court of North Dakota) with official page numbers in the running heads.",
+      "coverage": "North Dakota Reports, one PDF per volume (v1, v17, v48, v79 confirmed present by fetch_doc.py check/info); 1890-1953 per memory.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.library.nd.gov/statedocs/SupremeCourt/ReportsofCases/v{volume}.pdf",
+        "pattern_rules": "volume = unpadded N.D. volume number (48 N.D. 722 -> v48.pdf). Find the case by grepping its running head (case name in capitals, e.g. 'ANDERSON v. CITY OF FARGO'), which is followed by the official page number; PDF page differs from reporter page (48 N.D. 723 is PDF p. 745).",
+        "index_url": "https://www.library.nd.gov/statedocs/SupremeCourt/ReportsofCases/",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Drupal default (Disallow /core/, /admin/ ...); /statedocs/ permitted",
+        "notes": "Volumes are huge (v48: 1,430 pp, 2,865,257 chars), far beyond the fetch tool window; script grep/section only. Index URL not fetched."
+      },
+      "currency": {
+        "where": "n/a (closed historical reporter)",
+        "observed": ""
+      },
+      "hazards": [
+        "OCR text errors",
+        "very large PDFs",
+        "PDF page differs from reporter page"
+      ],
+      "probe": {
+        "citation": "Anderson v. City of Fargo, 48 N.D. 722, 186 N.W. 378 (1922)",
+        "url": "https://www.library.nd.gov/statedocs/SupremeCourt/ReportsofCases/v48.pdf",
+        "expect": "ANDERSON v. CITY OF FARGO 723 Order affirmed"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: v48.pdf 1,430 pp; grep 'Anderson v. City of Fargo' at PDF pp. 745-749 with running heads 723, 725, 727. v17.pdf 771 pp, table of cases '17 N. D. 302'. v17 URL came from a WebSearch result."
+      },
+      "notes": "Official pagination for pre-1953 cases is free here; modern opinions have only ¶ numbers (public-domain cite) and West N.W.2d/N.W.3d pages."
+    },
+    {
       "id": "nd-docket-ndcourts",
       "family": "subsequent_history",
       "title": "North Dakota Supreme Court dockets / Appellate Case System",
@@ -849,6 +899,13 @@
     }
   ],
   "corpus_candidates": [
+    {
+      "source_id": "nd-reports-library",
+      "url": "https://www.library.nd.gov/statedocs/SupremeCourt/ReportsofCases/v48.pdf",
+      "why": "Official reporter volume, 1,430 pp OCR, about 2.9M chars; only script grep can reach a case.",
+      "split_hint": "running heads (CASE NAME v. PARTY + page) give official page numbers",
+      "bulk": "one PDF per volume at /statedocs/SupremeCourt/ReportsofCases/v{N}.pdf"
+    },
     {
       "source_id": "nd-cencode-ndlegis",
       "url": "https://ndlegis.gov/cencode/t10c19-1.pdf",

@@ -697,6 +697,9 @@
     "nc-gs-justia",
     "nc-constitution-justia",
     "nc-cases-justia",
+    "nd-cencode-justia",
+    "nd-constitution-justia",
+    "nd-cases-justia",
     "ne-statutes-justia",
     "ne-constitution-justia",
     "ne-cases-justia",
@@ -1027,6 +1030,17 @@
    "status": "allowed",
    "sources": [
     "nc-constitution-ncleg"
+   ],
+   "blocked_sources": []
+  },
+  "ndlegis.gov": {
+   "status": "allowed",
+   "sources": [
+    "nd-cencode-ndlegis",
+    "nd-session-laws-ndlegis",
+    "nd-constitution-ndlegis",
+    "nd-admincode-ndlegis",
+    "nd-admin-supplements-ndlegis"
    ],
    "blocked_sources": []
   },
@@ -1935,6 +1949,7 @@
     "ms-admincode-lii",
     "mt-arm-lii",
     "nc-ncac-lii",
+    "nd-admincode-lii",
     "ne-admincode-lii",
     "nh-admin-rules-lii",
     "nj-admincode-lii",
@@ -2039,6 +2054,13 @@
     "ma-mass-reports-lexis"
    ]
   },
+  "www.library.nd.gov": {
+   "status": "allowed",
+   "sources": [
+    "nd-reports-library"
+   ],
+   "blocked_sources": []
+  },
   "www.ma-appellatecourts.org": {
    "status": "blocked",
    "sources": [
@@ -2117,6 +2139,15 @@
     "nc-constitution-ncleg",
     "nc-rules-civil-ncleg",
     "nc-rules-evidence-ncleg"
+   ],
+   "blocked_sources": []
+  },
+  "www.ndcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nd-rules-ndcourts",
+    "nd-opinions-ndcourts",
+    "nd-docket-ndcourts"
    ],
    "blocked_sources": []
   },
@@ -2341,6 +2372,7 @@
    "status": "allowed",
    "sources": [
     "dc-scotus-docket",
+    "nd-scotus-docket",
     "nh-scotus-docket"
    ],
    "blocked_sources": []
