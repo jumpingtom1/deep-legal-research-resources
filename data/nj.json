@@ -146,10 +146,23 @@
           "Rule 4:6-2(e) of the New Jersey Court Rules",
           "R. 4:5B-2"
         ],
-        "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?",
+        "regex": "N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?|(?<!Ct\\.\\s)(?<!Ct\\.)(?:\\bR\\.|\\bRules?)\\s*(?P<part2>[1-8]):(?P<rule2>\\d+[A-Z]?)-(?P<sub2>\\d+[A-Z]?(?:\\.\\d+)?)",
         "routes_to": [
           "nj-rules-of-court"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules Governing the Courts (bare \"Rule 1:1\" form, no subrule)",
+        "examples": [
+          "Rule 1:4",
+          "R. 2:10"
+        ],
+        "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?",
+        "routes_to": [
+          "nj-rules-of-court"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",

@@ -75,7 +75,7 @@
           "section 1714 of the Civil Code",
           "section 17200 of the Business and Professions Code"
         ],
-        "regex": "(?<!Tex\\.\\s)(?<!Texas\\s)(?<!Tex\\s)(?<!La\\.\\s)(?<!V\\.T\\.C\\.A\\.\\s)(?:Cal(?:ifornia)?\\.?\\s+)?(?P<code>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s*Code)?,?\\s*(?:§§?|sec(?:tion|\\.)s?)\\s*(?P<section>\\d+(?:\\.\\d+)*[a-z]?)|(?:sec(?:tion|\\.)s?|§§?)\\s*(?P<section_p>\\d+(?:\\.\\d+)*[a-z]?)(?:,?\\s*subd(?:ivision|\\.)\\s*\\([a-z0-9]+\\))?\\s+of\\s+the\\s+(?:California\\s+)?(?P<code_p>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s+Code)?(?!\\s+of\\s+(?!Civil)(?:Texas|Louisiana))",
+        "regex": "(?<!Tex\\.\\s)(?<!Texas\\s)(?<!Tex\\s)(?<!La\\.\\s)(?<!V\\.T\\.C\\.A\\.\\s)(?P<cal>Cal(?:ifornia)?\\.?\\s+)?(?P<code>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?(cal)(?:\\s*Code)?|(?:\\s*Code|(?<=Code)|(?<=Proc\\.)|(?<=Procedure))),?\\s*(?:§§?|sec(?:tion|\\.)s?)\\s*(?P<section>\\d+(?:\\.\\d+)*[a-z]?)|(?:sec(?:tion|\\.)s?|§§?)\\s*(?P<section_p>\\d+(?:\\.\\d+)*[a-z]?)(?:,?\\s*subd(?:ivision|\\.)\\s*\\([a-z0-9]+\\))?\\s+of\\s+the\\s+(?P<calp>California\\s+)?(?P<code_p>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?(calp)(?:\\s+Code)?|(?:\\s+Code|(?<=Code)|(?<=Proc\\.)|(?<=Procedure)))(?!\\s+of\\s+(?!Civil)(?:Texas|Louisiana))",
         "routes_to": [
           "ca-codes-leginfo",
           "ca-codes-publiclaw",
@@ -105,24 +105,49 @@
           "Cal. R. Ct. 3.1350",
           "rule 8.1115 of the California Rules of Court"
         ],
-        "regex": "(?:Cal(?:ifornia)?\\.?\\s+R(?:ules|\\.)\\s+(?:of\\s+)?C(?:our)?t\\.?,?\\s*(?:rule\\s*)?|rule\\s+)(?P<title>[1-9]|10)\\.(?P<rule>\\d+(?:\\.\\d+)?)(?!\\d)(?!\\s+of\\s+the\\s+(?:Federal|Fed\\.))(?!\\s*(?:of\\s+the\\s+)?(?:Fed|FRCP|FRE|FRAP))",
+        "regex": "Cal(?:ifornia)?\\.?\\s+R(?:ules|\\.)\\s+(?:of\\s+)?C(?:our)?t\\.?,?\\s*(?:rule\\s*)?(?P<title>[1-9]|10)\\.(?P<rule>\\d+(?:\\.\\d+)?)(?!\\d)|rule\\s+(?P<title2>[1-9]|10)\\.(?P<rule2>\\d+(?:\\.\\d+)?)(?!\\d)(?:\\s*\\([a-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?Cal(?:ifornia)?\\.?\\s+Rules\\s+of\\s+Court",
         "routes_to": [
           "ca-rules-court"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "California Rules of Court (bare \"rule 8.500\" form)",
+        "examples": [
+          "rule 8.500",
+          "rule 3.1350(c)"
+        ],
+        "regex": "rule\\s+(?P<title>[1-9]|10)\\.(?P<rule>\\d+(?:\\.\\d+)?)(?!\\d)(?!\\s+of\\s+the\\s+(?:Federal|Fed\\.))(?!\\s*(?:of\\s+the\\s+)?(?:Fed|FRCP|FRE|FRAP))",
+        "routes_to": [
+          "ca-rules-court"
+        ],
+        "context_required": true
       },
       {
         "family": "admin_code",
         "label": "California Code of Regulations",
         "examples": [
           "Cal. Code Regs., tit. 8, § 3203",
-          "Cal. Code Regs. tit. 2, § 11009",
-          "8 CCR 3203"
+          "Cal. Code Regs. tit. 2, § 11009"
         ],
-        "regex": "(?:Cal(?:ifornia)?\\.?\\s+Code\\s+(?:of\\s+)?Regs?(?:ulations|\\.)?,?\\s*tit(?:le|\\.)\\s*(?P<title>\\d+),?\\s*§\\s*(?P<section>[\\d.]+[A-Za-z]?)|(?P<title2>\\d+)\\s+C\\.?C\\.?R\\.?\\s*§?\\s*(?P<section2>[\\d.]+[A-Za-z]?))",
+        "regex": "Cal(?:ifornia)?\\.?\\s+Code\\s+(?:of\\s+)?Regs?(?:ulations|\\.)?,?\\s*tit(?:le|\\.)\\s*(?P<title>\\d+),?\\s*§\\s*(?P<section>[\\d.]+[A-Za-z]?)",
         "routes_to": [
           "ca-ccr-westlaw",
           "ca-ccr-lii"
         ]
+      },
+      {
+        "family": "admin_code",
+        "label": "California Code of Regulations (bare \"8 CCR 3203\")",
+        "examples": [
+          "8 CCR 3203"
+        ],
+        "regex": "(?P<title>\\d+)\\s+C\\.?C\\.?R\\.?\\s*§?\\s*(?P<section>[\\d.]+[A-Za-z]?)",
+        "routes_to": [
+          "ca-ccr-westlaw",
+          "ca-ccr-lii"
+        ],
+        "context_required": true
       },
       {
         "family": "case_law",

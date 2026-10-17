@@ -30,11 +30,12 @@ Statutes and the Constitution: NY Senate Open Legislation (nysenate.gov/legislat
 | NYCRR (agency regulations) | `12 NYCRR 23-1.7`; `12 N.Y.C.R.R. § 23-1.7(d)` | `ny-nycrr-cornell` |
 | Public-domain slip opinion citation | `2023 NY Slip Op 04822`; `2024 NY Slip Op 50001(U)`; `2024 NY Slip Op 74436` | `ny-cases-lrb` → `ny-history-lrb-motions` → `ny-cases-justia` |
 | Official Reports (NY Official style and Bluebook) | `40 NY3d 405`; `219 AD3d 1251`; `81 Misc 3d 1223(A)`; `40 N.Y.3d 405 (2023)`; `219 A.D.3d 1251 (1st Dep't 2023)` | `ny-cases-lrb` → `ny-cases-ctapps` → `ny-cases-justia` |
-| Regional / West reporters | `216 N.E.3d 1`; `196 N.Y.S.3d 1` | `ny-cases-lrb` → `ny-cases-justia` |
+| Regional / West reporters | `196 N.Y.S.3d 1` | `ny-cases-lrb` → `ny-cases-justia` |
+| Regional reporter N.E. (no court parenthetical) *(only once this jurisdiction is known)* | `216 N.E.3d 1` | `ny-cases-lrb` → `ny-cases-justia` |
 
 Regexes (case-insensitive):
 
-- Consolidated Laws (Bluebook and NY Official style): `(?:N\.?\s?Y\.?\s+)?(?P<law>[A-Z][A-Za-z.&,' ]+?)\s+Law\s+(?:§+|sections?)\s*(?P<section>\d+[A-Za-z]?(?:[-.]\d+[A-Za-z]?)*)|(?:sec(?:tion|\.)s?|§§?)\s*(?P<section_p>\d+[A-Za-z]?(?:[-.]\d+[A-Za-z]?)*)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:New\s+York\s+)?(?P<law_p>[A-Z][A-Za-z.&,' ]+?)\s+Law\b`
+- Consolidated Laws (Bluebook and NY Official style): `(?<![A-Za-z])(?<!Ann\.,\s)(?<!Ann\.\s)(?:N\.?\s?Y\.?\s+)?(?P<law>(?!Ann\.|Md\.|(?:Code|Delaware|California|Texas|Florida|Illinois|Pennsylvania|New\s+Jersey|Massachusetts|Nevada|Idaho|Arizona|Colorado|Georgia|North\s+Carolina|Ohio|Maryland|Virginia|Minnesota|Michigan)\b)[A-Z](?:(?!Code\b|Ann\.)[A-Za-z.&,' ])*?)\s+Law\s+(?:§+|sections?)\s*(?P<section>\d+[A-Za-z]?(?:[-.]\d+[A-Za-z]?)*)|(?:sec(?:tion|\.)s?|§§?)\s*(?P<section_p>\d+[A-Za-z]?(?:[-.]\d+[A-Za-z]?)*)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:New\s+York\s+)?(?P<law_p>(?!Ann\.|Md\.|(?:Code|Delaware|California|Texas|Florida|Illinois|Pennsylvania|New\s+Jersey|Massachusetts|Nevada|Idaho|Arizona|Colorado|Georgia|North\s+Carolina|Ohio|Maryland|Virginia|Minnesota|Michigan)\b)[A-Z](?:(?!Code\b|Ann\.)[A-Za-z.&,' ])*?)\s+Law\b`
 - CPLR (statute; law ID CVP): `(?:N\.Y\.\s+)?C\.?P\.?L\.?R\.?\s+(?:R(?:ule)?\.?\s+|§\s*)?(?P<section>\d{3,4}(?:-[a-z])?)`
 - Court acts and short-form law names (CPL, RPAPL, EPTL, BCL, GOL, VTL, DRL, Fam. Ct. Act, SCPA …): `(?:N\.?\s?Y\.?\s+)?(?P<law>CPL|RPAPL|EPTL|BCL|GOL|VTL|DRL|RPTL|N-PCL|LLCL|Fam\.?\s+Ct\.?\s+Act|Crim\.?\s+Proc\.?\s+Law|Family\s+C(?:our)?t\.?\s+Act|SCPA|Surr\.?\s+Ct\.?\s+Proc\.?\s+Act|(?:N\.Y\.C\.\s+)?Civ\.?\s+Ct\.?\s+Act)\s+§?\s*(?P<section>\d+(?:[-.]\d+)*)`
 - New York Constitution: `N\.?\s?Y\.?\s+Const\.?,?\s+art\.?\s+(?P<article>[IVXL]+|\d+),?\s+§\s*(?P<section>\d+(?:-[a-z])?)`
@@ -42,7 +43,8 @@ Regexes (case-insensitive):
 - NYCRR (agency regulations): `(?<!\d)(?P<title>(?!22\b)\d{1,2})\s+N\.?\s?Y\.?\s?C\.?\s?R\.?\s?R\.?\s+(?:§\s*)?(?P<section>[\d.\-a-z]+)`
 - Public-domain slip opinion citation: `(?P<year>(?:19|20)\d{2})\s+N\.?\s?Y\.?\s+Slip\s+Op\.?\s+(?P<num>\d{5})(?P<u>\(U\))?`
 - Official Reports (NY Official style and Bluebook): `(?P<vol>\d{1,3})\s+(?P<rep>N\.?Y\.?(?:2d|3d)?|A\.?D\.?(?:2d|3d)?|Misc\.?\s?(?:2d|3d)?)\s+(?P<page>\d{1,4})(?P<table>\(A\))?`
-- Regional / West reporters: `(?P<vol>\d{1,3})\s+(?P<rep>N\.E\.(?:2d|3d)?|N\.Y\.S\.(?:2d|3d)?)\s+(?P<page>\d{1,4})`
+- Regional / West reporters: `(?P<vol>\d{1,3})\s+(?P<rep>N\.Y\.S\.(?:2d|3d)?)\s+(?P<page>\d{1,4})`
+- Regional reporter N.E. (no court parenthetical): `(?P<vol>\d{1,3})\s+(?P<rep>N\.E\.(?:2d|3d)?)\s+(?P<page>\d{1,4})`
 
 Short forms → URL key:
 

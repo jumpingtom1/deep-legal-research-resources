@@ -27,9 +27,12 @@ Statutes: delcode.delaware.gov (official) — section text sits on the subchapte
 | Laws of Delaware (session laws) | `85 Del. Laws c. 518`; `66 Del. Laws, c. 141` | `de-session-laws` |
 | Delaware Constitution | `Del. Const. art. I, § 9`; `Del. Const. art. IV, § 11`; `Article I, Section 9 of the Delaware Constitution` | `de-constitution-delcode` → `de-constitution-justia` |
 | Court of Chancery Rules | `Ct. Ch. R. 23.1`; `Court of Chancery Rule 12(b)(6)`; `Del. Ch. Ct. R. 174` | `de-rules-chancery` |
-| Superior Court Civil Rules | `Super. Ct. Civ. R. 12(b)(6)`; `Del. Super. Ct. Civ. R. 56`; `Superior Court Civil Rule 60(b)` | `de-rules-superior-civil` |
-| Superior Court Criminal Rules | `Super. Ct. Crim. R. 61`; `Superior Court Criminal Rule 35(a)`; `Rule 61 of the Superior Court Criminal Rules`; `Rule 35(b) of the Superior Court Criminal Rules`; `Super. Ct. Crim. R. 35A` | `de-rules-superior-criminal` |
-| Supreme Court Rules | `Supr. Ct. R. 42`; `Del. Supr. Ct. R. 14(g)`; `Supreme Court Rule 41` | `de-rules-supreme` |
+| Superior Court Civil Rules | `Del. Super. Ct. Civ. R. 56`; `Rule 12(b)(6) of the Delaware Superior Court Civil Rules` | `de-rules-superior-civil` |
+| Superior Court Civil Rules (bare, no "Del.") *(only once this jurisdiction is known)* | `Super. Ct. Civ. R. 12(b)(6)`; `Superior Court Civil Rule 60(b)` | `de-rules-superior-civil` |
+| Superior Court Criminal Rules | `Del. Super. Ct. Crim. R. 61`; `Rule 61 of the Delaware Superior Court Criminal Rules` | `de-rules-superior-criminal` |
+| Superior Court Criminal Rules (bare, no "Del.") *(only once this jurisdiction is known)* | `Super. Ct. Crim. R. 61`; `Superior Court Criminal Rule 35(a)`; `Rule 61 of the Superior Court Criminal Rules`; `Rule 35(b) of the Superior Court Criminal Rules`; `Super. Ct. Crim. R. 35A` | `de-rules-superior-criminal` |
+| Supreme Court Rules | `Supr. Ct. R. 42`; `Del. Supr. Ct. R. 14(g)`; `Delaware Supreme Court Rule 41` | `de-rules-supreme` |
+| Supreme Court Rules (bare "Supreme Court Rule 41") *(only once this jurisdiction is known)* | `Supreme Court Rule 41` | `de-rules-supreme` |
 | Delaware Rules of Evidence | `D.R.E. 702`; `Del. R. Evid. 401`; `Delaware Uniform Rule of Evidence 803(6)` | `de-rules-evidence` |
 | Delaware Lawyers' Rules of Professional Conduct | `Del. Lawyers' R. Prof'l Conduct 1.7`; `DLRPC 1.15` | `de-rules-professional-conduct` |
 | Delaware Administrative Code | `14 Del. Admin. Code § 101-1.0`; `14 DE Admin. Code 101`; `7 Del. Admin. Code 1102` | `de-admincode-api` → `de-admincode-lii` |
@@ -42,13 +45,16 @@ Statutes: delcode.delaware.gov (official) — section text sits on the subchapte
 
 Regexes (case-insensitive):
 
-- Delaware Code: `(?:(?:(?P<title>\d{1,2})\s+Del\.\s*C(?:ode)?\.?(?:\s+Ann\.)?\s*§+\s*(?P<section>\d{1,3}[A-Za-z]?-\d+[A-Za-z]?|\d+[A-Za-z]?)(?!\d)|Del\.\s*Code\s+Ann\.\s*tit\.\s*(?P<title2>\d{1,2}),?\s*§+\s*(?P<section2>\d{1,3}[A-Za-z]?-\d+[A-Za-z]?|\d+[A-Za-z]?)(?!\d))|Title\s+(?P<title3>\d{1,2}),?\s+(?:Section|§)\s*(?P<section3>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)\s+of\s+the\s+Delaware\s+Code)|(?:sec(?:tion|\.)|§)\s*(?P<section4>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+(?:the\s+)?(?:Delaware\s+General\s+Corporation\s+Law|DGCL)|(?:sec(?:tion|\.)|§)\s*(?P<section5>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title5>\d{1,2})(?:\s+of\s+the\s+Delaware\s+Code)?`
+- Delaware Code: `(?:(?:(?P<title>\d{1,2})\s+Del\.\s*C(?:ode)?\.?(?:\s+Ann\.)?\s*§+\s*(?P<section>\d{1,3}[A-Za-z]?-\d+[A-Za-z]?|\d+[A-Za-z]?)(?!\d)|Del\.\s*Code\s+Ann\.\s*tit\.\s*(?P<title2>\d{1,2}),?\s*§+\s*(?P<section2>\d{1,3}[A-Za-z]?-\d+[A-Za-z]?|\d+[A-Za-z]?)(?!\d))|Title\s+(?P<title3>\d{1,2}),?\s+(?:Section|§)\s*(?P<section3>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)\s+of\s+the\s+Delaware\s+Code)|(?:sec(?:tion|\.)|§)\s*(?P<section4>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+(?:the\s+)?(?:Delaware\s+General\s+Corporation\s+Law|DGCL)|(?:sec(?:tion|\.)|§)\s*(?P<section5>\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)(?:\([a-z0-9]+\))*\s+of\s+Title\s+(?P<title5>\d{1,2})(?!\d)(?:\s+of\s+the\s+Delaware\s+Code|(?!\s+of\s+the\s))`
 - Laws of Delaware (session laws): `(?P<volume>\d{1,3})\s+Del\.\s*Laws,?\s*c(?:h)?\.\s*(?P<chapter>\d+)`
 - Delaware Constitution: `Del\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+[A-Za-z]?)|Article\s+(?P<article2>[IVXL]+),?\s+Section\s+(?P<section2>\d+[A-Za-z]?)\s+of\s+the\s+Delaware\s+Constitution`
 - Court of Chancery Rules: `(?:Ct\.\s*Ch\.\s*R\.|Del\.\s*Ch\.\s*Ct\.\s*R\.|Ch(?:ancery)?\.?\s*(?:Court\s+)?R(?:ule)?\.?|Court of Chancery Rule)\s*(?P<rule>\d+(?:\.\d+)?[A-Za-z-]*)`
-- Superior Court Civil Rules: `(?:Del\.\s*)?Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Civ(?:il)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Delaware\s+)?Superior\s+Court\s+Civil\s+Rules`
-- Superior Court Criminal Rules: `(?:Del\.\s*)?Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Crim(?:inal)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Delaware\s+)?Superior\s+Court\s+Criminal\s+Rules`
-- Supreme Court Rules: `(?:Del\.\s*)?Supr(?:eme)?\.?\s*C(?:our)?t\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+)`
+- Superior Court Civil Rules: `Del(?:\.|aware)\s*Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Civ(?:il)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Delaware\s+Superior\s+Court\s+Civil\s+Rules`
+- Superior Court Civil Rules (bare, no "Del."): `Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Civ(?:il)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Superior\s+Court\s+Civil\s+Rules`
+- Superior Court Criminal Rules: `Del(?:\.|aware)\s*Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Crim(?:inal)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Delaware\s+Superior\s+Court\s+Criminal\s+Rules`
+- Superior Court Criminal Rules (bare, no "Del."): `Super(?:ior)?\.?\s*C(?:our)?t\.?\s*Crim(?:inal)?\.?\s*R(?:ule)?\.?\s*(?P<rule>\d+[A-Z]?(?:\.\d+)?)|Rule\s+(?P<rule2>\d+[A-Z]?(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Superior\s+Court\s+Criminal\s+Rules`
+- Supreme Court Rules: `(?:Del(?:\.|aware)\s*Supr(?:eme)?\.?\s*C(?:our)?t\.?\s*R(?:ule)?\.?|(?<![\w.])Supr\.\s*Ct\.\s*R\.)\s*(?P<rule>\d+)`
+- Supreme Court Rules (bare "Supreme Court Rule 41"): `Supreme\s+Court\s+Rule\s*(?P<rule>\d+)`
 - Delaware Rules of Evidence: `(?:D\.\s*R\.\s*E\.|Del\.\s*R\.\s*Evid\.|Delaware (?:Uniform )?Rules? of Evidence)\s*(?P<rule>\d{3,4})`
 - Delaware Lawyers' Rules of Professional Conduct: `(?:Del\.\s*Lawyers'?\s*R\.\s*Prof'?l\s*Conduct|DLRPC|Delaware Lawyers'? Rules? of Professional Conduct)\s*(?P<rule>\d\.\d+)`
 - Delaware Administrative Code: `(?P<title>\d{1,2})\s+(?:Del\.|DE)\s*Admin\.?\s*Code\s*(?:§+\s*)?(?P<regulation>\d+[A-Z]?)(?:-(?P<section>\d+\.\d+))?`

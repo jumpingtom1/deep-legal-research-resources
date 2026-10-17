@@ -146,7 +146,7 @@
           "N.C. Super. & Dist. Ct. R. 7",
           "Rule 2 of the General Rules of Practice for the Superior and District Courts"
         ],
-        "regex": "Gen\\.\\s*R\\.\\s*Pract\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|N\\.\\s*C\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Rules\\s+of\\s+Practice",
+        "regex": "Gen\\.\\s*R\\.\\s*Pract\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|N\\.\\s*C\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Rules\\s+of\\s+Practice\\s+for\\s+the\\s+Superior\\s+(?:and|&)\\s+District\\s+Courts",
         "routes_to": [
           "nc-rules-general-practice"
         ]
@@ -243,7 +243,7 @@
           "No. COA22-433",
           "State v. Doe, No. COA23-1013, slip op. at 4 (N.C. Ct. App. Dec. 31, 2024) (unpublished)"
         ],
-        "regex": "(?:No\\.\\s*)?\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})",
+        "regex": "(?:No\\.\\s*)?(?<!§\\s)(?<!§)\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})",
         "routes_to": [
           "nc-opinions-appellate-listing",
           "nc-subsequent-history-dockets",

@@ -45,14 +45,14 @@ Regexes (case-insensitive):
 - North Carolina Session Laws: `(?:S\.L\.|Session\s+Law|N\.C\.\s*Sess\.\s*Law)\s*(?P<year>(?:19|20)\d\d)-(?P<number>\d+)|(?P<year2>(?:19|20)\d\d)\s+N\.C\.\s*Sess\.\s*Laws\s*(?:ch\.\s*)?(?P<number2>\d+)`
 - North Carolina Constitution: `N\.\s*C\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+Section\s+(?P<section2>\d+)\s+of\s+the\s+(?:North\s+Carolina|N\.C\.)\s+Constitution`
 - N.C. Rules of Appellate Procedure: `N\.\s*C\.\s*R\.\s*App\.\s*P\.\s*(?P<rule>\d+(?:\.\d+)?)|Rule\s+(?P<rule2>\d+(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:North\s+Carolina|N\.C\.)\s+Rules\s+of\s+Appellate\s+Procedure`
-- General Rules of Practice for the Superior and District Courts: `Gen\.\s*R\.\s*Pract\.\s*Super\.\s*(?:&|and)\s*Dist\.\s*Ct\.\s*(?P<rule>\d+(?:\.\d+)?)|N\.\s*C\.\s*Super\.\s*(?:&|and)\s*Dist\.\s*Ct\.\s*R\.\s*(?P<rule2>\d+(?:\.\d+)?)|Rule\s+(?P<rule3>\d+(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+General\s+Rules\s+of\s+Practice`
+- General Rules of Practice for the Superior and District Courts: `Gen\.\s*R\.\s*Pract\.\s*Super\.\s*(?:&|and)\s*Dist\.\s*Ct\.\s*(?P<rule>\d+(?:\.\d+)?)|N\.\s*C\.\s*Super\.\s*(?:&|and)\s*Dist\.\s*Ct\.\s*R\.\s*(?P<rule2>\d+(?:\.\d+)?)|Rule\s+(?P<rule3>\d+(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+General\s+Rules\s+of\s+Practice\s+for\s+the\s+Superior\s+(?:and|&)\s+District\s+Courts`
 - North Carolina Business Court Rules: `N\.\s*C\.\s*Bus\.\s*Ct\.\s*R\.\s*(?P<rule>\d+(?:\.\d+)?)|\bBCR\s*(?P<rule2>\d+(?:\.\d+)?)|Business\s+Court\s+Rule\s+(?P<rule3>\d+(?:\.\d+)?)`
 - North Carolina Administrative Code: `(?P<title>\d{1,2}[A-Z]?)\s+(?:NCAC|N\.\s*C\.\s*A\.\s*C\.|N\.\s*C\.\s*Admin\.\s*Code)\s*(?P<chapter>\d{1,2})(?P<subchapter>[A-Z]{1,2})?\s*\.(?P<rule>\d{4})`
 - North Carolina Register: `(?P<volume>\d{1,2})(?::(?P<issue>\d{1,2}))?\s+(?:NCR|N\.C\.R\.|N\.C\.\s*Reg\.)\s*(?P<page>\d+)`
 - Reported N.C. cases (N.C., N.C. App., S.E.2d): `(?P<volume>\d{1,3})\s+N\.\s*C\.(?:\s*(?P<app>App)\.)?\s+(?P<page>\d{1,4})|(?P<sevol>\d{1,3})\s+S\.E\.(?:\s*(?P<series>[23])d)?\s+(?P<sepage>\d{1,4})(?:,\s*\d+)?\s*\((?P<court>N\.C\.(?:\s*Ct\.\s*App\.)?)\s*(?P<year>\d{4})\)`
 - N.C. universal citations 2021-2022 (NCSC / NCCOA): `(?P<year>(?:19|20)\d\d)-(?P<court>NCSC|NCCOA)-(?P<number>\d+)`
 - Business Court public-domain citations: `(?P<year>(?:19|20)\d\d)\s+NCBC\s+(?P<number>\d+)`
-- Appellate docket numbers and unpublished COA opinions: `(?:No\.\s*)?\b(?P<sc>\d{1,4}(?:PA|AP|A|P)\d{2}(?:-\d)?)\b|(?:No\.\s*)?\bCOA\s?(?P<coa>\d{2}-\d{1,4})`
+- Appellate docket numbers and unpublished COA opinions: `(?:No\.\s*)?(?<!§\s)(?<!§)\b(?P<sc>\d{1,4}(?:PA|AP|A|P)\d{2}(?:-\d)?)\b|(?:No\.\s*)?\bCOA\s?(?P<coa>\d{2}-\d{1,4})`
 - Business Court Westlaw / Lexis cites: `(?P<year>(?:19|20)\d\d)\s+(?:WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(N\.C\.\s*Super\.|NCBC\s*LEXIS\s+(?P<lexis>\d+))`
 - Westlaw / Lexis unreported cites: `(?P<year>(?:19|20)\d\d)\s+(?:WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(N\.C\.(?!\s*Super)|N\.C\.(?:\s*App\.)?\s*LEXIS\s+(?P<lexis>\d+))`
 

@@ -27,7 +27,7 @@ Statutes: malegislature.gov General Laws (unofficial) are constructible from cha
 | Massachusetts Rules of Appellate Procedure | `Mass. R. A. P. 27.1`; `Mass. R. App. P. 16(a)(9)`; `Mass.R.A.P. 11`; `Rule 27.1 of the Massachusetts Rules of Appellate Procedure` | `ma-rules-appellate` |
 | Rules of the Supreme Judicial Court (incl. Rules of Professional Conduct, SJC Rule 3:07) | `S.J.C. Rule 1:03`; `SJC Rule 3:07`; `Mass. R. Prof. C. 1.7`; `Rule 1:21 of the Supreme Judicial Court` | `ma-rules-sjc` → `ma-rules-sjc-pdf` |
 | Appeals Court Rules (incl. Rule 23.0, formerly 1:28) | `Appeals Court Rule 23.0`; `Mass. App. Ct. R. 23.0`; `M.A.C. Rule 23.0`; `Appeals Court Rule 1:28`; `decided under rule 1:28` | `ma-rules-appeals-court` |
-| Superior Court Rules | `Superior Court Rule 9A`; `Super. Ct. R. 9A`; `Rule 9A of the Rules of the Superior Court` | `ma-rules-superior` |
+| Superior Court Rules *(only once this jurisdiction is known)* | `Superior Court Rule 9A`; `Super. Ct. R. 9A`; `Rule 9A of the Rules of the Superior Court` | `ma-rules-superior` |
 | Massachusetts Guide to Evidence | `Mass. G. Evid. § 803(6)(A)`; `Mass. Guide Evid. § 1119`; `Section 803 of the Massachusetts Guide to Evidence` | `ma-guide-evidence` → `ma-guide-evidence-pdf` |
 | Code of Massachusetts Regulations | `940 CMR 3.16`; `940 C.M.R. 3.16(1)`; `310 Code Mass. Regs. § 10.02`; `940 CMR 3.00`; `940 Mass. Code Regs. 3.16` | `ma-cmr-massgov` → `ma-cmr-lii` |
 | Massachusetts Register | `Mass. Register #1420`; `Mass. Reg. No. 1337`; `Massachusetts Register Issue 1475` | `ma-register-statelib` → `ma-register-sos` |

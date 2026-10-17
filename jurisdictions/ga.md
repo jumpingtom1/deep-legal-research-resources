@@ -23,8 +23,10 @@ Statutes: the only government-provided O.C.G.A. is the LexisNexis-hosted free an
 | Georgia Laws (session laws) | `Ga. L. 2023, p. 123, § 1`; `Ga. L. 1983, p. 884`; `2023 Ga. Laws 123` | `ga-legis-session-laws` |
 | Georgia Constitution of 1983 | `Ga. Const. art. I, § I, para. XII`; `Ga. Const. of 1983, Art. I, Sec. I, Par. XII`; `Ga. Const. art. VI, § VI, ¶ II`; `Article I, Section I, Paragraph XII of the Georgia Constitution`; `Paragraph II of Section VI of Article VI of the Georgia Constitution` | `ga-constitution-sos` → `ga-constitution-justia` |
 | Uniform Superior Court Rules | `Uniform Superior Court Rule 6.4`; `USCR 6.4 (B)`; `Ga. Unif. Super. Ct. R. 6.4`; `Rule 6.4 of the Uniform Superior Court Rules`; `Unif. Super. Ct. R. 24.2` | `ga-rules-uscr-assets` → `ga-rules-uscr-gasupreme` |
-| Rules of the Supreme Court of Georgia | `Supreme Court Rule 22`; `Ga. Sup. Ct. R. 45`; `Rule 40 of the Rules of the Supreme Court of Georgia` | `ga-rules-supreme` |
-| Rules of the Court of Appeals of Georgia | `Court of Appeals Rule 33.2 (a) (1)`; `Ga. Ct. App. R. 25`; `Rule 33.2 of the Rules of the Court of Appeals of Georgia`; `COA Rule 30` | `ga-rules-coa-html` → `ga-rules-coa-pdf` |
+| Rules of the Supreme Court of Georgia | `Ga. Sup. Ct. R. 45`; `Georgia Supreme Court Rule 22`; `Rule 40 of the Rules of the Supreme Court of Georgia` | `ga-rules-supreme` |
+| Rules of the Supreme Court of Georgia (bare "Supreme Court Rule 22") *(only once this jurisdiction is known)* | `Supreme Court Rule 22` | `ga-rules-supreme` |
+| Rules of the Court of Appeals of Georgia | `Ga. Ct. App. R. 25`; `Rule 33.2 of the Rules of the Court of Appeals of Georgia` | `ga-rules-coa-html` → `ga-rules-coa-pdf` |
+| Rules of the Court of Appeals of Georgia (bare "Court of Appeals Rule") *(only once this jurisdiction is known)* | `Court of Appeals Rule 33.2 (a) (1)`; `COA Rule 30` | `ga-rules-coa-html` → `ga-rules-coa-pdf` |
 | Georgia Rules of Professional Conduct (State Bar Rule 4-102(d)) | `Ga. R. Prof'l Conduct 1.7`; `GRPC 1.7`; `Rule 1.7 of the Georgia Rules of Professional Conduct`; `Bar Rule 4-102` | `ga-rules-prof-conduct-gabar` |
 | Rules and Regulations of the State of Georgia | `Ga. Comp. R. & Regs. 160-1-3-.04`; `Ga. Comp. R. & Regs. r. 391-3-6-.03`; `Ga. Comp. R. & Regs. R. 345-2-.01`; `Rule 160-1-3-.04` | `ga-admincode-sos` → `ga-admincode-lii` |
 | Georgia Rules and Regulations Monthly Bulletin | `Georgia Monthly Bulletin for June 2026`; `Ga. Admin. Bulletin (June 2026)` | `ga-admin-bulletin` |
@@ -32,7 +34,8 @@ Statutes: the only government-provided O.C.G.A. is the LexisNexis-hosted free an
 | South Eastern Reporter with a Georgia parenthetical | `893 S.E.2d 660 (Ga. 2023)`; `860 S.E.2d 82 (Ga. Ct. App. 2021)`; `911 S.E.2d 638, 640 (Ga. 2025)` | `ga-cases-justia` → `ga-coa-opinions` → `ga-sc-opinions-list` |
 | Georgia appellate docket numbers (Supreme Court S..., Court of Appeals A...) | `S26A0604`; `S25G1446`; `A26A0896`; `Case No. A25A2138`; `S26C1177` | `ga-coa-opinions` → `ga-cases-justia` → `ga-sc-opinions-list` → `ga-sc-docket-pubdoc` |
 | Westlaw / Lexis cites for Georgia decisions | `2024 WL 123456 (Ga. Ct. App. Mar. 1, 2024)`; `2025 Ga. LEXIS 123`; `2024 Ga. App. LEXIS 456` | `ga-cases-justia` → `ga-coa-opinions` |
-| Georgia certiorari history | `cert. denied (Ga. Oct. 14, 2026)`; `cert. granted, S26G1223`; `physical precedent only` | `ga-cert-lists` → `ga-coa-docket-cert` |
+| Georgia certiorari history | `physical precedent only` | `ga-cert-lists` → `ga-coa-docket-cert` |
+| Georgia certiorari history ("cert. denied/granted") *(only once this jurisdiction is known)* | `cert. denied (Ga. Oct. 14, 2026)`; `cert. granted, S26G1223` | `ga-cert-lists` → `ga-coa-docket-cert` |
 
 Regexes (case-insensitive):
 
@@ -40,8 +43,10 @@ Regexes (case-insensitive):
 - Georgia Laws (session laws): `Ga\.\s*L\.\s*(?P<year>(?:18|19|20)\d\d),\s*p\.\s*(?P<page>\d+)|(?P<year2>(?:18|19|20)\d\d)\s+Ga\.\s*Laws\s+(?P<page2>\d+)`
 - Georgia Constitution of 1983: `Ga\.\s*Const\.(?:\s*of\s*1983)?,?\s*art\.?\s*(?P<article>[IVXL]+),?\s*(?:§|Sec\.?)\s*(?P<section>[IVXL]+),?\s*(?:para\.?|Par\.?|¶)\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\s+(?P<article2>[IVXL]+),\s*Section\s+(?P<section2>[IVXL]+),\s*Paragraph\s+(?P<paragraph2>[IVXL]+)\s+of\s+the\s+(?:Georgia\s+Constitution|Constitution\s+of\s+(?:the\s+State\s+of\s+)?Georgia)|Paragraph\s+(?P<paragraph3>[IVXL]+(?:-[A-Z])?)\s+of\s+Section\s+(?P<section3>[IVXL]+)\s+of\s+Article\s+(?P<article3>[IVXL]+)\s+of\s+the\s+(?:Georgia\s+Constitution|Constitution\s+of\s+(?:the\s+State\s+of\s+)?Georgia)`
 - Uniform Superior Court Rules: `(?:Uniform\s+Superior\s+Court\s+Rule|USCR|(?:Ga\.\s*)?Unif(?:orm|\.)\s*Super(?:ior|\.)\s*C(?:our)?t\.?\s*R\.)\s*(?P<rule>\d{1,3}(?:\.\d+)*)|Rule\s+(?P<rule2>\d{1,3}(?:\.\d+)*)(?:\s*\([A-Za-z0-9]+\))*\s+of\s+the\s+Uniform\s+Superior\s+Court\s+Rules`
-- Rules of the Supreme Court of Georgia: `(?:Ga\.\s*Sup\.\s*Ct\.\s*R\.|(?:Georgia\s+)?Supreme\s+Court\s+Rule)\s*(?P<rule>\d{1,3}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,3}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rules\s+of\s+the\s+Supreme\s+Court\s+of\s+(?:the\s+State\s+of\s+)?Georgia`
-- Rules of the Court of Appeals of Georgia: `(?:Ga\.\s*Ct\.\s*App\.\s*R\.|(?:Court\s+of\s+Appeals|COA)\s+Rule)\s*(?P<rule>\d{1,2}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Rules\s+of\s+the\s+)?Court\s+of\s+Appeals\s+of\s+Georgia`
+- Rules of the Supreme Court of Georgia: `(?:Ga\.\s*Sup\.\s*Ct\.\s*R\.|Georgia\s+Supreme\s+Court\s+Rule)\s*(?P<rule>\d{1,3}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,3}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rules\s+of\s+the\s+Supreme\s+Court\s+of\s+(?:the\s+State\s+of\s+)?Georgia`
+- Rules of the Supreme Court of Georgia (bare "Supreme Court Rule 22"): `Supreme\s+Court\s+Rule\s*(?P<rule>\d{1,3}(?:\.\d+)?)`
+- Rules of the Court of Appeals of Georgia: `(?:Ga\.\s*Ct\.\s*App\.\s*R\.|Georgia\s+Court\s+of\s+Appeals\s+Rule)\s*(?P<rule>\d{1,2}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Rules\s+of\s+the\s+)?Court\s+of\s+Appeals\s+of\s+Georgia`
+- Rules of the Court of Appeals of Georgia (bare "Court of Appeals Rule"): `(?:Court\s+of\s+Appeals|COA)\s+Rule\s*(?P<rule>\d{1,2}(?:\.\d+)?)`
 - Georgia Rules of Professional Conduct (State Bar Rule 4-102(d)): `(?:Ga\.\s*R\.\s*Prof'?l\s*Conduct|GRPC)\s*(?P<rule>\d\.\d+)|Rule\s+(?P<rule2>\d\.\d+)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Georgia\s+Rules\s+of\s+Professional\s+Conduct|Bar\s+Rule\s+(?P<barrule>\d-\d{3}(?:\.\d+)?)`
 - Rules and Regulations of the State of Georgia: `(?:Ga\.\s*Comp\.\s*R\.\s*&\s*Regs\.\s*(?:[rR]\.\s*)?|Rule\s+)(?P<rule>(?P<subject>\d{2,3}-\d{1,3}(?:-\d{1,3})?)-\.(?P<number>\d{2,3}))`
 - Georgia Rules and Regulations Monthly Bulletin: `(?:Georgia\s+Monthly\s+Bulletin\s+for|Ga\.\s*Admin\.\s*Bulletin\s*\()\s*(?P<month>[A-Z][a-z]+)\s+(?P<year>(?:19|20)\d\d)`
@@ -49,7 +54,8 @@ Regexes (case-insensitive):
 - South Eastern Reporter with a Georgia parenthetical: `(?P<volume>\d{1,4})\s+S\.?\s*E\.?\s*(?P<series>[23]d)?\s+(?P<page>\d{1,5})(?:,\s*\d+)?\s*\((?P<court>Ga\.(?:\s*Ct\.\s*App\.)?)\s*(?P<year>\d{4})\)`
 - Georgia appellate docket numbers (Supreme Court S..., Court of Appeals A...): `\b(?P<docket>(?P<court>[SA])(?P<yy>\d{2})(?P<kind>[A-Z])(?P<number>\d{4}))\b`
 - Westlaw / Lexis cites for Georgia decisions: `(?P<year>(?:19|20)\d\d)\s+(?:WL\s+(?P<wl>\d+)(?:,\s*at\s*\*\d+)?\s*\(Ga\.|Ga\.\s*(?:(?P<lexapp>App\.)\s*)?LEXIS\s+(?P<lexis>\d+))`
-- Georgia certiorari history: `cert\.\s*(?P<disposition>denied|granted|dismissed)|(?P<physical>physical\s+precedent\s+only)`
+- Georgia certiorari history: `(?P<physical>physical\s+precedent\s+only)`
+- Georgia certiorari history ("cert. denied/granted"): `cert\.\s*(?P<disposition>denied|granted|dismissed)`
 
 Short forms → URL key:
 

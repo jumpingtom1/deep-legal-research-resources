@@ -170,7 +170,8 @@
         "regex": "(?:Super(?:ior)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Superior\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,2}[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Superior\\s+Court(?:\\s+Rules)?",
         "routes_to": [
           "ma-rules-superior"
-        ]
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",

@@ -27,6 +27,7 @@ Statutes: the Legislature's Folio NXT database (lis.njleg.state.nj.us) serves pe
 | Pamphlet Laws (session laws) | `P.L.2021, c.379`; `P.L. 2017, c. 150`; `L. 1951 (1st SS), c. 344`; `L.1961, c. 121` | `nj-session-laws-njleg` |
 | New Jersey Constitution | `N.J. Const. art. I, ¶ 1`; `N.J. Const. art. VI, § 2, ¶ 3`; `N.J. Const. art. VIII, § 4, ¶ 1`; `Article I, Paragraph 7 of the New Jersey Constitution`; `N.J. Const. art. I, para. 5` | `nj-constitution-njleg` → `nj-constitution-justia` |
 | Rules Governing the Courts of the State of New Jersey | `R. 4:46-2`; `R. 4:46-2(c)`; `Rule 1:36-3`; `R. 2:2-3(a)(1)`; `N.J. Ct. R. 3:22-4`; `Rule 4:6-2(e) of the New Jersey Court Rules`; `R. 4:5B-2` | `nj-rules-of-court` |
+| Rules Governing the Courts (bare "Rule 1:1" form, no subrule) *(only once this jurisdiction is known)* | `Rule 1:4`; `R. 2:10` | `nj-rules-of-court` |
 | New Jersey Rules of Evidence | `N.J.R.E. 803(c)(6)`; `N.J.R.E. 702`; `New Jersey Rule of Evidence 404(b)` | `nj-rules-evidence` |
 | New Jersey Administrative Code | `N.J.A.C. 7:7-1.1`; `N.J. Admin. Code § 6A:14-1.1`; `N.J.A.C. 10:122D-2.4`; `N.J.A.C. 1:1-1` | `nj-admincode-lii` → `nj-admincode-lexis` |
 | New Jersey Register | `52 N.J.R. 1822(b)`; `47 N.J.R. 1392(a)` | `nj-register-lexis` |
@@ -40,7 +41,8 @@ Regexes (case-insensitive):
 - New Jersey Statutes (N.J.S.A.): `(?:N\.?\s*J\.?\s*S\.?\s*A\.?|N\.\s*J\.\s*S\.|N\.\s*J\.\s*Stat\.?(?:\s*Ann\.?)?|(?<![A-Za-z.])R\.\s*S\.|N\.?\s*J\.?\s*Rev\.?\s*Stat\.?|New\s+Jersey\s+Statutes(?:\s+Annotated)?)\s*(?:§+\s*)?(?P<title>\d{1,2}[A-Z]?):(?P<chapter>\d+[A-Z]*)-(?P<section>\d+[A-Za-z]?(?:\.\d+[A-Za-z]?)*)|(?:sec(?:tion|\.)|§)\s*(?P<title2>\d{1,2}[A-Z]?):(?P<chapter2>\d+[A-Z]*)-(?P<section2>\d+[A-Za-z]?(?:\.\d+[A-Za-z]?)*)\s+of\s+the\s+(?:New\s+Jersey\s+Statutes|N\.\s*J\.\s*S\.\s*A\.|Revised\s+Statutes)|\(C\.\s*(?P<title3>\d{1,2}[A-Z]?):(?P<chapter3>\d+[A-Z]*)-(?P<section3>\d+[A-Za-z]?(?:\.\d+[A-Za-z]?)*)\)`
 - Pamphlet Laws (session laws): `(?:P\.\s*L\.|\bL\.)\s*(?P<year>(?:18|19|20)\d\d)(?:\s*\([^)]*\))?,?\s*c(?:h)?\.\s*(?P<chapter>\d+)`
 - New Jersey Constitution: `N\.\s*J\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*(?:§\s*(?P<section>\d+|[IVXL]+),?\s*)?(?:¶|para\.?)\s*(?P<paragraph>\d+)|Article\s+(?P<article2>[IVXL]+),?\s+(?:Section\s+(?P<section2>[IVXL]+|\d+),?\s+)?Paragraph\s+(?P<paragraph2>\d+)\s+of\s+the\s+New\s+Jersey\s+Constitution`
-- Rules Governing the Courts of the State of New Jersey: `(?:\bR\.|\bRules?|N\.\s*J\.\s*Ct\.\s*R\.)\s*(?P<part>[1-8]):(?P<rule>\d+[A-Z]?)(?:-(?P<sub>\d+[A-Z]?(?:\.\d+)?))?`
+- Rules Governing the Courts of the State of New Jersey: `N\.\s*J\.\s*Ct\.\s*R\.\s*(?P<part>[1-8]):(?P<rule>\d+[A-Z]?)(?:-(?P<sub>\d+[A-Z]?(?:\.\d+)?))?|(?<!Ct\.\s)(?<!Ct\.)(?:\bR\.|\bRules?)\s*(?P<part2>[1-8]):(?P<rule2>\d+[A-Z]?)-(?P<sub2>\d+[A-Z]?(?:\.\d+)?)`
+- Rules Governing the Courts (bare "Rule 1:1" form, no subrule): `(?:\bR\.|\bRules?|N\.\s*J\.\s*Ct\.\s*R\.)\s*(?P<part>[1-8]):(?P<rule>\d+[A-Z]?)(?:-(?P<sub>\d+[A-Z]?(?:\.\d+)?))?`
 - New Jersey Rules of Evidence: `(?:N\.\s*J\.\s*R\.\s*E\.|New\s+Jersey\s+Rules?\s+of\s+Evidence)\s*(?P<rule>\d{3})`
 - New Jersey Administrative Code: `(?:N\.\s*J\.\s*A\.\s*C\.|N\.\s*J\.\s*Admin\.?\s*Code)\s*(?:§+\s*)?(?P<title>\d{1,2}[A-Z]?):(?P<chapter>\d+[A-Z]*)(?:-(?P<subchapter>\d+[A-Z]?)(?:\.(?P<section>\d+[A-Z]?))?)?`
 - New Jersey Register: `(?P<volume>\d{1,2})\s+N\.\s*J\.\s*R\.\s+(?P<page>\d+)(?:\((?P<item>[a-z])\))?`

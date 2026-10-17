@@ -25,13 +25,16 @@ Statutes, Constitution, court rules (NRCP, NRAP, SCR, RPC, district-court rules)
 | Nevada Rules of Civil Procedure | `NRCP 12(b)(5)`; `Nev. R. Civ. P. 56(c)`; `NRCP 16.1(a)(1)`; `Rule 12(b)(5) of the Nevada Rules of Civil Procedure` | `nv-rules-nrcp` |
 | Nevada Rules of Appellate Procedure | `NRAP 36(c)(3)`; `Nev. R. App. P. 40B`; `NRAP 3A(b)(1)`; `Rule 36(c) of the Nevada Rules of Appellate Procedure` | `nv-rules-nrap` |
 | Nevada Supreme Court Rules | `SCR 99`; `Nev. Sup. Ct. R. 121.1`; `SCR 121.1`; `Supreme Court Rule 99 (Nevada)` | `nv-rules-scr` |
-| Nevada Rules of Professional Conduct | `RPC 1.7`; `Nev. R. Prof'l Conduct 1.7`; `NRPC 8.4(c)`; `Rule 1.7 of the Nevada Rules of Professional Conduct` | `nv-rules-lcb-other` |
+| Nevada Supreme Court Rules (bare "Supreme Court Rule 99") *(only once this jurisdiction is known)* | `Supreme Court Rule 99` | `nv-rules-scr` |
+| Nevada Rules of Professional Conduct | `Nev. R. Prof'l Conduct 1.7`; `NRPC 8.4(c)`; `Rule 1.7 of the Nevada Rules of Professional Conduct` | `nv-rules-lcb-other` |
+| Rules of Professional Conduct (bare "RPC 1.7") *(only once this jurisdiction is known)* | `RPC 1.7` | `nv-rules-lcb-other` |
 | District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP) | `DCR 13`; `EDCR 2.20`; `WDCR 12`; `JCRCP 12(b)`; `NSTR 4` | `nv-rules-lcb-other` |
 | Nevada Administrative Code | `NAC 116.010`; `Nev. Admin. Code § 284.010`; `Nev. Admin. Code 116.300` | `nv-nac-leg` → `nv-nac-lii` |
 | Register of Administrative Regulations (LCB File No.) | `LCB File No. R001-25`; `R123-21I`; `LCB File No. R058-98` | `nv-register-leg` |
 | Nevada advance opinions (Nev., Adv. Op.) | `City of Sparks v. Bluth, 142 Nev., Adv. Op. 65 (2026)`; `142 Nev. Adv. Op. No. 65`; `Griffith v. Rivera, 140 Nev., Adv. Op. 60, 555 P.3d 1171, 1174 (2024)`; `142 Nev. Adv. Opn. No. 6` | `nv-opinions-acis` → `nv-cases-justia` |
 | Nevada Reports / Pacific Reporter | `Arabella Mut. Ins. Co. v. Eighth Judicial Dist. Court, 122 Nev. 509, 512, 134 P.3d 710, 712 (2006)`; `135 Nev. 280`; `134 P.3d 710 (Nev. 2006)`; `367 P.3d 1286 (Nev. Ct. App. 2016)`; `485 P.3d 1250 (Nev. App. 2021)` | `nv-nevada-reports` → `nv-opinions-acis` → `nv-cases-justia` |
-| Docket numbers and unpublished dispositions (NRAP 36(c)(3)) | `No. 89261-COA`; `Docket No. 90244`; `Smith v. Jones, No. 81234, 2021 WL 4234567 (Nev. Sept. 16, 2021) (unpublished disposition)`; `No. 85000-COA, 2023 WL 1234567 (Nev. Ct. App. Mar. 1, 2023) (Order of Affirmance)` | `nv-opinions-acis` → `nv-cases-justia` |
+| Docket numbers and unpublished dispositions (NRAP 36(c)(3)) | `Smith v. Jones, No. 81234, 2021 WL 4234567 (Nev. Sept. 16, 2021) (unpublished disposition)`; `No. 85000-COA, 2023 WL 1234567 (Nev. Ct. App. Mar. 1, 2023) (Order of Affirmance)` | `nv-opinions-acis` → `nv-cases-justia` |
+| Docket numbers, bare ("No. 89261-COA", "Docket No. 90244") *(only once this jurisdiction is known)* | `No. 89261-COA`; `Docket No. 90244` | `nv-opinions-acis` → `nv-cases-justia` |
 
 Regexes (case-insensitive):
 
@@ -40,14 +43,17 @@ Regexes (case-insensitive):
 - Nevada Constitution: `Nev\.\s*Const\.\s*art\.\s*(?P<article>\d{1,2}|[IVXL]+),?\s*(?:§|sec\.|section)\s*(?P<section>\d+[A-Z]?)|Article\s+(?P<article2>\d{1,2}|[IVXL]+),?\s+Section\s+(?P<section2>\d+[A-Z]?)\s+of\s+the\s+(?:Nevada\s+Constitution|Constitution\s+of\s+(?:the\s+State\s+of\s+)?Nevada)|Section\s+(?P<section3>\d+[A-Z]?)\s+of\s+Article\s+(?P<article3>\d{1,2}|[IVXL]+)\s+of\s+the\s+(?:Nevada\s+Constitution|Constitution\s+of\s+(?:the\s+State\s+of\s+)?Nevada)`
 - Nevada Rules of Civil Procedure: `(?:\bNRCP|Nev\.\s*R\.\s*Civ\.\s*P\.)\s*(?P<rule>\d+(?:\.\d+)?)|Rule\s+(?P<rule2>\d+(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Nevada\s+Rules\s+of\s+Civil\s+Procedure`
 - Nevada Rules of Appellate Procedure: `(?:\bNRAP|Nev\.\s*R\.\s*App\.\s*P\.)\s*(?P<rule>\d+[A-Z]?)|Rule\s+(?P<rule2>\d+[A-Z]?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Nevada\s+Rules\s+of\s+Appellate\s+Procedure`
-- Nevada Supreme Court Rules: `(?:\bSCR|Nev\.\s*Sup\.\s*Ct\.\s*R\.|Supreme\s+Court\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)`
-- Nevada Rules of Professional Conduct: `(?:\bN?RPC|Nev\.\s*R\.\s*Prof'?l\s*Conduct)\s*(?P<rule>\d\.\d+[A-Z]?)|Rule\s+(?P<rule2>\d\.\d+[A-Z]?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Nevada\s+Rules\s+of\s+Professional\s+Conduct`
-- District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP): `\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\s*(?P<rule>\d+(?:\.\d+)?)`
+- Nevada Supreme Court Rules: `(?:\bSCR|Nev\.\s*Sup\.\s*Ct\.\s*R\.|Nevada\s+Supreme\s+Court\s+Rule)\s*(?P<rule>\d+(?:\.\d+)?)|Supreme\s+Court\s+Rule\s*(?P<rule2>\d+(?:\.\d+)?)\s*\(Nev(?:\.|ada)\)`
+- Nevada Supreme Court Rules (bare "Supreme Court Rule 99"): `Supreme\s+Court\s+Rule\s*(?P<rule>\d+(?:\.\d+)?)`
+- Nevada Rules of Professional Conduct: `(?:\bNRPC|Nev\.\s*R\.\s*Prof'?l\s*Conduct)\s*(?P<rule>\d\.\d+[A-Z]?)|Rule\s+(?P<rule2>\d\.\d+[A-Z]?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Nevada\s+Rules\s+of\s+Professional\s+Conduct`
+- Rules of Professional Conduct (bare "RPC 1.7"): `\bRPC\s*(?P<rule>\d\.\d+[A-Z]?)`
+- District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP): `(?<!\d\s)(?<!\d)\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\s*(?P<rule>\d+(?:\.\d+)?)`
 - Nevada Administrative Code: `(?:\bNAC|Nev\.\s*Admin\.\s*Code)\s*(?:§+\s*)?(?:ch\.\s*)?(?P<chapter>\d{1,3}[A-Z]{0,2})\.(?P<section>\d{3,5})(?!\d)`
 - Register of Administrative Regulations (LCB File No.): `(?:LCB\s+File\s+No\.\s*)?\bR(?P<number>\d{3})-(?P<yy>\d{2})(?P<stage>CAP|CA|RP2|RP|AP|NI|NW|NH|A|I|P|W)?\b`
 - Nevada advance opinions (Nev., Adv. Op.): `(?P<volume>1[2-9]\d)\s+Nev\.,?\s*Adv\.\s*Op(?:n)?\.\s*(?:No\.\s*)?(?P<number>\d{1,3})`
 - Nevada Reports / Pacific Reporter: `(?P<volume>\d{1,3})\s+Nev\.\s+(?P<page>\d{1,4})(?!\d)|(?P<pvol>\d{1,4})\s+P\.(?:\s*(?P<series>[23])d)?\s+(?P<ppage>\d{1,5})(?:,\s*\d+)?\s*\((?P<court>Nev\.(?:\s*(?:Ct\.\s*)?App\.)?)\s*(?P<year>\d{4})\)`
-- Docket numbers and unpublished dispositions (NRAP 36(c)(3)): `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?P<coa>-COA)?\b|(?P<year>(?:19|20)\d\d)\s+WL\s+(?P<wl>\d+)\s*\((?P<court>Nev\.(?:\s*(?:Ct\.\s*)?App\.)?)`
+- Docket numbers and unpublished dispositions (NRAP 36(c)(3)): `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?P<coa>-COA)?\b[^()]{0,60}\((?P<court0>Nev\.)|(?P<year>(?:19|20)\d\d)\s+WL\s+(?P<wl>\d+)\s*\((?P<court>Nev\.(?:\s*(?:Ct\.\s*)?App\.)?)`
+- Docket numbers, bare ("No. 89261-COA", "Docket No. 90244"): `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?P<coa>-COA)?\b`
 
 Short forms → URL key:
 

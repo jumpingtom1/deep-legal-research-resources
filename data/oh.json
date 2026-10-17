@@ -108,7 +108,7 @@
           "Ohio R. Civ. P. 12(b)(6)",
           "Rule 60(B) of the Ohio Rules of Civil Procedure"
         ],
-        "regex": "\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "regex": "(?<![A-Za-z]\\.\\s)(?<![A-Za-z]\\.)(?<!Idaho\\s)(?<!Iowa\\s)(?<!Utah\\s)(?<!Ohio\\s)\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure",
         "routes_to": [
           "oh-rules-civil"
         ]
@@ -136,7 +136,7 @@
           "Ohio R. App. P. 26",
           "Rule 26(B) of the Ohio Rules of Appellate Procedure"
         ],
-        "regex": "\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "regex": "(?<![A-Za-z]\\.\\s)(?<![A-Za-z]\\.)(?<!Idaho\\s)(?<!Iowa\\s)(?<!Utah\\s)(?<!Ohio\\s)\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
         "routes_to": [
           "oh-rules-appellate"
         ]
@@ -150,7 +150,7 @@
           "Ohio R. Crim. P. 11",
           "Rule 11 of the Ohio Rules of Criminal Procedure"
         ],
-        "regex": "\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+        "regex": "(?<![A-Za-z]\\.\\s)(?<![A-Za-z]\\.)(?<!Idaho\\s)(?<!Iowa\\s)(?<!Utah\\s)(?<!Ohio\\s)\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
         "routes_to": [
           "oh-rules-criminal"
         ]
@@ -295,7 +295,8 @@
         "routes_to": [
           "oh-opinions-rod",
           "oh-subsequent-history-announcements"
-        ]
+        ],
+        "context_required": true
       }
     ],
     "law_aliases": {

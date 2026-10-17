@@ -27,7 +27,8 @@ Statutes and Constitution: legislature.idaho.gov serves one HTML page per sectio
 | IDAPA (Idaho Administrative Code) | `IDAPA 16.03.09.010`; `IDAPA 58.01.02`; `Idaho Admin. Code r. 58.01.02.001`; `IDAPA 58.01.02.250.02` | `id-idapa-dfm` → `id-idapa-lii` |
 | Idaho Administrative Bulletin | `Idaho Admin. Bull. Vol. 26-10`; `Idaho Administrative Bulletin, Vol. 25-1, p. 45`; `Vol. 26-10 Idaho Admin. Bull.` | `id-bulletin-dfm` |
 | Reported Idaho cases (Idaho Reports / Pacific Reporter) | `State v. Dorff, 171 Idaho 818, 526 P.3d 988 (2023)`; `172 Idaho 825, 537 P.3d 66 (2023)`; `State v. Doe, 140 Idaho 271, 92 P.3d 521 (Ct. App. 2004)`; `526 P.3d 988 (Idaho 2023)`; `92 P.3d 521 (Idaho Ct. App. 2004)` | `id-opinions-isc-api` → `id-cases-justia` |
-| Unpublished / slip opinions by docket number | `State v. Cowell, Docket No. 53548 (Idaho Ct. App. Oct. 16, 2026) (unpublished)`; `Docket No. 53539`; `No. 46085-2018`; `2024 WL 123456 (Idaho Ct. App. Jan. 5, 2024)` | `id-opinions-isc-api` → `id-cases-justia` |
+| Unpublished / slip opinions by docket number | `State v. Cowell, Docket No. 53548 (Idaho Ct. App. Oct. 16, 2026) (unpublished)`; `2024 WL 123456 (Idaho Ct. App. Jan. 5, 2024)` | `id-opinions-isc-api` → `id-cases-justia` |
+| Docket numbers, bare ("Docket No. 53539", "No. 46085-2018") *(only once this jurisdiction is known)* | `Docket No. 53539`; `No. 46085-2018` | `id-opinions-isc-api` → `id-cases-justia` |
 
 Regexes (case-insensitive):
 
@@ -39,7 +40,8 @@ Regexes (case-insensitive):
 - IDAPA (Idaho Administrative Code): `(?:IDAPA|Idaho\s+Admin\.\s*Code\s+r\.)\s*(?P<agency>\d{2})\.(?P<title>\d{2})\.(?P<chapter>\d{2})(?:\.(?P<section>\d{3}))?(?:\.(?P<subsection>\d{2}))?`
 - Idaho Administrative Bulletin: `(?:Idaho\s+Admin(?:\.|istrative)\s*Bull(?:\.|etin),?\s*Vol\.\s*(?P<yy>\d{2})-(?P<issue>\d{1,2})|Vol\.\s*(?P<yy2>\d{2})-(?P<issue2>\d{1,2}),?\s+Idaho\s+Admin\.\s*Bull\.)(?:,?\s*p\.\s*(?P<page>\d+))?`
 - Reported Idaho cases (Idaho Reports / Pacific Reporter): `(?P<idvol>\d{1,3})\s+Idaho\s+(?P<idpage>\d{1,4})(?:,\s*\d+)?(?:,\s*(?P<pvol>\d{1,4})\s+P\.(?:\s*[23]d)?\s+(?P<ppage>\d{1,5}))?|(?P<pvol2>\d{1,4})\s+P\.(?:\s*[23]d)?\s+(?P<ppage2>\d{1,5})(?:,\s*\d+)?\s*\((?P<court>Idaho(?:\s+Ct\.\s*App\.)?)\s*(?P<year>\d{4})\)`
-- Unpublished / slip opinions by docket number: `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?:-(?P<year>(?:19|20)\d\d))?|(?P<wlyear>(?:19|20)\d\d)\s+WL\s+(?P<wl>\d+)[^()]{0,30}\(Idaho`
+- Unpublished / slip opinions by docket number: `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?:-(?P<year>(?:19|20)\d\d))?[^()]{0,60}\(Idaho|(?P<wlyear>(?:19|20)\d\d)\s+WL\s+(?P<wl>\d+)[^()]{0,30}\(Idaho`
+- Docket numbers, bare ("Docket No. 53539", "No. 46085-2018"): `(?:Docket\s+)?No\.\s*(?P<docket>\d{5})(?:-(?P<year>(?:19|20)\d\d))?`
 
 Short forms → URL key:
 

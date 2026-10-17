@@ -123,24 +123,47 @@
           "SCR 121.1",
           "Supreme Court Rule 99 (Nevada)"
         ],
-        "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+        "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Nevada\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)\\s*\\(Nev(?:\\.|ada)\\)",
         "routes_to": [
           "nv-rules-scr"
         ]
       },
       {
         "family": "court_rules",
+        "label": "Nevada Supreme Court Rules (bare \"Supreme Court Rule 99\")",
+        "examples": [
+          "Supreme Court Rule 99"
+        ],
+        "regex": "Supreme\\s+Court\\s+Rule\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+        "routes_to": [
+          "nv-rules-scr"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "court_rules",
         "label": "Nevada Rules of Professional Conduct",
         "examples": [
-          "RPC 1.7",
           "Nev. R. Prof'l Conduct 1.7",
           "NRPC 8.4(c)",
           "Rule 1.7 of the Nevada Rules of Professional Conduct"
         ],
-        "regex": "(?:\\bN?RPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "regex": "(?:\\bNRPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct",
         "routes_to": [
           "nv-rules-lcb-other"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of Professional Conduct (bare \"RPC 1.7\")",
+        "examples": [
+          "RPC 1.7"
+        ],
+        "regex": "\\bRPC\\s*(?P<rule>\\d\\.\\d+[A-Z]?)",
+        "routes_to": [
+          "nv-rules-lcb-other"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -152,7 +175,7 @@
           "JCRCP 12(b)",
           "NSTR 4"
         ],
-        "regex": "\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+        "regex": "(?<!\\d\\s)(?<!\\d)\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
         "routes_to": [
           "nv-rules-lcb-other"
         ]
@@ -220,16 +243,28 @@
         "family": "case_law",
         "label": "Docket numbers and unpublished dispositions (NRAP 36(c)(3))",
         "examples": [
-          "No. 89261-COA",
-          "Docket No. 90244",
           "Smith v. Jones, No. 81234, 2021 WL 4234567 (Nev. Sept. 16, 2021) (unpublished disposition)",
           "No. 85000-COA, 2023 WL 1234567 (Nev. Ct. App. Mar. 1, 2023) (Order of Affirmance)"
         ],
-        "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)",
+        "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b[^()]{0,60}\\((?P<court0>Nev\\.)|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)",
         "routes_to": [
           "nv-opinions-acis",
           "nv-cases-justia"
         ]
+      },
+      {
+        "family": "case_law",
+        "label": "Docket numbers, bare (\"No. 89261-COA\", \"Docket No. 90244\")",
+        "examples": [
+          "No. 89261-COA",
+          "Docket No. 90244"
+        ],
+        "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b",
+        "routes_to": [
+          "nv-opinions-acis",
+          "nv-cases-justia"
+        ],
+        "context_required": true
       }
     ],
     "law_aliases": {

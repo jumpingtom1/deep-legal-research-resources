@@ -95,7 +95,7 @@
           "Colo. App. R. 49",
           "Rule 35(e) of the Colorado Appellate Rules"
         ],
-        "regex": "C\\.\\s*A\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Colo\\.\\s*App\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Appellate\\s+Rules",
+        "regex": "(?<![\\w.])C\\.\\s*A\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Colo\\.\\s*App\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Appellate\\s+Rules",
         "routes_to": [
           "co-rules-lexis",
           "co-rules-changes"

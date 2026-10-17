@@ -141,7 +141,7 @@
           "Rule 42, ER 1.8 of the Rules of the Supreme Court",
           "Ariz. Sup. Ct. R. 31"
         ],
-        "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court",
+        "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court(?!\\s+of\\s+(?:the\\s+)?(?!Arizona\\b)[a-z])",
         "routes_to": [
           "az-rules-westlaw"
         ]

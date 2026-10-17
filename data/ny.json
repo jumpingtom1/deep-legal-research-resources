@@ -85,7 +85,7 @@
           "Labor Law § 240(1)",
           "section 1192 of the Vehicle and Traffic Law"
         ],
-        "regex": "(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\s+(?:§+|sections?)\\s*(?P<section>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)s?|§§?)\\s*(?P<section_p>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:New\\s+York\\s+)?(?P<law_p>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\b",
+        "regex": "(?<![A-Za-z])(?<!Ann\\.,\\s)(?<!Ann\\.\\s)(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>(?!Ann\\.|Md\\.|(?:Code|Delaware|California|Texas|Florida|Illinois|Pennsylvania|New\\s+Jersey|Massachusetts|Nevada|Idaho|Arizona|Colorado|Georgia|North\\s+Carolina|Ohio|Maryland|Virginia|Minnesota|Michigan)\\b)[A-Z](?:(?!Code\\b|Ann\\.)[A-Za-z.&,' ])*?)\\s+Law\\s+(?:§+|sections?)\\s*(?P<section>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)s?|§§?)\\s*(?P<section_p>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:New\\s+York\\s+)?(?P<law_p>(?!Ann\\.|Md\\.|(?:Code|Delaware|California|Texas|Florida|Illinois|Pennsylvania|New\\s+Jersey|Massachusetts|Nevada|Idaho|Arizona|Colorado|Georgia|North\\s+Carolina|Ohio|Maryland|Virginia|Minnesota|Michigan)\\b)[A-Z](?:(?!Code\\b|Ann\\.)[A-Za-z.&,' ])*?)\\s+Law\\b",
         "routes_to": [
           "ny-laws-senate",
           "ny-laws-publiclaw",
@@ -206,14 +206,26 @@
         "family": "case_law",
         "label": "Regional / West reporters",
         "examples": [
-          "216 N.E.3d 1",
           "196 N.Y.S.3d 1"
         ],
-        "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?|N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})",
+        "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})",
         "routes_to": [
           "ny-cases-lrb",
           "ny-cases-justia"
         ]
+      },
+      {
+        "family": "case_law",
+        "label": "Regional reporter N.E. (no court parenthetical)",
+        "examples": [
+          "216 N.E.3d 1"
+        ],
+        "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})",
+        "routes_to": [
+          "ny-cases-lrb",
+          "ny-cases-justia"
+        ],
+        "context_required": true
       }
     ],
     "notes": "There are two citation styles. The NY Official Reports style (Tanbook) omits periods (40 NY3d 405; CPLR 3211 [a] [7]; 22 NYCRR 202.8-g), while Bluebook uses periods (N.Y. C.P.L.R. 3211(a)(7) (McKinney); N.Y. Gen. Oblig. Law § 5-701). The Tanbook style manual is at nycourts.gov/reporter/Styman_Menu.shtml (reported, not fetched). Slip Op number ranges observed: 0xxxx are reported appellate and Court of Appeals decisions; 3xxxx(U) are eCourts-sourced trial orders shown as PDF and 'not selected for official publication'; 5xxxx(U) are unreported decisions with a Misc 3d NNNN(A) table cite; 6xxxx-8xxxx are motion decisions, both Court of Appeals leave motions and Appellate Division motions (the latter with (U)). The court IDs come from memory and were not checked against CourtListener. CourtListener groups the four Appellate Division departments under one id, so the department appears only in the citation parenthetical. The Senate law-ID table (94 Consolidated Laws plus court acts) is in ny-laws-senate.pattern_rules. Court acts (FCT, SCP, CCA, UDA, UJCA) and WKC are listed by the Senate outside the 94-law CONSOLIDATED table; their LAWIDs here are from the Senate's court-acts listing and should be confirmed on first use (open question). Precedence: the 22 NYCRR court-rules pattern wins over the general NYCRR pattern (the latter excludes title 22).",

@@ -91,7 +91,7 @@
           "section 102(b)(7) of the Delaware General Corporation Law",
           "Section 141(k) of Title 8"
         ],
-        "regex": "(?:(?:(?P<title>\\d{1,2})\\s+Del\\.\\s*C(?:ode)?\\.?(?:\\s+Ann\\.)?\\s*§+\\s*(?P<section>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d)|Del\\.\\s*Code\\s+Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*§+\\s*(?P<section2>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d))|Title\\s+(?P<title3>\\d{1,2}),?\\s+(?:Section|§)\\s*(?P<section3>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)\\s+of\\s+the\\s+Delaware\\s+Code)|(?:sec(?:tion|\\.)|§)\\s*(?P<section4>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Delaware\\s+General\\s+Corporation\\s+Law|DGCL)|(?:sec(?:tion|\\.)|§)\\s*(?P<section5>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title5>\\d{1,2})(?:\\s+of\\s+the\\s+Delaware\\s+Code)?",
+        "regex": "(?:(?:(?P<title>\\d{1,2})\\s+Del\\.\\s*C(?:ode)?\\.?(?:\\s+Ann\\.)?\\s*§+\\s*(?P<section>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d)|Del\\.\\s*Code\\s+Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*§+\\s*(?P<section2>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d))|Title\\s+(?P<title3>\\d{1,2}),?\\s+(?:Section|§)\\s*(?P<section3>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)\\s+of\\s+the\\s+Delaware\\s+Code)|(?:sec(?:tion|\\.)|§)\\s*(?P<section4>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Delaware\\s+General\\s+Corporation\\s+Law|DGCL)|(?:sec(?:tion|\\.)|§)\\s*(?P<section5>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title5>\\d{1,2})(?!\\d)(?:\\s+of\\s+the\\s+Delaware\\s+Code|(?!\\s+of\\s+the\\s))",
         "routes_to": [
           "de-code-delcode",
           "de-code-justia"
@@ -140,18 +140,42 @@
         "family": "court_rules",
         "label": "Superior Court Civil Rules",
         "examples": [
-          "Super. Ct. Civ. R. 12(b)(6)",
           "Del. Super. Ct. Civ. R. 56",
-          "Superior Court Civil Rule 60(b)"
+          "Rule 12(b)(6) of the Delaware Superior Court Civil Rules"
         ],
-        "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Civ(?:il)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Civil\\s+Rules",
+        "regex": "Del(?:\\.|aware)\\s*Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Civ(?:il)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Delaware\\s+Superior\\s+Court\\s+Civil\\s+Rules",
         "routes_to": [
           "de-rules-superior-civil"
         ]
       },
       {
         "family": "court_rules",
+        "label": "Superior Court Civil Rules (bare, no \"Del.\")",
+        "examples": [
+          "Super. Ct. Civ. R. 12(b)(6)",
+          "Superior Court Civil Rule 60(b)"
+        ],
+        "regex": "Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Civ(?:il)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Superior\\s+Court\\s+Civil\\s+Rules",
+        "routes_to": [
+          "de-rules-superior-civil"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "court_rules",
         "label": "Superior Court Criminal Rules",
+        "examples": [
+          "Del. Super. Ct. Crim. R. 61",
+          "Rule 61 of the Delaware Superior Court Criminal Rules"
+        ],
+        "regex": "Del(?:\\.|aware)\\s*Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Delaware\\s+Superior\\s+Court\\s+Criminal\\s+Rules",
+        "routes_to": [
+          "de-rules-superior-criminal"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Superior Court Criminal Rules (bare, no \"Del.\")",
         "examples": [
           "Super. Ct. Crim. R. 61",
           "Superior Court Criminal Rule 35(a)",
@@ -159,10 +183,11 @@
           "Rule 35(b) of the Superior Court Criminal Rules",
           "Super. Ct. Crim. R. 35A"
         ],
-        "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Criminal\\s+Rules",
+        "regex": "Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Superior\\s+Court\\s+Criminal\\s+Rules",
         "routes_to": [
           "de-rules-superior-criminal"
-        ]
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -170,12 +195,24 @@
         "examples": [
           "Supr. Ct. R. 42",
           "Del. Supr. Ct. R. 14(g)",
-          "Supreme Court Rule 41"
+          "Delaware Supreme Court Rule 41"
         ],
-        "regex": "(?:Del\\.\\s*)?Supr(?:eme)?\\.?\\s*C(?:our)?t\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+)",
+        "regex": "(?:Del(?:\\.|aware)\\s*Supr(?:eme)?\\.?\\s*C(?:our)?t\\.?\\s*R(?:ule)?\\.?|(?<![\\w.])Supr\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+)",
         "routes_to": [
           "de-rules-supreme"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Supreme Court Rules (bare \"Supreme Court Rule 41\")",
+        "examples": [
+          "Supreme Court Rule 41"
+        ],
+        "regex": "Supreme\\s+Court\\s+Rule\\s*(?P<rule>\\d+)",
+        "routes_to": [
+          "de-rules-supreme"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",

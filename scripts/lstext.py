@@ -100,7 +100,11 @@ class _Links(html.parser.HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
-            self._href = dict(attrs).get("href")
+            # Some pages repeat href (the last a "javascript:" stub): take the
+            # first real one.
+            hrefs = [v for k, v in attrs if k == "href" and v]
+            real = [h for h in hrefs if not h.strip().lower().startswith("javascript:")]
+            self._href = (real or hrefs or [None])[0]
             self._text = []
 
     def handle_data(self, data):
