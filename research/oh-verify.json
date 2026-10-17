@@ -1,0 +1,279 @@
+{
+ "jurisdiction": "oh",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "oh-orc-codes",
+   "outcome": "still-blocked",
+   "probe_evidence": "fetch_doc check: 'REFUSED: robots.txt on codes.ohio.gov disallows ... (rule: Disallow: /)' exit 3",
+   "generalised_citation": "n/a (host robots-disallowed)",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Row still says VERIFIED, 'WebFetch ok · shell ok' and Read via script -> fetch tool; under the current policy codes.ohio.gov is robots-disallowed for every route, so a fresh run following the row would fetch a disallowed host. TIER-2 TEST (statutes): Justia works, WebFetch only (fetch_doc REFUSED, Cloudflare): R.C. 149.43 -> law.justia.com/codes/ohio/title-1/chapter-149/section-149-43/ YES '(A) As used in this section: (1) \"Public record\"', 'OH Rev Code § 149.43 (2025)'; R.C. 4112.02 -> /title-41/chapter-4112/section-4112-02/ YES 'It shall be an unlawful discriminatory practice', 'OH Rev Code § 4112.02 (2025)'. Cornell LII: no Revised Code (law.cornell.edu/regulations/ohio mentions neither ORC nor Constitution). public.law: no Ohio (lists CA, CO, FL, NV, NY, OR, TX, World). ",
+   "suggested_fix": "Mark BLOCKED (blocked-robots, all routes incl. WebFetch; also the /orc/ short form and authenticated PDFs). Route R.C. cites straight to oh-orc-justia (Tier 2, disclose '2025 Ohio Revised Code' / 'OH Rev Code § X (2025)'). Drop LII and public.law as candidates for the Revised Code (both confirmed absent). Note there is now no Tier-1 statute text route."
+  },
+  {
+   "id": "oh-session-laws-lis",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'To enact section 2305.402 of the Revised Code to specify'; fetch_doc grep same, 5 pp",
+   "generalised_citation": "Sub.H.B. No. 68, 135th General Assembly",
+   "generalised_url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_135/legislation/hb68/05_EN/pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Optional: add HB 68/135th (JSON versions 00_IN..05_EN; EN PDF 10 pp, 'AN ACT To enact sections 3109.054...') as a second example."
+  },
+  {
+   "id": "oh-orc-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Except as provided in division (C) or (E) of this'; 'OH Rev Code § 2305.10 (2025)'; complete",
+   "generalised_citation": "R.C. 149.43 (also R.C. 4112.02)",
+   "generalised_url": "https://law.justia.com/codes/ohio/title-1/chapter-149/section-149-43/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Title rule 'generally the leading 1-2 digits of the chapter' is ambiguous for 3-digit chapters (chapter 149 -> title 1, not 14). The suggested check page https://law.justia.com/codes/ohio/ lists only editions (2025...2006), no title links. This row is now the ONLY statute route (codes.ohio.gov robots-disallowed). TIER-2 TEST (statutes): Justia works, WebFetch only (fetch_doc REFUSED, Cloudflare): R.C. 149.43 -> law.justia.com/codes/ohio/title-1/chapter-149/section-149-43/ YES '(A) As used in this section: (1) \"Public record\"', 'OH Rev Code § 149.43 (2025)'; R.C. 4112.02 -> /title-41/chapter-4112/section-4112-02/ YES 'It shall be an unlawful discriminatory practice', 'OH Rev Code § 4112.02 (2025)'. Cornell LII: no Revised Code (law.cornell.edu/regulations/ohio mentions neither ORC nor Constitution). public.law: no Ohio (lists CA, CO, FL, NV, NY, OR, TX, World). ",
+   "suggested_fix": "State title = chapter // 100 for chapters >= 100 (149->1, 2305->23, 4112->41), title 1 for chapter 1 (R.C. 1.42); point the fallback check to https://law.justia.com/codes/ohio/2025/. Promote to first route for R.C. with mandatory Tier-2 disclosure."
+  },
+  {
+   "id": "oh-constitution-codes",
+   "outcome": "still-blocked",
+   "probe_evidence": "fetch_doc check: 'REFUSED: robots.txt on codes.ohio.gov disallows /ohio-constitution/section-1.16' exit 3",
+   "generalised_citation": "n/a (host robots-disallowed)",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Row is VERIFIED with script route on a host now treated as robots-disallowed for every route. TIER-2 TEST (constitution): Justia works (WebFetch only): Ohio Const. art. IV, § 2 -> law.justia.com/constitution/ohio/article-iv/section-2/ YES '(A) The Supreme Court shall, until otherwise provided by'; art. I, § 10a -> /article-i/section-10a/ YES 'To secure for victims justice and due process throughout the' (history '(1994, am. 2017)'). Cornell LII: no Ohio Constitution. public.law: no Ohio.",
+   "suggested_fix": "Mark BLOCKED (blocked-robots, all routes). Route Ohio Const. cites to oh-constitution-justia (Tier 2; currency is only the disclaimer 'This Constitution may not be the most recent version.' plus the amendment-history line). Art. XIX (absent from Justia's index per record) then has no route; say so."
+  },
+  {
+   "id": "oh-constitution-legislature",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc: 'TLS certificate chain does not verify from this sandbox' exit 4 (as recorded); WebFetch not run",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Only the shell TLS failure was re-checked; WebFetch was halted after an HTTP 429 (rate-limit) so the WebFetch status stays untested. Its stated purpose (link to codes.ohio.gov) is moot now that codes.ohio.gov is blocked.",
+   "suggested_fix": "Keep link-only; note it only links to the now-blocked codes.ohio.gov."
+  },
+  {
+   "id": "oh-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'All courts shall be open, and every person, for an'; disclaimer present; complete",
+   "generalised_citation": "Ohio Const. art. IV, § 2 (also art. I, § 10a)",
+   "generalised_url": "https://law.justia.com/constitution/ohio/article-iv/section-2/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Pattern works incl. letter suffix (section-10a). Now the only Constitution route; Art. XIX gap not re-tested.",
+   "suggested_fix": "Make first route for Ohio Const.; replace notes 'Only one section probed' with art. IV § 2 and art. I § 10a results."
+  },
+  {
+   "id": "oh-rules-appellate",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'Rule 26. Application for Reconsideration; Application for En Banc' offset 146,633 p.64",
+   "generalised_citation": "App.R. 4(A)",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/appellate/AppellateProcedure.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text is 'Rules of Appellate Procedure' (no 'Ohio'); harmless. Generalised hit: 'RULE 4. Appeal as of Right – When Taken.' p.10",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-civil",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 12(B) 'Every defense, in law or fact, to a claim for relief' offset 162,269 p.66",
+   "generalised_citation": "Civ.R. 56(C)",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/civil/CivilProcedure.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text is 'Rules of Civil Procedure'. WebFetch truncation claim not re-tested. Generalised hit: 'RULE 56. Summary Judgment.' offset 509,378 p.201",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-criminal",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'RULE 11.1. Standard Notice Concerning Possession or Purchase of a Firearm' p.35",
+   "generalised_citation": "Crim.R. 33",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/criminal/CriminalProcedure.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text is 'Rules of Criminal Procedure'. Generalised hit: 'RULE 33. New Trial.' p.102",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-evidence",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'RULE 702. ... A witness may testify as an expert if the proponent' p.59",
+   "generalised_citation": "Evid.R. 803(6)",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/evidence/evidence.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text is 'Rules of Evidence'. Generalised hit: 'RULE 803. Hearsay Exceptions; Availability of Declarant Immaterial.' p.68",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-govbar",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'RULE V. DISCIPLINARY PROCEDURE Section 1. Board of Professional Conduct' p.41",
+   "generalised_citation": "Gov.Bar R. VI",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/govbar/govbar.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text is 'Rules for the Government of the Bar'. Grep 'RULE VI' gives 7 hits (also 'former Rule VI' notes); search 'RULE VI. ' with the period. Generalised hit: 'RULE VI. REGISTRATION OF ATTORNEYS Section 1.' p.91",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-practice",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'Rule 7.01. Institution of Jurisdictional Appeal' TOC p.11 and body p.49",
+   "generalised_citation": "S.Ct.Prac.R. 18.02",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/practice/rulesofpractice.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Probe expect hits the TOC first (p.11); body is at p.49. Generalised hit: 'Rule 18.02. Reconsideration.' p.108",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-profconduct",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'RULE 1.7: CONFLICT OF INTEREST: CURRENT CLIENTS (a) A lawyer’s acceptance' p.41",
+   "generalised_citation": "Prof.Cond.R. 8.4",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/ProfConduct/profConductRules.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Grep for a rule must include the colon ('RULE 8.4:') or it drowns in cross-references; already a hazard. Generalised hit: 'RULE 8.4' 35 matches (mostly cross-refs); heading needs 'RULE 8.4:'",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-reporting",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'Rep.Op.R. 3.4. Use of Opinions. All opinions of the courts of appeals' p.6",
+   "generalised_citation": "Rep.Op.R. 2.5",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/reporting/Report.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Generalised hit: 'Rep.Op.R. 2.5. Format.' p.5",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-rules-superintendence",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep (WebFetch gated on this host; ROD built URL timed out): 'Rule 44 was renumbered to Rule 11.09' offset 572,431 p.349",
+   "generalised_citation": "Sup.R. 11.09",
+   "generalised_url": "https://www.supremecourt.ohio.gov/docs/LegalResources/Rules/superintendence/Superintendence.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Generalised hit: 'RULE 11.09. Public Access Definitions.' p.346",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-oac-codes",
+   "outcome": "still-blocked",
+   "probe_evidence": "fetch_doc check: 'REFUSED: robots.txt on codes.ohio.gov disallows /ohio-administrative-code/rule-3701-17-01' exit 3",
+   "generalised_citation": "n/a (host robots-disallowed)",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Row VERIFIED with script+WebFetch routes on a host now robots-disallowed for every route. TIER-2 TEST (admin code): Cornell LII works: Ohio Adm.Code 3745-1-04 -> law.cornell.edu/regulations/ohio/Ohio-Admin-Code-3745-1-04 WebFetch YES 'The following general water quality criteria ... apply to all surface waters', 'Effective: 3/20/2024'; Ohio Adm.Code 4901:1-10-01 works ONLY as .../Ohio-Admin-Code-4901-1-10-01 (colon -> hyphen; fetch_doc: 'As used in this chapter: (A) \"Advanced meter\"', 'Effective: 4/8/2024'); the colon URL returns the OAC title index. Justia law.justia.com/codes/ohio/ carries no Administrative Code (index lists ORC editions only). public.law: no Ohio.",
+   "suggested_fix": "Mark BLOCKED (blocked-robots, all routes). Route OAC cites to oh-oac-lii with colon->hyphen in the rule slug, mandatory Tier-2 disclosure of LII's 'Effective:' date, and a warning that LII may lag the official text by years (no Tier-1 comparison is possible any more)."
+  },
+  {
+   "id": "oh-oac-lii",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES 'As used in rules 3701-17-01 to 3701-17-26 of the Administrative'; 'Effective: 1/1/2018'",
+   "generalised_citation": "Ohio Adm.Code 4901:1-10-01 (also 3745-1-04: ok)",
+   "generalised_url": "https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4901:1-10-01",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Placeholder says 'rule verbatim'; for colon rules the verbatim URL returns the OAC title index, not the rule. Real link (title-4901-1 -> chapter-4901-1-10 -> rule) is Ohio-Admin-Code-4901-1-10-01 (fetch_doc ok, 'Effective: 4/8/2024'). LII page text carries redline markup (struck-through words, e.g. '~~shall~~' in 3745-1-04; duplicate '(P)' in 3701-17-01) that a quote could pick up. LII returned HTTP 429 to WebFetch after ~4 page loads (10 s crawl-delay); the hazard 'compare with oh-oac-codes' is now impossible.",
+   "suggested_fix": "Pattern: Ohio-Admin-Code-{rule with ':' replaced by '-'}; index-anchored fallback /regulations/ohio/title-{agency with ':'->'-'}/chapter-{chapter with ':'->'-'}. Prefer the script route (honours crawl delay) over WebFetch. Add hazard: strip/avoid redline (struck) text when quoting. Replace the 'compare with oh-oac-codes' instruction with 'disclose LII Effective date; no official cross-check available'."
+  },
+  {
+   "id": "oh-register",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc: 'TLS certificate chain does not verify from this sandbox' exit 4; WebFetch not re-run",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Only the shell-TLS half re-checked; the WebFetch reading of the search page was not re-run (WebFetch halted after HTTP 429). Not a full confirmation.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-opinions-rod",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch gated (approval timeout); fetch_doc grep '{¶ 1} In this appeal from the Seventh District Court of Appeals' p.1",
+   "generalised_citation": "State v. Moore, 2026-Ohio-96 (Lucas App. Nos. L-24-1180, L-24-1181)",
+   "generalised_url": "https://www.supremecourt.ohio.gov/rod/docs/pdf/6/2026/2026-Ohio-96.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "County table Lucas -> 6 correct; PDF 'SIXTH APPELLATE DISTRICT LUCAS COUNTY', '[Cite as State v. Moore, 2026-Ohio-96.]'. WebCite POST (2026/96) -> 1 row State v. Moore; Citation '172 Ohio St.3d 471' -> Harris v. Hilderbrand. ROD POST: the year selects default to the CURRENT year (ddlDecidedYearMin/Max=2026) and must be submitted with the form; a POST with only hidden+text fields returned 0 rows, and '\"2022-Ohio-1555\"' (court 0) with default years returned 0 rows vs 3 rows (2022-Ohio-3135, 2023-Ohio-3005, 2023-Ohio-3042) with ddlDecidedYearMin=1992. ",
+   "suggested_fix": "In the POST field list say: submit every select (ddlCourt, ddlDecidedYearMin, ddlDecidedYearMax, ddlCounty, ddlRowsPerPage) with explicit values; set ddlDecidedYearMin=1992 (or the cited year) for full-text/case-number searches because the default is the current year only."
+  },
+  {
+   "id": "oh-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES '{¶ 1} In this appeal from the Seventh District Court of Appeals,' ¶1-¶34 complete",
+   "generalised_citation": "Harris v. Hilderbrand, 2022-Ohio-1555 (7th Dist. Jefferson No. 21 JE 0013)",
+   "generalised_url": "https://law.justia.com/cases/ohio/seventh-district-court-of-appeals/2022/21-je-0013.html",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Generalisation not run: WebFetch halted after HTTP 429; fetch_doc REFUSED (Justia challenge) as the row says.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-docket-clerk",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc info: html, chars=0 (JS single-page app), as recorded",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "oh-subsequent-history-announcements",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc grep: 'APPEALS NOT ACCEPTED FOR REVIEW'; '2026-0866. Lewis v. BMW of Westlake. Cuyahoga App. No. 115771'",
+   "generalised_citation": "State v. Wilson, 2026-Ohio-1178 (Hamilton App. No. C-240696)",
+   "generalised_url": "https://www.supremecourt.ohio.gov/rod/docs/pdf/0/2026/2026-Ohio-3977.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "ROD POST '\"2026-Ohio-1178\"' court 0 -> 2026-Ohio-3977 (not accepted) and 2026-Ohio-2953. ROD POST: the year selects default to the CURRENT year (ddlDecidedYearMin/Max=2026) and must be submitted with the form; a POST with only hidden+text fields returned 0 rows, and '\"2022-Ohio-1555\"' (court 0) with default years returned 0 rows vs 3 rows (2022-Ohio-3135, 2023-Ohio-3005, 2023-Ohio-3042) with ddlDecidedYearMin=1992. A fresh run searching a pre-current-year webcite as written would silently conclude no further review.",
+   "suggested_fix": "Add to Placeholders: 'set ddlDecidedYearMin to the lower decision's year (or 1992) and ddlDecidedYearMax to the current year; send all select fields'."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "section 2744.02 of the Revised Code",
+   "matched_label": "Ohio Revised Code",
+   "expected_label": "Ohio Revised Code"
+  },
+  {
+   "citation": "Ohio Adm.Code 5101:2-40-04(B)",
+   "matched_label": "Ohio Administrative Code",
+   "expected_label": "Ohio Administrative Code"
+  },
+  {
+   "citation": "State v. Bode, 2019-Ohio-4567, ¶ 12 (10th Dist.)",
+   "matched_label": "Ohio public-domain webcite (YYYY-Ohio-N)",
+   "expected_label": "Ohio public-domain webcite (YYYY-Ohio-N) (district=10 captured)"
+  },
+  {
+   "citation": "Ohio Const. art. XVIII, § 3",
+   "matched_label": "Ohio Constitution",
+   "expected_label": "Ohio Constitution"
+  },
+  {
+   "citation": "Evid.R. 404(B)",
+   "matched_label": "Ohio Rules of Evidence",
+   "expected_label": "Ohio Rules of Evidence"
+  },
+  {
+   "citation": "R.C. Chapter 2744",
+   "matched_label": null,
+   "expected_label": "Ohio Revised Code (chapter cite: MISS)"
+  },
+  {
+   "citation": "Ohio Const., Art. I, Sec. 16",
+   "matched_label": null,
+   "expected_label": "Ohio Constitution (MISS: 'Sec.' and comma after Const.)"
+  },
+  {
+   "citation": "Section 5, Article IV of the Ohio Constitution",
+   "matched_label": "Ohio Constitution",
+   "expected_label": "Ohio Constitution"
+  },
+  {
+   "citation": "RCW 4.16.080",
+   "matched_label": null,
+   "expected_label": "null (correct: no false route)"
+  },
+  {
+   "citation": "Fed. R. Civ. P. 12(b)(6)",
+   "matched_label": null,
+   "expected_label": "null (correct: no false route)"
+  }
+ ],
+ "overall": "Per the post-record policy, codes.ohio.gov is robots-disallowed: oh-orc-codes, oh-constitution-codes and oh-oac-codes are still-blocked (fetch_doc REFUSED, exit 3) and must be re-marked BLOCKED. Tier-2 replacements work: Justia for R.C. (149.43, 4112.02) and the Constitution (art. IV §2, art. I §10a); LII for the OAC only with colon->hyphen slugs (4901-1-10-01); LII has no ORC/Constitution; public.law has no Ohio. All nine court-rule PDFs, LIS, ROD and announcements confirmed via fetch_doc. Serious gap: ROD POST search defaults to the current year, so documented full-text/subsequent-history searches silently return 0 rows unless ddlDecidedYearMin is set. WebFetch stopped after an LII HTTP 429."
+}
