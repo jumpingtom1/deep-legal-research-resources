@@ -286,6 +286,12 @@ def render(rec):
             L.append(f"- **{x.get('family','')}** — {x.get('what','')}: "
                      f"{x.get('evidence','')} ({x.get('date','')})")
         L.append("")
+    if rec.get("corpus_candidates"):
+        L += ["## Corpus candidates (maintainers)", ""]
+        for c in rec["corpus_candidates"]:
+            L.append(f"- `{c.get('source_id','')}` — {c.get('why','')}"
+                     + (f" · bulk: {c['bulk']}" if c.get("bulk") else ""))
+        L.append("")
     if rec.get("open_questions"):
         L += ["## Open questions", ""]
         L += [f"- {q}" for q in rec["open_questions"]]

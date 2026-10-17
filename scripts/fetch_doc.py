@@ -30,8 +30,11 @@ import lsnet  # noqa: E402
 import lstext  # noqa: E402
 
 
+RESEARCH = False
+
+
 def load(url, max_age):
-    r = lsnet.get(url, max_age=max_age)
+    r = lsnet.get(url, max_age=max_age, allow_unlisted=RESEARCH)
     body = r["body"]
     ctype = r["headers"].get("Content-Type", r["headers"].get("content-type", "")).lower()
     tcache = lsnet._cache_dir("text") / f"{r['sha256']}.json"
@@ -76,7 +79,8 @@ def header(r):
 
 
 def cmd_check(a):
-    lsnet.check_allowlist(a.url)
+    if not RESEARCH:
+        lsnet.check_allowlist(a.url)
     delay = lsnet.robots_check(a.url)
     print(f"OK  {a.url}\n  allowlisted; robots.txt permits"
           + (f"; crawl-delay {delay}s" if delay else ""))
@@ -175,6 +179,10 @@ def main():
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--max-age", type=int, default=86400,
                    help="cache lifetime in seconds (default 1 day)")
+    p.add_argument("--research", action="store_true",
+                   help="maintainers only: skip the hosts.json allowlist (robots.txt, "
+                        "bot-challenge refusal and rate limits still apply) to test a "
+                        "host before it has a record")
     sub = p.add_subparsers(dest="cmd", required=True)
     for name in ("check", "info"):
         s = sub.add_parser(name)
@@ -199,6 +207,8 @@ def main():
     s.add_argument("url")
     s.add_argument("quote")
     a = p.parse_args()
+    global RESEARCH
+    RESEARCH = a.research
     try:
         globals()["cmd_" + a.cmd](a)
     except lsnet.RefusedError as e:

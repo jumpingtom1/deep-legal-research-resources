@@ -85,7 +85,7 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
       "text": "fetch-and-quote | link-only",
       "automation": {
         "webfetch": "ok | fail | blocked | untested",      // the skill's WebFetch tool
-        "shell": "ok | blocked-robots | blocked-challenge | http-error | untested",  // curl/python from this workspace
+        "shell": "ok | blocked-robots | blocked-challenge | tls-error | http-error | untested",  // tested with scripts/fetch_doc.py --research
         "robots_txt": "summary of relevant rules, or 'none (404)'",
         "notes": "rate limits, JS-only rendering, crawl-delay …"
       },
@@ -116,6 +116,11 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
 
   "script_candidates": [                   // structured endpoints that could justify a per-state script later
     { "source_id": "…", "why": "JSON API / stable listings / …" }
+  ],
+
+  "corpus_candidates": [                   // long official documents the fetch tool truncates → ingest
+    { "source_id": "…", "url": "https://… (the official PDF/page)", "why": "fetch tool stops at Rule 29 of 64",
+      "split_hint": "bold 'Rule N.' headings at left margin", "bulk": "official bulk download URL, if any" }
   ],
 
   "open_questions": []

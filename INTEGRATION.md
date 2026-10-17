@@ -1,7 +1,10 @@
 # Using this repo from the deep-legal-research skill
 
 Federal, Oregon and Washington stay bundled in the skill. For every other
-jurisdiction the skill reads this repo at run time, pinned to a release tag.
+jurisdiction the skill reads this repo at run time, **pinned to a commit SHA**
+(`raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<sha>/…`).
+A commit cannot be moved the way a tag or branch can, so the skill always gets
+exactly the reviewed content.
 
 ## Run-time flow
 
@@ -12,8 +15,8 @@ jurisdiction the skill reads this repo at run time, pinned to a release tag.
    approved source this run: cite by number only, and say so in the banner.
 2. **Get the scripts once:** `lsnet.py`, `lstext.py`, `fetch_doc.py`,
    `corpus.py`, plus `hosts.json` and `corpus/index.json`, all from the same
-   tag. They are stdlib-only and need `pdftotext`, which the skill already
-   requires. Set `LEGAL_SOURCES_BASE=https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<tag>`.
+   commit. They are stdlib-only and need `pdftotext`, which the skill already
+   requires. Set `LEGAL_SOURCES_BASE=https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<sha>`.
 3. **Statutes and rules:** try `corpus.py resolve "<citation>"` first. A hit
    returns exact official text, its capture date and a freshness verdict.
    Otherwise follow the row's routes: `fetch_doc.py` on the live official page
@@ -55,9 +58,9 @@ fetch tool remains their only route.
   - `python3 scripts/build.py`, which must show no errors;
   - `corpus.py check <collection>` for every collection;
   - re-ingest anything SOURCE CHANGED or STALE;
-  - tag a release.
+  - push to `main`.
 
-  Then bump the skill's pinned tag.
+  Then bump the skill's pinned commit SHA.
 - **Adding a collection:** write `corpus-config/<xx>-<name>.json`, run
   `ingest.py --dry-run` until every quality gate passes, ingest, then build.
 - **Adding a jurisdiction:** follow `research/BRIEF.md`, then

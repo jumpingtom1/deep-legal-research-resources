@@ -4,7 +4,7 @@ You are checking ONE jurisdiction's source instructions cold. The question is
 not "is the research good?" but **"can a fresh research run follow these
 instructions and get the promised result?"**
 
-Read ONLY `jurisdictions/<xx>.md` (and
+The repo root is `/home/claude/deep-legal-research-resources`. Read ONLY `jurisdictions/<xx>.md` (and
 `SCHEMA.md` for vocabulary). Do **not** read `data/<xx>.json`,
 `research/<xx>-log.md`, or any other research file — independence is the
 point.
@@ -23,6 +23,16 @@ point.
 3. For case-law rows: locate one real recent opinion (from the listing the
    row describes) by court + docket/date as the instructions say, and check
    the claimed format/pagination features.
+
+4. Where the row lists the **script** route (or to test it), run
+   `python3 scripts/fetch_doc.py --research grep <url> "<a phrase>"` and
+   record whether it reached the text (REFUSED / TLS errors are findings,
+   never something to work around).
+
+## For every row marked REPORTED
+
+One WebFetch of its probe/index URL; outcome `confirmed` (body text reachable
+as described) or `failed`, with evidence.
 
 ## For every row marked BLOCKED
 
@@ -58,6 +68,6 @@ Write `research/<xx>-verify.json`:
 ```
 
 Do not edit any other file. No CourtListener tools. Keep quoted page text
-≤ 15 words per entry. Budget ≤ 45 WebFetch calls. Today is 2026-10-16.
+≤ 15 words per entry. Budget ≤ 45 WebFetch calls. If WebFetch fails for quota/rate reasons (not a site refusal), stop and write what you have. Today is 2026-10-16.
 Final message: ≤ 150 words — counts by outcome and the most serious
 instruction problems.

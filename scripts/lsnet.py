@@ -66,7 +66,7 @@ def check_allowlist(url, hosts=None):
     hosts = hosts if hosts is not None else load_hosts()
     h = hosts.get(host.lower())
     if h is None:
-        raise RefusedError(f"{host} is not on the us-legal-sources allowlist "
+        raise RefusedError(f"{host} is not on the deep-legal-research-resources allowlist "
                            "(no jurisdiction record names it). Do not fetch it "
                            "by any other route.")
     if h["status"] == "blocked":
@@ -192,6 +192,11 @@ def robots_check(url):
                 code, headers, body, _ = _raw_request(robots_url)
             except Exception as e:
                 code, headers, body = 599, {}, str(e).encode()
+                if b"CERTIFICATE_VERIFY_FAILED" in body:
+                    raise FetchError(f"{host}: TLS certificate chain does not verify from "
+                                     "this sandbox (often a server missing its intermediate "
+                                     "certificate). Verification is never disabled — use the "
+                                     "next route.")
             if code < 500:
                 break
         hl = {k.lower(): v for k, v in headers.items()}
@@ -276,7 +281,13 @@ def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
                 break
         except Exception as e:
             err = e
+            if "CERTIFICATE_VERIFY_FAILED" in str(e):
+                break                   # not transient; never retried without verification
     if err is not None:
+        if "CERTIFICATE_VERIFY_FAILED" in str(err):
+            raise FetchError(f"{host}: TLS certificate chain does not verify from this "
+                             "sandbox (often a server missing its intermediate certificate). "
+                             "Verification is never disabled — use the next route.")
         raise FetchError(f"network error fetching {url} (after a retry): {err}")
     final_host = (urllib.parse.urlsplit(final).hostname or "").lower()
     if final_host != host:

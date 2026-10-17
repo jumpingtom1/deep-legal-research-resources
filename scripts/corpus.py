@@ -3,7 +3,7 @@
 
 Stdlib only. Works against a local checkout or the published repo:
 
-    export LEGAL_SOURCES_BASE=https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<tag>
+    export LEGAL_SOURCES_BASE=https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<sha>
     (default: the checkout this script lives in)
 
     corpus.py list [--jurisdiction de]
