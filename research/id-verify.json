@@ -1,0 +1,209 @@
+{
+ "jurisdiction": "id",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "id-session-laws",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script: vol1_2025 779 pp, p.3 'CHAPTER 1 (H.B. No. 3) AN ACT RELATING TO TAXATION'",
+   "generalised_citation": "1971 Idaho Sess. Laws ch. 180 (p. 845)",
+   "generalised_url": "https://legislature.idaho.gov/wp-content/uploads/sessionlaws/sessionlaws_vol2_1971.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Navigation says 1945-1992 volumes are sessionlaws_{year}.pdf; several (1969, 1971, 1972, 1974) are split vol1/vol2 — sessionlaws_1971.pdf is HTTP 404. Index labels 2025 volumes with chapter ranges (Vol 1 ch. 1-162, Vol 2 ch. 163-330), contrary to 'volume split not indexed'. Older volumes are OCR ('H. IJ. No. 7'), so exact grep can miss. WebFetch not tested on PDFs (provenance).",
+   "suggested_fix": "Say: take the exact href from the index (vol1/vol2 split occurs pre-1993 too); use the index's chapter-range labels, or the session-law page number (p. 845 > vol1 page count -> vol2); add OCR hazard."
+  },
+  {
+   "id": "id-statutes-leg",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script: 'Within two (2) years: 1. An action against a sheriff, coroner'; WebFetch: PROVENANCE_REQUIRED",
+   "generalised_citation": "Idaho Code § 6-1603; Idaho Code § 28-2-302",
+   "generalised_url": "https://legislature.idaho.gov/statutesrules/idstat/Title6/T6CH16/SECT6-1603/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Pattern correct for two- and three-part sections (script). WebFetch refused both constructed URLs (5-219, 6-1603) with PROVENANCE_REQUIRED, so the 'fetch tool' route works only for search-result URLs. Currency string 'current through the 2026 Legislative Session' is NOT on section pages; section banner reads 'updated to the website July 1 following the legislative session'; the 'current through' line is only on /statutesrules/howcurrentisthislaw/.",
+   "suggested_fix": "currency.where: section banner gives update policy only; fetch /statutesrules/howcurrentisthislaw/ for the 'current through' string. Mark webfetch 'ok (search-result URLs only)'."
+  },
+  {
+   "id": "id-statutes-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: title line present; body 'Within two (2) years: An action against a sheriff, coroner'; '2025 Idaho Code'",
+   "generalised_citation": "Idaho Code § 6-1603",
+   "generalised_url": "https://law.justia.com/codes/idaho/title-6/chapter-16/section-6-1603/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-constitution-leg",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Section 22. Rights of crime victims. A crime victim, as'; script ok",
+   "generalised_citation": "Idaho Const. art. IX, § 1",
+   "generalised_url": "https://legislature.idaho.gov/statutesrules/idconst/ArtIX/Sect1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Currency string on section page is 'The Idaho Constitution is updated to the website July 1 following the legislative session', not 'current through the 2026 Legislative Session' (that is on /howcurrentisthislaw/). Script normalises to trailing slash (…/Sect22/).",
+   "suggested_fix": "Correct currency.observed/where as for id-statutes-leg."
+  },
+  {
+   "id": "id-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'A crime victim, as defined by statute, has the following'; 'may not be the most recent version'",
+   "generalised_citation": "Idaho Const. art. IX, § 1",
+   "generalised_url": "https://law.justia.com/constitution/idaho/article-ix/section-1/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-rules-irpc",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script: PDF 67 pp; 'RULE 1.7: CONFLICT OF INTEREST' on p.15 (body), plus TOC; index links IRPC-acc.pdf (WebFetch)",
+   "generalised_citation": "I.R.P.C. 8.4(c)",
+   "generalised_url": "https://isb.idaho.gov/wp-content/uploads/IRPC-acc.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Navigation says grep 'RULE {n}:' — Rule 8.4's heading is 'RULE 8.4 MISCONDUCT' (no colon), so that grep returns 0 matches. Also the full-title grep 'RULE 1.7: CONFLICT OF INTEREST: CURRENT' hits only the TOC because two-column extraction splits the body heading.",
+   "suggested_fix": "Grep with regex 'RULE {n}\\b:?' (escape the dot) and prefer matches beyond the TOC (page > 2); or grep a body phrase."
+  },
+  {
+   "id": "id-rules-isc",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES 'A party may move for summary judgment, identifying each claim'; '(Adopted March 1, 2016, effective July 1, 2016).'",
+   "generalised_citation": "I.C.R. 11; I.R.F.L.P. 101; I.C.A.R. 32",
+   "generalised_url": "https://isc.idaho.gov/rules-procedure/print/icr/11",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Script ok for icr/11, irfl/101, icar/32. WebFetch refused constructed print/icr/11 (PROVENANCE_REQUIRED) though print/ircp/56 worked — WebFetch route unreliable for constructed URLs. Some print pages are large (icar/32: 45,991 chars, not ≈5K). Alias table lacks 'Idaho R. App. P.' which the regex captures.",
+   "suggested_fix": "Lead with script route; note WebFetch provenance refusal; add 'Idaho R. App. P.' → iar alias; soften '≈5K chars'."
+  },
+  {
+   "id": "id-idapa-dfm",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 301→files.dfm; p.5 'These rules are titled IDAPA 58.01.02, “Water Quality Standards.”'",
+   "generalised_citation": "IDAPA 31.01.01.001",
+   "generalised_url": "https://adminrules.idaho.gov/rules/current/31/310101.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Works via script (53 pp, '001. TITLE AND SCOPE (RULE 1).'). Section headings may carry a '(RULE n)' suffix, and not every chapter uses 'These rules are titled'. WebFetch attempt PROVENANCE_REQUIRED (consistent with 'fail').",
+   "suggested_fix": "Grep '{SSS}\\. ' heading by number rather than title wording."
+  },
+  {
+   "id": "id-idapa-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Sections 50-1507, 50-1508, 50-1524, 59-1301'; 'updated quarterly'",
+   "generalised_citation": "IDAPA 31.01.01.001",
+   "generalised_url": "https://www.law.cornell.edu/regulations/idaho/IDAPA-31.01.01.001",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-bulletin-dfm",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 301→files.dfm, 428 pp, 'October 7, 2026 – Vol. 26-10'",
+   "generalised_citation": "Idaho Admin. Bull. Vol. 24-3",
+   "generalised_url": "https://adminrules.idaho.gov/bulletin/2024/03.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "WebFetch PROVENANCE_REQUIRED (consistent with 'fail').",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-icourt",
+   "outcome": "still-blocked",
+   "probe_evidence": "WebFetch PROVENANCE_REQUIRED before request; site response not re-observed",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Blocked status not independently re-confirmed: WebFetch refused the URL on provenance, so no site response was seen.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-opinions-isc-api",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script: results[0] name '53539', 'ISC Opinion'; PDF 'Docket No. 53539' 22 pp",
+   "generalised_citation": "State v. Cowell, Docket No. 53548 (Idaho Ct. App. Oct. 16, 2026) (unpublished)",
+   "generalised_url": "https://api.isc.idaho.gov/uploads/Documents/ICA/Unpublished_Per_Curiam/2026/1792162071169-53548.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "q=Cowell → 53548; content[0].content.opinion_file.value.url path correct but cms-document JSON has raw control chars (needs json.loads strict=False). API 'categories' can contradict the file path (53539 tagged 'ISC Civil', PDF under ISC/Criminal). Unpublished legend is laid out in a caption column, so an exact grep for 'UNPUBLISHED OPINION AND SHALL NOT BE CITED' fails. Probe label 'State v. Pendleton' not checked vs. PDF caption. WebFetch on API/listing: PROVENANCE_REQUIRED / JS form only (consistent).",
+   "suggested_fix": "Note strict=False JSON parsing; don't rely on API category; grep 'UNPUBLISHED' alone."
+  },
+  {
+   "id": "id-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Kirby Dorff appeals from the denial of his motion to'; docket 48119; pages 1-19",
+   "generalised_citation": "State v. Ash, Docket No. 50783 (Idaho Ct. App. Dec. 19, 2024)",
+   "generalised_url": "https://law.justia.com/cases/idaho/court-of-appeals-criminal/2024/50783.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Navigation confirmed: /court-of-appeals/2024/ year list links into -criminal/-civil paths; full text, slip page markers, no reporter cite.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "id-subsequent-history-isc",
+   "outcome": "discrepancy",
+   "probe_evidence": "Script: q=46085 → 46085ORD.pdf; 'Order Granting Petition for Review … Docket No. 46085-2018'",
+   "generalised_citation": "State v. Huckabay, Docket No. 48109 (Idaho 2021) (opinion on review)",
+   "generalised_url": "https://api.isc.idaho.gov/uploads/Documents/ISC/Civil/2021/1775503741876-48109.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Chain works (46085 → order → q=48109 → 2021 opinion). The expect string 'Petition for Review Docket No. 46085-2018' is not contiguous in the OCR text ('…Petition for Review PIaintiff—Respondent, Docket No. 46085-2018'); exact grep of expect fails. Order PDF filed under ISC/Civil/2018 despite criminal case.",
+   "suggested_fix": "Change expect to 'Order Granting Petition for Review'; add OCR hazard."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "section 28-2-302, Idaho Code",
+   "matched_label": "Idaho Code",
+   "expected_label": "Idaho Code"
+  },
+  {
+   "citation": "I.C. §§ 6-1601 through 6-1604",
+   "matched_label": "Idaho Code",
+   "expected_label": "Idaho Code"
+  },
+  {
+   "citation": "Idaho Const. art. IX, § 1",
+   "matched_label": "Idaho Constitution",
+   "expected_label": "Idaho Constitution"
+  },
+  {
+   "citation": "Article IX, § 1 of the Idaho Constitution",
+   "matched_label": "Idaho Constitution",
+   "expected_label": "Idaho Constitution"
+  },
+  {
+   "citation": "Rule 11 of the Idaho Criminal Rules",
+   "matched_label": "Idaho court rules",
+   "expected_label": "Idaho court rules"
+  },
+  {
+   "citation": "Idaho Rule of Evidence 404(b)",
+   "matched_label": null,
+   "expected_label": "Idaho court rules"
+  },
+  {
+   "citation": "Idaho Rules of Civil Procedure 56",
+   "matched_label": null,
+   "expected_label": "Idaho court rules"
+  },
+  {
+   "citation": "Kolln v. Saint Luke's Reg'l Med. Ctr., 130 Idaho 323, 940 P.2d 1142 (1997)",
+   "matched_label": "Reported Idaho cases",
+   "expected_label": "Reported Idaho cases"
+  },
+  {
+   "citation": "IDAPA 31.01.01.001",
+   "matched_label": "IDAPA (Idaho Administrative Code)",
+   "expected_label": "IDAPA (Idaho Administrative Code)"
+  },
+  {
+   "citation": "chapter 16, title 6, Idaho Code",
+   "matched_label": null,
+   "expected_label": "Idaho Code"
+  },
+  {
+   "citation": "Fed. R. Evid. 702",
+   "matched_label": null,
+   "expected_label": "null"
+  },
+  {
+   "citation": "Evidence Rule 702",
+   "matched_label": null,
+   "expected_label": "null"
+  }
+ ],
+ "overall": "All 13 verified rows reach body text via their stated primary route (script for official hosts, WebFetch for Justia/LII); every generalisation succeeded. WebFetch refused most constructed Idaho-host URLs (PROVENANCE_REQUIRED; constitution ArtI/Sect22 and ircp/56 got through), so fetch-tool routes on legislature/isc are unreliable. Instruction defects: session-law filenames for split pre-1993 years (1971 → 404), IRPC grep 'RULE {n}:' misses 'RULE 8.4 MISCONDUCT', statute/constitution currency string lives only on /howcurrentisthislaw/, OCR/column layout breaks exact expect strings (46085ORD, unpublished legend), API JSON needs lenient parsing. Regex misses: 'Idaho Rule of Evidence 404(b)', 'Idaho Rules of Civil Procedure 56', chapter-form cites. iCourt blocked status not re-observed."
+}

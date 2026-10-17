@@ -30,6 +30,18 @@ exactly the reviewed content.
    - Text read through the fetch tool still needs two fetches that agree.
 6. **Refusals:** exit code 3 means refused (blocked host, robots.txt, bot
    challenge). That source is off for the run. Never try another route to it.
+7. **Use the script for any address built from a pattern.** The fetch tool
+   only fetches addresses that came from a search result, from a page it
+   already fetched, or from the user. Any other address (for example a statute
+   section URL filled in from a `constructible` pattern) is refused with
+   `PROVENANCE_REQUIRED` or waits for the user to approve it. Seen on Idaho,
+   North Carolina, Colorado, Arizona and Georgia hosts on 2026-10-16/17.
+   - So for every `constructible` row, `fetch_doc.py` is the primary route.
+     It needs no approval and still obeys robots.txt.
+   - Use the fetch tool for pages reached through a search or a link, and as
+     the fallback when the script can't reach a host.
+   - `fetch_doc.py links <url>` lists a page's links, so index-anchored
+     navigation can also be done entirely by script.
 
 ## Network setup to tell users and admins
 
