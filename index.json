@@ -982,16 +982,17 @@
     "oh": {
       "name": "Ohio",
       "file": "jurisdictions/oh.md",
-      "sha256": "00c61e40c699869277987ce9ab718b7d56f3bd20a1e09877822d385bef87d2e8",
-      "compiled": "2026-10-16",
+      "sha256": "e367946ebf7f2085f4391e2c4ad37bbc2472eeccc38168b7b38986a2965a2d66",
+      "compiled": "2026-10-17",
       "counts": {
-        "verified": 19,
+        "blocked": 3,
+        "verified_independent": 16,
         "reported": 3
       },
       "citation_patterns": [
         {
           "label": "Ohio Revised Code",
-          "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:\u00a7+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:\u00a7\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code"
+          "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:\u00a7+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:\u00a7\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code|\\bR\\.\\s?C\\.\\s+Chapter\\s+(?P<chapter>\\d{1,4})\\b|\\bChapter\\s+(?P<chapter2>\\d{1,4})\\.?\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code"
         },
         {
           "label": "Ohio session laws / General Assembly bills",
@@ -999,7 +1000,7 @@
         },
         {
           "label": "Ohio Constitution",
-          "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)"
+          "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)"
         },
         {
           "label": "Ohio Rules of Civil Procedure",

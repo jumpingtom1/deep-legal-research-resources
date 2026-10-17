@@ -131,7 +131,7 @@
    "blocked_sources": []
   },
   "codes.ohio.gov": {
-   "status": "allowed",
+   "status": "blocked",
    "sources": [
     "oh-orc-codes",
     "oh-constitution-codes",
