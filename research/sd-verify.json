@@ -1,0 +1,264 @@
+{
+  "jurisdiction": "sd",
+  "date": "2026-10-17",
+  "rows": [
+    {
+      "id": "sd-sdcl-lrc",
+      "outcome": "discrepancy",
+      "probe_evidence": "script+WebFetch YES 'A person is guilty of simple assault, a Class 1 misdemeanor'",
+      "generalised_citation": "SDCL 25-4-17; SDCL 15-2-14.1",
+      "generalised_url": "https://sdlegislature.gov/api/Statutes/25-4-17.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Hazard says unknown keys give an empty 200 page, not a 404: /api/Statutes/99-99-99.html returned HTTP 404 (script exit 4). Probe and pattern otherwise work exactly as written.",
+      "suggested_fix": "Hazard: unknown keys return HTTP 404; parent keys of subsectioned rules return 200 with 0 chars or a catchline-only page."
+    },
+    {
+      "id": "sd-session-laws-lrc",
+      "outcome": "confirmed",
+      "probe_evidence": "script+WebFetch YES Catchline 'An Act to increase the enhanced penalty for the crime of simple assault.'",
+      "generalised_citation": "SL 2024, ch 50",
+      "generalised_url": "https://sdlegislature.gov/api/SessionLaws/SessionLaw/7860",
+      "generalised_outcome": "ok",
+      "instruction_problems": "None: Sessions -> SessionId 69 -> ChapterToId/50?SessionId=69 = 7860 -> 'An Act to rescind rulemaking authority...'. Sessions list includes special sessions with Year like '2025s'; the SpecialSession=false filter in the record handles it. WebFetch also works (was 'untested').",
+      "suggested_fix": "Mark WebFetch ok."
+    },
+    {
+      "id": "sd-sdcl-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES 'Unless different periods are fixed or permitted by order of'; '2025 South Dakota Codified Laws'",
+      "generalised_citation": "SDCL 25-4-17; SDCL 23A-32-9 (chapter index)",
+      "generalised_url": "https://law.justia.com/codes/south-dakota/title-25/chapter-04/section-25-4-17/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Open question answered: lettered keys are lowercased - chapter index links section 23A-32-9 as /title-23a/chapter-32/section-23a-32-9/.",
+      "suggested_fix": "Placeholders: lowercase letters in title/chapter/slug (title-23a, section-23a-32-9)."
+    },
+    {
+      "id": "sd-constitution-lrc",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES 'No person shall be deprived of life, liberty or property'; script 0 chars",
+      "generalised_citation": "S.D. Const. art. XI, § 2",
+      "generalised_url": "https://sdlegislature.gov/api/Statutes/Constitution/0N-11-2.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sd-constitution-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES 'No person shall be deprived of life, liberty or property'; disclaimer present",
+      "generalised_citation": "S.D. Const. art. XI, § 2",
+      "generalised_url": "https://law.justia.com/constitution/south-dakota/article-11/section-2/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sd-rules-orders-ujs",
+      "outcome": "confirmed",
+      "probe_evidence": "script links: '[Archive] IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3'",
+      "generalised_citation": "rule orders 2026",
+      "generalised_url": "https://ujs.sd.gov/supreme-court/published-rules/?year=2026&archive=true",
+      "generalised_outcome": "ok",
+      "instruction_problems": "archive=true appears to return ONLY archived items (year=2026 without it: 0 links; with it: 8). Here everything is archived so the advice works, but see sd-opinions-ujs: the flag is a switch, not an 'include archived' toggle.",
+      "suggested_fix": "Say: query both with and without archive=true."
+    },
+    {
+      "id": "sd-rules-professional-conduct",
+      "outcome": "confirmed",
+      "probe_evidence": "script grep offset 28649 'Rule 1.7. Conflict of Interest: Current Clients (a) Except'",
+      "generalised_citation": "Rule 8.4 of the South Dakota Rules of Professional Conduct",
+      "generalised_url": "https://sdlegislature.gov/api/Statutes/16-18-A.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "None; script reaches Rule 8.4 at offset 117527 (119,723 chars), consistent with the WebFetch-truncation hazard.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sd-rules-sdcl",
+      "outcome": "discrepancy",
+      "probe_evidence": "script+WebFetch YES 'Unless different periods are fixed or permitted by order of the court'",
+      "generalised_citation": "SDCL 15-6-26(b); SDCL 19-19-403; SDCL 23A-32-9",
+      "generalised_url": "https://sdlegislature.gov/api/Statutes/15-6-26(b).html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Bare parent 15-6-26.html returns 33 chars ('15-6-26. Discovery pending action', catchline only), not 0 chars; the 'treat 0 characters as not found / retry with parenthetical' rule would not fire and a fresh run could take the heading as the rule text. A bare 'SDCL 15-6-56' / 'Rule 56' cite has no parenthetical to retry with.",
+      "suggested_fix": "Treat a page that is only the catchline (no body, no 'Source:') as empty; for a bare rule cite, open the chapter page 15-6.html and list the subsections."
+    },
+    {
+      "id": "sd-arsd-lrc",
+      "outcome": "confirmed",
+      "probe_evidence": "script+WebFetch YES 'Terms used in this article mean'; Source ends '44 SDR 94, effective December 4, 2017.'",
+      "generalised_citation": "ARSD 44:73:01:01",
+      "generalised_url": "https://sdlegislature.gov/api/Rules/Rule/44:73:01:01.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "First pick 44:04:01:01 returned only '44:04:01:01. Transferred to § 44:73:01:01.' (43 chars); fine, but not mentioned as a page type.",
+      "suggested_fix": "Hazard: transferred/repealed rules return a one-line stub; follow the 'Transferred to' number."
+    },
+    {
+      "id": "sd-arsd-lii",
+      "outcome": "confirmed",
+      "probe_evidence": "script+WebFetch YES 'Terms used in this article mean: (1) \"Allowable costs,\" those expenses'",
+      "generalised_citation": "ARSD 44:73:01:01",
+      "generalised_url": "https://www.law.cornell.edu/regulations/south-dakota/ARSD-44-73-01-01",
+      "generalised_outcome": "ok",
+      "instruction_problems": "WebFetch works (record says untested).",
+      "suggested_fix": "Mark WebFetch ok."
+    },
+    {
+      "id": "sd-register-lrc",
+      "outcome": "confirmed",
+      "probe_evidence": "script: 'October 13, 2026 FILINGS WITH THE LEGISLATIVE RESEARCH COUNCIL'",
+      "generalised_citation": "S.D. Register issue of Oct. 5-6, 2026 (next RSS item)",
+      "generalised_url": "https://mylrc.sdlegislature.gov/api/Documents/308247.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "RSS items carry no date at all (grep '2017' in 161K chars: 0 matches), only ~1,500 undated PDF links; 'open issues of the right year' for a cite like 44 SDR 94 means blind bisection over hundreds of PDFs. Not practical for old SDR cites.",
+      "suggested_fix": "State that an SDR cite cannot be resolved efficiently; use it only as provenance from the ARSD Source note, or document id ranges per volume."
+    },
+    {
+      "id": "sd-opinions-ujs",
+      "outcome": "discrepancy",
+      "probe_evidence": "script: PDF '[¶1.] Jeremy Lucero pled guilty to possession of a controlled substance'",
+      "generalised_citation": "Bialota v. Lakota Lakes, LLC, 2026 S.D. 52 (#31286-r-SRJ)",
+      "generalised_url": "https://ujs.sd.gov/media/zhkot2me/31286.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "SERIOUS: 'Always add archive=true' is wrong. archive=true returns only archived opinions: ?keywords=Lucero&year=2026&archive=true and ?keywords=Bialota&year=2026&archive=true return 0 links; without archive=true each returns 1 (2026 S.D. 48 and 52). ?year=2026&archive=true lists only 2026 S.D. 15-24. The record's own probe case is unreachable by its pattern. Also WebFetch on the built listing URL with query worked (not gated). PDF format claims (docket header '#31286-r-SRJ 2026 S.D. 52', [¶N.] paragraphs) confirmed.",
+      "suggested_fix": "Pattern: search ?keywords={party}&year={year} first; if 0 results, repeat with &archive=true."
+    },
+    {
+      "id": "sd-summary-dispositions-ujs",
+      "outcome": "confirmed",
+      "probe_evidence": "script links: first 'Interest of E.L.W., H.L.W., H.L.W.' -> 31521oadacomp.pdf",
+      "generalised_citation": "State v. Hanna (2024, archived)",
+      "generalised_url": "https://ujs.sd.gov/supreme-court/summary-dispositions/?year=2024&archive=true",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Archived PDFs are named {docket}_order-of-affirmance.pdf (e.g. 30682_order-of-affirmance.pdf), not {docket}oadacomp.pdf; same archive-switch behaviour as opinions applies.",
+      "suggested_fix": "Note both file-name forms; query with and without archive=true."
+    },
+    {
+      "id": "sd-cases-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES 'MYREN, Justice [¶1.] Jeremy Lucero pled guilty to possession of'",
+      "generalised_citation": "Bialota v. Lakota Lakes, LLC, 2026 S.D. 52",
+      "generalised_url": "https://law.justia.com/cases/south-dakota/supreme-court/2026/31286.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sd-scotus-docket",
+      "outcome": "confirmed",
+      "probe_evidence": "script+WebFetch 'Oct 05 2026 Petition DENIED.'; 'Lower Ct: Supreme Court of South Dakota'",
+      "generalised_citation": "No. 25-7673 (Walker, S.D. No. 31111)",
+      "generalised_url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-7673.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "WebSearch '\"Supreme Court of South Dakota\" \"Lower Ct\" supremecourt.gov' found SD dockets as described. 25-7600 is Winckler v. South Dakota (= 2026 S.D. 19, S.D. Nos. 31006/31007). WebFetch works (record says untested).",
+      "suggested_fix": "Record party name Winckler on the probe; mark WebFetch ok."
+    }
+  ],
+  "regex_tests": [
+    {
+      "citation": "S.D. Codified Laws Ann. § 15-2-14.1",
+      "matched_label": "South Dakota Codified Laws",
+      "expected_label": "South Dakota Codified Laws"
+    },
+    {
+      "citation": "section 19-19-403 of the South Dakota Codified Laws",
+      "matched_label": "South Dakota Codified Laws",
+      "expected_label": "SDCL-codified court rules (same URL; acceptable)"
+    },
+    {
+      "citation": "SDCL 15-6-26(b)(1)",
+      "matched_label": "South Dakota Codified Laws + SDCL-codified court rules (both capture 15-6-26(b))",
+      "expected_label": "SDCL-codified court rules"
+    },
+    {
+      "citation": "S.D.C.L. 15-6-12(b)(5)",
+      "matched_label": "South Dakota Codified Laws only (rules regex needs 'SDCL'; same URL)",
+      "expected_label": "SDCL-codified court rules"
+    },
+    {
+      "citation": "SDCL 23A-32-9",
+      "matched_label": "South Dakota Codified Laws + SDCL-codified court rules",
+      "expected_label": "SDCL-codified court rules"
+    },
+    {
+      "citation": "S.D. Const. art. XI, § 2",
+      "matched_label": "South Dakota Constitution",
+      "expected_label": "South Dakota Constitution"
+    },
+    {
+      "citation": "Article XI, Section 2 of the South Dakota Constitution",
+      "matched_label": "South Dakota Constitution",
+      "expected_label": "South Dakota Constitution"
+    },
+    {
+      "citation": "Walker v. State, 2025 SD 41, ¶ 9",
+      "matched_label": "South Dakota public-domain citation (1996-)",
+      "expected_label": "South Dakota public-domain citation (1996-)"
+    },
+    {
+      "citation": "Bialota v. Lakota Lakes, LLC, 2026 S.D. 52, ¶¶ 14-15",
+      "matched_label": "South Dakota public-domain citation (1996-) (para 14)",
+      "expected_label": "South Dakota public-domain citation (1996-)"
+    },
+    {
+      "citation": "A.R.S.D. 44:73:01:01",
+      "matched_label": "Administrative Rules of South Dakota",
+      "expected_label": "Administrative Rules of South Dakota"
+    },
+    {
+      "citation": "Rule 8.4(c) of the South Dakota Rules of Professional Conduct",
+      "matched_label": "South Dakota Rules of Professional Conduct",
+      "expected_label": "South Dakota Rules of Professional Conduct"
+    },
+    {
+      "citation": "Estate of Smith, 89 S.D. 512, 234 N.W.2d 1 (1975)",
+      "matched_label": "North Western Reporter with (S.D. YYYY) (also N.W. generic, S.D. Reports)",
+      "expected_label": "North Western Reporter with (S.D. YYYY)"
+    },
+    {
+      "citation": "2024 S.D. Laws ch 50",
+      "matched_label": "South Dakota Session Laws",
+      "expected_label": "South Dakota Session Laws"
+    },
+    {
+      "citation": "SL 2024, ch 50, § 1",
+      "matched_label": "South Dakota Session Laws (bare SL source-note form)",
+      "expected_label": "South Dakota Session Laws (bare SL source-note form)"
+    },
+    {
+      "citation": "50 SDR 12, effective July 1, 2023",
+      "matched_label": "South Dakota Register",
+      "expected_label": "South Dakota Register"
+    },
+    {
+      "citation": "#31286-r-SRJ",
+      "matched_label": "South Dakota Supreme Court docket number",
+      "expected_label": "South Dakota Supreme Court docket number"
+    },
+    {
+      "citation": "SD Codified Laws § 22-18-1",
+      "matched_label": null,
+      "expected_label": "South Dakota Codified Laws (MISS: no-period 'SD Codified Laws')"
+    },
+    {
+      "citation": "Doe v. Roe, 123 F. Supp. 3d 45 (S.D. Ohio 2015)",
+      "matched_label": null,
+      "expected_label": "null (federal guard holds)"
+    },
+    {
+      "citation": "Doe v. Roe, No. 19 Civ. 2020 (S.D.N.Y. Mar. 3, 2020)",
+      "matched_label": null,
+      "expected_label": "null (federal guard holds)"
+    },
+    {
+      "citation": "Smith v. Jones, 2020 S.D. Tex. LEXIS 12",
+      "matched_label": null,
+      "expected_label": "null (federal guard holds)"
+    },
+    {
+      "citation": "ECF No. 12345 (S.D. Cal.)",
+      "matched_label": "South Dakota Supreme Court docket number",
+      "expected_label": "null (false hit; acceptable only because docket label is context_required)"
+    }
+  ],
+  "overall": "15 VERIFIED rows: 12 confirmed, 3 discrepancy, 0 failed. Every probe reached its expected text. Most serious: sd-opinions-ujs says 'always add archive=true', but that flag returns ONLY archived opinions, so the record's own probe (2026 S.D. 48) and other recent opinions return 0 hits with it; search without the flag first, then with it. Same switch behaviour on rule orders and summary dispositions. Also: bare SDCL rule parents (15-6-26) return a catchline-only page (33 chars), not 0, defeating the empty-page rule; unknown keys return 404, not empty 200; SDR register RSS has no dates, so SDR cites cannot be resolved practically. Justia lettered keys are lowercase (title-23a). Regexes route well; 'SD Codified Laws' (no periods) misses."
+}

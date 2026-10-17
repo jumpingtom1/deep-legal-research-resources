@@ -56,8 +56,13 @@ def load(url, max_age):
             raw = None
         pages = {"kind": kind, "pages": pages, "raw_pages": raw}
         tcache.write_text(json.dumps(pages))
-    r["kind"], r["pages"] = pages["kind"], pages["pages"]
-    r["raw_pages"] = pages.get("raw_pages")
+    # Expand typographic ligatures (PDF "ﬁ", "ﬂ" …) so grep/section/read see the
+    # same letters a reader and the fetch tool see.
+    lig = str.maketrans({"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl",
+                         "\ufb03": "ffi", "\ufb04": "ffl", "\ufb05": "st", "\ufb06": "st"})
+    r["kind"] = pages["kind"]
+    r["pages"] = [pg.translate(lig) for pg in pages["pages"]]
+    r["raw_pages"] = [pg.translate(lig) for pg in pages["raw_pages"]] if pages.get("raw_pages") else None
     starts, pos = [], 0
     for p in r["pages"]:
         starts.append(pos)
@@ -120,7 +125,14 @@ def cmd_grep(a):
     if a.regex:
         rx = re.compile(a.pattern, re.I)
     else:   # plain text: any run of whitespace in the pattern matches any run in the page
-        rx = re.compile(r"\s+".join(re.escape(w) for w in a.pattern.split()), re.I)
+        # Leading/trailing whitespace in the pattern is kept as a boundary, so
+        # "Section 2 " does not match "Section 20".
+        body = r"\s+".join(re.escape(w) for w in a.pattern.split())
+        if a.pattern[:1].isspace():
+            body = r"(?:(?<=\s)|^)" + body
+        if a.pattern[-1:].isspace():
+            body += r"(?=\s|$)"
+        rx = re.compile(body, re.I | re.M)
     hits = list(rx.finditer(r["text"]))
     print(f"\n{len(hits)} match(es)" + (f"; showing {a.max}" if len(hits) > a.max else ""))
     for m in hits[:a.max]:
