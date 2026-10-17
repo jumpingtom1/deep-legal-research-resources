@@ -38,9 +38,10 @@
           "W.S. 1-3-105(a)(iv)(C)",
           "W.S. 1977 § 27-14-102",
           "Wyo. Stat. § 16-3-101",
-          "section 1-3-105 of the Wyoming Statutes"
+          "section 1-3-105 of the Wyoming Statutes",
+          "Wyoming Statute § 6-2-101"
         ],
-        "regex": "(?:(?:Wyo(?:ming)?\\.?\\s*Stat(?:utes|\\.)?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])W\\.\\s*S\\.(?:\\s*1977)?),?\\s*(?:§+\\s*)?(?P<title>\\d{1,2})-(?P<chapter>\\d{1,2}[A-Za-z]?)-(?P<section>\\d{3,4}[A-Za-z]?)(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,2}[A-Za-z]?)-(?P<section2>\\d{3,4}[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Wyoming\\s+Statutes)",
+        "regex": "(?:(?:Wyo(?:ming)?\\.?\\s*Stat(?:utes?|\\.)?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])W\\.\\s*S\\.(?:\\s*1977)?),?\\s*(?:§+\\s*)?(?P<title>\\d{1,2})-(?P<chapter>\\d{1,2}[A-Za-z]?)-(?P<section>\\d{3,4}[A-Za-z]?)(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,2}[A-Za-z]?)-(?P<section2>\\d{3,4}[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Wyoming\\s+Statutes)",
         "routes_to": [
           "wy-statutes-lso-pdf",
           "wy-statutes-justia"
@@ -65,9 +66,10 @@
           "Wyo. Const. art. 1, § 8",
           "Wyo. Const. art. I, § 8",
           "Article 1, Section 8 of the Wyoming Constitution",
-          "Wyo. Const. art. 5, § 2"
+          "Wyo. Const. art. 5, § 2",
+          "Article I, § 6 of the Wyoming Constitution"
         ],
-        "regex": "Wyo(?:ming)?\\.?\\s*Const(?:itution|\\.)?\\s*art(?:icle|\\.)?\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:§|sec(?:tion|\\.)?)\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Wyoming\\s+Constitution",
+        "regex": "Wyo(?:ming)?\\.?\\s*Const(?:itution|\\.)?\\s*art(?:icle|\\.)?\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:§|sec(?:tion|\\.)?)\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+(?:Section|§)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Wyoming\\s+Constitution",
         "routes_to": [
           "wy-constitution-lso-pdf",
           "wy-constitution-justia"
@@ -236,7 +238,7 @@
       "Wyo. R. Evid.": "wy-rules-evidence",
       "U.R.D.C.": "wy-rules-district-uniform"
     },
-    "notes": "Statute numbers are TITLE-CHAPTER-SECTION (1-3-105, 6-2-101); the title number alone picks the PDF (Title01.pdf … Title42.pdf; constitution = Title97.pdf). The hundreds digit of the section is the article within a chapter that has articles (6-2-101 = ch. 2, art. 1); Justia inserts /article-N/ only for such chapters. A range 'W.S. 16-3-101 through 115' or '§§ 1-1-101 - 1-1-105' is a span: the regex takes the first section only. 'W.S.' is the LSO's own short form (often 'W.S. 1977'); it is guarded so it does not fire inside other abbreviations. Constitution articles are Arabic in the official text ('Article 1, Section 8'); Roman numerals also accepted. Wyoming has had a public-domain citation since 2001 ('YYYY WY N', paragraph pinpoints '¶ N'); Bluebook form adds P.3d and '(Wyo. YYYY)'. The official Wyoming Reports ended in 1959 (vol. 80, from memory); bare 'NN Wyo. NNN' is that reporter. Docket numbers: S-YY-NNNN (civil/criminal appeals), D-YY-NNNN (attorney discipline); before about 2010 dockets were bare 'NN-NNN' (e.g. 06-20), too generic to route. There is no intermediate appellate court. Court-rule abbreviations follow the courts' own annotated pamphlets (W.R.C.P., W.R.Cr.P., W.R.A.P., W.R.E., U.R.D.C.); circuit-court civil rules (W.R.C.P.C.C.) are deliberately NOT matched by the W.R.C.P. pattern. The agency.program.chapter admin-code form is inferred from the Secretary of State's description of its numbering (agency, program, chapter, effective date) and was not seen in a real citation: treat as unverified. CourtListener id 'wyo' from memory, unverified. law_aliases map short forms to the source id or PDF key that serves them."
+    "notes": "Statute numbers are TITLE-CHAPTER-SECTION (1-3-105, 6-2-101); the title number alone picks the PDF (Title01.pdf … Title42.pdf; constitution = Title97.pdf). The hundreds digit of the section is the article within a chapter that has articles (6-2-101 = ch. 2, art. 1); Justia inserts /article-N/ only for such chapters. A range 'W.S. 16-3-101 through 115' or '§§ 1-1-101 - 1-1-105' is a span: the regex takes the first section only. 'W.S.' is the LSO's own short form (often 'W.S. 1977'); it is guarded so it does not fire inside other abbreviations. Constitution articles are Arabic in the official text ('Article 1, Section 8'); Roman numerals also accepted. Wyoming has had a public-domain citation since 2001 ('YYYY WY N', paragraph pinpoints '¶ N'); Bluebook form adds P.3d and '(Wyo. YYYY)'. The official Wyoming Reports ended in 1959 (vol. 80, from memory); bare 'NN Wyo. NNN' is that reporter. Docket numbers: S-YY-NNNN (civil/criminal appeals), D-YY-NNNN (attorney discipline); before about 2010 dockets were bare 'NN-NNN' (e.g. 06-20), too generic to route. There is no intermediate appellate court. Court-rule abbreviations follow the courts' own annotated pamphlets (W.R.C.P., W.R.Cr.P., W.R.A.P., W.R.E., U.R.D.C.); circuit-court civil rules (W.R.C.P.C.C.) are deliberately NOT matched by the W.R.C.P. pattern. The agency.program.chapter admin-code form is inferred from the Secretary of State's description of its numbering (agency, program, chapter, effective date) and was not seen in a real citation: treat as unverified. CourtListener id 'wyo' from memory, unverified. law_aliases map short forms to the source id or PDF key that serves them. Fix 2026-10-17: singular 'Wyoming Statute §' and prose 'Article I, § 6 of the Wyoming Constitution' added after the independent regex test."
   },
   "sources": [
     {
@@ -251,7 +253,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://wyoleg.gov/statutes/compress/Title{title:02d}.pdf",
-        "pattern_rules": "title = the first number of the citation, zero-padded to 2 digits (W.S. 1-3-105 → Title01.pdf; 6-2-101 → Title06.pdf; 27-14-102 → Title27.pdf). The path is case-insensitive (IIS): /Statutes/compress/title01.pdf returns the same file. Inside the PDF each section starts with a heading line '{title}-{chapter}-{section}.   Catchline.' (e.g. '1-3-105. Actions other than recovery of real property.'); grep for '{cite}. ' (number, full stop, space) to land on the heading rather than on cross-references. Missing files do NOT 404: wyoleg.gov returns the Angular app shell (HTTP 200, 0 text chars) for unknown paths — treat a 0-char 'html' result as not found.",
+        "pattern_rules": "title = the first number of the citation, zero-padded to 2 digits (W.S. 1-3-105 → Title01.pdf; 6-2-101 → Title06.pdf; 27-14-102 → Title27.pdf). The path is case-insensitive (IIS): /Statutes/compress/title01.pdf returns the same file. Inside the PDF each section starts with a heading line '{title}-{chapter}-{section}.   Catchline.' (e.g. '1-3-105. Actions other than recovery of real property.'); grep for '{cite}.' — the full stop after the number is what lands on the heading rather than on cross-references (grep strips trailing spaces). Missing files do NOT 404: wyoleg.gov returns the Angular app shell (HTTP 200, 0 text chars) for unknown paths — treat a 0-char 'html' result as not found.",
         "index_url": "https://wyoleg.gov/stateStatutes/StatutesDownload",
         "navigation": "The StatutesDownload page is a JavaScript app (empty to both tools); its list of 43 links (Constitution + Titles 1-42) is the url_pattern above.",
         "format": "pdf"
@@ -261,7 +263,7 @@
         "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "none (404 on wyoleg.gov and www.wyoleg.gov)",
-        "notes": "WebFetch on Title01.pdf returned PROVENANCE_REQUIRED (built URL, permission not answered); not retried. fetch_doc.py reads whole titles (Title01: 366 pp, 730,731 chars; Title06: 210 pp, 407,091 chars) — far beyond the fetch tool's ~100K window, so the script or a corpus is the only full-text route. Section headings are indented with multiple spaces; fetch_doc.py grep normalises whitespace, so search '1-3-105. ' with ONE space."
+        "notes": "WebFetch on Title01.pdf returned PROVENANCE_REQUIRED (built URL, permission not answered); not retried. fetch_doc.py reads whole titles (Title01: 366 pp, 730,731 chars; Title06: 210 pp, 407,091 chars) — far beyond the fetch tool's ~100K window, so the script or a corpus is the only full-text route. Section headings are indented with multiple spaces; fetch_doc.py grep normalises whitespace and strips trailing spaces — rely on the full stop. Title43.pdf (nonexistent) returns 0-char html."
       },
       "currency": {
         "where": "StatutesDownload page (JavaScript-rendered; read from the app bundle); the PDFs carry no currency line. HTTP Last-Modified on the PDFs: 8 May 2026.",
@@ -281,9 +283,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep '1-3-105. ': 1 match p. 35, '(a) Civil actions other than for the recovery of real property'. Second citation W.S. 6-2-101 in Title06.pdf p. 14: 'Whoever purposely and with premeditated malice'. Title01 starts 'TITLE 1 - CODE OF CIVIL PROCEDURE'."
+        "evidence": "fetch_doc.py grep '1-3-105. ': 1 match p. 35, '(a) Civil actions other than for the recovery of real property'. Second citation W.S. 6-2-101 in Title06.pdf p. 14: 'Whoever purposely and with premeditated malice'. Title01 starts 'TITLE 1 - CODE OF CIVIL PROCEDURE'. | Independent check 2026-10-17: fetch_doc.py grep '1-3-105. ' p. 35: '(a) Civil actions other than for the recovery of real property'; second citation Wyo. Stat. Ann. § 34-1-101 ok"
       },
       "notes": "A Folio 'text only' statutes database is also linked (wyoleg.gov/NXT/gateway.dll) — see wy-statutes-nxt. LexisNexis hosts the free annotated statutes (lexisnexis.com/hottopics/wystatutes) — not an allowed tier, not recorded as a source."
     },
@@ -304,7 +306,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "none (404)",
         "notes": "fetch_doc.py returns 466 chars of search-form labels ('Simple Search … <Not initialized yet>') and no links."
@@ -371,9 +373,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES, '(a) Civil actions other than for the recovery of real'; '2025 Wyoming Statutes'. Second: /title-6/chapter-2/article-1/section-6-2-101/ YES, '(a) Whoever purposely and with premeditated malice, or in the'. Chapter page /title-1/chapter-3/ lists section links, no body."
+        "evidence": "WebFetch YES, '(a) Civil actions other than for the recovery of real'; '2025 Wyoming Statutes'. Second: /title-6/chapter-2/article-1/section-6-2-101/ YES, '(a) Whoever purposely and with premeditated malice, or in the'. Chapter page /title-1/chapter-3/ lists section links, no body. | Independent check 2026-10-17: WebFetch YES '(a) Civil actions other than for the recovery of real property can'; '2025 Wyoming Statutes'; second citation Wyo. Stat. Ann. § 34-1-101 ok"
       },
       "notes": ""
     },
@@ -385,11 +387,11 @@
       "tier": 1,
       "official_status": "unknown",
       "official_status_evidence": "Volume PDF on wyoleg.gov; no authentication statement seen; site disclaimer applies.",
-      "coverage": "Annual session laws volume; 2011 volume probed (624 pp).",
+      "coverage": "Annual session laws volumes for at least 2008-2017 (2008, 2010, 2011, 2012, 2016, 2017 confirmed); 2005-2006 and 2018 onward return the app shell.",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://wyoleg.gov/{year}/Session%20Laws.pdf",
-        "pattern_rules": "Verified only for 2011 (found by web search). The same pattern for 2024, 2025 and 2026 returns the app shell (soft 404), so recent volumes live elsewhere; per-act enrolled PDFs are listed on the JavaScript session pages.",
+        "pattern_rules": "Works for at least 2008-2017 (independent check 2026-10-17: 2008, 2010-2012, 2016, 2017 ok). 2005, 2006, 2018, 2019, 2021, 2023-2026 return the 0-char app shell (soft 404) — a 0-char 'html' result means not found; never treat it as an empty volume. Recent volumes live elsewhere; per-act enrolled PDFs are listed on the JavaScript session pages.",
         "index_url": "https://wyoleg.gov/Legislation",
         "navigation": "Legislation / Session pages are JavaScript (empty to both tools); no static index of volumes found.",
         "format": "pdf"
@@ -417,9 +419,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 624 pp, 1,570,300 chars; table of chapters '1 HB0061 OMNIBUS WATER BILL-PLANNING'. 2024-2026 same pattern: 0-char html (soft 404)."
+        "evidence": "fetch_doc.py: pdf 624 pp, 1,570,300 chars; table of chapters '1 HB0061 OMNIBUS WATER BILL-PLANNING'. 2024-2026 same pattern: 0-char html (soft 404). | Independent check 2026-10-17: fetch_doc.py: pdf 624 pp; '1 HB0061 OMNIBUS WATER BILL-PLANNING' p. 5; second citation 2012 Wyo. Sess. Laws ch. 1 ok"
       },
       "notes": "Low priority; navigation for current volumes unresolved (open question)."
     },
@@ -435,7 +437,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://wyoleg.gov/statutes/compress/Title97.pdf",
-        "pattern_rules": "Single PDF. Sections are headed 'Article {N}, Section {M}   Catchline.' with Arabic article numbers; grep 'Article 5, Section 2 ' (trailing space) to avoid Section 20-29.",
+        "pattern_rules": "Single PDF. Sections are headed 'Article {N}, Section {M}   Catchline.' with Arabic article numbers. A plain grep for 'Article 5, Section 2' also hits Sections 20-29 (grep strips a trailing space, and the PDF has several spaces before the catchline), so use: fetch_doc.py grep --regex 'Article {N}, Section {M}\\s+[A-Z]' (one match, the heading).",
         "index_url": "https://wyoleg.gov/stateStatutes/StatutesDownload",
         "navigation": "",
         "format": "pdf"
@@ -453,7 +455,8 @@
       },
       "hazards": [
         "166K chars: truncated in the fetch tool",
-        "fetch tool gated"
+        "fetch tool gated",
+        "plain grep 'Article N, Section M' also matches Sections M0-M9: use the \\s+[A-Z] regex"
       ],
       "probe": {
         "citation": "Wyo. Const. art. 1, § 8",
@@ -463,9 +466,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 'TITLE 97 - WYOMING CONSTITUTION'; Art. 1 § 8 'All courts shall be open and every person for an injury' (p. 2). Second: Art. 5 § 2 'The supreme court shall have general appellate jurisdiction' (p. 25)."
+        "evidence": "fetch_doc.py: 'TITLE 97 - WYOMING CONSTITUTION'; Art. 1 § 8 'All courts shall be open and every person for an injury' (p. 2). Second: Art. 5 § 2 'The supreme court shall have general appellate jurisdiction' (p. 25). | Independent check 2026-10-17: fetch_doc.py p. 2: 'Article 1, Section 8 Courts open to all ... All courts shall be open'; second citation Wyo. Const. art. 3, § 1 ok"
       },
       "notes": ""
     },
@@ -509,9 +512,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES 'All courts shall be open and every person for an'; single page; edition NOT PRESENT; 136,973 chars (window 0-100,000)."
+        "evidence": "WebFetch YES 'All courts shall be open and every person for an'; single page; edition NOT PRESENT; 136,973 chars (window 0-100,000). | Independent check 2026-10-17: WebFetch YES 'All courts shall be open and every person for an'; no edition; truncated at 100,000"
       },
       "notes": ""
     },
@@ -547,7 +550,8 @@
         "two-column annotated text: case notes interleave with rule text",
         "PDF URL changes on amendment",
         "1.16M chars: script or corpus only",
-        "bot protection blocks generic clients"
+        "bot protection blocks generic clients",
+        "fi/fl ligatures in the text layer: grep on words containing 'fi'/'fl' (filed, qualified) returns 0 — use verify, or grep a stretch without them"
       ],
       "probe": {
         "citation": "W.R.C.P. 56",
@@ -557,9 +561,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 228 pp, 1,162,284 chars; 'Rule 56. Summary Judgment. (a) … A party may move for summary judgment' at p. 169. WebFetch on the sibling evidence PDF: PROVENANCE_REQUIRED."
+        "evidence": "fetch_doc.py: pdf 228 pp, 1,162,284 chars; 'Rule 56. Summary Judgment. (a) … A party may move for summary judgment' at p. 169. WebFetch on the sibling evidence PDF: PROVENANCE_REQUIRED. | Independent check 2026-10-17: fetch_doc.py p. 169: 'A party may move for summary judgment, identifying each claim or defense'; second citation W.R.C.P. 15 ok"
       },
       "notes": "Circuit-court civil rules, chancery rules, Uniform Rules for Circuit Courts and small-claims rules each have their own page on the same index."
     },
@@ -593,7 +597,8 @@
       },
       "hazards": [
         "annotated two-column text",
-        "script or corpus only (761K chars)"
+        "script or corpus only (761K chars)",
+        "fi/fl ligatures in the text layer: grep on words containing 'fi'/'fl' (filed, qualified) returns 0 — use verify, or grep a stretch without them"
       ],
       "probe": {
         "citation": "W.R.Cr.P. 35",
@@ -603,9 +608,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 190 pp; 'Rule 35. Correction or Reduction of Sentence. (a) Correction. — The court may correct an illegal sentence' p. 93."
+        "evidence": "fetch_doc.py: pdf 190 pp; 'Rule 35. Correction or Reduction of Sentence. (a) Correction. — The court may correct an illegal sentence' p. 93. | Independent check 2026-10-17: fetch_doc.py p. 93: 'The court may correct an illegal sentence at any time.'; second citation W.R.Cr.P. 11 ok"
       },
       "notes": ""
     },
@@ -639,7 +644,8 @@
       },
       "hazards": [
         "annotated two-column text",
-        "script or corpus only"
+        "script or corpus only",
+        "fi/fl ligatures in the text layer: grep on words containing 'fi'/'fl' (filed, qualified) returns 0 — use verify, or grep a stretch without them"
       ],
       "probe": {
         "citation": "W.R.A.P. 9.08",
@@ -649,9 +655,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 125 pp, 552,805 chars; 'Rule 9.08. Petition for Rehearing. (a) A petition for rehearing' p. 66."
+        "evidence": "fetch_doc.py: 125 pp, 552,805 chars; 'Rule 9.08. Petition for Rehearing. (a) A petition for rehearing' p. 66. | Independent check 2026-10-17: fetch_doc.py verify VERIFIED p. 66; grep of expect string: 0 matches (ligature); second citation W.R.A.P. 2.01 ok"
       },
       "notes": "Annotations show the courts' own citation style, e.g. '2007 WY 98, 160 P.3d 1125, 2007 Wyo. LEXIS 108 (Wyo. 2007)'."
     },
@@ -684,7 +690,8 @@
         "observed": "Rule 702. Testimony by experts (Effective August 1, 2019.)"
       },
       "hazards": [
-        "old and new versions of the same rule both present"
+        "old and new versions of the same rule both present",
+        "fi/fl ligatures in the text layer: grep on words containing 'fi'/'fl' (filed, qualified) returns 0 — use verify, or grep a stretch without them"
       ],
       "probe": {
         "citation": "W.R.E. 702",
@@ -694,9 +701,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 26 pp, 92,805 chars; Rule 702 (Effective August 1, 2019) p. 10; verify 'Rule 1008.' VERIFIED p. 25. WebFetch: PROVENANCE_REQUIRED."
+        "evidence": "fetch_doc.py: 26 pp, 92,805 chars; Rule 702 (Effective August 1, 2019) p. 10; verify 'Rule 1008.' VERIFIED p. 25. WebFetch: PROVENANCE_REQUIRED. | Independent check 2026-10-17: fetch_doc.py verify VERIFIED p. 10; grep of expect string: 0 matches (ligature 'qualiﬁed'); second citation Wyo. R. Evid. 404(b) ok"
       },
       "notes": ""
     },
@@ -722,26 +729,28 @@
         "webfetch": "untested",
         "shell": "ok",
         "robots_txt": "see wy-rules-civil",
-        "notes": "115,304 chars. Carries LexisNexis page-furniture strings (e.g. 'WYOMING COURT RULES 18') mid-text."
+        "notes": "115,304 chars. Carries LexisNexis page-furniture strings (e.g. 'WYOMING COURT RULES 18') mid-text. Grep 'Rule {N}.' (with full stop): bare 'Rule 802' first hits the running header 'Rule 802 WYOMING COURT RULES 18'."
       },
       "currency": {
         "where": "file name",
         "observed": "eff-August-2026"
       },
       "hazards": [
-        "page headers interleaved with rule text"
+        "page headers interleaved with rule text",
+        "fi/fl ligatures in the text layer: grep on words containing 'fi'/'fl' (filed, qualified) returns 0 — use verify, or grep a stretch without them",
+        "running headers 'Rule NNN WYOMING COURT RULES' precede the real heading: grep 'Rule NNN.' with the full stop"
       ],
       "probe": {
         "citation": "U.R.D.C. 802",
         "url": "https://www.wyocourts.gov/app/uploads/2026/06/Uniform-Rules-for-District-Courts-of-Wyomingeff-August-2026.pdf",
-        "expect": "Rule 802"
+        "expect": "In a civil case, the court in its discretion, may use"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 23 pp, 115,304 chars; 'Rule 802' heading found p. 16."
+        "evidence": "fetch_doc.py: 23 pp, 115,304 chars; 'Rule 802' heading found p. 16. | Independent check 2026-10-17: fetch_doc.py p. 16: 'Rule 802. Use of Telephone Conference Calls.'; second citation U.R.D.C. 501 ok"
       },
       "notes": "Rules of Professional Conduct for Attorneys at Law: https://www.wyocourts.gov/app/uploads/2026/06/WY-Rules-Prof-Conduct-Eff.-9-21-26.pdf (140 pp, 569,634 chars; script info only)."
     },
@@ -801,7 +810,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www.law.cornell.edu/regulations/wyoming/agency-{agency:03d}/subagency-{program:04d}/chapter-{chapter}",
-        "pattern_rules": "Agency/subagency/chapter pages are constructible from agency number (3 digits), program (4 digits) and chapter. Section URLs are NOT uniform: one chapter links sections under the chapter path (…/chapter-1/053-1-Wyo-Code-R-SSSS-1-1), another links them flat (…/regulations/wyoming/020-2-Wyo-Code-R-SSSS-2-1). Always take the section link from the chapter page.",
+        "pattern_rules": "Agency/subagency/chapter pages are constructible from agency number (3 digits), program (4 digits) and chapter. Section URLs are NOT uniform: one chapter links sections under the chapter path (…/chapter-1/053-1-Wyo-Code-R-SSSS-1-1), another links them flat (…/regulations/wyoming/020-2-Wyo-Code-R-SSSS-2-1). Always take the section link from the chapter page. Section slugs come in -SSSS- and -SS- forms (015-1-Wyo-Code-R-SS-1-1 under agency-015/subagency-0001). The LII cite 'AAA-C Wyo. Code R. § C-S' omits the program/subagency and is ambiguous (015-1 … § 1-1 exists under both subagency-0001 and subagency-0008): identify the program from the citing context (agency division or rule title), else open agency-AAA and match the chapter TITLE against each subagency's chapter list; if still ambiguous, report both rather than guess.",
         "index_url": "https://www.law.cornell.edu/regulations/wyoming",
         "navigation": "agency list → agency-NNN → subagency-NNNN → chapter-N → section link",
         "format": "html"
@@ -819,7 +828,9 @@
       },
       "hazards": [
         "quarterly lag; Last-Modified Aug 2025 suggests older snapshot",
-        "inconsistent section URL shapes"
+        "inconsistent section URL shapes",
+        "LII cite omits the subagency: the same 'AAA-C Wyo. Code R. § C-S' can exist under several programs",
+        "three section-URL shapes (nested -SSSS-, flat -SSSS-, flat -SS-)"
       ],
       "probe": {
         "citation": "053-1 Wyo. Code R. § 1-1",
@@ -829,9 +840,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: '053-1 Wyo. Code R. §§ 1-1 - Authority'; body 'These rules, regulations and fee schedules are adopted by the'; 'Amended, Eff. 8/24/2017'. Second: 020-2 Wyo. Code R. § 2-1 (DEQ Air Quality ch. 2) page present."
+        "evidence": "fetch_doc.py: '053-1 Wyo. Code R. §§ 1-1 - Authority'; body 'These rules, regulations and fee schedules are adopted by the'; 'Amended, Eff. 8/24/2017'. Second: 020-2 Wyo. Code R. § 2-1 (DEQ Air Quality ch. 2) page present. | Independent check 2026-10-17: fetch_doc.py: 'These rules, regulations and fee schedules are adopted by the Administrator'; second citation 015-1 Wyo. Code R. § 1-1 (AG, Medical Review Panel) ok"
       },
       "notes": ""
     },
@@ -852,10 +863,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
-        "shell": "untested",
+        "webfetch": "gated",
+        "shell": "ok",
         "robots_txt": "none (404)",
-        "notes": "Link found on rules.wyo.gov home page; not probed for content."
+        "notes": "Independent check 2026-10-17: fetch_doc.py reads the page (6,168 chars) but the default GET view shows 'No Results Found'; listings need the POST form. WebFetch: PROVENANCE_REQUIRED."
       },
       "currency": {
         "where": "",
@@ -935,9 +946,9 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://law.justia.com/cases/wyoming/supreme-court/{year}/{docket_lower}.html",
-        "pattern_rules": "Recent years: case page = /{year}/{docket lower-case}.html (S-24-0162 → s-24-0162.html; discipline D-24-0005 → d-24-0005.html) and PDF = https://cases.justia.com/wyoming/supreme-court/{year}-{docket_lower}.pdf (the ?ts= query is optional). With several dockets the first-listed docket is used (2024 WY 138, Nos. S-24-0004, S-24-0003 → s-24-0004). Older years (e.g. 2006) use numeric ids (/2006/448386.html) — take them from the year listing. The public-domain number is NOT in the URL: map 'YYYY WY N' to a docket via the year listing.",
+        "pattern_rules": "Recent years: case page = /{year}/{docket lower-case}.html (S-24-0162 → s-24-0162.html; discipline D-24-0005 → d-24-0005.html) and PDF = https://cases.justia.com/wyoming/supreme-court/{year}-{docket_lower}.pdf (the ?ts= query is optional). With several dockets the first-listed docket is used (2024 WY 138, Nos. S-24-0004, S-24-0003 → s-24-0004). Older years (e.g. 2006) use numeric ids (/2006/448386.html) — take them from the year listing. The public-domain number is NOT in the URL: map 'YYYY WY N' to a docket via the year listing. The URL year is the DECISION year, not the docket year (D-22-0004 decided 2025 → /2025/, 2025-d-22-0004.pdf).",
         "index_url": "https://law.justia.com/cases/wyoming/supreme-court/{year}/",
-        "navigation": "year listing (shows name, date, docket, YYYY WY N and P.3d) → case page; PDF link on the case page",
+        "navigation": "year listing (shows name, date, docket, YYYY WY N; P.3d parallels only for older years, none in the 2025 listing) → case page; PDF link on the case page",
         "format": "html",
         "read_via": "cases.justia.com PDFs are readable by fetch_doc.py (robots disallows only /static/pdf-js/web/); law.justia.com pages by WebFetch only."
       },
@@ -966,11 +977,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body to ¶101 then truncated (112,583 chars). fetch_doc.py on cases.justia.com/…/2024-s-24-0004.pdf: 41 pp, '2024 WY 138 OCTOBER TERM, A.D. 2024'; 2024-s-24-0162.pdf (no ts): '2024 WY 139'. Older: /2006/448386.html (2006 WY 160) full body, ¶1-¶26."
+        "evidence": "WebFetch: body to ¶101 then truncated (112,583 chars). fetch_doc.py on cases.justia.com/…/2024-s-24-0004.pdf: 41 pp, '2024 WY 138 OCTOBER TERM, A.D. 2024'; 2024-s-24-0162.pdf (no ts): '2024 WY 139'. Older: /2006/448386.html (2006 WY 160) full body, ¶1-¶26. | Independent check 2026-10-17: WebFetch YES '[¶1] Eiden Construction, LLC (Eiden) entered into an earthwork'; truncated in ¶101; second citation Ropken v. YJ Construction, Inc., 2025 WY 131 (Dec. 11, 2025), No. S-25-0001 ok"
       },
-      "notes": "Justia year listing gives P.3d parallels for older years (e.g. 2006 WY 160 = 149 P.3d 702)."
+      "notes": "Justia year listings give P.3d parallels for older years only (e.g. 2006 WY 160 = 149 P.3d 702)."
     },
     {
       "id": "wy-chancery-decisions",
@@ -989,7 +1000,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "see wy-rules-civil",
         "notes": "fetch_doc.py: 8,048 chars, 0 upload links."
@@ -1032,7 +1043,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "ctefiling.wyocourts.gov/robots.txt returns the app shell (0 chars) — no rules",
         "notes": "fetch_doc.py: 0-char JavaScript shell."
@@ -1151,11 +1162,11 @@
   ],
   "open_questions": [
     "Where the official Supreme Court opinion PDFs (2006 on) are served and what the JavaScript table calls; documents.wyocourts.gov did not resolve through the proxy.",
-    "URL or index for Session Laws volumes after 2011 (the 2011 pattern soft-404s for 2024-2026).",
     "Whether any GET permalink exists for a rules.wyo.gov chapter document.",
     "Real-world form of the agency.program.chapter admin-code citation (pattern inferred from the SOS numbering description).",
     "Folio NXT statutes database: per-section deep links not established.",
     "CourtListener id 'wyo' unverified.",
-    "WebFetch untested on wyocourts.gov rule PDFs beyond one gated attempt; independent verifier should retry from a provenance-carrying link."
+    "WebFetch untested on wyocourts.gov rule PDFs beyond one gated attempt; independent verifier should retry from a provenance-carrying link.",
+    "Session Laws volumes for 2018 onward (and before 2008): location not found; the {year}/Session%20Laws.pdf pattern soft-404s."
   ]
 }
