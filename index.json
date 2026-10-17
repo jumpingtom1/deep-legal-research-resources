@@ -240,10 +240,10 @@
     "ma": {
       "name": "Massachusetts",
       "file": "jurisdictions/ma.md",
-      "sha256": "59b122033291504d3502bf025f17fe1734006ee002700ded867e6551c56c3624",
+      "sha256": "cc5a220e80cec5bc5fa76c80eaabf1bfbeebe42a082967859476507727f0049f",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 21,
+        "verified_independent": 21,
         "reported": 3,
         "blocked": 2
       },
@@ -258,7 +258,7 @@
         },
         {
           "label": "Massachusetts Constitution",
-          "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:\u00a7\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution"
+          "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:\u00a7\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution|art(?:icle|\\.)?\\s*(?P<article5>[0-9IVXLC]+)\\s+of\\s+the\\s+Declaration\\s+of\\s+Rights\\s+of\\s+the\\s+(?:Massachusetts\\s+Constitution|Constitution\\s+of\\s+the\\s+Commonwealth)"
         },
         {
           "label": "Massachusetts Rules of Civil Procedure",
@@ -290,7 +290,7 @@
         },
         {
           "label": "Code of Massachusetts Regulations",
-          "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|Code\\s+Mass\\.\\s+Regs\\.)\\s*(?:\u00a7\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})"
+          "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|(?:Mass\\.\\s+)?Code\\s+Mass\\.\\s+Regs\\.|Mass\\.\\s+Code\\s+Regs\\.)\\s*(?:\u00a7\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})"
         },
         {
           "label": "Massachusetts Register",
