@@ -120,3 +120,12 @@ All probes by `research` on 2026-10-17. "WF" = WebFetch; "script" = `python3 scr
 - "law.justia.com cases iowa supreme-court 2021 opinion" → iowacourts monthly archives
 - "iowacourts.gov supreme court further review…" → further-review announcement
 - "law.justia.com cases iowa court-of-appeals 2025 html" → Justia COA 2015 listing
+
+## Fix pass — 2026-10-17 (after research/ia-verify.json)
+| URL | Tool | Result |
+|---|---|---|
+| https://www.legis.iowa.gov/docs/publications/ICV/1594653.pdf … 1594660.pdf | script read | title pages "VOLUME I … VIII / CODE OF IOWA 2026"; 1,092–2,057 pp. each |
+| https://www.legis.iowa.gov/docs/publications/ICV/1594660.pdf | script read (contents, offset 9000) | per-volume title/subtitle chapter ranges: I 1–79, II 80–215A, III 216–305B, IV 306–420, V 421–485, VI 486–523I, VII 524–594A, VIII 595–916 |
+| same | script grep | "PREFACE TO 2026 IOWA CODE" present (new expect string) |
+
+Applied: volume map and expect "2026 IOWA CODE"; Justia unhyphenated pre-2018 slugs (150695.html) plus listing fallback; further-review case-page expect "Application for Further Review"; Criminal Procedure ch. 2 (196,950 chars) added as corpus candidate; Justia Daniels v. Holtz 19-1674 noted. 14 verified rows marked independent.

@@ -57,7 +57,7 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 
 ### `ia-acts-legis` — Iowa Acts (session laws), per-chapter PDFs
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
 - **Coverage:** Iowa Acts by General Assembly and session; current 91st GA (2025-2026).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -71,12 +71,12 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Official status:** Iowa Acts from the 2014 edition are designated official electronic versions (https://www.legis.iowa.gov/law/officialAndUnofficialEditions).
 - **Hazard:** GA/session must be computed from the year
 - **Probe:** 2017 Iowa Acts ch. 64 → `https://www.legis.iowa.gov/docs/publications/iactc/87.1/CH0064.pdf` — expect: "IMPROVEMENTS TO REAL PROPERTY — UNSAFE OR DEFECTIVE CONDITIONS"
-- **Evidence (2026-10-17):** Script: 87.1/CH0064.pdf 1 p., 'CHAPTER 64 IMPROVEMENTS TO REAL PROPERTY', S.F. 413. Second citation 2026 Iowa Acts ch. 1150 → 91.2/CH1150.pdf: 'CHAPTER 1150 CIVIL ACTIONS', S.F. 512.
+- **Evidence (2026-10-17):** Script: 87.1/CH0064.pdf 1 p., 'CHAPTER 64 IMPROVEMENTS TO REAL PROPERTY', S.F. 413. Second citation 2026 Iowa Acts ch. 1150 → 91.2/CH1150.pdf: 'CHAPTER 1150 CIVIL ACTIONS', S.F. 512. | Independent check 2026-10-17: Script: 'CHAPTER 64 IMPROVEMENTS TO REAL PROPERTY — UNSAFE OR DEFECTIVE CONDITIONS'; second citation 2019 Iowa Acts ch. 92 ok
 - **Notes:** 'Code & Acts Sections Amended' (https://www.legis.iowa.gov/law/statutory/acts/amended) maps Code sections to amending acts.
 
 ### `ia-code-legis` — Iowa Code, per-section and per-chapter PDFs (legis.iowa.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Iowa Code editions 2004 to current (Iowa Code 2026, published Dec. 2025). Archive of all editions and supplements 1839- at /archives/code.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
@@ -92,31 +92,32 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** annual edition: acts of the 2026 session are not in Iowa Code 2026 (check Iowa Acts / 'Code & Acts Sections Amended')
 - **Hazard:** page headers and footers are interleaved with the text in extraction
 - **Probe:** Iowa Code § 614.1(2) → `https://www.legis.iowa.gov/docs/code/614.1.pdf` — expect: "Actions may be brought within the times limited as follows, respectively"
-- **Evidence (2026-10-17):** Script: PDF 3 pp., 10,777 chars, '614.1 Period. Actions may be brought within the times limited'; footer 'Iowa Code 2026, Section 614.1 (30, 0)'. Second citation /docs/code/707.2.pdf: 1 p., '707.2 Murder in the first degree.'; /docs/code/321J.2.pdf 4 pp. WebFetch (search URL /docs/code/2023/614.1.pdf): YES, footer 'Iowa Code 2023, Section 614.1 (27, 0)', not truncated.
+- **Evidence (2026-10-17):** Script: PDF 3 pp., 10,777 chars, '614.1 Period. Actions may be brought within the times limited'; footer 'Iowa Code 2026, Section 614.1 (30, 0)'. Second citation /docs/code/707.2.pdf: 1 p., '707.2 Murder in the first degree.'; /docs/code/321J.2.pdf 4 pp. WebFetch (search URL /docs/code/2023/614.1.pdf): YES, footer 'Iowa Code 2023, Section 614.1 (27, 0)', not truncated. | Independent check 2026-10-17: WebFetch (built URL, no approval prompt): YES; footer 'Iowa Code 2026, Section 614.1 (30, 0)', not truncated; second citation Iowa Code § 668.3 (also 2024 edition § 216.6) ok
 - **Notes:** Year-specific editions verified for 2021, 2023, 2025, 2026. Chapter 614 PDF: /docs/code/614.pdf (68,530 chars).
 
 ### `ia-code-volumes-legis` — Iowa Code, official volume PDFs (Vol. I-VIII)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
 - **Coverage:** Current Iowa Code (2026) in eight volumes; official designation for editions from 2014.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
-  - Placeholders: Volume file names are opaque document ids (e.g. /docs/publications/ICV/1594658.pdf = Vol VI of 2026); take them from the index each edition.
+  - Placeholders: Open only the volume whose chapter range covers the cited chapter (2026 edition, ranges read from each volume's title page): Vol I = ICV/1594653.pdf: Constitution; chapters 1-79 (Titles I-II); Vol II = ICV/1594654.pdf: chapters 80-215A (Titles III-V); Vol III = ICV/1594655.pdf: chapters 216-305B (Titles VI-VII); Vol IV = ICV/1594656.pdf: chapters 306-420 (Titles VIII-IX); Vol V = ICV/1594657.pdf: chapters 421-485 (Titles X-XI); Vol VI = ICV/1594658.pdf: chapters 486-523I (Title XII, Title XIII subtitle 1); Vol VII = ICV/1594659.pdf: chapters 524-594A (rest of Title XIII, Title XIV); Vol VIII = ICV/1594660.pdf: chapters 595-916 (Titles XV-XVI) and Tables and Indexes. File ids are opaque and change every edition; re-read them from the index and re-check the ranges.
   - Index: `https://www.legis.iowa.gov/law/statutory`
-  - Navigation: Iowa Law page → 'Vol I' ... 'Vol VIII' links → volume PDF; find the section by grep ('614.1 Period.').
+  - Navigation: Iowa Law page → 'Vol N' link for the volume holding the chapter (map in pattern_rules) → grep the section heading ('614.1 Period.' is in Vol VIII).
 - **Automation:** WebFetch untested · shell ok · robots: User-agent: * Disallow: /chambers/ only; Sitemap listed
   - Volumes are far beyond the fetch tool's ~100K-character window (Vol VI: 1,581 pp., 6.4M chars); use fetch_doc.py grep/section.
-- **Currency:** volume title pages and page footers — observed: "last-modified 22 Dec 2025 (Vol VI)"
+- **Currency:** volume title page and running heads — observed: "CODE OF IOWA 2026; '2026 IOWA CODE'"
 - **Official status:** https://www.legis.iowa.gov/law/statutory: '2026 Iowa Code and Iowa Constitution (Official Version - PDF format)'; UELMA designation and authentication since Jan. 9, 2020 (https://www.legis.iowa.gov/law/officialAndUnofficialEditions).
 - **Hazard:** very large PDFs
 - **Hazard:** opaque file ids change every edition
-- **Probe:** Iowa Code (2026), Vol. VI → `https://www.legis.iowa.gov/docs/publications/ICV/1594658.pdf` — expect: "Iowa Code 2026"
-- **Evidence (2026-10-17):** Script info: PDF 1,581 pages, 6,414,052 chars, last-modified Mon, 22 Dec 2025. Links for Vol I-VIII (ICV/1594653-1594660) read from /law/statutory with fetch_doc.py links. Section-level grep not run.
+- **Hazard:** the phrase 'Iowa Code 2026' does not occur in the volumes (they read 'CODE OF IOWA 2026' / '2026 IOWA CODE'); match those instead
+- **Probe:** Iowa Code § 614.1 (2026), Vol. VIII → `https://www.legis.iowa.gov/docs/publications/ICV/1594660.pdf` — expect: "2026 IOWA CODE"
+- **Evidence (2026-10-17):** Script info: PDF 1,581 pages, 6,414,052 chars, last-modified Mon, 22 Dec 2025. Links for Vol I-VIII (ICV/1594653-1594660) read from /law/statutory with fetch_doc.py links. Section-level grep not run. | Independent check 2026-10-17: Script Vol VI: 1,581 pp; title 'CODE OF IOWA 2026'; exact 'Iowa Code 2026' 0 matches; second citation Iowa Code § 668.3 / § 614.1 in official volume ok
 - **Notes:** Use as the official cross-check; read per-section text from ia-code-legis.
 
 ### `ia-code-justia` — Justia — Iowa Code (2025)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Iowa Code editions incl. 2016, 2023, 2024, 2025; unversioned URLs serve 2025 (one edition behind legis.iowa.gov's 2026).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -132,13 +133,13 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** title must be looked up
 - **Hazard:** shell blocked
 - **Probe:** Iowa Code § 614.1 → `https://law.justia.com/codes/iowa/title-xv/chapter-614/section-614-1/` — expect: "Actions may be brought within the times limited as follows"
-- **Evidence (2026-10-17):** WebFetch: YES, subsections 1-14 and history present; '2025 Iowa Code'; 'IA Code § 614.1 (2025)'. Second citation /title-xvi/chapter-707/section-707-2/: YES 'A person commits murder in the first degree when the'. Chapter page /title-xv/chapter-614/ lists section links (614.4A → section-614-4a).
+- **Evidence (2026-10-17):** WebFetch: YES, subsections 1-14 and history present; '2025 Iowa Code'; 'IA Code § 614.1 (2025)'. Second citation /title-xvi/chapter-707/section-707-2/: YES 'A person commits murder in the first degree when the'. Chapter page /title-xv/chapter-614/ lists section links (614.4A → section-614-4a). | Independent check 2026-10-17: WebFetch: YES; '2025 Iowa Code', 'IA Code § 614.1 (2025)'; second citation Iowa Code § 668.3 (title XV from legis Iowa Code page 'Ch. 595 - 686D') ok
 
 ## B. Constitution
 
 ### `ia-constitution-legis` — Iowa Constitution — Codified (PDF)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
 - **Coverage:** Whole codified constitution in one PDF, amendments through Amendments 50 and 51 (2024). Original 1857 text: /docs/publications/ICP/1518289.pdf.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format pdf
@@ -152,11 +153,11 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** single 27-page PDF near the fetch tool's limit
 - **Hazard:** opaque document id
 - **Probe:** Iowa Const. art. I, § 8 → `https://www.legis.iowa.gov/docs/publications/ICP/1518288.pdf` — expect: "The right of the people to be secure in their persons, houses, papers"
-- **Evidence (2026-10-17):** Script: 27 pp., 105,512 chars; art. I § 8 'Personal security — searches and seizures' present; art. I § 1A 'Added by Amendment 49 (2022)'. WebFetch: art. XII § 1 present, last body text art. XII § 2, not truncated.
+- **Evidence (2026-10-17):** Script: 27 pp., 105,512 chars; art. I § 8 'Personal security — searches and seizures' present; art. I § 1A 'Added by Amendment 49 (2022)'. WebFetch: art. XII § 1 present, last body text art. XII § 2, not truncated. | Independent check 2026-10-17: Script: 'Sec. 8. Personal security — searches and seizures. The right of the people…'; second citation Iowa Const. art. I, § 6 ok
 
 ### `ia-constitution-justia` — Justia — Iowa Constitution
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-section pages; includes art. I § 1A as amended 2022.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -170,13 +171,13 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** no currency date
 - **Hazard:** shell blocked
 - **Probe:** Iowa Const. art. I, § 1A → `https://law.justia.com/constitution/iowa/article-i/section-1a/` — expect: "The right of the people to keep and bear arms"
-- **Evidence (2026-10-17):** WebFetch: YES 'The right of the people to keep and bear arms'; strict-scrutiny sentence and 'Added by Amendment 49 (2022)' present. Article page /article-i/ lists sections with links (section-8, section-1a), no body text.
+- **Evidence (2026-10-17):** WebFetch: YES 'The right of the people to keep and bear arms'; strict-scrutiny sentence and 'Added by Amendment 49 (2022)' present. Article page /article-i/ lists sections with links (section-8, section-1a), no body text. | Independent check 2026-10-17: WebFetch: YES 'The right of the people to keep and bear arms'; disclaimer only; second citation Iowa Const. art. I, § 6 ok
 
 ## C. Court rules
 
 ### `ia-courtrules-legis` — Iowa Court Rules, per-chapter PDFs (legis.iowa.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency for the Iowa Supreme Court · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency for the Iowa Supreme Court · text: **fetch-and-quote** · official: official
 - **Coverage:** All chapters of the Iowa Court Rules (ch. 1 Civil Procedure, 2 Criminal Procedure, 5 Evidence, 6 Appellate Procedure, 32 Professional Conduct, ...), monthly publication; editions back to 2002.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
@@ -185,21 +186,21 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
   - Index: `https://www.legis.iowa.gov/law/courtRules/courtRulesListings`
   - Navigation: Listing (publication date 'Iowa Court Rules - September 2026') → chapter PDF → grep 'Rule {rule} ' (body headings are 'Rule 1.421 Defenses; how raised...').
 - **Automation:** WebFetch ok (truncated) · shell ok · robots: User-agent: * Disallow: /chambers/ only; Sitemap listed
-  - WebFetch read ch. 5 (78,862 chars) to the end (Rule 5.1103) but cut ch. 1 (424,571 chars) at Rule 1.308: 'Rule 1.981 NOT PRESENT'. Ch. 6 is 199,325 chars and ch. 32 406,602 chars: use fetch_doc.py grep/section or the corpus.
+  - WebFetch read ch. 5 (78,862 chars) to the end (Rule 5.1103) but cut ch. 1 (424,571 chars) at Rule 1.308: 'Rule 1.981 NOT PRESENT'. Ch. 6 is 199,325 chars and ch. 32 406,602 chars: use fetch_doc.py grep/section or the corpus. Ch. 2 (Criminal Procedure) is 196,950 chars (independent check).
 - **Currency:** listing heading; each PDF page header carries that page's revision month — observed: "Iowa Court Rules - September 2026; page headers 'December 2025' (ch. 6), 'December 2022' (ch. 5)"
 - **Official status:** Court rules listing is headed '(Official Edition)'; Iowa Court Rules from the 5th edition are designated official under Iowa Code ch. 2B (https://www.legis.iowa.gov/law/officialAndUnofficialEditions).
 - **Hazard:** fetch tool truncates the big chapters (1, 6, 32)
 - **Hazard:** page-header month is the page's last revision, not the edition date
 - **Hazard:** table of contents at the start of each chapter repeats every rule title: grep the body heading with its trailing text
 - **Probe:** Iowa R. Evid. 5.702 → `https://www.legis.iowa.gov/docs/ACO/CourtRulesChapter/5.pdf` — expect: "A witness who is qualified as an expert by knowledge, skill, experience"
-- **Evidence (2026-10-17):** Script: ch. 5 22 pp., Rule 5.702 body present; ch. 1 130 pp., 'Rule 1.421 Defenses; how raised; consolidation; waiver.' at p. 35; ch. 6 'Rule 6.1103 Application to the supreme court for further review' at p. 40; ch. 32 'Rule 32:1.7 CONFLICT OF INTEREST: CURRENT CLIENTS' at p. 20. WebFetch on dated ch. 5: YES 'A witness who is qualified as an expert by knowledge'.
+- **Evidence (2026-10-17):** Script: ch. 5 22 pp., Rule 5.702 body present; ch. 1 130 pp., 'Rule 1.421 Defenses; how raised; consolidation; waiver.' at p. 35; ch. 6 'Rule 6.1103 Application to the supreme court for further review' at p. 40; ch. 32 'Rule 32:1.7 CONFLICT OF INTEREST: CURRENT CLIENTS' at p. 20. WebFetch on dated ch. 5: YES 'A witness who is qualified as an expert by knowledge'. | Independent check 2026-10-17: WebFetch ch. 5: YES; header 'December 2022'; reaches Rule 5.1103, not truncated; second citation Iowa R. Crim. P. 2.24 ok
 - **Notes:** iowacourts.gov links its court-rules pages to this legis.iowa.gov publication; amendment orders are posted alongside the listing (e.g. 09-30-2026.CourtOrder.09_25_2026_Order_Ch_17.pdf).
 
 ## D. Administrative code
 
 ### `ia-iac-legis` — Iowa Administrative Code, per-chapter and per-rule PDFs
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
 - **Coverage:** Current IAC (updated biweekly) and dated past editions.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -214,11 +215,11 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** 2023-2026 Red Tape Review rescinded and rewrote many chapters: old chapter numbers may now be empty stubs (701 ch. 400: 295 chars)
 - **Hazard:** chapter rescission dates under Iowa Code § 17A.7 printed at the top of each chapter
 - **Probe:** Iowa Admin. Code r. 641—1.1 → `https://www.legis.iowa.gov/docs/iac/chapter/641.1.pdf` — expect: "Definitions. For the purpose of these rules, the following definitions will apply"
-- **Evidence (2026-10-17):** Script: 641.1.pdf 16 pp., 63,039 chars, header 'IAC 6/10/26', '641—1.1(139A) Definitions.'; rule PDF 641.1.1.pdf 2 pp. Second citation 567.61.pdf: 24 pp., 'CHAPTER 61 WATER QUALITY STANDARDS', header 'IAC 2/5/25'.
+- **Evidence (2026-10-17):** Script: 641.1.pdf 16 pp., 63,039 chars, header 'IAC 6/10/26', '641—1.1(139A) Definitions.'; rule PDF 641.1.1.pdf 2 pp. Second citation 567.61.pdf: 24 pp., 'CHAPTER 61 WATER QUALITY STANDARDS', header 'IAC 2/5/25'. | Independent check 2026-10-17: Script: '641—1.1(139A) Definitions. For the purpose of these rules…'; second citation Iowa Admin. Code r. 281—12.1 ok
 
 ### `ia-iac-lii` — Cornell LII — Iowa Administrative Code
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-rule pages by agency and chapter.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -232,13 +233,13 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Official status:** Third-party mirror; no currency statement.
 - **Hazard:** snapshot from Aug. 2025: misses Red Tape Review rewrites since then
 - **Probe:** Iowa Admin. Code r. 641—1.1 → `https://www.law.cornell.edu/regulations/iowa/Iowa-Code-r-641-1.1` — expect: "For the purpose of these rules, the following definitions will apply"
-- **Evidence (2026-10-17):** Script: 8,018 chars, body present, Notes 'ARC 8070C, IAB 6/12/24'; last-modified 01 Aug 2025. Second citation Iowa-Code-r-567-61.3: 28,937 chars. Index links agency-641 → chapter-1 → Iowa-Code-r-641-1.1.
+- **Evidence (2026-10-17):** Script: 8,018 chars, body present, Notes 'ARC 8070C, IAB 6/12/24'; last-modified 01 Aug 2025. Second citation Iowa-Code-r-567-61.3: 28,937 chars. Index links agency-641 → chapter-1 → Iowa-Code-r-641-1.1. | Independent check 2026-10-17: Script: 'For the purpose of these rules, the following definitions will apply'; LM 01 Aug 2025; second citation Iowa Admin. Code r. 281—12.1 ok
 
 ## D. Administrative register
 
 ### `ia-iab-legis` — Iowa Administrative Bulletin (issues) and ARC documents
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Legislative Services Agency · text: **fetch-and-quote** · official: official
 - **Coverage:** Biweekly issues (Wednesday); per-ARC PDFs.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -253,14 +254,14 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** issue PDFs far exceed the fetch tool's window
 - **Hazard:** ARC series letter (A-D) must be kept
 - **Probe:** ARC 0647D, IAB 10/14/26 → `https://www.legis.iowa.gov/docs/aco/arc/0647D.pdf` — expect: "Notice of Intended Action"
-- **Evidence (2026-10-17):** Script: 0647D.pdf 2 pp., 'ARC 0647D EDUCATION DEPARTMENT[281] Notice of Intended Action'. Issue 10-14-2026.pdf: cover 'VOLUME XLIX NUMBER 8'; 09-30-2026.pdf: 423 pp.
+- **Evidence (2026-10-17):** Script: 0647D.pdf 2 pp., 'ARC 0647D EDUCATION DEPARTMENT[281] Notice of Intended Action'. Issue 10-14-2026.pdf: cover 'VOLUME XLIX NUMBER 8'; 09-30-2026.pdf: 423 pp. | Independent check 2026-10-17: Script: 'ARC 0647D … EDUCATION DEPARTMENT[281] Notice of Intended Action'; second citation ARC 0642D, IAB 10/14/26 ok
 - **Notes:** rules.iowa.gov (executive-branch rulemaking tracker, linked from legis via /leaving) serves a tracking page, not rule text; not recorded as a source.
 
 ## E. Case law
 
 ### `ia-opinions-iowacourts` — Iowa Judicial Branch — Supreme Court and Court of Appeals opinions
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Case pages with PDF opinions from about Feb. 2018 (monthly archives 2018-2026 seen, e.g. Supreme Court archive/2018/3 and 2021/3); older opinions on yearly archive pages back to 1998 (Supreme Court) and 2006 (Court of Appeals) whose per-opinion links the script did not surface.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -278,17 +279,17 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** Court of Appeals unpublished opinions are not controlling authority (Iowa R. App. P. 6.904(2)(c))
 - **Hazard:** 30-second crawl delay
 - **Probe:** Davenport v. Fuller, No. 25-1183 (Iowa Oct. 16, 2026) → `https://www.iowacourts.gov/courtcases/26518/embed/SupremeCourtOpinion` — expect: "A plaintiff appeals from a district court judgment dismissing his medical malpractice claims"
-- **Evidence (2026-10-17):** Script: case page /supreme-court/supreme-court-opinions/case/25-1183 links 'PDF of the Opinion' → /courtcases/26518/embed/SupremeCourtOpinion, PDF 17 pp., 'No. 25–1183 ... Filed October 16, 2026'. Second citation COA No. 24-1358 → /courtcases/27223/embed/CourtAppealsOpinion, 9 pp., 'Filed October 7, 2026'. Older: Donahue No. 18-2239 (8953) 19 pp. COA archive/2021/3 lists case/19-0058.
+- **Evidence (2026-10-17):** Script: case page /supreme-court/supreme-court-opinions/case/25-1183 links 'PDF of the Opinion' → /courtcases/26518/embed/SupremeCourtOpinion, PDF 17 pp., 'No. 25–1183 ... Filed October 16, 2026'. Second citation COA No. 24-1358 → /courtcases/27223/embed/CourtAppealsOpinion, 9 pp., 'Filed October 7, 2026'. Older: Donahue No. 18-2239 (8953) 19 pp. COA archive/2021/3 lists case/19-0058. | Independent check 2026-10-17: Script (same-day cache): 'A plaintiff appeals from a district court judgment dismissing his medical malpractice claims'. WebFetch: PROVENANCE_REQUIRED; second citation Klein v. Iowa Pub. Info. Bd., No. 20-0657 (Iowa Dec. 30, 2021) ok
 - **Notes:** Opinions are released on fixed filing days (Supreme Court usually Fridays, Court of Appeals Wednesdays); an 'expected list' is announced in advance at /announcements.
 
 ### `ia-cases-justia` — Justia — Iowa Supreme Court and Court of Appeals
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court 1859-2026; Court of Appeals 1977-2026 (year links on the court pages).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
-  - Pattern: `https://law.justia.com/cases/iowa/{court}/{year}/{docket}.html`
-  - Placeholders: court = supreme-court | court-of-appeals; year = filing year; docket YY-NNNN with hyphen (18-2239, 19-0058). Year listing /cases/iowa/{court}/{year}/ shows docket numbers and dates when a slug misses.
+  - Pattern: `https://law.justia.com/cases/iowa/{court}/{year}/{docket_slug}.html`
+  - Placeholders: court = supreme-court | court-of-appeals; year = filing year. Slug = docket in one of two forms: hyphenated YY-NNNN (2021: 18-2239.html, 19-0058.html) or, in older years (at least 2017), unhyphenated YYNNNN (Godfrey v. State, No. 15-0695 → /supreme-court/2017/150695.html). Try the hyphenated form, then the unhyphenated one, then the year listing /cases/iowa/{court}/{year}/ (shows docket numbers and dates) — never keep guessing.
   - Index: `https://law.justia.com/cases/iowa/`
   - Navigation: court page → year listing → case
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: unreadable to the shell: law.justia.com robots.txt answers with a Cloudflare challenge
@@ -298,8 +299,10 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** posting lag (Supreme Court page's newest entry June 30, 2026 on 2026-10-17)
 - **Hazard:** amended opinions may not be updated
 - **Hazard:** shell blocked
+- **Hazard:** slug form varies by year: 2017 pages drop the docket hyphen (150695.html)
+- **Hazard:** long opinions exceed the fetch window (Godfrey 2017 page ~115K chars, cut at 100K)
 - **Probe:** State v. Donahue, No. 18-2239 (Iowa Mar. 26, 2021) → `https://law.justia.com/cases/iowa/supreme-court/2021/18-2239.html` — expect: "In this case, defendant John Donahue appeals his"
-- **Evidence (2026-10-17):** WebFetch: YES, full opinion to 'All justices concur except Christensen, C.J.'; no N.W.2d cite, no amended date. Second citation /court-of-appeals/2021/19-0058.html: YES 'Kyle Reasoner appeals following his guilty plea to carrying weapons.', 'Filed March 17, 2021'.
+- **Evidence (2026-10-17):** WebFetch: YES, full opinion to 'All justices concur except Christensen, C.J.'; no N.W.2d cite, no amended date. Second citation /court-of-appeals/2021/19-0058.html: YES 'Kyle Reasoner appeals following his guilty plea to carrying weapons.', 'Filed March 17, 2021'. | Independent check 2026-10-17: WebFetch: YES 'APPEL, Justice. In this case, defendant John Donahue appeals his'; not truncated; second citation Godfrey v. State, 898 N.W.2d 844 (Iowa 2017), No. 15-0695 ok
 - **Notes:** Use for opinions before 2018, where iowacourts.gov archive pages gave no per-opinion links to the script.
 
 ## F. Subsequent history
@@ -321,26 +324,26 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 
 ### `ia-further-review-casepage` — Iowa Judicial Branch case page (same docket at both courts)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Cases with case pages (about 2018-): the Court of Appeals case page lists the application for further review, the resistance, and, if review was granted and decided, the Supreme Court opinion.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.iowacourts.gov/iowa-courts/court-of-appeals/court-of-appeals-court-opinions/case/{docket}`
   - Placeholders: The docket number is the same at the Court of Appeals and the Supreme Court; both opinions share one internal id (/courtcases/11098/embed/CourtAppealsOpinion and .../SupremeCourtOpinion). The Supreme Court case page /supreme-court/supreme-court-opinions/case/{docket} holds the decision on further review.
   - Index: `https://www.iowacourts.gov/iowa-courts/court-of-appeals/court-of-appeals-court-opinions/`
-  - Navigation: COA case page → 'Application for Further Review' document and 'PDF of the Opinion' links (Supreme Court opinion listed when review was granted).
+  - Navigation: COA case page lists 'Application for Further Review', 'Resistance to Application for Further Review' and the 'PDF of the Opinion' links; when review was granted and decided, a second link .../embed/SupremeCourtOpinion appears. Open that PDF for the disposition line (e.g. 'COURT OF APPEALS DECISION VACATED; DISTRICT COURT JUDGMENT AFFIRMED').
 - **Automation:** WebFetch gated · shell ok · robots: User-agent: * Crawl-delay: 30; Disallow: (empty)
   - Denials of further review are not shown on the case page.
 - **Currency:** none
 - **Official status:** Court website case pages; slip opinions.
 - **Hazard:** shows grants that ended in an opinion; a denial leaves only the application on the page
 - **Hazard:** 30-second crawl delay
-- **Probe:** Daniels v. Holtz, No. 19-1674 (Iowa Mar. 26, 2021) → `https://www.iowacourts.gov/iowa-courts/court-of-appeals/court-of-appeals-court-opinions/case/19-1674` — expect: "COURT OF APPEALS DECISION VACATED; DISTRICT COURT JUDGMENT AFFIRMED"
-- **Evidence (2026-10-17):** Script: COA case page 19-1674 links 'Application for Further Review', 'Resistance to Application for Further Review', COA opinion /courtcases/11098/embed/CourtAppealsOpinion and Supreme Court opinion .../SupremeCourtOpinion ('On review from the Iowa Court of Appeals', 'COURT OF APPEALS DECISION VACATED').
+- **Probe:** Daniels v. Holtz, No. 19-1674 (Iowa Mar. 26, 2021) → `https://www.iowacourts.gov/iowa-courts/court-of-appeals/court-of-appeals-court-opinions/case/19-1674` — expect: "Application for Further Review"
+- **Evidence (2026-10-17):** Script: COA case page 19-1674 links 'Application for Further Review', 'Resistance to Application for Further Review', COA opinion /courtcases/11098/embed/CourtAppealsOpinion and Supreme Court opinion .../SupremeCourtOpinion ('On review from the Iowa Court of Appeals', 'COURT OF APPEALS DECISION VACATED'). | Independent check 2026-10-17: Script: case/19-1674 links 'Application for Further Review', both 11098 opinion PDFs
 
 ### `ia-further-review-orders` — Iowa Supreme Court — Further Review Orders (latest batch)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Iowa Judicial Branch · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Only the most recent batch of grants and denials ('Below is the further review status since our last report'); no archive and no order dates in the table.
 - **Read via (in order):** **script**
 - **Access:** `link-only` · format html
@@ -352,7 +355,7 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Hazard:** overwritten with each batch: past denials cannot be found here
 - **Hazard:** no dates
 - **Probe:** Peer v. IRC II, Inc., No. 25-0461 (further review granted) → `https://www.iowacourts.gov/iowa-courts/supreme-court/further-review-orders/` — expect: "The following table contains review orders with the status of Granted."
-- **Evidence (2026-10-17):** Script: 15,774 chars; Granted: 25-0461 Peer v. IRC II, Inc.; 25-0562; 25-1345. Denied list begins 24-1440 Tyson v. State.
+- **Evidence (2026-10-17):** Script: 15,774 chars; Granted: 25-0461 Peer v. IRC II, Inc.; 25-0562; 25-1345. Denied list begins 24-1440 Tyson v. State. | Independent check 2026-10-17: Script (same-day cache): 'review orders with the status of Granted'; 25-0461 Peer v. IRC II. WebFetch: PROVENANCE_REQUIRED
 - **Notes:** For an older 'further review denied', the free routes are the appellate docket in Iowa Courts Online (ia-docket-ecourts) or a later opinion's subsequent-history parenthetical.
 
 ### `ia-subsequent-justia` — Justia — Supreme Court decision on further review, by Court of Appeals docket
@@ -370,8 +373,10 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - **Official status:** Third-party copy.
 - **Hazard:** denials absent
 - **Hazard:** year guess
+- **Hazard:** slug may be unhyphenated in older years (see ia-cases-justia)
 - **Probe:** State v. Donahue, No. 18-2239 (Iowa Mar. 26, 2021) → `https://law.justia.com/cases/iowa/supreme-court/2021/18-2239.html` — expect: "In this case, defendant John Donahue appeals his"
 - **Evidence (2026-10-17):** URL pattern verified for Supreme Court docket pages (18-2239, 2021 listing shows 20-0030, 20-0657); a COA-then-Supreme-Court pair was not fetched on Justia.
+- **Notes:** Independent check 2026-10-16 fetched Daniels v. Holtz, No. 19-1674 at /cases/iowa/supreme-court/2021/19-1674.html: 'On review from the Iowa Court of Appeals'; 'COURT OF APPEALS DECISION VACATED' — the Supreme Court decision sits under the SC year with the COA docket.
 
 ## Not available (do not look for these again)
 
@@ -385,10 +390,10 @@ Iowa has no public-domain citation; Iowa Reports ended in 1968, so modern cases 
 - `ia-courtrules-legis` — Rules of Appellate Procedure: 84 pp., 199,325 chars (twice the fetch window)
 - `ia-courtrules-legis` — Rules of Professional Conduct: 89 pp., 406,602 chars
 - `ia-constitution-legis` — 105,512 chars, at the fetch tool's limit
+- `ia-courtrules-legis` — Rules of Criminal Procedure: 103 pp., 196,950 chars (about 2x the fetch window)
 
 ## Open questions
 
 - Do iowacourts.gov yearly archive pages before 2018 link opinion PDFs at all (the script's link list showed none on opinions-archive-2013)? Justia is the fallback until checked.
 - Is there a free route to historical further-review denials other than the Iowa Courts Online docket (frameset, not probed)?
 - Court of Appeals published vs. unpublished status: the 'Published Cases' page returned only navigation links to the script; not resolved.
-- Rules of Criminal Procedure chapter 2 size and fetch-tool reach not checked.

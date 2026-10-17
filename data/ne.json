@@ -61,7 +61,7 @@
           "section 25-1912",
           "sections 25-207 and 25-222"
         ],
-        "regex": "(?:sec(?:tion|\\.)s?|§+)\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)",
+        "regex": "(?:sec(?:tion|\\.)s?|§+)\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)(?!(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Nebraska\\s+(?:Court\\s+Rules|Rules\\s+of\\s+Professional\\s+Conduct|Supreme\\s+Court\\s+Rules))",
         "routes_to": [
           "ne-statutes-leg",
           "ne-statutes-justia"
@@ -89,9 +89,11 @@
           "Neb. Const. art. I, § 3",
           "Neb. Const. art. VIII, § 1A",
           "Article V, section 2, of the Nebraska Constitution",
-          "Neb. Const. art. I, § 7"
+          "Neb. Const. art. I, § 7",
+          "Neb. Const. art. I, sec. 3",
+          "Neb. Const. art I, sec. 3"
         ],
-        "regex": "Neb\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*§\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:section|§)\\s*(?P<section2>\\d+[A-Z]?),?\\s+of\\s+the\\s+(?:Nebraska\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nebraska)",
+        "regex": "Neb\\.\\s*Const\\.\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:§|sec\\.|section)\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:section|sec\\.|§)\\s*(?P<section2>\\d+[A-Z]?),?\\s+of\\s+the\\s+(?:Nebraska\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nebraska)",
         "routes_to": [
           "ne-constitution-leg",
           "ne-constitution-justia"
@@ -215,7 +217,7 @@
       }
     ],
     "law_aliases": {},
-    "notes": "Nebraska style: 'Name, 321 Neb. 841, ___ N.W.3d ___ (2026)'; statutes cite the print volume, e.g. 'Neb. Rev. Stat. § 25-207 (Reissue 2016)' or '(Cum. Supp. 2024)' / '(Supp. 2025)' - the volume tag is not part of the URL. Nebraska courts write '(Neb. App. 2021)' while Bluebook uses '(Neb. Ct. App. 2021)'; both match. Court of Appeals memorandum opinions are 'not designated for permanent publication' and cite only as § 2-102(E) allows. Court rules: 'Neb. Ct. R.' plus an optional set tag (Pldg., App. P., Disc., of Prof. Cond.) and '§ c-nnnn'; former pleading rule N = § 6-11NN. Evidence rules are statutes: Neb. Evid. R. N = Neb. Rev. Stat. § 27-N. 'NAC' alone is also Nevada's code: the Nebraska pattern requires the title number before 'NAC' and a hyphenated chapter-section ('92 NAC 51-003'). Bare '§ 25-207', bare S-/A- docket numbers and bare 'further review denied' (Iowa also uses 'further review') are context_required. A '§§ a to b' range is two sections: take the first. CourtListener ids from memory, unverified."
+    "notes": "Nebraska style: 'Name, 321 Neb. 841, ___ N.W.3d ___ (2026)'; statutes cite the print volume, e.g. 'Neb. Rev. Stat. § 25-207 (Reissue 2016)' or '(Cum. Supp. 2024)' / '(Supp. 2025)' - the volume tag is not part of the URL. Nebraska courts write '(Neb. App. 2021)' while Bluebook uses '(Neb. Ct. App. 2021)'; both match. Court of Appeals memorandum opinions are 'not designated for permanent publication' and cite only as § 2-102(E) allows. Court rules: 'Neb. Ct. R.' plus an optional set tag (Pldg., App. P., Disc., of Prof. Cond.) and '§ c-nnnn'; former pleading rule N = § 6-11NN. Evidence rules are statutes: Neb. Evid. R. N = Neb. Rev. Stat. § 27-N. 'NAC' alone is also Nevada's code: the Nebraska pattern requires the title number before 'NAC' and a hyphenated chapter-section ('92 NAC 51-003'). Bare '§ 25-207', bare S-/A- docket numbers and bare 'further review denied' (Iowa also uses 'further review') are context_required. A '§§ a to b' range is two sections: take the first. CourtListener ids from memory, unverified. The bare-section statute pattern (context_required) refuses '§ c-nnnn of the Nebraska Court Rules/Rules of Professional Conduct'; a 'Neb. Ct. R. … § 2-102' cite can still also hit it, so prefer the Court Rules match whenever 'Neb. Ct. R.' precedes the section. Legislature 'Source' lines write 'Neb. Const. art I, sec. 3'; 'sec.' is accepted."
   },
   "sources": [
     {
@@ -242,8 +244,8 @@
         "notes": "Built section URL (statutes.php?statute=25-207) hit the WebFetch provenance gate; use fetch_doc.py. The chapter listing (from a WebSearch hit) did read in WebFetch but is truncated: chapter 25 listing (224K chars) stopped at 25-1013. Section pages include long annotation lists after the text (25-207: 26.6K chars) - quote only from the block between the heading and 'Source'."
       },
       "currency": {
-        "where": "none on section pages; /laws/laws.php 'Reissue and Supplement publication dates' table",
-        "observed": "Supplement 2025; Cumulative Supplement 2024"
+        "where": "none on section pages; /laws/laws.php 'Reissue and Supplement publication dates' table (cells: label, year); also /pdf/revisor/bookinfo.pdf",
+        "observed": "table rows 'Supplement' 2025 and 'Cumulative Supplement' 2024"
       },
       "hazards": [
         "no currency line on section pages",
@@ -260,9 +262,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: html 26,651 chars; '25-207. Actions for trespass, conversion, other torts, and frauds; exceptions.' Also 27-702 ('a witness qualified as an expert by knowledge, skill'), 77-2701.10, UCC 2-207 (ucc.php) OK. WebFetch on built URL: PROVENANCE_REQUIRED."
+        "evidence": "fetch_doc.py: html 26,651 chars; '25-207. Actions for trespass, conversion, other torts, and frauds; exceptions.' Also 27-702 ('a witness qualified as an expert by knowledge, skill'), 77-2701.10, UCC 2-207 (ucc.php) OK. WebFetch on built URL: PROVENANCE_REQUIRED. | Independent check 2026-10-17: fetch_doc.py: '25-207. Actions for trespass... The following actions can only be brought within four years'; second citation Neb. Rev. Stat. § 42-364; Neb. U.C.C. § 2-314 ok"
       },
       "notes": "Section heading line format '25-207.' then catchline; history in 'Source' paragraph (e.g. 'R.S.1867, Code § 12, p. 395')."
     },
@@ -278,9 +280,9 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://nebraskalegislature.gov/pdf/revisor/{year}reissue_v{volume}.pdf",
-        "pattern_rules": "Volume -> chapter span and reissue year are listed on /laws/laws.php (e.g. Vol. 2 = ch. 24-28, Reissue 2016 -> 2016reissue_v2.pdf; Vol. 5 = ch. 78-80 -> 2024reissue_v5.pdf). Supplements: {year}suppv{n}.pdf (2025suppv1.pdf = ch. 1-59). Always pick from the index list; do not build.",
+        "pattern_rules": "Volume -> chapter span and reissue year are listed on /laws/laws.php (e.g. Vol. 2 = ch. 24-28, Reissue 2016 -> 2016reissue_v2.pdf; Vol. 2A = ch. 29-36 -> 2016reissue_v2a.pdf; Vol. 5 = ch. 78-80 -> 2024reissue_v5.pdf). Volume ids carry letter suffixes (v1a, v1b, v2a, v3a-v3c, v4a, v4b, v5a, v5b). Supplements: {year}suppv{n}.pdf (2025suppv1.pdf = ch. 1-59). Always pick from the index list; do not build.",
         "index_url": "https://nebraskalegislature.gov/laws/laws.php",
-        "navigation": "laws.php 'Books for Download' -> Reissue volume or Supplement PDF covering the chapter -> fetch_doc.py grep for '{chapter}-{section}.'",
+        "navigation": "laws.php 'Books for Download' -> Reissue volume or Supplement PDF covering the chapter -> fetch_doc.py grep with regex '^\\s*{chapter}-{section}\\s+[A-Z]' (body headings print '25-207 Actions for trespass...' with NO period after the number; '25-207.' only hits the chapter contents page) and take the hit after the table of contents (25-207: contents p. 293, body p. 304).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -296,7 +298,8 @@
       },
       "hazards": [
         "multi-thousand-page PDFs (fetch tool useless)",
-        "reissue text may be superseded by a later Supplement - check both"
+        "reissue text may be superseded by a later Supplement - check both",
+        "body section headings have no period after the number; a grep for '{chapter}-{section}.' finds only the contents page"
       ],
       "probe": {
         "citation": "Neb. Rev. Stat. § 25-207 (Reissue 2016)",
@@ -308,7 +311,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "OK",
-        "evidence": "fetch_doc.py info: pdf, 1,297 pages, 6,189,605 chars; text search for 25-207 not run (size)."
+        "evidence": "fetch_doc.py info: pdf, 1,297 pages, 6,189,605 chars; text search for 25-207 not run (size). | Independent check 2026-10-17: fetch_doc grep found the 25-207 body on p. 304 (heading without period); not promoted (row was reported)."
       },
       "notes": "Bulk route for the whole code (all volumes + current Supplement)."
     },
@@ -351,9 +354,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, 'The following actions can only be brought within four years:'; '2025 Nebraska Revised Statutes'; complete. Second: statute-27-702 YES 'If scientific, technical, or other specialized knowledge will assist the'."
+        "evidence": "WebFetch: YES, 'The following actions can only be brought within four years:'; '2025 Nebraska Revised Statutes'; complete. Second: statute-27-702 YES 'If scientific, technical, or other specialized knowledge will assist the'. | Independent check 2026-10-17: WebFetch YES 'The following actions can only be brought within four years'; '2025 Nebraska Revised Statutes'; second citation Neb. Rev. Stat. § 42-364 ok"
       },
       "notes": ""
     },
@@ -396,9 +399,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 60,660 chars; 'I-3. Due process of law; equal protection. No person shall be deprived'. Second: article=V-2 'The Supreme Court shall consist of seven judges'. Index lists VIII-1A, VIII-1B, VIII-2A."
+        "evidence": "fetch_doc.py: 60,660 chars; 'I-3. Due process of law; equal protection. No person shall be deprived'. Second: article=V-2 'The Supreme Court shall consist of seven judges'. Index lists VIII-1A, VIII-1B, VIII-2A. | Independent check 2026-10-17: fetch_doc.py: 'I-3. Due process of law; equal protection. No person shall be deprived'; second citation Neb. Const. art. VII, § 1; art. VIII, § 1A ok"
       },
       "notes": "constitution.pdf Last-Modified Jun 4 2025; cover 'Certified by Secretary of State's Office and Distributed by Clerk of the Legislature's Office'."
     },
@@ -441,9 +444,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES 'No person shall be deprived of life, liberty, or property,'. Second: c0105002000.html = Section V-2, 'The Supreme Court shall consist of seven judges, one of whom'."
+        "evidence": "WebFetch: YES 'No person shall be deprived of life, liberty, or property,'. Second: c0105002000.html = Section V-2, 'The Supreme Court shall consist of seven judges, one of whom'. | Independent check 2026-10-17: WebFetch YES 'No person shall be deprived of life, liberty, or property,'; disclaimer verbatim; second citation Neb. Const. art. VII, § 1 ok"
       },
       "notes": ""
     },
@@ -459,7 +462,7 @@
       "access": {
         "mode": "index-anchored",
         "index_url": "https://nebraskajudicial.gov/supreme-court-rules",
-        "navigation": "index lists /supreme-court-rules/chapter-{n}-{slug} -> chapter page lists article pages -> article page lists one link per section (slug = '%C2%A7-' + section without hyphen-dots + heading words, e.g. %C2%A7-6-1112-defenses-and-objections-...; § 3-501.7 sits on a group page %C2%A7%C2%A7-3-5011-3-50118-client-lawyer-relationship). Faster: each article page links a 'Printer-Friendly Version' https://nebraskajudicial.gov/book/export/html/{node} with the whole article's text and amendment notes (Art. 11 Pleading = 9131; ch. 2 Art. 1 Appellate = 8671; ch. 3 Art. 5 Prof. Cond. = 8800). Article slugs may carry an edition suffix ('-effective-january-1-2025'); old article URLs redirect there.",
+        "navigation": "fetch_doc.py links https://nebraskajudicial.gov/supreme-court-rules 'chapter-' -> chapter page -> links 'article-' -> article page -> links for the section ('%C2%A7-6-1112-...'; slug = section number plus heading words; § 3-501.7 sits on a group page %C2%A7%C2%A7-3-5011-3-50118-client-lawyer-relationship). Faster: each article page links a 'Printer-Friendly Version' https://nebraskajudicial.gov/book/export/html/{node} with the whole article's text and amendment notes (Art. 11 Pleading = 9131; ch. 2 Art. 1 Appellate = 8671; ch. 3 Art. 5 Prof. Cond. = 8800). Article slugs may carry an edition suffix ('-effective-january-1-2025'); old article URLs redirect there.",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -467,7 +470,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Drupal default: Disallow /core/ /profiles/ /admin/ /search/ /user/* etc.; /supreme-court-rules/ and /book/export/ not disallowed",
-        "notes": "fetch_doc.py 'links' crashes on these pages (a malformed href 'site:url-brief' raises ValueError in urljoin) - read hrefs another way or use grep on the book export. supremecourt.nebraska.gov and supremecourt.ne.gov redirect (301) to nebraskajudicial.gov. Book exports: Prof. Cond. 367,510 chars, Appellate 136,868 - beyond WebFetch's window; Art. 11 (64,852) read whole in WebFetch."
+        "notes": "fetch_doc.py links works on these pages (malformed hrefs are skipped): index -> chapter -> article -> section, or take the article's 'Printer-Friendly Version' export link. supremecourt.nebraska.gov and supremecourt.ne.gov redirect (301) to nebraskajudicial.gov. Book exports: Prof. Cond. 367,510 chars, Appellate 136,868 - beyond WebFetch's window; Art. 11 (64,852) read whole in WebFetch."
       },
       "currency": {
         "where": "amendment note after each section; article title may carry an edition ('Effective January 1, 2025')",
@@ -476,8 +479,7 @@
       "hazards": [
         "per-rule URLs contain heading-word slugs: not constructible",
         "current and 'Prior Version' articles coexist - check the article title's effective date",
-        "large book exports truncate in WebFetch (Prof. Cond. 367K chars)",
-        "fetch_doc.py links crashes on these pages"
+        "large book exports truncate in WebFetch (Prof. Cond. 367K chars)"
       ],
       "probe": {
         "citation": "Neb. Ct. R. Pldg. § 6-1112(b)(6)",
@@ -487,9 +489,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 30,609 chars; '(6) failure to state a claim upon which relief can be granted'. § 2-109 page: '(A) Time for Filing.'; § 3-501.7 in export 8800: '(a) Except as provided in paragraphs (b) and (c)'. WebFetch export 9131: YES, complete through § 6-1116."
+        "evidence": "fetch_doc.py: 30,609 chars; '(6) failure to state a claim upon which relief can be granted'. § 2-109 page: '(A) Time for Filing.'; § 3-501.7 in export 8800: '(a) Except as provided in paragraphs (b) and (c)'. WebFetch export 9131: YES, complete through § 6-1116. | Independent check 2026-10-17: fetch_doc.py: '(6) failure to state a claim upon which relief can be granted'; second citation Neb. Ct. R. App. P. § 2-102(E) ok"
       },
       "notes": "Revisor's note on Art. 11: former rule 12 is now Neb. Ct. R. Pldg. § 6-1112 - the last two digits match the federal rule number."
     },
@@ -505,7 +507,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.nebraska.gov/apps-courts-epub/public/search?searchText={query}",
-        "pattern_rules": "{query} = docket number (S-25-209, A-25-197) or citation ('321 Neb. 841', URL-encoded). The site's JavaScript POSTs this form, but a plain GET works and returns an HTML table: volume, caption, filed date, docket, 'NNN Neb. NNN' cite, link /viewAdvanced?docId=N000NNNNPUB (same PDF as /viewOpinion?docId=). Full-text search also matches older volumes that mention the term. Listings: /supreme and /appeals (25 per page, ?offset=&max=).",
+        "pattern_rules": "{query} = docket number (S-25-209, A-25-197) or citation ('321 Neb. 841', URL-encoded). The site's JavaScript POSTs this form, but a plain GET works and returns an HTML table: volume, caption, filed date, docket, 'NNN Neb. NNN' cite, link /viewAdvanced?docId=N000NNNNPUB (same PDF as /viewOpinion?docId=). Full-text search also matches older volumes that mention the term. Listings: /supreme and /appeals (25 per page, ?offset=&max=). The result page also lists many unlabeled viewVolume links (old bound volumes mentioning the term): filter with fetch_doc.py links <search URL> 'viewAdvanced|viewOpinion' --regex.",
         "index_url": "https://www.nebraska.gov/apps-courts-epub/public/supreme",
         "format": "pdf"
       },
@@ -524,7 +526,8 @@
         "docId is opaque: locate via GET search or listing",
         "advance-sheet N.W.3d cite blank ('___ N.W.3d ___') until published",
         "full-text search returns unrelated older volumes mentioning the term",
-        "scanned bound volumes are OCR of whole volumes, split in two parts"
+        "scanned bound volumes are OCR of whole volumes, split in two parts",
+        "docket search results are cluttered with viewVolume hits; filter for viewAdvanced/viewOpinion"
       ],
       "probe": {
         "citation": "State v. Evans, 321 Neb. 841 (2026) (No. S-25-209)",
@@ -534,9 +537,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 45 pages, 102,805 chars; 'Cite as 321 Neb. 841', 'Filed July 24, 2026. No. S-25-209.' GET search S-25-209 and '321 Neb. 841' both list it. CoA: N00013358PUB 'Cite as 34 Neb. App. 384', No. A-25-413."
+        "evidence": "fetch_doc.py: pdf 45 pages, 102,805 chars; 'Cite as 321 Neb. 841', 'Filed July 24, 2026. No. S-25-209.' GET search S-25-209 and '321 Neb. 841' both list it. CoA: N00013358PUB 'Cite as 34 Neb. App. 384', No. A-25-413. | Independent check 2026-10-17: fetch_doc.py: 'STATE v. EVANS Cite as 321 Neb. 841'; second citation McReynolds v. McReynolds, 34 Neb. App. 535 (2026) (No. A-25-813) ok"
       },
       "notes": "Official page numbers appear as '- 841 -' markers at the top of each page: pin cites can be taken from the advance sheet."
     },
@@ -579,9 +582,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 4 pages, 11,903 chars; 'MEMORANDUM OPINION AND JUDGMENT ON APPEAL (Memorandum Web Opinion)', 'Filed October 13, 2026. No. A-25-855.'"
+        "evidence": "fetch_doc.py: pdf 4 pages, 11,903 chars; 'MEMORANDUM OPINION AND JUDGMENT ON APPEAL (Memorandum Web Opinion)', 'Filed October 13, 2026. No. A-25-855.' | Independent check 2026-10-17: fetch_doc.py: 'MEMORANDUM OPINION AND JUDGMENT ON APPEAL (Memorandum Web Opinion) STATE V. SPENCER'; second citation Haacke v. Haacke, No. A-25-596 (Neb. App. Oct. 6, 2026) ok"
       },
       "notes": "Older memorandum web opinions: whether they stay at /sites/default/files/memorandums/ after the 90-day window was not tested."
     },
@@ -626,9 +629,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES; 'Raymond Evans was convicted by a jury of first degree'; 'Cite as 321 Neb. 841'; '- 841 -' markers; truncated at 100K. Second: court-of-appeals/2026/a-25-197.html 'Cite as 34 Neb. App. 347', complete."
+        "evidence": "WebFetch: YES; 'Raymond Evans was convicted by a jury of first degree'; 'Cite as 321 Neb. 841'; '- 841 -' markers; truncated at 100K. Second: court-of-appeals/2026/a-25-197.html 'Cite as 34 Neb. App. 347', complete. | Independent check 2026-10-17: WebFetch YES 'Raymond Evans was convicted by a jury'; 'Cite as 321 Neb. 841'; truncated at 100K; second citation Beichle v. Rohrbough, 34 Neb. App. 384 (2026) (No. A-25-413) ok"
       },
       "notes": ""
     },
@@ -644,7 +647,7 @@
       "access": {
         "mode": "index-anchored",
         "index_url": "https://www.nebraska.gov/apps-courts-epub/public/supreme",
-        "navigation": "Library /supreme -> volume row whose Opening-Closing dates cover the likely ruling date (petitions are decided ~1-3 months after the Court of Appeals decision) -> 'PFR' link (/viewPFR?docId=...) -> grep the PDF for the A- docket. The GET search does NOT index PFR lists (A-25-197 search found only the opinion). Recent rulings: https://nebraskajudicial.gov/courts/appellate-courts-offices/daily-minutes ('Minutes for MM.DD.YYYY' PDFs, 60 days).",
+        "navigation": "Library /supreme -> volume row whose Opening-Closing dates cover the likely ruling date (petitions are decided ~1-3 months after the Court of Appeals decision) -> 'PFR' link (/viewPFR?docId=...) -> grep the PDF by the A- docket AND by case name or Neb. App. cite: denied petitions are listed under the Court of Appeals A- docket, but GRANTED petitions are listed under the new Supreme Court S- docket the case receives on transfer (e.g. 'No. S-24-753: State v. Hearnes, 34 Neb. App. 182'; 'No. S-25-214: Bennett v. Bennett, 34 Neb. App. 309'). The GET search does NOT index PFR lists. Recent rulings: https://nebraskajudicial.gov/courts/appellate-courts-offices/daily-minutes ('Minutes for MM.DD.YYYY' PDFs, 60 days).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -660,7 +663,8 @@
       },
       "hazards": [
         "per-volume lists only: pick the volume by date",
-        "not searchable by docket through the library search"
+        "not searchable by docket through the library search",
+        "granted petitions appear under a new S- docket, not the A- docket: search by case name / Neb. App. cite too"
       ],
       "probe": {
         "citation": "Martinez v. Amerigreen, 34 Neb. App. 347 (2026), further review denied",
@@ -670,9 +674,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 2 pages; '*No. A-25-197: Martinez v. Amerigreen, 34 Neb. App. 347 (2026). Petition of appellant for further review denied on October 9, 2026.'"
+        "evidence": "fetch_doc.py: pdf 2 pages; '*No. A-25-197: Martinez v. Amerigreen, 34 Neb. App. 347 (2026). Petition of appellant for further review denied on October 9, 2026.' | Independent check 2026-10-17: fetch_doc.py: 'No. A-25-197: Martinez v. Amerigreen... further review denied on October 9, 2026.'; second citation State v. Hearnes, 34 Neb. App. 182 (2026), further review granted ok"
       },
       "notes": "U.S. Supreme Court certiorari dispositions are not recorded here."
     },
@@ -761,9 +765,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 3,194 chars; '53 Neb. Admin. Code, ch. 2, § 002 - Rule Making Petition ... 002.01 Petition Any person may petition'. Second: 471-...-ch-23-SS-007 '[REPEALED] ... Repealed effective 12/26/2021'."
+        "evidence": "fetch_doc.py: 3,194 chars; '53 Neb. Admin. Code, ch. 2, § 002 - Rule Making Petition ... 002.01 Petition Any person may petition'. Second: 471-...-ch-23-SS-007 '[REPEALED] ... Repealed effective 12/26/2021'. | Independent check 2026-10-17: fetch_doc.py: '002.01 Petition Any person may petition an agency requesting the promulgation'; second citation 92 Neb. Admin. Code, ch. 51, § 003 ok"
       },
       "notes": ""
     }

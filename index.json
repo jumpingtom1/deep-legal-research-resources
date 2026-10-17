@@ -919,10 +919,10 @@
     "ia": {
       "name": "Iowa",
       "file": "jurisdictions/ia.md",
-      "sha256": "39b0c4400d591b3939490ba0ec13a404b533876ff50cadd2827db4b4f7b70cc5",
+      "sha256": "c2f7fc1a3b56784a2ec748905700ea6d7f46532ba71842b287859bf17597e763",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 14,
+        "verified_independent": 14,
         "reported": 2
       },
       "citation_patterns": [
@@ -2095,10 +2095,10 @@
     "ne": {
       "name": "Nebraska",
       "file": "jurisdictions/ne.md",
-      "sha256": "d893f0de8738dff6e7c72da220b3df7c3ee95b58eb09a5207ea75547a24d8c06",
+      "sha256": "5a88f8974a65a15c503adc5bfc76f53a57398feed91c0538d03554722215e9a3",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 10,
+        "verified_independent": 10,
         "reported": 2
       },
       "citation_patterns": [
@@ -2109,7 +2109,7 @@
         },
         {
           "label": "Nebraska statutes (bare section, Nebraska context)",
-          "regex": "(?:sec(?:tion|\\.)s?|\u00a7+)\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)",
+          "regex": "(?:sec(?:tion|\\.)s?|\u00a7+)\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)(?!(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Nebraska\\s+(?:Court\\s+Rules|Rules\\s+of\\s+Professional\\s+Conduct|Supreme\\s+Court\\s+Rules))",
           "context_required": true
         },
         {
@@ -2119,7 +2119,7 @@
         },
         {
           "label": "Nebraska Constitution",
-          "regex": "Neb\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:section|\u00a7)\\s*(?P<section2>\\d+[A-Z]?),?\\s+of\\s+the\\s+(?:Nebraska\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nebraska)",
+          "regex": "Neb\\.\\s*Const\\.\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.|section)\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:section|sec\\.|\u00a7)\\s*(?P<section2>\\d+[A-Z]?),?\\s+of\\s+the\\s+(?:Nebraska\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nebraska)",
           "context_required": false
         },
         {
