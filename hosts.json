@@ -297,6 +297,26 @@
    ],
    "blocked_sources": []
   },
+  "courts.ms.gov": {
+   "status": "allowed",
+   "sources": [
+    "ms-rules-civil",
+    "ms-rules-evidence",
+    "ms-rules-appellate",
+    "ms-rules-criminal",
+    "ms-rules-prof-conduct",
+    "ms-rules-ucrccc",
+    "ms-rules-chancery",
+    "ms-rules-local",
+    "ms-sct-handdown",
+    "ms-coa-handdown",
+    "ms-opinion-pdfs",
+    "ms-cert-handdown"
+   ],
+   "blocked_sources": [
+    "ms-appellate-docket"
+   ]
+  },
   "courts.mt.gov": {
    "status": "allowed",
    "sources": [
@@ -608,6 +628,9 @@
     "mo-rsmo-justia",
     "mo-constitution-justia",
     "mo-cases-justia",
+    "ms-code-justia",
+    "ms-constitution-justia",
+    "ms-cases-justia",
     "mt-mca-justia",
     "mt-constitution-justia",
     "mt-cases-justia",
@@ -1705,6 +1728,7 @@
     "mi-admincode-lii",
     "mn-rules-lii",
     "mo-csr-lii",
+    "ms-admincode-lii",
     "mt-arm-lii",
     "nc-ncac-lii",
     "ne-admincode-lii",
@@ -1774,6 +1798,13 @@
    ],
    "blocked_sources": []
   },
+  "www.legislature.ms.gov": {
+   "status": "allowed",
+   "sources": [
+    "ms-legislature-session-laws"
+   ],
+   "blocked_sources": []
+  },
   "www.legislature.ohio.gov": {
    "status": "allowed",
    "sources": [
@@ -1787,6 +1818,7 @@
     "ar-code-lexis",
     "co-crs-lexis",
     "co-rules-lexis",
+    "ms-code-lexis",
     "nj-admincode-lexis",
     "nj-register-lexis",
     "tn-code-lexis"
@@ -2038,6 +2070,15 @@
    "sources": [
     "mo-csr-sos",
     "mo-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.sos.ms.gov": {
+   "status": "allowed",
+   "sources": [
+    "ms-constitution-sos",
+    "ms-admincode-sos",
+    "ms-admin-bulletin"
    ],
    "blocked_sources": []
   },

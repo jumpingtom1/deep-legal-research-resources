@@ -1,0 +1,1423 @@
+{
+ "schema_version": 1,
+ "jurisdiction": "ms",
+ "name": "Mississippi",
+ "compiled": "2026-10-17",
+ "summary": "Statutes: the only government route to the Mississippi Code is LexisNexis's free unannotated container (JavaScript, no text to either tool), and the Legislature's hosts fail TLS verification, so Justia's 2025 Code (tier 2, WebFetch only; built section URLs verified) is the text source. Constitution: SOS annotated PDF ('updated May, 2022'; script reads all 193 pp). Court rules: courts.ms.gov PDFs for M.R.C.P., M.R.E., M.R.A.P., MRCrP, Professional Conduct, UCRCCC and UCCR are script-readable (corpus candidates). Case law: date-constructible SCT/COA hand-down lists (observed 2000-2026) link opinion PDFs with ¶ numbering; the Court's docket search is robots-disallowed, so Justia (constructible from docket + decision year) is the docket finder. Cert grants/denials appear on Supreme Court hand-down lists under -CT-…-SCT dockets. Admin code: SOS app returns no text; Cornell LII per-rule pages are constructible.",
+ "citation_map": {
+  "courts": [
+   {
+    "name": "Supreme Court of Mississippi",
+    "courtlistener_id": "miss",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Miss.",
+    "reporters": [
+     "So. 3d",
+     "So. 2d",
+     "So.",
+     "Miss."
+    ],
+    "public_domain_citation": null
+   },
+   {
+    "name": "Court of Appeals of Mississippi",
+    "courtlistener_id": "missctapp",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Miss. Ct. App.",
+    "reporters": [
+     "So. 3d",
+     "So. 2d"
+    ],
+    "public_domain_citation": null
+   }
+  ],
+  "citation_patterns": [
+   {
+    "family": "statutes",
+    "label": "Mississippi Code of 1972",
+    "examples": [
+     "Miss. Code Ann. § 15-1-49",
+     "Miss. Code Ann. § 97-3-19(1)(a) (Rev. 2020)",
+     "Miss. Code Ann. §§ 11-9-101 to -147",
+     "Mississippi Code Section 11-7-13",
+     "Section 15-1-49 of the Mississippi Code",
+     "Miss. Code § 13-3-57"
+    ],
+    "regex": "(?:Miss(?:\\.|issippi)\\s*Code(?:\\s*(?:Ann(?:\\.|otated)?|of\\s*1972))*,?\\s*(?:§§?|[Ss]ec(?:tion|\\.)s?)?\\s*|(?:[Ss]ection|§)\\s*(?=\\d{1,3}-\\d{1,3}-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Code))(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+    "routes_to": [
+     "ms-code-justia",
+     "ms-code-lexis"
+    ]
+   },
+   {
+    "family": "statutes",
+    "label": "Mississippi Code of 1972 (bare \"Section N-N-N\", generic)",
+    "examples": [
+     "Section 15-1-49",
+     "section 11-46-11(3)"
+    ],
+    "regex": "\\b[Ss]ection\\s+(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+    "routes_to": [
+     "ms-code-justia",
+     "ms-code-lexis"
+    ],
+    "context_required": true
+   },
+   {
+    "family": "constitution",
+    "label": "Mississippi Constitution of 1890",
+    "examples": [
+     "Miss. Const. art. 3, § 24",
+     "Miss. Const. art. 3, § 14",
+     "Miss. Const. § 273",
+     "Article 3, Section 24 of the Mississippi Constitution",
+     "Section 14 of the Mississippi Constitution",
+     "Miss. Const. of 1890, art. 6, § 146"
+    ],
+    "regex": "Miss\\.\\s*Const\\.(?:\\s*(?:of\\s*)?1890)?,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}),?\\s*)?§\\s*(?P<section>\\d{1,3}[A-Z]?)|(?:Article\\s+(?P<article2>\\d{1,2}),?\\s*)?Section\\s+(?P<section2>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)",
+    "routes_to": [
+     "ms-constitution-sos",
+     "ms-constitution-justia"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Civil Procedure",
+    "examples": [
+     "M.R.C.P. 12(b)(6)",
+     "Miss. R. Civ. P. 56(c)",
+     "MRCP 4(h)",
+     "Rule 12(b)(6) of the Mississippi Rules of Civil Procedure"
+    ],
+    "regex": "(?:\\bM\\.?R\\.?C\\.?P\\.?|Miss\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+    "routes_to": [
+     "ms-rules-civil"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Evidence",
+    "examples": [
+     "Miss. R. Evid. 803(4)",
+     "Rule 702 of the Mississippi Rules of Evidence"
+    ],
+    "regex": "Miss\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3})|Rule\\s+(?P<rule2>\\d{3})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Rules\\s+of\\s+Evidence",
+    "routes_to": [
+     "ms-rules-evidence"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Evidence (\"M.R.E.\" / \"MRE\", shared with Michigan)",
+    "examples": [
+     "M.R.E. 702",
+     "MRE 404(b)"
+    ],
+    "regex": "\\bM\\.?R\\.?E\\.?\\s*(?P<rule>\\d{3})",
+    "routes_to": [
+     "ms-rules-evidence"
+    ],
+    "context_required": true
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Appellate Procedure",
+    "examples": [
+     "M.R.A.P. 17",
+     "Miss. R. App. P. 17(a)",
+     "MRAP 28(a)(7)",
+     "Rule 17 of the Mississippi Rules of Appellate Procedure"
+    ],
+    "regex": "(?:\\bM\\.?R\\.?A\\.?P\\.?|Miss\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+    "routes_to": [
+     "ms-rules-appellate"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Criminal Procedure",
+    "examples": [
+     "MRCrP 8.1",
+     "Miss. R. Crim. P. 26.5",
+     "Rule 8.1 of the Mississippi Rules of Criminal Procedure"
+    ],
+    "regex": "(?:\\bM\\.?R\\.?Cr\\.?P\\.?|Miss\\.\\s*R\\.\\s*Crim\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d{1,2})?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+    "routes_to": [
+     "ms-rules-criminal"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Professional Conduct",
+    "examples": [
+     "Miss. R. Prof'l Conduct 1.7",
+     "Miss. R. Prof. Conduct 8.4(c)",
+     "Rule 1.7 of the Mississippi Rules of Professional Conduct"
+    ],
+    "regex": "Miss\\.\\s*R\\.\\s*Prof(?:'?l|\\.)?\\s*Conduct\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+    "routes_to": [
+     "ms-rules-prof-conduct"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Mississippi Rules of Professional Conduct (bare \"MRPC\", shared with Michigan)",
+    "examples": [
+     "MRPC 1.7"
+    ],
+    "regex": "\\bMRPC\\s*(?P<rule>\\d\\.\\d{1,2})",
+    "routes_to": [
+     "ms-rules-prof-conduct"
+    ],
+    "context_required": true
+   },
+   {
+    "family": "court_rules",
+    "label": "Uniform Civil Rules of Circuit and County Court Practice",
+    "examples": [
+     "UCRCCC 4.01",
+     "URCCC 9.04",
+     "Rule 4.01 of the Uniform Civil Rules of Circuit and County Court Practice",
+     "Unif. R. Cir. & Cnty. Ct. Prac. 9.04"
+    ],
+    "regex": "\\bU\\.?C?\\.?R\\.?C\\.?C\\.?C\\.?\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Unif\\.\\s*(?:Civ\\.\\s*)?R\\.\\s*Cir\\.\\s*&\\s*C(?:ou)?nty\\.?\\s*Ct\\.\\s*Prac\\.\\s*(?P<rule3>\\d{1,2}\\.\\d{2})|Rule\\s+(?P<rule2>\\d{1,2}\\.\\d{2})\\s+of\\s+the\\s+Uniform\\s+(?:Civil\\s+)?Rules\\s+of\\s+Circuit\\s+and\\s+County\\s+Court(?:\\s+Practice)?",
+    "routes_to": [
+     "ms-rules-ucrccc"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Uniform Chancery Court Rules",
+    "examples": [
+     "UCCR 1.10",
+     "Unif. Ch. Ct. R. 8.05",
+     "Rule 8.05 of the Uniform Chancery Court Rules"
+    ],
+    "regex": "\\bUCCR\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Unif\\.\\s*Ch(?:anc)?\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule3>\\d{1,2}\\.\\d{2})|Rule\\s+(?P<rule2>\\d{1,2}\\.\\d{2})\\s+of\\s+the\\s+Uniform\\s+Chancery\\s+Court\\s+Rules",
+    "routes_to": [
+     "ms-rules-chancery"
+    ]
+   },
+   {
+    "family": "admin_code",
+    "label": "Mississippi Administrative Code",
+    "examples": [
+     "Miss. Admin. Code 11-1:1.1",
+     "Miss. Admin. Code 23-200:1.3",
+     "11 Miss. Code R. 1-1.1",
+     "11 Miss. Code. R. 1-6.1"
+    ],
+    "regex": "Miss\\.\\s*Admin\\.\\s*Code\\s*(?:R\\.\\s*)?(?:§\\s*)?(?P<title>\\d{1,2})-(?P<part>\\d{1,4}):(?P<rule>\\d+(?:\\.\\d+)+)|(?P<title2>\\d{1,2})\\s+Miss\\.\\s*Code\\.?\\s*R\\.\\s*(?P<part2>\\d{1,4})-(?P<rule2>\\d+(?:\\.\\d+)+)",
+    "routes_to": [
+     "ms-admincode-lii",
+     "ms-admincode-sos"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Southern Reporter with a Mississippi parenthetical",
+    "examples": [
+     "91 So. 3d 616 (Miss. 2012)",
+     "345 So. 3d 512, 516 (¶11) (Miss. 2022)",
+     "300 So. 3d 1, 5 (¶ 14) (Miss. Ct. App. 2020)",
+     "760 So. 2d 1265 (Miss. 2000)"
+    ],
+    "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?P<series>[23]d)?\\s*(?P<page>\\d{1,5})(?:,\\s*\\d+(?:-\\d+)?)?(?:\\s*\\(¶+\\s*\\d+(?:-\\d+)?\\))?\\s*\\((?P<court>Miss\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+    "routes_to": [
+     "ms-cases-justia",
+     "ms-sct-handdown",
+     "ms-coa-handdown"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Mississippi Reports (to 254 Miss., 1966)",
+    "examples": [
+     "245 Miss. 123",
+     "Smith v. Jones, 250 Miss. 1, 163 So. 2d 676 (1964)"
+    ],
+    "regex": "(?P<volume>\\d{1,3})\\s+Miss\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+    "routes_to": [
+     "ms-cases-justia"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Mississippi appellate docket numbers (-SCT / -COA)",
+    "examples": [
+     "2018-CA-01234-SCT",
+     "No. 2019-KA-00123-COA",
+     "2024-CT-01434-SCT",
+     "97-KA-01495-SCT",
+     "89-R-99012-SCT"
+    ],
+    "regex": "\\b(?P<docket>(?P<year>(?:19|20)\\d{2}|\\d{2})-(?P<type>[A-Z]{1,2})-(?P<number>\\d{5})-(?P<court>SCT|COA))\\b",
+    "routes_to": [
+     "ms-cases-justia",
+     "ms-sct-handdown",
+     "ms-coa-handdown",
+     "ms-cert-handdown"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Westlaw / Lexis cites for Mississippi decisions",
+    "examples": [
+     "2024 WL 123456 (Miss. Ct. App. Mar. 5, 2024)",
+     "2023 Miss. LEXIS 123",
+     "2023 Miss. App. LEXIS 45"
+    ],
+    "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Miss\\.|Miss\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+    "routes_to": [
+     "ms-cases-justia"
+    ]
+   },
+   {
+    "family": "subsequent_history",
+    "label": "Mississippi certiorari history (\"cert. denied/granted\")",
+    "examples": [
+     "cert. denied, 300 So. 3d 1 (Miss. 2020)",
+     "cert. granted, 2024-CT-01434-SCT",
+     "cert. dismissed (Miss. 2026)"
+    ],
+    "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)",
+    "routes_to": [
+     "ms-cert-handdown",
+     "ms-cases-justia"
+    ],
+    "context_required": true
+   }
+  ],
+  "law_aliases": {
+   "Miss. Code Ann.": "mca1972",
+   "Miss. Code": "mca1972",
+   "Mississippi Code": "mca1972",
+   "Mississippi Code of 1972": "mca1972",
+   "M.R.C.P.": "mrcp",
+   "MRCP": "mrcp",
+   "Miss. R. Civ. P.": "mrcp",
+   "M.R.E.": "mre",
+   "MRE": "mre",
+   "Miss. R. Evid.": "mre",
+   "M.R.A.P.": "mrap",
+   "MRAP": "mrap",
+   "Miss. R. App. P.": "mrap",
+   "MRCrP": "mrcrp",
+   "Miss. R. Crim. P.": "mrcrp",
+   "Miss. R. Prof'l Conduct": "mrpc",
+   "MRPC": "mrpc",
+   "UCRCCC": "ucrccc",
+   "URCCC": "ucrccc",
+   "UCCR": "uccr",
+   "Miss. Admin. Code": "mac",
+   "Miss. Code R.": "mac"
+  },
+  "notes": "No public-domain citation: Mississippi cites So. 3d (So. 2d / So. earlier; 'Miss.' official reports ended 1966) with ¶ pinpoints, e.g. '345 So. 3d 512, 516 (¶11) (Miss. 2022)'; slip opinions are identified by docket '{year}-{type}-{5 digits}-{SCT|COA}' (types include CA civil, KA criminal, CP civil pro se, KM, CT certiorari, IA interlocutory, DR death-post-conviction, SA state agency, FC federal certified question, R rules). The -SCT/-COA suffix is distinctive, so docket numbers route here without context. A petition for certiorari from a Court of Appeals decision becomes '{year}-CT-{number}-SCT' (same number as the COA case — from memory; CT dockets observed on hand-down lists). Bare 'Section 15-1-49' (Mississippi's own style) is shared with Alabama and others: context_required. 'MRPC' is also used by Michigan and Minnesota: context_required; 'M.R.E.'/'MRE' are shared with Michigan: context_required; 'Miss. R. Prof'l Conduct' is distinctive. 'M.R.C.P.', 'M.R.E.', 'M.R.A.P.' are Mississippi's house abbreviations; Montana/Maine use 'M. R. Civ. P.'/'M.R. Civ. P.' which these regexes do not match (C must be followed by P). 'cert. denied' routes here only with Mississippi context. A '§§ 11-9-101 to -147' range takes the first section only. CourtListener ids miss / missctapp from memory, unverified."
+ },
+ "sources": [
+  {
+   "id": "ms-code-lexis",
+   "family": "statutes",
+   "title": "Mississippi Code of 1972 (unannotated, free public access via LexisNexis)",
+   "publisher": "State of Mississippi / LexisNexis (official publisher)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "sos.ms.gov/node/147 ('Mississippi Law') says the searchable unannotated Code is provided through LexisNexis, the Code's official publisher; no statement that the online text is official.",
+   "coverage": "Entire Mississippi Code of 1972, unannotated (per SOS page).",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "No per-section URL; the hottopics link 302-redirects to an advance.lexis.com container (JavaScript app).",
+    "index_url": "https://www.lexisnexis.com/hottopics/mscode/",
+    "navigation": "Human only: sos.ms.gov/node/147 or courts.ms.gov 'MS Code' → lexisnexis.com/hottopics/mscode/ → advance.lexis.com container → TOC → title → chapter → section.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "http-error",
+    "robots_txt": "script robots check passed (followed redirect to advance.lexis.com)",
+    "notes": "WebFetch: 302 to advance.lexis.com container (not followed; Georgia's identical Lexis container returned empty content). fetch_doc.py: kind=html chars=0, 0 links."
+   },
+   "currency": {
+    "where": "none observed (app did not render)",
+    "observed": ""
+   },
+   "hazards": [
+    "JavaScript-only app",
+    "no per-section URLs"
+   ],
+   "probe": {
+    "citation": "Miss. Code (container)",
+    "url": "https://www.lexisnexis.com/hottopics/mscode/",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Link from sos.ms.gov/node/147 and courts.ms.gov rules page. Script: redirect to advance.lexis.com container, html chars=0."
+   },
+   "notes": "The legislature's own hosts (www.legislature.ms.gov, billstatus.ls.state.ms.us, www.ls.state.ms.us) fail TLS verification from the sandbox, so no government source serves Code text to either tool."
+  },
+  {
+   "id": "ms-code-justia",
+   "family": "statutes",
+   "title": "Justia — Mississippi Code 1972 (2025)",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Page states 'These codes may not be the most recent version.'; third-party compilation.",
+   "coverage": "2025 Mississippi Code 1972 (unversioned URLs); earlier editions under /codes/mississippi/{year}/ (2014-2024 seen in search results).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://law.justia.com/codes/mississippi/title-{title}/chapter-{chapter}/[article-{article}/]section-{title}-{chapter}-{section}/",
+    "pattern_rules": "Title and chapter from the citation (15-1-49 → title-15/chapter-1/section-15-1-49/). Chapters divided into articles add /article-{n}/; the article is not in the citation: read it from the chapter index, whose links show '§§' ranges (e.g. 'Article 3 - Justice Courts (§§ 11-9-101 - 11-9-147)'). Title indexes show chapter §§ ranges, or 'Arts. 1 - 3' for chapters with articles. Year editions: insert /{year}/ after /mississippi/.",
+    "index_url": "https://law.justia.com/codes/mississippi/title-{title}/",
+    "navigation": "title index (chapter links with §§ ranges; 'Arts.' marks a chapter with articles) → if 'Arts.', open the chapter index and pick the article by §§ range → section page. Verified built URLs: 15-1-49 → /title-15/chapter-1/section-15-1-49/; 97-3-19 → /title-97/chapter-3/section-97-3-19/.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "unreadable: law.justia.com answers robots.txt with a bot check (fetch_doc.py REFUSED)",
+    "notes": "Built section URLs passed WebFetch without an approval prompt. Article-level section URLs (e.g. 11-9-143) inferred from the Georgia pattern, not fetched."
+   },
+   "currency": {
+    "where": "page header",
+    "observed": "2025 Mississippi Code 1972"
+   },
+   "hazards": [
+    "article level not derivable from the citation (index hop)",
+    "edition lags the session laws",
+    "shell blocked by bot check: WebFetch only"
+   ],
+   "probe": {
+    "citation": "Miss. Code Ann. § 15-1-49",
+    "url": "https://law.justia.com/codes/mississippi/title-15/chapter-1/section-15-1-49/",
+    "expect": "All actions for which no other period of limitation is"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES, 'All actions for which no other period of limitation is'; '2025 Mississippi Code 1972'; not truncated. Second: § 97-3-19 'The killing of a human being without the authority of'."
+   },
+   "notes": "The only text route for the Code reachable by the skill; quotes are single-source tier 2 and must say so."
+  },
+  {
+   "id": "ms-legislature-session-laws",
+   "family": "statutes",
+   "title": "Mississippi Legislature — bill status and General Laws (session laws)",
+   "publisher": "Mississippi Legislature",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not reached (TLS failure).",
+   "coverage": "Bills, enacted measures by session (expected).",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://www.legislature.ms.gov/",
+    "navigation": "Human only until TLS works: legislature.ms.gov → Legislation → session → bill status page.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "tls-error",
+    "robots_txt": "not readable (TLS)",
+    "notes": "fetch_doc.py: TLS certificate chain does not verify for www.legislature.ms.gov, legislature.ms.gov, billstatus.ls.state.ms.us, www.ls.state.ms.us. WebFetch of www.legislature.ms.gov: PROVENANCE_REQUIRED (approval prompt unanswered)."
+   },
+   "currency": {
+    "where": "none observed",
+    "observed": ""
+   },
+   "hazards": [
+    "TLS chain fails to verify (missing intermediate?)"
+   ],
+   "probe": {
+    "citation": "legislature home",
+    "url": "https://www.legislature.ms.gov/",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Script: FETCH ERROR TLS certificate chain does not verify (4 legislature hosts)."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-constitution-sos",
+   "family": "constitution",
+   "title": "Constitution of the State of Mississippi, annotated (Secretary of State PDF)",
+   "publisher": "Mississippi Secretary of State",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Secretary of State (sos.ms.gov/node/147 'Mississippi Law'); no official/unofficial statement seen.",
+   "coverage": "Constitution of 1890 as amended, with sources and annotations; 193 pp, 368,794 chars; sections run consecutively (1-285) across articles.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://www.sos.ms.gov/sites/default/files/publications/Mississippi_Constitution.pdf",
+    "pattern_rules": "Single fixed PDF; sections numbered consecutively, so 'art. 3, § 24' = 'SECTION 24.' heading.",
+    "index_url": "https://www.sos.ms.gov/node/147",
+    "navigation": "sos.ms.gov/node/147 → 'Mississippi Constitution' PDF → grep 'SECTION {n}.' (the first hit is the article's section list; the second is the body).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "sos.ms.gov: Drupal defaults (/admin/, /search/, /user/…); /sites/default/files/ allowed",
+    "notes": "WebFetch: PROVENANCE_REQUIRED (approval prompt unanswered), not a site refusal. Script reads all 193 pages."
+   },
+   "currency": {
+    "where": "PDF cover",
+    "observed": "ANNOTATED UPDATED MAY, 2022"
+   },
+   "hazards": [
+    "cover says updated May 2022 though file last-modified 15 Apr 2026: check later amendments",
+    "annotations and SOURCES lines follow each section",
+    "section list at the head of each article repeats headings"
+   ],
+   "probe": {
+    "citation": "Miss. Const. art. 3, § 24",
+    "url": "https://www.sos.ms.gov/sites/default/files/publications/Mississippi_Constitution.pdf",
+    "expect": "All courts shall be open; and every person for an injury done him"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script grep: page 16 'SECTION 24. Open courts; remedy for injury. All courts shall be open'; § 14 'No person shall be deprived of life, liberty, or property'; § 273 'Amendments to this Constitution may be proposed by the Legislature'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-constitution-justia",
+   "family": "constitution",
+   "title": "Justia — Mississippi Constitution",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party page; no version statement (only 'ADOPTED NOVEMBER 1, A.D., 1890').",
+   "coverage": "Whole constitution on one page (120,868 chars); age of text unknown.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/constitution/mississippi/",
+    "pattern_rules": "One page for all sections; no anchors.",
+    "index_url": "https://law.justia.com/constitution/mississippi/",
+    "navigation": "single page; WebFetch window 1 reaches Section 156, offset=100000 for the rest",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok (truncated)",
+    "shell": "blocked-challenge",
+    "robots_txt": "unreadable (bot check)",
+    "notes": "Window 1 ends inside Section 157."
+   },
+   "currency": {
+    "where": "none stated",
+    "observed": "ADOPTED NOVEMBER 1, A.D., 1890."
+   },
+   "hazards": [
+    "possibly stale text",
+    "truncated at ~Section 157: use offset 100000",
+    "shell blocked"
+   ],
+   "probe": {
+    "citation": "Miss. Const. art. 3, § 24",
+    "url": "https://law.justia.com/constitution/mississippi/",
+    "expect": "All courts shall be open; and every person for an"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES, Section 24 'All courts shall be open; and every person for an'; highest complete section in window 1: 156; page 120,868 chars."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-civil",
+   "family": "court_rules",
+   "title": "Mississippi Rules of Civil Procedure (with Advisory Committee Notes)",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (231 pp, 467,917 chars; last-modified 1 Jul 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/2026-07-01%20Rules%20of%20Civil%20Procedure%20with%20Advisory%20Committee%20Notes%20(with%20Forms%206-8%20attached).pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Mississippi Rules of Civil Procedure' → PDF; locate the rule by its 'RULE 56. SUMMARY JUDGMENT' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "file name '2026-07-01 Rules of Civil Procedure'"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "PDF line numbers leak into text (e.g. 'granted, 35 (7)'): verify quotes with fetch_doc verify"
+   ],
+   "probe": {
+    "citation": "M.R.C.P. 12(b)(6)",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/2026-07-01%20Rules%20of%20Civil%20Procedure%20with%20Advisory%20Committee%20Notes%20(with%20Forms%206-8%20attached).pdf",
+    "expect": "Failure to state a claim upon which relief can be granted"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 231 pp; Rule 12(b)(6) p. 43 '(6) Failure to state a claim upon which relief can be granted'; 'RULE 56. SUMMARY JUDGMENT' p. 156."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-evidence",
+   "family": "court_rules",
+   "title": "Mississippi Rules of Evidence (restyled)",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (146 pp, 333,606 chars; last-modified 19 Mar 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/2025-04-07%20Restyled%20Rules%20of%20Evidence.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Mississippi Rules of Evidence' → PDF; locate the rule by its 'Rule 702. Testimony by Expert Witnesses' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "file name '2025-04-07 Restyled Rules of Evidence'"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text"
+   ],
+   "probe": {
+    "citation": "M.R.E. 702",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/2025-04-07%20Restyled%20Rules%20of%20Evidence.pdf",
+    "expect": "A witness who is qualified as an expert by knowledge, skill, experience"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script verify: VERIFIED page 86 'A witness who is qualified as an expert by knowledge, skill, experience'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-appellate",
+   "family": "court_rules",
+   "title": "Mississippi Rules of Appellate Procedure",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (183 pp, 352,863 chars; last-modified 23 Jun 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Appellate%20Procedure%20Current.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Mississippi Rules of Appellate Procedure' → PDF; locate the rule by its 'RULE 17. REVIEW IN THE SUPREME COURT ...' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "'[Amended effective May 5, 2020.]' style notes; last-modified 23 Jun 2026"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text"
+   ],
+   "probe": {
+    "citation": "M.R.A.P. 17",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Appellate%20Procedure%20Current.pdf",
+    "expect": "Decisions of Court of Appeals Reviewable by Writ of Certiorari"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script verify: VERIFIED page 57 'Decisions of Court of Appeals Reviewable by Writ of Certiorari' (Rule 17(a))."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-criminal",
+   "family": "court_rules",
+   "title": "Mississippi Rules of Criminal Procedure (effective July 1, 2023 version)",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (185 pp, 356,996 chars; last-modified 19 Mar 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Criminal%20Procedure%20Post-070123.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Mississippi Rules of Criminal Procedure' → PDF; locate the rule by its 'Rule 8.1 Definitions and Requirements.' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "index link text 'effective July 1, 2023'"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "rule headings are mixed case without 'RULE' caps: grep 'Rule N.N Title.'"
+   ],
+   "probe": {
+    "citation": "MRCrP 8.1",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Criminal%20Procedure%20Post-070123.pdf",
+    "expect": "Whenever the terms below appear in these Rules, they shall have"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script grep: p. 39 'Rule 8 Release Rule 8.1 Definitions and Requirements. Whenever the terms below appear'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-prof-conduct",
+   "family": "court_rules",
+   "title": "Mississippi Rules of Professional Conduct",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (143 pp, 361,479 chars; last-modified 6 Jul 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/rules_of_professional_conduct.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Mississippi Rules of Professional Conduct' → PDF; locate the rule by its 'RULE 1.7 CONFLICT OF INTEREST: GENERAL RULE' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "'[Amended effective November 3, 2005.]' style notes; last-modified 6 Jul 2026"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text"
+   ],
+   "probe": {
+    "citation": "Miss. R. Prof'l Conduct 1.7",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/rules_of_professional_conduct.pdf",
+    "expect": "A lawyer shall not represent a client if the representation of that client"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script verify: VERIFIED page 29 'A lawyer shall not represent a client if the representation of that client'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-ucrccc",
+   "family": "court_rules",
+   "title": "Uniform Civil Rules of Circuit and County Court Practice (UCRCCC)",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (25 pp, 62,492 chars; last-modified 21 May 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/UCRCCC%20Post-070117.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Uniform Civil Rules of Circuit and County Court Practice' → PDF; locate the rule by its 'Rule 4.01 COST DEPOSIT' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "'Adopted Effective May 1, 1995; Amended Effective July 1, 2017'"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text"
+   ],
+   "probe": {
+    "citation": "UCRCCC 4.01",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/UCRCCC%20Post-070117.pdf",
+    "expect": "A cost deposit shall be made with the clerk"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script grep: Rule 1.01 'may be cited as \"UCRCCC _.__.\"'; Rule 4.01 'A cost deposit shall be made with the cler[k]'."
+   },
+   "notes": "Short enough for one WebFetch window (62K chars) once the approval gate is not in the way. Criminal practice moved to the Rules of Criminal Procedure in 2017."
+  },
+  {
+   "id": "ms-rules-chancery",
+   "family": "court_rules",
+   "title": "Uniform Chancery Court Rules (UCCR)",
+   "publisher": "Supreme Court of Mississippi (Administrative Office of Courts)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (32 pp, 48,463 chars; last-modified 1 Jul 2026).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/uniform_chancery_rules.pdf",
+    "pattern_rules": "Single PDF; the file name changes when the Court reissues the set (dated names such as '2026-07-01 Rules of ...'), so always take the current link from the index.",
+    "index_url": "https://courts.ms.gov/research/rules/rules.php",
+    "navigation": "rules.php → link 'Uniform Chancery Court Rules' → PDF; locate the rule by its 'RULE 1.10 DISCOVERY DEADLINES AND PRACTICE' heading (script grep/section).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "courts.ms.gov: User-agent * — /research/ not disallowed (disallows /appellatecourts/docket/, /search/, /scripts/ etc.)",
+    "notes": "WebFetch on courts.ms.gov URLs waited on the session's URL-approval prompt (PROVENANCE_REQUIRED) — not a site refusal. Far beyond one ~100K WebFetch window: script or corpus only."
+   },
+   "currency": {
+    "where": "amendment notes in brackets after each rule; file name / last-modified",
+    "observed": "last-modified 1 Jul 2026"
+   },
+   "hazards": [
+    "long PDF (beyond WebFetch window)",
+    "file name changes on reissue",
+    "comments/advisory notes follow each rule: do not quote as rule text"
+   ],
+   "probe": {
+    "citation": "UCCR 1.10",
+    "url": "https://courts.ms.gov/research/rules/msrulesofcourt/uniform_chancery_rules.pdf",
+    "expect": "All discovery must be completed within ninety days from service of an answer"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script grep: 'RULE 1.00 ... may be cited as UCCR'; p. 9 'RULE 1.10 ... All discovery must be completed within ninety days'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-rules-local",
+   "family": "court_rules",
+   "title": "Local Circuit / Chancery / County Court Rules (index pages)",
+   "publisher": "Supreme Court of Mississippi",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Court-approved local rules listed by district on courts.ms.gov.",
+   "coverage": "Local rules by judicial district (not opened).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://courts.ms.gov/research/rules/localcircuitrules.php",
+    "navigation": "rules.php → 'Local Circuit Court Rules' / 'Local Chancery Court Rules' (localchanceryrules.php) / 'Local County Court Rules' (localcountyrules.php) → district PDF.",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "untested",
+    "robots_txt": "permitted path",
+    "notes": "Links seen on rules.php; not opened (budget)."
+   },
+   "currency": {
+    "where": "not checked",
+    "observed": ""
+   },
+   "hazards": [],
+   "probe": {
+    "citation": "",
+    "url": "https://courts.ms.gov/research/rules/localcircuitrules.php",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Link texts seen by script links on rules.php."
+   },
+   "notes": "Rule amendments: courts.ms.gov/research/rules/ruleamendments/ruleamendments.php; rules for comment: …/rulesforcomment/rulesforcomment.php."
+  },
+  {
+   "id": "ms-admincode-sos",
+   "family": "admin_code",
+   "title": "Mississippi Administrative Code (Secretary of State search)",
+   "publisher": "Mississippi Secretary of State",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Secretary of State is the filing office; app did not render, no statement read.",
+   "coverage": "All titles/parts as filed; rule PDFs under /adminsearch/ACCode/{8 digits}{letter}.pdf (e.g. 00000300c.pdf = Title 2 Part 904, 2012).",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "",
+    "pattern_rules": "PDF ids are opaque numbers, not derivable from a citation.",
+    "index_url": "https://www.sos.ms.gov/adminsearch/default.aspx",
+    "navigation": "Human only: sos.ms.gov/regulation-enforcement/administrative-code (iframe) → adminsearch/default.aspx → search by title/agency → part PDF.",
+    "format": "pdf"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "http-error",
+    "robots_txt": "sos.ms.gov: /adminsearch/ not disallowed",
+    "notes": "fetch_doc.py: adminsearch/ and default.aspx return html chars=0 (ASP.NET/JS). One ACCode PDF opened by script (2 pp, 'Title 2: Agriculture and Commerce Part 904'), but its id came from a guess, so it is not a route. WebFetch: PROVENANCE_REQUIRED."
+   },
+   "currency": {
+    "where": "none observed",
+    "observed": ""
+   },
+   "hazards": [
+    "app returns no HTML text",
+    "opaque PDF ids"
+   ],
+   "probe": {
+    "citation": "admin code search",
+    "url": "https://www.sos.ms.gov/adminsearch/default.aspx",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Script: kind=html chars=0 for adminsearch/ and default.aspx; admin-code page embeds it as an iframe."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-admincode-lii",
+   "family": "admin_code",
+   "title": "Cornell LII — Mississippi Administrative Code",
+   "publisher": "Legal Information Institute",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party; page says 'State regulations are updated quarterly'.",
+   "coverage": "All titles 1-40, per-rule pages with Notes (authority, amendment history).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://www.law.cornell.edu/regulations/mississippi/{title}-Miss-Code-R-SS-{part}-{rule_dots_to_hyphens}",
+    "pattern_rules": "Miss. Admin. Code {title}-{part}:{chapter}.{rule} → {title}-Miss-Code-R-SS-{part}-{chapter}-{rule} (11-1:1.1 → 11-Miss-Code-R-SS-1-1-1; 11-1:6.1 → 11-Miss-Code-R-SS-1-6-1). LII's own cite form: '11 Miss. Code. R. 1-1.1'.",
+    "index_url": "https://www.law.cornell.edu/regulations/mississippi",
+    "navigation": "index → /title-{t} (parts with chapter ranges) → /title-{t}/part-{p} → /chapter-{c} → rule links.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "permits; crawl-delay 10",
+    "notes": "Search-result URLs of the form Miss-Admin-Code-11-8-31 return only a navigation shell (no rule)."
+   },
+   "currency": {
+    "where": "rule page, below Notes",
+    "observed": "State regulations are updated quarterly; Amended 11/22/2015 (11-1:1.1)"
+   },
+   "hazards": [
+    "crawl-delay 10 s",
+    "quarterly lag",
+    "multi-level rule numbers (x.y.z) not tested"
+   ],
+   "probe": {
+    "citation": "Miss. Admin. Code 11-1:1.1",
+    "url": "https://www.law.cornell.edu/regulations/mississippi/11-Miss-Code-R-SS-1-1-1",
+    "expect": "The Commission delegates the following powers to the Executive Director of MDEQ"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: '11 Miss. Code. R. 1-1.1 - Delegations … The Commission delegates the following powers'; built 11-Miss-Code-R-SS-1-6-1 → '11 Miss. Code. R. 1-6.1 - General'."
+   },
+   "notes": "regulations.justia.com also hosts the code but is not on the tier-2 list (only law.justia.com)."
+  },
+  {
+   "id": "ms-admin-bulletin",
+   "family": "admin_register",
+   "title": "Mississippi Administrative Bulletin (Secretary of State)",
+   "publisher": "Mississippi Secretary of State",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not reached.",
+   "coverage": "Filed proposed/final rule notices (expected).",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://www.sos.ms.gov/adminsearch/default.aspx?current_page=Bulletin",
+    "navigation": "Human only: sos.ms.gov/regulation-enforcement/administrative-code/administrative-bulletin (iframe) → adminsearch default.aspx?current_page=Bulletin.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "http-error",
+    "robots_txt": "not disallowed",
+    "notes": "Same ASP.NET app as ms-admincode-sos (0 chars to script)."
+   },
+   "currency": {
+    "where": "none observed",
+    "observed": ""
+   },
+   "hazards": [
+    "app returns no text"
+   ],
+   "probe": {
+    "citation": "bulletin",
+    "url": "https://www.sos.ms.gov/adminsearch/default.aspx?current_page=Bulletin",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Script: bulletin page body is only an iframe pointing to default.aspx?current_page=Bulletin."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-sct-handdown",
+   "family": "case_law",
+   "title": "Supreme Court of Mississippi — Hand Down Lists (by date)",
+   "publisher": "Supreme Court of Mississippi",
+   "tier": 1,
+   "official_status": "official",
+   "official_status_evidence": "The Court's own hand-down list; opinions are the slip opinions as handed down.",
+   "coverage": "One HTML list per hand-down day (Thursdays) with docket, style, trial court, disposition, votes, opinion PDF links; also en banc orders incl. certiorari grants/denials and rehearing rulings. Observed 2000-01-06 through 2026-10-15 (2010, 2019 also); a 1998 URL returned a 190-char stub.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://courts.ms.gov/Images/HDList/SCT{MM}-{DD}-{YYYY}.html",
+    "pattern_rules": "Zero-padded month and day (SCT10-15-2026.html). Supreme Court hands down on Thursdays; the date is the hand-down date, not the opinion's internal date. Opinion links are written with backslashes ('..%5COpinions%5CCO196092.pdf'): resolve to https://courts.ms.gov/Images/Opinions/CO{id}.pdf.",
+    "index_url": "https://courts.ms.gov/appellatecourts/sc/scdecisions.php",
+    "navigation": "scdecisions.php is a JavaScript calendar (no links to the script); build the list URL from the date instead.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "/Images/ not disallowed; /appellatecourts/docket/ and /search/ are",
+    "notes": "Lists observed for 10/15, 10/08, 10/01, 9/24/2026, 3/07/2019, 1/07/2010, 1/06/2000. Day ZIP of WordPerfect opinions: Images/ZIPS/SupremeCourt/SC{YYYYMMDD}.ZIP."
+   },
+   "currency": {
+    "where": "list heading",
+    "observed": "Supreme Court of Mississippi Hand Down List October 15, 2026"
+   },
+   "hazards": [
+    "backslash relative links",
+    "order PDFs on the same list point to robots-disallowed /appellatecourts/docket/sendPDF.php",
+    "no finder by docket: need the hand-down date (or Justia)"
+   ],
+   "probe": {
+    "citation": "Park Wind Apartments, LLC v. Mayze, No. 2025-CA-00269-SCT (Miss. Oct. 15, 2026)",
+    "url": "https://courts.ms.gov/Images/HDList/SCT10-15-2026.html",
+    "expect": "Park Wind Apartments, LLC v. Glenda Mayze; Hinds Circuit Court 1st District"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 7,139 chars; '2025-CA-00269-SCT Park Wind Apartments, LLC v. Glenda Mayze … Disposition: Reversed and Remanded.' 9 links."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-coa-handdown",
+   "family": "case_law",
+   "title": "Mississippi Court of Appeals — Hand Down Lists (by date)",
+   "publisher": "Mississippi Court of Appeals",
+   "tier": 1,
+   "official_status": "official",
+   "official_status_evidence": "The Court's own hand-down list.",
+   "coverage": "One list per hand-down day (Tuesdays); observed 2010-01-05 and 2026 dates.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://courts.ms.gov/Images/HDList/COA{MM}-{DD}-{YYYY}.html",
+    "pattern_rules": "As ms-sct-handdown, prefix COA; Court of Appeals hands down on Tuesdays. Opinion links resolve to /Images/Opinions/CO{id}.pdf.",
+    "index_url": "https://courts.ms.gov/appellatecourts/coa/coa.php",
+    "navigation": "COA decisions page is the same JavaScript calendar; build from date.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "/Images/ permitted",
+    "notes": "Day ZIP: Images/ZIPS/CourtOfAppeals/COA{YYYYMMDD}.ZIP."
+   },
+   "currency": {
+    "where": "list heading",
+    "observed": "Mississippi Court of Appeals Hand Down List October 13, 2026"
+   },
+   "hazards": [
+    "backslash relative links",
+    "need the hand-down date"
+   ],
+   "probe": {
+    "citation": "Harrison v. Harrison, No. 2025-CA-00913-COA (Miss. Ct. App. Oct. 13, 2026)",
+    "url": "https://courts.ms.gov/Images/HDList/COA10-13-2026.html",
+    "expect": "Wiley Bryant Harrison v. Ellen Trainor Harrison; Lee Chancery Court"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 7,363 chars; '2025-CA-00913-COA Wiley Bryant Harrison v. Ellen Trainor Harrison'; link ..\\Opinions\\CO195485.pdf."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-opinion-pdfs",
+   "family": "case_law",
+   "title": "Mississippi Supreme Court and Court of Appeals opinion PDFs",
+   "publisher": "Supreme Court of Mississippi",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Slip opinions; caption 'IN THE SUPREME COURT OF MISSISSIPPI NO. 2025-CA-00269-SCT'; no statement of official status.",
+   "coverage": "Opinions linked from hand-down lists (2000 list links Conv8477.pdf; 2026 CO19xxxx.pdf).",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://courts.ms.gov/Images/Opinions/CO{id}.pdf",
+    "pattern_rules": "{id} is opaque; take it from the hand-down list link for the docket.",
+    "index_url": "https://courts.ms.gov/Images/HDList/SCT{MM}-{DD}-{YYYY}.html",
+    "navigation": "hand-down list (SCT/COA by date) → docket link → PDF.",
+    "format": "pdf",
+    "read_via": "located on ms-sct-handdown / ms-coa-handdown; read here (script ok)"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "/Images/ permitted",
+    "notes": "WebFetch: PROVENANCE_REQUIRED (approval prompt). Paragraphs numbered ¶1., ¶2. — pinpoint by ¶ as Mississippi courts do."
+   },
+   "currency": {
+    "where": "caption block",
+    "observed": "DISPOSITION: REVERSED AND REMANDED - 10/15/2026"
+   },
+   "hazards": [
+    "slip pagination only (So. 3d pages not in the PDF)",
+    "PDF may be replaced after rehearing (withdrawn and substituted opinions)"
+   ],
+   "probe": {
+    "citation": "Park Wind Apartments, LLC v. Mayze, No. 2025-CA-00269-SCT",
+    "url": "https://courts.ms.gov/Images/Opinions/CO196092.pdf",
+    "expect": "Glenda Mayze’s knee was injured when she tried to avoid a puddled sidewalk"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 11 pp, 20,320 chars; 'NO. 2025-CA-00269-SCT'; '¶1. Glenda Mayze’s knee was injured'. COA CO195485.pdf: 'NO. 2025-CA-00913-COA'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "ms-cases-justia",
+   "family": "case_law",
+   "title": "Justia — Mississippi Supreme Court and Court of Appeals decisions",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party copy of the slip opinions.",
+   "coverage": "Year listings /cases/mississippi/supreme-court/{year}/ and /court-of-appeals/{year}/; case pages carry the full text and a cases.justia.com PDF.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/cases/mississippi/{court}/{year}/{docket_lower}.html",
+    "pattern_rules": "court = supreme-court | court-of-appeals; year = decision year (not docket year); docket lower-cased (2020-CA-00293-SCT → 2020-ca-00293-sct). Year listing shows dockets but some entries have no link.",
+    "index_url": "https://law.justia.com/cases/mississippi/supreme-court/{year}/",
+    "navigation": "build from docket + decision year; if the year is unknown, open the year listings.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "unreadable (bot check)",
+    "notes": "Built COA URL passed WebFetch without approval prompt."
+   },
+   "currency": {
+    "where": "decision date on page",
+    "observed": "October 13, 2026 (Harrison, posted same week)"
+   },
+   "hazards": [
+    "year segment is the decision year",
+    "shell blocked"
+   ],
+   "probe": {
+    "citation": "Weber v. Estate of Hill, No. 2020-CA-00293-SCT (Miss. 2021)",
+    "url": "https://law.justia.com/cases/mississippi/supreme-court/2021/2020-ca-00293-sct.html",
+    "expect": "A Jones County jury returned a $4 million verdict in favor of"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES, 'A Jones County jury returned a $4 million verdict in favor of'; ¶ numbers through ¶81; not truncated. Built /court-of-appeals/2026/2025-ca-00913-coa.html: 'Wiley Harrison appeals from a final judgment'."
+   },
+   "notes": "Practical docket → opinion finder, since the Court's docket search is robots-disallowed."
+  },
+  {
+   "id": "ms-appellate-docket",
+   "family": "case_law",
+   "title": "Mississippi appellate General Docket (case search, docket entries, order PDFs)",
+   "publisher": "Clerk of the Appellate Courts",
+   "tier": 1,
+   "official_status": "official",
+   "official_status_evidence": "Clerk's docket.",
+   "coverage": "Docket entries and orders (sendPDF.php).",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://courts.ms.gov/appellatecourts/docket/",
+    "navigation": "Not usable: robots.txt Disallow: /appellatecourts/docket/ and /appellatecourts/docket/sendPDF.php.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "blocked",
+    "shell": "blocked-robots",
+    "robots_txt": "Disallow: /appellatecourts/docket/; Disallow: /appellatecourts/docket/sendPDF.php",
+    "notes": ""
+   },
+   "currency": {
+    "where": "n/a",
+    "observed": ""
+   },
+   "hazards": [
+    "robots-disallowed"
+   ],
+   "probe": {
+    "citation": "89-R-99012-SCT order",
+    "url": "https://courts.ms.gov/appellatecourts/docket/sendPDF.php?f=700_779108.pdf&c=17875&a=N&s=2",
+    "expect": ""
+   },
+   "verification": {
+    "status": "blocked",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "Script: REFUSED robots.txt disallows /appellatecourts/docket/sendPDF.php (link from SCT10-15-2026 hand-down list)."
+   },
+   "notes": "Order PDFs linked on hand-down lists (rules orders, some en banc orders) live here and are therefore unreadable; the list's disposition text is the readable record."
+  },
+  {
+   "id": "ms-cert-handdown",
+   "family": "subsequent_history",
+   "title": "Certiorari and rehearing dispositions on Supreme Court hand-down lists",
+   "publisher": "Supreme Court of Mississippi",
+   "tier": 1,
+   "official_status": "official",
+   "official_status_evidence": "Court's hand-down list.",
+   "coverage": "EN BANC entries: 'Petition for Writ of Certiorari … is granted/denied/dismissed as untimely', with order date and votes; rehearing rulings on SCT and COA lists.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://courts.ms.gov/Images/HDList/SCT{MM}-{DD}-{YYYY}.html",
+    "pattern_rules": "A cert petition from a Court of Appeals decision is docketed with the same year and number and case type 'CT' with suffix -SCT (observed: 2024-CT-01022-SCT, 2025-CT-00076-SCT; the COA original keeps its type, e.g. -KA-/-CA-…-COA — same-number mapping from memory). Scan the Thursday lists after the COA decision (M.R.A.P. 17: cert petition after rehearing denial).",
+    "index_url": "https://courts.ms.gov/appellatecourts/sc/scdecisions.php",
+    "navigation": "No docket search (robots). Scan SCT lists by date for '{year}-CT-{number}-SCT'; Justia SC year listings also carry -CT- opinions after grant.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "gated",
+    "shell": "ok",
+    "robots_txt": "/Images/ permitted",
+    "notes": "Denials are on the lists (e.g. 10/01/2026 'Petition for Writ of Certiorari filed by David Allen Breland is denied')."
+   },
+   "currency": {
+    "where": "list heading",
+    "observed": "Hand Down List October 1, 2026"
+   },
+   "hazards": [
+    "date-scan needed: findable by docket number only by scanning lists, or by party name on Justia",
+    "CT docket replaces COA suffix"
+   ],
+   "probe": {
+    "citation": "Breland v. State, No. 2024-CT-01022-SCT (cert. denied Sept. 24, 2026)",
+    "url": "https://courts.ms.gov/Images/HDList/SCT10-01-2026.html",
+    "expect": "Petition for Writ of Certiorari filed by David Allen Breland is denied"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script grep: '2024-CT-01022-SCT David Allen Breland … is denied. To Deny: All Justices. Order entered 9/24/26.' Grants on 10/08 and 10/15/2026 lists."
+   },
+   "notes": ""
+  }
+ ],
+ "absent": [
+  {
+   "family": "case_law",
+   "what": "Public-domain / vendor-neutral citation format",
+   "evidence": "Opinions observed (2025-CA-00269-SCT, 2025-CA-00913-COA) carry only docket numbers and ¶ numbers; none adopted (memory).",
+   "date": "2026-10-17"
+  },
+  {
+   "family": "statutes",
+   "what": "Government-hosted Mississippi Code text readable by either tool",
+   "evidence": "Lexis container returns 0 chars; legislature hosts fail TLS verification.",
+   "date": "2026-10-17"
+  },
+  {
+   "family": "case_law",
+   "what": "Plain-GET opinion/docket search on courts.ms.gov",
+   "evidence": "robots.txt disallows /search/ and /appellatecourts/docket/; decisions pages are a JavaScript calendar.",
+   "date": "2026-10-17"
+  }
+ ],
+ "script_candidates": [
+  {
+   "source_id": "ms-sct-handdown",
+   "why": "Date-constructible HTML lists (Thursdays) with docket, style, disposition, votes and opinion PDF ids; a script can index docket → hand-down date → CO{id}.pdf and build cert history (-CT- entries). Day ZIPs (Images/ZIPS/SupremeCourt/SC{YYYYMMDD}.ZIP) are a bulk route."
+  },
+  {
+   "source_id": "ms-coa-handdown",
+   "why": "Same structure (Tuesdays); feeds docket → PDF for the Court of Appeals; ZIPs at Images/ZIPS/CourtOfAppeals/COA{YYYYMMDD}.ZIP."
+  }
+ ],
+ "corpus_candidates": [
+  {
+   "source_id": "ms-rules-civil",
+   "url": "https://courts.ms.gov/research/rules/msrulesofcourt/2026-07-01%20Rules%20of%20Civil%20Procedure%20with%20Advisory%20Committee%20Notes%20(with%20Forms%206-8%20attached).pdf",
+   "why": "231 pp, 467,917 chars; WebFetch gated and window far too small.",
+   "split_hint": "'RULE N. TITLE' caps headings; advisory committee notes follow; forms 6-8 at end",
+   "bulk": ""
+  },
+  {
+   "source_id": "ms-rules-evidence",
+   "url": "https://courts.ms.gov/research/rules/msrulesofcourt/2025-04-07%20Restyled%20Rules%20of%20Evidence.pdf",
+   "why": "146 pp, 333,606 chars.",
+   "split_hint": "'Rule NNN. Title' headings under ARTICLE headings",
+   "bulk": ""
+  },
+  {
+   "source_id": "ms-rules-appellate",
+   "url": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Appellate%20Procedure%20Current.pdf",
+   "why": "183 pp, 352,863 chars.",
+   "split_hint": "'RULE N. TITLE' caps headings",
+   "bulk": ""
+  },
+  {
+   "source_id": "ms-rules-criminal",
+   "url": "https://courts.ms.gov/research/rules/msrulesofcourt/Rules%20of%20Criminal%20Procedure%20Post-070123.pdf",
+   "why": "185 pp, 356,996 chars.",
+   "split_hint": "'Rule N Title' group headings, then 'Rule N.N Title.' units",
+   "bulk": ""
+  },
+  {
+   "source_id": "ms-rules-prof-conduct",
+   "url": "https://courts.ms.gov/research/rules/msrulesofcourt/rules_of_professional_conduct.pdf",
+   "why": "143 pp, 361,479 chars.",
+   "split_hint": "'RULE N.N TITLE' caps headings; comments follow",
+   "bulk": ""
+  },
+  {
+   "source_id": "ms-constitution-sos",
+   "url": "https://www.sos.ms.gov/sites/default/files/publications/Mississippi_Constitution.pdf",
+   "why": "193 pp, 368,794 chars, annotated; WebFetch gated.",
+   "split_hint": "'SECTION N. Title.' headings (skip each article's section list)",
+   "bulk": ""
+  }
+ ],
+ "open_questions": [
+  "WebFetch untested on courts.ms.gov and sos.ms.gov: every attempt waited on the session's URL-approval prompt (PROVENANCE_REQUIRED). All those rows are script-verified; an independent pass should run WebFetch on them.",
+  "Legislature hosts (legislature.ms.gov, billstatus.ls.state.ms.us) fail TLS verification from the sandbox: session-law route unestablished.",
+  "Earliest hand-down list year: 2000-01-06 list exists with PDFs; a 1998 date returned a 190-char stub and a 1996 date a connection error — not resolved.",
+  "Same-number mapping COA docket → {year}-CT-{number}-SCT is from memory; confirm on a known pair.",
+  "Justia article-level code URLs (/article-{n}/section-…) inferred from the title/chapter index, not fetched.",
+  "Constitution PDF cover says 'UPDATED MAY, 2022'; whether later amendments (e.g. 2025 ballot measures) are reflected not checked.",
+  "WebFetch quota ran out once mid-session (session limit); 14 WebFetch calls used in total."
+ ]
+}

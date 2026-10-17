@@ -99,14 +99,25 @@
         "family": "court_rules",
         "label": "Michigan Rules of Evidence",
         "examples": [
-          "MRE 702",
           "Mich. R. Evid. 401",
           "Michigan Rule of Evidence 803(6)"
         ],
-        "regex": "(?:\\bMRE\\b|\\bM\\.\\s*R\\.\\s*E\\.|Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Evid(?:ence|\\.)?)\\s*(?P<rule>\\d{3,4})",
+        "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Evid(?:ence|\\.)?\\s*(?P<rule>\\d{3,4})",
         "routes_to": [
           "mi-rules-mre"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Michigan Rules of Evidence (bare MRE)",
+        "examples": [
+          "MRE 702"
+        ],
+        "regex": "(?:\\bMRE\\b|\\bM\\.\\s*R\\.\\s*E\\.)\\s*(?P<rule>\\d{3,4})",
+        "routes_to": [
+          "mi-rules-mre"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -239,7 +250,7 @@
       "Mich. Comp. Laws Ann.": "MCL",
       "MSA": "MSA (Michigan Statutes Annotated, superseded numbering: convert to MCL via the MCL tables, no free route)"
     },
-    "notes": "MCL numbers are chapter.section (600.5805 = chapter 600, section 5805); the chapter is the leading digits before the dot, so the per-section PDF URL is fully determined: MCL-{chapter}-{section with letters upper-cased}.pdf. Michigan's own style (Michigan Appellate Opinion Manual) drops periods: 'MCL 600.5805', 'MCR 2.116(C)(10)', 'MRE 702', 'Const 1963, art 1, § 17', '285 Mich App 1; 776 NW2d 314 (2009)', 'lv den 505 Mich 1023'. Bluebook: Mich. Comp. Laws § 600.5805; Mich. Ct. R. 2.116; Mich. R. Evid. 702. A range 'MCL 600.5801-600.5869' is a span: the regex captures the first section only. Old 'MSA 27A.5805' (Michigan Statutes Annotated) numbering is not routed. Bare 'R 408.10011' and bare 'Docket No. 359401' are generic and need Michigan context (context_required). 'Const 1963' alone is used only by Michigan in practice, but 'Mich' is preferred. No public-domain citation: Michigan cites to Mich / Mich App (official, West-published) and NW2d/NW3d; unpublished COA opinions are cited by docket number and issue date (MCR 7.215(C)). CourtListener ids mich / michctapp are from memory and unverified. 'MRPC' is also Minnesota's abbreviation, so bare 'MRPC 1.7' is not routed by a Michigan pattern (Minnesota's record owns it); with Michigan context, read it from mi-rules-mrpc. 'Act N of YYYY' collides with Pennsylvania's form and is not routed; use 'YYYY PA N'. Court rules (MCR, MRE, MRPC) route to link-only rows: www.courts.michigan.gov is blocked (robots Disallow: /) and no tier-2 host carries them, so cite them by number and never quote. Case law routes to Justia first (slip pagination only); official Mich/Mich App pages and MSC leave orders have no permitted route. Blank-slip '___ Mich App ___' forms are matched by the reports pattern."
+    "notes": "MCL numbers are chapter.section (600.5805 = chapter 600, section 5805); the chapter is the leading digits before the dot, so the per-section PDF URL is fully determined: MCL-{chapter}-{section with letters upper-cased}.pdf. Michigan's own style (Michigan Appellate Opinion Manual) drops periods: 'MCL 600.5805', 'MCR 2.116(C)(10)', 'MRE 702', 'Const 1963, art 1, § 17', '285 Mich App 1; 776 NW2d 314 (2009)', 'lv den 505 Mich 1023'. Bluebook: Mich. Comp. Laws § 600.5805; Mich. Ct. R. 2.116; Mich. R. Evid. 702. A range 'MCL 600.5801-600.5869' is a span: the regex captures the first section only. Old 'MSA 27A.5805' (Michigan Statutes Annotated) numbering is not routed. Bare 'R 408.10011' and bare 'Docket No. 359401' are generic and need Michigan context (context_required). 'Const 1963' alone is used only by Michigan in practice, but 'Mich' is preferred. No public-domain citation: Michigan cites to Mich / Mich App (official, West-published) and NW2d/NW3d; unpublished COA opinions are cited by docket number and issue date (MCR 7.215(C)). CourtListener ids mich / michctapp are from memory and unverified. 'MRPC' is also Minnesota's abbreviation, so bare 'MRPC 1.7' is not routed by a Michigan pattern (Minnesota's record owns it); with Michigan context, read it from mi-rules-mrpc. 'Act N of YYYY' collides with Pennsylvania's form and is not routed; use 'YYYY PA N'. Court rules (MCR, MRE, MRPC) route to link-only rows: www.courts.michigan.gov is blocked (robots Disallow: /) and no tier-2 host carries them, so cite them by number and never quote. Case law routes to Justia first (slip pagination only); official Mich/Mich App pages and MSC leave orders have no permitted route. Blank-slip '___ Mich App ___' forms are matched by the reports pattern. Bare 'MRE NNN' / 'M.R.E. NNN' is context_required: Mississippi uses the same abbreviation (split 2026-10-17)."
   },
   "sources": [
     {

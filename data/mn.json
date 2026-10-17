@@ -161,14 +161,26 @@
         "label": "Minnesota Rules of Professional Conduct",
         "examples": [
           "Minn. R. Prof. Conduct 1.7",
-          "MRPC 8.4(c)",
           "Rule 1.7 of the Minnesota Rules of Professional Conduct"
         ],
-        "regex": "(?:Minn\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct|MRPC)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "regex": "Minn\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Professional\\s+Conduct",
         "routes_to": [
           "mn-courtrules-revisor",
           "mn-courtrules-revisor-pdf"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Minnesota Rules of Professional Conduct (bare MRPC)",
+        "examples": [
+          "MRPC 8.4(c)"
+        ],
+        "regex": "\\bMRPC\\s*(?P<rule>\\d\\.\\d{1,2})",
+        "routes_to": [
+          "mn-courtrules-revisor",
+          "mn-courtrules-revisor-pdf"
+        ],
+        "context_required": true
       },
       {
         "family": "admin_code",
@@ -262,7 +274,7 @@
       "Minn. Spec. R. Prac. (Ct. App.)": "ap/subtype/spec",
       "Minn. R. Civ. App. P. (family)": "ap/subtype/flam"
     },
-    "notes": "No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. The prose form of the General Rules of Practice requires 'Minnesota' ('Rule 115 of the Minnesota General Rules of Practice'): the bare 'General Rules of Practice' also names North Carolina's 'General Rules of Practice for the Superior and District Courts' (build.py --cross). Constitution articles are matched in Roman or Arabic numerals ('art. 1, § 7'). 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified)."
+    "notes": "No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. The prose form of the General Rules of Practice requires 'Minnesota' ('Rule 115 of the Minnesota General Rules of Practice'): the bare 'General Rules of Practice' also names North Carolina's 'General Rules of Practice for the Superior and District Courts' (build.py --cross). Constitution articles are matched in Roman or Arabic numerals ('art. 1, § 7'). 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified). Bare 'MRPC N.N' is context_required: Mississippi uses the same abbreviation (split 2026-10-17)."
   },
   "sources": [
     {
