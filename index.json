@@ -1194,10 +1194,10 @@
     "ks": {
       "name": "Kansas",
       "file": "jurisdictions/ks.md",
-      "sha256": "4274ab9108b782c2a260c201005ca3b758b060b39f820d93825d36deec2251bb",
+      "sha256": "82b174db298bb1c10243d16916b897763bb4f392a94fc33f9443c161fd165488",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 14,
+        "verified_independent": 14,
         "reported": 3
       },
       "citation_patterns": [
@@ -1208,17 +1208,17 @@
         },
         {
           "label": "Kansas Constitution",
-          "regex": "Kan\\.\\s*Const\\.\\s*(?:art\\.\\s*(?P<article>\\d{1,2}),?\\s*\u00a7+\\s*(?P<section>\\d{1,3}[a-z]?)|Bill\\s+of\\s+Rights,?\\s*\u00a7+\\s*(?P<bor>\\d{1,2}))|Article\\s+(?P<article2>\\d{1,2}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d{1,3}[a-z]?)\\s+of\\s+the\\s+Kansas\\s+Constitution|(?:Section|\u00a7)\\s*(?P<bor2>\\d{1,2})\\s+of\\s+the\\s+Kansas\\s+Constitution\\s+Bill\\s+of\\s+Rights",
+          "regex": "Kan\\.\\s*Const\\.\\s*(?:art\\.\\s*(?P<article>\\d{1,2}),?\\s*\u00a7+\\s*(?P<section>\\d{1,3}[a-z]?)|Bill\\s+of\\s+Rights,?\\s*\u00a7+\\s*(?P<bor>\\d{1,2}))|Article\\s+(?P<article2>\\d{1,2}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d{1,3}[a-z]?)\\s+of\\s+the\\s+Kansas\\s+Constitution|(?:Section|\u00a7)\\s*(?P<bor2>\\d{1,2})\\s+of\\s+the\\s+Kansas\\s+Constitution\\s+Bill\\s+of\\s+Rights|(?:Section|\u00a7)\\s*(?P<bor3>\\d{1,2})\\s+of\\s+the\\s+Bill\\s+of\\s+Rights\\s+of\\s+the\\s+Kansas\\s+Constitution",
           "context_required": false
         },
         {
           "label": "Kansas Supreme Court Rules (marked)",
-          "regex": "(?:Kan\\.\\s*(?:Sup|S)\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Kansas\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,2}[A-Z]?)?[A-Z]?)|(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,2}[A-Z]?)?[A-Z]?)(?:\\([0-9a-zA-Z]+\\))*\\s*\\(\\d{4}\\s+Kan\\.\\s*S\\.\\s*Ct\\.\\s*R\\.|(?:KRPC|Kan\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Kansas\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<krpc>\\d\\.\\d{1,2}[a-z]?)",
+          "regex": "(?:Kan\\.\\s*(?:Sup|S)\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Kansas\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?![\\d.]?\\d)|(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9a-zA-Z]+\\))*\\s*\\(\\d{4}\\s+Kan\\.\\s*S\\.\\s*Ct\\.\\s*R\\.|(?:KRPC|Kan\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Kansas\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<krpc>\\d\\.\\d{1,2}[a-z]?)",
           "context_required": false
         },
         {
           "label": "Kansas Supreme Court Rules (bare 'Supreme Court Rule 6.02', 'Rule 7.04')",
-          "regex": "(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule>\\d{1,2}\\.\\d{2}[A-Z]?|\\d{3}[A-Z]?)(?!\\d)",
+          "regex": "(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule>\\d{1,2}\\.\\d{2,3}[A-Z]?|\\d{3}[A-Z]?)(?!\\d)",
           "context_required": true
         },
         {

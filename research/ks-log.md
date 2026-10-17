@@ -112,3 +112,6 @@ Note: one plain `curl` (browser-like UA) of https://searchdro.kscourts.gov/Docum
 
 ## G — Citation map
 `python3 scripts/build.py --check`: no ERROR/WARN for ks.json. `python3 scripts/build.py --cross`: no CROSS line involving ks (only remaining line is ok/oh).
+
+## Fix round (2026-10-17, after research/ks-verify.json)
+No new fetches. Applied independent-check results: 14 verified rows now `by: independent` with evidence appended. Session-laws navigation changed to sos.ks.gov HTML chapter pages (printed Book-1/Book-2 PDFs noted, unprobed). Rulebook expect changed to "amendments through January 1, 2026" (PDF hyphenates "guide- lines"). Advance-sheet PDF names may end in `_1`: URLs must come from links; added Court of Appeals running head. Regexes: three-decimal rules (7.041, 7.041A) captured in full; added "Section N of the Bill of Rights of the Kansas Constitution". `--check` clean; `--cross` 0 matches.
