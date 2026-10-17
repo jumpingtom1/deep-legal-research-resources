@@ -1,0 +1,43 @@
+{
+ "name": "deep-legal-research",
+ "version": "10.4",
+ "released": "2026-10-17",
+ "published": "2026-10-17",
+ "summary": "Update check: the skill compares itself with this repo and hands you the newest zip with upgrade steps.",
+ "zip_url": "https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/main/skill/deep-legal-research.zip",
+ "sha256": "98e0838afcef2cdf6832560766899e4188869109d69c5eb5acd08e69904e6234",
+ "bytes": 502374,
+ "files": [
+  "CHANGELOG.md",
+  "SKILL.md",
+  "VERSION",
+  "references/courtlistener-mcp.md",
+  "references/govinfo.md",
+  "references/known-corrections.md",
+  "references/measurements.md",
+  "references/memo-format.md",
+  "references/or-corpus/MANIFEST.md",
+  "references/or-corpus/orcp.jsonl",
+  "references/or-corpus/orcp.meta.json",
+  "references/or-corpus/utcr.jsonl",
+  "references/or-corpus/utcr.meta.json",
+  "references/pipeline.md",
+  "references/report-format.md",
+  "references/source-status.md",
+  "references/state-sources.md",
+  "references/statute-sources.md",
+  "references/subagent-briefing.md",
+  "scripts/banner.py",
+  "scripts/govinfo.py",
+  "scripts/or_corpus_build.py",
+  "scripts/or_lookup.py",
+  "scripts/statecourts.py",
+  "scripts/update_check.py"
+ ],
+ "preserve_local": [
+  "scripts/govinfo.key"
+ ],
+ "excluded_from_public_zip": [
+  "scripts/govinfo.key"
+ ]
+}

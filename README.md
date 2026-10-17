@@ -22,6 +22,8 @@ lives here.
 | `scripts/corpus.py` | **Corpus route:** list, resolve, get, search, verify, check. Stdlib only; local or raw GitHub |
 | `scripts/ingest.py` | Builds a corpus collection, with quality gates. Maintainer-only; needs PyMuPDF |
 | `scripts/lsnet.py` · `lstext.py` | Shared code: allowlist, robots, refusals, politeness, cache · extraction and exact quote matching |
+| `skill/` | The newest skill release (`deep-legal-research.zip`, without the GovInfo key) and `latest.json`, which the skill's update check reads. See `skill/UPGRADE.md` |
+| `scripts/release_skill.py` | Publishes a release into `skill/`, leaving local-only secrets out |
 | `research/` | Briefs for the research and verification agents, probe logs, independent-check results |
 
 ## Status
