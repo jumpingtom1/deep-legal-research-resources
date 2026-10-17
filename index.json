@@ -916,6 +916,78 @@
         }
       ]
     },
+    "ia": {
+      "name": "Iowa",
+      "file": "jurisdictions/ia.md",
+      "sha256": "39b0c4400d591b3939490ba0ec13a404b533876ff50cadd2827db4b4f7b70cc5",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 14,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Iowa Code",
+          "regex": "(?:Iowa\\s+Code(?:\\s+Ann\\.)?|I\\.C\\.A\\.)\\s*(?:\u00a7\u00a7?|sec(?:tions?|s?\\.))\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Z]{0,2})|Iowa\\s+Code(?:\\s+Ann\\.)?\\s*(?:ch\\.|chapters?)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Z]{0,2})(?:\\([0-9a-z]+\\))*,?\\s+of\\s+the\\s+(?:Iowa\\s+Code|Code\\s+of\\s+Iowa)",
+          "context_required": false
+        },
+        {
+          "label": "Iowa Acts (session laws)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Iowa\\s+Acts,?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,4})",
+          "context_required": false
+        },
+        {
+          "label": "Iowa Constitution",
+          "regex": "Iowa\\s+Const\\.?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+Iowa\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Iowa Court Rules (named sets)",
+          "regex": "Iowa\\s+(?:R\\.|Rules?\\s+of)\\s*(?:Civ(?:il)?\\.?\\s*P(?:roc(?:edure)?)?\\.?|Evid(?:ence)?\\.?|App(?:ellate)?\\.?\\s*P(?:roc(?:edure)?)?\\.?|Crim(?:inal)?\\.?\\s*P(?:roc(?:edure)?)?\\.?|Prof(?:'l|essional|\\.)?\\s*Conduct)\\s*(?P<chapter>\\d{1,2})(?P<sep>[.:])(?P<rule>\\d+(?:\\.\\d+)?)|Iowa\\s+Ct\\.\\s*R\\.\\s*(?P<chapter2>\\d{1,2})(?P<sep2>[.:])(?P<rule2>\\d+(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Iowa Court Rules (bare chapter-numbered rule, no 'Iowa')",
+          "regex": "\\b(?:rule|R\\.C\\.P\\.)\\s+(?P<chapter>[1-9]\\d?)(?P<sep>[.:])(?P<rule>\\d{1,4}(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Iowa Administrative Code",
+          "regex": "Iowa\\s+Admin\\.?\\s+Code\\s+r(?:ule)?\\.?\\s*(?P<agency>\\d{1,3})\\s*[\u2014\u2013-]\\s*(?P<chapter>\\d{1,3})\\.(?P<rule>\\d{1,3})|Iowa\\s+Admin\\.?\\s+Code\\s+(?:ch\\.|chapter)\\s*(?P<agency2>\\d{1,3})\\s*[\u2014\u2013-]\\s*(?P<chapter2>\\d{1,3})|(?P<agency3>\\d{1,3})\\s+(?:IAC|Iowa\\s+Admin\\.?\\s+Code)\\s+(?:(?:ch\\.|chapter)\\s*)?(?P<chapter3>\\d{1,3})(?:\\.(?P<rule3>\\d{1,3}))?(?![-\\d.])|(?P<agency4>\\d{1,3})\u2014(?P<chapter4>\\d{1,3})\\.(?P<rule4>\\d{1,3})\\(\\d{1,3}[A-Z]{0,2}\\)",
+          "context_required": false
+        },
+        {
+          "label": "Iowa Administrative Bulletin",
+          "regex": "\\bARC\\s+(?P<arc>\\d{3,4}[A-D])\\b|\\bIAB\\s+(?:Vol\\.\\s*(?P<vol>[IVXL]+),\\s*No\\.\\s*(?P<no>\\d+)\\s*\\()?(?P<date>\\d{1,2}/\\d{1,2}/\\d{2})\\)?(?:\\s*p\\.\\s*(?P<page>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Reported Iowa cases (N.W. / Iowa Reports)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Iowa(?:\\s+Ct\\.\\s+App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<ivol>\\d{1,3})\\s+Iowa\\s+(?P<ipage>\\d{1,4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Iowa slip opinions and unpublished Court of Appeals opinions (docket + Iowa parenthetical)",
+          "regex": "No\\.\\s*(?P<docket>\\d{2}[-\u2013]\\d{4})(?:,\\s*(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+))?(?:,\\s*at\\s*\\*\\d+)?(?:,\\s*slip\\s+op\\.\\s+at\\s+\\d+)?,?\\s*\\((?P<court>Iowa(?:\\s+Ct\\.\\s+App\\.)?)\\s+[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*\\d{4}\\)|(?P<wyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl2>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Iowa(?:\\s+Ct\\.\\s+App\\.)?\\s",
+          "context_required": false
+        },
+        {
+          "label": "Bare Iowa appellate docket number",
+          "regex": "\\bNo\\.\\s*(?P<docket>\\d{2}[-\u2013]\\d{4})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Iowa further-review dispositions",
+          "regex": "further\\s+review\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Iowa\\s+(?P<date>[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*(?P<year>\\d{4}))\\)",
+          "context_required": false
+        },
+        {
+          "label": "Further review (bare, no Iowa parenthetical)",
+          "regex": "further\\s+review\\s+(?:denied|granted|dismissed)|on\\s+further\\s+review",
+          "context_required": true
+        }
+      ]
+    },
     "id": {
       "name": "Idaho",
       "file": "jurisdictions/id.md",

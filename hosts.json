@@ -552,6 +552,10 @@
     "hi-hrs-justia",
     "hi-constitution-justia",
     "hi-cases-justia",
+    "ia-code-justia",
+    "ia-constitution-justia",
+    "ia-cases-justia",
+    "ia-subsequent-justia",
     "id-statutes-justia",
     "id-constitution-justia",
     "id-cases-justia",
@@ -1522,6 +1526,22 @@
    ],
    "blocked_sources": []
   },
+  "www.iowacourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ia-opinions-iowacourts",
+    "ia-further-review-casepage",
+    "ia-further-review-orders"
+   ],
+   "blocked_sources": []
+  },
+  "www.iowacourts.state.ia.us": {
+   "status": "allowed",
+   "sources": [
+    "ia-docket-ecourts"
+   ],
+   "blocked_sources": []
+  },
   "www.jud.ct.gov": {
    "status": "allowed",
    "sources": [
@@ -1613,6 +1633,7 @@
     "fl-fac-lii",
     "ga-admincode-lii",
     "hi-har-lii",
+    "ia-iac-lii",
     "id-idapa-lii",
     "il-admincode-lii",
     "in-admincode-lii",
@@ -1669,6 +1690,19 @@
    "status": "allowed",
    "sources": [
     "ga-legis-session-laws"
+   ],
+   "blocked_sources": []
+  },
+  "www.legis.iowa.gov": {
+   "status": "allowed",
+   "sources": [
+    "ia-code-legis",
+    "ia-code-volumes-legis",
+    "ia-acts-legis",
+    "ia-constitution-legis",
+    "ia-courtrules-legis",
+    "ia-iac-legis",
+    "ia-iab-legis"
    ],
    "blocked_sources": []
   },
