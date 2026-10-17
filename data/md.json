@@ -1,0 +1,1125 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "md",
+  "name": "Maryland",
+  "compiled": "2026-10-16",
+  "summary": "Statutes and the Constitution: mgaleg.maryland.gov StatuteText pages are constructible from (article code, section) and give one section per page (script route verified; WebFetch needs per-URL approval for built URLs); per-article PDFs under /{YYYY}RS/Statute_Web/ are the bulk/corpus route; Justia (2025) is the WebFetch-readable tier-2. Maryland Rules are online only on Westlaw's government site, which refuses automated access; only amendment Rules Orders are free on mdcourts.gov, and no tier-2 host carries the Rules. COMAR moved to regs.maryland.gov (Open Law Library; constructible per regulation, bulk XML on GitHub; unofficial text); the Maryland Register's last 15 issues are free as HTML on dsd.maryland.gov. Case law: mdcourts.gov serves reported Supreme Court / Appellate Court opinions from 1995 through a plain-GET index (official and UELMA-authenticated since July 1, 2018, but slip pagination only) and unreported Appellate Court opinions from May 2015 by monthly list; certiorari grants/denials are monthly HTML lists searchable only by party name.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of Maryland (Court of Appeals of Maryland before Dec. 14, 2022)",
+        "courtlistener_id": "md",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Md.",
+        "reporters": [
+          "Md.",
+          "A.3d",
+          "A.2d",
+          "A."
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Appellate Court of Maryland (Court of Special Appeals of Maryland before Dec. 14, 2022)",
+        "courtlistener_id": "mdctspecapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Md. App. (pre-2022 opinions: Md. Ct. Spec. App.)",
+        "reporters": [
+          "Md. App.",
+          "A.3d",
+          "A.2d"
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Annotated Code of Maryland (articles)",
+        "examples": [
+          "Md. Code Ann., Cts. & Jud. Proc. § 5-101",
+          "CJP § 5-101",
+          "Md. Code Ann., Crim. Law § 2-201(a)",
+          "Md. Code Ann., Real Prop. § 8-401(b)",
+          "Md. Code Ann., Health-Gen. § 4-301",
+          "Md. Code Ann., Cts. & Jud. Proc. § 3-2A-04",
+          "CP § 8-301.1",
+          "Courts and Judicial Proceedings Article, § 5-101",
+          "Md. Code (1974, 2020 Repl. Vol.), Courts and Judicial Proceedings Article § 5-101",
+          "section 10-1601 of the State Government Article",
+          "§ 5-101 of the Courts & Judicial Proceedings Article",
+          "§§ 10-1601 et seq. of the State Government Article",
+          "Md. Code Ann., State Gov't §§ 10-1601–10-1611"
+        ],
+        "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Corps\\.\\s*(?:&|and)\\s*Ass['’]ns|Corps\\.\\s*(?:&|and)\\s*Ass['’]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Crim\\.\\s*Proc\\.|State\\s*Gov['’]t|Pub\\.\\s*Utils\\.|Pub\\.\\s*Safety|Local\\s*Gov['’]t|Hum\\.\\s*Servs\\.|Local\\s*Gov['’]t|Health\\s*[-–]\\s*Gen\\.|Health\\s*[-–]\\s*Gen\\.|Health\\s*Occ\\.|State\\s*Gov['’]t|Pub\\.\\s*Util\\.|Econ\\.\\s*Dev\\.|Real\\s*Prop\\.|Gen\\.\\s*Prov\\.|Fin\\.\\s*Inst\\.|Tax\\s*[-–]\\s*Prop\\.|Alc\\.\\s*Bev\\.|Tax\\s*[-–]\\s*Prop\\.|Nat\\.\\s*Res\\.|Elec\\.\\s*Law|Crim\\.\\s*Law|Bus\\.\\s*Reg\\.|Land\\s*Use|Tax\\s*[-–]\\s*Gen\\.|Fam\\.\\s*Law|Tax\\s*[-–]\\s*Gen\\.|Com\\.\\s*Law|Transp\\.|Envir\\.|Agric\\.|Educ\\.|Env['’]t|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-–]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-–]\\s*\\s*Property|Health\\s*[-–]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-–]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-–]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-–]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?§+\\s*(?P<section>\\d+[A-Z]?[-–](?:\\d+[A-Z][-–])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|SFP|HCD|CJP|BOP|PUA|CL|CS|CA|EC|AG|FI|BR|ET|CP|CR|SF|HS|PU|FL|CJ|LU|AB|IN|LG|NR|HG|TP|RP|ED|GP|HO|SG|EN|TG|SP|PS|HU|EL|TR|LE|BO)\\b))\\s*§+\\s*(?P<section2>\\d+[A-Z]?[-–](?:\\d+[A-Z][-–])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:§+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-–](?:\\d+[A-Z][-–])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-–]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-–]\\s*\\s*Property|Health\\s*[-–]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-–]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-–]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-–]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))\\s+Article",
+        "routes_to": [
+          "md-code-mgaleg",
+          "md-code-mgaleg-pdf",
+          "md-code-justia"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Maryland Constitution and Declaration of Rights",
+        "examples": [
+          "Md. Const. art. IV, § 14",
+          "Md. Const. art. XI-A, § 2",
+          "Md. Const. Decl. of Rts. art. 24",
+          "Md. Decl. of Rts. art. 24",
+          "Article 24 of the Maryland Declaration of Rights",
+          "Article IV, Section 18 of the Maryland Constitution"
+        ],
+        "regex": "Md\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-[A-I])?),?\\s*§\\s*(?P<section>\\d+[A-Za-z]?)|Md\\.\\s*(?:Const\\.\\s*)?Decl(?:\\.|aration)\\s*of\\s*R(?:ts|ights)\\.?,?\\s*art\\.\\s*(?P<dr>\\d+)|Article\\s+(?P<dr2>\\d+)\\s+of\\s+the\\s+(?:Maryland\\s+)?Declaration\\s+of\\s+Rights|Article\\s+(?P<article2>[IVXL]+(?:-[A-I])?),?\\s+(?:Section|§)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Maryland\\s+Constitution",
+        "routes_to": [
+          "md-constitution-mgaleg",
+          "md-constitution-msa",
+          "md-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Maryland Rules",
+        "examples": [
+          "Md. Rule 2-322(b)",
+          "Md. Rule 5-702",
+          "Maryland Rule 8-605.1",
+          "Md. Rules 1-104",
+          "Rule 2-322(b) of the Maryland Rules",
+          "Md. Rule 19-301.7",
+          "MARPC 1.7",
+          "Maryland Rule 5- 404(a)(2)(B)"
+        ],
+        "regex": "(?:Md\\.\\s*Rules?|Maryland\\s+Rules?(?:\\s+of\\s+Procedure)?)\\s*(?P<rule>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Maryland\\s+Rules|MARPC\\s*(?:Rule\\s*)?(?P<marpc>\\d\\.\\d+)|Md\\.\\s*Rule\\s*(?P<marpc2>19-30\\d\\.\\d+)",
+        "routes_to": [
+          "md-rules-westlaw",
+          "md-rules-orders"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Code of Maryland Regulations (COMAR)",
+        "examples": [
+          "COMAR 26.08.02.03",
+          "Md. Code Regs. 26.08.02.03",
+          "COMAR 13A.03.02.01B(2)",
+          "COMAR 10.09.10.01",
+          "COMAR 26.08.02.03-2",
+          "COMAR 26.08.02"
+        ],
+        "regex": "(?:COMAR|Md\\.\\s*Code\\s*Regs\\.)\\s*(?P<title>\\d{2}[A-Z]?)\\.(?P<subtitle>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<regulation>\\d{2}(?:-\\d+[A-Z]?)?))?",
+        "routes_to": [
+          "md-comar-regs",
+          "md-comar-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Maryland Register",
+        "examples": [
+          "53 Md. Reg. 975 (Oct. 2, 2026)",
+          "20:11 Md. R. 917",
+          "8:15 Md. R. 1308"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+Md\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?P<volume2>\\d{1,2}):(?P<issue>\\d{1,2})\\s+Md\\.\\s*R\\.\\s*(?P<page2>\\d+)",
+        "routes_to": [
+          "md-register-dsd"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Reported Maryland cases (Md. / Md. App.)",
+        "examples": [
+          "Hollins v. State, 489 Md. 296 (2024)",
+          "Syed v. Lee, 488 Md. 537 (2024)",
+          "Potts v. State, 231 Md. App. 398 (2016)",
+          "Bennett v. Gentile, 487 Md. 487 (2024)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Md\\.(?:\\s*(?P<app>App\\.))?\\s+(?P<page>\\d{1,4})(?!\\d)",
+        "routes_to": [
+          "md-opinions-reported",
+          "md-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Atlantic Reporter with Maryland parenthetical",
+        "examples": [
+          "300 A.3d 1 (Md. 2023)",
+          "250 A.3d 100 (Md. Ct. Spec. App. 2021)",
+          "300 A.3d 50 (Md. App. 2024)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "md-opinions-reported",
+          "md-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Maryland appellate docket form (No. N, September Term, YYYY) - reported and unreported",
+        "examples": [
+          "Hollins v. State, No. 5, September Term, 2024",
+          "Farmer v. State, No. 2330, Sept. Term, 2024 (Md. App. Sept. 30, 2026)",
+          "Midaro Invs. 2021, LLC v. Gerzowski, Nos. 1991 and 1992, Sept. Term, 2023",
+          "Misc. No. 26, September Term, 2021"
+        ],
+        "regex": "(?:(?:Misc\\.|AG|Pet\\.)\\s*)?Nos?\\.\\s*(?P<number>\\d{1,4})(?:\\s*(?:,|and|&)\\s*\\d{1,4})*,?\\s*Sept(?:ember|\\.)?\\s*Term,?\\s*(?P<term>(?:19|20)\\d\\d)",
+        "routes_to": [
+          "md-opinions-reported",
+          "md-opinions-unreported",
+          "md-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Westlaw / Lexis unreported cites",
+        "examples": [
+          "2024 WL 123456 (Md. App. Mar. 1, 2024)",
+          "2019 WL 654321 (Md. Ct. Spec. App. Feb. 1, 2019)",
+          "2023 Md. App. LEXIS 100"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)|Md\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+        "routes_to": [
+          "md-opinions-unreported",
+          "md-cases-justia"
+        ]
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Certiorari dispositions",
+        "examples": [
+          "cert. denied, 475 Md. 1 (2021)",
+          "cert. granted, 489 Md. 296 (2024)",
+          "cert. denied, ___ Md. ___ (2026)"
+        ],
+        "regex": "cert\\.\\s*(?P<disp>denied|granted|dismissed)(?:\\s+as\\s+improvidently\\s+granted)?,?\\s*(?:(?P<volume>\\d{1,3}|_+)\\s+Md\\.\\s+(?P<page>\\d{1,4}|_+)|No\\.\\s*(?P<number>\\d+))",
+        "routes_to": [
+          "md-cert-petitions"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "Agriculture": "gag",
+      "Agric.": "gag",
+      "AG": "gag",
+      "Alcoholic Beverages and Cannabis": "gab",
+      "Alcoholic Beverages": "gab",
+      "Alc. Bev. & Cannabis": "gab",
+      "Alc. Bev.": "gab",
+      "AB": "gab",
+      "Alcoholic Beverages & Cannabis": "gab",
+      "Business Occupations and Professions": "gbo",
+      "Bus. Occ. & Prof.": "gbo",
+      "BOP": "gbo",
+      "BO": "gbo",
+      "Business Occupations & Professions": "gbo",
+      "Business Regulation": "gbr",
+      "Bus. Reg.": "gbr",
+      "BR": "gbr",
+      "Commercial Law": "gcl",
+      "Com. Law": "gcl",
+      "CL": "gcl",
+      "Corporations and Associations": "gca",
+      "Corps. & Ass'ns": "gca",
+      "Corps. & Ass’ns": "gca",
+      "CA": "gca",
+      "Corporations & Associations": "gca",
+      "Correctional Services": "gcs",
+      "Corr. Servs.": "gcs",
+      "CS": "gcs",
+      "Courts and Judicial Proceedings": "gcj",
+      "Cts. & Jud. Proc.": "gcj",
+      "CJP": "gcj",
+      "CJ": "gcj",
+      "Courts & Judicial Proceedings": "gcj",
+      "Criminal Law": "gcr",
+      "Crim. Law": "gcr",
+      "CR": "gcr",
+      "Criminal Procedure": "gcp",
+      "Crim. Proc.": "gcp",
+      "CP": "gcp",
+      "Economic Development": "gec",
+      "Econ. Dev.": "gec",
+      "EC": "gec",
+      "Education": "ged",
+      "Educ.": "ged",
+      "ED": "ged",
+      "Election Law": "gel",
+      "Elec. Law": "gel",
+      "EL": "gel",
+      "Environment": "gen",
+      "Env't": "gen",
+      "Envir.": "gen",
+      "EN": "gen",
+      "Estates and Trusts": "get",
+      "Est. & Trusts": "get",
+      "ET": "get",
+      "Estates & Trusts": "get",
+      "Family Law": "gfl",
+      "Fam. Law": "gfl",
+      "FL": "gfl",
+      "Financial Institutions": "gfi",
+      "Fin. Inst.": "gfi",
+      "FI": "gfi",
+      "General Provisions": "ggp",
+      "Gen. Provis.": "ggp",
+      "Gen. Prov.": "ggp",
+      "GP": "ggp",
+      "Health - General": "ghg",
+      "Health-General": "ghg",
+      "Health General": "ghg",
+      "Health-Gen.": "ghg",
+      "Health–Gen.": "ghg",
+      "HG": "ghg",
+      "Health Occupations": "gho",
+      "Health Occ.": "gho",
+      "HO": "gho",
+      "Housing and Community Development": "ghs",
+      "Hous. & Cmty. Dev.": "ghs",
+      "HCD": "ghs",
+      "HS": "ghs",
+      "Housing & Community Development": "ghs",
+      "Human Services": "ghu",
+      "Hum. Servs.": "ghu",
+      "HU": "ghu",
+      "Insurance": "gin",
+      "Ins.": "gin",
+      "IN": "gin",
+      "Labor and Employment": "gle",
+      "Lab. & Empl.": "gle",
+      "LE": "gle",
+      "Labor & Employment": "gle",
+      "Land Use": "glu",
+      "LU": "glu",
+      "Local Government": "glg",
+      "Local Gov't": "glg",
+      "Local Gov’t": "glg",
+      "LG": "glg",
+      "Natural Resources": "gnr",
+      "Nat. Res.": "gnr",
+      "NR": "gnr",
+      "Public Safety": "gps",
+      "Pub. Safety": "gps",
+      "PS": "gps",
+      "Public Utilities": "gpu",
+      "Pub. Util.": "gpu",
+      "Pub. Utils.": "gpu",
+      "PUA": "gpu",
+      "PU": "gpu",
+      "Real Property": "grp",
+      "Real Prop.": "grp",
+      "RP": "grp",
+      "State Finance and Procurement": "gsf",
+      "State Fin. & Proc.": "gsf",
+      "SFP": "gsf",
+      "SF": "gsf",
+      "State Finance & Procurement": "gsf",
+      "State Government": "gsg",
+      "State Gov't": "gsg",
+      "State Gov’t": "gsg",
+      "SG": "gsg",
+      "State Personnel and Pensions": "gsp",
+      "State Pers. & Pens.": "gsp",
+      "SPP": "gsp",
+      "SP": "gsp",
+      "State Personnel & Pensions": "gsp",
+      "Tax - General": "gtg",
+      "Tax-General": "gtg",
+      "Tax General": "gtg",
+      "Tax-Gen.": "gtg",
+      "Tax–Gen.": "gtg",
+      "TG": "gtg",
+      "Tax - Property": "gtp",
+      "Tax-Property": "gtp",
+      "Tax Property": "gtp",
+      "Tax-Prop.": "gtp",
+      "Tax–Prop.": "gtp",
+      "TP": "gtp",
+      "Transportation": "gtr",
+      "Transp.": "gtr",
+      "TR": "gtr"
+    },
+    "notes": "Court renaming: effective Dec. 14, 2022 the Court of Appeals of Maryland became the Supreme Court of Maryland and the Court of Special Appeals became the Appellate Court of Maryland (name change only; mdcourts.gov opinions page). Pre-2022 'Court of Appeals' = the HIGH court (reporter Md.), not an intermediate court; pre-2022 'Ct. Spec. App.' = today's Appellate Court (reporter Md. App.). mdcourts.gov URLs still use 'coa' and 'cosa'. Statutes: the Code is cited by ARTICLE name, never by title number: Bluebook 'Md. Code Ann., Cts. & Jud. Proc. § 5-101'; Maryland courts write 'Md. Code (1974, 2020 Repl. Vol.), § 5-101 of the Courts and Judicial Proceedings Article' or define a short form ('CJP § 5-101', 'CP § 8-301.1'). law_aliases maps every full name, Bluebook abbreviation and practitioner short form to the mgaleg article code (gcj, gcr, grp ...). Two- and three-letter short forms (CP, CR, CJ, RP, FL, ET, SG, IN, ED, CA, LE ...) are matched case-sensitively and only immediately before '§'; route them here only with Maryland context, because 'CP § ' or 'CA § ' also occur elsewhere (e.g. California). Bare article names shared with other states ('Real Property', 'Criminal Law', 'Insurance', 'Education', 'Family Law') must not route here without 'Md.'/'Maryland'/'Article' context. Section numbers are title-subtitle-section with hyphens, and some subtitles carry a letter (CJP § 3-2A-04, HG § 19-3B-01); the regex accepts a three-part number only when the middle part has a letter, so a range '§§ 10-1601–10-1611' yields 10-1601 (first section), never a fused number. Pages print sections with an EN DASH (§5–101); fetch_doc.py verify normalises dashes. Constitution: 'Md. Const. art. IV, § 14' → mgaleg article c4, section 14; Declaration of Rights 'Md. Const. Decl. of Rts. art. 24' / 'Article 24 of the Maryland Declaration of Rights' → c0, section 24; lettered articles XI-A … XI-I → c11A … c11I. Maryland Rules: 'Md. Rule 2-322(b)' (title-chapter+rule); Attorneys' Rules of Professional Conduct are Title 19 ('Md. Rule 19-301.7' = MARPC 1.7: Rule 1.x → 19-301.x, 2.x → 19-302.x … 8.x → 19-308.x). Bare 'Rule 2-322' must not route here without Maryland context. COMAR 'TT.SS.CC.RR' (title may carry a letter: 13A, 10A); Register Bluebook 'NN Md. Reg. PPP' and COMAR history form 'V:I Md. R. PPP' (volume:issue). Unreported Appellate Court opinions are cited by docket 'No. NNNN, Sept. Term, YYYY (Md. App. date)'; Md. Rule 1-104 lets those issued on or after July 1, 2023 be cited for persuasive value only. Maryland has no public-domain citation. Docket numbers: Supreme Court 'No. N, September Term, YYYY' (term year = the court's term, not the decision year; opinion PDFs sit under the FILING year); Appellate Court 'No. NNNN, September Term, YYYY' (4-digit, zero-padded in URLs). The docket form is shared by both courts and by other bodies using 'Term' dockets: route on it only with Maryland context. Westlaw cites route here only with a '(Md.' parenthetical. Examples marked with round reporter numbers (e.g. '300 A.3d 1 (Md. 2023)', '475 Md. 1') are form examples for the regex, not real citations. CourtListener ids 'md' and 'mdctspecapp' are from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "md-code-mgaleg",
+      "family": "statutes",
+      "title": "Maryland General Assembly — Statutes Text (Annotated Code of Maryland, by article)",
+      "publisher": "Maryland Department of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No disclaimer or authentication statement on the StatuteText page. Md. Code Ann., State Gov't § 10-1601(d)(3) names DLS as official publisher of the Code, but UELMA (§ 10-1602) applies only to material designated official under § 10-1603; no designation shown on the page.",
+      "coverage": "All 36 articles of the Annotated Code plus the Constitution (articles c0 = Declaration of Rights, c1-c20). One section per page.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article={article}&section={section}&enactments={true|false}",
+        "pattern_rules": "article = three-letter code from the Statutes page table (gcj Courts and Judicial Proceedings, gcr Criminal Law, gcp Criminal Procedure, grp Real Property, ghg Health - General, gsg State Government, gtg Tax - General ... — see citation_map.law_aliases). section = the section number exactly as cited with ASCII hyphens (5-101, 3-2A-04, 8-301.1, 10-1601); no padding. enactments=false shows the law in effect January 1 of this year; enactments=true includes the last session's enactments (in effect October 1) — use true after October 1. A non-existent section returns HTTP 200 with the page heading 'File Not Found', not a 404.",
+        "index_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/Statutes",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": "WebFetch of the built StatuteText URL returned PROVENANCE_REQUIRED (permission prompt unanswered); no search result surfaced a StatuteText URL, so WebFetch could not be tested on this route. The script route reads the full section (5-101: 8.4K chars of page, section text after the 'Statutes Text' heading)."
+      },
+      "currency": {
+        "where": "Statutes index page radio buttons only; no currency line on section pages",
+        "observed": "Yes (Show statutes in effect as of October 1st of this year)"
+      },
+      "hazards": [
+        "section headings use an en dash (§5–101): exact-match tools must normalise dashes",
+        "missing section returns 200 'File Not Found' rather than 404",
+        "enactments=false vs true changes which version is shown (Jan. 1 vs Oct. 1)",
+        "WebFetch needs per-URL approval for built URLs (gated)",
+        "page chrome (menus, open-data dialog) surrounds the section text"
+      ],
+      "probe": {
+        "citation": "Md. Code Ann., Cts. & Jud. Proc. § 5-101",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcj&section=5-101&enactments=true",
+        "expect": "A civil action at law shall be filed within three years"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py verify: VERIFIED exact 'A civil action at law shall be filed within three years from the date it accrues'. Also Crim. Law § 2-201 ('(a) A murder is in the first degree if it is'), Real Prop. § 8-401, Crim. Proc. § 4-101, Cts. & Jud. Proc. § 3-2A-04, State Gov't § 10-1601, Health-Gen. § 4-301 all body present; gcj 5-1010 → 'File Not Found'."
+      },
+      "notes": "Bulk: the same text is published as per-section and per-article PDFs (see md-code-mgaleg-pdf). The site's 'Open Legislative Data' CSV/JSON downloads cover bills only, not statute text."
+    },
+    {
+      "id": "md-code-mgaleg-pdf",
+      "family": "statutes",
+      "title": "Maryland General Assembly — Statute_Web PDFs (per section and per article)",
+      "publisher": "Maryland Department of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No authentication statement in the PDFs; see md-code-mgaleg.",
+      "coverage": "Per-section PDFs and whole-article PDFs for every article and constitution article, in a folder per session year (2019RS … 2027RS observed). The 2027RS folder (files dated Aug.–Sept. 2026) reflects the law after the 2026 session; older folders are frozen snapshots (2024RS c0.pdf still shows Declaration of Rights Art. 48 'NOT IN EFFECT ** SUBJECT TO REFERENDUM NOVEMBER 2024').",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://mgaleg.maryland.gov/{YYYY}RS/Statute_Web/{article}/{section}.pdf  |  whole article: https://mgaleg.maryland.gov/{YYYY}RS/Statute_Web/{article}/{article}.pdf",
+        "pattern_rules": "article = mgaleg code (gcj, grp, c0, c4 ...); section with ASCII hyphens (5-101). YYYY = the NEXT regular session year relative to the text you want: after the 2026 session use 2027RS (Last-Modified Sept. 2026); 2026RS holds text as of Dec. 2025. Check Last-Modified via fetch_doc.py info and prefer the newest folder that exists.",
+        "index_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/Statutes",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": "WebFetch read the 9-page 2024RS c0.pdf (search-result URL) completely. Whole-article PDFs are far beyond the WebFetch window (gcj.pdf 818 pp, 1,728,658 chars) — use the script route or per-section PDFs."
+      },
+      "currency": {
+        "where": "folder name and HTTP Last-Modified only; nothing inside the PDF",
+        "observed": "2027RS/Statute_Web/gcj/gcj.pdf Last-Modified Tue, 01 Sep 2026"
+      },
+      "hazards": [
+        "folder year must be chosen deliberately; old folders are stale snapshots",
+        "whole-article PDFs exceed the WebFetch window",
+        "no currency statement inside the PDF"
+      ],
+      "probe": {
+        "citation": "Md. Code Ann., Cts. & Jud. Proc. § 5-101",
+        "url": "https://mgaleg.maryland.gov/2027RS/Statute_Web/gcj/5-101.pdf",
+        "expect": "A civil action at law shall be filed within three years"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 2026RS/gcj/5-101.pdf 1 p, body 'A civil action at law shall be filed within three years'; 2027RS/gcj/5-101.pdf 1 p (Last-Modified 01 Sep 2026); 2027RS/grp/8-401.pdf 9 pp; 2027RS/gcj/gcj.pdf 818 pp; 2027RS/c0/c0.pdf 9 pp. WebFetch 2024RS/c0/c0.pdf: Art. 24 'That no man ought to be taken or imprisoned or', not truncated."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-code-justia",
+      "family": "statutes",
+      "title": "Justia — Maryland Code (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; edition label '2025 Maryland Code' / '2025 Maryland Statutes'.",
+      "coverage": "Maryland Code editions incl. 2023, 2024, 2025 (and older years back to 2005); unversioned URL serves 2025.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/maryland/{article-slug}/title-{title}/subtitle-{subtitle}/section-{section}/",
+        "pattern_rules": "article-slug = article name lower-case hyphenated (courts-and-judicial-proceedings, real-property, criminal-law). title = part before the first hyphen of the section; subtitle = the digit(s)/letters that lead the second part (§ 5-101 → title-5/subtitle-1; § 8-401 → title-8/subtitle-4); lettered subtitles (3-2A-04) untested. section verbatim with hyphens. Year-specific: insert /{year}/ after /maryland/.",
+        "index_url": "https://law.justia.com/codes/maryland/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable: fetch_doc.py reports law.justia.com answers robots.txt with a bot check",
+        "notes": "Built section URLs went through WebFetch without a permission prompt."
+      },
+      "currency": {
+        "where": "page header and Universal Citation line",
+        "observed": "2025 Maryland Code; 'MD Courts and Judicial Proceedings Code § 5-101 (2025)'"
+      },
+      "hazards": [
+        "edition lags the official text (2025 edition; 2026 session changes missing)",
+        "shell blocked by bot challenge",
+        "subtitle slug for lettered subtitles not verified"
+      ],
+      "probe": {
+        "citation": "Md. Code Ann., Cts. & Jud. Proc. § 5-101",
+        "url": "https://law.justia.com/codes/maryland/courts-and-judicial-proceedings/title-5/subtitle-1/section-5-101/",
+        "expect": "A civil action at law shall be filed within three"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, 'A civil action at law shall be filed within three', '2025 Maryland Code', not truncated. Second: /real-property/title-8/subtitle-4/section-8-401/ YES '(a) Whenever the tenant or tenants fail to pay the', '2025 Maryland Statutes'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-constitution-mgaleg",
+      "family": "constitution",
+      "title": "Maryland Constitution and Declaration of Rights (mgaleg Statutes Text)",
+      "publisher": "Maryland Department of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "State Gov't § 10-1601(d)(1) names DLS official publisher of the Constitution; no UELMA designation or authentication statement on the page.",
+      "coverage": "Declaration of Rights (c0) and Articles I-XX (c1 … c20, incl. XI-A … XI-I as c11A … c11I); one section per page.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article={c_code}&section={section}&enactments=true",
+        "pattern_rules": "Declaration of Rights article N → article=c0&section=N. Constitution art. IV, § 14 → article=c4&section=14 (Roman → Arabic, letter suffix kept upper-case: XI-A → c11A). Article X (repealed) has no code in the table. Whole-article PDF: https://mgaleg.maryland.gov/{YYYY}RS/Statute_Web/c0/c0.pdf (see md-code-mgaleg-pdf).",
+        "index_url": "https://mgaleg.maryland.gov/mgawebsite/Laws/Statutes",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": "Same host and behaviour as md-code-mgaleg."
+      },
+      "currency": {
+        "where": "none on the page",
+        "observed": ""
+      },
+      "hazards": [
+        "Roman-to-Arabic article mapping needed",
+        "built URLs gated for WebFetch"
+      ],
+      "probe": {
+        "citation": "Md. Const. Decl. of Rts. art. 24",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=c0&section=24&enactments=false",
+        "expect": "That no man ought to be taken or imprisoned or disseized"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 'Article - Declaration of Rights … §24. That no man ought to be taken or imprisoned or disseized'. Second: c4 § 14 'The Supreme Court of Maryland shall be composed of seven justices'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-constitution-msa",
+      "family": "constitution",
+      "title": "Maryland Manual — Constitution of Maryland (Maryland State Archives)",
+      "publisher": "Maryland State Archives",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Reference copy in the Maryland Manual; DLS, not the Archives, is the statutory official publisher (State Gov't § 10-1601(d)(1)).",
+      "coverage": "Whole Constitution, one page per article with amendment notes; 'with Amendments through Two Thousand and Twenty-Four'.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://msa.maryland.gov/msa/mdmanual/43const/html/{page}.html",
+        "pattern_rules": "page = 00dec (Declaration of Rights); other articles appear to follow NNartR (04art4 = Article IV) — only 00dec and 04art4 were seen; confirm from https://msa.maryland.gov/msa/mdmanual/43const/html/const.html.",
+        "index_url": "https://msa.maryland.gov/msa/mdmanual/43const/html/const.html",
+        "navigation": "const.html → article page",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "http-error",
+        "robots_txt": "not read",
+        "notes": "fetch_doc.py gets HTTP 200 (22,611 bytes) but its text extractor returns 0 characters (the page's HTML is malformed: <head> never closed), so grep/verify cannot work on this host. WebFetch reads it fine."
+      },
+      "currency": {
+        "where": "page header and footer",
+        "observed": "with Amendments through Two Thousand and Twenty-Four; Copyright April 25, 2025"
+      },
+      "hazards": [
+        "script extractor returns empty text",
+        "reference copy, not the official publisher"
+      ],
+      "probe": {
+        "citation": "Md. Const. Decl. of Rts. art. 24",
+        "url": "https://www.msa.maryland.gov/msa/mdmanual/43const/html/00dec.html",
+        "expect": "That no man ought to be taken or imprisoned or"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, Art. 24 'That no man ought to be taken or imprisoned or'; 'with Amendments through Two Thousand and Twenty-Four'; complete through Art. 48. fetch_doc.py: 200, chars=0."
+      },
+      "notes": "Use as WebFetch second source for the Constitution, since mgaleg built URLs are gated for WebFetch."
+    },
+    {
+      "id": "md-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — Maryland Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'This Constitution may not be the most recent version.'",
+      "coverage": "Declaration of Rights on /00dec.html; other articles on sibling pages.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Declaration of Rights page is /constitution/maryland/00dec.html; other article slugs not verified.",
+        "index_url": "https://law.justia.com/constitution/maryland/",
+        "navigation": "index → article page",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (bot check)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "disclaimer",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "possibly stale",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "Md. Const. Decl. of Rts. art. 24",
+        "url": "https://law.justia.com/constitution/maryland/00dec.html",
+        "expect": "That no man ought to be taken or imprisoned or"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, 'That no man ought to be taken or imprisoned or'; last article visible Art. 47 (official text has Art. 48 — Justia copy appears stale)."
+      },
+      "notes": "Justia ends at Art. 47 while mgaleg/MSA include Art. 48 (2024 amendment): prefer tier 1."
+    },
+    {
+      "id": "md-rules-westlaw",
+      "family": "court_rules",
+      "title": "Maryland Rules of Procedure (Westlaw government site)",
+      "publisher": "Supreme Court of Maryland, hosted by Thomson Reuters Westlaw",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "State Gov't § 10-1601(d)(4) names the Supreme Court official publisher of the Maryland Rules; the Rules Committee page says 'The Maryland Rules are available through Westlaw.'",
+      "coverage": "Maryland Rules Titles 1-20 (only free full-text source).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://govt.westlaw.com/mdc/Index?bhcp=1&transitionType=Default&contextData=(sc.Default)",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "blocked-challenge",
+        "robots_txt": "fetch_doc.py: govt.westlaw.com answers robots.txt with a bot check",
+        "notes": "WebFetch of the link taken from mdcourts.gov/rules returned PROVENANCE_REQUIRED (not attempted further). Other records (CA, NY) record WebFetch SITE_BLOCKED on govt.westlaw.com."
+      },
+      "currency": {
+        "where": "not reachable",
+        "observed": ""
+      },
+      "hazards": [
+        "host refuses automated access",
+        "no tier-2 copy exists"
+      ],
+      "probe": {
+        "citation": "Md. Rule 2-322(b)",
+        "url": "https://govt.westlaw.com/mdc/Index?bhcp=1&transitionType=Default&contextData=(sc.Default)",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: 'REFUSED: govt.westlaw.com answers robots.txt with a bot check (challenge)'. Not retried by any route."
+      },
+      "notes": "Rule text can only be linked, not quoted, unless it appears in a Rules Order (md-rules-orders) or is quoted in an opinion."
+    },
+    {
+      "id": "md-rules-orders",
+      "family": "court_rules",
+      "title": "Rules Orders and Rules Committee Reports (amendments to the Maryland Rules)",
+      "publisher": "Supreme Court of Maryland / Standing Committee on Rules of Practice and Procedure",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Court orders adopting amendments; they set out only the amended rules, not a consolidated text.",
+      "coverage": "Rules Orders and Reports listed on /rules/ruleschanges (228th Report, 2026, back through earlier reports); older orders under /sites/default/files/import/rules/rodocs/.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.mdcourts.gov/sites/default/files/rules/order/ro{N}th.pdf",
+        "pattern_rules": "N = Rules Committee report number (ro227th.pdf); file names vary (ro228th_0.pdf, rorule16-310.pdf) — take the link from the index.",
+        "index_url": "https://www.mdcourts.gov/rules/ruleschanges",
+        "navigation": "ruleschanges → 'Rules Order' link for the report → PDF; search the PDF for the rule number",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "mdcourts.gov: User-agent * disallows /core/, /profiles/, /admin/, /search/, /user/* and README files; /rules and /sites/default/files allowed",
+        "notes": "WebFetch not tried (stopped after a 429). Orders are long (ro227th.pdf 173 pp, 226K chars)."
+      },
+      "currency": {
+        "where": "ruleschanges index (report and order dates)",
+        "observed": "228th Report … Rules Order 06/04/2026"
+      },
+      "hazards": [
+        "amendment text only (underline/strike-through formatting lost in text extraction)",
+        "file names irregular",
+        "long PDFs"
+      ],
+      "probe": {
+        "citation": "227th Rules Order (amending Md. Rule 2-305 et al.)",
+        "url": "https://www.mdcourts.gov/sites/default/files/rules/order/ro227th.pdf",
+        "expect": "IN THE SUPREME COURT OF MARYLAND RULES ORDER"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: application/pdf 173 pp, 226,155 chars; begins 'IN THE SUPREME COURT OF MARYLAND RULES ORDER'; lists amendments to Rules 2-305 … 20-504."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-comar-regs",
+      "family": "admin_code",
+      "title": "Library of Maryland Regulations — COMAR (regs.maryland.gov)",
+      "publisher": "Maryland Division of State Documents (Open Law Library platform)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Home page: 'The text appearing here is not the official text'; only text obtained directly from DSD is official (https://regs.maryland.gov/).",
+      "coverage": "All COMAR titles; one regulation per page; chapter pages list regulations. Old dsd.maryland.gov/regulations/Pages/{cite}.aspx URLs redirect here.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://regs.maryland.gov/us/md/exec/comar/{title}.{subtitle}.{chapter}.{regulation}",
+        "pattern_rules": "Use the COMAR number verbatim: 26.08.02.03, 13A.03.02.01, 26.08.02.03-2 (title letters upper-case, two-digit parts). Drop the regulation for the chapter table of contents (/26.08.02); /comar/{title} is the title index. Subsection letters (01B(2)) are on the regulation page.",
+        "index_url": "https://regs.maryland.gov/us/md/exec/comar",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "regs.maryland.gov: User-agent * Disallow /_* (Cloudflare-managed block also disallows meta-externalagent); dsd.maryland.gov: disallows /_vti_bin/, /_layouts/, /_catalogs/",
+        "notes": "No search result surfaced a regs.maryland.gov URL, so WebFetch was not tried. Footer: 'Please do not scrape. Instead, bulk download' — single-page lookups are fine; for anything bulk use the GitHub repositories."
+      },
+      "currency": {
+        "where": "home page paragraph",
+        "observed": "is current as of October 12, 2026"
+      },
+      "hazards": [
+        "unofficial text (DSD print/PDF is official)",
+        "publisher asks not to scrape; bulk via GitHub",
+        "very long regulations (26.08.02.03-2 is 173K chars)"
+      ],
+      "probe": {
+        "citation": "COMAR 26.08.02.03",
+        "url": "https://regs.maryland.gov/us/md/exec/comar/26.08.02.03",
+        "expect": "Surface water quality criteria shall apply"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: '.03 Surface Water Quality Criteria. A. Applicability. (1) Surface water quality criteria shall apply'. Second: 13A.03.02.01 '.01 Scope. A. This chapter sets out the enrollment, credit'; 10.09.10.01 Definitions present."
+      },
+      "notes": "Licence: CC BY-NC-SA 4.0, becoming CC0 180 days after publication. Bulk: github.com/maryland-dsd/law-xml-codified (and -cc0), law-html (and -cc0)."
+    },
+    {
+      "id": "md-comar-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — Maryland Code of Regulations",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "'State regulations are updated quarterly; we currently have two versions available.'",
+      "coverage": "COMAR per regulation with Md. R. history notes.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/maryland/COMAR-{title}-{subtitle}-{chapter}-{regulation}",
+        "pattern_rules": "Dots become hyphens: COMAR 26.08.02.03 → COMAR-26-08-02-03. Chapter browse: /regulations/maryland/title-{title}/subtitle-{subtitle}/chapter-{title}.{subtitle}.{chapter}.",
+        "index_url": "https://www.law.cornell.edu/regulations/maryland",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay: 10; /regulations allowed",
+        "notes": "WebFetch read the chapter page (search URL) but a following WebFetch of /COMAR-08-03-01-01 returned HTTP 429 (rate limited) — respect the crawl delay."
+      },
+      "currency": {
+        "where": "Notes section",
+        "observed": "State regulations are updated quarterly; Notes '(31:13 Md. R. 995)'"
+      },
+      "hazards": [
+        "quarterly lag",
+        "HTTP 429 when fetched in quick succession"
+      ],
+      "probe": {
+        "citation": "COMAR 26.08.02.03",
+        "url": "https://www.law.cornell.edu/regulations/maryland/COMAR-26-08-02-03",
+        "expect": "Surface water quality criteria shall apply"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: body 'A. Applicability. (1) Surface water quality criteria shall apply'; Notes through '(31:13 Md. R. 995)'; Last-Modified 02 Aug 2025. WebFetch: chapter-08.03.01 page OK (TOC only); COMAR-08-03-01-01 → 429."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-register-dsd",
+      "family": "admin_register",
+      "title": "Maryland Register Online (Division of State Documents)",
+      "publisher": "Maryland Division of State Documents, Office of the Secretary of State",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Issue text: 'The Maryland Register is an official State publication'; the online HTML carries a DSD certification paragraph but no UELMA authentication statement.",
+      "coverage": "Only the 15 most recent biweekly issues (on 2026-10-16: Vol. 53 Issue 7, Apr. 3, 2026 to Issue 21, Oct. 16, 2026). Older issues 404.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://dsd.maryland.gov/MDRIssues/{volume}{issue:02d}/Assembled.aspx",
+        "pattern_rules": "Vol. 53 Issue 20 → 5320. Register page numbers appear only in the issue's table of contents, not in the body text, so a 'NN Md. Reg. PPP' cite must be located through the TOC entry whose page range covers PPP. Issues older than the 15-issue window are not free (404).",
+        "index_url": "https://dsd.maryland.gov/Pages/MDRegister.aspx",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Disallow /_vti_bin/, /_layouts/, /_catalogs/ only",
+        "notes": "Search results still list older Assembled.aspx URLs (5110, 5021) that now 404. Issues are ~290K chars: beyond the WebFetch window."
+      },
+      "currency": {
+        "where": "issue header",
+        "observed": "Issue Date: October 2, 2026 Volume 53 • Issue 20 • Pages 975 — 1030"
+      },
+      "hazards": [
+        "rolling 15-issue window",
+        "no page markers in body",
+        "long pages exceed WebFetch window"
+      ],
+      "probe": {
+        "citation": "53 Md. Reg. 975 (Oct. 2, 2026)",
+        "url": "https://dsd.maryland.gov/MDRIssues/5320/Assembled.aspx",
+        "expect": "Volume 53 • Issue 20 • Pages 975"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 292,854 chars, 'Issue Date: October 2, 2026 Volume 53 • Issue 20 • Pages 975 — 1030'; /5306, /5301, /5110 → 404."
+      },
+      "notes": "regs.maryland.gov/us/md/exec/register lists Vol. 52-53 but its issue pages say Register publishing 'was not yet supported' (see absent)."
+    },
+    {
+      "id": "md-opinions-reported",
+      "family": "case_law",
+      "title": "Maryland Appellate Court Opinions (reported) — mdcourts.gov",
+      "publisher": "Maryland Judiciary",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "mdcourts.gov/opinions/opinions: opinions posted on or after July 1, 2018 are the official and authentic text under UELMA; earlier postings defer to the bound Md. / Md. App. reports. PDFs carry 'Pursuant to the Maryland Uniform Electronic Legal Materials Act … this document is authentic.'",
+      "coverage": "Supreme Court of Maryland (formerly Court of Appeals) and Appellate Court of Maryland (formerly Court of Special Appeals) reported opinions, filing years 1995-2026; includes per curiam orders, attorney-grievance and bar orders.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.mdcourts.gov/data/opinions/{coa|cosa}/{filing_year}/{docket_file}.pdf",
+        "pattern_rules": "Index (plain GET): https://www.mdcourts.gov/cgi-bin/indexlist.pl?court={coa|cosa|both}&year={YYYY|all}&order={bydate|bycase|bycite|byjudge|bytitle}&submit=Submit — rows give docket/term, Md./Md. App. cite (or 'slip.op'), filing date, judge, parties, and the PDF link. File names: Supreme Court No. N, Sept. Term 20TT → {N}a{TT}.pdf (5a24, 7a23); suffixes for other dockets: ag = attorney grievance (33a24ag), pc = per curiam order (5a24mpc), o = order (30a22o). Appellate Court No. NNNN, Sept. Term 20TT → {NNNN:04d}s{TT}.pdf (1991s23, 0311s24). The folder is the FILING year, not the term (Syed v. Lee, No. 7, Sept. Term 2023, filed 2024 → /coa/2024/7a23.pdf). If the filing year is unknown, use the index with order=bycite or bytitle.",
+        "index_url": "https://www.mdcourts.gov/opinions/opinions",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * — disallows /core/, /profiles/, /admin/, /search/, /user/*, /media/oembed and README files; /cgi-bin/indexlist.pl and /data/opinions allowed",
+        "notes": "WebFetch not tried on this host (stopped after a 429 elsewhere). Long opinions (Syed v. Lee: 187 pp, 375K chars) exceed the WebFetch window; use the script route."
+      },
+      "currency": {
+        "where": "index page timestamp line",
+        "observed": "2024 Index Listing of Supreme Court of Maryland Opinions Sat Oct 17 02:29:29 EDT 2026"
+      },
+      "hazards": [
+        "slip pagination only — PDFs do not carry Md. / Md. App. page numbers (Hollins PDF has no '489 Md.')",
+        "folder = filing year, not term year",
+        "docket suffixes (ag, pc, mpc, o)",
+        "very long opinions exceed WebFetch window",
+        "URLs still say coa/cosa after the 2022 renaming"
+      ],
+      "probe": {
+        "citation": "Hollins v. State, 489 Md. 296 (2024) (No. 5, Sept. Term 2024)",
+        "url": "https://www.mdcourts.gov/data/opinions/coa/2024/5a24.pdf",
+        "expect": "Isiah A. Hollins v. State of Maryland, No. 5, September Term, 2024"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "indexlist.pl coa 2024 (GET) → row '5/24 489 Md. 296 2024-12-23 Killough Hollins v. State' linking /data/opinions/coa/2024/5a24.pdf; PDF 23 pp, headnote 'Isiah A. Hollins v. State of Maryland, No. 5, September Term, 2024', UELMA authentication line, no Md. page cite. Second: cosa 2025 → /data/opinions/cosa/2025/1991s23.pdf 17 pp 'Midaro Investments 2021, LLC v. Ari Gerzowski'. coa 1995 and cosa 2016 indexes list Md./Md. App. cites."
+      },
+      "notes": "The index's order=bycite listing maps an official cite (e.g. 231 Md. App. 398) to its PDF."
+    },
+    {
+      "id": "md-opinions-unreported",
+      "family": "case_law",
+      "title": "Unreported Opinions of the Appellate Court of Maryland — mdcourts.gov",
+      "publisher": "Maryland Judiciary",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "UELMA covers 'a reported decision' (State Gov't § 10-1601(c)(7)); unreported opinions are outside it. Each PDF is marked 'UNREPORTED'.",
+      "coverage": "Full text for opinions filed May 1, 2015 to date; before that, references only (copies from the Clerk).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.mdcourts.gov/sites/default/files/unreported-opinions/{NNNN:04d}s{TT}.pdf",
+        "pattern_rules": "Monthly list: https://www.mdcourts.gov/appellate/unreportedopinions/list/{YYYYMM} (filing month) — rows: court, filed date, docket, term, judge, appellant, appellee, with the PDF link. Recent files: /sites/default/files/unreported-opinions/{NNNN}s{TT}.pdf (seen for lists 2020-2026); older lists use a year folder: /sites/default/files/unreported-opinions/2016/1063s15.pdf. Take the link from the monthly list rather than guessing.",
+        "index_url": "https://www.mdcourts.gov/appellate/unreportedopinions",
+        "navigation": "main directory → month (filing date) → docket link → PDF",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see md-opinions-reported",
+        "notes": ""
+      },
+      "currency": {
+        "where": "monthly list (latest month)",
+        "observed": "Appellate Court of Maryland 09-30-2026 0279 25 Shaw"
+      },
+      "hazards": [
+        "need the filing month to find the list",
+        "file path varies (year folder for older files)",
+        "no lookup by party name except by scanning monthly lists",
+        "citation limits: Md. Rule 1-104 (persuasive only, issued on/after July 1, 2023)"
+      ],
+      "probe": {
+        "citation": "Farmer v. State, No. 2330, Sept. Term, 2024 (Md. App. Sept. 30, 2026)",
+        "url": "https://www.mdcourts.gov/sites/default/files/unreported-opinions/2330s24.pdf",
+        "expect": "This is an unreported opinion. This opinion may not be cited as precedent"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "list/202609 row 'Appellate Court of Maryland 09-30-2026 2330 24 Blomquist Farmer, Maurice State' → 2330s24.pdf, 15 pp: 'UNREPORTED* IN THE APPELLATE COURT OF MARYLAND No. 2330 September Term, 2024'. list/201605 links /2016/1063s15.pdf."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-cases-justia",
+      "family": "case_law",
+      "title": "Justia — Maryland case law",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party; not checked this run.",
+      "coverage": "Maryland Supreme Court / Court of Appeals and Appellate Court / Court of Special Appeals opinions (ranges not checked).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Not verified. Expected year listings under https://law.justia.com/cases/maryland/.",
+        "index_url": "https://law.justia.com/cases/maryland/",
+        "navigation": "court → year listing → case page (unverified)",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (bot check)",
+        "notes": "WebFetch budget not spent here after a 429 elsewhere."
+      },
+      "currency": {
+        "where": "not checked",
+        "observed": ""
+      },
+      "hazards": [
+        "shell blocked",
+        "slug pattern unverified"
+      ],
+      "probe": {
+        "citation": "Hollins v. State, 489 Md. 296 (2024)",
+        "url": "https://law.justia.com/cases/maryland/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "Not probed. fetch_doc.py check on law.justia.com: REFUSED (bot check). Justia Maryland codes/constitution pages were WebFetch-readable this run."
+      },
+      "notes": ""
+    },
+    {
+      "id": "md-cert-petitions",
+      "family": "subsequent_history",
+      "title": "Supreme Court of Maryland — Petitions for Writ of Certiorari (monthly grant/deny lists)",
+      "publisher": "Maryland Judiciary",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Clerk's informational lists; the dispositions themselves are court orders.",
+      "coverage": "Monthly lists 2003-2026: current lists 2023-2026 under /scm/petitions/, archive 2003-2022 under /scm/petitionsarchive (links point to /scm/petitions/ or /coappeals/petitions/ month pages).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.mdcourts.gov/scm/petitions/{YYYYMM}petitions",
+        "pattern_rules": "2023-2026 months: /scm/petitions/{YYYYMM}petitions. Archive months use either /scm/petitions/{YYYYMM}petitions or /coappeals/petitions/{YYYYMM}petitions (e.g. 202010, 201010) — take the link from /scm/petitionsarchive. Granted entries give caption and new 'No. N, September Term, YYYY' with the questions presented; Denied/Dismissed entries give only caption and 'Pet. No. N' (older: 'Pet. Docket No.'), not the Appellate Court docket.",
+        "index_url": "https://www.mdcourts.gov/scm/petitions",
+        "navigation": "petitions index (2023-2026) or petitionsarchive (2003-2022) → month → find the caption",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see md-opinions-reported",
+        "notes": ""
+      },
+      "currency": {
+        "where": "petitions index (latest month listed)",
+        "observed": "2026 September"
+      },
+      "hazards": [
+        "found by party name only — denials do not cite the decision below",
+        "mixed /scm/ and /coappeals/ archive paths",
+        "month = disposition month, which is not derivable from the decision below"
+      ],
+      "probe": {
+        "citation": "Manson v. Britto, Pet. No. 207 (Md. Sept. 16, 2026) (cert. denied)",
+        "url": "https://www.mdcourts.gov/scm/petitions/202609petitions",
+        "expect": "Denied/Dismissed September 16, 2026 Manson v. Britto - Pet. No. 207"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 'PETITIONS FOR WRIT OF CERTIORARI September Term, 2026 Denied/Dismissed September 16, 2026 Manson v. Britto - Pet. No. 207'; Granted 'Maria Volpe, et al. v. Christine Hough, et al. – No. 28'. Archive /coappeals/petitions/201010petitions: 'Granted October 25, 2010 State of Maryland v. Anissa Maddox'."
+      },
+      "notes": "Cert grants later appear as Supreme Court opinions in md-opinions-reported (opinion caption names the court below). The Supreme Court index rows tagged 'PC Order' are per curiam dispositions."
+    }
+  ],
+  "absent": [
+    {
+      "family": "court_rules",
+      "what": "Free full text of the Maryland Rules on a non-Westlaw host (tier 1 or tier 2)",
+      "evidence": "mdcourts.gov/rules says 'The Maryland Rules are available through Westlaw'; search found no LII, Justia or public.law copy (only non-vetted third parties).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain (vendor-neutral) citation format",
+      "evidence": "Opinions and the index use only docket/term and Md./Md. App. cites; none seen.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Official reporter (Md. / Md. App.) pagination in free opinion PDFs",
+      "evidence": "Hollins (489 Md. 296) PDF on mdcourts.gov has slip pagination only; the index shows the Md. cite but the PDF does not.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "mdcourts.gov opinions filed before 1995; unreported opinion text before May 1, 2015",
+      "evidence": "Year selector ends at 1995; unreported page: 'For opinions filed prior to May 1, 2015, only a reference to the decision is available.'",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "admin_register",
+      "what": "Maryland Register issues older than the latest 15, and Register text on regs.maryland.gov",
+      "evidence": "dsd.maryland.gov MDRIssues 5306/5301/5110 → 404; regs.maryland.gov/us/md/exec/register/53/20: 'Register publishing was not yet supported'.",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "md-opinions-reported",
+      "why": "GET index cgi-bin/indexlist.pl?court=&year=&order= returns a stable HTML table (docket/term, Md. cite, filed date, judge, parties, PDF link) for every year 1995-2026: a script can resolve an Md./Md. App. cite or docket to its PDF deterministically."
+    },
+    {
+      "source_id": "md-opinions-unreported",
+      "why": "Monthly lists /appellate/unreportedopinions/list/{YYYYMM} give structured rows; a script can build a docket→PDF map for May 2015 onward."
+    },
+    {
+      "source_id": "md-comar-regs",
+      "why": "Official bulk XML/HTML on GitHub (github.com/maryland-dsd/law-xml-codified, law-xml-codified-cc0, law-html, law-html-cc0); the publisher asks users not to scrape."
+    },
+    {
+      "source_id": "md-cert-petitions",
+      "why": "Monthly HTML lists 2003-2026 could be indexed by party name to resolve 'cert. denied' history."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "md-code-mgaleg-pdf",
+      "url": "https://mgaleg.maryland.gov/2027RS/Statute_Web/gcj/gcj.pdf",
+      "why": "Whole-article PDFs (gcj 818 pp, 1.73M chars) far exceed the WebFetch window; one PDF per article (36 articles + constitution c0-c20).",
+      "split_hint": "section headings '§N–NNN.' at left margin under 'Article - <name>' running head",
+      "bulk": "https://mgaleg.maryland.gov/{YYYY}RS/Statute_Web/{article}/{article}.pdf"
+    },
+    {
+      "source_id": "md-comar-regs",
+      "url": "https://regs.maryland.gov/us/md/exec/comar",
+      "why": "Official bulk XML available; long regulations (26.08.02.03-2: 173K chars).",
+      "split_hint": "one XML file per regulation in the GitHub repository",
+      "bulk": "https://github.com/maryland-dsd/law-xml-codified"
+    }
+  ],
+  "open_questions": [
+    "WebFetch was stopped after an HTTP 429 (LII) per the brief; WebFetch on mdcourts.gov, regs.maryland.gov and dsd.maryland.gov is untested, and mgaleg StatuteText built URLs were gated (PROVENANCE_REQUIRED).",
+    "Which Statute_Web folder (2026RS vs 2027RS) the StatuteText HTML page draws from is not established; compare Last-Modified/content when a section changed in the 2026 session.",
+    "Session laws (Laws of Maryland chapters on mgaleg) not probed.",
+    "Justia Maryland case-law URL pattern and coverage not probed (md-cases-justia reported only).",
+    "Justia statute slug for lettered subtitles (e.g. CJP § 3-2A-04) not tested.",
+    "MSA Constitution article page names beyond 00dec and 04art4 not confirmed.",
+    "CourtListener court ids (md, mdctspecapp) unverified."
+  ]
+}

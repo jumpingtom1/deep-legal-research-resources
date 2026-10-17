@@ -177,6 +177,13 @@
    ],
    "blocked_sources": []
   },
+  "dsd.maryland.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-register-dsd"
+   ],
+   "blocked_sources": []
+  },
   "efast.gaappeals.gov": {
    "status": "allowed",
    "sources": [
@@ -209,6 +216,7 @@
    "status": "blocked",
    "sources": [
     "ca-ccr-westlaw",
+    "md-rules-westlaw",
     "ny-nycrr-westlaw",
     "ny-cases-official-reports-westlaw"
    ],
@@ -292,6 +300,9 @@
     "ma-gl-justia",
     "ma-constitution-justia",
     "ma-cases-justia",
+    "md-code-justia",
+    "md-constitution-justia",
+    "md-cases-justia",
     "nc-gs-justia",
     "nc-constitution-justia",
     "nc-cases-justia",
@@ -397,6 +408,22 @@
    ],
    "blocked_sources": []
   },
+  "mgaleg.maryland.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-code-mgaleg",
+    "md-code-mgaleg-pdf",
+    "md-constitution-mgaleg"
+   ],
+   "blocked_sources": []
+  },
+  "msa.maryland.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-constitution-msa"
+   ],
+   "blocked_sources": []
+  },
   "nccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -478,6 +505,13 @@
    "status": "blocked",
    "sources": [
     "ny-laws-assembly"
+   ],
+   "blocked_sources": []
+  },
+  "regs.maryland.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-comar-regs"
    ],
    "blocked_sources": []
   },
@@ -737,6 +771,7 @@
     "id-idapa-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
+    "md-comar-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
     "nv-nac-lii",
@@ -813,6 +848,23 @@
     "ma-cmr-massgov",
     "ma-opinions-massgov",
     "ma-far-lists-massgov"
+   ],
+   "blocked_sources": []
+  },
+  "www.mdcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-rules-orders",
+    "md-opinions-reported",
+    "md-opinions-unreported",
+    "md-cert-petitions"
+   ],
+   "blocked_sources": []
+  },
+  "www.msa.maryland.gov": {
+   "status": "allowed",
+   "sources": [
+    "md-constitution-msa"
    ],
    "blocked_sources": []
   },

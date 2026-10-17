@@ -558,6 +558,59 @@
         }
       ]
     },
+    "md": {
+      "name": "Maryland",
+      "file": "jurisdictions/md.md",
+      "sha256": "5fba5e50407b9c21f3cfea5914265ebc449dd78f4e3e3d0e534754034b12421a",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 13,
+        "blocked": 1,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Annotated Code of Maryland (articles)",
+          "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Crim\\.\\s*Proc\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Utils\\.|Pub\\.\\s*Safety|Local\\s*Gov['\u2019]t|Hum\\.\\s*Servs\\.|Local\\s*Gov['\u2019]t|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*Occ\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Util\\.|Econ\\.\\s*Dev\\.|Real\\s*Prop\\.|Gen\\.\\s*Prov\\.|Fin\\.\\s*Inst\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Alc\\.\\s*Bev\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Nat\\.\\s*Res\\.|Elec\\.\\s*Law|Crim\\.\\s*Law|Bus\\.\\s*Reg\\.|Land\\s*Use|Tax\\s*[-\u2013]\\s*Gen\\.|Fam\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Com\\.\\s*Law|Transp\\.|Envir\\.|Agric\\.|Educ\\.|Env['\u2019]t|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|SFP|HCD|CJP|BOP|PUA|CL|CS|CA|EC|AG|FI|BR|ET|CP|CR|SF|HS|PU|FL|CJ|LU|AB|IN|LG|NR|HG|TP|RP|ED|GP|HO|SG|EN|TG|SP|PS|HU|EL|TR|LE|BO)\\b))\\s*\u00a7+\\s*(?P<section2>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:\u00a7+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))\\s+Article"
+        },
+        {
+          "label": "Maryland Constitution and Declaration of Rights",
+          "regex": "Md\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-[A-I])?),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Md\\.\\s*(?:Const\\.\\s*)?Decl(?:\\.|aration)\\s*of\\s*R(?:ts|ights)\\.?,?\\s*art\\.\\s*(?P<dr>\\d+)|Article\\s+(?P<dr2>\\d+)\\s+of\\s+the\\s+(?:Maryland\\s+)?Declaration\\s+of\\s+Rights|Article\\s+(?P<article2>[IVXL]+(?:-[A-I])?),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Maryland\\s+Constitution"
+        },
+        {
+          "label": "Maryland Rules",
+          "regex": "(?:Md\\.\\s*Rules?|Maryland\\s+Rules?(?:\\s+of\\s+Procedure)?)\\s*(?P<rule>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Maryland\\s+Rules|MARPC\\s*(?:Rule\\s*)?(?P<marpc>\\d\\.\\d+)|Md\\.\\s*Rule\\s*(?P<marpc2>19-30\\d\\.\\d+)"
+        },
+        {
+          "label": "Code of Maryland Regulations (COMAR)",
+          "regex": "(?:COMAR|Md\\.\\s*Code\\s*Regs\\.)\\s*(?P<title>\\d{2}[A-Z]?)\\.(?P<subtitle>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<regulation>\\d{2}(?:-\\d+[A-Z]?)?))?"
+        },
+        {
+          "label": "Maryland Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Md\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?P<volume2>\\d{1,2}):(?P<issue>\\d{1,2})\\s+Md\\.\\s*R\\.\\s*(?P<page2>\\d+)"
+        },
+        {
+          "label": "Reported Maryland cases (Md. / Md. App.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Md\\.(?:\\s*(?P<app>App\\.))?\\s+(?P<page>\\d{1,4})(?!\\d)"
+        },
+        {
+          "label": "Atlantic Reporter with Maryland parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Maryland appellate docket form (No. N, September Term, YYYY) - reported and unreported",
+          "regex": "(?:(?:Misc\\.|AG|Pet\\.)\\s*)?Nos?\\.\\s*(?P<number>\\d{1,4})(?:\\s*(?:,|and|&)\\s*\\d{1,4})*,?\\s*Sept(?:ember|\\.)?\\s*Term,?\\s*(?P<term>(?:19|20)\\d\\d)"
+        },
+        {
+          "label": "Westlaw / Lexis unreported cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)|Md\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        },
+        {
+          "label": "Certiorari dispositions",
+          "regex": "cert\\.\\s*(?P<disp>denied|granted|dismissed)(?:\\s+as\\s+improvidently\\s+granted)?,?\\s*(?:(?P<volume>\\d{1,3}|_+)\\s+Md\\.\\s+(?P<page>\\d{1,4}|_+)|No\\.\\s*(?P<number>\\d+))"
+        }
+      ]
+    },
     "nc": {
       "name": "North Carolina",
       "file": "jurisdictions/nc.md",
