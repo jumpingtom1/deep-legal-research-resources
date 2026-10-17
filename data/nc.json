@@ -85,15 +85,27 @@
           "N.C.G.S. § 143B-135.40",
           "G.S. 160D-102",
           "N.C. Gen. Stat. Ann. § 15A-1415(b)",
-          "section 1-52 of the General Statutes",
           "Section 75-1.1 of the North Carolina General Statutes",
           "N.C.G.S. §§ 7B-903, -906.1"
         ],
-        "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:§§?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|§)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina\\s+)?General\\s+Statutes",
+        "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|(?<![\\w.])G\\.S\\.)\\s*(?:§§?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|§)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+North\\s+Carolina\\s+General\\s+Statutes",
         "routes_to": [
           "nc-gs-ncleg",
           "nc-gs-justia"
         ]
+      },
+      {
+        "family": "statutes",
+        "label": "North Carolina General Statutes (\"section N-N of the General Statutes\", generic)",
+        "examples": [
+          "section 1-52 of the General Statutes"
+        ],
+        "regex": "(?:sec(?:tion|\\.)|§)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Statutes",
+        "routes_to": [
+          "nc-gs-ncleg",
+          "nc-gs-justia"
+        ],
+        "context_required": true
       },
       {
         "family": "statutes",
@@ -294,7 +306,7 @@
       "Business Corporation Act": "55",
       "Workers' Compensation Act": "97"
     },
-    "notes": "Order matters: try the 1A-1 and 8C-1 rule patterns before the General Statutes pattern, because 'N.C.G.S. § 1A-1, Rule 12' also matches the statute regex as § 1A-1 (a stub page). The statute URL needs no code key: chapter and section come straight from 'G.S. {chapter}-{section}'; law_aliases maps rule-set and act names to their chapter. 'G.S.' is guarded by requiring the dotted form 'G.S.'; bare 'Rule 12', 'Rules of Civil Procedure' or 'Rules of Evidence' route here only with 'North Carolina'/'N.C.' or 1A-1/8C-1 context. 'S.L. YYYY-N' is also used by other states (e.g. Idaho), so route session laws here only with N.C. context. NC sections are always chapter-hyphen-section, so '§§ 1-52 to 1-56' is a span: take the first; '§§ 7B-903, -906.1' gives 7B-903 then 7B-906.1. Official reporters N.C. and N.C. App. are free as whole-volume PDFs on nccourts.gov (nc-reports-volumes); S.E.2d/S.E.3d are West. Universal citations ('2021-NCSC-1', '2021-NCCOA-1', ¶ pinpoints) were a parallel cite for opinions filed from Jan. 1, 2021; the Supreme Court withdrew the order on Jan. 11, 2023. Business Court 'YYYY NCBC N' is a court-assigned public-domain cite. Unpublished COA opinions (N.C. R. App. P. 30(e)) are cited by docket 'No. COA##-###' plus date and '(unpublished)'. Supreme docket suffixes: A (appeal of right), PA (PDR allowed), P (petition), -2 for a second matter. 'disc. review denied, ___ N.C. ___' is found on the Supreme Court docket sheet (nc-subsequent-history-dockets). CourtListener ids from memory, unverified (Business Court opinions may sit under ncsuperct). Westlaw cites with a '(N.C. Super. Ct.' parenthetical (and NCBC LEXIS) are Business Court decisions: they route to nc-business-court-opinions; the general WL pattern excludes them with a negative lookahead (?!\\s*Super). Reported-case text routes to Justia first, because the official volume PDFs have not been read."
+    "notes": "Order matters: try the 1A-1 and 8C-1 rule patterns before the General Statutes pattern, because 'N.C.G.S. § 1A-1, Rule 12' also matches the statute regex as § 1A-1 (a stub page). The statute URL needs no code key: chapter and section come straight from 'G.S. {chapter}-{section}'; law_aliases maps rule-set and act names to their chapter. 'G.S.' is guarded by requiring the dotted form 'G.S.'; bare 'Rule 12', 'Rules of Civil Procedure' or 'Rules of Evidence' route here only with 'North Carolina'/'N.C.' or 1A-1/8C-1 context. 'S.L. YYYY-N' is also used by other states (e.g. Idaho), so route session laws here only with N.C. context. NC sections are always chapter-hyphen-section, so '§§ 1-52 to 1-56' is a span: take the first; '§§ 7B-903, -906.1' gives 7B-903 then 7B-906.1. Official reporters N.C. and N.C. App. are free as whole-volume PDFs on nccourts.gov (nc-reports-volumes); S.E.2d/S.E.3d are West. Universal citations ('2021-NCSC-1', '2021-NCCOA-1', ¶ pinpoints) were a parallel cite for opinions filed from Jan. 1, 2021; the Supreme Court withdrew the order on Jan. 11, 2023. Business Court 'YYYY NCBC N' is a court-assigned public-domain cite. Unpublished COA opinions (N.C. R. App. P. 30(e)) are cited by docket 'No. COA##-###' plus date and '(unpublished)'. Supreme docket suffixes: A (appeal of right), PA (PDR allowed), P (petition), -2 for a second matter. 'disc. review denied, ___ N.C. ___' is found on the Supreme Court docket sheet (nc-subsequent-history-dockets). CourtListener ids from memory, unverified (Business Court opinions may sit under ncsuperct). Westlaw cites with a '(N.C. Super. Ct.' parenthetical (and NCBC LEXIS) are Business Court decisions: they route to nc-business-court-opinions; the general WL pattern excludes them with a negative lookahead (?!\\s*Super). Reported-case text routes to Justia first, because the official volume PDFs have not been read. 'G.S.' must not be preceded by a letter or period (Connecticut's 'C.G.S.'); 'section N-N of the General Statutes' is also Connecticut usage, so that bare form routes here only once North Carolina is established."
   },
   "sources": [
     {

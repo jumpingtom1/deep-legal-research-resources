@@ -290,6 +290,99 @@
         }
       ]
     },
+    "ct": {
+      "name": "Connecticut",
+      "file": "jurisdictions/ct.md",
+      "sha256": "05cc072bf472ba20e27522c59985cbf3720a875ddde7b0de849c9e510618aaef",
+      "compiled": "2026-10-17",
+      "counts": {
+        "blocked": 2,
+        "verified": 8,
+        "reported": 4
+      },
+      "citation_patterns": [
+        {
+          "label": "Connecticut General Statutes",
+          "regex": "(?:Conn(?:ecticut)?\\.?\\s*Gen(?:eral)?\\.?\\s*Stat(?:utes|s?\\.)?(?:\\s*Ann\\.)?|(?<![\\w.])General\\s+Statutes(?:\\s*\\((?:Rev\\.|Supp\\.)[^)]{0,20}\\))?|(?<![\\w.])C\\.\\s*G\\.\\s*S\\.(?:\\s*A\\.)?|\\bCGS)\\s*\u00a7\u00a7?\\s*(?P<section>\\d{1,2}[a-z]{0,2}-\\d{1,4}[a-z]{0,3}(?![\\w-]))|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}[a-z]{0,2}-\\d{1,4}[a-z]{0,3}(?![\\w-]))(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Connecticut\\s+General\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "General Statutes prose form (shared with North Carolina)",
+          "regex": "(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section>\\d{1,2}[a-z]{0,2}-\\d{1,4}[a-z]{0,3}(?![\\w-]))(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Statutes",
+          "context_required": true
+        },
+        {
+          "label": "Connecticut Public Acts (session laws)",
+          "regex": "Public\\s+Acts\\s+(?P<year>(?:19|20)\\d\\d),\\s*No\\.\\s*(?P<act>\\d{2}-\\d{1,3})|Conn\\.\\s*Pub\\.\\s*Acts?\\s*(?:No\\.\\s*)?(?P<act2>\\d{2}-\\d{1,3})",
+          "context_required": false
+        },
+        {
+          "label": "Public Act number (bare P.A.)",
+          "regex": "(?:P\\.\\s*A\\.|Public\\s+Act)\\s*(?:No\\.\\s*)?(?P<act>\\d{2}-\\d{1,3})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Connecticut Constitution",
+          "regex": "Conn\\.\\s*Const\\.,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+|[a-z]+(?:-[a-z]+)?),?\\s*\u00a7\\s*(?P<section>\\d+)|amend\\.\\s*(?P<amend>[IVXL]+))|article\\s+(?P<article2>[IVXL]+|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth),?\\s*(?:\u00a7|section)\\s*(?P<section2>\\d+),?\\s+of\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)",
+          "context_required": false
+        },
+        {
+          "label": "Connecticut Practice Book",
+          "regex": "(?:(?:Conn(?:ecticut)?\\.?\\s*)?Practice\\s+Book(?:\\s*\\(\\d{4}\\))?|(?<![\\w.])P\\.\\s*B\\.)\\s*\u00a7\u00a7?\\s*(?P<section>\\d{1,2}-\\d{1,3}[A-Z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}-\\d{1,3}[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Connecticut\\s+)?Practice\\s+Book",
+          "context_required": false
+        },
+        {
+          "label": "Connecticut Code of Evidence",
+          "regex": "Conn(?:ecticut)?\\.?\\s*Code\\s*(?:of\\s+)?Evid(?:ence|\\.)\\s*\u00a7\\s*(?P<section>\\d{1,2}-\\d{1,2})|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}-\\d{1,2})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Connecticut\\s+Code\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Code of Evidence (bare, no state marker)",
+          "regex": "Code\\s+of\\s+Evidence\\s*\u00a7\\s*(?P<section>\\d{1,2}-\\d{1,2})",
+          "context_required": true
+        },
+        {
+          "label": "Regulations of Connecticut State Agencies",
+          "regex": "(?:Regs\\.,?\\s*Conn\\.\\s*State\\s+Agencies|Conn\\.\\s*Agencies\\s+Regs\\.|(?<![\\w.])R\\.?C\\.?S\\.?A\\.?)\\s*\u00a7\\s*(?P<section>\\d{1,2}[a-z]{0,2}-\\d{1,4}[a-z]{0,3}-[\\w.]+)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}[a-z]{0,2}-\\d{1,4}[a-z]{0,3}-[\\w.]+?)\\s+of\\s+the\\s+Regulations\\s+of\\s+Connecticut\\s+State\\s+Agencies",
+          "context_required": false
+        },
+        {
+          "label": "Connecticut official reports (Conn., Conn. App., Conn. Supp.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Conn\\.(?:\\s*(?P<series>App\\.|Supp\\.|L\\.\\s*Rptr\\.|Cir\\.\\s*Ct\\.))?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Atlantic Reporter with Connecticut court parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>Conn\\.(?:\\s*(?:App\\.(?:\\s*Ct\\.)?|Super\\.(?:\\s*Ct\\.)?))?)\\s*(?:[A-Z][a-z]{2,3}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Connecticut docket numbers (SC / AC)",
+          "regex": "(?<![\\w-])(?P<court>SC|AC)\\s?(?P<docket>\\d{5})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Connecticut Superior Court docket numbers",
+          "regex": "(?<![\\w-])(?P<district>[A-Z]{3})-?(?P<case_type>CV|FA|CR|LND|HHB|MV)-?(?P<year>\\d{2})-?(?P<number>\\d{6,7})-?(?P<suffix>[A-Z])(?![\\w-])",
+          "context_required": false
+        },
+        {
+          "label": "Westlaw / Lexis unreported Connecticut cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Conn\\.|Conn\\.\\s*(?:(?P<lexcourt>Super\\.|App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
+        },
+        {
+          "label": "Certification granted / denied (Conn. Reports orders)",
+          "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)(?:\\s+in\\s+part)?,\\s*(?P<volume>\\d{1,3})\\s+Conn\\.\\s+(?P<page>\\d{1,4})",
+          "context_required": false
+        },
+        {
+          "label": "cert. denied with regional reporter only",
+          "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed),\\s*(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})",
+          "context_required": true
+        }
+      ]
+    },
     "dc": {
       "name": "District of Columbia",
       "file": "jurisdictions/dc.md",
@@ -1408,7 +1501,7 @@
     "nc": {
       "name": "North Carolina",
       "file": "jurisdictions/nc.md",
-      "sha256": "9f316f58e8e823ad985a996583f49a6fca3e12253aa136044e525318c754c1b6",
+      "sha256": "254054c8a57d23a5c7d6554a93bc88e7da9d5c202a635cd3345ed220f65b91ef",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 14,
@@ -1428,8 +1521,13 @@
         },
         {
           "label": "North Carolina General Statutes",
-          "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina\\s+)?General\\s+Statutes",
+          "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|(?<![\\w.])G\\.S\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+North\\s+Carolina\\s+General\\s+Statutes",
           "context_required": false
+        },
+        {
+          "label": "North Carolina General Statutes (\"section N-N of the General Statutes\", generic)",
+          "regex": "(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Statutes",
+          "context_required": true
         },
         {
           "label": "North Carolina Session Laws",

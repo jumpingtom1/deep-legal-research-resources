@@ -143,6 +143,13 @@
    ],
    "blocked_sources": []
   },
+  "cga.ct.gov": {
+   "status": "blocked",
+   "sources": [
+    "ct-statutes-cga"
+   ],
+   "blocked_sources": []
+  },
   "coa.nmcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -311,6 +318,14 @@
    ],
    "blocked_sources": []
   },
+  "eregulations.ct.gov": {
+   "status": "allowed",
+   "sources": [
+    "ct-regs-eregulations",
+    "ct-register-eregulations"
+   ],
+   "blocked_sources": []
+  },
   "files.nc.gov": {
    "status": "allowed",
    "sources": [
@@ -414,6 +429,15 @@
    ],
    "blocked_sources": []
   },
+  "jud.ct.gov": {
+   "status": "allowed",
+   "sources": [
+    "ct-opinions-aro",
+    "ct-official-reports-lawjournal",
+    "ct-cert-orders-lawjournal"
+   ],
+   "blocked_sources": []
+  },
   "juddocumentservice.mt.gov": {
    "status": "allowed",
    "sources": [
@@ -434,6 +458,9 @@
     "co-crs-justia",
     "co-constitution-justia",
     "co-cases-justia",
+    "ct-statutes-justia",
+    "ct-constitution-justia",
+    "ct-cases-justia",
     "dc-code-justia",
     "dc-cases-justia",
     "de-code-justia",
@@ -807,6 +834,13 @@
    ],
    "blocked_sources": []
   },
+  "portal.ct.gov": {
+   "status": "allowed",
+   "sources": [
+    "ct-constitution-sots"
+   ],
+   "blocked_sources": []
+  },
   "prod-rf-lambda.rtssaas.com": {
    "status": "allowed",
    "sources": [
@@ -1127,6 +1161,14 @@
    ],
    "blocked_sources": []
   },
+  "www.cga.ct.gov": {
+   "status": "blocked",
+   "sources": [
+    "ct-statutes-cga",
+    "ct-constitution-cga"
+   ],
+   "blocked_sources": []
+  },
   "www.coloradojudicial.gov": {
    "status": "allowed",
    "sources": [
@@ -1296,6 +1338,16 @@
    ],
    "blocked_sources": []
   },
+  "www.jud.ct.gov": {
+   "status": "allowed",
+   "sources": [
+    "ct-rules-practicebook",
+    "ct-rules-evidence",
+    "ct-official-reports-lawjournal",
+    "ct-cert-orders-lawjournal"
+   ],
+   "blocked_sources": []
+  },
   "www.law.cornell.edu": {
    "status": "allowed",
    "sources": [
@@ -1303,6 +1355,7 @@
     "az-aac-lii",
     "ca-ccr-lii",
     "co-ccr-lii",
+    "ct-regs-lii",
     "de-admincode-lii",
     "fl-fac-lii",
     "ga-admincode-lii",
