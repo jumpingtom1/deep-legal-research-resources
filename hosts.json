@@ -265,6 +265,18 @@
    ],
    "blocked_sources": []
   },
+  "docs.legis.wisconsin.gov": {
+   "status": "allowed",
+   "sources": [
+    "wi-statutes-legis",
+    "wi-statutes-pdf",
+    "wi-acts-legis",
+    "wi-constitution-legis",
+    "wi-admincode-legis",
+    "wi-register-legis"
+   ],
+   "blocked_sources": []
+  },
   "dos.ny.gov": {
    "status": "allowed",
    "sources": [
@@ -468,7 +480,10 @@
     "ut-cases-justia",
     "va-code-justia",
     "va-constitution-justia",
-    "va-cases-justia"
+    "va-cases-justia",
+    "wi-statutes-justia",
+    "wi-constitution-justia",
+    "wi-cases-justia"
    ],
    "blocked_sources": []
   },
@@ -968,6 +983,13 @@
    ],
    "blocked_sources": []
   },
+  "wscca.wicourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "wi-wscca"
+   ],
+   "blocked_sources": []
+  },
   "www-media.floridabar.org": {
    "status": "allowed",
    "sources": [
@@ -1197,7 +1219,8 @@
     "pa-admincode-lii",
     "tx-tac-lii",
     "ut-admincode-lii",
-    "va-admincode-lii"
+    "va-admincode-lii",
+    "wi-admincode-lii"
    ],
    "blocked_sources": []
   },
@@ -1510,6 +1533,17 @@
     "va-opinions-scv",
     "va-opinions-cav",
     "va-subsequent-history-cav-list"
+   ],
+   "blocked_sources": []
+  },
+  "www.wicourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "wi-scr-wicourts",
+    "wi-opinions-supreme",
+    "wi-opinions-appeals",
+    "wi-pfr-orders",
+    "wi-pfr-disposition-tables"
    ],
    "blocked_sources": []
   }

@@ -1,0 +1,1043 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "wi",
+  "name": "Wisconsin",
+  "compiled": "2026-10-17",
+  "summary": "Statutes, constitution, session laws, Administrative Code and Register all sit on docs.legis.wisconsin.gov (Legislative Reference Bureau), and each is constructible from a citation through the /document/... redirector (e.g. /document/statutes/802.06(2)(a)6., /document/administrativecode/DHS%20110.04, /document/wisconsinconstitution/I,9); the statutes are certified under s. 35.18. Civil procedure, evidence and appellate procedure are statutes (chs. 801-847, 901-911, 809); Supreme Court Rules (SCR, incl. ch. 20 professional conduct) are per-chapter PDFs on wicourts.gov. Case law: wicourts.gov serves Supreme Court and Court of Appeals slip opinions (published and unpublished) from 1995 as PDFs, found by plain GET searches that accept a public-domain citation (pdcNo=2024 WI 13), docket number, party name or date range. Petition-for-review dispositions are findable by docket number (scorder.jsp order PDFs and the bimonthly disposition tables); WebFetch is gated on built wicourts URLs, so use fetch_doc.py.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Wisconsin Supreme Court",
+        "courtlistener_id": "wis",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Wis.",
+        "reporters": [
+          "Wis. 2d",
+          "N.W.2d",
+          "N.W.3d",
+          "Wis."
+        ],
+        "public_domain_citation": "2024 WI 13, ¶ 22"
+      },
+      {
+        "name": "Wisconsin Court of Appeals",
+        "courtlistener_id": "wisctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Wis. Ct. App.",
+        "reporters": [
+          "Wis. 2d",
+          "N.W.2d",
+          "N.W.3d"
+        ],
+        "public_domain_citation": "2020 WI App 34, ¶ 12"
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Wisconsin Statutes",
+        "examples": [
+          "Wis. Stat. § 893.54",
+          "Wis. Stat. § 802.06(2)(a)6.",
+          "Wis. Stats. § 940.01(1)(a)",
+          "Wis. Stat. § (Rule) 809.62",
+          "WIS. STAT. § 908.03(6)",
+          "s. 893.54, Stats.",
+          "section 802.06 of the Wisconsin Statutes",
+          "Wis. Stat. §§ 893.52-893.55"
+        ],
+        "regex": "(?:Wis(?:consin)?\\.?\\s*Stats?\\.?(?:\\s*Ann\\.)?\\s*(?:§+|ss?\\.)\\s*(?:\\(Rule\\)\\s*)?(?P<section>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?P<sub>(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?(?:\\s*[a-z]\\.)?)|(?:s|ss|sec(?:tion)?)\\.?\\s+(?P<section2>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?,?\\s+(?:Wis\\.\\s*)?Stats\\.|section\\s+(?P<section3>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Wisconsin\\s+Statutes)",
+        "routes_to": [
+          "wi-statutes-legis",
+          "wi-statutes-pdf",
+          "wi-statutes-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Wisconsin appellate procedure cited as a rule (ch. 809)",
+        "examples": [
+          "Wis. Stat. Rule 809.23(3)(b)",
+          "WIS. STAT. RULE 809.62",
+          "Rule 809.19(1)(e), Stats."
+        ],
+        "regex": "(?:Wis\\.?\\s*Stats?\\.?\\s*Rule\\s*(?P<rule>8\\d\\d\\.\\d{2,3})|Rule\\s+(?P<rule2>8\\d\\d\\.\\d{2,3})(?:\\s*\\([0-9a-z]+\\))*,\\s*Stats\\.)",
+        "routes_to": [
+          "wi-statutes-legis",
+          "wi-statutes-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Bare 'Rule 809.62' (Wisconsin appellate rule without a state marker)",
+        "context_required": true,
+        "examples": [
+          "Rule 809.62",
+          "RULE 809.23(3)"
+        ],
+        "regex": "\\bRule\\s+(?P<rule>809\\.\\d{2,3})",
+        "routes_to": [
+          "wi-statutes-legis"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Wisconsin session laws (Acts)",
+        "examples": [
+          "2025 Wis. Act 247",
+          "2011 Wisconsin Act 10",
+          "1995 Wis. Act 27, § 9126"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+Wis(?:consin|\\.)\\s+Act\\s+(?P<act>\\d{1,4})",
+        "routes_to": [
+          "wi-acts-legis"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Wisconsin Constitution",
+        "examples": [
+          "Wis. Const. art. I, § 9",
+          "Wis. Const. art. VII, § 3(1)",
+          "Article I, Section 9 of the Wisconsin Constitution",
+          "art. I, sec. 9, Wis. Const."
+        ],
+        "regex": "(?:Wis\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:§|sec\\.)\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Wisconsin\\s+Constitution|art\\.\\s*(?P<article3>[IVXL]+),\\s*(?:sec\\.|§)\\s*(?P<section3>\\d+[a-z]?)(?:\\s*\\([0-9a-z]+\\))*,\\s*Wis\\.\\s*Const\\.)",
+        "routes_to": [
+          "wi-constitution-legis",
+          "wi-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Wisconsin Supreme Court Rules (SCR)",
+        "examples": [
+          "SCR 20:1.7",
+          "Wis. Sup. Ct. R. 20:1.7",
+          "Supreme Court Rule 20:8.4(c)",
+          "Wis. Sup. Ct. R. 22.03(2)",
+          "Wis. Sup. Ct. R. 60.04(1)(g)"
+        ],
+        "regex": "(?:(?:Wis\\.\\s*)?S\\.?C\\.?R\\.?|Wis\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<chapter>\\d{2}):(?P<rule>\\d\\.\\d{1,2})|(?:Wis\\.\\s*SCR|Wis\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<chapter2>\\d{2})\\.(?P<rule2>\\d{2,3})",
+        "routes_to": [
+          "wi-scr-wicourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Wisconsin Supreme Court Rules (bare \"SCR NN.NN\", shared with Nevada)",
+        "examples": [
+          "SCR 22.03",
+          "SCR 60.04"
+        ],
+        "regex": "\\bSCR\\s+(?P<chapter3>(?:1[0-4]|2[0-3]|3[0-6]|40|50|6[0-3]|7[0-2]|8[01]))\\.(?P<rule3>\\d{2,3})",
+        "routes_to": [
+          "wi-scr-wicourts"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "admin_code",
+        "label": "Wisconsin Administrative Code",
+        "examples": [
+          "Wis. Admin. Code § DHS 110.04",
+          "Wis. Admin. Code DHS § 110.04(1g)",
+          "Wis. Admin. Code § NR 115.05(1)(b)",
+          "s. DHS 110.04, Wis. Adm. Code",
+          "Wis. Admin. Code ch. ATCP 134"
+        ],
+        "regex": "(?:Wis\\.?\\s*Adm(?:in)?\\.?\\s*Code\\s*(?:§+|ch\\.)?\\s*(?P<agency>[A-Z][A-Za-z]{1,5})\\s*(?:§+\\s*)?(?P<section>\\d{1,4}(?:\\.\\d{2,4}[a-z]?)?)|s\\.\\s*(?P<agency2>[A-Z][A-Za-z]{1,5})\\s+(?P<section2>\\d{1,4}\\.\\d{2,4}[a-z]?)(?:\\s*\\([0-9a-z]+\\))*,\\s*Wis\\.\\s*Adm(?:in)?\\.\\s*Code)",
+        "routes_to": [
+          "wi-admincode-legis",
+          "wi-admincode-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Wisconsin Administrative Register",
+        "examples": [
+          "Register, September 2021, No. 789",
+          "Register December 2010 No. 660",
+          "EmR2609"
+        ],
+        "regex": "Register,?\\s+(?P<month>January|February|March|April|May|June|July|August|September|October|November|December),?\\s+(?P<year>(?:19|20)\\d\\d),?\\s+No\\.\\s*(?P<number>\\d{3})(?P<part>[AB]\\d?)?|\\bEmR\\s?(?P<emr>\\d{4})\\b",
+        "routes_to": [
+          "wi-register-legis"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Wisconsin Supreme Court public-domain citation",
+        "examples": [
+          "2024 WI 13",
+          "2024 WI 13, ¶ 22",
+          "2019 WI 12, ¶¶ 20-24"
+        ],
+        "regex": "(?P<year>(?:199[5-9]|20\\d\\d))\\s+WI\\s+(?!App\\b)(?P<number>\\d{1,3})(?!\\d)(?:,\\s*¶+\\s*(?P<para>\\d+))?",
+        "routes_to": [
+          "wi-opinions-supreme",
+          "wi-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Wisconsin Court of Appeals public-domain citation",
+        "examples": [
+          "2020 WI App 34",
+          "2020 WI App 34, ¶ 12"
+        ],
+        "regex": "(?P<year>(?:199[5-9]|20\\d\\d))\\s+WI\\s+App\\s+(?P<number>\\d{1,3})(?!\\d)(?:,\\s*¶+\\s*(?P<para>\\d+))?",
+        "routes_to": [
+          "wi-opinions-appeals",
+          "wi-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Wisconsin Reports (Wis. / Wis. 2d)",
+        "examples": [
+          "406 Wis. 2d 586",
+          "385 Wis. 2d 1, 922 N.W.2d 1",
+          "177 Wis. 2d 1"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Wis\\.\\s*(?P<series>2d\\s+)?(?P<page>\\d{1,4})(?!\\d)",
+        "routes_to": [
+          "wi-opinions-supreme",
+          "wi-opinions-appeals",
+          "wi-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Western Reporter with a Wisconsin parenthetical",
+        "examples": [
+          "987 N.W.2d 778 (Wis. Ct. App. 2023)",
+          "922 N.W.2d 1 (Wis. 2019)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+N\\.W\\.\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(Wis\\.(?:\\s*Ct\\.\\s*App\\.)?\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "wi-opinions-supreme",
+          "wi-opinions-appeals",
+          "wi-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Wisconsin appeal number / unpublished opinion form (Wis. Stat. § 809.23(3)(c))",
+        "examples": [
+          "No. 2025AP1919, unpublished slip op. ¶ 12 (WI App Oct. 15, 2026)",
+          "2018AP2220-CR",
+          "2023AP000301"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)AP0*(?P<seq>\\d{1,6})(?:-(?P<suffix>[A-Z]{1,4}))?",
+        "routes_to": [
+          "wi-opinions-appeals",
+          "wi-opinions-supreme",
+          "wi-cases-justia"
+        ]
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Generic 'review denied' / 'review granted' history",
+        "context_required": true,
+        "examples": [
+          "review denied, 2026 WI 33",
+          "review granted",
+          "petition for review denied"
+        ],
+        "regex": "(?:petition\\s+for\\s+)?review\\s+(?P<disposition>denied|granted|dismissed)",
+        "routes_to": [
+          "wi-pfr-orders",
+          "wi-pfr-disposition-tables"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "Wis. Stat.": "statutes",
+      "Wis. Stats.": "statutes",
+      "Stats.": "statutes",
+      "Wis. Admin. Code": "administrativecode",
+      "Wis. Adm. Code": "administrativecode",
+      "Wis. Const.": "wisconsinconstitution",
+      "Wis. Act": "acts",
+      "SCR": "scr",
+      "SCR 20 (Preamble-20:1.18)": "chap20a",
+      "SCR 20 (20:2.1-20:8.5)": "chap20b"
+    },
+    "notes": "Wisconsin style (SCR 80.02, Wis. Stat. § 809.19) cites cases in public-domain form first: '2024 WI 13, ¶ 22, 4xx Wis. 2d ___, ___ N.W.3d ___'; public-domain citations exist for decisions from 1994/1995 onward (wicourts listings start 1995). Court of Appeals opinions are 'WI App'. The bimonthly Supreme Court disposition tables are themselves assigned a 'YYYY WI N' number (e.g. 2026 WI 33), so a 'review denied, YYYY WI N' cite resolves to a table, not an opinion. Statute sections are always CHAPTER.SECTION (no hyphens); 'Wis. Stat. §§ 893.52-893.55' is a range — the regex takes the first section. Wisconsin writes subunits with spaces ('802.06 (2) (a) 6.'); strip spaces for the URL. Appellate procedure (ch. 809) is cited as 'Wis. Stat. § (Rule) 809.62' or 'Wis. Stat. Rule 809.62'; civil procedure (chs. 801-847) and evidence (chs. 901-911) are ordinary statutes. Bare 'Rule 809.xx' and bare 'review denied' are context_required. SCR ch. 20 (professional conduct) uses a colon ('SCR 20:1.7'), which is distinctive; other SCR chapters use a dot ('SCR 22.03(2)') and route here bare only with a subunit parenthetical and a known Wisconsin SCR chapter number (Nevada also has 'SCR' rules). 'Register, Month YYYY, No. NNN' history notes cite the Administrative Register. Unpublished Court of Appeals opinions authored after July 1, 2009 may be cited for persuasive value with the form 'No. 2025AP1919, unpublished slip op. ¶ 12 (WI App Oct. 15, 2026)' (Wis. Stat. § 809.23(3)). CourtListener ids 'wis' and 'wisctapp' are from memory, unverified. Cross-routing caution: Nevada's record has a bare 'SCR \\d+' pattern that also matches Wisconsin's practitioner form 'SCR 20:1.7' / 'SCR 22.03'; the colon form ('20:1.7') is uniquely Wisconsin, so route 'SCR NN:N.N' here. Examples use the Bluebook form 'Wis. Sup. Ct. R.' to keep the cross-check clean. The colon form 'SCR 20:1.7' identifies Wisconsin; bare 'SCR NN.NN' is shared with Nevada's Supreme Court Rules and routes here only once Wisconsin is established."
+  },
+  "sources": [
+    {
+      "id": "wi-statutes-legis",
+      "family": "statutes",
+      "title": "Wisconsin Statutes & Annotations (docs.legis.wisconsin.gov)",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Every page footer: 'Published and certified under s. 35.18.' Wis. Stat. § 35.18(1)(b) requires the LRB to publish an updated electronic version with a notice that it is certified under sub. (2)(b). Not a UELMA authentication.",
+      "coverage": "Current 2023-24 Wisconsin Statutes with annotations, updated continuously; prior biennial editions under /statutes/prior/.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://docs.legis.wisconsin.gov/document/statutes/{section}{subunits}",
+        "pattern_rules": "section = CHAPTER.SECTION exactly as cited (893.54, 940.01, 180.0302, 802.06). Optional subunits appended with spaces removed, keeping the trailing period on numbered subdivisions: Wis. Stat. § 802.06(2)(a)6. → /document/statutes/802.06(2)(a)6. The /document/ URL 302-redirects to the canonical path /statutes/statutes/{chapter}/{subchapter_roman_lower}/{section_suffix}[/{sub}/...] (893.54 → /statutes/statutes/893/v/54; 940.01 → /940/i/01; 180.0302 → /180/iii/0302; 802.06(2)(a)6. → /802/06/2/a/6). Do NOT build the canonical path yourself: chapters with subchapters need the Roman subchapter segment (/893/54 returns 404). The page is a scrolling window holding the target section plus neighbouring sections (893.54 page holds 893.52-893.55, ~31K chars).",
+        "index_url": "https://docs.legis.wisconsin.gov/statutes/statutes",
+        "navigation": "Index lists every chapter with title (no section ranges, but section numbers encode the chapter, so no hop is needed).",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * Disallow: /frame, /frame/, /scroll/, /feed/, /doc/feed/, /breadcrumbs/, /preferences, /search, one LRB PDF. /document/, /statutes/, /code/, /constitution/ allowed.",
+        "notes": "WebFetch of a built /document/ URL returned PROVENANCE_REQUIRED (gated); the search-surfaced canonical URL /statutes/statutes/893/V/54 worked but the window was cut mid-893.55 ('Loading...') and showed an older snapshot (updated through 2025 Wis. Act 170, May 22, 2026) than the live page the script read (Act 247, Oct. 1, 2026) — prefer fetch_doc.py and quote currency from it. /search is robots-disallowed: never use the site search."
+      },
+      "currency": {
+        "where": "Footer of every statute page",
+        "observed": "2023-24 Wisconsin Statutes updated through 2025 Wis. Act 247 ... October 1, 2026"
+      },
+      "hazards": [
+        "canonical path needs the subchapter Roman numeral: always enter via /document/statutes/{section}",
+        "page is a window of neighbouring sections; WebFetch view ends with 'Loading...'",
+        "WebFetch may serve an older cached snapshot (observed May 22, 2026 vs live Oct. 1, 2026)",
+        "section headings are concatenated with numbers in extracted text ('893.54893.54 Injury to the person.')"
+      ],
+      "probe": {
+        "citation": "Wis. Stat. § 893.54",
+        "url": "https://docs.legis.wisconsin.gov/document/statutes/893.54",
+        "expect": "An action to recover damages for injuries to the person"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: → /statutes/statutes/893/v/54, html 31,362 chars; verify 'An action to recover damages for injuries to the person' VERIFIED. Second cite Wis. Stat. § 802.06(2)(a)6. → /802/06/2/a/6, 34,314 chars; 'Failure to state a claim upon which relief can be granted' VERIFIED. Also 940.01 → /940/i/01, 180.0302 → /180/iii/0302. WebFetch (search URL /893/V/54): YES, 'Except as provided in sub. (2m), the following actions shall'."
+      },
+      "notes": "Per-section PDF: /document/statutes/{section}.pdf redirects to the whole-chapter PDF (see wi-statutes-pdf)."
+    },
+    {
+      "id": "wi-statutes-pdf",
+      "family": "statutes",
+      "title": "Wisconsin Statutes — per-chapter PDFs",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Same certified publication as the HTML (s. 35.18 footer).",
+      "coverage": "One PDF per statute chapter, current edition.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://docs.legis.wisconsin.gov/statutes/statutes/{chapter}.pdf",
+        "pattern_rules": "chapter = integer part of the section number (893.54 → 893.pdf). /document/statutes/{section}.pdf also redirects here (with #page=0).",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "allowed (see wi-statutes-legis)",
+        "notes": "Large chapters exceed the fetch tool's ~100K-character window (ch. 893: 34 pages, 448,171 extracted chars); read with fetch_doc.py grep/section."
+      },
+      "currency": {
+        "where": "page headers/footers of the PDF",
+        "observed": "not separately recorded; same edition as HTML"
+      },
+      "hazards": [
+        "long chapters truncated by the fetch tool",
+        "two-column layout in chapter tables of contents"
+      ],
+      "probe": {
+        "citation": "Wis. Stat. ch. 893",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/893.pdf",
+        "expect": "893.54 Injury to the person."
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py info: pdf, 34 pages, 448,171 chars; grep finds '893.54 Injury to the person.' in chapter TOC. /document/statutes/893.54.pdf → same file."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-statutes-justia",
+      "family": "statutes",
+      "title": "Justia — Wisconsin Statutes & Annotations (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'These codes may not be the most recent version.'",
+      "coverage": "Wisconsin Statutes; unversioned URL serves the 2025 edition; older year editions exist (e.g. /2011/).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/wisconsin/chapter-{chapter}/section-{chapter}-{section_suffix}/",
+        "pattern_rules": "893.54 → chapter-893/section-893-54 (dot becomes hyphen). Surfaced by web search for 893.54; pattern proven on one citation only.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "robots.txt answers the shell with a Cloudflare challenge",
+        "notes": "fetch_doc.py: 'law.justia.com refused automated access earlier (robots.txt challenge)'. WebFetch only."
+      },
+      "currency": {
+        "where": "Universal Citation line",
+        "observed": "WI Stat § 893.54 (2025)"
+      },
+      "hazards": [
+        "Cloudflare challenge for the shell",
+        "may lag the official text"
+      ],
+      "probe": {
+        "citation": "Wis. Stat. § 893.54",
+        "url": "https://law.justia.com/codes/wisconsin/chapter-893/section-893-54",
+        "expect": "Except as provided in sub. (2m), the following actions"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, '(1m) Except as provided in sub. (2m), the following actions'; 'WI Stat § 893.54 (2025)'; not truncated."
+      },
+      "notes": "Second citation not tested (WebFetch budget); treat pattern as provisional."
+    },
+    {
+      "id": "wi-acts-legis",
+      "family": "statutes",
+      "title": "Wisconsin Acts (session laws)",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Act PDFs show date of enactment and publication; no certification statement seen online (the printed Laws of Wisconsin carry the s. 35.15 certificate).",
+      "coverage": "Acts by legislative session.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://docs.legis.wisconsin.gov/document/acts/{year}/{act}[.pdf]",
+        "pattern_rules": "year = the session year printed in the cite ('2025 Wis. Act 247' → 2025/247). Redirects to /{year}/related/acts/{act}; .pdf gives the enrolled act text.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "allowed",
+        "notes": ""
+      },
+      "currency": {
+        "where": "act PDF header",
+        "observed": "Date of enactment: April 9, 2026"
+      },
+      "hazards": [],
+      "probe": {
+        "citation": "2025 Wis. Act 247",
+        "url": "https://docs.legis.wisconsin.gov/document/acts/2025/247.pdf",
+        "expect": "2025 WISCONSIN ACT 247"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: → /2025/related/acts/247.pdf, 1 page, 1,803 chars; '2025 WISCONSIN ACT 247'; 'AN ACT to create 945.01 (1) (h) of the statutes'."
+      },
+      "notes": "Only one act probed."
+    },
+    {
+      "id": "wi-constitution-legis",
+      "family": "constitution",
+      "title": "Wisconsin Constitution (annotated), docs.legis.wisconsin.gov",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Footer: 'Wisconsin Constitution updated by the Legislative Reference Bureau. Published August 5, 2026.' No certification statement.",
+      "coverage": "Full constitution with annotations; whole-document PDF at /constitution/wi.pdf.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://docs.legis.wisconsin.gov/document/wisconsinconstitution/{article_roman},{section}",
+        "pattern_rules": "article as upper-case Roman numeral, section as cited (I,9; VII,3). Redirects to an opaque canonical path (/constitution/wi/000230/000020) — never build that path. Page is a window of neighbouring sections with annotations.",
+        "index_url": "https://docs.legis.wisconsin.gov/constitution/wi",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "allowed",
+        "notes": "Whole PDF (https://docs.legis.wisconsin.gov/constitution/wi.pdf, 95 pages, 1,375,500 chars) is two-column: verbatim quote checks fail across column breaks; use the HTML."
+      },
+      "currency": {
+        "where": "page footer",
+        "observed": "Published August 5, 2026"
+      },
+      "hazards": [
+        "opaque canonical URLs (use /document/ redirector)",
+        "two-column whole PDF breaks exact quoting"
+      ],
+      "probe": {
+        "citation": "Wis. Const. art. I, § 9",
+        "url": "https://docs.legis.wisconsin.gov/document/wisconsinconstitution/I,9",
+        "expect": "Every person is entitled to a certain remedy in the laws"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: → /constitution/wi/000230/000020, 27,554 chars; quote VERIFIED. Second: VII,3 → /000236/000004, 'VII,3 Supreme court: jurisdiction. Section 3.'"
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — Wisconsin Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "'This Constitution may not be the most recent version.'",
+      "coverage": "Articles and sections.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/wisconsin/article-{article_roman_lower}/section-{section}/",
+        "pattern_rules": "article-i/section-9; letter suffixes kept (section-9m). Links taken from the article page.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "Cloudflare challenge to the shell",
+        "notes": "WebFetch only."
+      },
+      "currency": {
+        "where": "page notice",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "Cloudflare challenge for the shell"
+      ],
+      "probe": {
+        "citation": "Wis. Const. art. I, § 9",
+        "url": "https://law.justia.com/constitution/wisconsin/article-i/section-9/",
+        "expect": "Every person is entitled to a certain remedy in the"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, 'Every person is entitled to a certain remedy in the'. Article page lists Sections 1-26."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-scr-wicourts",
+      "family": "court_rules",
+      "title": "Wisconsin Supreme Court Rules (SCR) — per-chapter PDFs",
+      "publisher": "Wisconsin Supreme Court / Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Index says rules 'are updated as changes are approved by the Wisconsin Supreme Court'; no official/certified statement.",
+      "coverage": "SCR chapters 10-14, 20 (split 20A Preamble-20:1.18 and 20B 20:2.1-20:8.5), 21-23, 30-36, 40, 50, 60-63, 70-72, 80-81 etc., each with a release date.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.wicourts.gov/sc/rules/chap{chapter}.pdf",
+        "pattern_rules": "chapter as cited (10, 22, 60). Chapter 20 is split: SCR 20:1.x and Preamble/Terminology → chap20a.pdf; SCR 20:2.1-20:8.5 → chap20b.pdf. Chapter list with release dates on index_url (its PDF links are not plain hrefs to the link extractor; chap60 is the only one listed).",
+        "index_url": "https://www.wicourts.gov/supreme/sc_rules.jsp",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (www.wicourts.gov/robots.txt returns the site's HTML 404 page)",
+        "notes": "chap20a.pdf is 107 pages / 298,902 chars, chap20b 64 pages / 214,011 chars: beyond the fetch tool's window. Read with fetch_doc.py."
+      },
+      "currency": {
+        "where": "release date column on the index; PDF Last-Modified",
+        "observed": "Chapter 20A ... Jul 01, 2023"
+      },
+      "hazards": [
+        "long PDFs truncated by the fetch tool",
+        "chapter 20 split across two files"
+      ],
+      "probe": {
+        "citation": "SCR 20:1.7",
+        "url": "https://www.wicourts.gov/sc/rules/chap20a.pdf",
+        "expect": "a lawyer shall not represent a client if the representation involves a concurrent conflict of interest"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: chap20a.pdf 107 pp; SCR 20:1.7 at page 38, quote VERIFIED; SCR 20:1.18 on p. 105. Also chap10.pdf (56 pp) and chap60.pdf (40 pp) HTTP 200."
+      },
+      "notes": "Civil procedure (Wis. Stat. chs. 801-847), evidence (chs. 901-911), appellate procedure (ch. 809) and criminal procedure (chs. 967-980) are statutes: use wi-statutes-legis. Uniform circuit-court rules: https://www.wicourts.gov/scrules/docs/circuitrules.pdf (not probed)."
+    },
+    {
+      "id": "wi-admincode-legis",
+      "family": "admin_code",
+      "title": "Wisconsin Administrative Code (docs.legis.wisconsin.gov)",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Footer: 'Published under s. 35.93, Stats. Updated on the first day of each month.' s. 35.93 text read did not use the word 'official'.",
+      "coverage": "Entire current Administrative Code; per-chapter PDFs.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://docs.legis.wisconsin.gov/document/administrativecode/{AGENCY}%20{section}",
+        "pattern_rules": "AGENCY = upper-case prefix as cited (DHS, NR, ATCP, SPS, Trans); the space MUST be percent-encoded (%20). Redirects to /code/admin_code/{agency_lower}/{range}/{chapter}/[{subchapter}/]{section_suffix} (DHS 110.04 → /dhs/110/110/i/04; NR 115.05 → /nr/100/115/05); never build that path. Chapter PDF: /document/administrativecode/ch.%20{AGENCY}%20{chapter}.pdf → /code/admin_code/{agency}/{range}/{chapter}.pdf.",
+        "index_url": "https://docs.legis.wisconsin.gov/code/admin_code",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "allowed",
+        "notes": "/code/admin_code/dhs/110/110_04 (guessed form) is 404."
+      },
+      "currency": {
+        "where": "page footer",
+        "observed": "Updated on the first day of each month. Entire code is always current."
+      },
+      "hazards": [
+        "space in URL must be encoded",
+        "window page includes neighbouring sections"
+      ],
+      "probe": {
+        "citation": "Wis. Admin. Code § DHS 110.04",
+        "url": "https://docs.legis.wisconsin.gov/document/administrativecode/DHS%20110.04",
+        "expect": "has the meaning given in s. 256.01"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: → /code/admin_code/dhs/110/110/i/04, 19,763 chars; 'DHS 110.04 Definitions. In this chapter:'; quote VERIFIED. NR 115.05 → /nr/100/115/05 (30,031 chars). ch. DHS 110 PDF: 25 pp."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-admincode-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — Wisconsin Administrative Code",
+      "publisher": "Legal Information Institute",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "LII: 'State regulations are updated quarterly'.",
+      "coverage": "Wisconsin Administrative Code by agency/chapter/section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/wisconsin/Wis-Admin-Code-SS-{AGENCY}-{chapter}-{section_suffix}",
+        "pattern_rules": "DHS 110.04 → Wis-Admin-Code-SS-DHS-110-04; NR 115.05 → Wis-Admin-Code-SS-NR-115-05. 'Wis-Adm-Code' (no 'in') silently returns the index page — check the heading.",
+        "index_url": "https://www.law.cornell.edu/regulations/wisconsin",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "200; Crawl-delay 10",
+        "notes": ""
+      },
+      "currency": {
+        "where": "bottom of section page",
+        "observed": "State regulations are updated quarterly"
+      },
+      "hazards": [
+        "wrong slug returns the index with HTTP 200"
+      ],
+      "probe": {
+        "citation": "Wis. Admin. Code § DHS 110.04",
+        "url": "https://www.law.cornell.edu/regulations/wisconsin/Wis-Admin-Code-SS-DHS-110-04",
+        "expect": "In this chapter"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 'DHS 110.04 - Definitions ... In this chapter: (1g) \"Advanced emergency medical technician\"'; NR 115.05 page heading 'NR 115.05 - Minimum zoning standards for shorelands'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-register-legis",
+      "family": "admin_register",
+      "title": "Wisconsin Administrative Register",
+      "publisher": "Wisconsin Legislative Reference Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Published under s. 35.93(2)(b); no certification statement seen.",
+      "coverage": "Weekly issues (e.g. 850A1, 850A2, 849B) with emergency rules, final rules, notices.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://docs.legis.wisconsin.gov/code/register/{year}/",
+        "navigation": "year page lists issues ('850A1 Register (10/5/2026)' → /document/register/850/A1/toc) → redirects to /code/register/{year}/{issue}; follow 'Register' → /code/register/{year}/{issue}/register, which links each item (e.g. EmR2609 → …/emr/emr2609_rule_text/emr2609_rule_text). History notes cite 'Register Month YYYY No. NNN': find the issue number on the year page.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "allowed (/feed/ and /frame/ disallowed — do not follow 'Show tree' links)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "year page issue list",
+        "observed": "850A2 Register (10/12/2026)"
+      },
+      "hazards": [
+        "'Show tree' links go to robots-disallowed /frame/"
+      ],
+      "probe": {
+        "citation": "EmR2609 (Register 850A1, Oct. 5, 2026)",
+        "url": "https://docs.legis.wisconsin.gov/code/register/2026/850A1/register/emr_effect/emr2609/emr2609",
+        "expect": ""
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: year page 46 links (850A2 10/12/2026 … 847A1 7/6/2026); 850A1 register page lists EmR2609…EmR2602; EmR2609 link → /code/register/2026/849a3/register/emr/emr2609_rule_text/emr2609_rule_text, 12,292 chars."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-opinions-supreme",
+      "family": "case_law",
+      "title": "Wisconsin Supreme Court opinions (wicourts.gov)",
+      "publisher": "Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Listing: 'Published opinions are subject to further editing ... final version will appear in the bound volume of the official reports.'",
+      "coverage": "Slip opinions (PDF) from 1995 (1995: one results page; 1994: no records) to date, including attorney-discipline (-D) and original actions (-OA).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.wicourts.gov/supreme/scopin.jsp?range=None&pdcNo={year}+WI+{number}&sortBy=date",
+        "pattern_rules": "Plain GET search. pdcNo = public-domain cite with '+' for spaces (2024+WI+13). Alternatives: docket_number={yyyy}AP{nnnnnn}[-suffix] (zero-pad to 6: 2020AP002007), party_name={name}, begin_date/end_date=MM/DD/YYYY (paged: &page=2). range=None is needed with pdcNo. Result rows link to https://www.wicourts.gov/sc/opinion/DisplayDocument.pdf?content=pdf&seqNo={n} — take seqNo from the result, never guess it. cite_type (N.W.2d / Wis. 2d) + volume/page search returned 'no records' when tried with value Wis2D (the form value is 'Wis. 2d'; untested).",
+        "index_url": "https://www.wicourts.gov/opinions/supreme.jsp",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (robots.txt returns the site's HTML 404 page)",
+        "notes": "WebFetch on the built PDF URL: PROVENANCE_REQUIRED. Long opinions exceed the fetch tool window (2024 WI 13: 129 pp, 275,298 chars). content=html variant returns 0 chars."
+      },
+      "currency": {
+        "where": "listing results",
+        "observed": "Mar 14, 2024 2020AP002007 Catholic Charities Bureau, Inc. v. ..."
+      },
+      "hazards": [
+        "slip pagination only; ¶ numbers are the pinpoint",
+        "long PDFs",
+        "seqNo not derivable from the citation"
+      ],
+      "probe": {
+        "citation": "Catholic Charities Bureau, Inc. v. LIRC, 2024 WI 13, ¶ 22",
+        "url": "https://www.wicourts.gov/sc/opinion/DisplayDocument.pdf?content=pdf&seqNo=777152",
+        "expect": "In an appeal from a LIRC determination, we review"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "scopin.jsp?range=None&pdcNo=2024+WI+13 → one row, 2020AP002007, PDF seqNo=777152; PDF p.1 '2024 WI 13 SUPREME COURT OF WISCONSIN'; '¶22 In an appeal from a LIRC determination' VERIFIED p.14. docket_number and party_name GETs also returned rows."
+      },
+      "notes": "Page 1 of a Supreme Court opinion states where the decision below is reported ('Reported at 406 Wis. 2d 586, 987 N.W.2d 778')."
+    },
+    {
+      "id": "wi-opinions-appeals",
+      "family": "case_law",
+      "title": "Wisconsin Court of Appeals opinions (wicourts.gov), published and unpublished",
+      "publisher": "Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Unpublished PDFs: 'If published, the official version will appear in the bound volume of the Official Reports.'",
+      "coverage": "Published and unpublished opinions, per curiam and one-judge decisions, from 1995 (1995: 22 result pages) to date; listing shows district, county and '[Final publication on YYYY-MM-DD]'.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.wicourts.gov/other/appeals/caopin.jsp?range=None&pdcNo={year}+WI+App+{number}&sortBy=date",
+        "pattern_rules": "Same GET parameters as the Supreme Court search (pdcNo, docket_number, party_name, begin_date/end_date, page). Rows link to https://www.wicourts.gov/ca/opinion/DisplayDocument.pdf?content=pdf&seqNo={n}. Unpublished opinions have no pdcNo: search by docket_number.",
+        "index_url": "https://www.wicourts.gov/opinions/appeals.jsp",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (HTML 404 page)",
+        "notes": "Not tried with WebFetch after the Supreme Court PDF was gated; use fetch_doc.py."
+      },
+      "currency": {
+        "where": "listing results",
+        "observed": "Oct 15, 2026 2026AP001629 Rock County Human Services Department v. T. S."
+      },
+      "hazards": [
+        "slip pagination only",
+        "first page flags '†Petition for Review filed'"
+      ],
+      "probe": {
+        "citation": "State v. Vice, 2020 WI App 34",
+        "url": "https://www.wicourts.gov/ca/opinion/DisplayDocument.pdf?content=pdf&seqNo=261630",
+        "expect": "2020 WI App 34 COURT OF APPEALS OF WISCONSIN PUBLISHED OPINION"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "caopin.jsp?range=None&pdcNo=2020+WI+App+34 → 2018AP002220-CR State v. Adam W. Vice, seqNo=261630; PDF 45 pp, p.1 '2020 WI App 34 ... PUBLISHED OPINION', '¶1 STARK, P.J.'. Unpublished 2025AP1919 (Oct. 15, 2026) PDF 22 pp read."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-cases-justia",
+      "family": "case_law",
+      "title": "Justia — Wisconsin Supreme Court and Court of Appeals opinions",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party copy of slip opinions.",
+      "coverage": "Supreme Court 1878-2026 (year list); Court of Appeals.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://law.justia.com/cases/wisconsin/{supreme-court|court-of-appeals}/{year}/{docket_lower}.html",
+        "pattern_rules": "docket zero-padded as on wicourts, lower-case: 2022ap000431.html. Year = decision year. Pattern observed, not tested on a second case: prefer the year index.",
+        "index_url": "https://law.justia.com/cases/wisconsin/supreme-court/{year}/",
+        "navigation": "court index → year page → case link",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "blocked-challenge",
+        "robots_txt": "Cloudflare challenge to the shell",
+        "notes": "2026 WI 28 page is 109,178 chars: WebFetch stopped mid-¶75; continue with offset=100000."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "truncation of long opinions",
+        "Cloudflare challenge for the shell"
+      ],
+      "probe": {
+        "citation": "Wisconsin State Legislature v. Kaul, 2026 WI 28",
+        "url": "https://law.justia.com/cases/wisconsin/supreme-court/2026/2022ap000431.html",
+        "expect": "The attorney general represents the state in legal matters, including"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 2026 WI 28, ¶1 'The attorney general represents the state in legal matters, including'; ¶ numbers present; truncated at 100,000 of 109,178 chars."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-pfr-orders",
+      "family": "subsequent_history",
+      "title": "Wisconsin Supreme Court orders search (petition-for-review orders by docket)",
+      "publisher": "Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Court orders as filed (clerk-signed PDF).",
+      "coverage": "Supreme Court dispositional orders, including orders granting/denying petitions for review; start year not determined.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.wicourts.gov/supreme/scorder.jsp?range=None&docket_number={yyyy}AP{nnnnnn}",
+        "pattern_rules": "Use the Court of Appeals docket number of the decision below (same number carries to the Supreme Court), zero-padded to 6 digits. Result rows link to /sc/order/DisplayDocImage.pdf?docId={n} — the href is unquoted, so fetch_doc.py links does not list it; read it from the result text/HTML. Also accepts party_name and begin_date/end_date.",
+        "index_url": "https://www.wicourts.gov/opinions/sorders.htm",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "none (HTML 404 page)",
+        "notes": "Find-by-docket works, so no party-name search is needed. A Court of Appeals opinion's p.1 '†Petition for Review filed' flag shows a petition was filed."
+      },
+      "currency": {
+        "where": "result row",
+        "observed": "Aug 18, 2026 2023AP000301 Milwaukee Police Association v. City of Milwaukee"
+      },
+      "hazards": [
+        "order link not exposed to the link extractor"
+      ],
+      "probe": {
+        "citation": "Milwaukee Police Ass'n v. City of Milwaukee, No. 2023AP301, review denied (Wis. Aug. 18, 2026)",
+        "url": "https://www.wicourts.gov/sc/order/DisplayDocImage.pdf?docId=1163207",
+        "expect": "IT IS ORDERED that the petition for review is denied, without costs."
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "scorder.jsp?range=None&docket_number=2023AP000301 → 1 row (Aug 18, 2026) linking docId=1163207; PDF 1 p: 'IT IS ORDERED that the petition for review is denied, without costs.'"
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-pfr-disposition-tables",
+      "family": "subsequent_history",
+      "title": "Wisconsin Supreme Court disposition tables (petitions for review, bypass, certification)",
+      "publisher": "Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page: 'These tables will be printed in the official reports.' Each table carries a public-domain number (July & August 2026 table = 2026 WI 33).",
+      "coverage": "Bimonthly tables, about six per year; listing shows recent tables (6 PDFs linked on 2026-10-17).",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.wicourts.gov/supreme/sc_disptab.jsp",
+        "navigation": "index → table PDF (/sc/DisplayDocument.pdf?content=pdf&seqNo={n}) → grep the docket number; rows give case number, caption, Granted/Denied and date.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "none (HTML 404 page)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "index release-date column",
+        "observed": "Oct 15, 2026 Disposition table - July & August 2026"
+      },
+      "hazards": [
+        "only recent tables listed online"
+      ],
+      "probe": {
+        "citation": "2026 WI 33 (July & August 2026 dispositions)",
+        "url": "https://www.wicourts.gov/sc/DisplayDocument.pdf?content=pdf&seqNo=1192383",
+        "expect": "2023AP000301 Milwaukee Police Association v. City of Milwaukee Denied 8/18/2026"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 8 pp, 32,061 chars; p.1 '2026 WI 33 DISPOSITION OF PETITIONS TO THE WISCONSIN SUPREME COURT July & August 2026'; row '2023AP000301 Milwaukee Police Association v. City of Milwaukee Denied 8/18/2026'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "wi-wscca",
+      "family": "subsequent_history",
+      "title": "Wisconsin Supreme Court and Court of Appeals Case Access (WSCCA)",
+      "publisher": "Wisconsin Court System",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Docket system.",
+      "coverage": "Appellate dockets, including petition-for-review events.",
+      "access": {
+        "mode": "link-only",
+        "index_url": "https://wscca.wicourts.gov/",
+        "navigation": "JavaScript application; link the user to it, do not fetch.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "http-error",
+        "robots_txt": "none (404)",
+        "notes": "fetch_doc.py: root returns HTML with 0 extractable chars (JS shell); guessed /caseDetails.do?caseNo= and /appealHistory.xsl paths 404. Not tried further."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript-only"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://wscca.wicourts.gov/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py info: html, 0 chars."
+      },
+      "notes": "Use wi-pfr-orders instead."
+    }
+  ],
+  "absent": [
+    {
+      "family": "case_law",
+      "what": "Free official Wisconsin Reports (Wis. 2d) pagination",
+      "evidence": "wicourts listing: final version appears in the bound official reports; PDFs carry slip pagination and ¶ numbers only (2024 WI 13 PDF).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "wicourts.gov opinions before 1995",
+      "evidence": "scopin.jsp and caopin.jsp with begin_date 01/01/1994-12/31/1994: 'Sorry, no records found'; 1995 returns rows.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Site search on docs.legis.wisconsin.gov",
+      "evidence": "robots.txt: Disallow: /search",
+      "date": "2026-10-17"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "wi-opinions-supreme",
+      "why": "Plain GET search scopin.jsp / caopin.jsp by public-domain cite (pdcNo), docket, party or date, returning rows with seqNo PDF links: a script can resolve '2024 WI 13' or '2020 WI App 34' to the PDF deterministically."
+    },
+    {
+      "source_id": "wi-pfr-orders",
+      "why": "scorder.jsp?docket_number= returns review orders for the decision below by docket; disposition-table PDFs are greppable by docket."
+    },
+    {
+      "source_id": "wi-statutes-legis",
+      "why": "/document/{collection}/{cite} redirector resolves statutes, admin code, constitution and acts from the citation."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "wi-scr-wicourts",
+      "url": "https://www.wicourts.gov/sc/rules/chap20a.pdf",
+      "why": "SCR ch. 20 Preamble-20:1.18: 107 pages, 298,902 chars; beyond the fetch tool's window.",
+      "split_hint": "'SCR 20:N.N Title' headings at left margin"
+    },
+    {
+      "source_id": "wi-scr-wicourts",
+      "url": "https://www.wicourts.gov/sc/rules/chap20b.pdf",
+      "why": "SCR 20:2.1-20:8.5: 64 pages, 214,011 chars.",
+      "split_hint": "'SCR 20:N.N Title' headings"
+    },
+    {
+      "source_id": "wi-statutes-pdf",
+      "url": "https://docs.legis.wisconsin.gov/statutes/statutes/893.pdf",
+      "why": "Chapter PDFs of the certified statutes run to 448K chars (ch. 893); HTML per-section route already works, so ingest only chapters heavily used (801-847, 809, 901-911).",
+      "split_hint": "bold 'NNN.NN Title.' section headings"
+    }
+  ],
+  "open_questions": [
+    "Bulk statute/admin-code download (XML/zip) from the LRB not found; not searched exhaustively.",
+    "WebFetch is gated on built docs.legis and wicourts URLs; the docs.legis HTML route was confirmed only through a search-surfaced URL, and it served an older snapshot than the live page.",
+    "Official status of the online Administrative Code (s. 35.93) and Constitution not confirmed; Wisconsin UELMA status not checked.",
+    "Opinion search by reporter cite (cite_type='Wis. 2d' / 'N.W.2d' with cite_volume/cite_page) not confirmed working.",
+    "Start year of scorder.jsp order coverage and of the online disposition-table archive not determined.",
+    "Justia statute and case URL patterns each proven on one citation only.",
+    "Circuit court local rules location not researched."
+  ]
+}

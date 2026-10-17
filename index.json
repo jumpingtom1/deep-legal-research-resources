@@ -1492,7 +1492,7 @@
     "nv": {
       "name": "Nevada",
       "file": "jurisdictions/nv.md",
-      "sha256": "d7a3921ea8fba5142e273ceb2939d9ee3d53ba37807b38616159bd581f21fc1c",
+      "sha256": "3bcb204a7152a05fdaa5d99821c456d8c6f493b2d47b102b72bb6cdf052eca14",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 16,
@@ -1526,8 +1526,13 @@
         },
         {
           "label": "Nevada Supreme Court Rules",
-          "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Nevada\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)\\s*\\(Nev(?:\\.|ada)\\)",
+          "regex": "(?:Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Nevada\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)\\s*\\(Nev(?:\\.|ada)\\)",
           "context_required": false
+        },
+        {
+          "label": "Nevada Supreme Court Rules (bare \"SCR\", shared with Wisconsin)",
+          "regex": "\\bSCR\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?![\\d.:])",
+          "context_required": true
         },
         {
           "label": "Nevada Supreme Court Rules (bare \"Supreme Court Rule 99\")",
@@ -2054,6 +2059,93 @@
           "label": "Westlaw / Lexis unreported cites",
           "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)",
           "context_required": false
+        }
+      ]
+    },
+    "wi": {
+      "name": "Wisconsin",
+      "file": "jurisdictions/wi.md",
+      "sha256": "3b8402b40387c1d2133f86877fcd919eeb170351fa2308adea4d849275da5ece",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 15,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Wisconsin Statutes",
+          "regex": "(?:Wis(?:consin)?\\.?\\s*Stats?\\.?(?:\\s*Ann\\.)?\\s*(?:\u00a7+|ss?\\.)\\s*(?:\\(Rule\\)\\s*)?(?P<section>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?P<sub>(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?(?:\\s*[a-z]\\.)?)|(?:s|ss|sec(?:tion)?)\\.?\\s+(?P<section2>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?,?\\s+(?:Wis\\.\\s*)?Stats\\.|section\\s+(?P<section3>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Wisconsin\\s+Statutes)",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin appellate procedure cited as a rule (ch. 809)",
+          "regex": "(?:Wis\\.?\\s*Stats?\\.?\\s*Rule\\s*(?P<rule>8\\d\\d\\.\\d{2,3})|Rule\\s+(?P<rule2>8\\d\\d\\.\\d{2,3})(?:\\s*\\([0-9a-z]+\\))*,\\s*Stats\\.)",
+          "context_required": false
+        },
+        {
+          "label": "Bare 'Rule 809.62' (Wisconsin appellate rule without a state marker)",
+          "regex": "\\bRule\\s+(?P<rule>809\\.\\d{2,3})",
+          "context_required": true
+        },
+        {
+          "label": "Wisconsin session laws (Acts)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+Wis(?:consin|\\.)\\s+Act\\s+(?P<act>\\d{1,4})",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Constitution",
+          "regex": "(?:Wis\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.)\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Wisconsin\\s+Constitution|art\\.\\s*(?P<article3>[IVXL]+),\\s*(?:sec\\.|\u00a7)\\s*(?P<section3>\\d+[a-z]?)(?:\\s*\\([0-9a-z]+\\))*,\\s*Wis\\.\\s*Const\\.)",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Supreme Court Rules (SCR)",
+          "regex": "(?:(?:Wis\\.\\s*)?S\\.?C\\.?R\\.?|Wis\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<chapter>\\d{2}):(?P<rule>\\d\\.\\d{1,2})|(?:Wis\\.\\s*SCR|Wis\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<chapter2>\\d{2})\\.(?P<rule2>\\d{2,3})",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Supreme Court Rules (bare \"SCR NN.NN\", shared with Nevada)",
+          "regex": "\\bSCR\\s+(?P<chapter3>(?:1[0-4]|2[0-3]|3[0-6]|40|50|6[0-3]|7[0-2]|8[01]))\\.(?P<rule3>\\d{2,3})",
+          "context_required": true
+        },
+        {
+          "label": "Wisconsin Administrative Code",
+          "regex": "(?:Wis\\.?\\s*Adm(?:in)?\\.?\\s*Code\\s*(?:\u00a7+|ch\\.)?\\s*(?P<agency>[A-Z][A-Za-z]{1,5})\\s*(?:\u00a7+\\s*)?(?P<section>\\d{1,4}(?:\\.\\d{2,4}[a-z]?)?)|s\\.\\s*(?P<agency2>[A-Z][A-Za-z]{1,5})\\s+(?P<section2>\\d{1,4}\\.\\d{2,4}[a-z]?)(?:\\s*\\([0-9a-z]+\\))*,\\s*Wis\\.\\s*Adm(?:in)?\\.\\s*Code)",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Administrative Register",
+          "regex": "Register,?\\s+(?P<month>January|February|March|April|May|June|July|August|September|October|November|December),?\\s+(?P<year>(?:19|20)\\d\\d),?\\s+No\\.\\s*(?P<number>\\d{3})(?P<part>[AB]\\d?)?|\\bEmR\\s?(?P<emr>\\d{4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Supreme Court public-domain citation",
+          "regex": "(?P<year>(?:199[5-9]|20\\d\\d))\\s+WI\\s+(?!App\\b)(?P<number>\\d{1,3})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Court of Appeals public-domain citation",
+          "regex": "(?P<year>(?:199[5-9]|20\\d\\d))\\s+WI\\s+App\\s+(?P<number>\\d{1,3})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin Reports (Wis. / Wis. 2d)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Wis\\.\\s*(?P<series>2d\\s+)?(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter with a Wisconsin parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.W\\.\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(Wis\\.(?:\\s*Ct\\.\\s*App\\.)?\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Wisconsin appeal number / unpublished opinion form (Wis. Stat. \u00a7 809.23(3)(c))",
+          "regex": "(?P<year>(?:19|20)\\d\\d)AP0*(?P<seq>\\d{1,6})(?:-(?P<suffix>[A-Z]{1,4}))?",
+          "context_required": false
+        },
+        {
+          "label": "Generic 'review denied' / 'review granted' history",
+          "regex": "(?:petition\\s+for\\s+)?review\\s+(?P<disposition>denied|granted|dismissed)",
+          "context_required": true
         }
       ]
     }

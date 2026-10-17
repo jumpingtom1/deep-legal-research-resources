@@ -118,15 +118,26 @@
         "family": "court_rules",
         "label": "Nevada Supreme Court Rules",
         "examples": [
-          "SCR 99",
           "Nev. Sup. Ct. R. 121.1",
-          "SCR 121.1",
           "Supreme Court Rule 99 (Nevada)"
         ],
-        "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Nevada\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)\\s*\\(Nev(?:\\.|ada)\\)",
+        "regex": "(?:Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Nevada\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)\\s*\\(Nev(?:\\.|ada)\\)",
         "routes_to": [
           "nv-rules-scr"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Nevada Supreme Court Rules (bare \"SCR\", shared with Wisconsin)",
+        "examples": [
+          "SCR 99",
+          "SCR 121.1"
+        ],
+        "regex": "\\bSCR\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?![\\d.:])",
+        "routes_to": [
+          "nv-rules-scr"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -295,7 +306,7 @@
       "NRAD": "NRAD",
       "NCJC": "SCR_CJC"
     },
-    "notes": "Nevada's own statutory citation form is 'NRS 41.130' with no section sign (NRS 220.170(4) prescribes it); Bluebook is 'Nev. Rev. Stat. § 41.130'. The section number encodes the chapter (digits and letters before the dot), so NRS/NAC citations are fully constructible. A range 'NRS 41.0305 to 41.039, inclusive' is a span: take the first section. Advance opinions are cited '142 Nev., Adv. Op. 65, ___ P.3d ___ (2026)' (Supreme Court Law Library guide; ACIS docket text writes 'Adv. Opn. No.'); once the Nevada Reports page is printed, cite 'Nev.' with parallel P.3d. Court of Appeals opinions share the Nev. series with no distinct court designation in Nev. cites; Bluebook P.3d-only cites use '(Nev. App. YYYY)' and older practice '(Nev. Ct. App.)'. NRAP 36(c)(3): unpublished dispositions are citable for persuasive value only if issued by the Supreme Court on or after Jan. 1, 2016 or by the Court of Appeals on or after Aug. 15, 2024, cited by docket number and date with '(unpublished disposition)'. Docket numbers are 5-digit; Court of Appeals matters carry '-COA' on the same number, and a petition for review is decided on that same docket. Routing guards: 'SCR', 'RPC', 'DCR' and bare 'Rule 12(b)(5)' are shared with other states — route them here only with Nevada context (Nev./Nevada/NRS nearby). 'NRS', 'NAC', 'NRCP', 'NRAP', 'EDCR', 'WDCR' are Nevada-specific. A bare 'No. 12345' docket, 'Supreme Court Rule N' and 'R001-25' File numbers are generic shapes: route them here only with Nevada context (a '-COA' suffix is Nevada-specific). Nevada has no separate rules-of-evidence set: evidence law is NRS chapters 47-56 (e.g. NRS 48.035), handled by the NRS pattern. A parallel cite ('142 Nev., Adv. Op. 6, 573 P.3d 101 (Nev. App. 2026)') matches both the advance-opinion and the P.3d pattern: prefer the advance-opinion route. WL numbers cannot be turned into free URLs: search ACIS by party name or docket number. CourtListener ids 'nev' and 'nevapp' are from memory and unverified."
+    "notes": "Nevada's own statutory citation form is 'NRS 41.130' with no section sign (NRS 220.170(4) prescribes it); Bluebook is 'Nev. Rev. Stat. § 41.130'. The section number encodes the chapter (digits and letters before the dot), so NRS/NAC citations are fully constructible. A range 'NRS 41.0305 to 41.039, inclusive' is a span: take the first section. Advance opinions are cited '142 Nev., Adv. Op. 65, ___ P.3d ___ (2026)' (Supreme Court Law Library guide; ACIS docket text writes 'Adv. Opn. No.'); once the Nevada Reports page is printed, cite 'Nev.' with parallel P.3d. Court of Appeals opinions share the Nev. series with no distinct court designation in Nev. cites; Bluebook P.3d-only cites use '(Nev. App. YYYY)' and older practice '(Nev. Ct. App.)'. NRAP 36(c)(3): unpublished dispositions are citable for persuasive value only if issued by the Supreme Court on or after Jan. 1, 2016 or by the Court of Appeals on or after Aug. 15, 2024, cited by docket number and date with '(unpublished disposition)'. Docket numbers are 5-digit; Court of Appeals matters carry '-COA' on the same number, and a petition for review is decided on that same docket. Routing guards: 'SCR', 'RPC', 'DCR' and bare 'Rule 12(b)(5)' are shared with other states — route them here only with Nevada context (Nev./Nevada/NRS nearby). 'NRS', 'NAC', 'NRCP', 'NRAP', 'EDCR', 'WDCR' are Nevada-specific. A bare 'No. 12345' docket, 'Supreme Court Rule N' and 'R001-25' File numbers are generic shapes: route them here only with Nevada context (a '-COA' suffix is Nevada-specific). Nevada has no separate rules-of-evidence set: evidence law is NRS chapters 47-56 (e.g. NRS 48.035), handled by the NRS pattern. A parallel cite ('142 Nev., Adv. Op. 6, 573 P.3d 101 (Nev. App. 2026)') matches both the advance-opinion and the P.3d pattern: prefer the advance-opinion route. WL numbers cannot be turned into free URLs: search ACIS by party name or docket number. CourtListener ids 'nev' and 'nevapp' are from memory and unverified. Bare 'SCR N' is shared with Wisconsin's Supreme Court Rules; it routes here only once Nevada is established. The colon form 'SCR 20:1.7' is Wisconsin's."
   },
   "sources": [
     {
