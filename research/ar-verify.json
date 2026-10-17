@@ -1,0 +1,189 @@
+{
+ "jurisdiction": "ar",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "ar-acts-arkleg",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: ACT276.pdf pages=3 'Act 276 of the Regular Session'",
+   "generalised_citation": "Act 910 of 2019 (2019R)",
+   "generalised_url": "https://arkleg.state.ar.us/Home/FTPDocument?path=%2FACTS%2F2019R%2FPublic%2FACT910.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Act 910 of 2019 PDF is 2,047 pages / 5.1M chars; whole-PDF grep works but large omnibus acts are slow.",
+   "suggested_fix": "Hazard: some acts (e.g. 2019 Act 910) are thousands of pages; use grep/section, not read."
+  },
+  {
+   "id": "ar-code-lexis",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: 302 to advance.lexis.com container; container page empty, no text",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": "Record WebFetch as tried: redirect then empty JS app (2026-10-16)."
+  },
+  {
+   "id": "ar-code-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'The following actions shall be commenced within three (3) years'; '2025 Arkansas Code'",
+   "generalised_citation": "Ark. Code Ann. § 4-88-107",
+   "generalised_url": "https://law.justia.com/codes/arkansas/title-4/subtitle-7/chapter-88/subchapter-1/section-4-88-107/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Title page lists subtitle names only, so finding the subtitle may take several subtitle-page fetches (topic guess). WebFetch of chapter-88 page reported NO section ranges for subchapters, contrary to the record's 'chapter page lists subchapters WITH section ranges'; hundreds-digit rule worked.",
+   "suggested_fix": "Say the WebFetch summary may omit section ranges; default to the hundreds-digit subchapter and confirm on the section page."
+  },
+  {
+   "id": "ar-constitution-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES art. 2 § 13; truncated at 100K, Art. 5 § 30; TOC to amend. 87",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Matches record: truncation at Article 5 and amendments only through 87.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ar-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Every person is entitled to a certain remedy in the'",
+   "generalised_citation": "Ark. Const. art. 5, § 32",
+   "generalised_url": "https://law.justia.com/constitution/arkansas/article-5/section-32/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Amendment URL pattern still untested.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ar-rules-arcourts",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES Rule 702 'If scientific, technical, or other specialized knowledge will assist the'; Rules 101-1102, not truncated",
+   "generalised_citation": "Ark. Sup. Ct. R. 5-2",
+   "generalised_url": "https://opinions.arcourts.gov/ark/cr/en/1871/1/document.do",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Built document.do URL for item 1871 gated (WebFetch permission prompt timed out); script refused item/1871/index.do?iframe=true with HTTP 403 (record says item iframe pages return 200; 16712 did, from cache). So only rule sets whose document.do URL arrives from a search result are readable; no route to Sup. Ct. Rules text in this run.",
+   "suggested_fix": "State that item iframe pages can 403 per item; document.do needs a URL from a search result; corpus extraction for rule sets is the real fix."
+  },
+  {
+   "id": "ar-admin-rules-sos-legacy",
+   "outcome": "still-blocked",
+   "probe_evidence": "Script check: REFUSED robots.txt Disallow: /rules_and_regs/",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ar-admincode-car",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: '20 CAR § 1-101. Duties of State Registrar of Vital Records generally.' (cached)",
+   "generalised_citation": "6 CAR § 1-101",
+   "generalised_url": "https://codeofarrules.arkansas.gov/Rules/Rule?levelType=section&titleID=6&chapterID=47&subChapterID=66&partID=232&subPartID=3834&sectionID=23486",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Quick-find title 6 part 1 redirected to part page; NEXT -> subpart -> NEXT -> section worked after repairing %C2%A7ionID to &sectionID=. Footer 'Last Updated: 10/12/2026 5:18:46 AM'.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ar-register-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: 'Volume 51 Number 9 September 2026 ADOPTED RULES AND REGULATIONS'",
+   "generalised_citation": "Arkansas Register, May 2026",
+   "generalised_url": "http://www.sos.arkansas.gov/uploads/May_2026_Register_Report.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index links are http:// (script followed, served via https).",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ar-opinions-arcourts",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: item 491539 iframe 'places Barrett’s Rule 37 arguments into context' (cached)",
+   "generalised_citation": "Gulley v. Jeffrey, 2026 Ark. 150 (CV-26-131, Oct. 15, 2026)",
+   "generalised_url": "https://opinions.arcourts.gov/ark/supremecourt/en/item/524688/index.do?iframe=true",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Supremecourt nav_date listing gave item; metadata Date/Neutral Citation/Docket present, 'Cite as 2026 Ark. 150' header; slip page numbers not clearly detectable in extracted text. Listing links lack ?iframe=true and must have it appended. CoA item 524529 (2026 Ark. App. 374) also read. Docket search cont=%22CR-20-11%22 returned HTTP 403 while CV-26-131 and CR-25-323 searches worked: search 403s are per-URL, not only for 'Ark.' strings.",
+   "suggested_fix": "Note that docket searches can 403 unpredictably; fall back to the date listing. Say to append ?iframe=true to listing links."
+  },
+  {
+   "id": "ar-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Aechia Armstrong appeals from a Benton County Circuit Court sentencing'; 2026 Ark. App. 374",
+   "generalised_citation": "Spaar v. State, 2026 Ark. 142 (CR-25-538)",
+   "generalised_url": "https://law.justia.com/cases/arkansas/supreme-court/2026/cr-25-538.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Per curiam / In re opinions without dockets use 2026-ark-146.html form, not the docket pattern. Justia lags: Oct. 15, 2026 opinions (Gulley) absent on 2026-10-16.",
+   "suggested_fix": "Add the {year}-ark-{n}.html file form and a lag hazard (about a week)."
+  },
+  {
+   "id": "ar-review-arcourts",
+   "outcome": "confirmed",
+   "probe_evidence": "Script: item 494454 'REVIEWS DENIED: Petitions for review were denied today' (cached)",
+   "generalised_citation": "CR-25-323 (Armstrong, CoA 2026); CR-20-11 (Stewart)",
+   "generalised_url": "https://opinions.arcourts.gov/ark/en/d/s/index.do?cont=%22CR-25-323%22&iframe=true",
+   "generalised_outcome": "ok",
+   "instruction_problems": "CR-25-323 search returned opinion + CoA syllabus items (no review yet, as expected). CR-20-11 (a docket listed as review-denied in item 494454) search got HTTP 403, so the docket route can fail; quoted short dockets may also prefix-match longer ones.",
+   "suggested_fix": "Fallback: browse supremecourt nav_date listing for SYLLABUS items after the CoA decision date."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "section 16-114-209 of the Arkansas Code Annotated",
+   "matched_label": "Arkansas Code Annotated",
+   "expected_label": "Arkansas Code Annotated"
+  },
+  {
+   "citation": "Ark. Code Ann. § 23-112-308.1(a)(2) (Supp. 2025)",
+   "matched_label": "Arkansas Code Annotated",
+   "expected_label": "Arkansas Code Annotated"
+  },
+  {
+   "citation": "Ark. Const. art. 7, § 14",
+   "matched_label": "Constitution",
+   "expected_label": "Constitution"
+  },
+  {
+   "citation": "Ark. R. Prof. Conduct 8.4(c)",
+   "matched_label": null,
+   "expected_label": "Rules Civ/Crim/App/Evid/Prof"
+  },
+  {
+   "citation": "Rule 54(b) of the Arkansas Rules of Civil Procedure",
+   "matched_label": "Rules Civ/Crim/App/Evid/Prof",
+   "expected_label": "Rules Civ/Crim/App/Evid/Prof"
+  },
+  {
+   "citation": "Act 1 of the Second Extraordinary Session of 2024",
+   "matched_label": "Act N of YYYY",
+   "expected_label": "Act N of YYYY"
+  },
+  {
+   "citation": "Ark. Sup. Ct. R. 6-9",
+   "matched_label": "Sup Ct / Ct App Rules",
+   "expected_label": "Sup Ct / Ct App Rules"
+  },
+  {
+   "citation": "Spaar v. State, 2026 Ark. 142, at 4",
+   "matched_label": "Public-domain",
+   "expected_label": "Public-domain"
+  },
+  {
+   "citation": "Ark. Code Ann. § 4-88-113(f)(1)(A)",
+   "matched_label": "Arkansas Code Annotated",
+   "expected_label": "Arkansas Code Annotated"
+  },
+  {
+   "citation": "6 CAR § 1-101",
+   "matched_label": "CAR",
+   "expected_label": "CAR"
+  },
+  {
+   "citation": "Ark. R. App. P. Civ. 4(a)",
+   "matched_label": null,
+   "expected_label": "Rules Civ/Crim/App/Evid/Prof"
+  },
+  {
+   "citation": "Ark. Code Ann. §§ 16-56-101 et seq.",
+   "matched_label": "Arkansas Code Annotated",
+   "expected_label": "Arkansas Code Annotated"
+  }
+ ],
+ "overall": "11 rows confirmed (9 VERIFIED, 2 REPORTED), 1 still-blocked (legacy SOS rules, robots). Main problems: opinions.arcourts.gov 403s are unpredictable per URL — item/1871 iframe and a docket search (CR-20-11) refused — so court-rule text beyond search-result document.do URLs (e.g. Sup. Ct. R. 5-2) is unreachable; built document.do URLs are WebFetch-gated. Justia code chapter pages (via WebFetch) showed no section ranges; Justia per curiam file names use {year}-ark-{n}.html and lag a week. Several script probes were served from the research run's cache. Regex misses: 'Ark. R. Prof. Conduct 8.4' and 'Ark. R. App. P. Civ. 4(a)' (no dash)."
+}
