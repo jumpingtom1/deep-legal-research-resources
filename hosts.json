@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16",
+ "generated": "2026-10-17",
  "hosts": {
   "128archive.com": {
    "status": "allowed",
@@ -344,6 +344,10 @@
     "md-code-justia",
     "md-constitution-justia",
     "md-cases-justia",
+    "mn-statutes-justia",
+    "mn-constitution-justia",
+    "mn-cases-justia",
+    "mn-subsequent-justia",
     "nc-gs-justia",
     "nc-constitution-justia",
     "nc-cases-justia",
@@ -455,6 +459,13 @@
    ],
    "blocked_sources": []
   },
+  "macsnc.courts.state.mn.us": {
+   "status": "blocked",
+   "sources": [
+    "mn-pmacs"
+   ],
+   "blocked_sources": []
+  },
   "malegislature.gov": {
    "status": "allowed",
    "sources": [
@@ -473,6 +484,25 @@
     "md-constitution-mgaleg"
    ],
    "blocked_sources": []
+  },
+  "mn.gov": {
+   "status": "allowed",
+   "sources": [
+    "mn-opinions-lawlib-archive",
+    "mn-pfr-archive-lawlib"
+   ],
+   "blocked_sources": [
+    "mn-opinions-lawlib-search"
+   ]
+  },
+  "mncourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "mn-pfr-orders-mncourts"
+   ],
+   "blocked_sources": [
+    "mn-opinions-mncourts"
+   ]
   },
   "msa.maryland.gov": {
    "status": "allowed",
@@ -881,6 +911,7 @@
     "il-admincode-lii",
     "ma-cmr-lii",
     "md-comar-lii",
+    "mn-rules-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
     "nv-nac-lii",
@@ -976,6 +1007,13 @@
     "md-opinions-reported",
     "md-opinions-unreported",
     "md-cert-petitions"
+   ],
+   "blocked_sources": []
+  },
+  "www.mn.gov": {
+   "status": "allowed",
+   "sources": [
+    "mn-opinions-lawlib-archive"
    ],
    "blocked_sources": []
   },
@@ -1089,6 +1127,19 @@
    "status": "allowed",
    "sources": [
     "oh-register"
+   ],
+   "blocked_sources": []
+  },
+  "www.revisor.mn.gov": {
+   "status": "allowed",
+   "sources": [
+    "mn-statutes-revisor",
+    "mn-laws-revisor",
+    "mn-constitution-revisor",
+    "mn-courtrules-revisor",
+    "mn-courtrules-revisor-pdf",
+    "mn-rules-revisor",
+    "mn-register-revisor"
    ],
    "blocked_sources": []
   },

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16",
+  "generated": "2026-10-17",
   "schema_version": 1,
   "jurisdictions": {
     "az": {
@@ -661,6 +661,74 @@
         {
           "label": "Certiorari dispositions",
           "regex": "cert\\.\\s*(?P<disp>denied|granted|dismissed)(?:\\s+as\\s+improvidently\\s+granted)?,?\\s*(?:(?P<volume>\\d{1,3}|_+)\\s+Md\\.\\s+(?P<page>\\d{1,4}|_+)|No\\.\\s*(?P<number>\\d+))"
+        }
+      ]
+    },
+    "mn": {
+      "name": "Minnesota",
+      "file": "jurisdictions/mn.md",
+      "sha256": "b895ae9d83c11c996608f838cb4cf8d3bd3c938a0d2a79b7bbe635e1754856c2",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 15,
+        "blocked": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Minnesota Statutes",
+          "regex": "(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?|M\\.\\s*S\\.\\s*A\\.?)\\s*(?:(?:19|20)\\d\\d,?\\s*)?(?:\u00a7\u00a7?|sec(?:tion|s?\\.)|,\\s*sections?)\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)|(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?)\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)(?:,\\s*subd(?:ivision|\\.)\\s*\\d+[a-z]?)?(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?Minnesota\\s+Statutes"
+        },
+        {
+          "label": "Minnesota Session Laws",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Minn\\.\\s*Laws\\s+(?:\\d(?:st|nd|rd|th)\\s+Spec\\.\\s*Sess\\.\\s+)?ch\\.\\s*(?P<chapter>\\d+)|Laws\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:First\\s+Special\\s+Session\\s+)?chapter\\s+(?P<chapter2>\\d+)|\\b(?P<year3>(?:18|19|20)\\d\\d)\\s+c\\s+(?P<chapter3>\\d+)(?:\\s+art\\s+\\d+)?\\s+s\\s+\\d+"
+        },
+        {
+          "label": "Minnesota Constitution",
+          "regex": "Minn\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Minnesota\\s+Constitution|Minnesota\\s+Constitution,?\\s+article\\s+(?P<article3>[IVXL]+),?\\s+section\\s+(?P<section3>\\d+[a-z]?)"
+        },
+        {
+          "label": "Minnesota Rules of Civil Procedure",
+          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,3})(?:\\.(?P<sub>\\d+))?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Minnesota Rules of Evidence",
+          "regex": "Minn\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Evidence"
+        },
+        {
+          "label": "Minnesota Rules of Civil Appellate Procedure",
+          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{3})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Minnesota Rules of Criminal Procedure",
+          "regex": "Minn\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,2})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+        },
+        {
+          "label": "General Rules of Practice for the District Courts",
+          "regex": "Minn\\.\\s*Gen\\.\\s*R\\.\\s*Prac\\.\\s*(?P<rule>\\d{1,3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?\\s+of\\s+the\\s+(?:Minnesota\\s+)?General\\s+Rules\\s+of\\s+Practice"
+        },
+        {
+          "label": "Minnesota Rules of Professional Conduct",
+          "regex": "(?:Minn\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct|MRPC)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "Minnesota Rules (administrative)",
+          "regex": "Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:pt\\.|part)?\\s*(?P<part>\\d{4}\\.\\d{4})|Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{4})"
+        },
+        {
+          "label": "Minnesota State Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:Minn\\.\\s*Reg\\.|S\\.?R\\.?)\\s+(?P<page>\\d{1,5})"
+        },
+        {
+          "label": "Reported Minnesota cases (N.W. / Minn.)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:-\\d+)?)?\\s*\\((?P<court>Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<mvol>\\d{1,3})\\s+Minn\\.\\s+(?P<mpage>\\d{1,4})\\b"
+        },
+        {
+          "label": "Unpublished / nonprecedential Court of Appeals opinions and appellate docket numbers",
+          "regex": "\\b(?P<docket>A(?P<yy>\\d{2})-(?P<num>\\d{1,4}))\\b|\\b(?P<olddocket>C[0-9]-\\d{2}-\\d{1,4})\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?"
+        },
+        {
+          "label": "Minnesota Supreme Court review dispositions",
+          "regex": "review\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Minn\\.\\s*(?P<date>[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*(?P<year>\\d{4}))\\)"
         }
       ]
     },
