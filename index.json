@@ -484,6 +484,70 @@
         }
       ]
     },
+    "nv": {
+      "name": "Nevada",
+      "file": "jurisdictions/nv.md",
+      "sha256": "6cb5ffed3c5733c1d08b8f2e6f007caee43969a2ad0e02f68b6ff34fb7b72770",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 16,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Nevada Revised Statutes",
+          "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)"
+        },
+        {
+          "label": "Statutes of Nevada (session laws)",
+          "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:p\\.|at\\s+p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)"
+        },
+        {
+          "label": "Nevada Constitution",
+          "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)"
+        },
+        {
+          "label": "Nevada Rules of Civil Procedure",
+          "regex": "(?:\\bNRCP|Nev\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Nevada Rules of Appellate Procedure",
+          "regex": "(?:\\bNRAP|Nev\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Nevada Supreme Court Rules",
+          "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Nevada Rules of Professional Conduct",
+          "regex": "(?:\\bN?RPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP)",
+          "regex": "\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Nevada Administrative Code",
+          "regex": "(?:\\bNAC|Nev\\.\\s*Admin\\.\\s*Code)\\s*(?:\u00a7+\\s*)?(?:ch\\.\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)"
+        },
+        {
+          "label": "Register of Administrative Regulations (LCB File No.)",
+          "regex": "(?:LCB\\s+File\\s+No\\.\\s*)?\\bR(?P<number>\\d{3})-(?P<yy>\\d{2})(?P<stage>CAP|CA|RP2|RP|AP|NI|NW|NH|A|I|P|W)?\\b"
+        },
+        {
+          "label": "Nevada advance opinions (Nev., Adv. Op.)",
+          "regex": "(?P<volume>1[2-9]\\d)\\s+Nev\\.,?\\s*Adv\\.\\s*Op(?:n)?\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,3})"
+        },
+        {
+          "label": "Nevada Reports / Pacific Reporter",
+          "regex": "(?P<volume>\\d{1,3})\\s+Nev\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<ppage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Docket numbers and unpublished dispositions (NRAP 36(c)(3))",
+          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)"
+        }
+      ]
+    },
     "ny": {
       "name": "New York",
       "file": "jurisdictions/ny.md",

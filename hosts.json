@@ -15,10 +15,25 @@
    ],
    "blocked_sources": []
   },
+  "acis-api.nvcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nv-opinions-acis",
+    "nv-subsequent-history-acis"
+   ],
+   "blocked_sources": []
+  },
   "acis.flcourts.gov": {
    "status": "allowed",
    "sources": [
     "fl-docket-acis"
+   ],
+   "blocked_sources": []
+  },
+  "acis.nvcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nv-opinions-acis"
    ],
    "blocked_sources": []
   },
@@ -215,6 +230,9 @@
     "nj-opinions-njcourts",
     "nj-cases-justia",
     "nj-subsequent-history-njcourts",
+    "nv-nrs-justia",
+    "nv-constitution-justia",
+    "nv-cases-justia",
     "ny-laws-justia",
     "ny-cases-justia",
     "pa-cons-statutes-justia",
@@ -230,6 +248,13 @@
    "status": "allowed",
    "sources": [
     "fl-laws-of-florida"
+   ],
+   "blocked_sources": []
+  },
+  "leg.state.nv.us": {
+   "status": "allowed",
+   "sources": [
+    "nv-nrs-leg"
    ],
    "blocked_sources": []
   },
@@ -295,10 +320,26 @@
    ],
    "blocked_sources": []
   },
+  "nevada.public.law": {
+   "status": "allowed",
+   "sources": [
+    "nv-nrs-publiclaw"
+   ],
+   "blocked_sources": []
+  },
   "newyork.public.law": {
    "status": "allowed",
    "sources": [
     "ny-laws-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "nvcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nv-rules-nvcourts",
+    "nv-opinions-nvcourts",
+    "nv-nevada-reports"
    ],
    "blocked_sources": []
   },
@@ -539,6 +580,7 @@
     "il-admincode-lii",
     "ma-cmr-lii",
     "nj-admincode-lii",
+    "nv-nac-lii",
     "ny-nycrr-cornell",
     "pa-rules-lii",
     "pa-admincode-lii",
@@ -551,6 +593,21 @@
    "sources": [
     "fl-statutes-online-sunshine",
     "fl-constitution-online-sunshine"
+   ],
+   "blocked_sources": []
+  },
+  "www.leg.state.nv.us": {
+   "status": "allowed",
+   "sources": [
+    "nv-nrs-leg",
+    "nv-statutes-of-nevada",
+    "nv-constitution-leg",
+    "nv-rules-nrcp",
+    "nv-rules-nrap",
+    "nv-rules-scr",
+    "nv-rules-lcb-other",
+    "nv-nac-leg",
+    "nv-register-leg"
    ],
    "blocked_sources": []
   },

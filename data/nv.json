@@ -1,0 +1,1254 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "nv",
+  "name": "Nevada",
+  "compiled": "2026-10-16",
+  "summary": "Statutes, Constitution, court rules (NRCP, NRAP, SCR, RPC, district-court rules) and the NAC are all one-page-per-chapter/rule-set HTML on leg.state.nv.us with constructible URLs and #anchors; fetch_doc.py reads them in full, but WebFetch sees only the first ~110K characters, so later sections of long chapters (NRS 41.130, Const. art. 6, NRAP 36, SCR) need the script or Justia's per-section NRS pages. Case law: the appellate courts' ACIS portal is a JavaScript app, but its public JSON API (acis-api.nvcourts.gov) lists every Supreme Court advance opinion since 2000, Court of Appeals opinions since 2015 and unpublished orders, and serves the PDFs; nvcourts.gov itself is behind a Cloudflare challenge for scripts. Subsequent history (Court of Appeals → petition for review → Supreme Court) sits on the same docket number in ACIS. Justia is the tier-2 fallback for NRS, cases and (stale) Constitution; Cornell LII mirrors the NAC.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of Nevada",
+        "courtlistener_id": "nev",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Nev.",
+        "reporters": [
+          "Nev.",
+          "P.3d",
+          "P.2d",
+          "P."
+        ],
+        "public_domain_citation": "142 Nev., Adv. Op. 65 (advance-opinion number in the future Nevada Reports volume; replaced by Nev. page cite once printed)"
+      },
+      {
+        "name": "Court of Appeals of Nevada",
+        "courtlistener_id": "nevapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Nev. App.",
+        "reporters": [
+          "Nev.",
+          "P.3d"
+        ],
+        "public_domain_citation": "142 Nev., Adv. Op. 6 (same Nev. advance-opinion series as the Supreme Court; docket suffix -COA)"
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Nevada Revised Statutes",
+        "examples": [
+          "NRS 41.130",
+          "NRS 11.190(4)(e)",
+          "Nev. Rev. Stat. § 41.130",
+          "Nev. Rev. Stat. Ann. § 11.190",
+          "N.R.S. 41A.035",
+          "NRS 41.0305 to 41.039, inclusive",
+          "section 11.190 of the Nevada Revised Statutes",
+          "section 41.130 of NRS"
+        ],
+        "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:§+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)",
+        "routes_to": [
+          "nv-nrs-leg",
+          "nv-nrs-justia",
+          "nv-nrs-publiclaw"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Statutes of Nevada (session laws)",
+        "examples": [
+          "Statutes of Nevada 2025, p. 3910",
+          "2025 Nev. Stat. 3910",
+          "Stats. 2025, ch. 12"
+        ],
+        "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:p\\.|at\\s+p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "nv-statutes-of-nevada"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Nevada Constitution",
+        "examples": [
+          "Nev. Const. art. 1, § 8",
+          "Nev. Const. art. 6, § 4(1)",
+          "Nev. Const. art. 1, § 8A",
+          "Article 1, Section 8 of the Nevada Constitution",
+          "Section 4 of Article 6 of the Nevada Constitution"
+        ],
+        "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*§\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)",
+        "routes_to": [
+          "nv-constitution-leg",
+          "nv-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Nevada Rules of Civil Procedure",
+        "examples": [
+          "NRCP 12(b)(5)",
+          "Nev. R. Civ. P. 56(c)",
+          "NRCP 16.1(a)(1)",
+          "Rule 12(b)(5) of the Nevada Rules of Civil Procedure"
+        ],
+        "regex": "(?:\\bNRCP|Nev\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "routes_to": [
+          "nv-rules-nrcp"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Nevada Rules of Appellate Procedure",
+        "examples": [
+          "NRAP 36(c)(3)",
+          "Nev. R. App. P. 40B",
+          "NRAP 3A(b)(1)",
+          "Rule 36(c) of the Nevada Rules of Appellate Procedure"
+        ],
+        "regex": "(?:\\bNRAP|Nev\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "routes_to": [
+          "nv-rules-nrap"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Nevada Supreme Court Rules",
+        "examples": [
+          "SCR 99",
+          "Nev. Sup. Ct. R. 123",
+          "SCR 121.1",
+          "Supreme Court Rule 99 (Nevada)"
+        ],
+        "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+        "routes_to": [
+          "nv-rules-scr"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Nevada Rules of Professional Conduct",
+        "examples": [
+          "RPC 1.7",
+          "Nev. R. Prof'l Conduct 1.7",
+          "NRPC 8.4(c)",
+          "Rule 1.7 of the Nevada Rules of Professional Conduct"
+        ],
+        "regex": "(?:\\bN?RPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "routes_to": [
+          "nv-rules-lcb-other"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP)",
+        "examples": [
+          "DCR 13",
+          "EDCR 2.20",
+          "WDCR 12",
+          "JCRCP 12(b)",
+          "NSTR 4"
+        ],
+        "regex": "\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+        "routes_to": [
+          "nv-rules-lcb-other"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Nevada Administrative Code",
+        "examples": [
+          "NAC 116.010",
+          "Nev. Admin. Code § 284.010",
+          "Nev. Admin. Code 116.300"
+        ],
+        "regex": "(?:\\bNAC|Nev\\.\\s*Admin\\.\\s*Code)\\s*(?:§+\\s*)?(?:ch\\.\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)",
+        "routes_to": [
+          "nv-nac-leg",
+          "nv-nac-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Register of Administrative Regulations (LCB File No.)",
+        "examples": [
+          "LCB File No. R001-25",
+          "R123-21I",
+          "LCB File No. R058-98"
+        ],
+        "regex": "(?:LCB\\s+File\\s+No\\.\\s*)?\\bR(?P<number>\\d{3})-(?P<yy>\\d{2})(?P<stage>CAP|CA|RP2|RP|AP|NI|NW|NH|A|I|P|W)?\\b",
+        "routes_to": [
+          "nv-register-leg"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Nevada advance opinions (Nev., Adv. Op.)",
+        "examples": [
+          "City of Sparks v. Bluth, 142 Nev., Adv. Op. 65 (2026)",
+          "142 Nev. Adv. Op. No. 65",
+          "Griffith v. Rivera, 140 Nev., Adv. Op. 60, 555 P.3d 1171, 1174 (2024)",
+          "142 Nev. Adv. Opn. No. 6"
+        ],
+        "regex": "(?P<volume>1[2-9]\\d)\\s+Nev\\.,?\\s*Adv\\.\\s*Op(?:n)?\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,3})",
+        "routes_to": [
+          "nv-opinions-acis",
+          "nv-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Nevada Reports / Pacific Reporter",
+        "examples": [
+          "Arabella Mut. Ins. Co. v. Eighth Judicial Dist. Court, 122 Nev. 509, 512, 134 P.3d 710, 712 (2006)",
+          "135 Nev. 280",
+          "134 P.3d 710 (Nev. 2006)",
+          "367 P.3d 1286 (Nev. Ct. App. 2016)",
+          "485 P.3d 1250 (Nev. App. 2021)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Nev\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<ppage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "nv-nevada-reports",
+          "nv-opinions-acis",
+          "nv-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Docket numbers and unpublished dispositions (NRAP 36(c)(3))",
+        "examples": [
+          "No. 89261-COA",
+          "Docket No. 90244",
+          "Smith v. Jones, No. 81234, 2021 WL 4234567 (Nev. Sept. 16, 2021) (unpublished disposition)",
+          "No. 85000-COA, 2023 WL 1234567 (Nev. Ct. App. Mar. 1, 2023) (Order of Affirmance)"
+        ],
+        "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)",
+        "routes_to": [
+          "nv-opinions-acis",
+          "nv-cases-justia"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "NRS": "NRS",
+      "N.R.S.": "NRS",
+      "Nev. Rev. Stat.": "NRS",
+      "Nev. Rev. Stat. Ann.": "NRS",
+      "NAC": "NAC",
+      "Nev. Admin. Code": "NAC",
+      "NRCP": "NRCP",
+      "Nev. R. Civ. P.": "NRCP",
+      "NRAP": "NRAP",
+      "Nev. R. App. P.": "NRAP",
+      "SCR": "SCR",
+      "Nev. Sup. Ct. R.": "SCR",
+      "RPC": "RPC",
+      "NRPC": "RPC",
+      "Nev. R. Prof'l Conduct": "RPC",
+      "DCR": "DCR",
+      "EDCR": "EighthDCR",
+      "WDCR": "SecondDCR",
+      "FJDCR": "FirstDCR",
+      "JCRCP": "JCRCP",
+      "NSTR": "NSTR",
+      "NATR": "NATR",
+      "NRCrP": "NRCrP",
+      "NEFCR": "NEFCR",
+      "NRAD": "NRAD",
+      "NCJC": "SCR_CJC"
+    },
+    "notes": "Nevada's own statutory citation form is 'NRS 41.130' with no section sign (NRS 220.170(4) prescribes it); Bluebook is 'Nev. Rev. Stat. § 41.130'. The section number encodes the chapter (digits and letters before the dot), so NRS/NAC citations are fully constructible. A range 'NRS 41.0305 to 41.039, inclusive' is a span: take the first section. Advance opinions are cited '142 Nev., Adv. Op. 65, ___ P.3d ___ (2026)' (Supreme Court Law Library guide; ACIS docket text writes 'Adv. Opn. No.'); once the Nevada Reports page is printed, cite 'Nev.' with parallel P.3d. Court of Appeals opinions share the Nev. series with no distinct court designation in Nev. cites; Bluebook P.3d-only cites use '(Nev. App. YYYY)' and older practice '(Nev. Ct. App.)'. NRAP 36(c)(3): unpublished dispositions are citable for persuasive value only if issued by the Supreme Court on or after Jan. 1, 2016 or by the Court of Appeals on or after Aug. 15, 2024, cited by docket number and date with '(unpublished disposition)'. Docket numbers are 5-digit; Court of Appeals matters carry '-COA' on the same number, and a petition for review is decided on that same docket. Routing guards: 'SCR', 'RPC', 'DCR' and bare 'Rule 12(b)(5)' are shared with other states — route them here only with Nevada context (Nev./Nevada/NRS nearby). 'NRS', 'NAC', 'NRCP', 'NRAP', 'EDCR', 'WDCR' are Nevada-specific. A bare 'No. 12345' docket, 'Supreme Court Rule N' and 'R001-25' File numbers are generic shapes: route them here only with Nevada context (a '-COA' suffix is Nevada-specific). Nevada has no separate rules-of-evidence set: evidence law is NRS chapters 47-56 (e.g. NRS 48.035), handled by the NRS pattern. WL numbers cannot be turned into free URLs: search ACIS by party name or docket number. CourtListener ids 'nev' and 'nevapp' are from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "nv-nrs-leg",
+      "family": "statutes",
+      "title": "Nevada Revised Statutes (Legislative Counsel Bureau)",
+      "publisher": "Nevada Legislative Counsel Bureau, Legal Division",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "NRS 220.170(3) makes the printed, certified copies of NRS the official codified version and prima facie evidence; the web edition carries no certification or UELMA statement (https://www.leg.state.nv.us/NRS/NRS-220.html).",
+      "coverage": "All NRS titles and chapters (Preliminary Chapter = NRS-000), one HTML page per chapter with every section's text and source notes.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/NRS/NRS-{chapter:03d}{suffix}.html#NRS{chapter:03d}{suffix}Sec{section}",
+        "pattern_rules": "From 'NRS C.S': chapter = digits before the dot, zero-padded to 3, plus any upper-case letter suffix (41 → 041; 41A → 041A; 0.025 → 000). Section = the digits after the dot exactly as written, including leading zeros (41.130 → Sec130; 41.0305 → Sec0305). Anchor = 'NRS' + padded chapter + suffix + 'Sec' + section (NRS041Sec130, NRS041ASec003). Host is case-insensitive (leg.state.nv.us/nrs/nrs-011.html also serves).",
+        "index_url": "https://www.leg.state.nv.us/NRS/",
+        "navigation": "Not needed: the title/chapter index lists chapters only (no section ranges), but the chapter is read directly from the section number.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated on long chapters)",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "WebFetch sees only the first ~106-120K characters of a leg.state.nv.us page in total; offset=100000 reaches the tail of that window and no further (NRS ch. 41: body stops at NRS 41.0395 of 41.970; Constitution: stops in Art. 5 § 9). Everything later is reachable only by fetch_doc.py. Pages are windows-1252 (MS Word export): curly quotes, apostrophes, section signs and non-breaking spaces come out of fetch_doc.py as U+FFFD; quote-verify plain-ASCII runs of words (verify tolerates the whitespace runs)."
+      },
+      "currency": {
+        "where": "first line of each chapter page (varies by chapter)",
+        "observed": "[Rev. 4/15/2026 10:45:11 AM--2025] (ch. 41); some chapters '--2025R1'"
+      },
+      "hazards": [
+        "WebFetch reach capped at ~110K characters per page: NRS 41.130 (offset ~120K of 316K in ch. 41) is NOT PRESENT even with offset=100000",
+        "very long chapters (NRS ch. 200 is ~460 KB of HTML) — use fetch_doc.py or Justia per-section pages",
+        "windows-1252 encoding: curly quotes and § signs become U+FFFD in fetch_doc.py output",
+        "revision stamp differs per chapter ('--2025' vs '--2025R1')",
+        "web edition is not the certified official text (NRS 220.170)"
+      ],
+      "probe": {
+        "citation": "NRS 11.190",
+        "url": "https://leg.state.nv.us/NRS/NRS-011.html",
+        "expect": "Except as otherwise provided in NRS 40.4639, 125B.050 and 217.007"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch ch. 11: 11.190 body YES 'Except as otherwise provided in NRS 40.4639, 125B.050 and 217.007', complete to 11.500. WebFetch ch. 41: 41.130 NOT PRESENT (window ends at 41.0395 even with offset). fetch_doc.py: ch. 41 316,449 chars, verify 'whenever any person shall suffer personal injury by wrongful act' VERIFIED; ch. 11 verify VERIFIED."
+      },
+      "notes": "Lettered chapters verified (NRS-041A.html, anchors NRS041ASec003). No bulk download (XML/zip) found on the NRS index. Also mirrored under /Division/Legal/LawLibrary/NRS/."
+    },
+    {
+      "id": "nv-nrs-justia",
+      "family": "statutes",
+      "title": "Justia — Nevada Revised Statutes (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'These codes may not be the most recent version' and advises checking official sources.",
+      "coverage": "NRS editions by year; unversioned URL serves the 2025 edition; one page per section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/nevada/chapter-{chapter}/statute-{chapter}-{section}/",
+        "pattern_rules": "chapter unpadded, letters lower-case (chapter-41, chapter-41a); section part after the dot verbatim (41.130 → statute-41-130). Year-specific: /codes/nevada/{year}/chapter-…",
+        "index_url": "https://law.justia.com/codes/nevada/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (law.justia.com robots.txt returns a Cloudflare challenge to the shell)",
+        "notes": "fetch_doc.py: 'REFUSED: law.justia.com refused automated access earlier (robots.txt challenge)'. WebFetch only. Per-section pages make Justia the practical second fetch for NRS sections beyond the leg.state.nv.us WebFetch window."
+      },
+      "currency": {
+        "where": "page heading",
+        "observed": "2025 Nevada Revised Statutes"
+      },
+      "hazards": [
+        "edition lags the official site",
+        "shell blocked by Cloudflare",
+        "lettered-chapter slug case not probed"
+      ],
+      "probe": {
+        "citation": "NRS 41.130",
+        "url": "https://law.justia.com/codes/nevada/chapter-41/statute-41-130/",
+        "expect": "Except as otherwise provided in NRS 41.745, whenever any person"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 41.130 body YES 'Except as otherwise provided in NRS 41.745, whenever any person'; '2025 Nevada Revised Statutes'. Second: /chapter-11/statute-11-190 body YES, 2025 edition."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-nrs-publiclaw",
+      "family": "statutes",
+      "title": "public.law — Nevada Revised Statutes",
+      "publisher": "Public.Law",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation attributing its text to leg.state.nv.us; source line gives an access date.",
+      "coverage": "NRS, one page per section; statutes only (no Constitution, NAC or court rules for Nevada).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://nevada.public.law/statutes/nrs_{chapter}.{section}",
+        "pattern_rules": "chapter unpadded with any letter suffix as printed; section verbatim (nrs_11.190, nrs_41.1397).",
+        "index_url": "https://nevada.public.law/statutes",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "not separately recorded; fetch_doc.py allowed the fetch",
+        "notes": ""
+      },
+      "currency": {
+        "where": "statutes index header; per-section source line",
+        "observed": "Updated May 26, 2025 (index); section: '(accessed May 26, 2025)'"
+      },
+      "hazards": [
+        "STALE: last updated May 26, 2025, before most 2025-session amendments took effect — compare with nv-nrs-leg before quoting"
+      ],
+      "probe": {
+        "citation": "NRS 11.190",
+        "url": "https://nevada.public.law/statutes/nrs_11.190",
+        "expect": "Except as otherwise provided in NRS 40.4639, 125B.050 and 217.007"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body YES, '(accessed May 26, 2025)'. fetch_doc.py info ok (7,990 chars, last-modified 11 May 2025); nrs_41.130 also ok (4,546 chars). Index still reads 'Updated May 26, 2025'."
+      },
+      "notes": "The lead's 'Updated May 26, 2025' string is unchanged as of 2026-10-16."
+    },
+    {
+      "id": "nv-statutes-of-nevada",
+      "family": "statutes",
+      "title": "Statutes of Nevada (session laws)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No certification statement on the HTML pages.",
+      "coverage": "Statutes of Nevada by session, HTML split into large page-range files (e.g. Stats2025001.html begins with p. 1); special sessions under e.g. /Statutes/36thSS2025/.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.leg.state.nv.us/Statutes/{session}/Stats{year}{nnn}.html",
+        "pattern_rules": "session = '83rd2025', special = '36thSS2025' (file Stats2025SS36001.html). Which file holds a given page or chapter is not derivable: start from the first file's chapter table.",
+        "index_url": "https://www.leg.state.nv.us/Statutes/83rd2025/Stats2025001.html",
+        "navigation": "Directory URLs (/Statutes/, /Statutes/83rd2025/) return 403; begin at the session's Stats{year}001.html and follow its links.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "Files are ~300K characters: WebFetch cap applies (see nv-nrs-leg)."
+      },
+      "currency": {
+        "where": "first line",
+        "observed": "[Rev. 8/22/2025 11:13:05 AM]"
+      },
+      "hazards": [
+        "directory listings 403",
+        "page→file mapping not derivable",
+        "long files exceed WebFetch window"
+      ],
+      "probe": {
+        "citation": "Statutes of Nevada 2025 (83rd Session), first file",
+        "url": "https://www.leg.state.nv.us/Statutes/83rd2025/Stats2025001.html",
+        "expect": "Statutes of the State of Nevada - Eighty-Third Session, 2025"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 306,320 chars, header 'Statutes of the State of Nevada - Eighty-Third Session, 2025'; first act A.B. 171 'Approved February 13, 2025'. WebFetch not run."
+      },
+      "notes": "Low priority; also NRS comparative tables at /NRSCompTbls/."
+    },
+    {
+      "id": "nv-constitution-leg",
+      "family": "constitution",
+      "title": "Constitution of the State of Nevada (LCB)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Page notes the literal text of the signed original is retained and leadlines are supplied by the Legislative Counsel; no official/authentication statement.",
+      "coverage": "Whole constitution on one page with source notes and pending amendments (e.g. Art. 6 § 3B effective 2028 if ratified).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/Const/NVConst.html#Art{article}Sec{section}",
+        "pattern_rules": "article as Arabic integer (Nevada numbers articles 1-19 in Arabic); section with any letter suffix (Art1Sec8A). The anchor does not change what WebFetch reads.",
+        "index_url": "https://www.leg.state.nv.us/Const/NVConst.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "WebFetch window covers Art. 1 through Art. 5 § 9 only (115K of 325K characters, offset=100000 included); Art. 6 onward needs fetch_doc.py. Pages are windows-1252 (MS Word export): curly quotes, apostrophes, section signs and non-breaking spaces come out of fetch_doc.py as U+FFFD; quote-verify plain-ASCII runs of words (verify tolerates the whitespace runs)."
+      },
+      "currency": {
+        "where": "first line of page",
+        "observed": "[Rev. 4/15/2026 4:36:19 PM--2025]"
+      },
+      "hazards": [
+        "single 325K-character page; WebFetch cannot reach Art. 6 and later",
+        "pending (unratified) amendments printed inline with effective-date notes"
+      ],
+      "probe": {
+        "citation": "Nev. Const. art. 1, § 8",
+        "url": "https://www.leg.state.nv.us/Const/NVConst.html",
+        "expect": "No person shall be tried for a capital or other infamous crime"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Art. 1 § 8 YES 'No person shall be tried for a capital or other'; Art. 6 § 4 NOT PRESENT (window ends Art. 5 § 9). fetch_doc.py: verify Art. 1 § 8 VERIFIED; Art. 6 § 4 found at offset 139,492 ('The Supreme Court and the court of appeals have appellate jurisdiction')."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — Nevada Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party copy; no currency date.",
+      "coverage": "Single page, #ArtN anchors.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/nevada/#Art{article}",
+        "pattern_rules": "single page (law.justia.com/nevada/constitution/ also serves); WebFetch reads from character 0 regardless of anchor — use offset=100000 for Art. 6.",
+        "index_url": "https://law.justia.com/constitution/nevada/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "126K characters; Art. 6 § 19 is cut off in the offset=100000 window."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "STALE: Art. 6 § 4 reads 'The supreme court shall have appellate jurisdiction in all civil' — pre-2014 text with no court of appeals",
+        "articles after Art. 6 unreachable by WebFetch",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "Nev. Const. art. 1, § 8",
+        "url": "https://law.justia.com/nevada/constitution/",
+        "expect": "No person shall be tried for a capital or other"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Art. 1 § 8 YES; offset=100000: Art. 6 § 4 'The supreme court shall have appellate jurisdiction in all civil' (differs from official). Use only as last resort."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-rules-nrcp",
+      "family": "court_rules",
+      "title": "Nevada Rules of Civil Procedure (LCB court-rules page)",
+      "publisher": "Nevada Legislative Counsel Bureau (rules adopted by the Supreme Court of Nevada)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "LCB reproduction of Supreme Court-adopted rules; no official statement. Amendment orders (ADKT) are issued by the Supreme Court on nvcourts.gov.",
+      "coverage": "Complete NRCP with amendment notes, one page.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/CourtRules/NRCP.html#NRCPRule{rule}",
+        "pattern_rules": "rule number with '.' replaced by '_' (16.1 → NRCPRule16_1; 16.205 → NRCPRule16_205).",
+        "index_url": "https://www.leg.state.nv.us/CourtRules/index.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "WebFetch window ends inside NRCP 16.1(c)(2)(N); Rule 56 NOT PRESENT. 397K characters total — use fetch_doc.py for later rules. Pages are windows-1252 (MS Word export): curly quotes, apostrophes, section signs and non-breaking spaces come out of fetch_doc.py as U+FFFD; quote-verify plain-ASCII runs of words (verify tolerates the whitespace runs)."
+      },
+      "currency": {
+        "where": "first line of page",
+        "observed": "[Rev. 4/15/2026 4:39:25 PM--2025]"
+      },
+      "hazards": [
+        "WebFetch reaches only Rules 1-16.1"
+      ],
+      "probe": {
+        "citation": "NRCP 12(b)(5)",
+        "url": "https://www.leg.state.nv.us/CourtRules/NRCP.html",
+        "expect": "failure to state a claim upon which relief can be granted; and"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Rule 12(b)(5) YES; Rule 56(a) NOT PRESENT; truncated in 16.1(c)(2)(N). fetch_doc.py: verify 12(b)(5) phrase VERIFIED at offset 71,730."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-rules-nrap",
+      "family": "court_rules",
+      "title": "Nevada Rules of Appellate Procedure (LCB court-rules page)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "LCB reproduction; no official statement.",
+      "coverage": "Complete NRAP, one page; header 'Including Amendments Through October 31, 2025'.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/CourtRules/NRAP.html#NRAPRule{rule}",
+        "pattern_rules": "rule with letter suffix as printed (NRAPRule3A); '.' → '_'.",
+        "index_url": "https://www.leg.state.nv.us/CourtRules/index.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "WebFetch window ends in Rule 13(b); Rule 36 NOT PRESENT (fetch_doc.py finds 36(c)(3) at offset ~207K of 252K)."
+      },
+      "currency": {
+        "where": "first lines of page",
+        "observed": "[Rev. 9/9/2026 2:04:44 PM--2026R1]; Amendments Through October 31, 2025"
+      },
+      "hazards": [
+        "WebFetch reaches only Rules 1-13",
+        "NRAP 36(c) (citation of unpublished dispositions) and 40B (petitions for review) only via fetch_doc.py"
+      ],
+      "probe": {
+        "citation": "NRAP 36(c)(3)",
+        "url": "https://www.leg.state.nv.us/CourtRules/NRAP.html",
+        "expect": "A party may cite for its persuasive value, if any, an unpublished disposition"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 36(c)(3) VERIFIED at offset 207,738. WebFetch: 36(c)(3) NOT PRESENT; Rule 3A YES 'A party who is aggrieved by an appealable judgment or'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-rules-scr",
+      "family": "court_rules",
+      "title": "Nevada Supreme Court Rules, Parts I-V (LCB court-rules page)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "LCB reproduction; no official statement.",
+      "coverage": "SCR Parts I-V on one page (609K characters); Parts VI-XI (Code of Judicial Conduct, sealing rules, etc.) on separate pages (SCR_CJC.html, SCR_RGSRCR.html …).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/CourtRules/SCR.html#SCRRule{rule}",
+        "pattern_rules": "'.' → '_' (121.1 → SCRRule121_1).",
+        "index_url": "https://www.leg.state.nv.us/CourtRules/index.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "Not WebFetched; by the ~110K cap seen on every other LCB page, WebFetch would reach only the first fifth (SCR 99 is at offset ~361K)."
+      },
+      "currency": {
+        "where": "first line of page",
+        "observed": "[Rev. 9/9/2026 2:05:02 PM--2026R1]"
+      },
+      "hazards": [
+        "609K-character page; WebFetch reach expected to stop early"
+      ],
+      "probe": {
+        "citation": "SCR 99",
+        "url": "https://www.leg.state.nv.us/CourtRules/SCR.html",
+        "expect": "Every attorney admitted to practice law in Nevada, specially admitted by a court"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 609,453 chars; 'Rule 99. Jurisdiction.' at offset 361,476 followed by 'Every attorney admitted to practice law in Nevada'. WebFetch not run."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-rules-lcb-other",
+      "family": "court_rules",
+      "title": "Other Nevada court rules on the LCB court-rules index (RPC, DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP …)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "LCB reproduction; no official statement.",
+      "coverage": "~40 rule sets: RPC, District Court Rules, each judicial district's local rules (FirstDCR … EleventhDCR; Second has civil and criminal), justice-court rules, short-trial and ADR rules, NEFCR, NRAD, SCR Parts VI-XI.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/CourtRules/{set}.html#{set}Rule{rule}",
+        "pattern_rules": "set = page key from law_aliases (RPC, DCR, EighthDCR for EDCR, SecondDCR for WDCR, FirstDCR, JCRCP, NSTR, NATR, NRCrP, NEFCR, NRAD, SCR_CJC). Rule '.' → '_' (RPCRule1_7, EighthDCRRule2_20; anchors seen: EighthDCRRule1_10, SecondDCRRule2_1, DCRRule2).",
+        "index_url": "https://www.leg.state.nv.us/CourtRules/index.html",
+        "navigation": "index lists each set's .html page",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "RPC page 146K characters: WebFetch would stop around RPC 5.x."
+      },
+      "currency": {
+        "where": "first line of each page",
+        "observed": "RPC page last-modified 24 Jun 2025"
+      },
+      "hazards": [
+        "anchor key differs from citation abbreviation (EDCR → EighthDCR, WDCR → SecondDCR)",
+        "WebFetch cap on long sets"
+      ],
+      "probe": {
+        "citation": "RPC 1.7",
+        "url": "https://www.leg.state.nv.us/CourtRules/RPC.html",
+        "expect": "Except as provided in paragraph (b), a lawyer shall not represent a client"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: RPC 145,672 chars; 'Rule 1.7. Conflict of Interest: Current Clients.' at offset 33,388 with body '(a) Except as provided in paragraph (b), a lawyer shall not'. Anchors of EighthDCR, DCR, SecondDCR, JCRCP, NSTR confirmed by HTML inspection."
+      },
+      "notes": "Evidence: Nevada has no court-rule evidence code; see NRS chs. 47-56."
+    },
+    {
+      "id": "nv-rules-nvcourts",
+      "family": "court_rules",
+      "title": "Nevada Supreme Court rules and amendment pages (nvcourts.gov)",
+      "publisher": "Supreme Court of Nevada",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Court's own site; makes no statement about which text is official.",
+      "coverage": "Rule-amendment pages per rule set and a link to an Administrative Docket (ADKT) order search; per-rule PDFs exist (e.g. /__data/assets/pdf_file/0019/14428/nrcp_1.pdf seen in search, not fetched).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://nvcourts.gov/supreme/rules/amendments",
+        "navigation": "amendments page → per-set amendment page (e.g. /supreme/rules/amendments/nevada_rules_of_appellate_procedure)",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "robots.txt itself answers with a Cloudflare 'Just a moment...' challenge",
+        "notes": "fetch_doc.py: 'REFUSED: nvcourts.gov answers robots.txt with a bot check (challenge)'. WebFetch works only on URLs it has been given provenance for (some nvcourts.gov URLs timed out awaiting permission)."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "shell blocked by Cloudflare",
+        "does not host current rule text on the amendments page"
+      ],
+      "probe": {
+        "citation": "NRAP amendments",
+        "url": "https://nvcourts.gov/supreme/rules/amendments",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: page loads; links to SCR and NRAP amendment pages and an ADKT search; no rule text, no ADKT entries listed."
+      },
+      "notes": "Use for amendment history only; quote rule text from the LCB pages."
+    },
+    {
+      "id": "nv-nac-leg",
+      "family": "admin_code",
+      "title": "Nevada Administrative Code (LCB)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "NAC title page: compiled and published by the Legislative Counsel 'Pursuant to NRS 233B.062 to 233B.065'; no statement that the web text is official.",
+      "coverage": "All NAC chapters, one HTML page per chapter; chapter list at /NAC/Chapters.html.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/NAC/NAC-{chapter:03d}{suffix}.html#NAC{chapter}{suffix}Sec{section}",
+        "pattern_rules": "File name pads the chapter to 3 digits (NAC-038, NAC-116, NAC-062B) but the anchor uses the chapter as printed (NAC116Sec010). Section = digits after the dot verbatim.",
+        "index_url": "https://www.leg.state.nv.us/NAC/Chapters.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated on long chapters)",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "NAC 116 (88K chars) fits in the WebFetch window; NAC 284 is 529K characters and will not. Pages are windows-1252 (MS Word export): curly quotes, apostrophes, section signs and non-breaking spaces come out of fetch_doc.py as U+FFFD; quote-verify plain-ASCII runs of words (verify tolerates the whitespace runs)."
+      },
+      "currency": {
+        "where": "first lines of each chapter page",
+        "observed": "[Rev. 6/7/2026 11:00:00 AM]; [NAC-116 Revised Date: 4-26]"
+      },
+      "hazards": [
+        "WebFetch cap on long chapters (NAC 284)",
+        "windows-1252 encoding",
+        "/NAC/ index is a title page; chapter list is Chapters.html"
+      ],
+      "probe": {
+        "citation": "NAC 116.010",
+        "url": "https://www.leg.state.nv.us/NAC/NAC-116.html",
+        "expect": "As used in this chapter, unless the context otherwise requires,"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 116.010 YES, complete to 116.635, '[NAC-116 Revised Date: 4-26]'. fetch_doc.py: NAC-116 87,593 chars ok; NAC-284 528,863 chars, NAC 284.010 body present at offset ~28K."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-nac-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — Nevada Administrative Code",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party mirror: 'State regulations are updated quarterly'.",
+      "coverage": "NAC chapters with per-section pages and register history notes.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/nevada/NAC-{chapter}-{section}",
+        "pattern_rules": "chapter as printed, section digits after the dot (NAC 116.010 → NAC-116-010). Chapter browse: /regulations/nevada/chapter-{chapter}.",
+        "index_url": "https://www.law.cornell.edu/regulations/nevada",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay: 10; /regulations allowed",
+        "notes": "Respect the 10-second crawl delay."
+      },
+      "currency": {
+        "where": "section page, above version comparison",
+        "observed": "State regulations are updated quarterly; we currently have two versions available"
+      },
+      "hazards": [
+        "quarterly lag (page last-modified Aug 2025)"
+      ],
+      "probe": {
+        "citation": "NAC 116.010",
+        "url": "https://www.law.cornell.edu/regulations/nevada/NAC-116-010",
+        "expect": "the words and terms defined in NAC 116.020 to 116.078, inclusive"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: verify 'the words and terms defined in NAC 116.020 to 116.078, inclusive' VERIFIED; register note R058-98 present."
+      },
+      "notes": "Cornell LII hosts no Nevada statutes or constitution (its Nevada page links out to leg.state.nv.us)."
+    },
+    {
+      "id": "nv-register-leg",
+      "family": "admin_register",
+      "title": "Register of Administrative Regulations (LCB)",
+      "publisher": "Nevada Legislative Counsel Bureau",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Official register compiled under NRS 233B; no online-authentication statement.",
+      "coverage": "Per-regulation PDFs by LCB File No. and stage; yearly numerical and keyword indexes (2010-2026 seen), temporary-regulation indexes, daily updates.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.leg.state.nv.us/Register/{year}Register/R{number:03d}-{yy}{stage}.pdf",
+        "pattern_rules": "From 'LCB File No. R001-25': year = 20+yy, stage = I (initial agency draft), P (LCB proposed), RP/RP2 (revised), NW/NH (notices), NI (informational statement), A (adopted), CA, AP (approved), CAP, W. Which stages exist for a file: the year's index /Register/indexes/{year}_NAC_REGISTER_NUMERICAL.htm.",
+        "index_url": "https://www.leg.state.nv.us/Register/",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * disallows /*.axd, */Reports/*, /App/Opinions/*, */ExhibitDocument/*, two FiscalNote paths; /NRS, /NAC, /Const, /CourtRules, /Register, /Statutes allowed",
+        "notes": "Agency initial drafts (I) can be image scans: R123-21I is 5 pages with 241 characters of text."
+      },
+      "currency": {
+        "where": "index pages (last-modified only)",
+        "observed": "2025 numerical index last-modified 25 Sep 2026"
+      },
+      "hazards": [
+        "initial-draft PDFs may be scanned images (no text)",
+        "stage suffix must be known"
+      ],
+      "probe": {
+        "citation": "LCB File No. R001-25 (adopted)",
+        "url": "https://www.leg.state.nv.us/Register/2025Register/R001-25A.pdf",
+        "expect": "ADOPTED REGULATION OF THE BOARD OF PSYCHOLOGICAL EXAMINERS"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: R001-25A.pdf 4 pp, 'ADOPTED REGULATION OF THE BOARD OF PSYCHOLOGICAL EXAMINERS LCB File No. R001-25'. WebFetch: R123-21I.pdf returns title and submission note only (scan)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-opinions-acis",
+      "family": "case_law",
+      "title": "Nevada Appellate Courts ACIS public API (opinions, orders, dockets)",
+      "publisher": "Supreme Court of Nevada / Nevada Appellate Courts",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Slip opinions and orders; official pagination comes later in the Nevada Reports. Docket-entry JSON marks entries 'official': true (meaning filed record, not reporter text).",
+      "coverage": "Supreme Court advance opinions from May 2000 (2,125 entries); Court of Appeals opinions from Mar. 2015 (95); dispositional orders (unpublished) for both courts (COA 9,532; Supreme ≥10,000 — counts cap at 10,000); full docket of each case since about 2000.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://acis-api.nvcourts.gov/courts/cms/docketentrydocuments?caseHeader.courtID={court_uuid}&docketEntryHeader.docketEntryTypeID={type}&size=25&sort=docketEntryHeader.filedDate,desc",
+        "pattern_rules": "court_uuid: Supreme Court dc01122c-a19d-4eb7-bfe9-5b96e93c26fd; Court of Appeals 74764f58-a87f-4ec5-8233-7a1255e410b3. type: 1000014 = Opinion/Dispositional (advance opinions); 1000018 = Order/Dispositional (unpublished orders); filter a subtype with docketEntryHeader.docketEntrySubTypeID (e.g. 1000233 Opinion on Supreme Court Review, 1000339 Order Denying Petition for Review, 1000336 Order Granting Petition for Review). Date window: docketEntryHeader.docketEntryFiledDateFrom/To. Each row gives documentLinkUUID, caseInstanceUUID, filedDate, docket number, case title and a description that includes the advance-opinion number ('142 Nev. Adv. Opn. No. 65'). PDF: https://acis-api.nvcourts.gov/courts/{court_uuid}/cms/case/{caseInstanceUUID}/docketentrydocuments/{documentLinkUUID} (court_uuid must be the UUID; '1' → HTTP 400). By docket: GET /courts/cms/cases?caseHeader.caseNumber={docket} (drop any -COA suffix) → caseInstanceUUID and originatingCourtCases; then GET /courts/{court_uuid}/cms/cases/{caseInstanceUUID}/docketentries?size=300 (adding sort= gives HTTP 500). caseHeader.caseNumber is ignored by the docketentrydocuments search.",
+        "index_url": "https://acis.nvcourts.gov/portal/home",
+        "navigation": "Human portal (acis.nvcourts.gov) is a Vue app: WebFetch gets an empty shell and its search URLs exceed WebFetch's URL-length limit. Use the API (config: acis.nvcourts.gov/properties.js apiRoot).",
+        "format": "json"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "acis-api.nvcourts.gov/robots.txt → 404 JSON (none); acis.nvcourts.gov/robots.txt returns the SPA HTML (none)",
+        "notes": "fetch_doc.py reads the JSON (as text) and the PDFs (City of Sparks v. Bluth: 9 pp, 14,971 chars). WebFetch on the portal: 'url exceeds the maximum fetchable length'; API URLs not WebFetched (no provenance)."
+      },
+      "currency": {
+        "where": "none; listing is live (newest entries filed 2026-10-16/17)",
+        "observed": ""
+      },
+      "hazards": [
+        "slip PDFs: no Nev./P.3d pagination; the 'NNN Nev., Advance Opinion NN' label is not in the extracted text — take it from the docket description",
+        "totalElements caps at 10,000",
+        "undocumented API: parameter names come from the portal's JS bundle and may change",
+        "docket-number filter ignored on the document search"
+      ],
+      "probe": {
+        "citation": "City of Sparks v. Bluth, 142 Nev., Adv. Op. 65 (Oct. 15, 2026), No. 90244",
+        "url": "https://acis-api.nvcourts.gov/courts/dc01122c-a19d-4eb7-bfe9-5b96e93c26fd/cms/case/61b849df-c16d-4dbf-92f8-d4b2c1e02c99/docketentrydocuments/3e2b60be-61a8-4bb3-bf78-d4faa7367af4",
+        "expect": "we are asked to determine whether the district court abused its discretion"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "API search (Supreme, type 1000014, newest first) → Bluth 90244 '142 Nev. Adv. Opn. No. 65'; PDF application/pdf 9 pp; fetch_doc.py verify VERIFIED p. 2. COA: Lorenzo v. Gendebien 90082-COA (June 18, 2026) and Moore v. Primadonna 89261 '142 Nev. Adv. Opn. No. 6' listed."
+      },
+      "notes": "Strongest script candidate in this record."
+    },
+    {
+      "id": "nv-opinions-nvcourts",
+      "family": "case_law",
+      "title": "nvcourts.gov decision pages (advance opinions, unpublished orders, forthcoming opinions)",
+      "publisher": "Supreme Court of Nevada",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Landing pages that link into ACIS searches.",
+      "coverage": "Links to Supreme Court and Court of Appeals advance-opinion and unpublished-order searches in ACIS; forthcoming-opinions notices.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://nvcourts.gov/supreme/decisions/forthcoming_opinions",
+        "navigation": "page links: /supreme/decisions/advance_opinions_enterprise, /supreme/decisions/supreme_court_unplublished_orders_enterprise, and acis.nvcourts.gov search URLs (see nv-opinions-acis)",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "Cloudflare challenge on robots.txt",
+        "notes": "advance_opinions_enterprise not fetched (WebFetch permission timed out)."
+      },
+      "currency": {
+        "where": "page metadata",
+        "observed": "modified 2026-10-15"
+      },
+      "hazards": [
+        "shell blocked by Cloudflare",
+        "lists are ACIS links, not documents"
+      ],
+      "probe": {
+        "citation": "Forthcoming opinions page",
+        "url": "https://nvcourts.gov/supreme/decisions/forthcoming_opinions",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: real content (no challenge), links to ACIS opinion/order searches with court UUIDs used in nv-opinions-acis. fetch_doc.py: REFUSED (bot check)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-nevada-reports",
+      "family": "case_law",
+      "title": "Nevada Reports preliminary prints (official pagination)",
+      "publisher": "Supreme Court of Nevada",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Page says the preliminary prints carry Nevada Reports pages, are subject to typographical revision, and the bound volume controls on discrepancy.",
+      "coverage": "Batches of 4-6 advance opinions with Nev. page numbers; most recent seen: 140 Nev. pp. 467-486 (Adv. Op. Nos. 51-53, 2024) — about two years behind the advance opinions.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "PDF URLs carry CMS asset ids (/__data/assets/pdf_file/0023/51458/140_Nevada_Reports_pages_467-486.pdf); not derivable.",
+        "index_url": "https://nvcourts.gov/supreme/decisions/nevada_reports",
+        "navigation": "listing → batch PDF whose page range covers the cited Nev. page",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (listing only)",
+        "shell": "blocked-challenge",
+        "robots_txt": "Cloudflare challenge",
+        "notes": "Batch PDF not fetched: WebFetch permission was not granted in time; shell refused by bot check."
+      },
+      "currency": {
+        "where": "listing",
+        "observed": "Volume 140, Adv. Op. Nos. 51-53, pages 467-486"
+      },
+      "hazards": [
+        "lags advance opinions by ~2 years",
+        "shell blocked",
+        "asset-id URLs"
+      ],
+      "probe": {
+        "citation": "140 Nev. 467",
+        "url": "https://nvcourts.gov/supreme/decisions/nevada_reports",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch of listing: three newest batches with PDF links (vol. 140 pp. 467-486, 430-466, 375-429). PDF itself not fetched."
+      },
+      "notes": "Only free source of official Nev. pagination found; earlier volumes' availability on this page not checked."
+    },
+    {
+      "id": "nv-cases-justia",
+      "family": "case_law",
+      "title": "Justia — Nevada Supreme Court and Court of Appeals decisions",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Listing notes its opinions may not be the official published versions.",
+      "coverage": "Supreme Court by year (1960s-2026 seen) and Court of Appeals (2026 listing seen); slip text with Adv. Op. number.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/nevada/{court-slug}/{year}/{docket}.html",
+        "pattern_rules": "court-slug: supreme-court | court-of-appeals. year = decision year. docket = 5-digit number, lower-case '-coa' for Court of Appeals (90244.html, 89261-coa.html). Year listing: /cases/nevada/{court-slug}/{year}/.",
+        "index_url": "https://law.justia.com/cases/nevada/",
+        "navigation": "year listing lists decisions with links",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "WebFetch only."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "OCR errors in text ('Prirnadonna', 'sumrnary')",
+        "no note of later Supreme Court review on Court of Appeals pages",
+        "unpublished-order coverage unknown",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "City of Sparks v. Bluth, 142 Nev., Adv. Op. 65 (2026)",
+        "url": "https://law.justia.com/cases/nevada/supreme-court/2026/90244.html",
+        "expect": "In this appeal, we are asked to determine whether the"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: '142 Nev., Adv. Op. No. 65', Oct. 15, 2026, body complete. COA: /court-of-appeals/2026/89261-coa.html Moore v. Primadonna '142 Nev. Adv. Op. No. 6', body complete, no review note."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nv-subsequent-history-acis",
+      "family": "subsequent_history",
+      "title": "Petitions for review and later history on the ACIS docket",
+      "publisher": "Supreme Court of Nevada",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Docket entries and orders.",
+      "coverage": "Court of Appeals cases are pushed down from the Supreme Court (NRAP 17) and keep the same 5-digit docket; the petition for review (NRAP 40B), the order granting/denying it and any Supreme Court opinion on review are entries on that one docket. US Supreme Court cert notices are docketed too (subtypes 1000148 cert denied, 1000149 cert filed).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://acis-api.nvcourts.gov/courts/cms/cases?caseHeader.caseNumber={docket}",
+        "pattern_rules": "Strip '-COA' from the docket; the case result gives caseInstanceUUID → GET https://acis-api.nvcourts.gov/courts/dc01122c-a19d-4eb7-bfe9-5b96e93c26fd/cms/cases/{caseInstanceUUID}/docketentries?size=300 and read entries typed 'Post-Judgment Petition', 'Post-Judgment Order', 'Opinion/Dispositional' (subtype 'Opinion on Supreme Court Review'), 'Case Status Update' ('Transferred to/from Court of Appeals'), 'Remittitur'. For recent review grants/denials across all cases: docketentrydocuments?docketEntryHeader.docketEntrySubTypeID=1000336 (granted) or 1000339 (denied). From a district-court case number, the case result's originatingCourtCases lists the trial docket.",
+        "index_url": "https://acis-api.nvcourts.gov/courts/cms/cases",
+        "navigation": "",
+        "format": "json"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "live",
+        "observed": ""
+      },
+      "hazards": [
+        "no petition-for-review note on Justia COA pages — always check the docket",
+        "docketentries endpoint returns HTTP 500 when a sort parameter is added"
+      ],
+      "probe": {
+        "citation": "Moore v. Primadonna Co., No. 89261-COA, 142 Nev., Adv. Op. 6 (Nev. App. Jan. 29, 2026) → review granted → 142 Nev., Adv. Op. 64 (Oct. 15, 2026)",
+        "url": "https://acis-api.nvcourts.gov/courts/cms/cases?caseHeader.caseNumber=89261",
+        "expect": "MOORE VS. PRIMADONNA CO., LLC (CIVIL)"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "cases search → caseInstanceUUID d88ba868…, originating A834906; docket: 'Transferred to Court of Appeals' 2025-10-03, COA opinion 2026-01-29 'Adv. Opn. No. 6', petition for review 2026-02-19, 'Order Granting Petition for Review' 2026-04-13, Supreme Court opinion 2026-10-15 'Adv. Opn. No. 64'. Second: Herrmann 92238 'Order Denying Petition for Review' 2026-10-16."
+      },
+      "notes": "Answer to the brief: subsequent history is findable by docket number, not only by party name."
+    }
+  ],
+  "absent": [
+    {
+      "family": "statutes",
+      "what": "Official bulk download (XML/JSON/zip) of the NRS",
+      "evidence": "NRS index (https://www.leg.state.nv.us/NRS/) links chapter HTML pages only; no zip/xml/json links; /Division/Legal/LawLibrary/index.html 404.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "Cornell LII copy of NRS / Nevada Constitution",
+      "evidence": "https://www.law.cornell.edu/states/nevada links out to the Legislature and courts; LII hosts only the NAC for Nevada.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "constitution",
+      "what": "public.law Nevada Constitution, NAC or court rules",
+      "evidence": "nevada.public.law home links only /statutes (NRS).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "court_rules",
+      "what": "Tier-2 copy of Nevada court rules (Justia/LII/public.law)",
+      "evidence": "None of the three vetted hosts lists Nevada court rules (public.law: statutes only; LII Nevada page links out to nvcourts.gov).",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Legacy docket site caseinfo.nvsupremecourt.us",
+      "evidence": "fetch_doc.py: robots.txt unreachable ('Connection reset by peer'); curl HTTP 000. nvcourts.gov now links to acis.nvcourts.gov for opinions and dockets.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Separate vendor-neutral citation (e.g. '2020-Ohio-1234' style)",
+      "evidence": "None: the 'NNN Nev., Adv. Op. NN' advance-opinion number is the only public-domain form (Supreme Court Law Library citation guide).",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "nv-opinions-acis",
+      "why": "Public, unauthenticated JSON API (acis-api.nvcourts.gov): document search by court UUID, docket-entry type/subtype and filed-date range; case search by docket number; full docket entries; PDF download by UUIDs. A script maps 'NNN Nev., Adv. Op. NN' or a docket number to the PDF deterministically."
+    },
+    {
+      "source_id": "nv-subsequent-history-acis",
+      "why": "Same API: docket number → docket entries gives petition-for-review history, remittitur and US cert notices in one call."
+    },
+    {
+      "source_id": "nv-nrs-leg",
+      "why": "Static chapter HTML with stable anchors; a script can slice one section by anchor and transcode windows-1252, avoiding the WebFetch window."
+    },
+    {
+      "source_id": "nv-register-leg",
+      "why": "Yearly numerical indexes list every LCB File No. and stage PDF."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "nv-rules-nrcp",
+      "url": "https://www.leg.state.nv.us/CourtRules/NRCP.html",
+      "why": "397K chars; WebFetch stops in NRCP 16.1",
+      "split_hint": "<a name=NRCPRule{n}> anchors; text heading 'RULE N.'",
+      "bulk": ""
+    },
+    {
+      "source_id": "nv-rules-nrap",
+      "url": "https://www.leg.state.nv.us/CourtRules/NRAP.html",
+      "why": "252K chars; WebFetch stops in NRAP 13 (36, 40B unreachable)",
+      "split_hint": "<a name=NRAPRule{n}> anchors",
+      "bulk": ""
+    },
+    {
+      "source_id": "nv-rules-scr",
+      "url": "https://www.leg.state.nv.us/CourtRules/SCR.html",
+      "why": "609K chars; WebFetch expected to stop in the first fifth",
+      "split_hint": "<a name=SCRRule{n}> anchors; 'Rule N.' headings",
+      "bulk": ""
+    },
+    {
+      "source_id": "nv-constitution-leg",
+      "url": "https://www.leg.state.nv.us/Const/NVConst.html",
+      "why": "325K chars; WebFetch stops in Art. 5 § 9 (Art. 6 judiciary unreachable)",
+      "split_hint": "<a name=Art{a}Sec{s}> anchors",
+      "bulk": ""
+    },
+    {
+      "source_id": "nv-nrs-leg",
+      "url": "https://www.leg.state.nv.us/NRS/NRS-041.html",
+      "why": "Long NRS chapters (41: 316K; 200: ~460 KB HTML) exceed the WebFetch window; e.g. NRS 41.130 unreachable",
+      "split_hint": "<a name=NRS{ccc}Sec{s}> anchors",
+      "bulk": ""
+    },
+    {
+      "source_id": "nv-rules-lcb-other",
+      "url": "https://www.leg.state.nv.us/CourtRules/RPC.html",
+      "why": "146K chars; later RPC rules beyond WebFetch window",
+      "split_hint": "<a name=\"RPCRule{n_m}\"> anchors",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "WebFetch on acis-api.nvcourts.gov JSON/PDF URLs untested (no URL provenance in this environment); skill may need fetch_doc.py for all ACIS reads.",
+    "Nevada Reports batch PDF not fetched (WebFetch permission timeout; shell blocked) — confirm it carries Nev. page numbers in text and how far back the listing goes.",
+    "SCR and RPC pages not WebFetched; truncation point inferred from the ~110K cap on other LCB pages.",
+    "Whether Justia includes Nevada unpublished orders, and Justia's Supreme Court year range, not checked.",
+    "Justia NRS slug for lettered chapters (chapter-41a?) not probed.",
+    "Earliest Nevada Reports volume on nvcourts.gov/supreme/decisions/nevada_reports not checked.",
+    "CourtListener ids 'nev' and 'nevapp' unverified.",
+    "NRAP 36(c)(3) Court of Appeals date (Aug. 15, 2024) read from the LCB text and the Law Library guide; confirm against the ADKT amendment order."
+  ]
+}
