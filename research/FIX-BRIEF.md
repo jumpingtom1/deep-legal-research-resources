@@ -43,7 +43,11 @@ Then run `python3 scripts/build.py --check`. It must print **no ERROR and no
 WARN lines for `<xx>.json`**. Also run `python3 scripts/build.py --cross`.
 It must print **no CROSS line involving `<xx>`**: either tighten the pattern
 with this state's marker, or mark a genuinely generic form
-`"context_required": true` (see SCHEMA.md). Use `--check` only, never a full build.
+`"context_required": true` (see SCHEMA.md).
+  **Never drop or reword one of your own real citation examples to clear a
+  CROSS line.** If another state's pattern claims your citation, the fix
+  belongs in that state's pattern. Leave your example as it is and name the
+  conflict in your final message. Use `--check` only, never a full build.
 
 ## Finish
 

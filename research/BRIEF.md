@@ -24,7 +24,11 @@ Read these first:
    the matching state**. Fix it one of two ways: give distinctive patterns
    this state's marker ("Tex.", "of the Ohio Rules …"), or mark a genuinely
    generic form (bare "Rule 1:1", bare docket number, regional reporter,
-   "cert. denied") with `"context_required": true`. Use `--check` only: other agents are
+   "cert. denied") with `"context_required": true`.
+  **Never drop or reword one of your own real citation examples to clear a
+  CROSS line.** If another state's pattern claims your citation, the fix
+  belongs in that state's pattern. Leave your example as it is and name the
+  conflict in your final message. Use `--check` only: other agents are
    building in parallel, so never run `build.py` without it.
 
 ## What the skill needs from each source
