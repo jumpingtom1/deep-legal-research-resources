@@ -41,9 +41,10 @@
      "Miss. Code Ann. §§ 11-9-101 to -147",
      "Mississippi Code Section 11-7-13",
      "Section 15-1-49 of the Mississippi Code",
-     "Miss. Code § 13-3-57"
+     "Miss. Code § 13-3-57",
+     "Section 11-46-11 of the Miss. Code"
     ],
-    "regex": "(?:Miss(?:\\.|issippi)\\s*Code(?:\\s*(?:Ann(?:\\.|otated)?|of\\s*1972))*,?\\s*(?:§§?|[Ss]ec(?:tion|\\.)s?)?\\s*|(?:[Ss]ection|§)\\s*(?=\\d{1,3}-\\d{1,3}-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Code))(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+    "regex": "(?:Miss(?:\\.|issippi)\\s*Code(?:\\s*(?:Ann(?:\\.|otated)?|of\\s*1972))*,?\\s*(?:§§?|[Ss]ec(?:tion|\\.)s?)?\\s*|(?:[Ss]ection|§)\\s*(?=\\d{1,3}-\\d{1,3}-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Miss(?:\\.|issippi)\\s*Code))(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
     "routes_to": [
      "ms-code-justia",
      "ms-code-lexis"
@@ -72,9 +73,10 @@
      "Miss. Const. § 273",
      "Article 3, Section 24 of the Mississippi Constitution",
      "Section 14 of the Mississippi Constitution",
-     "Miss. Const. of 1890, art. 6, § 146"
+     "Miss. Const. of 1890, art. 6, § 146",
+     "Section 8 of Article 3 of the Mississippi Constitution"
     ],
-    "regex": "Miss\\.\\s*Const\\.(?:\\s*(?:of\\s*)?1890)?,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}),?\\s*)?§\\s*(?P<section>\\d{1,3}[A-Z]?)|(?:Article\\s+(?P<article2>\\d{1,2}),?\\s*)?Section\\s+(?P<section2>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)",
+    "regex": "Miss\\.\\s*Const\\.(?:\\s*(?:of\\s*)?1890)?,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}),?\\s*)?§\\s*(?P<section>\\d{1,3}[A-Z]?)|(?:Article\\s+(?P<article2>\\d{1,2}),?\\s*)?Section\\s+(?P<section2>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)|Section\\s+(?P<section3>\\d{1,3}[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2})\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)",
     "routes_to": [
      "ms-constitution-sos",
      "ms-constitution-justia"
@@ -176,9 +178,10 @@
     "label": "Uniform Civil Rules of Circuit and County Court Practice",
     "examples": [
      "UCRCCC 4.01",
-     "URCCC 9.04",
+     "URCCC 4.03",
      "Rule 4.01 of the Uniform Civil Rules of Circuit and County Court Practice",
-     "Unif. R. Cir. & Cnty. Ct. Prac. 9.04"
+     "Unif. R. Cir. & Cnty. Ct. Prac. 5.03",
+     "Rule 4.03 of the Uniform Rules of Circuit and County Court"
     ],
     "regex": "\\bU\\.?C?\\.?R\\.?C\\.?C\\.?C\\.?\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Unif\\.\\s*(?:Civ\\.\\s*)?R\\.\\s*Cir\\.\\s*&\\s*C(?:ou)?nty\\.?\\s*Ct\\.\\s*Prac\\.\\s*(?P<rule3>\\d{1,2}\\.\\d{2})|Rule\\s+(?P<rule2>\\d{1,2}\\.\\d{2})\\s+of\\s+the\\s+Uniform\\s+(?:Civil\\s+)?Rules\\s+of\\s+Circuit\\s+and\\s+County\\s+Court(?:\\s+Practice)?",
     "routes_to": [
@@ -312,7 +315,7 @@
    "Miss. Admin. Code": "mac",
    "Miss. Code R.": "mac"
   },
-  "notes": "No public-domain citation: Mississippi cites So. 3d (So. 2d / So. earlier; 'Miss.' official reports ended 1966) with ¶ pinpoints, e.g. '345 So. 3d 512, 516 (¶11) (Miss. 2022)'; slip opinions are identified by docket '{year}-{type}-{5 digits}-{SCT|COA}' (types include CA civil, KA criminal, CP civil pro se, KM, CT certiorari, IA interlocutory, DR death-post-conviction, SA state agency, FC federal certified question, R rules). The -SCT/-COA suffix is distinctive, so docket numbers route here without context. A petition for certiorari from a Court of Appeals decision becomes '{year}-CT-{number}-SCT' (same number as the COA case — from memory; CT dockets observed on hand-down lists). Bare 'Section 15-1-49' (Mississippi's own style) is shared with Alabama and others: context_required. 'MRPC' is also used by Michigan and Minnesota: context_required; 'M.R.E.'/'MRE' are shared with Michigan: context_required; 'Miss. R. Prof'l Conduct' is distinctive. 'M.R.C.P.', 'M.R.E.', 'M.R.A.P.' are Mississippi's house abbreviations; Montana/Maine use 'M. R. Civ. P.'/'M.R. Civ. P.' which these regexes do not match (C must be followed by P). 'cert. denied' routes here only with Mississippi context. A '§§ 11-9-101 to -147' range takes the first section only. CourtListener ids miss / missctapp from memory, unverified."
+  "notes": "No public-domain citation: Mississippi cites So. 3d (So. 2d / So. earlier; 'Miss.' official reports ended 1966) with ¶ pinpoints, e.g. '345 So. 3d 512, 516 (¶11) (Miss. 2022)'; slip opinions are identified by docket '{year}-{type}-{5 digits}-{SCT|COA}' (types include CA civil, KA criminal, CP civil pro se, KM, CT certiorari, IA interlocutory, DP death penalty direct appeal, DR death-penalty post-conviction, SA state agency, FC federal certified question, R rules). The -SCT/-COA suffix is distinctive, so docket numbers route here without context. A petition for certiorari from a Court of Appeals decision becomes '{year}-CT-{number}-SCT' (same number as the COA case — from memory; CT dockets observed on hand-down lists). Bare 'Section 15-1-49' (Mississippi's own style) is shared with Alabama and others: context_required. 'MRPC' is also used by Michigan and Minnesota: context_required; 'M.R.E.'/'MRE' are shared with Michigan: context_required; 'Miss. R. Prof'l Conduct' is distinctive. 'M.R.C.P.', 'M.R.E.', 'M.R.A.P.' are Mississippi's house abbreviations; Montana/Maine use 'M. R. Civ. P.'/'M.R. Civ. P.' which these regexes do not match (C must be followed by P). 'cert. denied' routes here only with Mississippi context. A '§§ 11-9-101 to -147' range takes the first section only. CourtListener ids miss / missctapp from memory, unverified. Constitution: Justia's page holds only §§ 1-183, so higher sections route to the SOS PDF first (already first in routes_to). 'URCCC N.NN' citations to pre-2017 criminal chapters (6-12) do not exist in the current UCRCCC PDF (Rules 1.01-5.10): send criminal-practice cites to the Rules of Criminal Procedure. The marked Code pattern accepts 'of the Miss. Code' as well as 'of the Mississippi Code'."
  },
  "sources": [
   {
@@ -383,7 +386,7 @@
     "webfetch": "ok",
     "shell": "blocked-challenge",
     "robots_txt": "unreadable: law.justia.com answers robots.txt with a bot check (fetch_doc.py REFUSED)",
-    "notes": "Built section URLs passed WebFetch without an approval prompt. Article-level section URLs (e.g. 11-9-143) inferred from the Georgia pattern, not fetched."
+    "notes": "Built section URLs passed WebFetch without an approval prompt. Article-level URLs verified by the independent check: /title-11/chapter-9/article-3/section-11-9-143/."
    },
    "currency": {
     "where": "page header",
@@ -402,9 +405,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch: YES, 'All actions for which no other period of limitation is'; '2025 Mississippi Code 1972'; not truncated. Second: § 97-3-19 'The killing of a human being without the authority of'."
+    "evidence": "WebFetch: YES, 'All actions for which no other period of limitation is'; '2025 Mississippi Code 1972'; not truncated. Second: § 97-3-19 'The killing of a human being without the authority of'. | Independent check 2026-10-17: YES 'All actions for which no other period of limitation is'; '2025 Mississippi Code 1972'; second citation Miss. Code Ann. § 11-46-11; § 11-9-143 (article-level) ok"
    },
    "notes": "The only text route for the Code reachable by the skill; quotes are single-source tier 2 and must say so."
   },
@@ -494,9 +497,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script grep: page 16 'SECTION 24. Open courts; remedy for injury. All courts shall be open'; § 14 'No person shall be deprived of life, liberty, or property'; § 273 'Amendments to this Constitution may be proposed by the Legislature'."
+    "evidence": "Script grep: page 16 'SECTION 24. Open courts; remedy for injury. All courts shall be open'; § 14 'No person shall be deprived of life, liberty, or property'; § 273 'Amendments to this Constitution may be proposed by the Legislature'. | Independent check 2026-10-17: script verify fresh: VERIFIED p.16; cover 'ANNOTATED UPDATED MAY, 2022'; second citation Miss. Const. art. 3, § 14 ok"
    },
    "notes": ""
   },
@@ -508,13 +511,13 @@
    "tier": 2,
    "official_status": "unofficial",
    "official_status_evidence": "Third-party page; no version statement (only 'ADOPTED NOVEMBER 1, A.D., 1890').",
-   "coverage": "Whole constitution on one page (120,868 chars); age of text unknown.",
+   "coverage": "Sections 1-183 only: the single page (120,868 chars) stops mid-§ 183; §§ 184-285 (incl. § 273) are not on it. Age of text unknown.",
    "access": {
     "mode": "constructible",
     "url_pattern": "https://law.justia.com/constitution/mississippi/",
     "pattern_rules": "One page for all sections; no anchors.",
     "index_url": "https://law.justia.com/constitution/mississippi/",
-    "navigation": "single page; WebFetch window 1 reaches Section 156, offset=100000 for the rest",
+    "navigation": "single page; WebFetch window 1 reaches § 156, offset=100000 reaches § 183 (end of page). Sections above 183: route to ms-constitution-sos; no Justia per-article page is known.",
     "format": "html"
    },
    "text": "fetch-and-quote",
@@ -530,7 +533,8 @@
    },
    "hazards": [
     "possibly stale text",
-    "truncated at ~Section 157: use offset 100000",
+    "§§ 184-285 absent: second citation Miss. Const. § 273 failed — use ms-constitution-sos",
+    "needs offset 100000 for §§ 157-183",
     "shell blocked"
    ],
    "probe": {
@@ -541,9 +545,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch: YES, Section 24 'All courts shall be open; and every person for an'; highest complete section in window 1: 156; page 120,868 chars."
+    "evidence": "WebFetch: YES, Section 24 'All courts shall be open; and every person for an'; highest complete section in window 1: 156; page 120,868 chars. | Independent check 2026-10-17: Window 1: YES § 24 'All courts shall be open; and every person for an'; cut in § 157"
    },
    "notes": ""
   },
@@ -579,7 +583,8 @@
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
     "comments/advisory notes follow each rule: do not quote as rule text",
-    "PDF line numbers leak into text (e.g. 'granted, 35 (7)'): verify quotes with fetch_doc verify"
+    "PDF line numbers leak into text (e.g. 'granted, 35 (7)'): verify quotes with fetch_doc verify",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'RULE N. TITLE' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "M.R.C.P. 12(b)(6)",
@@ -589,9 +594,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script: 231 pp; Rule 12(b)(6) p. 43 '(6) Failure to state a claim upon which relief can be granted'; 'RULE 56. SUMMARY JUDGMENT' p. 156."
+    "evidence": "Script: 231 pp; Rule 12(b)(6) p. 43 '(6) Failure to state a claim upon which relief can be granted'; 'RULE 56. SUMMARY JUDGMENT' p. 156. | Independent check 2026-10-17: fresh script verify: VERIFIED p.43; file name '2026-07-01 Rules of Civil Procedure'; second citation M.R.C.P. 4 ok"
    },
    "notes": ""
   },
@@ -626,7 +631,8 @@
    "hazards": [
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
-    "comments/advisory notes follow each rule: do not quote as rule text"
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'Rule NNN. Title' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "M.R.E. 702",
@@ -636,9 +642,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script verify: VERIFIED page 86 'A witness who is qualified as an expert by knowledge, skill, experience'."
+    "evidence": "Script verify: VERIFIED page 86 'A witness who is qualified as an expert by knowledge, skill, experience'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.86; file '2025-04-07 Restyled Rules of Evidence'; second citation Miss. R. Evid. 803 ok"
    },
    "notes": ""
   },
@@ -673,7 +679,8 @@
    "hazards": [
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
-    "comments/advisory notes follow each rule: do not quote as rule text"
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'RULE N. TITLE' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "M.R.A.P. 17",
@@ -683,9 +690,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script verify: VERIFIED page 57 'Decisions of Court of Appeals Reviewable by Writ of Certiorari' (Rule 17(a))."
+    "evidence": "Script verify: VERIFIED page 57 'Decisions of Court of Appeals Reviewable by Writ of Certiorari' (Rule 17(a)). | Independent check 2026-10-17: fresh script verify: VERIFIED p.57; last-modified 23 Jun 2026; second citation M.R.A.P. 28 ok"
    },
    "notes": ""
   },
@@ -721,7 +728,8 @@
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
     "comments/advisory notes follow each rule: do not quote as rule text",
-    "rule headings are mixed case without 'RULE' caps: grep 'Rule N.N Title.'"
+    "rule headings are mixed case without 'RULE' caps: grep 'Rule N.N Title.'",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'Rule N.N Title.' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "MRCrP 8.1",
@@ -731,9 +739,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script grep: p. 39 'Rule 8 Release Rule 8.1 Definitions and Requirements. Whenever the terms below appear'."
+    "evidence": "Script grep: p. 39 'Rule 8 Release Rule 8.1 Definitions and Requirements. Whenever the terms below appear'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.39; index text 'effective July 1, 2023'; second citation MRCrP 26.5 ok"
    },
    "notes": ""
   },
@@ -768,7 +776,8 @@
    "hazards": [
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
-    "comments/advisory notes follow each rule: do not quote as rule text"
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'RULE N.N TITLE' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "Miss. R. Prof'l Conduct 1.7",
@@ -778,9 +787,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script verify: VERIFIED page 29 'A lawyer shall not represent a client if the representation of that client'."
+    "evidence": "Script verify: VERIFIED page 29 'A lawyer shall not represent a client if the representation of that client'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.29; last-modified 6 Jul 2026; second citation Miss. R. Prof'l Conduct 8.4 ok"
    },
    "notes": ""
   },
@@ -792,7 +801,7 @@
    "tier": 1,
    "official_status": "unknown",
    "official_status_evidence": "Published by the Supreme Court on courts.ms.gov 'MS Rules of Court'; no official/unofficial statement seen.",
-   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (25 pp, 62,492 chars; last-modified 21 May 2026).",
+   "coverage": "Complete rule set with comments / advisory committee notes in one PDF (25 pp, 62,492 chars; last-modified 21 May 2026). Current UCRCCC holds Rules 1.01-5.10 only (civil). The pre-2017 URCCC criminal chapters (e.g. URCCC 9.04 discovery) were replaced by the Rules of Criminal Procedure and are not in this PDF.",
    "access": {
     "mode": "index-anchored",
     "url_pattern": "https://courts.ms.gov/research/rules/msrulesofcourt/UCRCCC%20Post-070117.pdf",
@@ -815,7 +824,8 @@
    "hazards": [
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
-    "comments/advisory notes follow each rule: do not quote as rule text"
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'Rule N.NN TITLE' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "UCRCCC 4.01",
@@ -825,9 +835,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script grep: Rule 1.01 'may be cited as \"UCRCCC _.__.\"'; Rule 4.01 'A cost deposit shall be made with the cler[k]'."
+    "evidence": "Script grep: Rule 1.01 'may be cited as \"UCRCCC _.__.\"'; Rule 4.01 'A cost deposit shall be made with the cler[k]'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.20; last-modified 21 May 2026; second citation UCRCCC 5.03 ok"
    },
    "notes": "Short enough for one WebFetch window (62K chars) once the approval gate is not in the way. Criminal practice moved to the Rules of Criminal Procedure in 2017."
   },
@@ -862,7 +872,8 @@
    "hazards": [
     "long PDF (beyond WebFetch window)",
     "file name changes on reissue",
-    "comments/advisory notes follow each rule: do not quote as rule text"
+    "comments/advisory notes follow each rule: do not quote as rule text",
+    "a bare 'Rule N.N' search first hits the table of contents and cross-references: anchor on the full heading 'RULE N.NN TITLE' (rule number plus its title, from the TOC) and take the hit whose following text is the rule body; grep is case-insensitive, so the title words are what disambiguate"
    ],
    "probe": {
     "citation": "UCCR 1.10",
@@ -872,9 +883,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script grep: 'RULE 1.00 ... may be cited as UCCR'; p. 9 'RULE 1.10 ... All discovery must be completed within ninety days'."
+    "evidence": "Script grep: 'RULE 1.00 ... may be cited as UCCR'; p. 9 'RULE 1.10 ... All discovery must be completed within ninety days'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.9; last-modified 1 Jul 2026; second citation UCCR 8.05 ok"
    },
    "notes": ""
   },
@@ -888,14 +899,14 @@
    "official_status_evidence": "Court-approved local rules listed by district on courts.ms.gov.",
    "coverage": "Local rules by judicial district (not opened).",
    "access": {
-    "mode": "index-anchored",
+    "mode": "link-only",
     "url_pattern": "",
     "pattern_rules": "",
     "index_url": "https://courts.ms.gov/research/rules/localcircuitrules.php",
-    "navigation": "rules.php → 'Local Circuit Court Rules' / 'Local Chancery Court Rules' (localchanceryrules.php) / 'Local County Court Rules' (localcountyrules.php) → district PDF.",
+    "navigation": "rules.php → 'Local Circuit Court Rules' (localcircuitrules.php) / localchanceryrules.php / localcountyrules.php: pages list district names as text but expose no district PDF links to the script; human navigation only.",
     "format": "pdf"
    },
-   "text": "fetch-and-quote",
+   "text": "link-only",
    "automation": {
     "webfetch": "untested",
     "shell": "untested",
@@ -906,7 +917,9 @@
     "where": "not checked",
     "observed": ""
    },
-   "hazards": [],
+   "hazards": [
+    "index pages carry no machine-followable links to district rule PDFs (independent check: 0 district PDF links)"
+   ],
    "probe": {
     "citation": "",
     "url": "https://courts.ms.gov/research/rules/localcircuitrules.php",
@@ -917,7 +930,7 @@
     "date": "2026-10-17",
     "by": "research",
     "result": "FAIL",
-    "evidence": "Link texts seen by script links on rules.php."
+    "evidence": "Link texts seen by script links on rules.php. | Independent check 2026-10-17: FAILED — script read 5,196 chars, district names as text, 0 district PDF links; WebFetch PROVENANCE_REQUIRED."
    },
    "notes": "Rule amendments: courts.ms.gov/research/rules/ruleamendments/ruleamendments.php; rules for comment: …/rulesforcomment/rulesforcomment.php."
   },
@@ -998,7 +1011,8 @@
    "hazards": [
     "crawl-delay 10 s",
     "quarterly lag",
-    "multi-level rule numbers (x.y.z) not tested"
+    "multi-level rule numbers (x.y.z) not tested",
+    "LII offers two versions per rule ('Compare'): state which version was read in the currency note"
    ],
    "probe": {
     "citation": "Miss. Admin. Code 11-1:1.1",
@@ -1008,9 +1022,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script: '11 Miss. Code. R. 1-1.1 - Delegations … The Commission delegates the following powers'; built 11-Miss-Code-R-SS-1-6-1 → '11 Miss. Code. R. 1-6.1 - General'."
+    "evidence": "Script: '11 Miss. Code. R. 1-1.1 - Delegations … The Commission delegates the following powers'; built 11-Miss-Code-R-SS-1-6-1 → '11 Miss. Code. R. 1-6.1 - General'. | Independent check 2026-10-17: fresh script verify: VERIFIED; 'updated quarterly; we currently have two versions available'; second citation Miss. Admin. Code 30-201:1.1 ok"
    },
    "notes": "regulations.justia.com also hosts the code but is not on the tier-2 list (only law.justia.com)."
   },
@@ -1100,9 +1114,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script: 7,139 chars; '2025-CA-00269-SCT Park Wind Apartments, LLC v. Glenda Mayze … Disposition: Reversed and Remanded.' 9 links."
+    "evidence": "Script: 7,139 chars; '2025-CA-00269-SCT Park Wind Apartments, LLC v. Glenda Mayze … Disposition: Reversed and Remanded.' 9 links. | Independent check 2026-10-17: fresh script verify: VERIFIED 'Park Wind Apartments, LLC v. Glenda Mayze'; WebFetch PROVENANCE_REQUIRED; second citation Promenade D'Iberville v. JEA, No. 2023-CA-01273-SCT (Miss. June 12, 2025) ok"
    },
    "notes": ""
   },
@@ -1146,9 +1160,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script: 7,363 chars; '2025-CA-00913-COA Wiley Bryant Harrison v. Ellen Trainor Harrison'; link ..\\Opinions\\CO195485.pdf."
+    "evidence": "Script: 7,363 chars; '2025-CA-00913-COA Wiley Bryant Harrison v. Ellen Trainor Harrison'; link ..\\Opinions\\CO195485.pdf. | Independent check 2026-10-17: fresh script verify: VERIFIED 'Wiley Bryant Harrison v. Ellen Trainor Harrison'; second citation McCoy v. Graham, No. 2024-CA-00286-COA (Miss. Ct. App. Mar. 11, 2025) ok"
    },
    "notes": ""
   },
@@ -1193,9 +1207,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script: 11 pp, 20,320 chars; 'NO. 2025-CA-00269-SCT'; '¶1. Glenda Mayze’s knee was injured'. COA CO195485.pdf: 'NO. 2025-CA-00913-COA'."
+    "evidence": "Script: 11 pp, 20,320 chars; 'NO. 2025-CA-00269-SCT'; '¶1. Glenda Mayze’s knee was injured'. COA CO195485.pdf: 'NO. 2025-CA-00913-COA'. | Independent check 2026-10-17: fresh script verify: VERIFIED p.1 'Glenda Mayze’s knee was injured…'; second citation Promenade D'Iberville v. JEA, No. 2023-CA-01273-SCT ok"
    },
    "notes": ""
   },
@@ -1239,9 +1253,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch: YES, 'A Jones County jury returned a $4 million verdict in favor of'; ¶ numbers through ¶81; not truncated. Built /court-of-appeals/2026/2025-ca-00913-coa.html: 'Wiley Harrison appeals from a final judgment'."
+    "evidence": "WebFetch: YES, 'A Jones County jury returned a $4 million verdict in favor of'; ¶ numbers through ¶81; not truncated. Built /court-of-appeals/2026/2025-ca-00913-coa.html: 'Wiley Harrison appeals from a final judgment'. | Independent check 2026-10-17: YES 'A Jones County jury returned a $4 million verdict in favor'; Dec. 16, 2021; ¶81; second citation McCoy v. Graham, No. 2024-CA-00286-COA (2025) ok"
    },
    "notes": "Practical docket → opinion finder, since the Court's docket search is robots-disallowed."
   },
@@ -1286,7 +1300,7 @@
     "date": "2026-10-17",
     "by": "research",
     "result": "FAIL",
-    "evidence": "Script: REFUSED robots.txt disallows /appellatecourts/docket/sendPDF.php (link from SCT10-15-2026 hand-down list)."
+    "evidence": "Script: REFUSED robots.txt disallows /appellatecourts/docket/sendPDF.php (link from SCT10-15-2026 hand-down list). | Re-confirmed blocked 2026-10-17: script check: REFUSED robots Disallow: /appellatecourts/docket/sendPDF.php"
    },
    "notes": "Order PDFs linked on hand-down lists (rules orders, some en banc orders) live here and are therefore unreadable; the list's disposition text is the readable record."
   },
@@ -1320,7 +1334,8 @@
    },
    "hazards": [
     "date-scan needed: findable by docket number only by scanning lists, or by party name on Justia",
-    "CT docket replaces COA suffix"
+    "CT docket replaces COA suffix",
+    "same-number COA → CT docket mapping unconfirmed (independent check could not confirm on Knight v. Glover 2024-CT-01157-SCT)"
    ],
    "probe": {
     "citation": "Breland v. State, No. 2024-CT-01022-SCT (cert. denied Sept. 24, 2026)",
@@ -1330,9 +1345,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "Script grep: '2024-CT-01022-SCT David Allen Breland … is denied. To Deny: All Justices. Order entered 9/24/26.' Grants on 10/08 and 10/15/2026 lists."
+    "evidence": "Script grep: '2024-CT-01022-SCT David Allen Breland … is denied. To Deny: All Justices. Order entered 9/24/26.' Grants on 10/08 and 10/15/2026 lists. | Independent check 2026-10-17: script verify: VERIFIED Breland denial (first fresh fetch: connection reset; retry ok); second citation Knight v. Glover, No. 2024-CT-01157-SCT (cert. granted, order 9/30/26) ok"
    },
    "notes": ""
   }
@@ -1416,8 +1431,10 @@
   "Legislature hosts (legislature.ms.gov, billstatus.ls.state.ms.us) fail TLS verification from the sandbox: session-law route unestablished.",
   "Earliest hand-down list year: 2000-01-06 list exists with PDFs; a 1998 date returned a 190-char stub and a 1996 date a connection error — not resolved.",
   "Same-number mapping COA docket → {year}-CT-{number}-SCT is from memory; confirm on a known pair.",
-  "Justia article-level code URLs (/article-{n}/section-…) inferred from the title/chapter index, not fetched.",
   "Constitution PDF cover says 'UPDATED MAY, 2022'; whether later amendments (e.g. 2025 ballot measures) are reflected not checked.",
-  "WebFetch quota ran out once mid-session (session limit); 14 WebFetch calls used in total."
+  "WebFetch quota ran out once mid-session (session limit); 14 WebFetch calls used in total.",
+  "Local rules: index pages give district names but no district PDF links to the script; find the real district rule URLs (row now link-only).",
+  "Justia constitution page covers §§ 1-183 only; check whether Justia has per-article pages for §§ 184-285.",
+  "LII admin-code pages show two versions per rule; which is current is not stated on the page."
  ]
 }

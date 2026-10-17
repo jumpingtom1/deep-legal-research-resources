@@ -690,6 +690,9 @@
     "va-code-justia",
     "va-constitution-justia",
     "va-cases-justia",
+    "vt-statutes-justia",
+    "vt-constitution-justia",
+    "vt-cases-justia",
     "wi-statutes-justia",
     "wi-constitution-justia",
     "wi-cases-justia"
@@ -815,6 +818,15 @@
     "mi-mcl-pdf",
     "mi-mcl-html",
     "mi-constitution-legislature"
+   ],
+   "blocked_sources": []
+  },
+  "legislature.vermont.gov": {
+   "status": "allowed",
+   "sources": [
+    "vt-statutes-leg",
+    "vt-session-laws",
+    "vt-constitution-leg"
    ],
    "blocked_sources": []
   },
@@ -1257,6 +1269,13 @@
    "status": "allowed",
    "sources": [
     "ks-opinions-kscourts"
+   ],
+   "blocked_sources": []
+  },
+  "secure.vermont.gov": {
+   "status": "allowed",
+   "sources": [
+    "vt-register-sos"
    ],
    "blocked_sources": []
   },
@@ -1784,6 +1803,7 @@
     "tx-tac-lii",
     "ut-admincode-lii",
     "va-admincode-lii",
+    "vt-admincode-lii",
     "wi-admincode-lii"
    ],
    "blocked_sources": []
@@ -1861,7 +1881,9 @@
     "ms-code-lexis",
     "nj-admincode-lexis",
     "nj-register-lexis",
-    "tn-code-lexis"
+    "tn-code-lexis",
+    "vt-rules-lexis",
+    "vt-admincode-lexis"
    ],
    "blocked_sources": [
     "ca-official-reports-lexis",
@@ -2215,6 +2237,15 @@
     "va-opinions-scv",
     "va-opinions-cav",
     "va-subsequent-history-cav-list"
+   ],
+   "blocked_sources": []
+  },
+  "www.vtcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "vt-rules-promulgated",
+    "vt-opinions-courts",
+    "vt-subsequent-history"
    ],
    "blocked_sources": []
   },

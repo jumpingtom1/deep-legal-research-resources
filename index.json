@@ -2121,17 +2121,17 @@
     "ms": {
       "name": "Mississippi",
       "file": "jurisdictions/ms.md",
-      "sha256": "c6479466ff4291492e9997bf8240950dc137e780255ab119881e5c149e122455",
+      "sha256": "021d7709727231d86c49e66a4056ac6527ee704fa2e913c144c96d6b6d79bcc4",
       "compiled": "2026-10-17",
       "counts": {
         "reported": 5,
-        "verified": 16,
+        "verified_independent": 16,
         "blocked": 1
       },
       "citation_patterns": [
         {
           "label": "Mississippi Code of 1972",
-          "regex": "(?:Miss(?:\\.|issippi)\\s*Code(?:\\s*(?:Ann(?:\\.|otated)?|of\\s*1972))*,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tion|\\.)s?)?\\s*|(?:[Ss]ection|\u00a7)\\s*(?=\\d{1,3}-\\d{1,3}-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Mississippi\\s+Code))(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+          "regex": "(?:Miss(?:\\.|issippi)\\s*Code(?:\\s*(?:Ann(?:\\.|otated)?|of\\s*1972))*,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tion|\\.)s?)?\\s*|(?:[Ss]ection|\u00a7)\\s*(?=\\d{1,3}-\\d{1,3}-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Miss(?:\\.|issippi)\\s*Code))(?P<title>\\d{1,3})-(?P<chapter>\\d{1,3})-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
           "context_required": false
         },
         {
@@ -2141,7 +2141,7 @@
         },
         {
           "label": "Mississippi Constitution of 1890",
-          "regex": "Miss\\.\\s*Const\\.(?:\\s*(?:of\\s*)?1890)?,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}),?\\s*)?\u00a7\\s*(?P<section>\\d{1,3}[A-Z]?)|(?:Article\\s+(?P<article2>\\d{1,2}),?\\s*)?Section\\s+(?P<section2>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)",
+          "regex": "Miss\\.\\s*Const\\.(?:\\s*(?:of\\s*)?1890)?,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}),?\\s*)?\u00a7\\s*(?P<section>\\d{1,3}[A-Z]?)|(?:Article\\s+(?P<article2>\\d{1,2}),?\\s*)?Section\\s+(?P<section2>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)|Section\\s+(?P<section3>\\d{1,3}[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2})\\s+of\\s+the\\s+(?:Mississippi\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Mississippi)",
           "context_required": false
         },
         {
@@ -3497,6 +3497,78 @@
         {
           "label": "Westlaw / Lexis unreported cites",
           "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:(?<!W\\.\\s)(?<!W\\.)(?<!W\\s)(?<!West\\s)Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)",
+          "context_required": false
+        }
+      ]
+    },
+    "vt": {
+      "name": "Vermont",
+      "file": "jurisdictions/vt.md",
+      "sha256": "0896ed41d92b7e523494566830ccce5003842c9c1f1aa2a7ae10646658d76cd8",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 11,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Vermont Statutes Annotated",
+          "regex": "(?P<title>\\d{1,2}[A-C]?)\\s+V\\.\\s?S\\.\\s?A\\.(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?!\\d)|Vt\\.\\s*Stat\\.\\s*Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}[A-C]?),?\\s*\u00a7+\\s*(?P<section2>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?!\\d)|(?:[Ss]ec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title3>\\d{1,2}[A-C]?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated|Title\\s+(?P<title4>\\d{1,2}[A-C]?),\\s+(?:[Ss]ection|\u00a7)\\s*(?P<section4>\\d+[a-z]?(?:[-.]\\d+[a-z]?)?)\\s+of\\s+the\\s+Vermont\\s+Statutes\\s+Annotated",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Acts and Resolves (session laws), distinctive forms",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d),\\s*No\\.\\s*(?P<number>\\d{1,3})\\s*\\((?:Adj|Sp)\\.\\s*Sess\\.\\)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Vt\\.\\s*Acts\\s*(?:&|and)\\s*Resolves\\s+No\\.\\s*(?P<number2>\\d{1,3})",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Acts (bare 'YYYY, No. N' / 'Act N of YYYY')",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d),\\s*No\\.\\s*(?P<number>\\d{1,3})(?!\\d|,\\s*(?:19|20)\\d\\d)|Act\\s+(?:No\\.\\s*)?(?P<number2>\\d{1,3})\\s+of\\s+(?P<year2>(?:19|20)\\d\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Vermont Constitution",
+          "regex": "Vt\\.\\s*Const\\.\\s*ch\\.\\s*(?P<chapter>I{1,2}),?\\s*(?:art\\.\\s*(?P<article>\\d+)|\u00a7\\s*(?P<section>\\d+))|Chapter\\s+(?P<chapter2>I{1,2}),?\\s+(?:Article\\s+(?P<article2>\\d+)|(?:Section|\u00a7)\\s*(?P<section2>\\d+))\\s+of\\s+the\\s+Vermont\\s+Constitution|Article\\s+(?P<article3>\\d+)(?:th|st|nd|rd)?\\s+of\\s+Chapter\\s+(?P<chapter3>I{1,2})\\s+of\\s+the\\s+Vermont\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Rules of Court (V.R.C.P., V.R.Cr.P., V.R.A.P., V.R.E., V.R.F.P., V.R.P.P., V.R.E.C.P., V.R.Pr.C.)",
+          "regex": "V\\.\\s?R\\.\\s?(?P<set>C\\.\\s?P|Cr\\.\\s?P|A\\.\\s?P|E|F\\.\\s?P|P\\.\\s?P|E\\.\\s?C\\.\\s?P|Pr\\.\\s?C|E\\.\\s?F)\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?[A-Za-z]?)|Vt\\.\\s*R\\.\\s*(?P<set2>Civ\\.\\s*P|Crim\\.\\s*P|App\\.\\s*P|Evid)\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Vermont\\s+Rules\\s+of\\s+(?P<set3>Civil|Criminal|Appellate|Family|Probate|Environmental\\s+Court)\\s+Procedure|Rule\\s+(?P<rule5>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Vermont\\s+Rules\\s+of\\s+Evidence|Vermont\\s+Rules?\\s+of\\s+(?P<set4>Civil|Criminal|Appellate|Family|Probate)\\s+Procedure\\s+(?P<rule4>\\d+(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Code of Vermont Rules (CVR)",
+          "regex": "(?:\\d{2}-\\d{3}\\s+)?Code\\s+Vt\\.\\s*R\\.\\s*(?P<agency>\\d{2})[- ](?P<sub>\\d{3})[- ](?P<chapter>\\d{3})|CVR\\s+(?P<agency2>\\d{2})[- ](?P<sub2>\\d{3})[- ](?P<chapter2>\\d{3})|(?P<agency3>\\d{2})-(?P<sub3>\\d{3})-(?P<chapter3>\\d{3})\\s+Vt\\.\\s*Code\\s*R\\.|Vt\\.\\s*Admin\\.\\s*Code\\s+(?P<agency4>\\d{2})-(?P<sub4>\\d{3})-(?P<chapter4>\\d{3})",
+          "context_required": false
+        },
+        {
+          "label": "Secretary of State rule-filing numbers (proposed / emergency)",
+          "regex": "(?<![\\w-])(?P<year>\\d{2})(?P<kind>P|-E)(?P<number>\\d{2,3})(?![\\w-])|Rule\\s+Log\\s*#\\s*(?P<log>\\d{2}-\\d{1,3})",
+          "context_required": true
+        },
+        {
+          "label": "Vermont public-domain citation",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+VT\\s+(?P<number>\\d{1,3})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Reports (official reporter) and Atlantic Reporter with (Vt.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Vt\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(Vt\\.(?:\\s*Super\\.\\s*Ct\\.)?(?:\\s+[A-Z][a-z]{2,3}\\.(?:\\s+\\d{1,2},)?)?\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Vermont Supreme Court docket numbers",
+          "regex": "(?:No\\.\\s*)?(?P<yy>\\d{2})-AP-(?P<seq>\\d{3})|No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq2>\\d{1,4})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Vermont Superior Court docket numbers and decisions",
+          "regex": "(?P<yy>\\d{2})-(?P<div>CV|CR|FA|PR|ENV|JV|DM|FS|SC)-(?P<seq>\\d{3,5})",
+          "context_required": true
+        },
+        {
+          "label": "Westlaw / Lexis cites with Vermont parenthetical",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Vt\\.|Vt\\.\\s*(?:Super\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
           "context_required": false
         }
       ]
