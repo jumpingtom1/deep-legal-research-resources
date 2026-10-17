@@ -95,7 +95,7 @@ Utah adopted public-domain citations in 1999 (YYYY UT N for the Supreme Court, Y
 
 ### `ut-session-laws` — Laws of Utah — chapter lookup to enrolled bills (le.utah.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Utah State Legislature · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Utah State Legislature · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Session-law chapters mapped to bills; enrolled bill PDFs per session (~YYYY/bills/hbillenr/).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -111,8 +111,9 @@ Utah adopted public-domain citations in 1999 (YYYY UT N for the Supreme Court, Y
 - **Hazard:** omnibus bills exceed the WebFetch window
 - **Hazard:** 2025+ bill status pages are JS shells (~5.5K chars) with no enrolled-PDF link: construct the {h|s}billenr URL from the bill number
 - **Hazard:** {h|s}billenr must match the chamber: HB→hbillenr, SB→sbillenr; a 404 usually means wrong chamber or a bill that did not pass
+- **Hazard:** Neither the bill page nor the enrolled PDF shows the chapter number: the ChapterLookup redirect is the only chapter→bill evidence, so record the final redirect URL as provenance
 - **Probe:** 2023 Utah Laws ch. 185 → `https://le.utah.gov/UtahCode/ChapterLookup.jsp?chap=185&sess=2023GS`
-- **Evidence (2026-10-17):** fetch_doc.py: final URL https://le.utah.gov/~2023/bills/static/HB0388.html (9,166 chars). Enrolled PDF /~2023/bills/hbillenr/HB0030.pdf: 214 pp. | Independent check 2026-10-17: discrepancy — 2025 ch. 299 → SB0074.html (JS shell, no PDF link); PDF at ~2025/bills/sbillenr/SB0074.pdf. Research re-check 2026-10-17: sbillenr/SB0074.pdf 20 pp and hbillenr/HB0001.pdf 70 pp both reached by script; pattern documented.
+- **Evidence (2026-10-17):** fetch_doc.py: final URL https://le.utah.gov/~2023/bills/static/HB0388.html (9,166 chars). Enrolled PDF /~2023/bills/hbillenr/HB0030.pdf: 214 pp. | Independent check 2026-10-17: discrepancy — 2025 ch. 299 → SB0074.html (JS shell, no PDF link); PDF at ~2025/bills/sbillenr/SB0074.pdf. Research re-check 2026-10-17: sbillenr/SB0074.pdf 20 pp and hbillenr/HB0001.pdf 70 pp both reached by script; pattern documented. | Independent check 2026-10-17: ChapterLookup chap=185 sess=2023GS → ~2023/bills/static/HB0388.html; second citation 2024 Utah Laws ch. 50 → HB0206 enrolled PDF ok
 - **Notes:** Only one chapter was probed. HB0388 matches the 'Chapter 185, 2023 General Session' history note in § 78B-2-307, but the bill page's text was not inspected.
 
 ### `ut-code-justia` — Justia — Utah Code (2025)

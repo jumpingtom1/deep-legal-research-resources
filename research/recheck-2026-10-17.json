@@ -1,0 +1,48 @@
+{
+  "jurisdiction": "az,co,il,ut",
+  "date": "2026-10-17",
+  "rows": [
+    {
+      "id": "az-opinions-supreme-azcourts",
+      "outcome": "failed",
+      "probe_evidence": "fetch_doc.py REFUSED: azcourts.gov Cloudflare challenge 2026-10-16T23:04; host off for the day",
+      "generalised_citation": "State v. Gordon, No. CR-24-0064-PR (not attempted: host locked)",
+      "generalised_url": "https://www.azcourts.gov/Portals/0/OpinionFiles/Supreme/2025/CR240064PR.pdf",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Script host lock from a 2026-10-16 23:04 challenge still applies on 2026-10-17, so 'for the day' seems to mean 24 hours, not the calendar day. The row lists script as its only route, and WebFetch is gated, so a fresh run on a locked day has no route.",
+      "suggested_fix": "Say the lock lasts about 24h; recheck after 23:05 on 2026-10-17. Consider making the Cloudflare lock per-path (/azrules/) rather than for the whole host."
+    },
+    {
+      "id": "co-opinions-sc-listing",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: '26CO65, 25SC134 Litterer, John v. Vail Summit Resorts, Inc.' -> /node/17940",
+      "generalised_citation": "People v. Vanpelt, 2026 CO 66, No. 26SA142 (Colo. Oct. 12, 2026)",
+      "generalised_url": "https://www.coloradojudicial.gov/node/18097",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Listing located 26CO66/26SA142 -> /node/18097, but WebFetch of that node was gated (PROVENANCE_REQUIRED) even though the link was on the fetched page, so the opinion text is still not reached here. A third citation spacing appears: '26 CO 64'. The page has an 'Archived Files' section, which may contradict 'older years not found here'.",
+      "suggested_fix": "Add the '26 CO 64' spacing to the normalisation note. Inspect 'Archived Files' for earlier terms. Keep pointing to co-cases-justia for the text."
+    },
+    {
+      "id": "il-rules-appellate-local",
+      "outcome": "confirmed",
+      "probe_evidence": "'The Appellate Court of Illinois, First District, adopts these rules pursuant to Illinois Supreme Court Rule 22(h)'",
+      "generalised_citation": "Ill. App. Ct. 4th Dist. Local Rules",
+      "generalised_url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e566761b-aea7-43cc-a729-4a1bb7d90271/Local%20Rules%204th.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "The 4th District PDF is 7 pp., 'Eff. January 1, 2026', and its wording differs from the 1st's preamble. The index also links 'Uniform Administrative and Procedural Rules Second through Fifth Districts' (AC%20Procedural%20Rules.pdf), which the row does not mention.",
+      "suggested_fix": "Add the Uniform Administrative and Procedural Rules (2nd-5th Districts) PDF to the coverage/navigation, and note that each district's currency line differs (e.g. 4th: 'Eff. January 1, 2026')."
+    },
+    {
+      "id": "ut-session-laws",
+      "outcome": "confirmed",
+      "probe_evidence": "fetch_doc.py: ChapterLookup chap=185 sess=2023GS redirected to ~2023/bills/static/HB0388.html (9,166 chars)",
+      "generalised_citation": "2024 Utah Laws ch. 50",
+      "generalised_url": "https://le.utah.gov/~2024/bills/hbillenr/HB0206.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "ChapterLookup chap=50&sess=2024GS -> HB0206.html; the constructed hbillenr/HB0206.pdf reached the enrolled text (2 pp., 'Enrolled Copy H.B. 206 ... 2024 GENERAL SESSION'). Neither the bill page nor the enrolled PDF shows the chapter number, so the chapter-to-bill mapping depends only on the redirect.",
+      "suggested_fix": "Note that the enrolled PDF carries no chapter number. The redirect is the only chapter evidence, so record the final redirect URL as provenance."
+    }
+  ],
+  "regex_tests": [],
+  "overall": "One row failed and three were confirmed. AZ could not be re-probed because fetch_doc.py still locks www.azcourts.gov from a challenge the night before, which leaves the row with no route that day. CO: the listing matches the evidence and the second citation (26CO66) was found, but the /node page is gated for WebFetch. IL: the 4th District rules PDF works through the index links, and the index has an extra uniform rules PDF the row omits. UT: the pattern generalised to 2024 ch. 50 -> HB0206 enrolled PDF."
+}

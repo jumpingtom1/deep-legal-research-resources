@@ -2,7 +2,7 @@
   "schema_version": 1,
   "jurisdiction": "il",
   "name": "Illinois",
-  "compiled": "2026-10-16",
+  "compiled": "2026-10-17",
   "summary": "Statutes, Constitution and Admin Code: the official ilga.gov host refuses both routes from this workspace (WebFetch ROBOTS_DISALLOWED, shell TLS failure), so text comes only from tier 2 — Justia (ILCS 2025, whose long article/chapter pages truncate near 120K chars; Constitution) and Cornell LII (Admin Code). Court rules, Rules of Evidence, opinions (Supreme Court from 1996, Appellate Court, Rule 23 orders) and PLA disposition lists are on illinoiscourts.gov, which links through a 302 to blob-storage PDFs: fetch_doc.py follows it and reads them in full (the only route to Supreme Court Rules index rows past ~Rule 573, incl. the Rules of Professional Conduct); WebFetch needs two calls. Opinion search is ASP.NET POST-only; RSS feeds give recent opinions by GET. Illinois has public-domain citations (2021 IL 125656; 2026 IL App (1st) 232256-U) from July 1, 2011, and the Appellate number maps to the docket (1-23-2256).",
   "citation_map": {
     "courts": [
@@ -538,7 +538,7 @@
       "tier": 1,
       "official_status": "unknown",
       "official_status_evidence": "Court-published; First District rules adopted under Ill. S. Ct. R. 22(h); no online official/unofficial statement.",
-      "coverage": "Local rules of Districts 1-5 and the Workers' Compensation Commission Division; separate First District Local Order PDF (05-15-26).",
+      "coverage": "Local rules of Districts 1-5 and the Workers' Compensation Commission Division; separate First District Local Order PDF (05-15-26). Also linked from the same index: 'Uniform Administrative and Procedural Rules, Second through Fifth Districts' (AC Procedural Rules.pdf). Each district PDF carries its own effective-date line (4th: 'Eff. January 1, 2026').",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/{guid}/{filename}.pdf",
@@ -569,10 +569,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py read: 31 pp., 'RULES OF THE ILLINOIS APPELLATE COURT, FIRST DISTRICT'; Preamble present; Last-Modified May 18, 2026. Independent check found the index reachable with direct blob links for all districts and WC."
+        "evidence": "fetch_doc.py read: 31 pp., 'RULES OF THE ILLINOIS APPELLATE COURT, FIRST DISTRICT'; Preamble present; Last-Modified May 18, 2026. Independent check found the index reachable with direct blob links for all districts and WC. | Independent check 2026-10-17: 1st District PDF: 'adopts these rules pursuant to Illinois Supreme Court Rule 22(h)'; second citation Ill. App. Ct. 4th Dist. Local Rules (7 pp., 'Eff. January 1, 2026') ok"
       },
       "notes": "IPI jury instructions are at /rules-law/ipi-jury-instructions/ (link only)."
     },

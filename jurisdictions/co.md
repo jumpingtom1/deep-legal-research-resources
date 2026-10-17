@@ -1,6 +1,6 @@
 # Colorado (CO) — free legal sources
 
-_Generated from `data/co.json` (compiled 2026-10-16, schema v1). Do not edit by hand._
+_Generated from `data/co.json` (compiled 2026-10-17, schema v1). Do not edit by hand._
 
 **Rules.** Use only the sources below for this jurisdiction. Never construct a URL that is not a `constructible` pattern here; for `index-anchored` sources fetch the index and follow real links. Quote only from rows marked VERIFIED, and only under the skill's two-fetch rule. Tier 2 text must be disclosed in the report with its currency string. A BLOCKED host is never fetched by any route.
 
@@ -325,11 +325,11 @@ C.R.S. section numbers are title-article-section, each part may carry a decimal 
 
 ### `co-opinions-sc-listing` — Colorado Supreme Court opinions listing (coloradojudicial.gov)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Colorado Judicial Branch · text: **link-only** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Colorado Judicial Branch · text: **link-only** · official: unofficial
 - **Coverage:** Supreme Court opinions grouped by release date. The intro says July 1, 2025 – June 30, 2026, but entries run through Oct. 12, 2026; the earliest seen was Sept. 8, 2025 (2025 CO 49). Each entry gives the citation, docket and case name, and links a /node/{id} page.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format html
-  - Placeholders: Citations are written '26CO65' or '2025 CO 65' (normalise both). Node ids aren't derivable. The opinion PDF URL behind /node/{id} hasn't been observed.
+  - Placeholders: Citations are written '26CO65' or '2025 CO 65' (normalise both). Node ids aren't derivable. The opinion PDF URL behind /node/{id} hasn't been observed. Listing spacing varies: '26CO66', '26 CO 64' and '2026 CO 66' all occur — normalise before matching.
   - Index: `https://www.coloradojudicial.gov/supreme-court/opinions?topic=78&wrapped=true`
   - Navigation: listing → entry under its release date (citation, docket, name) → /node/{id} → opinion PDF (pattern unknown)
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: www.coloradojudicial.gov: Drupal default; /supreme-court allowed
@@ -340,8 +340,9 @@ C.R.S. section numbers are title-article-section, each part may carry a decimal 
 - **Hazard:** citation spacing varies (26CO65 vs 2025 CO 65)
 - **Hazard:** PDF URL unknown; read the text on co-cases-justia
 - **Hazard:** shell blocked
+- **Hazard:** WebFetch of a /node/{n} opinion page linked from the listing can still be gated (PROVENANCE_REQUIRED); use co-cases-justia for text
 - **Probe:** Litterer v. Vail Summit Resorts, 2026 CO 65 (25SC134) → `https://www.coloradojudicial.gov/supreme-court/opinions?topic=78&wrapped=true` — expect: "26CO65"
-- **Evidence (2026-10-16):** WebFetch 2026-10-16: '26CO65, 25SC134 Litterer, John v. Vail Summit Resorts, Inc.' → /node/17940; '26CO64, 25SA265' → /node/17941; '2025 CO 65, 25SA154, People v. Havens' → /node/15461; earliest Sept. 8, 2025.
+- **Evidence (2026-10-17):** WebFetch 2026-10-16: '26CO65, 25SC134 Litterer, John v. Vail Summit Resorts, Inc.' → /node/17940; '26CO64, 25SA265' → /node/17941; '2025 CO 65, 25SA154, People v. Havens' → /node/15461; earliest Sept. 8, 2025. | Independent check 2026-10-17: listing showed '26CO65, 25SC134 Litterer … Vail Summit Resorts'; second citation People v. Vanpelt, 2026 CO 66 (listing → /node/18097) ok
 - **Notes:** Found by the independent check, then probed by research.
 
 ### `co-cases-justia` — Justia — Colorado Supreme Court and Court of Appeals opinions
@@ -409,3 +410,4 @@ C.R.S. section numbers are title-article-section, each part may carry a decimal 
 - Official SC opinion PDF URL behind /node/{id} (coloradojudicial.gov/supreme-court/opinions listing) not observed; shell IP-banned (HTTP 403 'banned up to Sat, 17 Oct 2026 16:31 UTC').
 - Colorado Register (RegisterHome.do): script HTTP 500 for research and verifier; retest with WebFetch.
 - co-session-laws robots block not re-confirmed by the independent check (permission timeout).
+- co-opinions-sc-listing: the page has an 'Archived Files' section — check whether it reaches earlier terms (independent re-check 2026-10-17).

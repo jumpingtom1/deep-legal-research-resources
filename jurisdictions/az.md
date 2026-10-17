@@ -1,6 +1,6 @@
 # Arizona (AZ) — free legal sources
 
-_Generated from `data/az.json` (compiled 2026-10-16, schema v1). Do not edit by hand._
+_Generated from `data/az.json` (compiled 2026-10-17, schema v1). Do not edit by hand._
 
 **Rules.** Use only the sources below for this jurisdiction. Never construct a URL that is not a `constructible` pattern here; for `index-anchored` sources fetch the index and follow real links. Quote only from rows marked VERIFIED, and only under the skill's two-fetch rule. Tier 2 text must be disclosed in the report with its currency string. A BLOCKED host is never fetched by any route.
 
@@ -264,7 +264,7 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 
 ### `az-opinions-supreme-azcourts` — Arizona Supreme Court opinions (azcourts.gov OpinionFiles)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Arizona Supreme Court · text: **fetch-and-quote** · official: unofficial
+- **Status:** REPORTED 2026-10-16 · **Tier 1** · Arizona Supreme Court · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Opinions page offers 'Search By Year' 2002-2026.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -280,8 +280,9 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 - **Hazard:** year listings are a JS app
 - **Hazard:** Cloudflare challenge on some azcourts.gov paths can lock the script out of the whole host for a day
 - **Hazard:** www.azcourts.gov serves a Cloudflare challenge on some paths (/azrules/); one challenge switches the host off in fetch_doc.py for the day — request rule pages last
+- **Hazard:** azcourts.gov intermittently serves a Cloudflare challenge; after one, the script refuses the whole host for ~24 h and built URLs are gated for WebFetch — fall back to Justia / CourtListener for text
 - **Probe:** Cravens v. Montano, No. CV-24-0143-PR (Ariz. Apr. 29, 2025) → `https://www.azcourts.gov/Portals/0/OpinionFiles/Supreme/2025/CV240143PR.pdf` — expect: "We consider the meaning of the phrase “in connection with"
-- **Evidence (2026-10-16):** fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock). | Independent check 2026-10-16: not reproducible — script host lock from the research run's /azrules/ challenge (not fresh evidence); State v. Gordon CR240064PR.pdf and T/AP form untested
+- **Evidence (2026-10-16):** fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock). | Independent check 2026-10-16: not reproducible — script host lock from the research run's /azrules/ challenge (not fresh evidence); State v. Gordon CR240064PR.pdf and T/AP form untested | Independent re-check 2026-10-17: FAILED — script refused azcourts.gov (Cloudflare challenge seen 2026-10-16 23:04; the script keeps a challenged host off for ~24 h); WebFetch of built URLs gated, so no route that day.
 - **Notes:** High-profile case pages (https://www.azcourts.gov/News-Info/{docket}) link briefs and amended opinions.
 
 ### `az-cases-justia` — Justia — Arizona case law
@@ -354,3 +355,4 @@ Arizona has no public-domain citation; opinions use numbered paragraphs, and Ari
 - A.A.C. chapter-PDF pattern unproven on a live chapter: needs a search-surfaced live-chapter URL (WebFetch) since the shell is refused.
 - Constitution Article 4 parts: azleg folder/file naming for 'art. IV, pt. 2' unverified.
 - Justia published Court of Appeals slugs (court-of-appeals-division-one-published / -division-two-published) seen in a listing only; fetch one published page.
+- az-opinions-supreme-azcourts: downgraded to reported 2026-10-17 after an intermittent Cloudflare challenge left no route; re-probe once the script's host lock expires and restore to verified if the probe passes.

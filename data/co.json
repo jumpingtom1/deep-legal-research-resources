@@ -2,7 +2,7 @@
   "schema_version": 1,
   "jurisdiction": "co",
   "name": "Colorado",
-  "compiled": "2026-10-16",
+  "compiled": "2026-10-17",
   "summary": "Statutes and Constitution: the Office of Legislative Legal Services publishes the full 2026 C.R.S. (and Constitution as 'title-00') as one HTM/PDF/DOCX file per title on olls.info, plus whole-code zips — read them with fetch_doc.py or a corpus, since each file is millions of characters; public.law (per-section, 2024 text) and Justia (2025) are the WebFetch-friendly fallbacks, and the legislature's own C.R.S. link is a LexisNexis JS app. Court rules have no free consolidated text except LexisNexis (JS, link-only); coloradojudicial.gov hosts only rule-change orders. CCR is official on sos.state.co.us (shell gets HTTP 500; search paths robots-disallowed) with Cornell LII as a stale mirror. Case law: coloradojudicial.gov announcement sheets (published and unpublished COA decisions, SC opinions, cert denials) are reachable by WebFetch but the shell is IP-banned (403); full opinion text is most reliably read on Justia (with ¶ numbers); the judiciary's research.coloradojudicial.gov archive is a vLex JS app.",
   "citation_map": {
     "courts": [
@@ -910,7 +910,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "",
-        "pattern_rules": "Citations are written '26CO65' or '2025 CO 65' (normalise both). Node ids aren't derivable. The opinion PDF URL behind /node/{id} hasn't been observed.",
+        "pattern_rules": "Citations are written '26CO65' or '2025 CO 65' (normalise both). Node ids aren't derivable. The opinion PDF URL behind /node/{id} hasn't been observed. Listing spacing varies: '26CO66', '26 CO 64' and '2026 CO 66' all occur — normalise before matching.",
         "index_url": "https://www.coloradojudicial.gov/supreme-court/opinions?topic=78&wrapped=true",
         "navigation": "listing → entry under its release date (citation, docket, name) → /node/{id} → opinion PDF (pattern unknown)",
         "format": "html"
@@ -930,7 +930,8 @@
         "only about one term listed; older years not found here",
         "citation spacing varies (26CO65 vs 2025 CO 65)",
         "PDF URL unknown; read the text on co-cases-justia",
-        "shell blocked"
+        "shell blocked",
+        "WebFetch of a /node/{n} opinion page linked from the listing can still be gated (PROVENANCE_REQUIRED); use co-cases-justia for text"
       ],
       "probe": {
         "citation": "Litterer v. Vail Summit Resorts, 2026 CO 65 (25SC134)",
@@ -939,10 +940,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 2026-10-16: '26CO65, 25SC134 Litterer, John v. Vail Summit Resorts, Inc.' → /node/17940; '26CO64, 25SA265' → /node/17941; '2025 CO 65, 25SA154, People v. Havens' → /node/15461; earliest Sept. 8, 2025."
+        "evidence": "WebFetch 2026-10-16: '26CO65, 25SC134 Litterer, John v. Vail Summit Resorts, Inc.' → /node/17940; '26CO64, 25SA265' → /node/17941; '2025 CO 65, 25SA154, People v. Havens' → /node/15461; earliest Sept. 8, 2025. | Independent check 2026-10-17: listing showed '26CO65, 25SC134 Litterer … Vail Summit Resorts'; second citation People v. Vanpelt, 2026 CO 66 (listing → /node/18097) ok"
       },
       "notes": "Found by the independent check, then probed by research."
     },
@@ -1103,6 +1104,7 @@
     "CourtListener ids colo / coloctapp unverified.",
     "Official SC opinion PDF URL behind /node/{id} (coloradojudicial.gov/supreme-court/opinions listing) not observed; shell IP-banned (HTTP 403 'banned up to Sat, 17 Oct 2026 16:31 UTC').",
     "Colorado Register (RegisterHome.do): script HTTP 500 for research and verifier; retest with WebFetch.",
-    "co-session-laws robots block not re-confirmed by the independent check (permission timeout)."
+    "co-session-laws robots block not re-confirmed by the independent check (permission timeout).",
+    "co-opinions-sc-listing: the page has an 'Archived Files' section — check whether it reaches earlier terms (independent re-check 2026-10-17)."
   ]
 }

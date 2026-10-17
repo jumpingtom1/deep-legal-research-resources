@@ -1,6 +1,6 @@
 # Illinois (IL) — free legal sources
 
-_Generated from `data/il.json` (compiled 2026-10-16, schema v1). Do not edit by hand._
+_Generated from `data/il.json` (compiled 2026-10-17, schema v1). Do not edit by hand._
 
 **Rules.** Use only the sources below for this jurisdiction. Never construct a URL that is not a `constructible` pattern here; for `index-anchored` sources fetch the index and follow real links. Quote only from rows marked VERIFIED, and only under the skill's two-fetch rule. Tier 2 text must be disclosed in the report with its currency string. A BLOCKED host is never fetched by any route.
 
@@ -138,8 +138,8 @@ Ill. S. Ct. R. 6 (verified): cases filed on or after July 1, 2011 are cited by p
 
 ### `il-rules-appellate-local` — Illinois Appellate Court Local Rules (per-district PDFs)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Illinois Appellate Court · text: **fetch-and-quote** · official: unknown
-- **Coverage:** Local rules of Districts 1-5 and the Workers' Compensation Commission Division; separate First District Local Order PDF (05-15-26).
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Illinois Appellate Court · text: **fetch-and-quote** · official: unknown
+- **Coverage:** Local rules of Districts 1-5 and the Workers' Compensation Commission Division; separate First District Local Order PDF (05-15-26). Also linked from the same index: 'Uniform Administrative and Procedural Rules, Second through Fifth Districts' (AC Procedural Rules.pdf). Each district PDF carries its own effective-date line (4th: 'Eff. January 1, 2026').
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
   - Pattern: `https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/{guid}/{filename}.pdf`
@@ -153,7 +153,7 @@ Ill. S. Ct. R. 6 (verified): cases filed on or after July 1, 2011 are cited by p
 - **Hazard:** separate Local Order PDF supplements the First District rules
 - **Hazard:** guid changes on re-issue
 - **Probe:** Ill. App. Ct. 1st Dist. Local Rules, Preamble → `https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/3fdb89b1-bef9-4b47-bea9-ce036e129415/Local%20Rules%201st.pdf` — expect: "The Appellate Court of Illinois, First District, adopts these rules pursuant to"
-- **Evidence (2026-10-16):** fetch_doc.py read: 31 pp., 'RULES OF THE ILLINOIS APPELLATE COURT, FIRST DISTRICT'; Preamble present; Last-Modified May 18, 2026. Independent check found the index reachable with direct blob links for all districts and WC.
+- **Evidence (2026-10-17):** fetch_doc.py read: 31 pp., 'RULES OF THE ILLINOIS APPELLATE COURT, FIRST DISTRICT'; Preamble present; Last-Modified May 18, 2026. Independent check found the index reachable with direct blob links for all districts and WC. | Independent check 2026-10-17: 1st District PDF: 'adopts these rules pursuant to Illinois Supreme Court Rule 22(h)'; second citation Ill. App. Ct. 4th Dist. Local Rules (7 pp., 'Eff. January 1, 2026') ok
 - **Notes:** IPI jury instructions are at /rules-law/ipi-jury-instructions/ (link only).
 
 ### `il-rules-evidence` — Illinois Rules of Evidence (per-rule PDFs)

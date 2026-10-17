@@ -2,7 +2,7 @@
   "schema_version": 1,
   "jurisdiction": "az",
   "name": "Arizona",
-  "compiled": "2026-10-16",
+  "compiled": "2026-10-17",
   "summary": "Statutes: azleg.gov per-section pages are constructible (/ars/{title}/{section zero-padded to 5, '.' -> '-'}.htm) and read cleanly by fetch_doc.py, but robots.txt sets Crawl-delay 120 (two minutes per request); azleg says its online ARS is unofficial (official edition is Thomson Reuters) and shows law effective the following January 1. Justia's 2025 ARS is a constructible tier-2 fallback. Constitution: azleg.gov /const/{article}/{section}.htm. Court rules: the only free official text is Westlaw's govt site (azrules.westgroup.com / govt.westlaw.com/azrules), which refuses automated access; no tier-2 copy exists. Admin Code and Register: apps.azsos.gov chapter/issue PDFs (WebFetch reads them; the shell route is refused by a bot check); Cornell LII mirrors the A.A.C. per section. Case law: Supreme Court opinion PDFs at www.azcourts.gov/Portals/0/OpinionFiles/Supreme/{year}/{docket}.pdf; the Court of Appeals search pages are JavaScript apps with a token-protected API, so Justia (1965-2026, both divisions, memorandum decisions included) is the practical route; apps.azcourts.gov docket PDFs give subsequent history (descendant/predecessor case numbers) while a case is recent.",
   "citation_map": {
     "courts": [
@@ -684,7 +684,8 @@
         "amended opinions: the case page links a separate '…AmendedOpinion.PDF'; OpinionFiles copy may be replaced in place (Last-Modified after filing date)",
         "year listings are a JS app",
         "Cloudflare challenge on some azcourts.gov paths can lock the script out of the whole host for a day",
-        "www.azcourts.gov serves a Cloudflare challenge on some paths (/azrules/); one challenge switches the host off in fetch_doc.py for the day — request rule pages last"
+        "www.azcourts.gov serves a Cloudflare challenge on some paths (/azrules/); one challenge switches the host off in fetch_doc.py for the day — request rule pages last",
+        "azcourts.gov intermittently serves a Cloudflare challenge; after one, the script refuses the whole host for ~24 h and built URLs are gated for WebFetch — fall back to Justia / CourtListener for text"
       ],
       "probe": {
         "citation": "Cravens v. Montano, No. CV-24-0143-PR (Ariz. Apr. 29, 2025)",
@@ -692,11 +693,11 @@
         "expect": "We consider the meaning of the phrase “in connection with"
       },
       "verification": {
-        "status": "verified",
+        "status": "reported",
         "date": "2026-10-16",
         "by": "research",
         "result": "OK",
-        "evidence": "fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock). | Independent check 2026-10-16: not reproducible — script host lock from the research run's /azrules/ challenge (not fresh evidence); State v. Gordon CR240064PR.pdf and T/AP form untested"
+        "evidence": "fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock). | Independent check 2026-10-16: not reproducible — script host lock from the research run's /azrules/ challenge (not fresh evidence); State v. Gordon CR240064PR.pdf and T/AP form untested | Independent re-check 2026-10-17: FAILED — script refused azcourts.gov (Cloudflare challenge seen 2026-10-16 23:04; the script keeps a challenged host off for ~24 h); WebFetch of built URLs gated, so no route that day."
       },
       "notes": "High-profile case pages (https://www.azcourts.gov/News-Info/{docket}) link briefs and amended opinions."
     },
@@ -956,6 +957,7 @@
     "Re-check az-opinions-supreme-azcourts (CR240064PR.pdf, CV240220TAP.pdf) and az-rules-amendments-azcourts from a fresh day, before any /azrules/ request; consider whether a Cloudflare challenge on one azcourts.gov path should lock the whole host.",
     "A.A.C. chapter-PDF pattern unproven on a live chapter: needs a search-surfaced live-chapter URL (WebFetch) since the shell is refused.",
     "Constitution Article 4 parts: azleg folder/file naming for 'art. IV, pt. 2' unverified.",
-    "Justia published Court of Appeals slugs (court-of-appeals-division-one-published / -division-two-published) seen in a listing only; fetch one published page."
+    "Justia published Court of Appeals slugs (court-of-appeals-division-one-published / -division-two-published) seen in a listing only; fetch one published page.",
+    "az-opinions-supreme-azcourts: downgraded to reported 2026-10-17 after an intermittent Cloudflare challenge left no route; re-probe once the script's host lock expires and restore to verified if the probe passes."
   ]
 }

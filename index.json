@@ -246,13 +246,12 @@
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
-      "sha256": "06028dfef7aa50c31bf60cdf688fadbc3b6c63af3d7422bac5349e6db3b4f9f3",
-      "compiled": "2026-10-16",
+      "sha256": "8dadfb8c75d99f950a92d8794f9935187d1c832b6dda7940478c1a4fcc320107",
+      "compiled": "2026-10-17",
       "counts": {
         "verified_independent": 7,
         "blocked": 1,
-        "reported": 4,
-        "verified": 1
+        "reported": 5
       },
       "citation_patterns": [
         {
@@ -378,13 +377,12 @@
     "co": {
       "name": "Colorado",
       "file": "jurisdictions/co.md",
-      "sha256": "75efd9e4b6d8389839e5d08cba6c190c5c36c52aa8155a4fac37db1f5e2c7a30",
-      "compiled": "2026-10-16",
+      "sha256": "f07fe6e6a49aa6b03d396c97db87122ff4fadd51df82affd3d70dcc6e1d64761",
+      "compiled": "2026-10-17",
       "counts": {
-        "verified_independent": 10,
+        "verified_independent": 11,
         "reported": 5,
-        "blocked": 1,
-        "verified": 1
+        "blocked": 1
       },
       "citation_patterns": [
         {
@@ -1136,12 +1134,11 @@
     "il": {
       "name": "Illinois",
       "file": "jurisdictions/il.md",
-      "sha256": "487dbd97805e93f787c63a025996aaf45ddd17a4db5172f3046691f343fbd006",
-      "compiled": "2026-10-16",
+      "sha256": "766528963f29b8c3b2438a8f05140e1fca3176ed87e8f79fae79e18148bb1157",
+      "compiled": "2026-10-17",
       "counts": {
         "blocked": 4,
-        "verified_independent": 8,
-        "verified": 1
+        "verified_independent": 9
       },
       "citation_patterns": [
         {
@@ -3651,11 +3648,10 @@
     "ut": {
       "name": "Utah",
       "file": "jurisdictions/ut.md",
-      "sha256": "bbecf30f7be3ba1fd5e2613f68cb7e85520e5f531bdd792c1969ff696f691b6f",
+      "sha256": "f300cf97b1146d1118b5da7fb3dbd84a472da4099c84eb92a4ed7174759ffcde",
       "compiled": "2026-10-17",
       "counts": {
-        "verified_independent": 8,
-        "verified": 1,
+        "verified_independent": 9,
         "reported": 2,
         "blocked": 1
       },
