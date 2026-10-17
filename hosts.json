@@ -186,6 +186,14 @@
    ],
    "blocked_sources": []
   },
+  "courts.mt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-rules-courts-pdf",
+    "mt-wcc-decisions"
+   ],
+   "blocked_sources": []
+  },
   "dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -316,6 +324,13 @@
    ],
    "blocked_sources": []
   },
+  "juddocumentservice.mt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-opinions-docket"
+   ],
+   "blocked_sources": []
+  },
   "law.justia.com": {
    "status": "allowed",
    "sources": [
@@ -358,6 +373,9 @@
     "mn-constitution-justia",
     "mn-cases-justia",
     "mn-subsequent-justia",
+    "mt-mca-justia",
+    "mt-constitution-justia",
+    "mt-cases-justia",
     "nc-gs-justia",
     "nc-constitution-justia",
     "nc-cases-justia",
@@ -492,6 +510,17 @@
     "ma-gl-api",
     "ma-session-laws",
     "ma-constitution-malegislature"
+   ],
+   "blocked_sources": []
+  },
+  "mca.legmt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-mca-leg",
+    "mt-constitution-leg",
+    "mt-rules-mca-civ",
+    "mt-rules-mca-evid",
+    "mt-rules-mca-app"
    ],
    "blocked_sources": []
   },
@@ -664,6 +693,14 @@
    ],
    "blocked_sources": []
   },
+  "rules.mt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-arm-sos",
+    "mt-mar-sos"
+   ],
+   "blocked_sources": []
+  },
   "rules.sos.ga.gov": {
    "status": "allowed",
    "sources": [
@@ -684,6 +721,13 @@
    "sources": [
     "tx-cases-tames",
     "tx-subsequent-tames"
+   ],
+   "blocked_sources": []
+  },
+  "searchcourts.mt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-searchcourts-library"
    ],
    "blocked_sources": []
   },
@@ -714,6 +758,14 @@
    "sources": [
     "fl-rules-flcourts",
     "fl-opinions-flcourts"
+   ],
+   "blocked_sources": []
+  },
+  "supremecourtdocket.mt.gov": {
+   "status": "allowed",
+   "sources": [
+    "mt-opinions-docket",
+    "mt-subsequent-history-docket"
    ],
    "blocked_sources": []
   },
@@ -951,6 +1003,7 @@
     "md-comar-lii",
     "mi-admincode-lii",
     "mn-rules-lii",
+    "mt-arm-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
     "nv-nac-lii",

@@ -1,0 +1,351 @@
+# Montana (MT) — free legal sources
+
+_Generated from `data/mt.json` (compiled 2026-10-17, schema v1). Do not edit by hand._
+
+**Rules.** Use only the sources below for this jurisdiction. Never construct a URL that is not a `constructible` pattern here; for `index-anchored` sources fetch the index and follow real links. Quote only from rows marked VERIFIED, and only under the skill's two-fetch rule. Tier 2 text must be disclosed in the report with its currency string. A BLOCKED host is never fetched by any route.
+
+**Read routes**, tried in the order each row lists them: **corpus** — `corpus.py get|resolve|search|verify` reads a pre-built, integrity-checked extraction of the official document (state its capture date; run `corpus.py check` if STALE/EXPIRED); **script** — `fetch_doc.py read|grep|section|verify|links <url>` reads the live official file as exact text with no truncation (needs the host reachable from your sandbox; exit 3 = refused, never retry another way); **fetch tool** — WebFetch: summarised and cut at ~100K characters, so use it to locate and link, and quote from it only under the two-fetch rule.
+
+## Summary
+
+Statutes, constitution and the court rules that the Legislature codifies (M. R. Civ. P., M. R. Evid., M. R. App. P., Uniform District Court Rules, all in MCA Titles 25-26) are on mca.legmt.gov as one short HTML page per section, with a deterministic zero-padded URL; fetch_doc.py reads them, WebFetch is gated for built URLs, and Justia (2025 MCA) is a WebFetch-only tier-2 fallback. Other court rules are full-set PDFs on courts.mt.gov that WebFetch truncates (civil rules stop at Rule 23.1). The ARM and the Montana Administrative Register live in a JavaScript app (rules.mt.gov, UUID URLs), so text comes from Cornell LII per rule. Case law is the weak spot: the Supreme Court docket (supremecourtdocket.mt.gov) is an Angular app and the State Law Library's searchcourts.mt.gov is unreachable, so opinions are read on Justia (constructible from year + docket) and linked by public-domain citation (YYYY MT N, since 1998); Workers' Compensation Court decisions are year-listed PDFs on courts.mt.gov.
+
+## G. Citation map
+
+| Court | CourtListener id | Bluebook | Reporters | Public-domain cite |
+|---|---|---|---|---|
+| Montana Supreme Court | `mont (unverified)` | Mont. | Mont., P.3d, P.2d, P., State Rptr. | YYYY MT N (since Jan. 1, 1998), e.g. 2019 MT 123, ¶ 10; suffix N = noncitable memorandum opinion, W = withdrawing order, A = amending order |
+| Montana Workers' Compensation Court | `— (unverified)` | Mont. Workers' Comp. Ct. | — | YYYY MTWCC N, e.g. 2024 MTWCC 9 |
+
+| Recognise | Examples | Route to (in order) |
+|---|---|---|
+| Montana Code Annotated | `Mont. Code Ann. § 27-2-204`; `MCA § 27-2-204`; `§ 27-2-204, MCA`; `Section 27-2-204(1), MCA`; `27-2-204, MCA`; `45-5-102(1)(a), MCA`; `section 45-5-102 of the Montana Code Annotated`; `Mont. Code Ann. § 30-9A-101`; `§§ 27-2-201 through 27-2-205, MCA`; `Mont. Code Ann. § 15-30-2101(8)` | `mt-mca-leg` → `mt-mca-justia` |
+| Montana Constitution | `Mont. Const. art. II, § 10`; `Mont. Const. art. VII, § 2(3)`; `Article II, Section 10 of the Montana Constitution`; `Art. II, Sec. 9, Mont. Const.`; `Article II, Section 4, of the Montana Constitution` | `mt-constitution-leg` → `mt-constitution-justia` |
+| Montana Rules of Civil Procedure | `M. R. Civ. P. 12(b)(6)`; `M.R.Civ.P. 56(c)`; `Mont. R. Civ. P. 4.1`; `Rule 12(b)(6), M. R. Civ. P.`; `Rule 56 of the Montana Rules of Civil Procedure` | `mt-rules-mca-civ` → `mt-rules-courts-pdf` |
+| Montana Rules of Evidence | `M. R. Evid. 702`; `Mont. R. Evid. 404(b)`; `Rule 702, M.R.Evid.`; `Rule 404(b) of the Montana Rules of Evidence` | `mt-rules-mca-evid` → `mt-rules-courts-pdf` |
+| Montana Rules of Appellate Procedure | `M. R. App. P. 12(1)(f)`; `Mont. R. App. P. 20`; `Rule 14(3), M. R. App. P.`; `Rule 4 of the Montana Rules of Appellate Procedure` | `mt-rules-mca-app` → `mt-rules-courts-pdf` |
+| Montana Uniform District Court Rules | `Mont. Unif. Dist. Ct. R. 2`; `U.D.C.R. 2(b)`; `Uniform District Court Rule 2`; `Rule 2 of the Montana Uniform District Court Rules` | `mt-rules-mca-app` → `mt-rules-courts-pdf` |
+| Montana Rules of Professional Conduct | `Mont. R. Prof. Conduct 1.7`; `M. R. Prof. Cond. 3.3(a)`; `Rule 1.7 of the Montana Rules of Professional Conduct` | `mt-rules-courts-pdf` |
+| Administrative Rules of Montana (ARM) | `Admin. R. Mont. 37.86.101`; `ARM 37.86.101`; `Mont. Admin. R. 42.15.101`; `Mont. Admin. r. 37.86.101(2)`; `A.R.M. 24.29.1401` | `mt-arm-lii` → `mt-arm-sos` |
+| Montana Administrative Register (MAR) | `1988 MAR p. 1255`; `2024 MAR p. 313`; `MAR Notice No. 37-1023` | `mt-mar-sos` |
+| Montana public-domain citations (since 1998) | `2019 MT 123`; `2019 MT 123, ¶ 10`; `Doe v. Roe, 1998 MT 12, ¶¶ 44-45, 286 Mont. 175, 989 P.2d 1312`; `State v. Hamernick, 2023 MT 249`; `Matter of C.M., 2023 MT 255N`; `1998 MT 1W` | `mt-cases-justia` → `mt-opinions-docket` |
+| Montana Reports / Pacific Reporter | `Roe v. Doe (1997), 284 Mont. 301, 989 P.2d 472`; `284 Mont. 301, 305`; `541 P.3d 766 (Mont. 2024)`; `954 P.2d 1145 (Mont. 1998)` | `mt-cases-justia` → `mt-opinions-docket` |
+| Montana Supreme Court docket numbers (DA/OP/PR/AF) | `DA 21-0372`; `No. DA 22-0156`; `OP 24-0123`; `AF 07-0157` | `mt-cases-justia` → `mt-opinions-docket` |
+| Workers' Compensation Court citations | `2024 MTWCC 9`; `Schmidt v. MACo, 2024 MTWCC 9` | `mt-wcc-decisions` |
+
+Regexes (case-insensitive):
+
+- Montana Code Annotated: `(?:Mont\.\s*Code\s+Ann\.|\bM\.?C\.?A\.?)\s*§§?\s*(?P<section>\d{1,2}-\d{1,3}[A-Z]?-\d{3,4})(?![\d-])|§§\s*(?P<section4>\d{1,2}-\d{1,3}[A-Z]?-\d{3,4})(?![\d-])[^;§]{0,40}?,?\s+(?:M\.C\.A\.|MCA)\b|(?P<section2>\d{1,2}-\d{1,3}[A-Z]?-\d{3,4})(?![\d-])(?:\([a-z0-9]+\))*,?\s+(?:M\.C\.A\.|MCA)\b|sec(?:tion|\.)\s+(?P<section3>\d{1,2}-\d{1,3}[A-Z]?-\d{3,4})(?![\d-])(?:\([a-z0-9]+\))*\s+of\s+the\s+Montana\s+Code(?:\s+Annotated)?`
+- Montana Constitution: `Mont\.\s*Const\.\s*art\.\s*(?P<article>[IVX]+),?\s*§\s*(?P<section>\d+)|Art(?:icle|\.)\s+(?P<article2>[IVX]+),\s*(?:Section|Sec\.|§)\s*(?P<section2>\d+)(?:\([0-9a-z]+\))*,?\s+(?:of\s+the\s+Montana\s+Constitution|Mont\.\s*Const\.)`
+- Montana Rules of Civil Procedure: `(?:\bM\.\s*R\.\s*Civ\.\s*P\.|Mont\.\s*R\.\s*Civ\.\s*P\.)\s*(?P<rule>\d{1,2}(?:\.\d)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d)?)(?:\([a-z0-9]+\))*,\s*M\.\s*R\.\s*Civ\.\s*P\.|Rule\s+(?P<rule3>\d{1,2}(?:\.\d)?)(?:\([a-z0-9]+\))*\s+of\s+the\s+Montana\s+Rules\s+of\s+Civil\s+Procedure`
+- Montana Rules of Evidence: `(?:\bM\.\s*R\.\s*Evid\.|Mont\.\s*R\.\s*Evid\.)\s*(?P<rule>\d{3,4})|Rule\s+(?P<rule2>\d{3,4})(?:\([a-z0-9]+\))*,\s*M\.\s*R\.\s*Evid\.|Rule\s+(?P<rule3>\d{3,4})(?:\([a-z0-9]+\))*\s+of\s+the\s+Montana\s+Rules\s+of\s+Evidence`
+- Montana Rules of Appellate Procedure: `(?:\bM\.\s*R\.\s*App\.\s*P\.|Mont\.\s*R\.\s*App\.\s*P\.)\s*(?P<rule>\d{1,2})|Rule\s+(?P<rule2>\d{1,2})(?:\([a-z0-9]+\))*,\s*M\.\s*R\.\s*App\.\s*P\.|Rule\s+(?P<rule3>\d{1,2})(?:\([a-z0-9]+\))*\s+of\s+the\s+Montana\s+Rules\s+of\s+Appellate\s+Procedure`
+- Montana Uniform District Court Rules: `Mont\.\s*Unif\.\s*Dist\.\s*Ct\.\s*R\.\s*(?P<rule>\d{1,2})|\bU\.\s*D\.\s*C\.\s*R\.\s*(?P<rule2>\d{1,2})|Uniform\s+District\s+Court\s+Rule\s+(?P<rule3>\d{1,2})|Rule\s+(?P<rule4>\d{1,2})(?:\([a-z0-9]+\))*\s+of\s+the\s+(?:Montana\s+)?Uniform\s+District\s+Court\s+Rules`
+- Montana Rules of Professional Conduct: `(?:Mont\.|\bM\.)\s*R\.\s*Prof\.\s*Cond(?:uct|\.)?\s*(?P<rule>\d\.\d{1,2})|Rule\s+(?P<rule2>\d\.\d{1,2})(?:\([a-z0-9]+\))*\s+of\s+the\s+Montana\s+Rules\s+of\s+Professional\s+Conduct`
+- Administrative Rules of Montana (ARM): `(?:Admin\.\s*R\.\s*Mont\.|\bA\.?R\.?M\.?|Mont\.\s*Admin\.\s*[Rr]\.)\s*(?P<rule>\d{1,2}\.\d{1,3}\.\d{3,4})(?!\d)`
+- Montana Administrative Register (MAR): `(?P<year>(?:19|20)\d\d)\s+(?:Mont\.\s*Admin\.\s*Reg\.|MAR)\s+(?:p\.\s*)?(?P<page>\d{1,5})|MAR\s+Notice\s+No\.\s*(?P<notice>\d{1,3}-\d{1,4})`
+- Montana public-domain citations (since 1998): `\b(?P<year>(?:199[89]|20\d\d))\s+MT\s+(?P<number>\d{1,3})(?P<suffix>[NWA])?(?!\d)(?:\s*,\s*¶¶?\s*(?P<para>\d+))?`
+- Montana Reports / Pacific Reporter: `(?P<volume>\d{1,3})\s+Mont\.\s+(?P<page>\d{1,4})(?!\d)|(?P<pvol>\d{1,4})\s+P\.(?:\s*[23]d)?\s+(?P<ppage>\d{1,5})(?:,\s*\d+)?\s*\(Mont\.\s*(?P<year>\d{4})\)`
+- Montana Supreme Court docket numbers (DA/OP/PR/AF): `\b(?P<type>DA|OP|PR|AF)\s+(?P<yy>\d{2})-(?P<num>\d{4})\b`
+- Workers' Compensation Court citations: `\b(?P<year>(?:19|20)\d\d)\s+MTWCC\s+(?P<number>\d{1,3})\b`
+
+Short forms → URL key:
+
+Mont. Code Ann. → `MCA`; MCA → `MCA`; M.C.A. → `MCA`; M. R. Civ. P. → `25-20`; Mont. R. Civ. P. → `25-20`; M. R. Evid. → `26-10`; Mont. R. Evid. → `26-10`; M. R. App. P. → `25-21`; Mont. R. App. P. → `25-21`; U.D.C.R. → `25-19`; Mont. Unif. Dist. Ct. R. → `25-19`; Admin. R. Mont. → `ARM`; Mont. Admin. R. → `ARM`; A.R.M. → `ARM`
+
+Montana's own statute style puts the code name AFTER the section ('§ 27-2-204, MCA' or '27-2-204, MCA'); Bluebook is 'Mont. Code Ann. § 27-2-204'. Section numbers are always title-chapter-section with a 3- or 4-digit last element, and a chapter may carry a letter (30-9A-101); the statute regex requires an MCA / Mont. Code Ann. / 'Montana Code' marker, so bare hyphenated numbers (shared with many states) never route here. Ranges ('§§ 27-2-201 through 27-2-205, MCA') capture the first section (group section4); the (?![\d-]) guard keeps a range from being read as one hyphenated number. Court rules: law_aliases map the rule sets to the MCA title-chapter that hosts them (25-20 civil, 26-10 evidence, 25-21 appellate, 25-19 Uniform District Court Rules). Criminal procedure is statutory (MCA Title 46), cited as sections, not rules. Bare 'Rule 12(b)(6)' or 'Rule 702' is not routed here. Case citations: the Dec. 16, 1997 order (courts.mt.gov/external/library/docs/cite_cases.pdf) created 'YYYY MT N' with ¶ numbering from Jan. 1, 1998; N = noncitable, W = withdrawing order, A = amending order; the 2009 order sets the pinpoint form 'Doe v. Roe, 1998 MT 12, ¶¶ 44-45, 286 Mont. 175, 989 P.2d 1312'. Montana Reports (Mont.) is the official reporter; pre-1998 form is 'Roe v. Doe (1997), 284 Mont. 301, 989 P.2d 472'. There is no intermediate appellate court. CourtListener ids from memory, unverified; no id known for the Workers' Compensation Court.
+
+## A. Statutes / code
+
+### `mt-mca-leg` — Montana Code Annotated (MCA), current and prior editions
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Legislative Services Division · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** MCA 2025 (current), one HTML page per section incl. constitution and the codified court rules; prior editions 2017+ in the same scheme, 1999-2015 in an older .htm scheme.
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://mca.legmt.gov/bills/mca/title_{TTTT}/chapter_{CCCC}/part_{PPPP}/section_{SSSS}/{TTTT}-{CCCC}-{PPPP}-{SSSS}.html`
+  - Placeholders: Split the cite T-C-NNN(N) into title T, chapter C, and section number; part = section number without its last two digits, section = its last two digits. Each numeric component N becomes str(N*10) zero-padded to 4 digits (27 -> 0270, 2 -> 0020, 16 -> 0160, 21 -> 0210). A chapter with a letter (30-9A-101, 25-30A) becomes the number zero-padded to 3 digits plus the letter (009A, 030A). Examples verified 2026-10-17: 27-2-204 -> title_0270/chapter_0020/part_0020/section_0040/0270-0020-0020-0040.html; 15-30-2101 -> title_0150/chapter_0300/part_0210/section_0010/0150-0300-0210-0010.html; 30-9A-101 -> title_0300/chapter_009A/part_0010/section_0010/0300-009A-0010-0010.html; 45-5-101 (repealed stub). A wrong path returns HTTP 404 (no soft 200). Prior editions (2017 onward) use the same path under /bills/{YYYY}/mca/ (2019 verified: 'Montana Code Annotated 2019'); 1999-2015 editions use /bills/{YYYY}/mca/{T}/{C}/{T}-{C}-{NNN}.htm (seen in search results, not fetched). leg.mt.gov/bills/mca/... and archive.legmt.gov/bills/MCA/... redirect (302) to mca.legmt.gov.
+  - Index: `https://mca.legmt.gov/bills/mca/index.html`
+  - Navigation: index.html → title_TTTT/chapters_index.html → chapter_CCCC/parts_index.html (part names only) → part_PPPP/sections_index.html (lists every section number with catchline) → section page.
+- **Automation:** WebFetch gated · shell ok · robots: www.legmt.gov/robots.txt: only GPTBot and meta-externalagent crawl-delay 10; mca.legmt.gov/robots.txt is a 404 page.
+  - WebFetch returned PROVENANCE_REQUIRED on both the constructed mca.legmt.gov URL and the 302 target of a search-result archive.legmt.gov URL; verified by fetch_doc.py. Pages are 0.7-16K chars, no truncation.
+- **Currency:** page header under the catchline — observed: "Montana Code Annotated 2025"
+- **Official status:** Each section page: 'The Internet version of the Montana Code Annotated is provided as a research tool'; printed version prevails. help.html: enrolled bill on file with the Secretary of State prevails. https://mca.legmt.gov/bills/mca/help.html
+- **Hazard:** one page can hold several versions of a section ('(Temporary)' and '(Effective October 1, 2026)' for 27-2-204): quote the right one
+- **Hazard:** repealed / renumbered sections keep a stub page ('45-5-101. Repealed.')
+- **Hazard:** edition is biennial; later amendments are effective-dated within the page
+- **Probe:** Mont. Code Ann. § 27-2-204 → `https://mca.legmt.gov/bills/mca/title_0270/chapter_0020/part_0020/section_0040/0270-0020-0020-0040.html` — expect: "the period prescribed for the commencement of an action upon a liability"
+- **Evidence (2026-10-17):** fetch_doc.py: 200, 3,077 chars, body present, 'Montana Code Annotated 2025'; also 15-30-2101 (16,144 chars), 30-9A-101, 45-5-101 stub, 2019 edition of 27-2-204; wrong path → HTTP 404.
+- **Notes:** No official bulk download found (not searched exhaustively; see open_questions). Site search is archive.legmt.gov/search (JS).
+
+### `mt-mca-justia` — Justia — Montana Code Annotated
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** MCA 2025 (current, no year in path); prior years at /codes/montana/{YYYY}/ back to 2005.
+- **Read via (in order):** **fetch tool**
+- **Access:** `constructible` · format html
+  - Pattern: `https://law.justia.com/codes/montana/title-{title}/chapter-{chapter}/part-{part}/section-{title}-{chapter}-{section}/`
+  - Placeholders: Unpadded numbers; part = section number without its last two digits (27-2-204 → part-2). Verified 27-2-204 and 45-5-102.
+  - Index: `https://law.justia.com/codes/montana/`
+- **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com robots.txt answers with a Cloudflare challenge (fetch_doc refusal cache).
+  - WebFetch passed even on constructed Justia URLs.
+- **Currency:** page heading — observed: "2025 Montana Code Annotated"
+- **Official status:** 'These codes may not be the most recent version.'
+- **Hazard:** 27-2-204 page showed only the temporary version (no 'Effective October 1, 2026' text) — check mt-mca-leg for multi-version sections
+- **Probe:** Mont. Code Ann. § 27-2-204 → `https://law.justia.com/codes/montana/title-27/chapter-2/part-2/section-27-2-204/` — expect: "Except as provided in 27-2-216, the period prescribed for"
+- **Evidence (2026-10-17):** WebFetch: YES, '(1) Except as provided in 27-2-216, the period prescribed for'; '2025 Montana Code Annotated'; 45-5-102 also YES.
+
+## B. Constitution
+
+### `mt-constitution-leg` — Montana Constitution (1972) in the MCA
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Legislative Services Division · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** 1972 Constitution as amended, one page per section.
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://mca.legmt.gov/bills/mca/title_0000/article_{AAAA}/part_0010/section_{SSSS}/0000-{AAAA}-0010-{SSSS}.html`
+  - Placeholders: Article roman numeral → integer ×10, zero-padded to 4 (II → 0020, VII → 0070); part is always 0010; section N → N×10 padded to 4 (10 → 0100). Preamble is article_000p. Verified art. II § 10 and art. VII § 2.
+  - Index: `https://mca.legmt.gov/bills/mca/title_0000/chapters_index.html`
+- **Automation:** WebFetch gated · shell ok · robots: as mt-mca-leg
+- **Currency:** page header — observed: "Montana Code Annotated 2025"
+- **Official status:** Same MCA disclaimer as mt-mca-leg.
+- **Hazard:** index pages label the part 'Part II' etc. but the URL is always part_0010
+- **Probe:** Mont. Const. art. II, § 10 → `https://mca.legmt.gov/bills/mca/title_0000/article_0020/part_0010/section_0100/0000-0020-0010-0100.html` — expect: "The right of individual privacy is essential to the well-being of a free society"
+- **Evidence (2026-10-17):** fetch_doc.py: 905 chars, 'Section 10. Right of privacy.' body present; art. VII § 2 also present.
+
+### `mt-constitution-justia` — Justia — Montana Constitution
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** Whole constitution on one page; articles not linked separately.
+- **Read via (in order):** **fetch tool**
+- **Access:** `index-anchored` · format html
+  - Index: `https://law.justia.com/constitution/montana/`
+  - Navigation: single page; locate 'ARTICLE II DECLARATION OF RIGHTS' heading and section within
+- **Automation:** WebFetch ok (truncated) · shell blocked-challenge · robots: as mt-mca-justia
+  - Single long page; later articles may fall past WebFetch's ~100K limit (not measured).
+- **Currency:** page top — observed: "AS ADOPTED BY THE CONSTITUTIONAL CONVENTION MARCH 22, 1972"
+- **Official status:** 'This Constitution may not be the most recent version.'
+- **Hazard:** whole document on one page — truncation risk for late articles
+- **Probe:** Mont. Const. art. II → `https://law.justia.com/constitution/montana/` — expect: "ARTICLE II DECLARATION OF RIGHTS"
+- **Evidence (2026-10-17):** WebFetch: Montana Constitution page; Article II heading as plain text; no per-article href.
+
+## C. Court rules
+
+### `mt-rules-courts-pdf` — Montana Supreme Court rule sets (courts.mt.gov PDFs)
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Judicial Branch / State Law Library · text: **fetch-and-quote** · official: unknown
+- **Coverage:** Civil Procedure (123 pp), Evidence (21 pp), Appellate Procedure (58 pp), Professional Conduct (37 pp), Judicial Conduct, Uniform District Court Rules, bar admission, CLE, and ~20 others.
+- **Read via (in order):** **script** → **fetch tool**
+- **Access:** `index-anchored` · format pdf
+  - Index: `https://courts.mt.gov/Courts/Rules/index`
+  - Navigation: Rules index lists each set as https://courts.mt.gov/external/rules/{file}.pdf (civ_proc, mtr_evid, mtr_app_pro, mtr_prof_cond, jud_cond, MT_Uniform_District_Court_rules …). Amendment orders: AF docket documents at juddocumentservice.mt.gov.
+- **Automation:** WebFetch ok (truncated) · shell ok · robots: courts.mt.gov/robots.txt 404
+  - WebFetch on civ_proc.pdf stopped at Rule 23.1 (Rule 56 NOT PRESENT). fetch_doc.py reads all 276,612 chars.
+- **Currency:** cover page — observed: "Date of Last Amendment to these Rules: 28JUN2022 (civil); 20JUN2007 (evidence); 12OCT2021 (appellate)"
+- **Official status:** PDFs compiled by the State Law Library with 'Date of Last Amendment' and Administrative File (AF) number; no official-text statement.
+- **Hazard:** WebFetch truncation of long PDFs
+- **Hazard:** cover-page amendment date may lag later orders
+- **Probe:** M. R. Evid. 702 → `https://courts.mt.gov/external/rules/mtr_evid.pdf` — expect: "Rule 702. Testimony by experts."
+- **Evidence (2026-10-17):** fetch_doc.py: mtr_evid.pdf 21 pp, 64,462 chars, Rule 702 at p.12; civ_proc.pdf 123 pp, Rule 12 at p.30.
+
+### `mt-rules-mca-app` — Montana Rules of Appellate Procedure (MCA 25-21) and Uniform District Court Rules (MCA 25-19)
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Legislative Services Division · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** M. R. App. P. 1-30ish (part_0010) + forms (part_0020); Uniform District Court Rules (chapter_0190/part_0010). Also justice/city court rules in chapters 0230, 0240, 0330, 0350.
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://mca.legmt.gov/bills/mca/title_0250/chapter_{CCCC}/part_0010/section_{SSSS}/0250-{CCCC}-0010-{SSSS}.html`
+  - Placeholders: CCCC = 0210 for M. R. App. P., 0190 for Uniform District Court Rules; section = rule×10 padded to 4 (12 → 0120).
+  - Index: `https://mca.legmt.gov/bills/mca/title_0250/chapter_0210/parts_index.html`
+- **Automation:** WebFetch gated · shell ok · robots: as mt-mca-leg
+- **Currency:** page header — observed: "Montana Code Annotated 2025"
+- **Official status:** MCA disclaimer.
+- **Probe:** M. R. App. P. 12 → `https://mca.legmt.gov/bills/mca/title_0250/chapter_0210/part_0010/section_0120/0250-0210-0010-0120.html` — expect: "Rule 12. Briefs."
+- **Evidence (2026-10-17):** fetch_doc.py: page 'Rule 12 Briefs ... Montana Code Annotated 2025', body follows; UDCR index lists Rule 1-3 links at chapter_0190.
+
+### `mt-rules-mca-civ` — Montana Rules of Civil Procedure (MCA Title 25, ch. 20)
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Legislative Services Division (rules adopted by the Montana Supreme Court) · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** M. R. Civ. P. 1-86 incl. decimal rules (4.1, 7.1, 23.1, 44.1, 62.1) and Appendix of Forms (part_0120).
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://mca.legmt.gov/bills/mca/title_0250/chapter_0200/part_{PPPP}/section_{SSSS}/0250-0200-{PPPP}-{SSSS}.html`
+  - Placeholders: section = rule×10 padded to 4 (12 → 0120, 56 → 0560); decimal rule N.d → N then d (4.1 → 0041, 23.1 → 0231, 7.1 → 0071). Part from the Montana grouping: rules 1-2 → 0010; 3-6 → 0020; 7-16 → 0030; 17-25 → 0040; 26-37 → 0050; 38-53 → 0060; 54-63 → 0070; 64-71 → 0080; 72 → 0090; 77, 80 → 0100; 81-86 → 0110 (listed 2026-10-17 from every part index). A wrong part gives HTTP 404.
+  - Index: `https://mca.legmt.gov/bills/mca/title_0250/chapter_0200/parts_index.html`
+  - Navigation: parts_index → part sections_index lists 'Rule N Title' with links
+- **Automation:** WebFetch gated · shell ok · robots: as mt-mca-leg
+- **Currency:** page header — observed: "Montana Code Annotated 2025"
+- **Official status:** MCA disclaimer; the Court's own text is the courts.mt.gov PDF (mt-rules-courts-pdf).
+- **Hazard:** part is not derivable arithmetically — use the table
+- **Hazard:** MCA text may lag a Supreme Court amendment order between editions
+- **Probe:** M. R. Civ. P. 12(b)(6) → `https://mca.legmt.gov/bills/mca/title_0250/chapter_0200/part_0030/section_0120/0250-0200-0030-0120.html` — expect: "failure to state a claim upon which relief can be granted"
+- **Evidence (2026-10-17):** fetch_doc.py: 7,873 chars; '(6) failure to state a claim upon which relief can be granted'; Rule 56 at part_0070/section_0560 present.
+
+### `mt-rules-mca-evid` — Montana Rules of Evidence (MCA Title 26, ch. 10)
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Legislative Services Division · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** M. R. Evid. Articles I-X.
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://mca.legmt.gov/bills/mca/title_0260/chapter_0100/part_{PPPP}/section_{SSSS}/0260-0100-{PPPP}-{SSSS}.html`
+  - Placeholders: Rule ANN (article digit A, then NN): part = A×10 padded (7 → 0070, 10 for rules 10NN → 0100); section = NN×10 padded (02 → 0020). 702 → part_0070/section_0020.
+  - Index: `https://mca.legmt.gov/bills/mca/title_0260/chapter_0100/parts_index.html`
+- **Automation:** WebFetch gated · shell ok · robots: as mt-mca-leg
+- **Currency:** page header — observed: "Montana Code Annotated 2025"
+- **Official status:** MCA disclaimer.
+- **Probe:** M. R. Evid. 702 → `https://mca.legmt.gov/bills/mca/title_0260/chapter_0100/part_0070/section_0020/0260-0100-0070-0020.html` — expect: "If scientific, technical, or other specialized knowledge will assist the trier of fact"
+- **Evidence (2026-10-17):** fetch_doc.py: 1,117 chars, 'Rule 702. Testimony by experts.' body present; same words as courts.mt.gov PDF.
+
+## D. Administrative code
+
+### `mt-arm-sos` — Administrative Rules of Montana (rules.mt.gov)
+
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Montana Secretary of State · text: **link-only** · official: unknown
+- **Coverage:** Current ARM, emergency rules; Esper platform.
+- **Access:** `link-only` · format html
+  - Index: `https://rules.mt.gov/browse/collections/aec52c46-128e-4279-9068-8af5d5432d74`
+  - Navigation: Collection and section URLs are UUIDs (/browse/collections/{uuid}/sections/{uuid}); not derivable from a rule number. Link the collection; read text via mt-arm-lii.
+- **Automation:** WebFetch untested · shell ok · robots: rules.mt.gov: 'User-agent: * Disallow:' (allow all)
+  - fetch_doc.py gets a 0-char React shell (<div id=root>).
+- **Currency:** none visible without JavaScript
+- **Official status:** App bundle links a 'DisclaimerForARM.pdf' (not fetched).
+- **Hazard:** JavaScript-only app
+- **Hazard:** UUID URLs
+- **Probe:** ARM collection → `https://rules.mt.gov/browse/collections/aec52c46-128e-4279-9068-8af5d5432d74`
+- **Evidence (2026-10-17):** fetch_doc.py: HTTP 200, 0 chars (JS shell); link taken from sosmt.gov/arm/register/.
+- **Notes:** Legacy search link http://www.mtrules.org/ still listed on sosmt.gov (not fetched).
+
+### `mt-arm-lii` — Cornell LII — Montana Administrative Code (ARM)
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Legal Information Institute · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** All ARM departments; repealed rules kept as stubs.
+- **Read via (in order):** **script**
+- **Access:** `constructible` · format html
+  - Pattern: `https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-{rule}`
+  - Placeholders: {rule} = dotted ARM number as cited (37.86.101). Verified 37.86.101 and 42.15.101 (repealed). Browse: /regulations/montana/department-{d}/chapter-{d.c}/subchapter-{d.c.s}.
+  - Index: `https://www.law.cornell.edu/regulations/montana`
+- **Automation:** WebFetch untested · shell ok · robots: not blocking (fetch_doc.py allowed)
+  - Subchapter index shows rule ranges ('Rule 37.86.101 to 37.86.112').
+- **Currency:** none; only HTTP last-modified — observed: "last-modified Sun, 03 Aug 2025"
+- **Official status:** Third-party mirror; no currency statement.
+- **Hazard:** mirror lags the SOS (page last-modified Aug 2025)
+- **Hazard:** Notes history line gives MAR page cites
+- **Probe:** Admin. R. Mont. 37.86.101 → `https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-37.86.101` — expect: "Mont. Admin. r. 37.86.101 - PHYSICIAN SERVICES, DEFINITIONS"
+- **Evidence (2026-10-17):** fetch_doc.py: 4,429 chars; '"Early elective delivery" means either a nonmedically necessary'; history 'NEW, 1980 MAR p. 1747'.
+
+## D. Administrative register
+
+### `mt-mar-sos` — Montana Administrative Register (rules.mt.gov)
+
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Montana Secretary of State · text: **link-only** · official: unknown
+- **Coverage:** Register issues in the rules.mt.gov collection; State Law Library holds older print MARs.
+- **Access:** `link-only` · format html
+  - Index: `https://rules.mt.gov/browse/collections/5e1173a6-33c7-4df8-b426-5e0077cfc430`
+  - Navigation: Linked from https://sosmt.gov/arm/register/ ('Montana Administrative Register'); issues inside the JS app only.
+- **Automation:** WebFetch untested · shell ok · robots: as mt-arm-sos; sosmt.gov disallows only /wp-admin/
+  - JS shell; sosmt.gov/arm/register/ itself returned 0 text chars to fetch_doc.py (links extractable).
+- **Currency:** 
+- **Hazard:** JavaScript-only
+- **Probe:** MAR collection → `https://rules.mt.gov/browse/collections/5e1173a6-33c7-4df8-b426-5e0077cfc430`
+- **Evidence (2026-10-17):** Link found on sosmt.gov/arm/register/ via fetch_doc.py links; not opened (same JS app).
+
+## E. Case law
+
+### `mt-opinions-docket` — Montana Supreme Court public docket (C-Track) — opinions and orders
+
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Clerk of the Montana Supreme Court · text: **link-only** · official: unknown
+- **Coverage:** Docket and documents for cases filed after ~2006 (app also has a pre-2006 case-info endpoint); the State Law Library calls it 'Montana Court Opinions'.
+- **Access:** `link-only` · format pdf
+  - Index: `https://supremecourtdocket.mt.gov/`
+  - Navigation: Angular app (search by case number, party, attorney). Documents are served as PDFs by https://juddocumentservice.mt.gov/getDocByCTrackId?DocId={id} — id only from the app.
+  - Read via: juddocumentservice.mt.gov PDF (fetch_doc.py read OK) when a DocId is known; otherwise mt-cases-justia
+- **Automation:** WebFetch gated · shell ok · robots: none: /robots.txt returns the app's HTML
+  - fetch_doc.py gets a 0-char shell for /, /PerceptiveJUDDocket/, /search/getDocument?documentid=…; WebFetch PROVENANCE_REQUIRED. A Sept. 2026 Judicial Branch statement about the Thomson Reuters C-Track vendor is linked on courts.mt.gov (image-only PDF, unread).
+- **Currency:** 
+- **Hazard:** JavaScript-only
+- **Hazard:** document ids not derivable
+- **Hazard:** vendor incident notice Sept. 2026
+- **Probe:** AF 07-0110 order (via document service) → `https://juddocumentservice.mt.gov/getDocByCTrackId?DocId=292310` — expect: "IN RE THE MONTANA UNIFORM DISTRICT COURT RULES"
+- **Evidence (2026-10-17):** fetch_doc.py: app pages 0 chars; document service DocId=292310 returned a 12-page PDF, 34,947 chars, 'Case Number: AF 07-0110'.
+
+### `mt-searchcourts-library` — State Law Library opinion search (searchcourts.mt.gov)
+
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · State Law Library of Montana · text: **link-only** · official: unknown
+- **Coverage:** Per the Library's QuickGuide (updated 2018): opinions from the early 1970s and briefs after 1970.
+- **Access:** `search-only` · format html
+  - Index: `http://searchcourts.mt.gov/`
+- **Automation:** WebFetch untested · shell http-error · robots: unreachable
+  - fetch_doc.py: proxy 'Tunnel connection failed: 502 Bad Gateway' (host likely retired).
+- **Currency:** 
+- **Hazard:** host unreachable
+- **Probe:** site root → `https://searchcourts.mt.gov/`
+- **Evidence (2026-10-17):** fetch_doc.py: robots.txt unreachable, 502 Bad Gateway; cited in courts.mt.gov/external/library/guides/QuickGuide.pdf.
+
+### `mt-wcc-decisions` — Montana Workers' Compensation Court decisions
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Montana Workers' Compensation Court · text: **fetch-and-quote** · official: unknown
+- **Coverage:** WCC decisions by year 1993-2026; Supreme Court decisions on WCC appeals by year 1994-2025; disposition-of-appeals chart.
+- **Read via (in order):** **script**
+- **Access:** `index-anchored` · format pdf
+  - Index: `https://courts.mt.gov/Courts/workers-comp/case-law`
+  - Navigation: case-law → year page https://courts.mt.gov/Courts/workers-comp/{YYYY}-wc (WCC) or {YYYY}-sc (Supreme Court) → PDF https://courts.mt.gov/external/wcc/{initial}/{Name}_{YYYY}MTWCC{N}.pdf (file name not fully derivable: needs party name).
+- **Automation:** WebFetch untested · shell ok · robots: courts.mt.gov/robots.txt 404
+- **Currency:** 
+- **Hazard:** older (1993) file names are free-form (CHAGNON_WT_DISCOVERY.pdf)
+- **Probe:** 2024 MTWCC 9 → `https://courts.mt.gov/external/wcc/s/Schmidt_2024MTWCC9.pdf` — expect: "MONTANA ASSOCIATION OF COUNTIES WORK COMP TRUST"
+- **Evidence (2026-10-17):** fetch_doc.py: PDF text present, 'APPEALED TO MONTANA SUPREME COU…' banner; 2024-wc listing has MTWCC 5-9 links.
+- **Notes:** Each WCC decision page banner notes an appeal to the Supreme Court — useful for subsequent history.
+
+### `mt-cases-justia` — Justia — Montana Supreme Court decisions
+
+- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** Year listings with case name, date, public-domain cite (incl. N), docket; full text HTML with ¶ numbers.
+- **Read via (in order):** **fetch tool**
+- **Access:** `constructible` · format html
+  - Pattern: `https://law.justia.com/cases/montana/supreme-court/{YYYY}/{docket}.html`
+  - Placeholders: {docket} = docket lower-cased with hyphens: 'DA 21-0372' → da-21-0372; {YYYY} = decision year. From a public-domain cite alone use the year listing https://law.justia.com/cases/montana/supreme-court/{YYYY}/ which shows cite and docket per row.
+  - Index: `https://law.justia.com/cases/montana/supreme-court/`
+- **Automation:** WebFetch ok · shell blocked-challenge · robots: as mt-mca-justia
+- **Currency:**  — observed: "listing 2023: first row Matter of C.M., 2023 MT 255N, DA 21-0580"
+- **Official status:** Third-party; links a Justia-hosted PDF copy.
+- **Hazard:** no P.3d / Mont. pagination on the page — pinpoint by ¶
+- **Probe:** State v. Hamernick, 2023 MT 249 → `https://law.justia.com/cases/montana/supreme-court/2023/da-21-0372.html` — expect: "Bryce Caleb Hamernick appeals his conviction of Sexual Intercourse Without"
+- **Evidence (2026-10-17):** WebFetch: YES, full text ¶1-¶46 plus two dissents, not truncated; only cite shown 2023 MT 249.
+
+## F. Subsequent history
+
+### `mt-subsequent-history-docket` — Montana Supreme Court docket — rehearing, withdrawal and amendment orders
+
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · Clerk of the Montana Supreme Court · text: **link-only** · official: unknown
+- **Coverage:** No intermediate appellate court: Supreme Court decisions are reviewed only by rehearing (M. R. App. P. 20) or US Supreme Court certiorari. Withdrawing/amending orders carry the same public-domain number with W or A (1997 order). WCC decisions note appeals on their banner.
+- **Access:** `link-only` · format pdf
+  - Index: `https://supremecourtdocket.mt.gov/`
+  - Navigation: Search the docket by DA/OP number in the app (JS); rehearing orders appear in the register of actions. Without the app: search Justia's year listing for the same 'YYYY MT N' with W/A suffix, by party name.
+- **Automation:** WebFetch gated · shell ok · robots: as mt-opinions-docket
+  - 0-char JS shell.
+- **Currency:** 
+- **Hazard:** JavaScript-only; in practice findable only by party name or docket on Justia
+- **Probe:** docket app → `https://supremecourtdocket.mt.gov/`
+- **Evidence (2026-10-17):** fetch_doc.py 0 chars; WebFetch PROVENANCE_REQUIRED; W/A rules read in cite_cases.pdf.
+
+## Not available (do not look for these again)
+
+- **statutes** — public.law edition of the MCA: montana.public.law: proxy 502 (no such host); de record notes public.law lists only CA, CO, FL, NV, NY, OR, TX. (2026-10-17)
+- **statutes** — Cornell LII Montana Code / Constitution: law.cornell.edu/states/montana links out to leg.mt.gov / courts.mt.gov; LII hosts only the ARM. (2026-10-17)
+- **case_law** — Intermediate appellate court: Montana has none; the Supreme Court hears all appeals (Mont. Const. art. VII, § 2). (2026-10-17)
+- **case_law** — Free official reporter (Mont.) pagination: Justia opinion page carries only the public-domain cite; Montana Reports is a print reporter (cite_cases.pdf names it official). (2026-10-17)
+
+## Corpus candidates (maintainers)
+
+- `mt-rules-courts-pdf` — 123 pp, 276,612 chars; WebFetch stops at Rule 23.1 (MCA per-rule pages make corpus optional).
+- `mt-rules-courts-pdf` — 58 pp, 160,229 chars.
+- `mt-rules-courts-pdf` — 37 pp, 109,771 chars; only free text of the Rules of Professional Conduct.
+
+## Open questions
+
+- Is there an official MCA bulk download (XML/zip)? Not found; not searched exhaustively.
+- Where does supremecourtdocket.mt.gov's Angular app send its /docket/search calls in production, and is that API public?
+- Is searchcourts.mt.gov retired for good, and does the State Law Library host opinions elsewhere?
+- WebFetch on mca.legmt.gov, courts.mt.gov HTML, LII and WCC pages was not tested (built URLs gated; session limit hit early) — an independent verifier with URL approval should retest.
+- Content of the Sept. 2, 2026 Judicial Branch statement about the C-Track vendor (image-only PDF) and whether docket documents are affected.
+- CourtListener id for the Workers' Compensation Court.
