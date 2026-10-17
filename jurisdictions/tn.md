@@ -42,11 +42,11 @@ Regexes (case-insensitive):
 - Tennessee court rules (bare forms): `\bRule\s+(?P<rule>\d{1,2}\.\d{2})(?:\s*\([a-zA-Z0-9]+\))*|\bRPC\s+(?P<rpc>\d\.\d+)|\bRule\s+11\s+application`
 - Rules and Regulations of the State of Tennessee: `Tenn\.\s*(?:Comp\.\s*)?R\.\s*&\s*Regs\.?\s*(?:r\.|ch\.|rule)?\s*(?P<rule>\d{4}-\d{2}(?:-\d{2})?(?:-\.\d{2})?)|\bRule\s+(?P<rule2>\d{4}-\d{2}(?:-\d{2})?-\.\d{2})`
 - Tennessee appellate docket numbers: `\b(?P<docket>[EMW](?P<year>(?:19|20)\d\d)-\d{5}-(?P<court>SC|COA|CCA|WC)(?:-[A-Z0-9]{1,4}){1,3})\b`
-- Tennessee court parentheticals and reporters: `\((?P<court>Tenn\.(?:\s*(?:Ct\.\s*App|Crim\.\s*App|Workers'?\s*Comp\.\s*Panel)\.?)?)\s*(?:[A-Z][a-z]{2,4}\.?\s*\d{1,2},\s*)?(?P<year>(?:18|19|20)\d\d)\)|\b(?P<vol>\d{1,3})\s+Tenn\.(?:\s*(?:App|Crim\.\s*App)\.)?\s+(?P<page>\d{1,4})\b`
+- Tennessee court parentheticals and reporters: `(?<!denied )(?<!granted )(?<!dismissed )(?<!filed )\((?P<court>Tenn\.(?:\s*(?:Ct\.\s*App|Crim\.\s*App|Workers'?\s*Comp\.\s*Panel)\.?)?)\s*(?:[A-Z][a-z]{2,4}\.?\s*\d{1,2},\s*)?(?P<year>(?:18|19|20)\d\d)\)|\b(?P<vol>\d{1,3})\s+Tenn\.(?:\s*(?:App|Crim\.\s*App)\.)?\s+(?P<page>\d{1,4})\b`
 - South Western Reporter (regional, generic): `\b(?P<vol>\d{1,4})\s+S\.\s*W\.\s*(?:2d|3d)?\s+(?P<page>\d{1,5})\b`
 - Tennessee Rule 11 permission-to-appeal history: `(?P<disp>(?:no\s+)?perm\.\s*app\.\s*(?:denied|granted|dismissed|filed))(?:\s*\(Tenn\.\s*(?:[A-Z][a-z]{2,4}\.?\s*\d{1,2},\s*)?(?P<year>(?:19|20)\d\d)\))?`
 
-No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL is built from the numbers (part = section // 100). 'T.C.A.'/'TCA' and 'Tenn. Code Ann.' are Tennessee markers; bare '§ 28-3-104' routes here only with 'of the Tennessee Code'. Ranges ('§§ 29-20-201 to -205') capture only the first section. Bare 'Rule 12.02(6)', 'RPC 1.7' and regional S.W. cites are context_required. Docket numbers [EMW]YYYY-NNNNN-(SC|COA|CCA|WC)-… are uniquely Tennessee. Unpublished opinions are cited by docket + WL with a '(Tenn. Ct. App. date)' parenthetical and Rule 11 history ('perm. app. denied'). No public-domain citation format. Special Workers' Compensation Appeals Panel opinions are on Justia under workers-compensation; CourtListener id for that panel not known.
+No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL is built from the numbers (part = section // 100). 'T.C.A.'/'TCA' and 'Tenn. Code Ann.' are Tennessee markers; bare '§ 28-3-104' routes here only with 'of the Tennessee Code'. Ranges ('§§ 29-20-201 to -205') capture only the first section. Bare 'Rule 12.02(6)', 'RPC 1.7' and regional S.W. cites are context_required. Docket numbers [EMW]YYYY-NNNNN-(SC|COA|CCA|WC)-… are uniquely Tennessee. Unpublished opinions are cited by docket + WL with a '(Tenn. Ct. App. date)' parenthetical and Rule 11 history ('perm. app. denied'). No public-domain citation format. Special Workers' Compensation Appeals Panel opinions are on Justia under workers-compensation; CourtListener id for that panel not known. The court-parenthetical pattern has negative lookbehinds for 'denied/granted/dismissed/filed ' so 'perm. app. denied (Tenn. …)' routes only to Rule 11 history (independent check 2026-10-17).
 
 ## A. Statutes / code
 
@@ -66,7 +66,7 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Hazard:** no per-section URLs
 - **Hazard:** terms of use restrict automated access
 - **Probe:** T.C.A. (container) → `https://www.lexisnexis.com/hottopics/tncode/`
-- **Evidence (2026-10-17):** Link found on www.tn.gov laws page (script links). WebFetch: 302 → advance.lexis.com container, page content empty. Script: kind=html chars=0.
+- **Evidence (2026-10-17):** Link found on www.tn.gov laws page (script links). WebFetch: 302 → advance.lexis.com container, page content empty. Script: kind=html chars=0. | Independent check 2026-10-17: 302 to advance.lexis.com container; container page content empty (JS app)
 - **Notes:** The General Assembly site (capitol.tn.gov) is robots-blocked, so no government-hosted, tool-readable T.C.A. text exists. Public.Resource.Org's copy (law.resource.org) is not a vetted source and is not allowed.
 
 ### `tn-legislature-capitol` — Tennessee General Assembly website (bills, legislation, documents)
@@ -80,46 +80,49 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Currency:** 
 - **Hazard:** robots disallow all
 - **Probe:**  → `https://www.capitol.tn.gov/`
-- **Evidence (2026-10-17):** Script: REFUSED robots.txt on www.capitol.tn.gov disallows / (rule: Disallow: /); same on wapp.capitol.tn.gov.
+- **Evidence (2026-10-17):** Script: REFUSED robots.txt on www.capitol.tn.gov disallows / (rule: Disallow: /); same on wapp.capitol.tn.gov. | Re-confirmed blocked 2026-10-17: Script: REFUSED robots.txt on www.capitol.tn.gov disallows / (exit 3); WebFetch not used per robots policy
 
 ### `tn-public-acts-sos` — Public Acts (Public Chapters) of Tennessee
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
 - **Coverage:** Public chapters by General Assembly; seen for the 107th GA (2011-2012). Older acts as HTM on sharetngov.tnsosfiles.com/sos/acts/{GA}/pub/PUBC{NNNN}.htm (search result, not fetched).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format pdf
   - Pattern: `https://publications.tnsosfiles.com/acts/{ga}/pub/pc{chapter4}.pdf`
-  - Placeholders: ga = General Assembly number = (year - 1797) // 2 (2012 → 107, 2022 → 112, 2024 → 113); chapter4 = public chapter number zero-padded to 4 digits (582 → 0582). Verified on one citation only.
+  - Placeholders: ga = General Assembly number = (year - 1797) // 2 (2012 → 107, 2022 → 112, 2024 → 113); chapter4 = public chapter number zero-padded to 4 digits (582 → 0582). Verified on one citation only. Built URLs are provenance-gated for WebFetch; prefer a search-result URL.
   - Index: `https://sos.tn.gov/node/730`
   - Navigation: Index page (Public Acts | Private Acts | Indexes) reported from search, not fetched.
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: robots.txt returns a CloudFront 403 'Request blocked' page; script refuses
-  - Scanned/OCR'd PDF: OCR garbles names and dates in places; bill contents may be an attachment.
+  - Scanned/OCR'd PDF: OCR garbles names and dates in places; bill contents may be an attachment. Built URLs for other General Assemblies hit the WebFetch provenance gate (113/pub/pc0001.pdf, independent check); take the PDF URL from a search result or sos.tn.gov/node/730 where possible.
 - **Currency:** n/a (enrolled act)
 - **Official status:** Enrolled public chapters as signed, published by the Secretary of State (signature blocks present in the PDF).
 - **Hazard:** OCR errors
 - **Hazard:** script route refused (CloudFront 403)
+- **Hazard:** pattern verified on one chapter (107th GA) only; built URL for a recent GA (113/pub/pc0001.pdf) unverified: WebFetch provenance-gated, script refused
 - **Probe:** 2012 Tenn. Pub. Acts ch. 582 → `https://publications.tnsosfiles.com/acts/107/pub/pc0582.pdf` — expect: "PUBLIC CHAPTER NO. 582 SENATE BILL NO. 2183"
-- **Evidence (2026-10-17):** WebFetch: starts "~tate of ~ennessee PUBLIC CHAPTER NO. 582 SENATE BILL NO. 2183"; signature blocks present; OCR garbled in places.
+- **Evidence (2026-10-17):** WebFetch: starts "~tate of ~ennessee PUBLIC CHAPTER NO. 582 SENATE BILL NO. 2183"; signature blocks present; OCR garbled in places. | Independent check 2026-10-17: YES: 'PUBLIC CHAPTER NO. 582' / 'SENATE BILL NO. 2183'; body 'AN ACT to revise and codify'
 - **Notes:** URL taken from a search result; the constructible rule is inferred from the path and verified on this one chapter.
 
 ### `tn-code-justia` — Tennessee Code (Justia)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Current edition labelled '2025 Tennessee Code'; prior editions under /codes/tennessee/{year}/ (2010, 2014, 2017-2019, 2021, 2023 seen in search results).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/codes/tennessee/title-{title}/chapter-{chapter}/part-{part}/section-{title}-{chapter}-{section}/`
   - Placeholders: From T.C.A. § T-C-S: title = T, chapter = C, section number S as cited; part = integer part of S divided by 100 (104 → 1, 205 → 2, 1307 → 13). For a §§ range use the first section. Year-specific editions: insert /{year}/ after /tennessee/.
   - Index: `https://law.justia.com/codes/tennessee/`
-  - Navigation: Fallback: title-{T}/chapter-{C}/ lists parts by name only (no section ranges) → part page → section.
+  - Navigation: On a fetch error or wrong page, navigate: title-{T}/chapter-{C}/ (parts by name only, no section ranges) → part-{P}/ → section link. Always read the edition year on the section page.
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: script: law.justia.com answers robots.txt with a bot check
   - Built section URLs went through WebFetch without a permission prompt in this session. Script route refused.
-- **Currency:** page heading and title — observed: "2025 Tennessee Code; Tennessee Code Title 28, Chapter 3 (2025)"
+- **Currency:** page heading and title, per section (varies) — observed: "2025 Tennessee Code (some sections: 2024 Tennessee Code)"
 - **Official status:** Justia pages say 'These codes may not be the most recent version' and 'Please check official sources.'
 - **Hazard:** edition lags the current T.C.A. by up to a year
 - **Hazard:** part index pages show no section ranges
+- **Hazard:** edition varies by section: undated URL served '2025 Tennessee Code' for § 28-3-104 but '2024 Tennessee Code' for § 29-20-205 — read and disclose the edition line on each page
+- **Hazard:** some built URLs error without explanation (§ 20-12-119 gave CLIENT_ERROR twice): fall back to the title/chapter/part index navigation
 - **Probe:** Tenn. Code Ann. § 28-3-104 → `https://law.justia.com/codes/tennessee/title-28/chapter-3/part-1/section-28-3-104/` — expect: "(a) (1) Except as provided in subdivision (a)(2), the following"
-- **Evidence (2026-10-17):** WebFetch § 28-3-104: body present, starts "(a) (1) Except as provided in subdivision (a)(2), the following", not truncated. Second built URL § 39-17-1307 (part-13): body starts "A person commits an offense who carries, with the intent"; heading year 2025.
+- **Evidence (2026-10-17):** WebFetch § 28-3-104: body present, starts "(a) (1) Except as provided in subdivision (a)(2), the following", not truncated. Second built URL § 39-17-1307 (part-13): body starts "A person commits an offense who carries, with the intent"; heading year 2025. | Independent check 2026-10-17: YES: '(a) (1) Except as provided in subdivision (a)(2), the following'; '2025 Tennessee Code'; second citation Tenn. Code Ann. § 29-20-205 (also tried § 20-12-119) ok
 
 ## B. Constitution
 
@@ -135,12 +138,12 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Currency:** 
 - **Hazard:** robots disallow all
 - **Probe:** Tenn. Const. → `http://www.capitol.tn.gov/about/docs/TN-Constitution.pdf`
-- **Evidence (2026-10-17):** Script check: REFUSED robots.txt on www.capitol.tn.gov disallows /about/docs/TN-Constitution.pdf (rule: Disallow: /).
+- **Evidence (2026-10-17):** Script check: REFUSED robots.txt on www.capitol.tn.gov disallows /about/docs/TN-Constitution.pdf (rule: Disallow: /). | Re-confirmed blocked 2026-10-17: Script: REFUSED robots.txt disallows /about/docs/TN-Constitution.pdf (Disallow: /); WebFetch not used
 - **Notes:** sos.tn.gov/node/1487 ('Tennessee State Constitution') is a TSLA history page on the 1796 constitution, not the current text.
 
 ### `tn-constitution-justia` — Tennessee Constitution (Justia)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Current constitution, one page per section.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -153,7 +156,7 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Official status:** Page disclaimer: 'This Constitution may not be the most recent version.'
 - **Hazard:** no amendment date stated
 - **Probe:** Tenn. Const. art. I, § 8 → `https://law.justia.com/constitution/tennessee/article-i/section-8/` — expect: "That no man shall be taken or imprisoned, or disseized"
-- **Evidence (2026-10-17):** WebFetch art. I § 8: body starts "That no man shall be taken or imprisoned, or disseized". Built art. II § 24: starts "No public money shall be expended except pursuant to appropriations".
+- **Evidence (2026-10-17):** WebFetch art. I § 8: body starts "That no man shall be taken or imprisoned, or disseized". Built art. II § 24: starts "No public money shall be expended except pursuant to appropriations". | Independent check 2026-10-17: YES: 'That no man shall be taken or imprisoned, or disseized'; 'This Constitution may not be the most recent version.'; second citation Tenn. Const. art. XI, § 16 ok
 
 ## C. Court rules
 
@@ -169,20 +172,20 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Currency:** 
 - **Hazard:** bot challenge on every URL
 - **Probe:** Tenn. R. Civ. P. 12.02 → `https://www.tncourts.gov/rules/rules-civil-procedure/1202`
-- **Evidence (2026-10-17):** Script: kind=html chars=138 "Please wait while we validate your browser". WebFetch tncourts.gov/node/3216: CHALLENGE.
+- **Evidence (2026-10-17):** Script: kind=html chars=138 "Please wait while we validate your browser". WebFetch tncourts.gov/node/3216: CHALLENGE. | Re-confirmed blocked 2026-10-17: WebFetch: 'Please wait while we validate your browser.' (challenge)
 - **Notes:** No tier-2 copy: Justia and LII do not host Tennessee court rules (LII links out to tncourts.gov). Rules are also printed in the T.C.A. court-rules volumes on Lexis (link-only).
 
 ## D. Administrative code
 
 ### `tn-admincode-sos` — Rules and Regulations of the State of Tennessee (official compilation, chapter PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
 - **Coverage:** All effective rules, one PDF per chapter, by agency number (0020 Accountancy …).
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format pdf
   - Placeholders: Chapter PDFs are publications.tnsosfiles.com/rules/{agency}/{agency-division}/{chapter}.{YYYYMMDD}.pdf; the date suffix is the edition date and is NOT constructible. Agency index pages are publications.tnsosfiles.com/rules/{agency}/{agency}.htm (seen for 1330).
   - Index: `https://sos.tn.gov/rules-and-regulations`
-  - Navigation: sos.tn.gov/rules-and-regulations (agency list, 4-digit numbers) → agency page publications.tnsosfiles.com/rules/{agency}/{agency}.htm → chapter PDF link. WebFetch does not expose the hrefs on these index pages; take PDF URLs from a search result or the rendered page.
+  - Navigation: Index navigation cannot reach a chapter PDF with tools: sos.tn.gov/rules-and-regulations lists agency numbers (no hrefs exposed to WebFetch) → agency page publications.tnsosfiles.com/rules/{agency}/{agency}.htm lists DIVISIONS ({agency}-01 …), not chapters, and exposes no hrefs → (division page, unverified) → chapter PDF. The script is refused on this host, so links cannot be extracted. In practice the date-stamped chapter PDF URL comes only from a web search result; otherwise route the citation to tn-admincode-lii first.
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: sos.tn.gov and publications.tnsosfiles.com: robots.txt returns CloudFront 403 'Request blocked'
   - WebFetch reads pages and PDFs; a built agency-index URL (0720/0720.htm) hit the provenance gate (gated).
 - **Currency:** chapter PDF page header; sos index blurb — observed: "July, 2022 (Revised)"
@@ -190,13 +193,14 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Hazard:** date-stamped file names (not constructible)
 - **Hazard:** chapters transferred/renumbered (1200-08-01 → 0720-14)
 - **Hazard:** WebFetch hides index hrefs
+- **Hazard:** undocumented division level between agency page and chapter PDF; chapter PDF URLs reachable only from search results (0780-01-05 could not be reached by navigation)
 - **Probe:** Tenn. Comp. R. & Regs. 1200-08-01-.01 → `https://publications.tnsosfiles.com/rules/1200/1200-08/1200-08-01.20220701.pdf` — expect: "RULES OF THE TENNESSEE DEPARTMENT OF HEALTH BOARD FOR LICENSING HEALTH"
-- **Evidence (2026-10-17):** WebFetch: starts "July, 2022 (Revised) 1 RULES OF THE TENNESSEE DEPARTMENT OF HEALTH"; rules .01-.15 all 'TRANSFERRED' to 0720-14; not truncated.
+- **Evidence (2026-10-17):** WebFetch: starts "July, 2022 (Revised) 1 RULES OF THE TENNESSEE DEPARTMENT OF HEALTH"; rules .01-.15 all 'TRANSFERRED' to 0720-14; not truncated. | Independent check 2026-10-17: YES: 'RULES OF THE TENNESSEE DEPARTMENT OF HEALTH BOARD FOR LICENSING HEALTH CARE'; 'July, 2022 (Revised)'
 - **Notes:** Older PDFs also on sharetngov.tnsosfiles.com/sos/rules/… (search result; robots 403 bot wall, not fetched).
 
 ### `tn-admincode-lii` — Tennessee Compilation of Rules & Regulations (Cornell LII)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Rule-level pages for all agencies.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -211,26 +215,28 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Hazard:** lags the official compilation (1200-13-19-.01 shows 2015 history although SOS lists a 3/4/2026 amendment)
 - **Hazard:** bad rule numbers fall back to an index page
 - **Probe:** Tenn. Comp. R. & Regs. 1200-13-19-.01 → `https://www.law.cornell.edu/regulations/tennessee/Tenn-Comp-R-Regs-1200-13-19-.01` — expect: "This chapter governs all administrative hearings conducted for the purpose"
-- **Evidence (2026-10-17):** Script grep: 1200-13-19-.01 body "This chapter governs all administrative hearings conducted for the purpose"; 0720-14-.01 body "(1) Abuse. The willful infliction of injury"; last-modified Aug 2025.
+- **Evidence (2026-10-17):** Script grep: 1200-13-19-.01 body "This chapter governs all administrative hearings conducted for the purpose"; 0720-14-.01 body "(1) Abuse. The willful infliction of injury"; last-modified Aug 2025. | Independent check 2026-10-17: Script grep: 'This chapter governs all administrative hearings'; last-modified Aug 2025; second citation Tenn. Comp. R. & Regs. 0780-01-05-.01 ok
 
 ## D. Administrative register
 
 ### `tn-admin-register-sos` — Tennessee Administrative Register / rulemaking filings
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Tennessee Secretary of State, Division of Publications · text: **fetch-and-quote** · official: official
 - **Coverage:** Rulemaking hearing notices, emergency and permanent rule filings as PDFs.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format pdf
   - Placeholders: Filing PDFs are publications.tnsosfiles.com/rules_filings/{MM-DD-YY}.pdf where MM-DD-YY is a filing tracking number, not a date to construct.
   - Index: `https://sos.tn.gov/publications/services/recently-effective-rules-and-regulations`
-  - Navigation: Recently Effective Rules page (lists chapters and effective dates; hrefs not exposed to WebFetch) → filing PDF. The Administrative Register index page itself was not located/fetched.
+  - Navigation: Filing PDFs are reachable only from web search results: the recently-effective page lists chapters and dates but exposes no filing-PDF hrefs. The Administrative Register index page was not located.
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: CloudFront 403 bot wall on robots.txt
 - **Currency:** recently-effective page list — observed: "entries from 3/5/2026 back to 1/28/2026 (as summarised by WebFetch)"
 - **Official status:** Filings are stamped by the Department of State, Division of Publications (form SS-7037).
 - **Hazard:** tracking-number file names
 - **Hazard:** recently-effective page may not be up to date
+- **Hazard:** recently-effective index appears stale (newest entry 3/5/2026 on 2026-10-17)
+- **Hazard:** no navigation from index to filing PDFs
 - **Probe:** Notice of Rulemaking Hearing, ch. 0400-30-39 → `https://publications.tnsosfiles.com/rules_filings/04-09-24.pdf` — expect: "SS-7037 (March 2020) 1 RDA 1693 Department of State Division of Publications"
-- **Evidence (2026-10-17):** WebFetch: 30-page notice of rulemaking hearing, Air Pollution Control Board, filed April 11, 2024; starts "SS-7037 (March 2020) 1 RDA 1693 Department of State".
+- **Evidence (2026-10-17):** WebFetch: 30-page notice of rulemaking hearing, Air Pollution Control Board, filed April 11, 2024; starts "SS-7037 (March 2020) 1 RDA 1693 Department of State". | Independent check 2026-10-17: YES: 'SS-7037 (March 2020) 1 RDA 1693 Department of State Division'; filed Apr 11 2024
 
 ## E. Case law
 
@@ -245,26 +251,29 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Currency:** 
 - **Hazard:** bot challenge on every URL
 - **Probe:**  → `https://www.tncourts.gov/courts/supreme-court/opinions`
-- **Evidence (2026-10-17):** Script: kind=html chars=138 "Please wait while we validate your browser".
+- **Evidence (2026-10-17):** Script: kind=html chars=138 "Please wait while we validate your browser". | Re-confirmed blocked 2026-10-17: WebFetch: 'Please wait while we validate your browser.' (challenge)
 
 ### `tn-cases-justia` — Tennessee opinions (Justia)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court, Court of Appeals, Court of Criminal Appeals, Special Workers' Compensation Appeals Panel; year listings (earliest year not shown on the court pages). Slip pagination only ('- 13 -' page markers); no S.W.3d cites.
-- **Read via (in order):** **fetch tool**
+- **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/cases/tennessee/{court}/{year}/{docket_lower}.html`
   - Placeholders: court = supreme-court | court-of-appeals | court-of-criminal-appeals | workers-compensation; year = decision year; docket_lower = the docket number lower-cased (M2022-01820-SC-R11-SV → m2022-01820-sc-r11-sv). Separate opinions may share a docket: check the year listing https://law.justia.com/cases/tennessee/{court}/{year}/ (it shows docket numbers and dates).
   - Index: `https://law.justia.com/cases/tennessee/`
   - Navigation: Court → year listing (case name, docket, date) → opinion page (full text) → PDF copy on cases.justia.com.
-  - Read via: Each page links the court PDF at cases.justia.com/tennessee/{court}/{year}-{docket_lower}.pdf?ts=… (ts not constructible). fetch_doc.py read it (13 pages, 37,216 chars) — cases.justia.com is not on the vetted tier-2 list; see open_questions.
-- **Automation:** WebFetch ok · shell blocked-challenge · robots: script: law.justia.com answers robots.txt with a bot check
+  - Read via: cases.justia.com/tennessee/{court}/{year}-{docket_lower}.pdf?ts=… (ts not constructible; copy it from the opinion page). fetch_doc.py reads it: 2024 W2021-00999-SC-R11-CV, 13 pages, 37,216 chars; CCA M2024-01920-CCA-R3-CD, 5 pages, 12,503 chars.
+- **Automation:** WebFetch ok · shell ok · robots: script: law.justia.com answers robots.txt with a bot check
+  - Script route: law.justia.com itself is refused (bot check), but each opinion page links the court PDF on cases.justia.com (accepted under the SCHEMA.md alternate-host rule: Justia's own pages link it). Take the PDF URL (with its ts parameter) from the opinion page via WebFetch, then read/grep/verify it with fetch_doc.py.
 - **Currency:** year listing heading — observed: "Tennessee Court of Appeals Decisions 2025 (latest entry December 30, 2025)"
 - **Official status:** Third-party republication of the courts' slip opinions.
 - **Hazard:** slip pagination only
 - **Hazard:** AI-written summary beside the opinion is not opinion text
-- **Probe:** Pharma Conference Educ., Inc. v. State, No. W2021-00999-SC-R11-CV (Tenn. Dec. 20, 2024) → `https://law.justia.com/cases/tennessee/supreme-court/2024/w2021-00999-sc-r11-cv.html` — expect: "Pharma Conference Education, Inc., entered into an agreement with the University of"
-- **Evidence (2026-10-17):** WebFetch: full opinion through signature, page marker "- 13 -", footnotes 1-4, not truncated. COA 2025 listing: URL docket = lower-cased docket for all entries.
+- **Hazard:** the 'Court Description' summary block above the opinion repeats opinion-like text — match quotes against the opinion body or the PDF
+- **Hazard:** page markers differ by court ('- 13 -' Supreme Court, '-2-' CCA)
+- **Probe:** Pharma Conference Educ., Inc. v. State, No. W2021-00999-SC-R11-CV (Tenn. Dec. 20, 2024) → `https://law.justia.com/cases/tennessee/supreme-court/2024/w2021-00999-sc-r11-cv.html` — expect: "Pharma Conference Education, Inc., produces and manages continuing education programs"
+- **Evidence (2026-10-17):** WebFetch: full opinion through signature, page marker "- 13 -", footnotes 1-4, not truncated. COA 2025 listing: URL docket = lower-cased docket for all entries. | Script 2026-10-17: cases.justia.com PDF kind=pdf pages=13 chars=37216, grep 'IN THE SUPREME COURT OF TENNESSEE AT JACKSON' found. | Independent check 2026-10-17: Expect string found, but in 'Court Description' block; body begins 'Pharma Conference Education, Inc., produces and manages'; second citation State v. Campbell, No. M2024-01920-CCA-R3-CD (Tenn. Crim. App. Dec. 31, 2025) ok
 
 ## F. Subsequent history
 
@@ -280,7 +289,7 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 - **Currency:** 
 - **Hazard:** bot challenge on every URL
 - **Probe:**  → `https://www.tncourts.gov/sites/default/files/AppealsFileAttachments/Discretionary%20Appeals%20List%20-October-13-2025.pdf`
-- **Evidence (2026-10-17):** WebFetch: CHALLENGE "Please wait while we validate your browser"; script: kind=html chars=138, same text.
+- **Evidence (2026-10-17):** WebFetch: CHALLENGE "Please wait while we validate your browser"; script: kind=html chars=138, same text. | Re-confirmed blocked 2026-10-17: WebFetch: 'Please wait while we validate your browser.' (challenge)
 - **Notes:** Free fallback: a Supreme Court opinion on Justia states 'Appeal by Permission from the Court of Appeals' and its docket carries -SC-R11-; Rule 11 denials have no free tool-readable source and can only be found by party name or docket on the blocked host.
 
 ## Not available (do not look for these again)
@@ -294,9 +303,9 @@ No law_aliases needed: T.C.A. cites are title-chapter-section and the Justia URL
 
 ## Open questions
 
-- cases.justia.com (Justia's copy of the court PDF, linked from every law.justia.com opinion page) passes the script (no robots challenge) and would give a script route for Tennessee opinions; it is not on the vetted tier-2 host list. Maintainers to decide whether to admit it.
 - tncourts.gov challenge: re-test later; if it lifts, verify per-rule URL slugs (rules-civil-procedure/1202), opinion listings and the discretionary-appeals PDFs.
 - Tennessee Administrative Register index page on sos.tn.gov not located; only filing PDFs verified.
-- Public Acts URL rule (acts/{GA}/pub/pc{NNNN}.pdf) verified on one chapter (107th GA) only; confirm for a recent GA (e.g. 113/pub/pc0123.pdf).
 - sos.tn.gov may host the current Constitution (Tennessee Blue Book); not found in budget.
 - LII Tennessee regulations may lag SOS (1200-13-19-.01 history ends 2015 although SOS lists a 3/4/2026 amendment) — compare before quoting.
+- Public Acts URL rule (acts/{GA}/pub/pc{NNNN}.pdf) verified on the 107th GA only; the built 113th-GA URL was provenance-gated for WebFetch and the script is refused. Verify from a search-result URL for a recent GA.
+- SOS rules: confirm the division-level page between publications.tnsosfiles.com/rules/{agency}/{agency}.htm and the chapter PDF (needs a tool that exposes hrefs; script refused on this host).
