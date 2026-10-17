@@ -5,12 +5,13 @@
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
-      "sha256": "74d8a4dec422e1434ba7401cb3a04f6a1585ea2c43ee26b8771864a20d888d65",
+      "sha256": "c442461f9b8891c0f6f5fb6251c049eea94b24f7449fed7d22bb90b240b9b1fb",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 8,
+        "verified_independent": 7,
         "blocked": 1,
-        "reported": 4
+        "reported": 4,
+        "verified": 1
       },
       "citation_patterns": [
         {
@@ -19,7 +20,7 @@
         },
         {
           "label": "Arizona Constitution",
-          "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution"
+          "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:(?:pt\\.|part)\\s*(?P<part>\\d|[IV]+),?\\s*)?(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+(?:Part\\s+(?P<part2>\\d|[IV]+),?\\s+)?Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution"
         },
         {
           "label": "Arizona Rules of Civil Procedure",
@@ -40,6 +41,10 @@
         {
           "label": "Rules of the Supreme Court of Arizona (incl. Rule 42 ERs, Rule 111)",
           "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court"
+        },
+        {
+          "label": "Arizona Rules of Family Law Procedure",
+          "regex": "(?:Ariz\\.\\s*R\\.\\s*Fam\\.\\s*Law\\s*P\\.|ARFLP)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Family\\s+Law\\s+Procedure"
         },
         {
           "label": "Arizona Administrative Code",

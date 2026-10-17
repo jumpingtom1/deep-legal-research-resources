@@ -72,9 +72,12 @@
           "Ariz. Const. art. II, § 4",
           "Ariz. Const. art. 6, § 14",
           "Ariz. Const. art. 2, § 2.1",
-          "Article 2, Section 4 of the Arizona Constitution"
+          "Article 2, Section 4 of the Arizona Constitution",
+          "Ariz. Const. art. IV, pt. 2, § 1",
+          "Ariz. Const. art. 6.1, § 4",
+          "Article 4, Part 2, Section 1 of the Arizona Constitution"
         ],
-        "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:§|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution",
+        "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:(?:pt\\.|part)\\s*(?P<part>\\d|[IV]+),?\\s*)?(?:§|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+(?:Part\\s+(?P<part2>\\d|[IV]+),?\\s+)?Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution",
         "routes_to": [
           "az-constitution-azleg"
         ]
@@ -139,6 +142,19 @@
           "Ariz. Sup. Ct. R. 31"
         ],
         "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court",
+        "routes_to": [
+          "az-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Arizona Rules of Family Law Procedure",
+        "examples": [
+          "Ariz. R. Fam. Law P. 49",
+          "Rule 91(a) of the Arizona Rules of Family Law Procedure",
+          "ARFLP 65"
+        ],
+        "regex": "(?:Ariz\\.\\s*R\\.\\s*Fam\\.\\s*Law\\s*P\\.|ARFLP)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Family\\s+Law\\s+Procedure",
         "routes_to": [
           "az-rules-westlaw"
         ]
@@ -247,9 +263,11 @@
       "Ariz. R. Evid.": "evid",
       "Ariz. R. Sup. Ct.": "sup-ct",
       "Ariz. Sup. Ct. R.": "sup-ct",
-      "ER": "sup-ct-42"
+      "ER": "sup-ct-42",
+      "Ariz. R. Fam. Law P.": "fam-law-p",
+      "ARFLP": "fam-law-p"
     },
-    "notes": "Arizona has no public-domain citation; opinions use numbered paragraphs, and Arizona courts pinpoint by ¶ (e.g. '256 Ariz. 350, ¶ 12 (App. 2023)'), so a slip PDF gives a pinpoint without reporter pages. Arizona style puts Court of Appeals cites as '(App. YYYY)'; Bluebook uses '(Ariz. Ct. App. YYYY)'. 'Ariz. App.' is the closed Arizona Appeals Reports (1965-1976 era, per memory); later Court of Appeals opinions are in 'Ariz.'. Memorandum decisions: from memory, Ariz. R. Sup. Ct. 111(c) allows citing memorandum decisions issued on or after Jan. 1, 2015 for persuasive value, with the docket number, date and '(mem. decision)'; the Justia copies carry the legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE' (rule text itself not fetched; Westlaw is blocked). 'Petition for review denied' dispositions appear in the subsequent-history parenthetical ('review denied'). Routing guards: bare 'Rule 12(b)(6)', 'Rule 702', 'ER 1.7' and 'Rule 42' must not route here without an 'Ariz.' prefix or Arizona context ('ER' numbering is also used by other states' rules of professional conduct). 'A.R.S.' is unique to Arizona, but 'ARS' alone is a common acronym: route only when followed by a TT-SSS section number. Docket numbers 'CV-24-0143-PR' resemble other states' forms; route on them only with Arizona context; '1 CA-CV' / '2 CA-CR' are Arizona-specific. A '§§ 12-541 to -542' range is two sections: the regex takes the first. Statute URL keys: title unpadded (/ars/1/, /ars/12/); section zero-padded to 5 digits with '.' replaced by '-' (12-341.01 -> /ars/12/00341-01.htm). CourtListener ids from memory, unverified."
+    "notes": "Arizona has no public-domain citation; opinions use numbered paragraphs, and Arizona courts pinpoint by ¶ (e.g. '256 Ariz. 350, ¶ 12 (App. 2023)'), so a slip PDF gives a pinpoint without reporter pages. Arizona style puts Court of Appeals cites as '(App. YYYY)'; Bluebook uses '(Ariz. Ct. App. YYYY)'. 'Ariz. App.' is the closed Arizona Appeals Reports (1965-1976 era, per memory); later Court of Appeals opinions are in 'Ariz.'. Memorandum decisions: from memory, Ariz. R. Sup. Ct. 111(c) allows citing memorandum decisions issued on or after Jan. 1, 2015 for persuasive value, with the docket number, date and '(mem. decision)'; the Justia copies carry the legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE' (rule text itself not fetched; Westlaw is blocked). 'Petition for review denied' dispositions appear in the subsequent-history parenthetical ('review denied'). Routing guards: bare 'Rule 12(b)(6)', 'Rule 702', 'ER 1.7' and 'Rule 42' must not route here without an 'Ariz.' prefix or Arizona context ('ER' numbering is also used by other states' rules of professional conduct). 'A.R.S.' is unique to Arizona, but 'ARS' alone is a common acronym: route only when followed by a TT-SSS section number. Docket numbers 'CV-24-0143-PR' resemble other states' forms; route on them only with Arizona context; '1 CA-CV' / '2 CA-CR' are Arizona-specific. A '§§ 12-541 to -542' range is two sections: the regex takes the first. Statute URL keys: title unpadded (/ars/1/, /ars/12/); section zero-padded to 5 digits with '.' replaced by '-' (12-341.01 -> /ars/12/00341-01.htm). CourtListener ids from memory, unverified. Constitution Article 4 has parts ('art. IV, pt. 2, § 1'): the regex captures part; the azleg URL form for parts is unverified. Family Law Procedure rules ('Ariz. R. Fam. Law P.', 'ARFLP') route to the blocked Westlaw row."
   },
   "sources": [
     {
@@ -271,10 +289,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "User-agent * — Crawl-delay: 120; disallows /search/, /xml/, /FormatDocument.asp, /FormatForPrint.asp, /DocumentsForBill.asp, WordPress paths; /ars/, /arsDetail/, /viewdocument/, /const/ allowed",
-        "notes": "Crawl-delay 120 s: fetch_doc.py waits two minutes between azleg.gov requests, so plan few azleg fetches per run (cache helps). WebFetch in this environment would only fetch azleg URLs that had appeared in an earlier search/fetch result (permission prompts for constructed /ars/ URLs went unanswered); the viewdocument wrapper for 22-101 taken from the title-22 index fetched fine."
+        "notes": "Script (fetch_doc.py) is the primary route. WebFetch is gated: constructed /ars/ URLs need a permission approval and fail with PROVENANCE_REQUIRED; only URLs surfaced by a prior search/fetch (e.g. the viewdocument wrapper for 22-101 from the title-22 index) were fetched. Crawl-delay 120 s: plan one azleg request per citation."
       },
       "currency": {
         "where": "banner on arsDetail title index and viewdocument wrapper pages; not on bare /ars/ pages (use the Last-Modified header there)",
@@ -284,7 +302,8 @@
         "Crawl-delay 120 s on www.azleg.gov",
         "text shows the version effective January 1 of the year after the latest session, so it can be ahead of the law in force mid-year",
         "publisher disclaims official status (Thomson Reuters edition is official)",
-        "/xml/ is robots-disallowed: no permitted bulk route"
+        "/xml/ is robots-disallowed: no permitted bulk route",
+        "WebFetch gated on constructed azleg URLs (PROVENANCE_REQUIRED) — use the script"
       ],
       "probe": {
         "citation": "A.R.S. § 12-542",
@@ -294,9 +313,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: /ars/12/00542.htm 1,035 chars, 'Except as provided in section 12-551 there shall be commenced', Last-Modified 9 Sep 2026; /ars/13/01105.htm 'A. A person commits first degree murder if:'; /ars/12/00341-01.htm and /ars/41/01092-01.htm both body present. WebFetch: viewdocument wrapper for A.R.S. § 22-101 'A. The board of supervisors shall divide the county into', complete, with 57th Legislature currency banner. /ars/1/00213.htm body present; /ars/01/00213.htm 404."
+        "evidence": "fetch_doc.py: /ars/12/00542.htm 1,035 chars, 'Except as provided in section 12-551 there shall be commenced', Last-Modified 9 Sep 2026; /ars/13/01105.htm 'A. A person commits first degree murder if:'; /ars/12/00341-01.htm and /ars/41/01092-01.htm both body present. WebFetch: viewdocument wrapper for A.R.S. § 22-101 'A. The board of supervisors shall divide the county into', complete, with 57th Legislature currency banner. /ars/1/00213.htm body present; /ars/01/00213.htm 404. | Independent check 2026-10-16: fetch_doc.py /ars/28/00701-02.htm '28-701.02. Excessive speeds; classification A. A person shall not', Last-Modified 9 Sep 2026; second citation Arizona Revised Statutes § 28-701.02 ok"
       },
       "notes": "Title index (arsDetail) is ~70-80K characters of text, within one WebFetch window."
     },
@@ -341,9 +360,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present 'A. Except as provided in subsections B, C and D'; '2025 Arizona Revised Statutes'. Second: /title-13/section-13-751/ 'A. If the state has filed a notice of intent'. 2005 edition /2005/title12/00542.html body present."
+        "evidence": "WebFetch: body present 'A. Except as provided in subsections B, C and D'; '2025 Arizona Revised Statutes'. Second: /title-13/section-13-751/ 'A. If the state has filed a notice of intent'. 2005 edition /2005/title12/00542.html body present. | Independent check 2026-10-16: 'A. Except as provided in subsections B, C and D'; '2025 Arizona Revised Statutes'; second citation A.R.S. § 33-1321 ok"
       },
       "notes": "public.law and Cornell LII do not host the ARS (not separately probed; see absent)."
     },
@@ -359,17 +378,17 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.azleg.gov/const/{article}/{section}.htm",
-        "pattern_rules": "article = Arabic number (convert Roman: II -> 2, VI -> 6); section = Arabic; a decimal section uses an underscore (Art. 2 § 2.1 -> /const/2/2_1.htm). Article 6.1 folder name not verified. Wrapper with currency banner: https://www.azleg.gov/viewDocument/?docName=https://www.azleg.gov/const/{article}/{section}.htm. Article listing: https://www.azleg.gov/constitution/?article={article}.",
+        "pattern_rules": "article = Arabic number (convert Roman: II -> 2, VI -> 6); section = Arabic; a decimal section uses an underscore (Art. 2 § 2.1 -> /const/2/2_1.htm). Article 6.1 folder name not verified. Wrapper with currency banner: https://www.azleg.gov/viewDocument/?docName=https://www.azleg.gov/const/{article}/{section}.htm. Article listing: https://www.azleg.gov/constitution/?article={article}. Article 4 is divided into Part 1 and Part 2 (cited 'art. IV, pt. 2, § 1'); the folder/file naming for parts is NOT verified — take the link from https://www.azleg.gov/constitution/?article=4.",
         "index_url": "https://www.azleg.gov/Constitution/",
         "navigation": "Index links constitution?article=N; each article page lists viewDocument links per section.",
         "format": "html"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "see az-ars-azleg (Crawl-delay 120)",
-        "notes": "WebFetch not run: constructed azleg URLs required a permission approval that went unanswered in this session."
+        "notes": "Script is the primary route. WebFetch gated on constructed azleg URLs (PROVENANCE_REQUIRED)."
       },
       "currency": {
         "where": "constitution index page banner",
@@ -378,7 +397,9 @@
       "hazards": [
         "stale currency banner (refers to 2021 session, next update 'January 2022') — check later amendments",
         "Crawl-delay 120 s",
-        "'.p.htm' style URLs 404 (/const/2/4.p.htm)"
+        "'.p.htm' style URLs 404 (/const/2/4.p.htm)",
+        "bare section pages carry old Last-Modified dates (2002) and the index banner is stale (55th Leg.) — no reliable currency signal",
+        "Article 4 part folder naming unverified"
       ],
       "probe": {
         "citation": "Ariz. Const. art. 2, § 4",
@@ -388,9 +409,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: /const/2/4.htm 'Section 4. No person shall be deprived of life, liberty, or' (136 chars); /const/6/14.htm 'The superior court shall have original jurisdiction'; /const/2/2_1.htm 'Victims' bill of rights' body present."
+        "evidence": "fetch_doc.py: /const/2/4.htm 'Section 4. No person shall be deprived of life, liberty, or' (136 chars); /const/6/14.htm 'The superior court shall have original jurisdiction'; /const/2/2_1.htm 'Victims' bill of rights' body present. | Independent check 2026-10-16: fetch_doc.py /const/2/8.htm 'Section 8. No person shall be disturbed in his private affairs'; second citation Ariz. Const. art. 2, § 8 ok"
       },
       "notes": ""
     },
@@ -413,7 +434,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "blocked-challenge",
         "robots_txt": "azrules.westgroup.com and govt.westlaw.com both answer robots.txt with a bot check",
         "notes": "No Westlaw rules URL was surfaced by search, so WebFetch could not be attempted. www.azcourts.gov/azrules/Help returned HTTP 403 Cloudflare challenge to fetch_doc.py; WebFetch on it errored 'There was an error while fetching'."
@@ -460,7 +481,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "www.azcourts.gov: disallows /*/ctl/, /admin/, DNN system folders; /rules, /Portals allowed",
         "notes": "Only the /rules landing page was fetched (links listed); individual orders not probed."
@@ -470,7 +491,8 @@
         "observed": ""
       },
       "hazards": [
-        "amendment orders only — not the rule as amended"
+        "amendment orders only — not the rule as amended",
+        "www.azcourts.gov serves a Cloudflare challenge on some paths (/azrules/); one challenge switches the host off in fetch_doc.py for the day — request rule pages last"
       ],
       "probe": {
         "citation": "",
@@ -482,7 +504,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py read /rules: links to Recent-Amendments and a 2018 'Final Rules Order R-18-0002' PDF; no order opened."
+        "evidence": "fetch_doc.py read /rules: links to Recent-Amendments and a 2018 'Final Rules Order R-18-0002' PDF; no order opened. | Independent check 2026-10-16: not reachable — script host lock from the earlier /azrules/ challenge; WebFetch gated (not fresh evidence about this page)"
       },
       "notes": ""
     },
@@ -498,17 +520,17 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://apps.azsos.gov/public_services/Title_{title:02d}/{title}-{chapter:02d}.pdf",
-        "pattern_rules": "From observed URLs: Title_17/17-09.pdf, Title_09/9-09.rtf, Title_09/9-03.rtf — folder title 2-digit padded, file title unpadded, chapter 2-digit padded. Section R9-10-101 lives in chapter file 9-10. Not verified on a live chapter (the 17-09 file is a recodified stub).",
+        "pattern_rules": "From observed URLs: Title_17/17-09.pdf, Title_09/9-09.rtf, Title_09/9-03.rtf — folder title 2-digit padded, file title unpadded, chapter 2-digit padded. Section R9-10-101 lives in chapter file 9-10. Not verified on a live chapter (the 17-09 file is a recodified stub). UNPROVEN on a live chapter: independent check could not fetch 9-10.pdf (WebFetch gated, shell refused).",
         "index_url": "https://apps.azsos.gov/public_services/Title_{title:02d}/",
         "navigation": "",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "blocked-challenge",
         "robots_txt": "apps.azsos.gov and azsos.gov answer robots.txt with a bot check (fetch_doc.py REFUSED)",
-        "notes": "WebFetch read the 17-09 PDF; it could not read the 9-09 .rtf ('[binary data]'). Long chapter PDFs will truncate in WebFetch."
+        "notes": "WebFetch read the previously surfaced 17-09 PDF but constructed chapter URLs (9-10.pdf) are gated (PROVENANCE_REQUIRED); shell refused by bot check. Long chapter PDFs will truncate in WebFetch."
       },
       "currency": {
         "where": "chapter file header ('Supp. YY-Q')",
@@ -518,7 +540,8 @@
         "shell route refused by bot check",
         ".rtf files unreadable by WebFetch",
         "long chapter PDFs truncate in WebFetch",
-        "pattern seen only on a recodified stub chapter"
+        "pattern seen only on a recodified stub chapter",
+        "chapter pattern unproven on a live chapter (9-10.pdf not reachable 2026-10-16)"
       ],
       "probe": {
         "citation": "17 A.A.C. 9 (recodified)",
@@ -530,7 +553,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: 17-09.pdf header 'Supp. 14-3', editor's note 'recodified to 13 A.A.C. 13'; no section text. 9-09.rtf: '[binary data]'. Shell refused by bot check."
+        "evidence": "WebFetch: 17-09.pdf header 'Supp. 14-3', editor's note 'recodified to 13 A.A.C. 13'; no section text. 9-09.rtf: '[binary data]'. Shell refused by bot check. | Independent check 2026-10-16: 17-09.pdf 'This Chapter was recodified to 13 A.A.C. 13', 'Supp. 14-3'; live chapter 9-10.pdf gated"
       },
       "notes": "Needs a live-chapter probe (e.g. Title_09/9-10.pdf for R9-10-101) by a run that can WebFetch it."
     },
@@ -553,7 +576,7 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Crawl-delay: 10; /regulations allowed (per Delaware record)",
         "notes": "Respect 10-second crawl delay."
@@ -564,7 +587,8 @@
       },
       "hazards": [
         "may lag the official Code (Last-Modified July 2025)",
-        "repealed/renumbered sections still have pages"
+        "repealed/renumbered sections still have pages",
+        "history notes may stop at an older A.A.R. entry (R9-10-101 latest '28 A.A.R. 927, effective 4/15/2022' on 2026-10-16) — compare with the official chapter Supp. before quoting"
       ],
       "probe": {
         "citation": "A.A.C. R9-10-101",
@@ -574,9 +598,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 54,978 chars, 'In addition to the definitions in A.R.S. §§ 36-401(A) and 36-439'; history '8 A.A.R. 3559, effective August 1, 2002 (Supp. 02-3)'. Second: R4-23-110 'In addition to definitions in A.R.S. § 32-1901'."
+        "evidence": "fetch_doc.py: 54,978 chars, 'In addition to the definitions in A.R.S. §§ 36-401(A) and 36-439'; history '8 A.A.R. 3559, effective August 1, 2002 (Supp. 02-3)'. Second: R4-23-110 'In addition to definitions in A.R.S. § 32-1901'. | Independent check 2026-10-16: WebFetch 'In addition to the definitions in A.R.S. §§ 36-401(A) and'; latest history '28 A.A.R. 927, effective 4/15/2022'; second citation Ariz. Admin. Code § R18-2-101 ok"
       },
       "notes": ""
     },
@@ -610,19 +634,20 @@
       },
       "hazards": [
         "WebFetch truncation of issue PDFs",
-        "shell refused"
+        "shell refused",
+        "section headings (e.g. 'Participate in Rulemaking') are not on every issue — match the 'Volume NN, Issue NN' header instead"
       ],
       "probe": {
         "citation": "32 A.A.R. 2539 (Oct. 16, 2026)",
         "url": "https://apps.azsos.gov/public_services/register/2026/42/contents.pdf",
-        "expect": "PARTICIPATE IN RULEMAKING"
+        "expect": "Volume 32, Issue 42"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 2026 contents.htm lists 'Volume 32', Issue 42 pp. 2539-2634; issue PDF: Information p. 2540, Participate in Rulemaking p. 2541, rulemaking notices from p. 2543; truncated in p. 2560."
+        "evidence": "WebFetch: 2026 contents.htm lists 'Volume 32', Issue 42 pp. 2539-2634; issue PDF: Information p. 2540, Participate in Rulemaking p. 2541, rulemaking notices from p. 2543; truncated in p. 2560. | Independent check 2026-10-16: 'Volume 32, Issue 42, October 16, 2026'; truncated in p. 2560; 2025 Issue 20 (pp. 1573-1620) read pp. 1574-1597 then truncated; second citation 31 A.A.R. 1574 (May 16, 2025) ok"
       },
       "notes": ""
     },
@@ -645,10 +670,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "disallows /*/ctl/, /admin/, DNN system folders; /Portals allowed",
-        "notes": "fetch_doc.py read the PDF (15 pp, 34,371 chars). Later in the run www.azcourts.gov/azrules/Help returned a Cloudflare 403 and fetch_doc.py then refused the whole host for the day. WebFetch of an azcourts Portals PDF taken from a fetch result was not permitted in this session."
+        "notes": "Script is the primary route (read the PDF: 15 pp, 34,371 chars). WebFetch gated on constructed azcourts URLs (PROVENANCE_REQUIRED)."
       },
       "currency": {
         "where": "none; Last-Modified header",
@@ -658,7 +683,8 @@
         "slip pagination; pinpoint by ¶ instead",
         "amended opinions: the case page links a separate '…AmendedOpinion.PDF'; OpinionFiles copy may be replaced in place (Last-Modified after filing date)",
         "year listings are a JS app",
-        "Cloudflare challenge on some azcourts.gov paths can lock the script out of the whole host for a day"
+        "Cloudflare challenge on some azcourts.gov paths can lock the script out of the whole host for a day",
+        "www.azcourts.gov serves a Cloudflare challenge on some paths (/azrules/); one challenge switches the host off in fetch_doc.py for the day — request rule pages last"
       ],
       "probe": {
         "citation": "Cravens v. Montano, No. CV-24-0143-PR (Ariz. Apr. 29, 2025)",
@@ -670,7 +696,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "OK",
-        "evidence": "fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock)."
+        "evidence": "fetch_doc.py: application/pdf 15 pp; caption 'No. CV-24-0143-PR Filed April 29, 2025'; '¶1 We consider the meaning of the phrase'; lists decision below 'No. 2 CA-CV 2023-0108'. Form '/2025/CV-24-0143-PR.pdf' -> 404. Second citation not probed (host lock). | Independent check 2026-10-16: not reproducible — script host lock from the research run's /azrules/ challenge (not fresh evidence); State v. Gordon CR240064PR.pdf and T/AP form untested"
       },
       "notes": "High-profile case pages (https://www.azcourts.gov/News-Info/{docket}) link briefs and amended opinions."
     },
@@ -693,7 +719,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "same DNN robots as www.azcourts.gov; /Decisions allowed",
         "notes": "Pages fetch (shell) but hold no decision rows. Use az-cases-justia for text."
@@ -715,7 +741,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: page 295,958 bytes, app container only, no PDF links; Opinions page text explains posting, no rows."
+        "evidence": "fetch_doc.py: page 295,958 bytes, app container only, no PDF links; Opinions page text explains posting, no rows. | Independent check 2026-10-16: fetch_doc.py 36,904 chars of page text, 0 '.pdf' matches (app shell)"
       },
       "notes": ""
     },
@@ -738,7 +764,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "http-error",
         "robots_txt": "unreachable: robots.txt returns an HTML error page, so fetch_doc.py treats the host as disallowed",
         "notes": "WebFetch permission for the listing was not granted in this session."
@@ -749,7 +775,8 @@
       },
       "hazards": [
         "robots.txt unreachable",
-        "http (not https) links"
+        "http (not https) links",
+        "robots.txt unreachable (HTML error page) — script treats the host as disallowed; use az-cases-justia for Division Two"
       ],
       "probe": {
         "citation": "",
@@ -761,7 +788,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: 'robots.txt on www.appeals2.az.gov unreachable after a retry' (HTML error page)."
+        "evidence": "fetch_doc.py: 'robots.txt on www.appeals2.az.gov unreachable after a retry' (HTML error page). | Independent check 2026-10-16: robots.txt still unreachable; WebFetch gated"
       },
       "notes": "Justia carries Division Two memorandum decisions (2 CA-CR 2026-0161-PR seen)."
     },
@@ -777,7 +804,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/arizona/{court-slug}/{year}/{docket-slug}.html",
-        "pattern_rules": "Supreme: court-slug 'supreme-court'; docket lower-cased, '/' -> '-' (CV-23-0284-PR -> cv-23-0284-pr; CV-24-0251-T/AP -> cv-24-0251-t-ap). Court of Appeals memorandum decisions: 'court-of-appeals-division-one-unpublished' / 'court-of-appeals-division-two-unpublished'; docket lower-cased, spaces -> '-' (1 CA-CV 26-0175 -> 1-ca-cv-26-0175; '1 CA-CV 25-1023 FC' -> 1-ca-cv-25-1023-fc). Slug for published Court of Appeals opinions not verified — use the year listing https://law.justia.com/cases/arizona/court-of-appeals/{year}/.",
+        "pattern_rules": "Supreme: court-slug 'supreme-court'; docket lower-cased, '/' -> '-' (CV-23-0284-PR -> cv-23-0284-pr; CV-24-0251-T/AP -> cv-24-0251-t-ap). Court of Appeals memorandum decisions: 'court-of-appeals-division-one-unpublished' / 'court-of-appeals-division-two-unpublished'; docket lower-cased, spaces -> '-' (1 CA-CV 26-0175 -> 1-ca-cv-26-0175; '1 CA-CV 25-1023 FC' -> 1-ca-cv-25-1023-fc). Published Court of Appeals opinions: 'court-of-appeals-division-one-published' / 'court-of-appeals-division-two-published' (slugs seen in the /court-of-appeals/2026/ listing; no published page fetched yet). Per-collection year URLs (e.g. …/court-of-appeals-division-one-unpublished/2026/) return the same combined listing for all divisions; the combined listing is https://law.justia.com/cases/arizona/court-of-appeals/{year}/.",
         "index_url": "https://law.justia.com/cases/arizona/",
         "navigation": "year listing -> decision page (listing shows 500 of N per page)",
         "format": "html"
@@ -796,7 +823,8 @@
       "hazards": [
         "no Ariz./P.3d pagination; pinpoint by ¶",
         "year listing paginates (500 per page)",
-        "published vs unpublished collections use different slugs"
+        "published vs unpublished collections use different slugs",
+        "per-collection year URLs return the combined Court of Appeals listing (both divisions, published and unpublished)"
       ],
       "probe": {
         "citation": "City of Mesa v. Ryan, No. CV-23-0284-PR (Ariz. Oct. 17, 2024)",
@@ -806,9 +834,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: full opinion ¶1-¶22, '¶1 Under A.R.S. § 12-821.01(A), a person with a claim against'. Second: Anguiano v. Kile, 1 CA-CV 26-0175 (unpublished slug) full text through ¶19, legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE.'"
+        "evidence": "WebFetch: full opinion ¶1-¶22, '¶1 Under A.R.S. § 12-821.01(A), a person with a claim against'. Second: Anguiano v. Kile, 1 CA-CV 26-0175 (unpublished slug) full text through ¶19, legend 'THIS DECISION IS NOT PRECEDENTIAL AND MAY BE CITED ONLY AS AUTHORIZED BY RULE.' | Independent check 2026-10-16: '¶1 Under A.R.S. § 12-821.01(A), a person with a claim against'; complete through ¶22; State v. Gordon CR-24-0064-PR ¶1-¶60 complete; second citation Hartman v. Parrott, No. 1 CA-CV 26-0042 FC (Ariz. App. Oct. 15, 2026) (mem. decision) ok"
       },
       "notes": ""
     },
@@ -834,7 +862,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "none (404)",
-        "notes": ""
+        "notes": "WebFetch also read a constructed docket URL in the independent check."
       },
       "currency": {
         "where": "docket footer",
@@ -853,9 +881,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py and WebFetch (backslash URL from search): 'MEMORANDUM DECISION' 15-Jan-2026, descendant 'ASC CV-26-0046-PR', 'Case Docket as of 10-Aug-2026'; ASC/CV/CV260046.PDF status 'Pending'; ASC/CR/CR260026.PDF lists predecessor '1 CA-SA 25-0153'."
+        "evidence": "fetch_doc.py and WebFetch (backslash URL from search): 'MEMORANDUM DECISION' 15-Jan-2026, descendant 'ASC CV-26-0046-PR', 'Case Docket as of 10-Aug-2026'; ASC/CV/CV260046.PDF status 'Pending'; ASC/CR/CR260026.PDF lists predecessor '1 CA-SA 25-0153'. | Independent check 2026-10-16: descendant 'ASC CV-26-0046-PR'; 'Case Docket as of 10-Aug-2026'; 1CA/CV/CV260042.pdf 3 pp 'CASE DECISION 15-Oct-2026 MEMORANDUM DECISION' (FC suffix dropped); second citation Hartman v. Parrott, 1 CA-CV 26-0042 FC ok"
       },
       "notes": "The public case search (https://apps.azcourts.gov/publicaccess/ and the Party-Case / Lower Court Case Number indexes) is the human route; not probed."
     }
@@ -924,6 +952,10 @@
     "Ariz. R. Sup. Ct. 111(c) memorandum-decision citation rule stated from memory; rule text unreachable.",
     "Constitution Article 6.1 folder name (/const/6.1/ vs /const/6_1/) unverified.",
     "CourtListener ids (ariz, arizctapp, ariztaxct) unverified.",
-    "WebFetch in this session only fetched URLs surfaced by WebSearch/WebFetch; constructed azleg and azcourts URLs were refused for want of permission — WebFetch status of az-constitution-azleg and azcourts PDFs is untested."
+    "WebFetch in this session only fetched URLs surfaced by WebSearch/WebFetch; constructed azleg and azcourts URLs were refused for want of permission — WebFetch status of az-constitution-azleg and azcourts PDFs is untested.",
+    "Re-check az-opinions-supreme-azcourts (CR240064PR.pdf, CV240220TAP.pdf) and az-rules-amendments-azcourts from a fresh day, before any /azrules/ request; consider whether a Cloudflare challenge on one azcourts.gov path should lock the whole host.",
+    "A.A.C. chapter-PDF pattern unproven on a live chapter: needs a search-surfaced live-chapter URL (WebFetch) since the shell is refused.",
+    "Constitution Article 4 parts: azleg folder/file naming for 'art. IV, pt. 2' unverified.",
+    "Justia published Court of Appeals slugs (court-of-appeals-division-one-published / -division-two-published) seen in a listing only; fetch one published page."
   ]
 }
