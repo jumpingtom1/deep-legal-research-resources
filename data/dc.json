@@ -2,7 +2,7 @@
   "schema_version": 1,
   "jurisdiction": "dc",
   "name": "District of Columbia",
-  "compiled": "2026-10-16",
+  "compiled": "2026-10-17",
   "summary": "Statutes: the D.C. Code is on code.dccouncil.gov (Council, one page per section, constructible URL, 'Current through Sept. 26, 2026'); the Council's official GitHub repos (law-xml-codified, law-html) give bulk XML/HTML via raw.githubusercontent.com, lagging the site by months; Justia 2025 is the tier-2 fallback. No constitution: the Home Rule Act/District Charter is in D.C. Code Title 1 ch. 2. Court rules and opinions are PDFs on dccourts.gov, whose robots.txt answers with a bot check (script route refused) and which WebFetch read only intermittently; the D.C. App. R. PDF truncates at Rule 41. MOJs are listed by name only. Justia has D.C. Court of Appeals opinions 1923-2026. DCMR text is downloadable .doc files on dcregs.dc.gov (script ok, WebFetch gated); D.C. Register text sits behind postbacks.",
   "citation_map": {
     "courts": [
@@ -51,9 +51,13 @@
           "D.C. Code § 5-545.06a",
           "section 16-1001 of the D.C. Code",
           "§ 16-1005(c) of the District of Columbia Official Code",
-          "D.C. Code (2012 Repl.) § 22-3020.53"
+          "D.C. Code (2012 Repl.) § 22-3020.53",
+          "D.C. Code § 16–1001",
+          "D.C. Code § 42-3505.01(a)",
+          "section 2-1403.16 of the D.C. Official Code",
+          "D.C. Code § 47-2501(Perm)"
         ],
-        "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?§+\\s*(?P<section>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code",
+        "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?§+\\s*(?P<section>\\d{1,2}A?[-–]\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d{1,2}A?[-–]\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code",
         "routes_to": [
           "dc-code-council",
           "dc-code-github-xml",
@@ -80,9 +84,10 @@
           "Home Rule Act § 602(a)(3)",
           "section 602 of the Home Rule Act",
           "D.C. Code § 1-206.02(a)(3)",
-          "D.C. Home Rule Act § 404"
+          "D.C. Home Rule Act § 404",
+          "Home Rule Charter § 404(a)"
         ],
-        "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*§\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*§+\\s*(?P<section>1-20[1-7]\\.\\d{2,3})(?!\\d)",
+        "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*§\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*§+\\s*(?P<section>1[-–]20[1-7]\\.\\d{2,3})(?!\\d)",
         "routes_to": [
           "dc-homerule-council",
           "dc-code-justia"
@@ -90,22 +95,38 @@
       },
       {
         "family": "court_rules",
-        "label": "D.C. Superior Court Rules",
+        "label": "D.C. Superior Court Rules (with D.C. marker or D.C.-only divisions)",
         "examples": [
-          "Super. Ct. Civ. R. 12(b)(6)",
           "D.C. Super. Ct. Civ. R. 56",
-          "Super. Ct. Crim. R. 33",
+          "D.C. Super. Ct. Crim. R. 33",
           "Super. Ct. Dom. Rel. R. 4",
           "Super. Ct. L&T R. 3",
           "Super. Ct. Civ. R. 28-I",
-          "Superior Court Civil Rule 60(b)",
-          "Rule 12(b)(6) of the Superior Court Rules of Civil Procedure"
+          "Super. Ct. Juv. R. 5",
+          "D.C. Superior Court Civil Rule 60(b)",
+          "Rule 12(b)(6) of the D.C. Superior Court Rules of Civil Procedure"
         ],
-        "regex": "(?:D\\.\\s*C\\.\\s*)?Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Super(?:ior)?\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+)?Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)",
+        "regex": "D\\.\\s*C\\.\\s*Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|D\\.\\s*C\\.\\s+Superior\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)|Super\\.\\s*Ct\\.\\s*(?:Dom\\.\\s*Rel|L\\s*&\\s*T|Sm\\.\\s*Cl|Juv|Neglect|Agency\\s+Rev)\\.?\\s*R\\.?\\s*(?P<rule4>\\d{1,3}(?:-[IVX]+)?)|Super\\.\\s*Ct\\.\\s*Civ\\.\\s*R\\.\\s*(?P<rule5>(?:12|28)-I)\\b",
         "routes_to": [
           "dc-rules-superior",
           "dc-rules-superior-compiled"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Superior Court Civil/Criminal Rules — bare form (D.C. or Delaware)",
+        "examples": [
+          "Super. Ct. Civ. R. 12(b)(6)",
+          "Super. Ct. Crim. R. 33",
+          "Superior Court Civil Rule 60(b)",
+          "Rule 59(e) of the Superior Court Rules of Civil Procedure"
+        ],
+        "regex": "(?<!Del\\.\\s)(?<!Del\\.)Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*(?P<division>Civ(?:il)?|Crim(?:inal)?)\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Superior\\s+Court\\s+Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure",
+        "routes_to": [
+          "dc-rules-superior",
+          "dc-rules-superior-compiled"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -117,7 +138,7 @@
           "Rule 28 of the D.C. Court of Appeals Rules",
           "D.C. Court of Appeals Rule 49"
         ],
-        "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|(?:D\\.\\s*C\\.\\s*)?Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?=\\D|$)(?![^.]{0,40}Circuit)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?",
+        "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|D\\.\\s*C\\.\\s+Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?!\\d)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?",
         "routes_to": [
           "dc-rules-dcca"
         ]
@@ -190,10 +211,11 @@
           "District of Columbia v. R.W., No. 25-248 (U.S. Apr. 20, 2026)",
           "No. 25-248, cert. granted"
         ],
-        "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))",
+        "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?![^\\n]{0,40}D\\.\\s*C\\.\\s*Cir\\.)(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))",
         "routes_to": [
           "dc-scotus-docket"
-        ]
+        ],
+        "context_required": true
       }
     ],
     "law_aliases": {
@@ -221,7 +243,7 @@
       "D.C. App. R.": "DCCA",
       "D.C. Ct. App. R.": "DCCA"
     },
-    "notes": "OUT OF SCOPE, do not route here: the federal U.S. District Court for the District of Columbia ('D.D.C.', CourtListener 'dcd') and the U.S. Court of Appeals for the D.C. Circuit ('D.C. Cir.', 'cadc'; older 'App. D.C.' / 'U.S. App. D.C.' reporters). The case-law regex only accepts '(D.C. YYYY)' or '(D.C. Mon. D, YYYY)' — '(D.C. Cir. 2020)' and '(D.D.C. 2020)' do not match. Caution: D.C. Circuit decisions before Feb. 1, 1971 are binding D.C. precedent (M.A.P. v. Ryan, 285 A.2d 310 (D.C. 1971)) but are federal reports — route them to federal sources. D.C. has no state constitution: the Home Rule Act (Pub. L. 93-198; D.C. Code §§ 1-201.01 to 1-207.71) serves as the charter; Home Rule Act section numbers (§ 602) map to Code sections (§ 1-206.02) only through the Code's 'Section References'/history notes — no formula. D.C. Code section numbers contain a hyphen (title-section, e.g. 16-1001, 2-1402.11, 29A-1053, 5-545.06a): a range '§§ 16-1001 – 16-1058' is two sections joined by an en dash or 'to'; the regex takes the first. Some sections exist in '(Perm)' and '(Temp)' versions (e.g. 47-2501(Perm)); the suffix is captured but its URL form is untested. 'D.C. Code' with no 'Ann.' is the Bluebook form (Bluebook cites D.C. Code (LexisNexis/West)); practitioners also write 'D.C. Official Code'. Court rules: bare 'Rule 12(b)(6)', 'Civ. R.' or 'Rule 28' must not route here without 'Super. Ct.' / 'D.C. App. R.' / 'D.C. Court of Appeals' context (Delaware also uses 'Super. Ct. Civ. R.' — require D.C. context or a 'D.C.' prefix when the query is ambiguous). The Superior Court Civil Rules track the FRCP numbering, with D.C.-only rules such as 28-I and 12-I. D.C. has no codified rules of evidence (memory; not verified). MOJs (memorandum opinion and judgment) are unpublished; D.C. App. R. 28(g) (fetched 2026-10-16, 2021 revision) says unpublished orders/opinions may not be cited except for law of the case, res judicata, collateral estoppel, same-defendant criminal or same-respondent disciplinary matters. DCCA docket numbers are YY-TT-NNNN (CV civil, CF felony, CM misdemeanor, CO collateral criminal, FS/FM family, AA agency, BG bar); dockets are often cited without leading zeros (22-CO-043 = 22-CO-0843 per Justia listing typo — confirm). The DCCA is the highest local court; review is only by U.S. Supreme Court certiorari. DCMR cites: '14 DCMR § 308' → dcregs SectionNumber '14-308'; subsection '308.1' lives in section 308. CourtListener ids are from memory and unverified; 'dcsuperct' in particular is a guess."
+    "notes": "OUT OF SCOPE, do not route here: the federal U.S. District Court for the District of Columbia ('D.D.C.', CourtListener 'dcd') and the U.S. Court of Appeals for the D.C. Circuit ('D.C. Cir.', 'cadc'; older 'App. D.C.' / 'U.S. App. D.C.' reporters). The case-law regex only accepts '(D.C. YYYY)' or '(D.C. Mon. D, YYYY)' — '(D.C. Cir. 2020)' and '(D.D.C. 2020)' do not match. Caution: D.C. Circuit decisions before Feb. 1, 1971 are binding D.C. precedent (M.A.P. v. Ryan, 285 A.2d 310 (D.C. 1971)) but are federal reports — route them to federal sources. D.C. has no state constitution: the Home Rule Act (Pub. L. 93-198; D.C. Code §§ 1-201.01 to 1-207.71) serves as the charter; Home Rule Act section numbers (§ 602) map to Code sections (§ 1-206.02) only through the Code's 'Section References'/history notes — no formula. D.C. Code section numbers contain a hyphen (title-section, e.g. 16-1001, 2-1402.11, 29A-1053, 5-545.06a): a range '§§ 16-1001 – 16-1058' is two sections joined by an en dash or 'to'; the regex takes the first. Some sections exist in '(Perm)' and '(Temp)' versions (e.g. 47-2501(Perm)); the suffix is captured but its URL form is untested. 'D.C. Code' with no 'Ann.' is the Bluebook form (Bluebook cites D.C. Code (LexisNexis/West)); practitioners also write 'D.C. Official Code'. Court rules: bare 'Rule 12(b)(6)', 'Civ. R.' or 'Rule 28' must not route here without 'Super. Ct.' / 'D.C. App. R.' / 'D.C. Court of Appeals' context (Delaware also uses 'Super. Ct. Civ. R.' — require D.C. context or a 'D.C.' prefix when the query is ambiguous). The Superior Court Civil Rules track the FRCP numbering, with D.C.-only rules such as 28-I and 12-I. D.C. has no codified rules of evidence (memory; not verified). MOJs (memorandum opinion and judgment) are unpublished; D.C. App. R. 28(g) (fetched 2026-10-16, 2021 revision) says unpublished orders/opinions may not be cited except for law of the case, res judicata, collateral estoppel, same-defendant criminal or same-respondent disciplinary matters. DCCA docket numbers are YY-TT-NNNN (CV civil, CF felony, CM misdemeanor, CO collateral criminal, FS/FM family, AA agency, BG bar); dockets are often cited without leading zeros (22-CO-043 = 22-CO-0843 per Justia listing typo — confirm). The DCCA is the highest local court; review is only by U.S. Supreme Court certiorari. DCMR cites: '14 DCMR § 308' → dcregs SectionNumber '14-308'; subsection '308.1' lives in section 308. CourtListener ids are from memory and unverified; 'dcsuperct' in particular is a guess. FIX 2026-10-17: Superior Court rule cites without a 'D.C.' marker ('Super. Ct. Civ. R. 12(b)(6)', 'Superior Court Civil Rule 60(b)') are shared with Delaware and are now a separate context_required pattern (negative lookbehind for 'Del.'); the distinctive pattern needs 'D.C.' or a D.C.-only division (Dom. Rel., L&T, Sm. Cl., Juv., Neglect, Agency Rev.) or D.C.-only rules 12-I/28-I. 'Court of Appeals Rule N' now requires 'D.C.' (Georgia uses the bare form). The SCOTUS docket pattern is context_required and refuses a 'D.C. Cir.' parenthetical within 40 characters, so federal D.C. Circuit dockets near 'cert.' do not route here. Section numbers accept an en dash (§ 16–1001, as printed on code.dccouncil.gov); normalise it to an ASCII hyphen for URLs."
   },
   "sources": [
     {
@@ -266,10 +288,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 16-1001 kind=html 4,935 chars, body 'For the purposes of this subchapter, the term:' incl. (5A) 'Family member'; 2-1402.11 22,009 chars; 2-702, 2-651.02-.04 ok. WebFetch (search-result URLs): 2-552 YES '(a) The District of Columbia Office of Documents, established pursuant to', not truncated; 11-502 YES 'In addition to its jurisdiction as a United States district'. Built URL 16-1001: PROVENANCE_REQUIRED (gated)."
+        "evidence": "fetch_doc.py: 16-1001 kind=html 4,935 chars, body 'For the purposes of this subchapter, the term:' incl. (5A) 'Family member'; 2-1402.11 22,009 chars; 2-702, 2-651.02-.04 ok. WebFetch (search-result URLs): 2-552 YES '(a) The District of Columbia Office of Documents, established pursuant to', not truncated; 11-502 YES 'In addition to its jurisdiction as a United States district'. Built URL 16-1001: PROVENANCE_REQUIRED (gated). | Independent check 2026-10-17: WebFetch PROVENANCE_REQUIRED (gated); script ok, 4,935 chars: 'For the purposes of this subchapter, the term:'; root 'Current through Sept. 26, 2026'; second citation D.C. Code § 42-3505.01 ok"
       },
       "notes": "Official bulk mirrors: dc-code-github-xml (XML) and DCCouncil/law-html (HTML). Law Library also hosts D.C. Laws (dc-laws-council)."
     },
@@ -292,10 +314,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "raw.githubusercontent.com allowed by fetch_doc.py; github.com itself REFUSED (robots answered with a bot check) — do not use github.com pages",
-        "notes": "Use raw.githubusercontent.com only. Repo copy can lag the live site (law-html index says 'Current through Apr. 29, 2026' while the live site says Sept. 26, 2026): before quoting, compare with dc-code-council or check the section's history note."
+        "notes": "Use raw.githubusercontent.com only. Repo copy can lag the live site (law-html index says 'Current through Apr. 29, 2026' while the live site says Sept. 26, 2026): before quoting, compare with dc-code-council or check the section's history note. WebFetch of built raw.githubusercontent.com URLs is gated (PROVENANCE_REQUIRED)."
       },
       "currency": {
         "where": "law-html code index.html 'Publication Information' (law-xml-codified index.xml shows only a template)",
@@ -313,10 +335,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: law-xml-codified 16-1001.xml 4,343 chars, grep 'Family member' 3 matches; 2-1402.11.xml 21,818 chars 'Prohibitions.'; law-html 16-1001.html 4,935 chars same text; law-xml/main 16-1001.xml lacks 'Family member' (stale 2016 code); law-xml-codified/main → 404."
+        "evidence": "fetch_doc.py: law-xml-codified 16-1001.xml 4,343 chars, grep 'Family member' 3 matches; 2-1402.11.xml 21,818 chars 'Prohibitions.'; law-html 16-1001.html 4,935 chars same text; law-xml/main 16-1001.xml lacks 'Family member' (stale 2016 code); law-xml-codified/main → 404. | Independent check 2026-10-17: WebFetch PROVENANCE_REQUIRED; script ok, 4,343 chars, '(5A) \"Family member\" means a person:'; law-html index 'Current through Apr. 29, 2026'; second citation D.C. Code § 22-3211 ok"
       },
       "notes": "Corpus/bulk candidate for the whole Code."
     },
@@ -358,10 +380,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: /laws/23-275 39,401 chars, 'D.C. Law 23-275. Intrafamily Offenses and Anti-Stalking Orders Amendment Act of 2020.'; /laws/docs/17-368.pdf kind=pdf 8 pages."
+        "evidence": "fetch_doc.py: /laws/23-275 39,401 chars, 'D.C. Law 23-275. Intrafamily Offenses and Anti-Stalking Orders Amendment Act of 2020.'; /laws/docs/17-368.pdf kind=pdf 8 pages. | Independent check 2026-10-17: script only (row is WebFetch gated): 39,401 chars, 'Intrafamily Offenses and Anti-Stalking Orders Amendment Act of 2020'; second citation D.C. Law 24-176 ok"
       },
       "notes": ""
     },
@@ -405,10 +427,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 16-1001 YES, (5A) 'Family member' present, '2025 District of Columbia Code'; 38-131 YES 'The Chancellor of the District of Columbia Public Schools is', not truncated."
+        "evidence": "WebFetch: 16-1001 YES, (5A) 'Family member' present, '2025 District of Columbia Code'; 38-131 YES 'The Chancellor of the District of Columbia Public Schools is', not truncated. | Independent check 2026-10-17: WebFetch YES 'For the purposes of this subchapter, the term: (1) Attorney General'; '2025 District of Columbia Code'; second citation D.C. Code § 42-3505.01 ok"
       },
       "notes": "public.law and Cornell LII do not host the D.C. Code (see absent)."
     },
@@ -424,7 +446,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://code.dccouncil.gov/us/dc/council/code/sections/{section}",
-        "pattern_rules": "Use the D.C. Code section (1-206.02). A Home Rule Act section number (§ 602) has no formula to a Code section: open https://code.dccouncil.gov/us/dc/council/code/titles/1/chapters/2 (subchapter ranges shown) and match the Act section in each Code section's history note ('§ 602').",
+        "pattern_rules": "Use the D.C. Code section (1-206.02). A Home Rule Act section number (§ 602) has no formula to a Code section: open https://code.dccouncil.gov/us/dc/council/code/titles/1/chapters/2 (subchapter ranges shown) and match the Act section in each Code section's history note ('§ 602'). Hint: Act title N = subchapter N (§§ 1-20N.xx); Act § N0K usually = D.C. Code § 1-20N.0K (§ 404 → 1-204.04, § 602 → 1-206.02). Try that first, then confirm '§ N0K' in the history note.",
         "index_url": "https://code.dccouncil.gov/us/dc/council/code/titles/1/chapters/2",
         "navigation": "chapter 2 index → subchapter (ranges shown) → section page; Act § number is in the history note",
         "format": "html"
@@ -451,10 +473,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 1-206.02 '(a) The Council shall have no authority to pass any act contrary to the provisions'; /titles/1/chapters/2 lists subchapters I-VII with ranges."
+        "evidence": "fetch_doc.py: 1-206.02 '(a) The Council shall have no authority to pass any act contrary to the provisions'; /titles/1/chapters/2 lists subchapters I-VII with ranges. | Independent check 2026-10-17: script ok: 1-206.02 'The Council shall have no authority to pass any act contrary'; ch. 2 index shows subch. ranges; second citation D.C. Home Rule Act § 404 ok"
       },
       "notes": ""
     },
@@ -472,7 +494,7 @@
         "url_pattern": "https://dccourts.gov/sites/default/files/2024-06/DCCA_Complete_Rules.pdf",
         "pattern_rules": "Fixed upload path (/sites/default/files/{YYYY-MM}/...) — changes on re-issue; newer compilations may exist. Re-confirm from the Court of Appeals rules page.",
         "index_url": "https://www.dccourts.gov/court-of-appeals/rules",
-        "navigation": "Court of Appeals rules page → complete rules PDF (index page itself not fetched)",
+        "navigation": "Rules 1-29: WebFetch window 1; Rules 30-41(f): WebFetch with offset=100000; Rules 42-49 and appendices: no working route (extraction stops in 41(g); shell refused) — use a per-rule PDF only if its URL is found (e.g. by WebSearch). The rules index page was never fetched, so a newer compilation may exist.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -491,7 +513,8 @@
         "shell blocked by bot check",
         "upload-month path changes",
         "intermittent WebFetch CLIENT_ERROR on dccourts.gov",
-        "currency possibly stale (2021 revision)"
+        "currency possibly stale (2021 revision)",
+        "Rules 42-49 unreachable; index page unverified (possible newer compilation)"
       ],
       "probe": {
         "citation": "D.C. App. R. 28(a)",
@@ -500,10 +523,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 28(a) YES 'Brief of the Appellant (or Petitioner). The brief must contain,'; Rule 40 NOT PRESENT in window 1; offset 100000: Rules 35 and 40 present, ends 'A mandate is not issued in a disciplinary cas' (Rule 41(g)). Shell: REFUSED (bot check)."
+        "evidence": "WebFetch: Rule 28(a) YES 'Brief of the Appellant (or Petitioner). The brief must contain,'; Rule 40 NOT PRESENT in window 1; offset 100000: Rules 35 and 40 present, ends 'A mandate is not issued in a disciplinary cas' (Rule 41(g)). Shell: REFUSED (bot check). | Independent check 2026-10-17: WebFetch YES 'Brief of the Appellant (or Petitioner). The brief must contain,'; '(Revised effective December 1, 2021)'; second citation D.C. App. R. 40(a) ok"
       },
       "notes": "Rule 28(g) governs citation of unpublished MOJs (see citation_map.notes)."
     },
@@ -521,12 +544,12 @@
         "url_pattern": "https://www.dccourts.gov/sites/default/files/rules-superior-court/{Division}%20Rule%20{N}.%20{Title}.pdf",
         "pattern_rules": "Per-rule file names embed the rule title ('Civil Rule 1. Scope and Purpose.pdf'), so the URL is not derivable from a citation — take the href from the rules index. Index page lists per-rule links but WebFetch did not expose hrefs.",
         "index_url": "https://www.dccourts.gov/superior-court/rules",
-        "navigation": "rules index → rule set (e.g. 'Superior Court Rules of Civil Procedure') → 'Civil Rule N. Title' link → PDF; if hrefs are not visible, WebSearch 'dccourts.gov \"Civil Rule N.\"' to obtain the URL",
+        "navigation": "Reachable only for per-rule PDFs whose URL is already known (e.g. from a WebSearch result). The index lists titles but WebFetch shows no hrefs; a URL filled from the pattern + index title is gated for WebFetch (PROVENANCE_REQUIRED) and the shell is REFUSED, and WebSearch often finds nothing (Criminal Rule 33).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "blocked-challenge",
         "robots_txt": "see dc-rules-dcca (bot check on robots.txt)",
         "notes": "Index WebFetch returned rule-set names and per-rule titles but no hrefs."
@@ -539,7 +562,9 @@
         "URL not constructible (title in file name)",
         "no currency statement",
         "shell blocked",
-        "intermittent WebFetch CLIENT_ERROR"
+        "intermittent WebFetch CLIENT_ERROR",
+        "index hides hrefs; built per-rule URLs gated for WebFetch; shell refused",
+        "Independent check 2026-10-17: second citation Super. Ct. Crim. R. 33 (Criminal Rule 33. New Trial.pdf) could not be reached by any route"
       ],
       "probe": {
         "citation": "Super. Ct. Civ. R. 1",
@@ -548,10 +573,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 1 YES 'These rules govern the procedure in all civil actions and'; heading 'COMMENT TO 2017 AMENDMENTS'. Index /superior-court/rules: 18 rule sets listed, hrefs not exposed."
+        "evidence": "WebFetch: Rule 1 YES 'These rules govern the procedure in all civil actions and'; heading 'COMMENT TO 2017 AMENDMENTS'. Index /superior-court/rules: 18 rule sets listed, hrefs not exposed. | Independent check 2026-10-17: WebFetch YES 'These rules govern the procedure in all civil actions and'; 'COMMENT TO 2017 AMENDMENTS'"
       },
       "notes": ""
     },
@@ -584,7 +609,8 @@
         "observed": "Superior-Court-Rules-of-Civil-Procedure-2025.pdf"
       },
       "hazards": [
-        "could not be read by any route"
+        "could not be read by any route",
+        "do not route citations here until readable"
       ],
       "probe": {
         "citation": "Super. Ct. Civ. R. 12(b)",
@@ -593,12 +619,12 @@
       },
       "verification": {
         "status": "reported",
-        "date": "2026-10-16",
+        "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "URL from WebSearch result; WebFetch 'There was an error while fetching' (twice); shell refused host."
+        "evidence": "URL from WebSearch result; WebFetch 'There was an error while fetching' (twice); shell refused host. | Independent check 2026-10-17: WebFetch CLIENT_ERROR 'There was an error while fetching.'; script REFUSED (bot check); index shows no link. Not re-tried (usage limits)."
       },
-      "notes": ""
+      "notes": "Kept as corpus candidate only."
     },
     {
       "id": "dc-dcmr-dcregs",
@@ -612,9 +638,9 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www.dcregs.dc.gov/Common/DCMR/SectionList.aspx?SectionNumber={title}-{section}",
-        "pattern_rules": "14 DCMR § 308 → SectionNumber=14-308 (metadata only; text is behind a postback 'View Text'). Text route: chapter list https://www.dcregs.dc.gov/Common/DCMR/RuleList.aspx?ChapterNum={title}-{chapter} (chapter = section div 100 for 3-digit sections: 308 → 14-3) — each row's 'View text' anchor carries title/href 'https://dcregs.dc.gov/Common/DCMR/RuleList.aspx?DownloadFile={GUID}' → .doc file (e.g. 14308.doc). GUIDs are not derivable; take from the chapter page. Title list: ChapterList.aspx?TitleNum={title}. TitleList.aspx redirects to ErrorPage.aspx.",
+        "pattern_rules": "14 DCMR § 308 → SectionNumber=14-308 (metadata only; text is behind a postback 'View Text'). Text route: chapter list https://www.dcregs.dc.gov/Common/DCMR/RuleList.aspx?ChapterNum={title}-{chapter} (chapter = section div 100 for 3-digit sections: 308 → 14-3) — each row's 'View text' anchor carries title/href 'https://dcregs.dc.gov/Common/DCMR/RuleList.aspx?DownloadFile={GUID}' → .doc file (e.g. 14308.doc). GUIDs are not derivable; take from the chapter page. Title list: ChapterList.aspx?TitleNum={title}. TitleList.aspx redirects to ErrorPage.aspx. GUIDs may be braced ({C9DF4839-6F7B-48CC-98F5-D682CF4EAB0B}) and work as-is.",
         "index_url": "https://www.dcregs.dc.gov/Common/DCMR/ChapterList.aspx?TitleNum={title}",
-        "navigation": "ChapterList.aspx?TitleNum=T → RuleList.aspx?ChapterNum=T-C (lists sections, headings, effective dates) → row's DownloadFile GUID → .doc text",
+        "navigation": "ChapterList.aspx?TitleNum=T → RuleList.aspx?ChapterNum=T-C → `python3 scripts/fetch_doc.py links <RuleList URL> DownloadFile` lists the 'View text' DownloadFile URLs in row order (re-tested 2026-10-17: 17 links for 19 rows on ChapterNum=14-3 — rows without a file are skipped, so order alone can mis-map) → confirm the section with `fetch_doc.py info <url>` (filename=14308.doc = § 308) → grep/verify the .doc text.",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -633,7 +659,8 @@
         "DownloadFile GUIDs not derivable",
         "ASP.NET postbacks for many links",
         "1/1/1900 placeholder effective dates",
-        "WebFetch gated"
+        "WebFetch gated",
+        "DownloadFile links all labelled 'View text'; map to sections by the .doc filename, not by position"
       ],
       "probe": {
         "citation": "14 DCMR § 308",
@@ -642,10 +669,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: RuleList ChapterNum=14-3 16,065 chars, 19 sections; DownloadFile GUID for 14-308 → filename=14308.doc 22,528 chars; text '308 SECURITY DEPOSITS 308.1 For purposes of this chapter'; SectionList 14-308 metadata with source note '5G DCRR § 2908'."
+        "evidence": "fetch_doc.py: RuleList ChapterNum=14-3 16,065 chars, 19 sections; DownloadFile GUID for 14-308 → filename=14308.doc 22,528 chars; text '308 SECURITY DEPOSITS 308.1 For purposes of this chapter'; SectionList 14-308 metadata with source note '5G DCRR § 2908'. | Independent check 2026-10-17: WebFetch not tried (gated per row); script ok: 14308.doc 22,528 chars, 'security deposit” shall mean' found; second citation 18 DCMR § 2200 / § 2201 ok"
       },
       "notes": "Cornell LII does not carry D.C. regulations (its state-regulations list skips D.C.)."
     },
@@ -709,15 +736,16 @@
         "url_pattern": "https://www.dccourts.gov/court-of-appeals/opinions-memorandum-of-judgments?combine={text}&field_date_value={from}&field_date_value_1={to}&field_type_value=All&order=field_date&sort=desc&page={n}",
         "pattern_rules": "GET filter parameters seen in search-engine URLs (not tested by a successful fetch): combine = free text (party/docket), field_date_value / field_date_value_1 = date range, field_type_value = All (or a type), order/sort, page (0-based). Table columns: Appeal Number, Case, Date, Disposition, Judge. Opinion PDFs live at /sites/default/files/{upload YYYY-MM}/{file}.pdf (e.g. 2018-12/14-CV-101.pdf, 2026-05/Greer v US 23-CF-389.pdf) — upload month and file name are not derivable.",
         "index_url": "https://www.dccourts.gov/court-of-appeals/opinions-memorandum-of-judgments",
-        "navigation": "listing (filter by text/date) → row → opinion PDF link; WebFetch of two listing pages showed NO hrefs in the table — if no link is visible, find the PDF by WebSearch '\"<docket>\" site:dccourts.gov' or use dc-cases-justia",
-        "format": "pdf"
+        "navigation": "LOCATE via dc-cases-justia (year listing / docket slug). Use dccourts.gov only to READ a PDF whose URL is already known (from Justia, a WebSearch result or a citing page). The listing (bare, ?page=1, ?combine=…) returned CLIENT_ERROR to WebFetch on 2026-10-16/17 and WebSearch '\"<docket>\" site:dccourts.gov' did not find the Greer PDF.",
+        "format": "pdf",
+        "read_via": "dc-cases-justia locates; dccourts.gov PDF read only for known URLs"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok (truncated)",
+        "webfetch": "fail",
         "shell": "blocked-challenge",
         "robots_txt": "robots.txt answered with a bot check; fetch_doc.py REFUSED the host for the day",
-        "notes": "WebFetch worked for listing ?page=47 and ?page=107 and the 14-CV-101 PDF (116,785 chars; window 1 ends at 100,000), then failed with CLIENT_ERROR on 4 listing/PDF URLs. Bare listing URL (self-built) was gated."
+        "notes": "WebFetch worked for listing ?page=47 and ?page=107 and the 14-CV-101 PDF (116,785 chars; window 1 ends at 100,000), then failed with CLIENT_ERROR on 4 listing/PDF URLs. Bare listing URL (self-built) was gated. Listing: treat WebFetch as failing (intermittent CLIENT_ERROR); known PDF URLs sometimes read."
       },
       "currency": {
         "where": "none stated",
@@ -730,7 +758,8 @@
         "listing hrefs not exposed to WebFetch",
         "intermittent WebFetch CLIENT_ERROR",
         "shell blocked by bot check",
-        "long opinions exceed one WebFetch window"
+        "long opinions exceed one WebFetch window",
+        "listing unreachable (CLIENT_ERROR ×3 in independent check); new opinion PDFs cannot be located on this host"
       ],
       "probe": {
         "citation": "Competitive Enterprise Institute v. Mann, Nos. 14-CV-101 & 14-CV-126 (D.C. Dec. 22, 2016, amended Dec. 13, 2018)",
@@ -739,10 +768,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body YES 'These appeals present us with legal issues of first impression'; footnote notes prior opinion at 150 A.3d 1213; ~58 pp; truncated at 100,000 of 116,785 chars. Listing ?page=47: MOJ/opinion rows, no links. Shell: REFUSED (bot check on robots.txt)."
+        "evidence": "WebFetch: body YES 'These appeals present us with legal issues of first impression'; footnote notes prior opinion at 150 A.3d 1213; ~58 pp; truncated at 100,000 of 116,785 chars. Listing ?page=47: MOJ/opinion rows, no links. Shell: REFUSED (bot check on robots.txt). | Independent check 2026-10-17: WebFetch YES 'These appeals present us with legal issues of first impression'; 150 A.3d 1213 footnote; truncated at 100,000"
       },
       "notes": "Greer v. United States, 23-CF-389 (2026-05 upload) found by search but WebFetch CLIENT_ERROR."
     },
@@ -787,10 +816,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body YES 'Marquette Jordan was convicted of second-degree murder and two related'; complete to 'So ordered.'; 2026 year listing gives docket slugs; court index lists only the Court of Appeals, years 1923-2026."
+        "evidence": "WebFetch: body YES 'Marquette Jordan was convicted of second-degree murder and two related'; complete to 'So ordered.'; 2026 year listing gives docket slugs; court index lists only the Court of Appeals, years 1923-2026. | Independent check 2026-10-17: WebFetch YES 'Marquette Jordan was convicted of second-degree murder and two related'; ends 'So ordered.'; second citation Greer v. United States, No. 23-CF-389 (D.C. May 14, 2026) ok"
       },
       "notes": "Justia's listing lags the court by ~2 months (newest Aug. 13, 2026 on Oct. 16, 2026)."
     },
@@ -813,10 +842,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "allowed for the docket path (fetch_doc.py ok)",
-        "notes": ""
+        "notes": "WebFetch of the built docket URL waits on a permission prompt (PROVENANCE_REQUIRED); use fetch_doc.py."
       },
       "currency": {
         "where": "docket entries (dated)",
@@ -833,10 +862,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 15,277 chars; 'Lower Ct: District of Columbia Court of Appeals', 'Case Numbers: (23-FS-0589)'; Apr 20 2026 'Petition GRANTED. Judgment REVERSED and case REMANDED'."
+        "evidence": "fetch_doc.py: 15,277 chars; 'Lower Ct: District of Columbia Court of Appeals', 'Case Numbers: (23-FS-0589)'; Apr 20 2026 'Petition GRANTED. Judgment REVERSED and case REMANDED'. | Independent check 2026-10-17: WebFetch PROVENANCE_REQUIRED; script ok 15,277 chars: 'Petition GRANTED. Judgment REVERSED and case REMANDED'"
       },
       "notes": ""
     },
@@ -852,7 +881,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.dccourts.gov/court-of-appeals/opinions-memorandum-of-judgments?combine={docket_or_party}&field_type_value=All&order=field_date&sort=desc",
-        "pattern_rules": "Search the DCCA listing by docket or party name (GET parameters as in dc-opinions-dcca, untested); Justia year listings also show later decisions on the same docket with -0/-1 suffixes. No separate published list of en banc grants was found.",
+        "pattern_rules": "Working route: Justia year listings, where later decisions on the same docket carry -0/-1 slug suffixes (dc-cases-justia). The dccourts.gov listing filter is untested and returned CLIENT_ERROR.",
         "index_url": "https://www.dccourts.gov/court-of-appeals/opinions-memorandum-of-judgments",
         "navigation": "",
         "format": "pdf"
@@ -870,7 +899,8 @@
       },
       "hazards": [
         "en banc grant orders may not be posted",
-        "docket/party search only"
+        "docket/party search only",
+        "dccourts.gov listing CLIENT_ERROR; no probe"
       ],
       "probe": {
         "citation": "",
@@ -879,10 +909,10 @@
       },
       "verification": {
         "status": "reported",
-        "date": "2026-10-16",
+        "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Rules 35/40 confirmed in dc-rules-dcca; amended opinion seen (14-CV-101 'amended December 13, 2018'); no en banc order list located; listing search not tested."
+        "evidence": "Rules 35/40 confirmed in dc-rules-dcca; amended opinion seen (14-CV-101 'amended December 13, 2018'); no en banc order list located; listing search not tested. | Independent check 2026-10-17: no probe URL in record; listing ?combine=Mann&field_type_value=All... WebFetch CLIENT_ERROR"
       },
       "notes": ""
     }
@@ -971,6 +1001,8 @@
     "D.C. Register text retrieval by GET (notice and issue files are postbacks).",
     "Superior Court opinions: no free official database located (not searched in depth).",
     "D.C. Rules of Professional Conduct (D.C. Bar / Court of Appeals) not probed.",
-    "CourtListener ids 'dc' and 'dcsuperct' unverified."
+    "CourtListener ids 'dc' and 'dcsuperct' unverified.",
+    "dc-opinions-dcca: does the dccourts.gov opinions listing work at all for automated readers (CLIENT_ERROR on every listing URL in the independent check)?",
+    "dc-rules-superior: per-rule PDF URLs are not discoverable without the index hrefs; can the rules index expose them (fetch_doc.py links once the host is reachable)?"
   ]
 }

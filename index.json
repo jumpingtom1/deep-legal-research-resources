@@ -211,16 +211,16 @@
     "dc": {
       "name": "District of Columbia",
       "file": "jurisdictions/dc.md",
-      "sha256": "6b3f4523242e89e01ebec6426845d6df8971c00ff4405bb7c15b5f00152047d1",
-      "compiled": "2026-10-16",
+      "sha256": "2643f1745a9142d147a90c62da6f754d3c8f3603d6ee03f81fa1d7f924963d74",
+      "compiled": "2026-10-17",
       "counts": {
-        "verified": 11,
+        "verified_independent": 11,
         "reported": 3
       },
       "citation_patterns": [
         {
           "label": "D.C. Code (Official Code)",
-          "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?\u00a7+\\s*(?P<section>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code",
+          "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?\u00a7+\\s*(?P<section>\\d{1,2}A?[-\u2013]\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}A?[-\u2013]\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code",
           "context_required": false
         },
         {
@@ -230,17 +230,22 @@
         },
         {
           "label": "Home Rule Act / District Charter",
-          "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*\u00a7\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*\u00a7+\\s*(?P<section>1-20[1-7]\\.\\d{2,3})(?!\\d)",
+          "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*\u00a7\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*\u00a7+\\s*(?P<section>1[-\u2013]20[1-7]\\.\\d{2,3})(?!\\d)",
           "context_required": false
         },
         {
-          "label": "D.C. Superior Court Rules",
-          "regex": "(?:D\\.\\s*C\\.\\s*)?Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Super(?:ior)?\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+)?Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)",
+          "label": "D.C. Superior Court Rules (with D.C. marker or D.C.-only divisions)",
+          "regex": "D\\.\\s*C\\.\\s*Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|D\\.\\s*C\\.\\s+Superior\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)|Super\\.\\s*Ct\\.\\s*(?:Dom\\.\\s*Rel|L\\s*&\\s*T|Sm\\.\\s*Cl|Juv|Neglect|Agency\\s+Rev)\\.?\\s*R\\.?\\s*(?P<rule4>\\d{1,3}(?:-[IVX]+)?)|Super\\.\\s*Ct\\.\\s*Civ\\.\\s*R\\.\\s*(?P<rule5>(?:12|28)-I)\\b",
           "context_required": false
+        },
+        {
+          "label": "Superior Court Civil/Criminal Rules \u2014 bare form (D.C. or Delaware)",
+          "regex": "(?<!Del\\.\\s)(?<!Del\\.)Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*(?P<division>Civ(?:il)?|Crim(?:inal)?)\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Superior\\s+Court\\s+Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure",
+          "context_required": true
         },
         {
           "label": "D.C. Court of Appeals Rules",
-          "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|(?:D\\.\\s*C\\.\\s*)?Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?=\\D|$)(?![^.]{0,40}Circuit)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?",
+          "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|D\\.\\s*C\\.\\s+Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?!\\d)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?",
           "context_required": false
         },
         {
@@ -265,8 +270,8 @@
         },
         {
           "label": "U.S. Supreme Court docket (certiorari from the D.C. Court of Appeals)",
-          "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))",
-          "context_required": false
+          "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?![^\\n]{0,40}D\\.\\s*C\\.\\s*Cir\\.)(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))",
+          "context_required": true
         }
       ]
     },
@@ -779,17 +784,17 @@
     "md": {
       "name": "Maryland",
       "file": "jurisdictions/md.md",
-      "sha256": "5fba5e50407b9c21f3cfea5914265ebc449dd78f4e3e3d0e534754034b12421a",
-      "compiled": "2026-10-16",
+      "sha256": "0eeffc5afa64cf785f632aa17006d60b480cad93af2f4b51032c27a4666fd6d9",
+      "compiled": "2026-10-17",
       "counts": {
-        "verified": 13,
-        "blocked": 1,
-        "reported": 1
+        "verified_independent": 12,
+        "reported": 2,
+        "blocked": 1
       },
       "citation_patterns": [
         {
           "label": "Annotated Code of Maryland (articles)",
-          "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Crim\\.\\s*Proc\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Utils\\.|Pub\\.\\s*Safety|Local\\s*Gov['\u2019]t|Hum\\.\\s*Servs\\.|Local\\s*Gov['\u2019]t|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*Occ\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Util\\.|Econ\\.\\s*Dev\\.|Real\\s*Prop\\.|Gen\\.\\s*Prov\\.|Fin\\.\\s*Inst\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Alc\\.\\s*Bev\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Nat\\.\\s*Res\\.|Elec\\.\\s*Law|Crim\\.\\s*Law|Bus\\.\\s*Reg\\.|Land\\s*Use|Tax\\s*[-\u2013]\\s*Gen\\.|Fam\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Com\\.\\s*Law|Transp\\.|Envir\\.|Agric\\.|Educ\\.|Env['\u2019]t|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|SFP|HCD|CJP|BOP|PUA|CL|CS|CA|EC|AG|FI|BR|ET|CP|CR|SF|HS|PU|FL|CJ|LU|AB|IN|LG|NR|HG|TP|RP|ED|GP|HO|SG|EN|TG|SP|PS|HU|EL|TR|LE|BO)\\b))\\s*\u00a7+\\s*(?P<section2>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:\u00a7+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))\\s+Article",
+          "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Local\\s*Gov['\u2019]t|Pub\\.\\s*Safety|Pub\\.\\s*Utils\\.|State\\s*Gov['\u2019]t|Health\\s*Occ\\.|Hum\\.\\s*Servs\\.|State\\s*Gov['\u2019]t|Local\\s*Gov['\u2019]t|Crim\\.\\s*Proc\\.|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*[-\u2013]\\s*Gen\\.|Econ\\.\\s*Dev\\.|Fin\\.\\s*Inst\\.|Real\\s*Prop\\.|Pub\\.\\s*Util\\.|Gen\\.\\s*Prov\\.|Bus\\.\\s*Reg\\.|Alc\\.\\s*Bev\\.|Crim\\.\\s*Law|Nat\\.\\s*Res\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Elec\\.\\s*Law|Tax\\s*[-\u2013]\\s*Prop\\.|Com\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Land\\s*Use|Fam\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Transp\\.|Agric\\.|Envir\\.|Env['\u2019]t|Educ\\.|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Finance\\s*(?:&|and)\\s*Procurement|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Economic\\s*Development|Labor\\s*(?:&|and)\\s*Employment|Business\\s*Regulation|Alcoholic\\s*Beverages|Estates\\s*(?:&|and)\\s*Trusts|General\\s*Provisions|Criminal\\s*Procedure|Health\\s*Occupations|Natural\\s*Resources|Public\\s*Utilities|Local\\s*Government|State\\s*Government|Health\\s*\\s*[-\u2013]\\s*\\s*General|Human\\s*Services|Health\\s*General|Health\\s*[-\u2013]\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Commercial\\s*Law|Transportation|Real\\s*Property|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Public\\s*Safety|Tax\\s*Property|Election\\s*Law|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Agriculture|Environment|Tax\\s*[-\u2013]\\s*General|Tax\\s*General|Family\\s*Law|Insurance|Education|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article4>Courts)\\s+Article,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section4>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|HCD|BOP|CJP|SFP|PUA|CP|LU|EC|PS|SP|RP|TG|CS|ET|LG|SG|FI|AG|AB|CL|TP|BR|CA|HG|NR|HO|ED|GP|CJ|HS|IN|CR|TR|LE|EN|BO|EL|PU|HU|SF|FL)\\b))\\s*\u00a7+\\s*(?P<section2>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:\u00a7+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Finance\\s*(?:&|and)\\s*Procurement|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Economic\\s*Development|Labor\\s*(?:&|and)\\s*Employment|Business\\s*Regulation|Alcoholic\\s*Beverages|Estates\\s*(?:&|and)\\s*Trusts|General\\s*Provisions|Criminal\\s*Procedure|Health\\s*Occupations|Natural\\s*Resources|Public\\s*Utilities|Local\\s*Government|State\\s*Government|Health\\s*\\s*[-\u2013]\\s*\\s*General|Human\\s*Services|Health\\s*General|Health\\s*[-\u2013]\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Commercial\\s*Law|Transportation|Real\\s*Property|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Public\\s*Safety|Tax\\s*Property|Election\\s*Law|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Agriculture|Environment|Tax\\s*[-\u2013]\\s*General|Tax\\s*General|Family\\s*Law|Insurance|Education|Land\\s*Use))\\s+Article",
           "context_required": false
         },
         {
