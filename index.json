@@ -2080,10 +2080,10 @@
     "sc": {
       "name": "South Carolina",
       "file": "jurisdictions/sc.md",
-      "sha256": "8d316279486752d18b32af046c7273493dc152b7178b6ab5d58f2728aa696c3b",
+      "sha256": "9b99e1c522c4d231c6611bbd610a6741109a831bb72f2715493e5ab2aba8afbc",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 8,
+        "verified_independent": 8,
         "reported": 2,
         "blocked": 2
       },

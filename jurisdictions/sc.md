@@ -8,7 +8,7 @@ _Generated from `data/sc.json` (compiled 2026-10-17, schema v1). Do not edit by 
 
 ## Summary
 
-Statutes, constitution, regulations and the State Register all come from scstatehouse.gov (unofficial, robots-permitted, script and fetch tool both work): the Code is one HTML page per chapter (t{TT}c{CCC}.php, no section anchors, long chapters truncate in the fetch tool) current through the 2025 Session; the Constitution is per-article PDFs; regulations are chapter PDFs (some 1.5M chars). The judiciary site www.sccourts.org disallows all robots, so official opinions and ALL court rules (SCRCP, SCRE, SCACR/RPC) are link-only with no tier-2 copy of the rules. Case text comes from Justia (constructible by Opinion No., incl. unpublished YYYY-UP-NNN; fetch tool only, script refused); subsequent history from the robots-free C-Track docket portal by a plain GET search.
+Statutes, constitution, regulations and the State Register all come from scstatehouse.gov (unofficial, robots-permitted, script and fetch tool both work): the Code is one HTML page per chapter (t{TT}c{CCC}.php, no section anchors, long chapters truncate in the fetch tool) current through the 2025 Session; the Constitution is per-article PDFs; regulations are chapter PDFs (some 1.5M chars). The judiciary site www.sccourts.org disallows all robots, so official opinions and ALL court rules (SCRCP, SCRE, SCACR/RPC) are link-only with no tier-2 copy of the rules. Case text comes from Justia (constructible by Opinion No., incl. unpublished YYYY-UP-NNN; fetch tool only, script refused); subsequent history (docket events only) from the court's robots-free C-Track docket portal by a plain GET search. State Library depository advance sheets are tier 1 but link-only (PDFs 403).
 
 ## G. Citation map
 
@@ -78,11 +78,11 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Official status:** General site disclaimer; acts are cited by the Code disclaimer as part of the official law but the web copies are not stated to be official.
 - **Hazard:** needed because the online Code is only current through the 2025 Session
 - **Probe:**  → `https://www.scstatehouse.gov/newlaws.php` — expect: "Ratification Sheets & Act Lists"
-- **Evidence (2026-10-17):** Script: newlaws.php 200, 'Ratification Sheets & Act Lists', '2025-2026 Legislative Session'. No act text fetched.
+- **Evidence (2026-10-17):** Script: newlaws.php 200, 'Ratification Sheets & Act Lists', '2025-2026 Legislative Session'. No act text fetched. | Independent check 2026-10-17: WebFetch newlaws.php YES 'Ratification Sheets & Act Lists', '2025-2026 Legislative Session'; script grep same (index only; act text unprobed)
 
 ### `sc-code-scstatehouse` — South Carolina Code of Laws, unannotated (scstatehouse.gov)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All 63 titles, one HTML page per chapter (text, numbering, history, editor's notes); per-chapter Word downloads. Historical snapshots under /Archives/CodeofLaws{YYYY}/ (seen in search results for 2000-2013, not fetched).
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -100,12 +100,12 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Hazard:** no currency line on chapter pages
 - **Hazard:** Word/HTML only; no PDF of the Code
 - **Probe:** S.C. Code Ann. § 15-3-530 → `https://www.scstatehouse.gov/code/t15c003.php` — expect: "SECTION 15-3-530. Three years. Within three years:"
-- **Evidence (2026-10-17):** Script: t15c003.php 45,604 chars; grep 'SECTION 15-3-530. Three years. Within three years: (1) an action upon a contract'. Second title: t16c003.php 'SECTION 16-3-20. Punishment for murder'; t01c023.php 'SECTION 1-23-380. Judicial review upon exhaustion'; t12c006.php 'SECTION 12-6-510. Tax rates'; t36c002A.php 'SECTION 36-2A-103.'. WebFetch t15c003: YES 'Within three years: (1) an action upon a contract', ends § 15-3-700, not truncated; WebFetch t16c003: truncated at 100,000 of 124,663 chars.
+- **Evidence (2026-10-17):** Script: t15c003.php 45,604 chars; grep 'SECTION 15-3-530. Three years. Within three years: (1) an action upon a contract'. Second title: t16c003.php 'SECTION 16-3-20. Punishment for murder'; t01c023.php 'SECTION 1-23-380. Judicial review upon exhaustion'; t12c006.php 'SECTION 12-6-510. Tax rates'; t36c002A.php 'SECTION 36-2A-103.'. WebFetch t15c003: YES 'Within three years: (1) an action upon a contract', ends § 15-3-700, not truncated; WebFetch t16c003: truncated at 100,000 of 124,663 chars. | Independent check 2026-10-17: Script grep 'SECTION 15-3-530. Three years. Within three years: (1) an action upon a contract'; WebFetch YES, ends 15-3-700, not truncated; second citation S.C. Code Ann. § 33-41-510 ok
 - **Notes:** 1,371 chapter links enumerated from title1-63.php: all fit t{2 digits}c{3 digits}[A|R].php; only 36-2A, 36-4A carry a letter (plus reserved 40-21R, 40-73R).
 
 ### `sc-code-justia` — South Carolina Code of Laws (Justia, 2025 edition)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-section pages of the S.C. Code; edition '2025 South Carolina Code of Laws'.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -119,18 +119,18 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Hazard:** one edition behind the print code possible; disclose currency
 - **Hazard:** script route refused (challenge)
 - **Probe:** S.C. Code Ann. § 15-3-530 → `https://law.justia.com/codes/south-carolina/title-15/chapter-3/section-15-3-530/` — expect: "Within three years: (1) an action upon a contract, obligation,"
-- **Evidence (2026-10-17):** WebFetch: YES 'Within three years: (1) an action upon a contract, obligation,'; '2025 South Carolina Code of Laws'. Second: title-16/chapter-3/section-16-3-20/ YES 'A person who is convicted of or pleads guilty to'. Script: REFUSED (law.justia.com challenge).
+- **Evidence (2026-10-17):** WebFetch: YES 'Within three years: (1) an action upon a contract, obligation,'; '2025 South Carolina Code of Laws'. Second: title-16/chapter-3/section-16-3-20/ YES 'A person who is convicted of or pleads guilty to'. Script: REFUSED (law.justia.com challenge). | Independent check 2026-10-17: WebFetch YES 'Within three years: (1) an action upon a contract, obligation,'; '2025 South Carolina Code of Laws'; second citation S.C. Code Ann. § 39-5-20 ok
 
 ## B. Constitution
 
 ### `sc-constitution-scstatehouse` — South Carolina Constitution, unannotated (per-article PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Preamble, Articles I-XVII (incl. VIII-A), amendments list; whole text SCConstitution.pdf (99 pp).
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
   - Pattern: `https://www.scstatehouse.gov/scconstitution/A{article}.pdf`
-  - Placeholders: article = Arabic number of the Roman article, zero-padded to 2 digits (art. I -> A01.pdf, art. V -> A05.pdf); Article VIII-A -> A08A.pdf. Locate the section by 'SECTION {n}.' inside the PDF. Whole document: /scconstitution/SCConstitution.pdf.
+  - Placeholders: article = Arabic number of the Roman article, zero-padded to 2 digits (art. I -> A01.pdf, art. V -> A05.pdf); Article VIII-A -> A08A.pdf. Locate the section by 'SECTION {n}. ' (period AND space) inside the PDF: editor's notes cite 1868-constitution sections by the same number (e.g. 'Art II, Section 17'). Whole document: /scconstitution/SCConstitution.pdf.
   - Index: `https://www.scstatehouse.gov/scconstitution/scconst.php`
 - **Automation:** WebFetch ok · shell ok · robots: User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed
   - Article PDFs are small (A01 7 pp, 20,313 chars). SCConstitution.pdf is 99 pp / 244,257 chars - too long for WebFetch.
@@ -138,12 +138,13 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Official status:** https://www.scstatehouse.gov/scconstitution/scconst.php DISCLAIMER: the unannotated Constitution online 'is not official'.
 - **Hazard:** no currency line inside the PDFs (Last-Modified 14 Oct 2025)
 - **Hazard:** whole-text PDF exceeds the WebFetch window
+- **Hazard:** editor's notes repeat section numbers; grep 'SECTION {n}. ' not 'SECTION {n}'
 - **Probe:** S.C. Const. art. I, § 10 → `https://www.scstatehouse.gov/scconstitution/A01.pdf` — expect: "The right of the people to be secure in their persons"
-- **Evidence (2026-10-17):** Script: A01.pdf 7 pp, grep 'SECTION 10. Searches and seizures; invasions of privacy.'; A05.pdf 'SECTION 5. Jurisdiction of Supreme Court.' WebFetch A01.pdf: YES 'The right of the people to be secure in their', last § 25, not truncated.
+- **Evidence (2026-10-17):** Script: A01.pdf 7 pp, grep 'SECTION 10. Searches and seizures; invasions of privacy.'; A05.pdf 'SECTION 5. Jurisdiction of Supreme Court.' WebFetch A01.pdf: YES 'The right of the people to be secure in their', last § 25, not truncated. | Independent check 2026-10-17: Script grep A01.pdf 'The right of the people to be secure in their persons'; WebFetch YES, last § 25; second citation S.C. Const. art. III, § 17 ok
 
 ### `sc-constitution-justia` — South Carolina Constitution (Justia)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-article pages (introduction, preamble, a01 ...). Out of date: Article I page ends at § 24 (the official text has § 25).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -151,12 +152,13 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
   - Placeholders: article = 2-digit Arabic number (a01.html). Article VIII-A untested.
   - Index: `https://law.justia.com/constitution/south-carolina/`
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com/robots.txt answered with a Cloudflare challenge; fetch_doc.py REFUSED the host for the day (robots.txt challenge, 2026-10-17T09:44)
-- **Currency:** none stated — observed: "This Constitution may not be the most recent version."
+- **Currency:** page note — observed: "current through the 2005 Regular Session of the South Carolina General Assembly"
 - **Official status:** Page states 'This Constitution may not be the most recent version.'
+- **Hazard:** text as of 2005 (about 20 years stale)
 - **Hazard:** stale: lacks Art. I § 25 (hunting and fishing) present on scstatehouse.gov
 - **Hazard:** no edition date
 - **Probe:** S.C. Const. art. I, § 10 → `https://law.justia.com/constitution/south-carolina/a01.html` — expect: "The right of the people to be secure in their"
-- **Evidence (2026-10-17):** WebFetch a01.html: YES 'The right of the people to be secure in their'; last section 24. Index lists introduction.html, preamble.html, a01.html.
+- **Evidence (2026-10-17):** WebFetch a01.html: YES 'The right of the people to be secure in their'; last section 24. Index lists introduction.html, preamble.html, a01.html. | Independent check 2026-10-17: WebFetch a01.html YES 'The right of the people to be secure in their'; last § 24; second citation S.C. Const. art. III, § 17 ok
 - **Notes:** Use only when scstatehouse.gov fails, and check the section exists in the current text.
 
 ## C. Court rules
@@ -175,14 +177,14 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Hazard:** robots Disallow: / for every agent
 - **Hazard:** no tier-2 copy of S.C. court rules on Justia, LII or public.law
 - **Probe:** Rule 12(b)(6), SCRCP → `https://www.sccourts.org/court-rules/`
-- **Evidence (2026-10-17):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED for /court-rules/ and /opinions/.
+- **Evidence (2026-10-17):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED for /court-rules/ and /opinions/. | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED: robots.txt on www.sccourts.org disallows /court-rules/ (Disallow: /)
 - **Notes:** index_url path is a guess from the site structure and was never fetched; treat as the court site's home www.sccourts.org when linking.
 
 ## D. Administrative code
 
 ### `sc-regs-scstatehouse` — South Carolina Code of State Regulations, unannotated (chapter PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · South Carolina Legislative Council / Legislative Services Agency · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All agency chapters as PDF (and Word); Chapter 61 (Dept. of Environmental Services / DHEC) split into per-regulation PDFs.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `index-anchored` · format pdf
@@ -198,14 +200,15 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Hazard:** very large chapter PDFs truncate in WebFetch
 - **Hazard:** space in file names
 - **Hazard:** HTML version not offered; tables best in PDF per the site
-- **Probe:** S.C. Code Ann. Regs. 61-62.1 → `https://www.scstatehouse.gov/coderegs/Chapter%2061-62.pdf` — expect: "Department approved malfunction plan"
-- **Evidence (2026-10-17):** Script: Chapter%2061-62.pdf 397 pp, 1,570,629 chars, Last-Modified 23 Feb 2026; grep '61-62.1' found at p. 60. Chapter%2010.pdf 23 pp, starts 'CHAPTER 10 Department of Labor, Licensing and Regulation'. WebFetch 61-62.pdf: 61-62.5 NOT PRESENT; truncated in 61-62.1.
+- **Hazard:** PDF line-break hyphenation splits words ('Depart- ment'); quote and verify single-line phrases
+- **Probe:** S.C. Code Ann. Regs. 61-62.1 → `https://www.scstatehouse.gov/coderegs/Chapter%2061-62.pdf` — expect: "approved malfunction plan"
+- **Evidence (2026-10-17):** Script: Chapter%2061-62.pdf 397 pp, 1,570,629 chars, Last-Modified 23 Feb 2026; grep '61-62.1' found at p. 60. Chapter%2010.pdf 23 pp, starts 'CHAPTER 10 Department of Labor, Licensing and Regulation'. WebFetch 61-62.pdf: 61-62.5 NOT PRESENT; truncated in 61-62.1. | Independent check 2026-10-17: Script Chapter%2061-62.pdf p.60: 'Depart- ment approved malfunction plan' (line-break hyphen); currency 'Volume 50, Issue 3, effective March 27, 2026'; second citation S.C. Code Ann. Regs. 67-1201 ok
 
 ## D. Administrative register
 
 ### `sc-register-scstatehouse` — South Carolina State Register (monthly issue PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · South Carolina Legislative Council · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · South Carolina Legislative Council · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Volume 29 (2005) to current; annual index PDFs.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -219,28 +222,29 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Hazard:** issues >100K chars truncate in WebFetch
 - **Hazard:** page numbers continue through the volume
 - **Probe:** 50 S.C. Reg. (Sept. 25, 2026) → `https://www.scstatehouse.gov/state_register.php?first=FILE&pdf=1&file=Sr50-9.pdf` — expect: "Published September 25, 2026 Volume 50 Issue No. 9"
-- **Evidence (2026-10-17):** Script: Sr50-9.pdf 53 pp, 153,818 chars; 'SOUTH CAROLINA STATE REGISTER DISCLAIMER'; 'Published September 25, 2026 Volume 50 Issue No. 9'. Sr50-3.pdf 22 pp.
+- **Evidence (2026-10-17):** Script: Sr50-9.pdf 53 pp, 153,818 chars; 'SOUTH CAROLINA STATE REGISTER DISCLAIMER'; 'Published September 25, 2026 Volume 50 Issue No. 9'. Sr50-3.pdf 22 pp. | Independent check 2026-10-17: Script Sr50-9.pdf 53 pp, 'Published September 25, 2026 Volume 50'; second citation 49 S.C. Reg. (June 27, 2025), Issue No. 6 ok
 
 ## E. Case law
 
 ### `sc-advance-sheets-statelibrary` — Advance Sheets: Opinions of the Supreme Court and Court of Appeals (State Library depository)
 
-- **Status:** REPORTED 2026-10-17 · **Tier 1** · South Carolina State Library (State Documents Depository, Judicial Department) · text: **link-only** · official: unknown
-- **Coverage:** Advance sheets deposited by the Judicial Department (range not checked).
-- **Access:** `link-only` · format pdf
-  - Pattern: `https://dc.statelibrary.sc.gov/entities/publication/{uuid}`
-  - Placeholders: uuid only from search results; Discovery search (/search) and /browse are robots-disallowed.
-  - Index: `https://dc.statelibrary.sc.gov/`
-  - Navigation: Found only through web search results; item page -> bitstream (not followed).
-- **Automation:** WebFetch untested · shell ok · robots: User-agent * - Disallow /search, /browse, /entities/*?f, /entities/*/full, /items/*/full, login/admin paths; Crawl-delay 10
-  - Script read one item page (Angular DSpace; 1,751 chars, title 'advance sheet no. 26'). PDFs not fetched: whether a depository copy of a robots-blocked court publication is an acceptable source is an open question.
+- **Status:** REPORTED 2026-10-17 · **Tier 1** · South Carolina State Library (State Documents Depository, S.C. Code § 60-2-10) · text: **link-only** · official: unknown
+- **Coverage:** Advance sheets deposited under 'South Carolina State Documents Depository > Judicial Department > Advance Sheets' (collection 3af736e4-f93e-4852-9c7d-d29c9e326d84); range not checked.
+- **Access:** `index-anchored` · format pdf
+  - Pattern: `https://dc.statelibrary.sc.gov/handle/10827/{n}`
+  - Placeholders: n / uuid only from web search results or an item page; no robots-permitted search or browse.
+  - Index: `https://dc.statelibrary.sc.gov/handle/10827/31198`
+  - Navigation: web search or handle URL https://dc.statelibrary.sc.gov/handle/10827/{n} -> item page (fetch_doc.py links exposes the collection and bitstreams/{uuid}/download) -> PDF. The download link returns a 434-char Angular shell; the file itself (/server/api/core/bitstreams/{id}/content) returns HTTP 403.
+- **Automation:** WebFetch fail · shell http-error · robots: User-agent * - Allow /entities/publication/*, /handle/*, /bitstreams/*/download, /server/api/core/bitstreams; Disallow /server/api/*, /search, /browse, /entities/*?f, login/admin paths; Crawl-delay 10
+  - Provenance accepted 2026-10-17 as a tier-1 publisher (State Library's own statutory depository, not a mirror). Script: bitstream content HTTP 403 (two items). WebFetch of the item page: target 'error while fetching'. Not retried.
 - **Currency:** n/a
-- **Official status:** Depository copies of the courts' advance sheets; no statement seen.
-- **Hazard:** policy question: possible alternate host for robots-blocked court documents
-- **Hazard:** no search route (robots)
+- **Official status:** State Library's statutory depository; statelibrary.sc.gov/state-agencies/state-documents-depository: born-digital state documents available through the digital depository. Item metadata: saved from a publicly posted PDF.
+- **Hazard:** PDF bitstreams 403 to automated clients
+- **Hazard:** no robots-permitted search/browse; collection page renders empty to the script
+- **Hazard:** link-only: no quotes
 - **Probe:**  → `https://dc.statelibrary.sc.gov/entities/publication/518f38c4-71bd-403f-920d-600dc17e2ae5` — expect: "advance sheet no. 26"
-- **Evidence (2026-10-17):** Script: item page 200, 'Opinions of the Supreme Court and Court of Appeals of South Carolina advance sheet no. 26'. Not read further.
-- **Notes:** Do not quote from it until the alternate-host question is settled.
+- **Evidence (2026-10-17):** Script: item page 200, 'Opinions of the Supreme Court and Court of Appeals of South Carolina advance sheet no. 26'. Not read further. | Independent check 2026-10-17: Script item page: 'South Carolina State Documents Depository Judicial Department Advance Sheets ... advance sheet no. 26'; bitstream content HTTP 403; WebFetch error.
+- **Notes:** Link in reports as the depository copy of the advance sheet; read opinion text from sc-cases-justia.
 
 ### `sc-opinions-sccourts` — Supreme Court and Court of Appeals opinions (www.sccourts.org)
 
@@ -255,13 +259,13 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 - **Official status:** Slip opinions and advance sheets; official reports are the South Carolina Reports (print).
 - **Hazard:** robots Disallow: / for every agent
 - **Probe:** Op. No. 28245 → `https://www.sccourts.org/opinions/`
-- **Evidence (2026-10-17):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED.
+- **Evidence (2026-10-17):** robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED. | Re-confirmed blocked 2026-10-17: fetch_doc.py check REFUSED: robots.txt on www.sccourts.org disallows /opinions/ (Disallow: /)
 - **Notes:** Read opinion text from sc-cases-justia; link the court site.
 
 ### `sc-cases-justia` — South Carolina Supreme Court and Court of Appeals opinions (Justia)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
-- **Coverage:** Supreme Court 1883-2026 (some years skipped); Court of Appeals incl. unpublished (YYYY-UP-NNN) opinions. Latest Supreme Court item seen: Aug. 12, 2026 (about two months behind on 2026-10-17).
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** Supreme Court 1883-2026 (some years skipped); Court of Appeals incl. unpublished (YYYY-UP-NNN) opinions. Supreme Court listing reached Sept. 9, 2026 and Court of Appeals July 24, 2026 on 2026-10-17.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/cases/south-carolina/{court}/{year}/{opinion}.html`
@@ -269,35 +273,37 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
   - Index: `https://law.justia.com/cases/south-carolina/`
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com/robots.txt answered with a Cloudflare challenge; fetch_doc.py REFUSED the host for the day (robots.txt challenge, 2026-10-17T09:44)
   - WebFetch read listing and case pages built from the pattern. Script route refused for the day.
-- **Currency:** year listing — observed: "latest Supreme Court entry Aug. 12, 2026 (No. 28348)"
+- **Currency:** year listing — observed: "latest Supreme Court entry Sept. 9, 2026 (No. 28352)"
 - **Official status:** Third-party copy of slip opinions; no official reporter pagination.
 - **Hazard:** slip pagination only; S.C./S.E.2d pages not shown
 - **Hazard:** lags the court by weeks
 - **Hazard:** Supreme Court memorandum opinions (YYYY-MO-NNN) coverage untested
+- **Hazard:** Court of Appeals listing ends July 24, 2026 (2026-UP-390): about 3 months lag on 2026-10-17
 - **Probe:** Huskins v. Mungo Homes, LLC, Op. No. 28245 (S.C. Dec. 11, 2024) → `https://law.justia.com/cases/south-carolina/supreme-court/2024/28245.html` — expect: "When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy"
-- **Evidence (2026-10-17):** WebFetch 2024/28245.html: YES full text 'When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy', ends 'REVERSED AND REMANDED'; Opinion No. 28245, Appellate Case No. 2023-000452. COA 2024 listing: 2024-UP-425 (Dec. 30, 2024) -> 2024-up-425.html; published No. 6093. Supreme Court index: years 1883-2026.
+- **Evidence (2026-10-17):** WebFetch 2024/28245.html: YES full text 'When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy', ends 'REVERSED AND REMANDED'; Opinion No. 28245, Appellate Case No. 2023-000452. COA 2024 listing: 2024-UP-425 (Dec. 30, 2024) -> 2024-up-425.html; published No. 6093. Supreme Court index: years 1883-2026. | Independent check 2026-10-17: WebFetch 2024/28245.html YES 'When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy'; second citation SC Public Interest Found. v. Oconee County, Op. No. 28352 (S.C. Sept. 9, 2026) ok
 
 ## F. Subsequent history
 
 ### `sc-ctrack-appellate-dockets` — South Carolina Appellate Case Management System (C-Track public portal)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · South Carolina Judicial Branch (Clerks of the Supreme Court and Court of Appeals) · text: **fetch-and-quote** · official: unofficial
-- **Coverage:** Supreme Court and Court of Appeals dockets, cases filed from about 2012 (csIID 1043 = 2012-206608): classification (e.g. 'Certiorari - COA'), lower court and its number, disposition date/type, remittitur, event list incl. rehearing and U.S. Supreme Court cert notices.
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · South Carolina Judicial Branch (Clerks of the Supreme Court and Court of Appeals) · text: **fetch-and-quote** · official: unofficial
+- **Coverage:** Supreme Court and Court of Appeals dockets, cases filed or pending from about 2011 (legacy files for older pending cases; Bodman = 2011-187466, filed 03/14/2011): classification (e.g. 'Certiorari - COA'), lower court and its number, disposition date/type, remittitur, event list incl. rehearing and U.S. Supreme Court cert notices.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://ctrack.sccourts.org/public/caseSearch.do?courtID={court}&csNumber={appellate_case_no}&shortTitle={title}&submitValue=Search&action=Search&startRow=1&displayRows=50&orderBy=FileDt&orderDir=DESC&href=/public/caseView.do`
   - Placeholders: court = 10001 (Supreme Court) | 10002 (Court of Appeals); csNumber = Appellate Case No. 'YYYY-NNNNNN'; or shortTitle = a party name. Omit 'exclude=on' (that excludes closed cases and returned 'No records were found.'). A single hit redirects straight to caseView.do?csIID={id}. From the decision below to cert: search courtID=10001 by party name (shortTitle) and match 'Lower Court or Tribunal' (same trial-court number on both records) - there is no search by lower-court number.
   - Index: `https://ctrack.sccourts.org/public/caseSearch.do`
 - **Automation:** WebFetch gated · shell ok · robots: none (404)
-  - Form is method=post but GET works. WebFetch on a built caseView URL: PROVENANCE_REQUIRED (approval not answered) - not a site refusal. Linked from the court site as sccourts.org/ACMS (seen in search results; the court site itself is robots-blocked so the link was not fetched).
+  - Form is method=post but GET works. WebFetch on a built caseView URL: PROVENANCE_REQUIRED (approval not answered) - not a site refusal. Linked from the court site as sccourts.org/ACMS (seen in search results; the court site itself is robots-blocked so the link was not fetched). PROVENANCE (accepted 2026-10-17): robots.txt 404; the Judicial Department's FY2013-14 accountability report (https://www.scstatehouse.gov/Archives/aar2014/B04.pdf, p. 3) says a public version of the Appellate CMS, C-Track, was added to the SCJD website.
 - **Currency:** live docket — observed: "events through 10/14/2025 on 2023-000452"
 - **Official status:** Page banner: information 'should not be relied upon as an official record of action.'
 - **Hazard:** cert-to-COA linkage by party name only
 - **Hazard:** documents column: links not exposed to the script
-- **Hazard:** pre-2012 cases absent
+- **Hazard:** docket events only: never retrieve opinion documents from C-Track (opinion pages on www.sccourts.org are robots-blocked)
+- **Hazard:** cases closed before about 2011 absent
 - **Probe:** Appellate Case No. 2023-000452 (Huskins v. Mungo Homes) → `https://ctrack.sccourts.org/public/caseSearch.do?courtID=10001&csNumber=2023-000452&submitValue=Search&action=Search&startRow=1&displayRows=50&orderBy=FileDt&orderDir=DESC&href=/public/caseView.do` — expect: "Supreme Court of the United States - Notice that Certiorari Denied"
-- **Evidence (2026-10-17):** Script GET -> caseView.do?csIID=78122: 'Case Information: 2023-000452', 'Certiorari - COA', disposition 12/11/2024 Opinion; events '01/16/2025 Rehearing - Denied', '10/14/2025 Supreme Court of the United States - Notice that Certiorari Denied'. COA search shortTitle=Huskins -> 2018-000889, same lower court 2017CP4003697.
-- **Notes:** Script candidate: deterministic subsequent-history lookup.
+- **Evidence (2026-10-17):** Script GET -> caseView.do?csIID=78122: 'Case Information: 2023-000452', 'Certiorari - COA', disposition 12/11/2024 Opinion; events '01/16/2025 Rehearing - Denied', '10/14/2025 Supreme Court of the United States - Notice that Certiorari Denied'. COA search shortTitle=Huskins -> 2018-000889, same lower court 2017CP4003697. | Independent check 2026-10-17: Script -> caseView.do?csIID=78122: '10/14/2025 Supreme Court of the United States - Notice that Certiorari Denied'; second citation Bodman v. State, 403 S.C. 60, 742 S.E.2d 363 (2013) (shortTitle=Bodman, courtID=10001) ok
+- **Notes:** Accepted as the court's own linked docket application (provenance above). Script candidate: deterministic subsequent-history lookup.
 
 ## Not available (do not look for these again)
 
@@ -314,9 +320,8 @@ The statute URL needs no code key: title and chapter come straight from 'T-C-S' 
 
 ## Open questions
 
-- Is the State Library depository copy of the courts' advance sheets (dc.statelibrary.sc.gov) an acceptable source while www.sccourts.org disallows all robots, or is it an alternate host that the policy excludes? Not fetched beyond one item page.
 - S.C. court rules have no reachable official or tier-2 text: needs a policy decision (e.g. ask the court, or a manual capture route).
-- C-Track is linked from the court site as sccourts.org/ACMS only per search results; the link could not be read on the robots-blocked court site.
 - Justia letter-suffix chapters (36-2A) and Article VIII-A URL forms untested; Justia coverage of Supreme Court memorandum opinions (YYYY-MO-NNN) untested.
 - The online Code is 'current through the 2025 Session' on 2026-10-17; recheck for the 2026 update.
 - Act text pages (session laws) not probed; sc-acts-scstatehouse is reported only.
+- State Library advance-sheet PDFs return HTTP 403 to automated clients; recheck later.
