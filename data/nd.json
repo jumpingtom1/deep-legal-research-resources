@@ -1,0 +1,874 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "nd",
+  "name": "North Dakota",
+  "compiled": "2026-10-17",
+  "summary": "Statutes, constitution, administrative code and quarterly rule supplements are official PDFs on ndlegis.gov with constructible URLs (chapter PDFs t{title}c{chapter}.pdf; constit/a{NN}.pdf; acdata/pdf/{t-a-c}.pdf) read reliably by fetch_doc.py; WebFetch needs approval for built ndlegis URLs. Court rules are per-rule HTML pages on ndcourts.gov that WebFetch reads, but ndcourts.gov refuses the script (Cloudflare) and opinion and docket pages were gated for WebFetch, so Supreme Court opinion text is read from Justia (docket-keyed URLs) for now. Justia also covers the Century Code (chapter pages) and constitution; Cornell LII mirrors the Administrative Code per section. Public-domain cites 'YYYY ND N' since 1997; certiorari via supremecourt.gov dockets.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "North Dakota Supreme Court",
+        "courtlistener_id": "nd",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.D.",
+        "reporters": [
+          "N.W.3d",
+          "N.W.2d",
+          "N.W.",
+          "N.D."
+        ],
+        "public_domain_citation": "2023 ND 32"
+      },
+      {
+        "name": "North Dakota Court of Appeals (temporary)",
+        "courtlistener_id": "ndctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.D. Ct. App.",
+        "reporters": [
+          "N.W.2d"
+        ],
+        "public_domain_citation": "1998 ND App 1"
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "North Dakota Century Code",
+        "examples": [
+          "N.D.C.C. § 28-01-16",
+          "N.D. Cent. Code § 12.1-32-01",
+          "N.D.C.C. § 10-19.1-150",
+          "N.D.C.C. ch. 28-32",
+          "NDCC 4.1-01-01",
+          "section 28-01-16 of the North Dakota Century Code",
+          "N.D.C.C. §§ 28-01-16 to -18"
+        ],
+        "regex": "(?:\\bN\\.\\s?D\\.\\s?C\\.\\s?C\\.|\\bNDCC\\b|\\bN\\.\\s?D\\.\\s*Cent(?:ury)?\\.?\\s*Code(?:\\s+Ann\\.)?)\\s*,?\\s*(?:§§?\\s*|ch(?:apter|\\.)\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<chapter>\\d{2}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{2,3}(?:\\.\\d{1,2})?))?(?![\\d.]*\\d)|(?:[Ss]ec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<chapter2>\\d{2}(?:\\.\\d{1,2})?)-(?P<section2>\\d{2,3}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?North\\s+Dakota\\s+Century\\s+Code",
+        "routes_to": [
+          "nd-cencode-ndlegis",
+          "nd-cencode-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "North Dakota session laws",
+        "examples": [
+          "2025 N.D. Sess. Laws ch. 120",
+          "2019 N.D. Laws ch. 254"
+        ],
+        "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+N\\.\\s?D\\.\\s*(?:Sess\\.\\s*)?Laws,?\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "nd-session-laws-ndlegis"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "North Dakota Constitution",
+        "examples": [
+          "N.D. Const. art. I, § 9",
+          "N.D. Const. art. VI, § 2",
+          "Article I, Section 9 of the North Dakota Constitution"
+        ],
+        "regex": "N\\.\\s?D\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*§\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|§)\\s*(?P<section2>\\d+)\\s+of\\s+the\\s+(?:North\\s+Dakota|N\\.\\s?D\\.)\\s+Constitution",
+        "routes_to": [
+          "nd-constitution-ndlegis",
+          "nd-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "North Dakota rules of procedure and evidence (N.D.R.Civ.P., Crim.P., App.P., Ev., Ct.)",
+        "examples": [
+          "N.D.R.Civ.P. 56(c)",
+          "Rule 56(c), N.D.R.Civ.P.",
+          "N.D.R.Crim.P. 11",
+          "N.D.R.App.P. 40",
+          "N.D.R.Ev. 802",
+          "N.D.R.Ct. 3.2",
+          "Rule 3.2, N.D.R.Ct.",
+          "N.D. R. Civ. P. 12(b)(6)"
+        ],
+        "regex": "N\\.\\s?D\\.\\s?R\\.\\s?(?P<set>Civ\\.\\s?P|Crim\\.\\s?P|App\\.\\s?P|Ev(?:id)?|Ct|Juv\\.\\s?P)\\.\\s*(?P<rule>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*,\\s*N\\.\\s?D\\.\\s?R\\.\\s?(?P<set2>Civ\\.\\s?P|Crim\\.\\s?P|App\\.\\s?P|Ev(?:id)?|Ct|Juv\\.\\s?P)\\.",
+        "routes_to": [
+          "nd-rules-ndcourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "North Dakota Rules of Professional Conduct / Lawyer Discipline / Supreme Court Administrative Rules",
+        "examples": [
+          "N.D.R. Prof. Conduct 1.7",
+          "Rule 1.7, N.D.R. Prof. Conduct",
+          "N.D.R. Lawyer Discipl. 1.2",
+          "N.D. Sup. Ct. Admin. R. 27",
+          "Rule 1.7 of the North Dakota Rules of Professional Conduct"
+        ],
+        "regex": "N\\.\\s?D\\.\\s?R\\.\\s*(?P<set>Prof\\.\\s*Conduct|Lawyer\\s+Discipl\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)*),\\s*N\\.\\s?D\\.\\s?R\\.\\s*(?:Prof\\.\\s*Conduct|Lawyer\\s+Discipl\\.)|N\\.\\s?D\\.\\s*Sup\\.\\s*Ct\\.\\s*Admin\\.\\s*R(?:ule)?\\.?\\s*(?P<rule3>\\d+(?:\\.\\d+)*)|Rule\\s+(?P<rule4>\\d\\.\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+North\\s+Dakota\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "routes_to": [
+          "nd-rules-ndcourts"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "North Dakota Administrative Code",
+        "examples": [
+          "N.D. Admin. Code § 43-02-03-01",
+          "N.D.A.C. 75-02-02-09",
+          "N.D. Admin Code 43-02-03-01",
+          "N.D.A.C. ch. 75-02-02",
+          "N.D.A.C. § 4.5-02.1-01-01"
+        ],
+        "regex": "(?:\\bN\\.\\s?D\\.\\s?A\\.\\s?C\\.|\\bN\\.\\s?D\\.\\s*Admin\\.?\\s*Code)\\s*(?:§\\s*|ch(?:apter|\\.)\\s*)?(?P<title>\\d{1,3}(?:\\.\\d)?)-(?P<article>\\d{2}(?:\\.\\d{1,2})?)-(?P<chapter>\\d{2}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{2,3}(?:\\.\\d{1,2})?))?",
+        "routes_to": [
+          "nd-admincode-ndlegis",
+          "nd-admincode-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "North Dakota Administrative Rules Supplement",
+        "examples": [
+          "Administrative Rules Supplement 2016-362",
+          "Administrative Rules Supplement 401"
+        ],
+        "regex": "Administrative\\s+Rules\\s+Supplement\\s+(?:(?P<year>(?:19|20)\\d\\d)-)?(?P<number>\\d{3})",
+        "routes_to": [
+          "nd-admin-supplements-ndlegis"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "case_law",
+        "label": "North Dakota public-domain citation (1997-)",
+        "examples": [
+          "2023 ND 32",
+          "2023 ND 32, ¶ 8",
+          "Queen v. Martel, 2022 ND 178, ¶ 8, 980 N.W.2d 914",
+          "1998 ND App 1"
+        ],
+        "regex": "(?<![\\w.])(?P<year>199[7-9]|20\\d\\d)\\s+ND\\s+(?P<app>App\\s+)?(?P<number>\\d{1,3})(?!\\d)(?:,\\s*¶+\\s*(?P<para>\\d+))?",
+        "routes_to": [
+          "nd-opinions-ndcourts",
+          "nd-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Western Reporter with (N.D. YYYY)",
+        "examples": [
+          "State v. Smith, 238 N.W.2d 662 (N.D. 1976)",
+          "512 N.W.2d 397 (N.D. Ct. App. 1994)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(N\\.\\s?D\\.\\s*(?:Ct\\.\\s*App\\.\\s*)?(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "nd-cases-justia",
+          "nd-opinions-ndcourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Western Reporter (generic, no court parenthetical)",
+        "examples": [
+          "980 N.W.2d 914",
+          "20 N.W.3d 101"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+        "routes_to": [
+          "nd-cases-justia",
+          "nd-opinions-ndcourts"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "case_law",
+        "label": "North Dakota Reports (official reporter, 1890-1953)",
+        "examples": [
+          "79 N.D. 1",
+          "45 N.D. 410"
+        ],
+        "regex": "(?<![\\d.])(?P<volume>\\d{1,2})\\s+N\\.\\s?D\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+        "routes_to": [
+          "nd-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Dakota Supreme Court docket number",
+        "examples": [
+          "No. 20220121",
+          "Docket No. 20250066"
+        ],
+        "regex": "No\\.\\s*(?P<docket>(?:19|20)\\d{6})(?!\\d)",
+        "routes_to": [
+          "nd-cases-justia",
+          "nd-opinions-ndcourts",
+          "nd-docket-ndcourts"
+        ],
+        "context_required": true
+      }
+    ],
+    "notes": "N.D.R.Ct. 11.6: opinions from 1997 are cited in public-domain form 'YYYY ND N' (no periods), pinpointed by paragraph '¶ N'; parallel N.W.2d/N.W.3d cite added when available. Temporary Court of Appeals opinions use 'YYYY ND App N'. Pre-1997 cases cite N.W./N.W.2d with '(N.D. YYYY)'; North Dakota Reports ran 1890-1953 (79 vols, per memory). Century Code numbers are title-chapter-section, each part may carry a decimal (12.1-32-01, 10-19.1-150, 4.1-01-01); the code is cited 'N.D.C.C. § …' (court style) or 'N.D. Cent. Code § …' (Bluebook). A '§§ 28-01-16 to -18' range is a span: take the first section. ND court style puts the rule set after the number ('Rule 56(c), N.D.R.Civ.P.'); both orders are covered. Routing guards: '(N.D.' also opens federal district parentheticals ('N.D. Ill.', 'N.D. Cal.'), so only the N.W. reporter form with '(N.D. YYYY)' or '(N.D. Ct. App. YYYY)' routes here; bare N.W.2d cites, bare 8-digit docket numbers and 'Administrative Rules Supplement' are context_required. CourtListener ids 'nd' and 'ndctapp' are from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "nd-cencode-ndlegis",
+      "family": "statutes",
+      "title": "North Dakota Century Code (chapter PDFs)",
+      "publisher": "North Dakota Legislative Council",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Century Code index page (https://ndlegis.gov/general-information/north-dakota-century-code): text published on this website 'is the official version of the North Dakota Century Code'.",
+      "coverage": "All titles of the Century Code, one PDF per chapter; section-listing HTML per chapter.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://ndlegis.gov/cencode/t{title}c{chapter}.pdf#nameddest={dest}",
+        "pattern_rules": "title and chapter = the cited numbers with '.' replaced by '-' and the integer part zero-padded to 2 digits: 28-01-16 -> t28c01.pdf; 12.1-32-01 -> t12-1c32.pdf; 10-19.1-150 -> t10c19-1.pdf; 4.1-01-01 -> t04-1c01.pdf; 4-02.1 -> t04c02-1.pdf. The PDF holds the whole chapter; the section anchor is #nameddest={section} with '.' in the title written as 'p' (28-01-16 -> 28-01-16; 4.1-01-01 -> 4p1-01-01). Fetch tools ignore the fragment, so grep the chapter text for '{section}. ' (section number + period + space). Section listings: https://ndlegis.gov/cencode/t{title}c{chapter}.html; title listing https://ndlegis.gov/cencode/t{title}.html. www.ndlegis.gov redirects to ndlegis.gov.",
+        "index_url": "https://ndlegis.gov/general-information/north-dakota-century-code/index.html",
+        "navigation": "Not needed for well-formed cites. The index page (3.6M chars) lists every section with catchline under each chapter, so it shows section ranges.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "Drupal default: Disallow /core/, /admin/, /search/, /user/* etc.; /cencode/ not disallowed",
+        "notes": "WebFetch on built cencode URLs and the home page ended in PROVENANCE_REQUIRED (permission prompt not answered); the index page reached via a search result worked but truncated at chapter 6-01. Large chapters exceed the fetch tool window (t10c19-1.pdf: 95 pp, 394,274 chars); use fetch_doc.py grep/section."
+      },
+      "currency": {
+        "where": "Century Code index page, paragraph under the official-version notice; PDFs carry no date (HTTP last-modified only)",
+        "observed": "07/01/25 UPDATE: All statutory changes approved by the 69th Legislative Assembly"
+      },
+      "hazards": [
+        "whole chapter per PDF; long chapters (10-19.1) exceed the fetch tool window",
+        "#nameddest fragment ignored by fetch tools",
+        "decimal titles/chapters: '.' -> '-' in file name, 'p' in nameddest",
+        "statutes effective after August 1 are flagged only in the caption parenthetical",
+        "January and September 2026 special-session changes not covered by the 07/01/25 notice (check session laws)"
+      ],
+      "probe": {
+        "citation": "N.D.C.C. § 28-01-16",
+        "url": "https://ndlegis.gov/cencode/t28c01.pdf",
+        "expect": "The following actions must be commenced within six years after the claim for relief"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: t28c01.pdf 10 pp, 36,801 chars, grep '28-01-16. Actions having six-year limitations.' + body. t12-1c32.pdf 22 pp starts 'CHAPTER 12.1-32 PENALTIES AND SENTENCING', '12.1-32-01. Classification of offenses - Penalties.' t10c19-1.pdf 95 pp, § 10-19.1-150 found at p. 94. WebFetch on built URLs: PROVENANCE_REQUIRED."
+      },
+      "notes": "Official text is free and constructible; the script route is the reliable reader. Chapter section-listing pages link each section as t{t}c{c}.pdf#nameddest={section}."
+    },
+    {
+      "id": "nd-cencode-justia",
+      "family": "statutes",
+      "title": "Justia - North Dakota Century Code (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; older editions are marked 'There Is a Newer Version'.",
+      "coverage": "N.D. Cent. Code editions incl. 2012-2025; unversioned URL serves 2025.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/north-dakota/title-{title}/chapter-{chapter_full}/",
+        "pattern_rules": "title with '.' -> '-' (title-28, title-12-1); chapter_full = title-chapter with '.' -> '-' (chapter-28-01, chapter-12-1-32). The CHAPTER page holds the full text of every section (section headings are not links). Year editions: insert /{year}/ after /north-dakota/.",
+        "index_url": "https://law.justia.com/codes/north-dakota/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable: law.justia.com refused the script (robots.txt challenge) earlier on 2026-10-17",
+        "notes": "One WebFetch of a built section-level URL (/section-28-01-16/) returned CLIENT_ERROR; chapter-level URLs work."
+      },
+      "currency": {
+        "where": "page heading",
+        "observed": "2025 North Dakota Century Code Title 12.1 - Criminal Code"
+      },
+      "hazards": [
+        "no per-section pages; long chapters may exceed the fetch tool window",
+        "edition lags official text",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "N.D. Cent. Code § 12.1-32-01",
+        "url": "https://law.justia.com/codes/north-dakota/title-12-1/chapter-12-1-32/",
+        "expect": "Offenses are divided into seven classes, which are denominated and"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, body of 12.1-32-01 present, runs through 12.1-32-16, not truncated, heading '2025 North Dakota Century Code'. Also /title-28/chapter-28-01/ holds full text of 28-01-01 to 28-01-48 incl. 28-01-16."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-session-laws-ndlegis",
+      "family": "statutes",
+      "title": "North Dakota Session Laws",
+      "publisher": "North Dakota Legislative Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official-status statement seen on the session-law pages.",
+      "coverage": "Session laws by assembly (2015- listed on the index, older in archives); per-year full-book PDF and per-category chapter PDFs.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Full book: https://ndlegis.gov/assembly/{assembly}-{year}/session-laws/sl{year}.pdf (2025 seen). Category PDFs: /assembly/{assembly}-{year}/session-laws/documents/{code}.pdf (gnlpr, appro, agric …). A chapter number does not map to a category file without the index.",
+        "index_url": "https://ndlegis.gov/research-and-archives/session-laws",
+        "navigation": "session-laws index -> '{year} Session Laws' page (/assembly/69-2025/regular/2025-session-laws) -> 'Full Book (PDF)' or 'Chapter Categories' -> category PDF.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see nd-cencode-ndlegis",
+        "notes": "/assembly/69-2025/regular/session-laws returned HTTP 403 (wrong path); the linked /2025-session-laws page works."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "category PDFs not keyed by chapter number",
+        "full-book PDF very large"
+      ],
+      "probe": {
+        "citation": "2025 N.D. Sess. Laws, General Provisions (H.B. 1031)",
+        "url": "https://ndlegis.gov/assembly/69-2025/session-laws/documents/gnlpr.pdf",
+        "expect": "AN ACT to amend and reenact section 1-01-49"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: gnlpr.pdf 18 pp, 45,377 chars, 'HOUSE BILL NO. 1031 … AN ACT to amend and reenact section 1-01-49'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-constitution-ndlegis",
+      "family": "constitution",
+      "title": "Constitution of North Dakota (article PDFs)",
+      "publisher": "North Dakota Legislative Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Constitution page says it 'contains the current provisions of the state constitution'; no authentication statement.",
+      "coverage": "Preamble, Articles I-XIV and transition schedule, one PDF per article.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://ndlegis.gov/constit/a{article:02d}.pdf",
+        "pattern_rules": "article = Arabic number of the Roman article, zero-padded to 2 (I -> a01, VI -> a06, X -> a10); preamble = /constit/preamble.pdf. Sections appear as 'Section N.' in running text.",
+        "index_url": "https://ndlegis.gov/constitution",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see nd-cencode-ndlegis",
+        "notes": "Built ndlegis URLs are expected to be gated in WebFetch (as for cencode)."
+      },
+      "currency": {
+        "where": "constitution page intro; PDFs undated (a01.pdf last-modified 2016-12-08)",
+        "observed": "contains the current provisions of the state constitution"
+      },
+      "hazards": [
+        "no edition date on the PDFs"
+      ],
+      "probe": {
+        "citation": "N.D. Const. art. I, § 9",
+        "url": "https://ndlegis.gov/constit/a01.pdf",
+        "expect": "All courts shall be open, and every man for any injury done him"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: a01.pdf 5 pp, 'ARTICLE I DECLARATION OF RIGHTS'; grep 'Section 9. All courts shall be open'. a06.pdf 2 pp, 'Section 2. The supreme court shall be the highest court of the state.'"
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-constitution-justia",
+      "family": "constitution",
+      "title": "Justia - North Dakota Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page: 'This Constitution may not be the most recent version.'",
+      "coverage": "Preamble, Articles I-XIV, transition schedule, Enabling Act; one page per section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/north-dakota/article-{article_roman_lower}/section-{section}/",
+        "pattern_rules": "article as lower-case Roman numeral (article-i, article-vi); the article page is a section index only, body text is on the section page.",
+        "index_url": "https://law.justia.com/constitution/north-dakota/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (script refused law.justia.com, robots.txt challenge, 2026-10-17)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "disclaimer only",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "undated",
+        "index and article pages hold no text",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "N.D. Const. art. I, § 9",
+        "url": "https://law.justia.com/constitution/north-dakota/article-i/section-9/",
+        "expect": "All courts shall be open, and every man for any injury done"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, 'All courts shall be open, and every man for any injury done'. Index and /article-i/ pages: NOT PRESENT (links only)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-rules-ndcourts",
+      "family": "court_rules",
+      "title": "North Dakota Court Rules (per-rule pages)",
+      "publisher": "North Dakota Supreme Court",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Rule-set index pages carry no official-status statement; each rule page shows effective date and version history.",
+      "coverage": "Rules of Civil, Criminal, Appellate and Juvenile Procedure, Evidence, Rules of Court, Professional Conduct, Lawyer Discipline, Supreme Court Administrative Rules, local rules; each rule with explanatory note, sources and version history.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.ndcourts.gov/legal-resources/rules/{set}/{rule}",
+        "pattern_rules": "set slugs: ndrcivp (N.D.R.Civ.P.), ndrcrimp (N.D.R.Crim.P.), ndrappp (N.D.R.App.P.), ndrev (N.D.R.Ev.), ndrct (N.D.R.Ct.), ndrprofconduct (N.D.R. Prof. Conduct), ndrlawyerdiscipl (N.D.R. Lawyer Discipl.), ndsupctadminr (N.D. Sup. Ct. Admin. R.). rule = rule number with '.' -> '-' (56 -> 56; 56.1 -> 56-1; N.D.R.Ct. 3.2 -> 3-2; 3.2.3 -> 3-2-3; Prof. Conduct 1.7 -> 1-7, unverified). Local rules: /legal-resources/rules/local/{district}/{rule} (e.g. local/east-central/1-1, from search). Rule-set index: /legal-resources/rules/{set}.",
+        "index_url": "https://www.ndcourts.gov/legal-resources/rules",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "none (robots.txt serves the custom error page)",
+        "notes": "fetch_doc.py: HTTP 403 Cloudflare challenge on www.ndcourts.gov (host off for the day). WebFetch read rule pages that came from search results; the built /legal-resources/rules index URL was PROVENANCE_REQUIRED (gated)."
+      },
+      "currency": {
+        "where": "each rule page, 'Effective Date' line and Version History",
+        "observed": "Effective Date: 3/1/2021"
+      },
+      "hazards": [
+        "shell blocked by Cloudflare",
+        "built URLs may need approval in WebFetch",
+        "dotted rule numbers become hyphens in the URL"
+      ],
+      "probe": {
+        "citation": "N.D.R.Civ.P. 56",
+        "url": "https://www.ndcourts.gov/legal-resources/rules/ndrcivp/56",
+        "expect": "A party claiming relief may move, with or without supporting declarations, for"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, Rule 56 body (a)-(g), explanatory note, 'Effective Date: 3/1/2021', not truncated. Second: /ndrev/802 YES 'Hearsay is not admissible unless any of the following provides otherwise', 'Effective Date: 3/1/2014'. /ndrcivp index lists /ndrcivp/1 … links; no whole-set PDF."
+      },
+      "notes": "No full-set PDF seen, so no corpus candidate; per-rule pages are short."
+    },
+    {
+      "id": "nd-admincode-ndlegis",
+      "family": "admin_code",
+      "title": "North Dakota Administrative Code (chapter PDFs)",
+      "publisher": "North Dakota Legislative Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Index page: Legislative Council 'publishes the Administrative Code'; Internet version 'derived from the database prepared by' the Council. No official/authentication statement.",
+      "coverage": "All titles; one PDF per chapter; updated quarterly (initially published July 1, 1978).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://ndlegis.gov/information/acdata/pdf/{title}-{article}-{chapter}.pdf",
+        "pattern_rules": "Use the first three parts of the four-part cite exactly as written, decimals kept, no extra padding: 43-02-03-01 -> 43-02-03.pdf; 75-02-02-09 -> 75-02-02.pdf; 4.5-02.1-01 -> 4.5-02.1-01.pdf; 4-07-20.1 -> 4-07-20.1.pdf. Whole title placeholder: /acdata/pdf/title{N}.pdf. Grep the chapter text for '{section}. '.",
+        "index_url": "https://ndlegis.gov/agency-rules/north-dakota-administrative-code/index.html",
+        "navigation": "Index lists every title/article/chapter (chapter numbers, not section ranges).",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see nd-cencode-ndlegis",
+        "notes": "Long chapters (43-02-03: 82 pp, 293,996 chars) exceed the fetch tool window."
+      },
+      "currency": {
+        "where": "none on index; each section ends with a 'History:' line; PDF last-modified header",
+        "observed": "History: Effective December 1, 1996; amended effective April 1, 2014; April 1, 2022."
+      },
+      "hazards": [
+        "chapter-level PDFs, long ones exceed fetch window",
+        "no currency date on the index"
+      ],
+      "probe": {
+        "citation": "N.D. Admin. Code § 43-02-03-01",
+        "url": "https://ndlegis.gov/information/acdata/pdf/43-02-03.pdf",
+        "expect": "The terms used throughout this chapter have the same meaning as in North Dakota Century Code"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 43-02-03.pdf 82 pp (last-modified 2026-10-05), grep '43-02-03-01. Definitions. The terms used throughout this chapter …'. 75-02-02.pdf 30 pp, section table lists 75-02-02-09 'Nursing Facility Level of Care'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-admincode-lii",
+      "family": "admin_code",
+      "title": "Cornell LII - North Dakota Administrative Code",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party mirror; section notes cite Administrative Rules Supplements as the amendment source.",
+      "coverage": "All titles, per-section pages.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/north-dakota/N-D-A-C-{title}-{article}-{chapter}-{section}",
+        "pattern_rules": "four-part cite verbatim after 'N-D-A-C-' (43-02-03-01 -> N-D-A-C-43-02-03-01). Hierarchy: /regulations/north-dakota/title-{t}/article-{t-a}/chapter-{t-a-c} (chapter page shows the section range).",
+        "index_url": "https://www.law.cornell.edu/regulations/north-dakota",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * Crawl-delay 10; /regulations/ not disallowed",
+        "notes": ""
+      },
+      "currency": {
+        "where": "'Notes' block at foot of section",
+        "observed": "Amended by Administrative Rules Supplement 2016-362, October 2016"
+      },
+      "hazards": [
+        "crawl-delay 10",
+        "lag behind quarterly supplements unknown"
+      ],
+      "probe": {
+        "citation": "N.D. Admin. Code § 43-02-03-01",
+        "url": "https://www.law.cornell.edu/regulations/north-dakota/N-D-A-C-43-02-03-01",
+        "expect": "The terms used throughout this chapter have the same meaning as in North Dakota Century Code"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py grep: body 'The terms used throughout this chapter have the same meaning …' at offset 1680; Notes list Supplements 2014-352, 2016-362, 368. Second: N-D-A-C-75-02-02-09 'Nursing facility level of care' page present."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-admin-supplements-ndlegis",
+      "family": "admin_register",
+      "title": "North Dakota Administrative Rules Supplements",
+      "publisher": "North Dakota Legislative Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Quarterly supplements of rule changes 'submitted to the Legislative Council by agencies'; no authentication statement.",
+      "coverage": "Quarterly supplements of amended rule text (Supplement 401, October 2026, back through earlier numbers on the page). North Dakota has no separate register of proposed rules on this site.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://ndlegis.gov/admcode/arc{YYYYMM}{number}.pdf",
+        "pattern_rules": "File name = 'arc' + year + 2-digit month + supplement number (Supplement 401 Oct 2026 -> arc202610401.pdf; 398 Jan 2026 -> arc202601398.pdf). Month must come from the index.",
+        "index_url": "https://ndlegis.gov/administrative-rules-supplements",
+        "navigation": "supplements page -> 'Supplement NNN' link -> PDF",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "see nd-cencode-ndlegis",
+        "notes": "Supplement 401 is 181 pp, 549,686 chars."
+      },
+      "currency": {
+        "where": "supplements page list",
+        "observed": "Supplement 401 (October 2026)"
+      },
+      "hazards": [
+        "very long PDFs",
+        "file name needs the month"
+      ],
+      "probe": {
+        "citation": "Administrative Rules Supplement 401",
+        "url": "https://ndlegis.gov/admcode/arc202610401.pdf",
+        "expect": "ARTICLE 33-41 TATTOO AND BODY ART"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: arc202610401.pdf 181 pp, starts 'OCTOBER 2026 … ARTICLE 33-41 TATTOO AND BODY ART', chapter 33-41-01 '[Repealed effective October 1, 2026]'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-opinions-ndcourts",
+      "family": "case_law",
+      "title": "North Dakota Supreme Court Opinions",
+      "publisher": "North Dakota Supreme Court",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Listing shows no official-status statement; the public-domain cite 'YYYY ND N' with ¶ numbers is the court's own citation form (N.D.R.Ct. 11.6), so pinpoints to ¶ are official-equivalent.",
+      "coverage": "About 12,400 entries (Oct 2026), newest first, 10 per page; page 596 of 1214 held 2002 opinions, so the listing reaches well before 1997. Each row: case name, 'YYYY ND N', docket number, filed date. Includes temporary Court of Appeals opinions ('ND App', per memory, unverified).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.ndcourts.gov/supreme-court/opinions/{id}",
+        "pattern_rules": "Opinion pages use an internal numeric id (2026 ND 97 -> /supreme-court/opinions/210815), not derivable from the citation. Listing: /supreme-court/opinions?page={n}. Docket pages: /supreme-court/dockets/{docket} (seen as /Dockets/20220121). A GET search by citation was not tested.",
+        "index_url": "https://www.ndcourts.gov/supreme-court/opinions",
+        "navigation": "listing ?page=N (newest first) or the 'New opinion(s)' news post for the filing date (/news/north-dakota/north-dakota-supreme-court/opinions/…) -> opinion link /supreme-court/opinions/{id}. The fetch tool's text omits the hrefs on listing pages; news posts give them.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "blocked-challenge",
+        "robots_txt": "none (robots.txt serves the custom error page)",
+        "notes": "fetch_doc.py: HTTP 403 Cloudflare challenge. WebFetch read listing and news pages from search results, but /supreme-court/opinions/210815, /supreme-court/opinion/2023ND32 and /supreme-court/Dockets/20220121 were PROVENANCE_REQUIRED. Opinion body text was never seen."
+      },
+      "currency": {
+        "where": "listing counter",
+        "observed": "681 - 690 of 12446 results"
+      },
+      "hazards": [
+        "shell blocked by Cloudflare",
+        "opinion pages gated for WebFetch",
+        "id-based opinion URLs",
+        "listing text lacks hrefs in WebFetch"
+      ],
+      "probe": {
+        "citation": "City of Bismarck v. Herrera, 2026 ND 97",
+        "url": "https://www.ndcourts.gov/supreme-court/opinions/210815",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: news post new-opinions-may-7-2026 lists 2026 ND 91-99 with /supreme-court/opinions/2108xx links; listing ?page=52 '2023 ND 171 Berger v. Sellers, Docket No. 20220322'. Opinion page itself PROVENANCE_REQUIRED; script REFUSED (Cloudflare 403)."
+      },
+      "notes": "Use nd-cases-justia to read text until an opinion page can be fetched."
+    },
+    {
+      "id": "nd-cases-justia",
+      "family": "case_law",
+      "title": "Justia - North Dakota Supreme Court decisions",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Justia notes metadata is AI-assisted.",
+      "coverage": "North Dakota Supreme Court year listings (2023 and 2024 seen); Court of Appeals listing not checked.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/north-dakota/supreme-court/{year}/{docket}.html",
+        "pattern_rules": "year = decision year; docket = 8-digit ND docket number (2023 ND 32 -> 20220121). The 'YYYY ND N' cite does not give the docket: get it from the year listing https://law.justia.com/cases/north-dakota/supreme-court/{year}/ or the ndcourts listing. A second opinion on one docket gets a suffix (20230034-0.html).",
+        "index_url": "https://law.justia.com/cases/north-dakota/supreme-court/",
+        "navigation": "year listing -> docket link",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (script refused, robots.txt challenge)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "docket needed for URL",
+        "suffixed slugs on shared dockets",
+        "shell blocked",
+        "N.W.2d page numbers not shown"
+      ],
+      "probe": {
+        "citation": "Queen v. Martel, 2023 ND 32",
+        "url": "https://law.justia.com/cases/north-dakota/supreme-court/2023/20220121.html",
+        "expect": "Lee Queen appealed from a judgment awarding him and Kimber Martel equal residential responsibility"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, [¶1]-[¶5] present, complete, header '2023 ND 32'. 2023 listing: Berger v. Sellers (2023 ND 171) -> /2023/20220322.html."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-docket-ndcourts",
+      "family": "subsequent_history",
+      "title": "North Dakota Supreme Court dockets / Appellate Case System",
+      "publisher": "North Dakota Supreme Court",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Docket search page: registration not required to search public appellate records.",
+      "coverage": "The Supreme Court is the only standing appellate court (temporary Court of Appeals hears assigned cases; the Supreme Court may review). Rehearing petitions (N.D.R.App.P. 40) appear on the case docket. Appellate Case System live April 8, 2024; historical data may be incomplete.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.ndcourts.gov/supreme-court/dockets/{docket}",
+        "pattern_rules": "docket = 8-digit number shown on the opinion listing (Queen v. Martel -> 20220121, link seen in a news post). Search UI: https://www.ndcourts.gov/supreme-court/docket-search (case, party, calendar, document, publication search).",
+        "index_url": "https://www.ndcourts.gov/supreme-court/docket-search",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "blocked-challenge",
+        "robots_txt": "none (custom error page)",
+        "notes": "Docket page /supreme-court/Dockets/20220121 was PROVENANCE_REQUIRED; docket-search page read by WebFetch (from search result)."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "docket page never read",
+        "shell blocked",
+        "pre-2024 history incomplete"
+      ],
+      "probe": {
+        "citation": "Queen v. Martel, 2023 ND 32 (No. 20220121)",
+        "url": "https://www.ndcourts.gov/supreme-court/Dockets/20220121",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch docket-search page: 'You do not need to register to search public appellate records'; Appellate Case System live April 8, 2024. Docket page gated."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nd-scotus-docket",
+      "family": "subsequent_history",
+      "title": "U.S. Supreme Court docket (certiorari from the North Dakota Supreme Court)",
+      "publisher": "Supreme Court of the United States",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Docket kept by the Clerk of the Supreme Court.",
+      "coverage": "Certiorari petitions and applications; docket shows 'Lower Ct: Supreme Court of North Dakota' and the ND docket number.",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://www.supremecourt.gov/docket/docketfiles/html/public/{scotus_docket}.html",
+        "pattern_rules": "Constructible only once the SCOTUS docket number is known (25-1349, 24A635). From an ND decision there is no link: WebSearch '\"Supreme Court of North Dakota\" <party> supremecourt.gov' or the 8-digit ND docket number; otherwise party name only.",
+        "index_url": "https://www.supremecourt.gov/docket/docket.aspx",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "docket path allowed (fetch_doc.py ok)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "dated docket entries",
+        "observed": "Jun 17 2026 DISTRIBUTED for Conference of 9/28/2026."
+      },
+      "hazards": [
+        "party-name search only from the ND side"
+      ],
+      "probe": {
+        "citation": "Marschner v. Marschner, No. 25-1349 (from N.D. No. 20250066)",
+        "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1349.html",
+        "expect": "Lower Ct: Supreme Court of North Dakota"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 25-1349 'Lower Ct: Supreme Court of North Dakota', 'Case Numbers: (20250066)', 'Decision Date: March 4, 2026', cert petition filed, response requested. 24A635: 'Case Numbers: (20240022)'."
+      },
+      "notes": ""
+    }
+  ],
+  "absent": [
+    {
+      "family": "statutes",
+      "what": "public.law edition of North Dakota law",
+      "evidence": "northdakota.public.law: proxy 'Tunnel connection failed: 502 Bad Gateway' (no such host), 2026-10-17.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Cornell LII North Dakota Century Code / Constitution / opinions",
+      "evidence": "https://www.law.cornell.edu/states/north_dakota links out to legis.nd.gov and ndcourts.gov; LII hosts only the ND Administrative Code.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Official bulk download / API for the Century Code",
+      "evidence": "Century Code index offers per-chapter PDFs and section listings only; no XML/zip link seen.",
+      "date": "2026-10-17"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "nd-cencode-ndlegis",
+      "why": "Deterministic cite -> chapter PDF (t{TT[-d]}c{CC[-d]}.pdf) plus '{section}. ' split; a small script could cache chapters and serve sections exactly."
+    },
+    {
+      "source_id": "nd-admincode-ndlegis",
+      "why": "Deterministic cite -> chapter PDF (acdata/pdf/{t-a-c}.pdf); same section split as the Century Code."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "nd-cencode-ndlegis",
+      "url": "https://ndlegis.gov/cencode/t10c19-1.pdf",
+      "why": "Business Corporation Act chapter: 95 pp, 394,274 chars, about four fetch-tool windows; WebFetch also gated on built ndlegis URLs.",
+      "split_hint": "section lines '10-19.1-NNN. Catchline.' at left margin",
+      "bulk": ""
+    },
+    {
+      "source_id": "nd-admincode-ndlegis",
+      "url": "https://ndlegis.gov/information/acdata/pdf/43-02-03.pdf",
+      "why": "Oil and gas conservation rules: 82 pp, 293,996 chars, beyond one fetch-tool window.",
+      "split_hint": "section lines '43-02-03-NN. Catchline.'",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "ndcourts.gov opinion pages (/supreme-court/opinions/{id}): does WebFetch return body text and ¶ numbers once a URL is approved? Is there a plain GET search by citation or docket?",
+    "Coverage start of the ndcourts.gov opinion listing (page 1214 of 1214 not fetched).",
+    "Does Justia host ND Court of Appeals opinions (/cases/north-dakota/court-of-appeals/) and ND court rules?",
+    "Rules of Professional Conduct URL form (ndrprofconduct/1-7) not fetched.",
+    "WebFetch on ndlegis.gov constitution and admin-code PDFs untested (expected gated like cencode)."
+  ]
+}

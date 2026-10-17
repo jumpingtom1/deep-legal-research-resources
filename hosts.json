@@ -151,6 +151,14 @@
    ],
    "blocked_sources": []
   },
+  "apps.sos.wv.gov": {
+   "status": "allowed",
+   "sources": [
+    "wv-csr-sos",
+    "wv-register-sos"
+   ],
+   "blocked_sources": []
+  },
   "archives.lib.state.ma.us": {
    "status": "allowed",
    "sources": [
@@ -227,6 +235,15 @@
     "dc-code-council",
     "dc-laws-council",
     "dc-homerule-council"
+   ],
+   "blocked_sources": []
+  },
+  "code.wvlegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "wv-code-legislature",
+    "wv-code-chapter-pdf",
+    "wv-constitution-code"
    ],
    "blocked_sources": []
   },
@@ -339,6 +356,13 @@
     "nh-rules-evidence-courts",
     "nh-rules-crimp-courts",
     "nh-rules-superior-courts"
+   ],
+   "blocked_sources": []
+  },
+  "ctefiling.wyocourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "wy-subsequent-history"
    ],
    "blocked_sources": []
   },
@@ -473,6 +497,13 @@
    "status": "allowed",
    "sources": [
     "hi-har-agencies"
+   ],
+   "blocked_sources": []
+  },
+  "home.wvlegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "wv-constitution-home"
    ],
    "blocked_sources": []
   },
@@ -719,7 +750,13 @@
     "vt-cases-justia",
     "wi-statutes-justia",
     "wi-constitution-justia",
-    "wi-cases-justia"
+    "wi-cases-justia",
+    "wv-code-justia",
+    "wv-constitution-justia",
+    "wv-cases-justia",
+    "wy-statutes-justia",
+    "wy-constitution-justia",
+    "wy-cases-justia"
    ],
    "blocked_sources": []
   },
@@ -1282,6 +1319,14 @@
    ],
    "blocked_sources": []
   },
+  "rules.wyo.gov": {
+   "status": "allowed",
+   "sources": [
+    "wy-admincode-sos",
+    "wy-register-sos-proposed"
+   ],
+   "blocked_sources": []
+  },
   "search-prod.lis.state.oh.us": {
    "status": "allowed",
    "sources": [
@@ -1621,6 +1666,22 @@
    ],
    "blocked_sources": []
   },
+  "www.courtswv.gov": {
+   "status": "allowed",
+   "sources": [
+    "wv-rules-civil",
+    "wv-rules-evidence",
+    "wv-rules-appellate",
+    "wv-rules-criminal",
+    "wv-rules-trial-court",
+    "wv-rules-professional-conduct",
+    "wv-sca-opinions",
+    "wv-ica-opinions",
+    "wv-subsequent-history-sca",
+    "wv-order-lists"
+   ],
+   "blocked_sources": []
+  },
   "www.dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -1890,7 +1951,9 @@
     "ut-admincode-lii",
     "va-admincode-lii",
     "vt-admincode-lii",
-    "wi-admincode-lii"
+    "wi-admincode-lii",
+    "wv-csr-lii",
+    "wy-admincode-lii"
    ],
    "blocked_sources": []
   },
@@ -2358,6 +2421,39 @@
     "wi-opinions-appeals",
     "wi-pfr-orders",
     "wi-pfr-disposition-tables"
+   ],
+   "blocked_sources": []
+  },
+  "www.wvlegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "wv-acts",
+    "wv-constitution-home"
+   ],
+   "blocked_sources": [
+    "wv-code-legacy-wvcode"
+   ]
+  },
+  "www.wyocourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "wy-rules-civil",
+    "wy-rules-criminal",
+    "wy-rules-appellate",
+    "wy-rules-evidence",
+    "wy-rules-district-uniform",
+    "wy-opinions-wyocourts",
+    "wy-chancery-decisions"
+   ],
+   "blocked_sources": []
+  },
+  "wyoleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "wy-statutes-lso-pdf",
+    "wy-statutes-nxt",
+    "wy-session-laws-lso",
+    "wy-constitution-lso-pdf"
    ],
    "blocked_sources": []
   }

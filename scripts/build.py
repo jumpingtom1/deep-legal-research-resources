@@ -319,7 +319,7 @@ def source_hosts(s):
 def write_hosts():
     """hosts.json: the live-fetch allowlist used by scripts/lsnet.py."""
     hosts = {}
-    for f in sorted(DATA.glob("*.json")):
+    for f in records():
         rec = json.loads(f.read_text())
         for s in rec["sources"]:
             st = s["verification"]["status"]
@@ -335,30 +335,52 @@ def write_hosts():
     (ROOT / "hosts.json").write_text(json.dumps(out, indent=1) + "\n")
 
 
+def _exclude():
+    """--exclude xx,yy : leave in-progress records out of a build (they stay in data/)."""
+    for i, a in enumerate(sys.argv):
+        if a == "--exclude" and i + 1 < len(sys.argv):
+            return {x.strip().lower() for x in sys.argv[i + 1].split(",") if x.strip()}
+        if a.startswith("--exclude="):
+            return {x.strip().lower() for x in a.split("=", 1)[1].split(",") if x.strip()}
+    return set()
+
+
+def records():
+    return [f for f in sorted(DATA.glob("*.json")) if f.stem not in _exclude()]
+
+
 def cross_check():
     """Every jurisdiction's citation examples against every OTHER jurisdiction's
     regexes. A hit means a citation would be routed to the wrong state."""
     recs = {}
-    for f in sorted(DATA.glob("*.json")):
+    for f in records():
         try:
             recs[f.stem] = json.loads(f.read_text())
         except Exception:
             pass
+    # Compile each distinctive pattern once: with hundreds of patterns, re's
+    # internal cache (512 entries) thrashes and recompiling dominates the run.
+    compiled = {}
+    for k, r2 in recs.items():
+        lst = []
+        for p2 in r2.get("citation_map", {}).get("citation_patterns", []):
+            if p2.get("context_required"):
+                continue      # generic form: routes only once the state is known
+            try:
+                lst.append((re.compile(p2.get("regex", ""), re.I), p2.get("label", "")))
+            except re.error:
+                pass
+        compiled[k] = lst
     hits = []
     for j, r in recs.items():
         for p in r.get("citation_map", {}).get("citation_patterns", []):
             for ex in p.get("examples", []):
-                for k, r2 in recs.items():
+                for k, lst in compiled.items():
                     if k == j:
                         continue
-                    for p2 in r2.get("citation_map", {}).get("citation_patterns", []):
-                        if p2.get("context_required"):
-                            continue      # generic form: routes only once the state is known
-                        try:
-                            if re.search(p2.get("regex", ""), ex, re.I):
-                                hits.append((j, ex, k, p2.get("label", "")))
-                        except re.error:
-                            pass
+                    for rx, lab in lst:
+                        if rx.search(ex):
+                            hits.append((j, ex, k, lab))
     return hits
 
 
@@ -375,7 +397,7 @@ def main():
     OUT.mkdir(exist_ok=True)
     all_err, all_warn, index = [], [], {"generated": date.today().isoformat(),
                                         "schema_version": 1, "jurisdictions": {}}
-    for f in sorted(DATA.glob("*.json")):
+    for f in records():
         try:
             rec = json.loads(f.read_text())
         except json.JSONDecodeError as e:

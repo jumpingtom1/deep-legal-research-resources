@@ -112,3 +112,9 @@ Tools: WF = WebFetch; FD = `python3 scripts/fetch_doc.py --research` (info/read/
 | https://www.courtswv.gov/sites/default/pubfilesmnt/2025-06/OrderListJune262025.pdf | FD | 3 pp, 4,496 chars; "No. 24-120 (Ohio CC-35-2022-C-26) Affirmed (5-0)" |
 | WS "courtswv.gov pubfilesmnt opinion pdf …" | WS | order-list PDFs incl. 2024-11/2024-11-4 Order and Decision List.pdf |
 | https://www.courtswv.gov/sites/default/pubfilesmnt/2024-11/2024-11-4%20Order%20and%20Decision%20List.pdf | WF | ICA list, Nov. 4, 2024; first entry 23-ICA-351 "Reversed and Remanded" (3-0) |
+
+## Build checks
+
+- `python3 scripts/build.py --check`: no ERROR/WARN lines for wv.json.
+- First `--cross` run: one hit, `mo: '10 CSR 10-6.060'` matched the wv bare-CSR alternative. I fixed it by tightening the wv regex (`(?![\w.-])` after the series). The Missouri example is unchanged.
+- The full `--cross` rerun was stopped after about an hour at the coordinator's request, so its result is untested. In its place, a script that copies the cross_check logic but compares only pairs that include wv reported 0 matches on the final file.
