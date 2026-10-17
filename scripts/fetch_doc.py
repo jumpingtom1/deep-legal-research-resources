@@ -42,7 +42,12 @@ def load(url, max_age):
     if tcache.exists():
         pages = json.loads(tcache.read_text())
     else:
-        if body[:5] == b"%PDF-" or "pdf" in ctype:
+        is_docx = body[:2] == b"PK" and (b"word/document.xml" in body[:4000] or
+                                          "wordprocessingml" in ctype or
+                                          r["final_url"].lower().split("?")[0].endswith(".docx"))
+        if is_docx:
+            kind, pages, raw = "docx", [lstext.docx_text(body)], None
+        elif body[:5] == b"%PDF-" or "pdf" in ctype:
             kind, pages = "pdf", lstext.pdf_pages(body)
             raw = lstext.pdf_pages(body, layout=False)
         else:

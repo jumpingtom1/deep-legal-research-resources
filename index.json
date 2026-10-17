@@ -293,12 +293,12 @@
     "ct": {
       "name": "Connecticut",
       "file": "jurisdictions/ct.md",
-      "sha256": "05cc072bf472ba20e27522c59985cbf3720a875ddde7b0de849c9e510618aaef",
+      "sha256": "b6e1eb3e7005d6358a56a61a0b9ced0d9756bdb0d263379bf470888cab129213",
       "compiled": "2026-10-17",
       "counts": {
-        "blocked": 2,
-        "verified": 8,
-        "reported": 4
+        "blocked": 3,
+        "verified_independent": 8,
+        "reported": 3
       },
       "citation_patterns": [
         {
@@ -323,7 +323,7 @@
         },
         {
           "label": "Connecticut Constitution",
-          "regex": "Conn\\.\\s*Const\\.,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+|[a-z]+(?:-[a-z]+)?),?\\s*\u00a7\\s*(?P<section>\\d+)|amend\\.\\s*(?P<amend>[IVXL]+))|article\\s+(?P<article2>[IVXL]+|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth),?\\s*(?:\u00a7|section)\\s*(?P<section2>\\d+),?\\s+of\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)",
+          "regex": "Conn\\.\\s*Const\\.,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+|[a-z]+(?:-[a-z]+)?),?\\s*\u00a7\\s*(?P<section>\\d+)|amend\\.\\s*(?P<amend>[IVXL]+))|article\\s+(?P<article2>[IVXL]+|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth),?\\s*(?:\u00a7|section)\\s*(?P<section2>\\d+),?\\s+of\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)|article\\s+(?P<amend2>[IVXL]+|[a-z]+(?:-[a-z]+)?)\\s+of\\s+the\\s+amendments\\s+to\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)",
           "context_required": false
         },
         {
@@ -338,7 +338,7 @@
         },
         {
           "label": "Code of Evidence (bare, no state marker)",
-          "regex": "Code\\s+of\\s+Evidence\\s*\u00a7\\s*(?P<section>\\d{1,2}-\\d{1,2})",
+          "regex": "Code\\s+of\\s+Evidence\\s*\u00a7\\s*(?P<section>\\d{1,2}-\\d{1,2})|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}-\\d{1,2})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Evidence",
           "context_required": true
         },
         {
@@ -1029,6 +1029,158 @@
         {
           "label": "Indiana transfer history (trans. denied / trans. granted / trans. not sought)",
           "regex": "\\btrans\\.\\s+(?P<disp>denied|granted|not\\s+sought|dismissed|vacated)",
+          "context_required": true
+        }
+      ]
+    },
+    "la": {
+      "name": "Louisiana",
+      "file": "jurisdictions/la.md",
+      "sha256": "110c59ff528c6a654d3c675fb2672f96974f9dbee31f6fa16f9a01e68857a79f",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 14,
+        "reported": 7
+      },
+      "citation_patterns": [
+        {
+          "label": "Louisiana Revised Statutes",
+          "regex": "(?:\\bLa\\.?\\s*R\\.\\s*S\\.|\\bLSA[\\s\\-\u2013]*R\\.\\s*S\\.|\\bLa\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|Louisiana\\s+Revised\\s+Statutes(?:\\s+of\\s+1950)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)|(?:Section|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?)\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Louisiana\\s+Revised\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Revised Statutes (bare \"R.S. 9:2800\")",
+          "regex": "(?<![\\w.])R\\.\\s*S\\.\\s*(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Civil Code",
+          "regex": "(?:\\bLa\\.\\s*Civ(?:il)?\\.?\\s*Code(?:\\s*Ann\\.)?|\\bLa\\.\\s*C\\.\\s*C\\.|\\bLSA[\\s\\-\u2013]*C\\.\\s*C\\.|Louisiana\\s+Civil\\s+Code)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Louisiana\\s+Civil\\s+Code|Arts?\\.\\s*(?P<article3>\\d+(?:\\.\\d+)?),\\s*La\\.\\s*C\\.\\s*C\\.(?!\\s*[PR])",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Civil Code (bare \"Civil Code article\")",
+          "regex": "(?:\\bCiv(?:il)?\\.?\\s*Code|(?<![\\w.])C\\.\\s*C\\.(?!\\s*P))\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Civil\\s+Code",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Code of Civil Procedure",
+          "regex": "(?:\\bLa\\.\\s*Code\\s*(?:of\\s*)?Civ(?:il)?\\.?\\s*Proc(?:edure)?\\.?(?:\\s*Ann\\.)?|\\bLa\\.\\s*C\\.\\s*C\\.\\s*P\\.|\\bLSA[\\s\\-\u2013]*C\\.\\s*C\\.\\s*P\\.|Louisiana\\s+Code\\s+of\\s+Civil\\s+Procedure)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s*(?:,|\\s+of\\s+the)\\s*(?:La\\.\\s*C\\.\\s*C\\.\\s*P\\.|Louisiana\\s+Code\\s+of\\s+Civil\\s+Procedure)",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Code of Civil Procedure (bare \"C.C.P. art.\")",
+          "regex": "(?:(?<![\\w.])C\\.\\s*C\\.\\s*P\\.|Code\\s+of\\s+Civil\\s+Procedure|Code\\s*Civ\\.?\\s*Proc\\.?)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Code\\s+of\\s+Civil\\s+Procedure",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Code of Criminal Procedure",
+          "regex": "(?:\\bLa\\.\\s*Code\\s*(?:of\\s*)?Crim(?:inal)?\\.?\\s*Proc(?:edure)?\\.?(?:\\s*Ann\\.)?|\\bLa\\.\\s*C\\.\\s*Cr\\.\\s*P\\.|\\bLSA[\\s\\-\u2013]*C\\.\\s*Cr\\.\\s*P\\.|Louisiana\\s+Code\\s+of\\s+Criminal\\s+Procedure)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s*(?:,|\\s+of\\s+the)\\s*(?:La\\.\\s*C\\.\\s*Cr\\.\\s*P\\.|Louisiana\\s+Code\\s+of\\s+Criminal\\s+Procedure)",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Code of Criminal Procedure (bare)",
+          "regex": "(?:(?<![\\w.])C\\.\\s*Cr\\.\\s*P\\.|Code\\s+of\\s+Criminal\\s+Procedure)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Code of Evidence",
+          "regex": "(?:\\bLa\\.\\s*Code\\s*(?:of\\s*)?Evid(?:ence)?\\.?(?:\\s*Ann\\.)?|\\bLa\\.\\s*C\\.\\s*E\\.|\\bLSA[\\s\\-\u2013]*C\\.\\s*E\\.|Louisiana\\s+Code\\s+of\\s+Evidence)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)|Art(?:icle|\\.)\\s*(?P<article2>\\d+(?:\\.\\d+)?)\\s*(?:,|\\s+of\\s+the)\\s*(?:La\\.\\s*C\\.\\s*E\\.|Louisiana\\s+Code\\s+of\\s+Evidence)",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Code of Evidence (bare)",
+          "regex": "(?:(?<![\\w.])C\\.\\s*E\\.|Code\\s+of\\s+Evidence)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Children's Code",
+          "regex": "(?:\\bLa\\.\\s*Ch(?:ild(?:ren'?s)?)?\\.?\\s*C(?:ode)?\\.?(?:\\s*Ann\\.)?|\\bLSA[\\s\\-\u2013]*Ch\\.\\s*C\\.|Louisiana\\s+Children'?s\\s+Code)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Children's Code (bare)",
+          "regex": "(?:(?<![\\w.])Ch\\.\\s*C\\.|Children'?s\\s+Code)\\s*,?\\s*(?:arts?\\.|articles?)\\s*(?P<article>\\d+(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Constitution of 1974",
+          "regex": "\\bLa\\.\\s*Const\\.(?:\\s*of\\s*1974)?,?\\s*arts?\\.\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+Section\\s+(?P<section2>\\d+(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Louisiana\\s+Constitution|Constitution\\s+of\\s+Louisiana)",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Supreme Court Rules",
+          "regex": "(?:\\bLa\\.\\s*S(?:up(?:reme)?)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Louisiana\\s+Supreme\\s+Court\\s+Rules?)\\s*(?P<rule>[IVXL]+)\\b(?:,?\\s*\u00a7\\s*(?P<section>\\d+(?:\\.\\d+)?))?",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Supreme Court Rules (bare Roman-numbered)",
+          "regex": "Supreme\\s+Court\\s+Rule\\s+(?P<rule>[IVXL]+)\\b(?:,?\\s*\u00a7\\s*(?P<section>\\d+(?:\\.\\d+)?))?",
+          "context_required": true
+        },
+        {
+          "label": "Rules for Louisiana District Courts",
+          "regex": "\\bLa\\.\\s*Dist\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+(?:Rules\\s+for\\s+Louisiana\\s+District\\s+Courts|Louisiana\\s+District\\s+Court\\s+Rules)",
+          "context_required": false
+        },
+        {
+          "label": "District Court Rules (bare)",
+          "regex": "District\\s+Court\\s+Rules?\\s+(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": true
+        },
+        {
+          "label": "Uniform Rules of Louisiana Courts of Appeal",
+          "regex": "(?:\\bLa\\.\\s*Unif\\.\\s*R\\.\\s*Ct\\.?\\s*App\\.?|Uniform\\s+Rules?(?:\\s+of|,)?\\s+Louisiana\\s+Courts?\\s+of\\s+Appeals?,?\\s*Rule)\\s*(?P<rule>\\d-\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d-\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Uniform\\s+Rules\\s+of\\s+(?:the\\s+)?Louisiana\\s+Courts\\s+of\\s+Appeal",
+          "context_required": false
+        },
+        {
+          "label": "Uniform Rules, Courts of Appeal (bare)",
+          "regex": "(?:Uniform\\s+Rules?\\s*(?:\u2014|\u2013|-|,)?\\s*(?:of\\s+(?:the\\s+)?)?Courts?\\s+of\\s+Appeals?,?\\s*Rule\\s*(?P<rule>\\d-\\d+(?:\\.\\d+)?))|\\bRule\\s+(?P<rule2>[1-7]-\\d+(?:\\.\\d+)?)\\b",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Administrative Code",
+          "regex": "\\bLAC\\s*(?P<title>\\d{1,2}):(?P<part>[IVXLC]+)\\.(?P<section>\\d+(?:\\.\\d+)?)|\\bLa\\.\\s*Admin\\.\\s*Code\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*(?:pt\\.\\s*(?P<part2>[IVXLC]+),?\\s*\u00a7+\\s*(?P<section2>\\d+)|\u00a7+\\s*(?P<part3>[IVXLC]+)-(?P<section3>\\d+))",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana Register (\"LR vol:page\")",
+          "regex": "\\bLR\\s+(?P<volume>\\d{1,2}):(?P<page>\\d{1,5})",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana public-domain (docket + court/date) citations",
+          "regex": "(?P<docket>\\b\\d{2,4}-(?:[A-Z]{1,3}-)?\\d{1,5}|\\b\\d{2},\\d{3}(?:-[A-Z]{2,3})?|\\b\\d{4}\\s*[A-Z]{1,3}\\s*\\d{3,4})\\s*,?\\s*(?:p\\.\\s*\\d+\\s*,?\\s*)?\\(La\\.\\s*(?:App\\.\\s*(?P<circuit>[1-5])(?:st|nd|rd|th)?\\s*Cir\\.\\s*)?(?P<date>\\d{1,2}/\\d{1,2}/\\d{2,4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Southern Reporter with Louisiana court parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?:(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>La\\.(?:\\s*App\\.(?:\\s*[1-5](?:st|nd|rd|th)?\\s*Cir\\.)?)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Westlaw cites with Louisiana parenthetical",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(La\\.",
+          "context_required": false
+        },
+        {
+          "label": "Louisiana docket numbers (bare)",
+          "regex": "\\b(?:19|20)\\d\\d-[A-Z]{1,2}-\\d{4,5}\\b|\\b(?:19|20)\\d\\d\\s?[A-Z]{2}\\s?\\d{4}\\b|\\b\\d{2},\\d{3}-[A-Z]{2,3}\\b|\\b\\d{2}-[A-Z]{1,2}-\\d{1,4}\\b",
+          "context_required": true
+        },
+        {
+          "label": "Southern Reporter (bare)",
+          "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?:(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+          "context_required": true
+        },
+        {
+          "label": "Louisiana Supreme Court writ dispositions",
+          "regex": "\\bwrits?\\s+(?P<disposition>denied|granted(?:\\s+in\\s+part)?|not\\s+considered|dismissed)[^()]{0,40}?,\\s*(?P<docket>\\d{2,4}-(?:[A-Z]{1,3}-)?\\d{1,5})\\s*\\(La\\.\\s*(?P<date>\\d{1,2}/\\d{1,2}/\\d{2,4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Writ disposition (bare)",
+          "regex": "\\bwrits?\\s+(?:denied|granted|not\\s+considered)\\b",
           "context_required": true
         }
       ]

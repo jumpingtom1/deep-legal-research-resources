@@ -116,13 +116,13 @@ Accepted examples:
         "pattern_rules": "how placeholders map from the citation (code abbreviations table, zero-padding, …)",
         "index_url": "https://… (index-anchored: where to start)",
         "navigation": "index-anchored: the exact hops, e.g. 'title index → chapter link → subchapter page holds section text'",
-        "format": "html | pdf | json | xml",
+        "format": "html | pdf | docx | json | xml",
         "read_via": "optional: when items are LOCATED here but READ elsewhere (e.g. listing on one host, PDFs on another), name the reading host/source id and whether it is reachable"
       },
       "text": "fetch-and-quote | link-only",
       "automation": {
         "webfetch": "ok | ok (truncated) | gated | fail | blocked | untested",  // gated = needs per-URL user approval (built URLs)
-        "shell": "ok | blocked-robots | blocked-challenge | tls-error | http-error | untested",  // tested with scripts/fetch_doc.py --research
+        "shell": "ok | blocked-robots | blocked-challenge | tls-error | http-error | unreadable-format | untested",  // tested with scripts/fetch_doc.py --research
         "robots_txt": "summary of relevant rules, or 'none (404)'",
         "notes": "rate limits, JS-only rendering, crawl-delay …"
       },

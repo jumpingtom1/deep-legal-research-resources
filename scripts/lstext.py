@@ -135,6 +135,30 @@ def html_links(html_bytes, base_url, encoding=None):
     return out
 
 
+def docx_text(docx_bytes):
+    """Text of a .docx (Word 2007+) file: paragraphs and table cells, in order.
+    Stdlib only. Legacy binary .doc files are not supported."""
+    import io
+    import zipfile
+    import xml.etree.ElementTree as ET
+    W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    with zipfile.ZipFile(io.BytesIO(docx_bytes)) as z:
+        root = ET.fromstring(z.read("word/document.xml"))
+    out = []
+    for para in root.iter(W + "p"):
+        parts = []
+        for node in para.iter():
+            if node.tag == W + "t" and node.text:
+                parts.append(node.text)
+            elif node.tag == W + "tab":
+                parts.append("\t")
+            elif node.tag in (W + "br", W + "cr"):
+                parts.append("\n")
+        out.append("".join(parts))
+    text = "\n".join(out)
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
+
+
 def html_text(html_bytes, encoding=None):
     enc = _sniff_encoding(html_bytes, encoding)
     if enc.lower() in ("iso-8859-1", "latin-1", "latin1", "us-ascii", "ascii"):
