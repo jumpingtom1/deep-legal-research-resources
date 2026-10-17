@@ -32,9 +32,10 @@
           "SDCL 2-16-13.1",
           "section 22-18-1 of the South Dakota Codified Laws",
           "SDCL §§ 22-18-1 to -1.1",
-          "S.D.C.L. § 32-23-1"
+          "S.D.C.L. § 32-23-1",
+          "SD Codified Laws § 22-18-1"
         ],
-        "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.\\s?D\\.\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:§§?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|§)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
+        "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.?\\s?D\\.?\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:§§?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|§)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
         "routes_to": [
           "sd-sdcl-lrc",
           "sd-sdcl-justia"
@@ -88,9 +89,10 @@
           "SDCL 15-6-12(b)(5)",
           "SDCL 19-19-702",
           "SDCL 15-26A-60",
-          "SDCL 23A-8-3"
+          "SDCL 23A-8-3",
+          "S.D.C.L. 15-6-12(b)(5)"
         ],
-        "regex": "\\bSDCL\\s*(?:§§?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
+        "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.)\\s*(?:§§?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
         "routes_to": [
           "sd-rules-sdcl",
           "sd-sdcl-justia"
@@ -217,7 +219,7 @@
       "SL": "SessionLaws",
       "S.D. Sess. Laws": "SessionLaws"
     },
-    "notes": "SDCL 15-26A-69.1: opinions released on or after Jan. 1, 1996 are cited 'YYYY S.D. N' with pinpoints to clerk-assigned ¶ numbers; earlier opinions by S.D. Reports (ended 1976, vol. 90 per memory) or N.W./N.W.2d. Court style and practitioners write both 'S.D.' and 'SD' ('2006 SD 113' appears in UJS listing titles). SDCL numbers are title-chapter-section with letters allowed (15-26A, 23A) and decimals (2-16-13.1); a '§§ 22-18-1 to -1.1' range is a span — take the first section. Court rules are codified: civil procedure = SDCL 15-6 (rule subsections are separate sections, e.g. 15-6-56(c)), evidence = 19-19 (FRE numbers), appellate = 15-26A, criminal = Title 23A (federal rule number only in the catchline). Bare 'Rule 56(c)' or 'Rule 702' is generic: route only with South Dakota context, then map to 15-6-56(c) / 19-19-702. Routing guards: 'S.D.' is also the Southern District abbreviation in federal cites ('S.D.N.Y.', 'S.D. Ohio'); the public-domain regex requires a 1996+ year directly before 'S.D.' and a number after, and the N.W. pattern requires '(S.D. YYYY)' or a parallel S.D. Reports cite, so federal district parentheticals do not route here. Bare N.W.2d cites, 'SL YYYY, ch N' and 5-digit docket numbers are context_required (N.W. also covers IA, MI, MN, NE, ND, WI). ARSD numbers use colons (67:16:01:01) and route only with an ARSD / S.D. Admin. R. prefix; register cites are 'NN SDR NNN'. CourtListener id 'sd' is from memory and unverified."
+    "notes": "SDCL 15-26A-69.1: opinions released on or after Jan. 1, 1996 are cited 'YYYY S.D. N' with pinpoints to clerk-assigned ¶ numbers; earlier opinions by S.D. Reports (ended 1976, vol. 90 per memory) or N.W./N.W.2d. Court style and practitioners write both 'S.D.' and 'SD' ('2006 SD 113' appears in UJS listing titles). SDCL numbers are title-chapter-section with letters allowed (15-26A, 23A) and decimals (2-16-13.1); a '§§ 22-18-1 to -1.1' range is a span — take the first section. Court rules are codified: civil procedure = SDCL 15-6 (rule subsections are separate sections, e.g. 15-6-56(c)), evidence = 19-19 (FRE numbers), appellate = 15-26A, criminal = Title 23A (federal rule number only in the catchline). Bare 'Rule 56(c)' or 'Rule 702' is generic: route only with South Dakota context, then map to 15-6-56(c) / 19-19-702. Routing guards: 'S.D.' is also the Southern District abbreviation in federal cites ('S.D.N.Y.', 'S.D. Ohio'); the public-domain regex requires a 1996+ year directly before 'S.D.' and a number after, and the N.W. pattern requires '(S.D. YYYY)' or a parallel S.D. Reports cite, so federal district parentheticals do not route here. Bare N.W.2d cites, 'SL YYYY, ch N' and 5-digit docket numbers are context_required (N.W. also covers IA, MI, MN, NE, ND, WI). ARSD numbers use colons (67:16:01:01) and route only with an ARSD / S.D. Admin. R. prefix; register cites are 'NN SDR NNN'. CourtListener id 'sd' is from memory and unverified. Independent check 2026-10-17: 'SD Codified Laws' (no periods) now routes; the court-rules pattern accepts 'S.D.C.L.'. The context_required docket pattern also catches federal 'ECF No. 12345' — harmless only because it never routes without South Dakota context."
   },
   "sources": [
     {
@@ -232,7 +234,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://sdlegislature.gov/api/Statutes/{section}.html",
-        "pattern_rules": "{section} is the SDCL number exactly as cited, hyphens kept, no padding: 22-18-1, 53-1-1, 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 2-16-13.1. Chapter keys (22-18) and title keys (22) return the chapter's or title's table of contents; append ?all=true to a chapter key to get every section's text on one page (22-18.html?all=true = 21,832 chars). Rule subsections that are separate SDCL sections keep their parenthetical: 15-6-56(c), 15-6-12(b) (literal parentheses in the URL). The bare parent 15-6-56.html returns HTTP 200 with 0 characters: if a page comes back empty, re-try with the citation's first parenthetical letter, never guess further. Constitution sections are NOT served here (see sd-constitution-lrc). The human-facing https://sdlegislature.gov/Statutes/{section} is a Vue app: both fetch routes get only 'Your browser is not supported'. JSON variant: https://sdlegislature.gov/api/Statutes/Statute/{section} (Html field plus Previous/Next/parents).",
+        "pattern_rules": "{section} is the SDCL number exactly as cited, hyphens kept, no padding: 22-18-1, 53-1-1, 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 2-16-13.1. Chapter keys (22-18) and title keys (22) return the chapter's or title's table of contents; append ?all=true to a chapter key to get every section's text on one page (22-18.html?all=true = 21,832 chars). Rule subsections that are separate SDCL sections keep their parenthetical: 15-6-56(c), 15-6-12(b) (literal parentheses in the URL). A bare parent of a subsectioned rule returns HTTP 200 with either 0 characters (15-6-56.html) or only its catchline (15-6-26.html: '15-6-26. Discovery pending action', no body, no 'Source:'): treat both as empty and re-try with the citation's first parenthetical letter; if the citation has none, open the chapter page and list the subsections. Unknown keys return HTTP 404. Constitution sections are NOT served here (see sd-constitution-lrc). The human-facing https://sdlegislature.gov/Statutes/{section} is a Vue app: both fetch routes get only 'Your browser is not supported'. JSON variant: https://sdlegislature.gov/api/Statutes/Statute/{section} (Html field plus Previous/Next/parents).",
         "index_url": "https://sdlegislature.gov/api/Statutes/{title}.html",
         "navigation": "Only if a section key fails: title page /api/Statutes/22.html (chapter list, no section ranges) → chapter page /api/Statutes/22-18.html lists every section number and catchline with links of the form https://sdlegislature.gov/Statutes?Statute=22-18-1 → take the number and use the url_pattern.",
         "format": "html"
@@ -251,8 +253,8 @@
       "hazards": [
         "the human /Statutes/{section} URL is a JavaScript shell for both fetch routes; always use /api/Statutes/{section}.html",
         "rule-numbered sections in 15-6 need the parenthetical (15-6-56(c)); the bare number gives an empty 200 page, not a 404",
-        "unknown keys also give an empty 200 page, not a 404: treat 0 characters as not found",
-        "no currency line on the page itself"
+        "no currency line on the page itself",
+        "unknown section keys return HTTP 404 (99-99-99.html: script exit 4); parent keys of subsectioned rules return 200 with 0 chars (15-6-56) or a catchline-only page (15-6-26: 33 chars) — treat a page with no body and no 'Source:' line as empty"
       ],
       "probe": {
         "citation": "SDCL 22-18-1",
@@ -262,9 +264,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py read: 1,843 chars, '22-18-1. Simple assault--Violation as misdemeanor'; body 'A person is guilty of simple assault, a Class 1 misdemeanor'. Also 53-1-1 (191 chars, 'A contract is an agreement to do or not to do'; WebFetch YES, complete), 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 15-6-56(c), 15-6-12(b) all returned body text."
+        "evidence": "fetch_doc.py read: 1,843 chars, '22-18-1. Simple assault--Violation as misdemeanor'; body 'A person is guilty of simple assault, a Class 1 misdemeanor'. Also 53-1-1 (191 chars, 'A contract is an agreement to do or not to do'; WebFetch YES, complete), 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 15-6-56(c), 15-6-12(b) all returned body text. | Independent check 2026-10-17: script+WebFetch YES 'A person is guilty of simple assault, a Class 1 misdemeanor'; second citation SDCL 25-4-17; SDCL 15-2-14.1 ok"
       },
       "notes": "Second-route check for statutes: sd-sdcl-justia (2025 edition)."
     },
@@ -280,7 +282,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/south-dakota/title-{title}/chapter-{chapter:02d}/section-{section_slug}/",
-        "pattern_rules": "title as cited (22, 15); chapter zero-padded to two digits (15-6 → chapter-06; 22-18 → chapter-18). section_slug = the full SDCL number with a parenthetical turned into a hyphen suffix: 22-18-1 → section-22-18-1; 15-6-56(c) → section-15-6-56-c. Lettered titles/chapters (23A, 15-26A) were not tested: fetch the chapter index and copy the link. Year editions: /codes/south-dakota/2025/…",
+        "pattern_rules": "title as cited (22, 15); chapter zero-padded to two digits (15-6 → chapter-06; 22-18 → chapter-18). section_slug = the full SDCL number with a parenthetical turned into a hyphen suffix: 22-18-1 → section-22-18-1; 15-6-56(c) → section-15-6-56-c. Letters are lower-cased in every segment: 23A-32-9 → /title-23a/chapter-32/section-23a-32-9/ (independent check). Year editions: /codes/south-dakota/2025/…",
         "index_url": "https://law.justia.com/codes/south-dakota/",
         "navigation": "title page (/codes/south-dakota/title-15/) lists chapters WITHOUT section ranges → chapter page (/title-15/chapter-06/) lists every section, each subsection rule as its own entry → section page.",
         "format": "html"
@@ -309,9 +311,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES: 'Unless different periods are fixed or permitted by order of'; label '2025 South Dakota Codified Laws'. Also /title-22/chapter-18/section-22-18-1/ YES 'A person is guilty of simple assault, a Class 1'."
+        "evidence": "WebFetch YES: 'Unless different periods are fixed or permitted by order of'; label '2025 South Dakota Codified Laws'. Also /title-22/chapter-18/section-22-18-1/ YES 'A person is guilty of simple assault, a Class 1'. | Independent check 2026-10-17: WebFetch YES 'Unless different periods are fixed or permitted by order of'; '2025 South Dakota Codified Laws'; second citation SDCL 25-4-17; SDCL 23A-32-9 (chapter index) ok"
       },
       "notes": ""
     },
@@ -334,7 +336,7 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
         "notes": "JSON with embedded HTML; quote from the Html field."
@@ -355,9 +357,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: ChapterToId/92?SessionId=44 → '7285'; SessionLaw/7285 2,496 chars, Catchline 'An Act to increase the enhanced penalty for the crime of simple assault.' (House Bill 1080); matches the 22-18-1 source note 'SL 2021, ch 92'."
+        "evidence": "fetch_doc.py: ChapterToId/92?SessionId=44 → '7285'; SessionLaw/7285 2,496 chars, Catchline 'An Act to increase the enhanced penalty for the crime of simple assault.' (House Bill 1080); matches the 22-18-1 source note 'SL 2021, ch 92'. | Independent check 2026-10-17: script+WebFetch YES Catchline 'An Act to increase the enhanced penalty for the crime of simple assault.'; second citation SL 2024, ch 50 ok"
       },
       "notes": ""
     },
@@ -402,9 +404,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'; complete. Also 0N-5-1.html YES 'The judicial power of the state is vested in a'. fetch_doc.py: 200 but 0 chars extracted (raw bytes hold the text)."
+        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'; complete. Also 0N-5-1.html YES 'The judicial power of the state is vested in a'. fetch_doc.py: 200 but 0 chars extracted (raw bytes hold the text). | Independent check 2026-10-17: WebFetch YES 'No person shall be deprived of life, liberty or property'; script 0 chars; second citation S.D. Const. art. XI, § 2 ok"
       },
       "notes": "The Secretary of State's constitution PDFs found by search (sdsos.gov/2025 South Dakota Constitution 20250919.pdf, www.sdsos.gov/2023SouthDakotaConstitution20220124.pdf) returned HTTP 404 to fetch_doc.py."
     },
@@ -448,9 +450,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'. Article page /article-6/: section 2 body NOT PRESENT (headings only)."
+        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'. Article page /article-6/: section 2 body NOT PRESENT (headings only). | Independent check 2026-10-17: WebFetch YES 'No person shall be deprived of life, liberty or property'; disclaimer present; second citation S.D. Const. art. XI, § 2 ok"
       },
       "notes": ""
     },
@@ -466,7 +468,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://sdlegislature.gov/api/Statutes/{section}.html",
-        "pattern_rules": "Same as sd-sdcl-lrc. Civil rules: 'Rule 56(c)' ↔ SDCL 15-6-56(c) (URL keeps the parenthetical). Evidence: 'Rule 702' ↔ SDCL 19-19-702. Criminal: the federal-rule number is in the catchline, not the key (Rule 12(b) ↔ 23A-8-3): find it on the chapter page or Title 23A index.",
+        "pattern_rules": "Same as sd-sdcl-lrc. Civil rules: 'Rule 56(c)' ↔ SDCL 15-6-56(c) (URL keeps the parenthetical). Evidence: 'Rule 702' ↔ SDCL 19-19-702. Criminal: the federal-rule number is in the catchline, not the key (Rule 12(b) ↔ 23A-8-3): find it on the chapter page or Title 23A index. A bare rule number (SDCL 15-6-26, 'Rule 56') is not text: the parent page is empty or catchline-only (15-6-26 = 33 chars, catchline only). Reach the text by opening the chapter page https://sdlegislature.gov/api/Statutes/15-6.html, listing the parent's subsections (15-6-26(a), (b) …) and fetching each subsection key, or the chapter with ?all=true.",
         "index_url": "https://sdlegislature.gov/api/Statutes/15-6.html",
         "navigation": "",
         "format": "html"
@@ -483,7 +485,7 @@
         "observed": "\"2026-09-03T00:00:00-05:00\""
       },
       "hazards": [
-        "15-6-NN without the subsection returns an empty page",
+        "bare rule parents (15-6-26, 15-6-56) return only the catchline or 0 chars, never the rule text — a page with no body and no 'Source:' line is not the rule; use the subsection keys from the chapter page",
         "criminal rules not keyed by federal rule number"
       ],
       "probe": {
@@ -494,9 +496,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 15-6-56(c) 2,550 chars 'Motion for summary judgment and proceedings thereon'; 15-6-12(b) 1,804 chars; 19-19-702 'A witness who is qualified as an expert by knowledge'; 23A-8-3 '(Rule 12(b)) Defenses and objections raised by motion'; 15-26A-60 'Brief of appellant--Contents'."
+        "evidence": "fetch_doc.py: 15-6-56(c) 2,550 chars 'Motion for summary judgment and proceedings thereon'; 15-6-12(b) 1,804 chars; 19-19-702 'A witness who is qualified as an expert by knowledge'; 23A-8-3 '(Rule 12(b)) Defenses and objections raised by motion'; 15-26A-60 'Brief of appellant--Contents'. | Independent check 2026-10-17: script+WebFetch YES 'Unless different periods are fixed or permitted by order of the court'; second citation SDCL 15-6-26(b); SDCL 19-19-403; SDCL 23A-32-9 ok"
       },
       "notes": "Tier-2 fallback: sd-sdcl-justia (chapter-06/section-15-6-56-c verified)."
     },
@@ -540,9 +542,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep 'Rule 1.7': offset 28649 'Rule 1.7. Conflict of Interest: Current Clients (a) Except as provided'. WebFetch: truncated at 100,000 chars, Rule 8.4 NOT PRESENT."
+        "evidence": "fetch_doc.py grep 'Rule 1.7': offset 28649 'Rule 1.7. Conflict of Interest: Current Clients (a) Except as provided'. WebFetch: truncated at 100,000 chars, Rule 8.4 NOT PRESENT. | Independent check 2026-10-17: script grep offset 28649 'Rule 1.7. Conflict of Interest: Current Clients (a) Except'; second citation Rule 8.4 of the South Dakota Rules of Professional Conduct ok"
       },
       "notes": ""
     },
@@ -558,7 +560,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://ujs.sd.gov/supreme-court/published-rules/?keywords={words}&year={year}&archive=true",
-        "pattern_rules": "Plain GET. Without archive=true the current list can be empty ('0 of 0'). Titles name the SDCL section, e.g. 'ADOPTION OF NEW RULES AT SDCL 16-3-5.3'. PDFs at /media/{random}/{file}.pdf — not constructible; take from the listing.",
+        "pattern_rules": "Plain GET. Query both without and with archive=true: the flag returns ONLY archived orders (2026: 0 links without it, 8 with it; all current orders were archived on 2026-10-17). Titles name the SDCL section, e.g. 'ADOPTION OF NEW RULES AT SDCL 16-3-5.3'. PDFs at /media/{random}/{file}.pdf — not constructible; take from the listing.",
         "index_url": "https://ujs.sd.gov/supreme-court/published-rules/",
         "navigation": "",
         "format": "pdf"
@@ -576,7 +578,7 @@
       },
       "hazards": [
         "random /media/ path segment",
-        "default view hides archived orders"
+        "archive=true is a switch (only archived items), not an include toggle — query both ways"
       ],
       "probe": {
         "citation": "rule orders 2025",
@@ -586,9 +588,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py links: 10 PDF links, first '[Archive] IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3' → /media/4rxprw2v/scrule_rsrc_20250305135006.pdf. Default view without archive: '0 of 0'."
+        "evidence": "fetch_doc.py links: 10 PDF links, first '[Archive] IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3' → /media/4rxprw2v/scrule_rsrc_20250305135006.pdf. Default view without archive: '0 of 0'. | Independent check 2026-10-17: script links: '[Archive] IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3'; second citation rule orders 2026 ok"
       },
       "notes": "Use for effective dates of amendments; quote rule text from sd-rules-sdcl."
     },
@@ -621,7 +623,8 @@
         "observed": "44 SDR 94, effective December 4, 2017."
       },
       "hazards": [
-        "no global currency statement"
+        "no global currency statement",
+        "transferred/repealed rules return a one-line stub (44:04:01:01: 'Transferred to § 44:73:01:01.'); follow the new number"
       ],
       "probe": {
         "citation": "ARSD 67:16:01:01",
@@ -631,9 +634,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES 'Terms used in this article mean: (1) \"Allowable costs,\" expenses'; complete. fetch_doc.py: 67:16:01:01 4,869 chars; 74:51:01:01 11,684 chars 'Terms defined in SDCL 34A-2-2, have the same meaning'; 20:10:01:01 'Sessions of commission'."
+        "evidence": "WebFetch YES 'Terms used in this article mean: (1) \"Allowable costs,\" expenses'; complete. fetch_doc.py: 67:16:01:01 4,869 chars; 74:51:01:01 11,684 chars 'Terms defined in SDCL 34A-2-2, have the same meaning'; 20:10:01:01 'Sessions of commission'. | Independent check 2026-10-17: script+WebFetch YES 'Terms used in this article mean'; Source ends '44 SDR 94, effective December 4, 2017.'; second citation ARSD 44:73:01:01 ok"
       },
       "notes": ""
     },
@@ -656,7 +659,7 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "User-agent: *, Crawl-delay: 10; /regulations/ not disallowed",
         "notes": "Pages last-modified Aug 2025."
@@ -677,9 +680,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 'Terms used in this article mean: (1) \"Allowable costs,\" those expenses' (6,176 chars); verify of LRC wording on ARSD-74-51-01-01 NOT VERIFIED (older text)."
+        "evidence": "fetch_doc.py grep: 'Terms used in this article mean: (1) \"Allowable costs,\" those expenses' (6,176 chars); verify of LRC wording on ARSD-74-51-01-01 NOT VERIFIED (older text). | Independent check 2026-10-17: script+WebFetch YES 'Terms used in this article mean: (1) \"Allowable costs,\" those expenses'; second citation ARSD 44:73:01:01 ok"
       },
       "notes": "Use only to locate; quote from sd-arsd-lrc."
     },
@@ -695,7 +698,7 @@
       "access": {
         "mode": "index-anchored",
         "index_url": "https://sdlegislature.gov/api/Documents/DocumentTypesRSS?Type=50",
-        "navigation": "RSS (161K chars) lists every issue as https://mylrc.sdlegislature.gov/api/Documents/{id}.pdf, newest first; the item text does not carry volume/page, so match an SDR cite by opening issues of the right year. The SPA page https://sdlegislature.gov/Rules/Registers is a JS shell.",
+        "navigation": "RSS (161K chars) lists every issue as https://mylrc.sdlegislature.gov/api/Documents/{id}.pdf, newest first, with NO dates, volume or page numbers. Recent issues: take the first items. Old SDR cites: not practically resolvable (blind bisection over hundreds of PDFs). The SPA page https://sdlegislature.gov/Rules/Registers is a JS shell.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -710,7 +713,7 @@
         "observed": "Volume 53 … Tuesday, 8:00 a.m., October 13, 2026"
       },
       "hazards": [
-        "no volume/page → PDF index; SDR page cite needs scanning issues"
+        "RSS items carry no dates, volume or page (161K chars, ~1,500 undated PDF links): an old 'NN SDR NNN' cite cannot practically be resolved — use SDR cites only as provenance from ARSD Source notes; only recent issues are reachable (newest first)"
       ],
       "probe": {
         "citation": "S.D. Register, Oct. 13, 2026",
@@ -720,9 +723,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: PDF 3 pages, 8,568 chars; 'SOUTH DAKOTA REGISTER Published weekly by the Legislative Research Council'; 'Volume 53'."
+        "evidence": "fetch_doc.py: PDF 3 pages, 8,568 chars; 'SOUTH DAKOTA REGISTER Published weekly by the Legislative Research Council'; 'Volume 53'. | Independent check 2026-10-17: script: 'October 13, 2026 FILINGS WITH THE LEGISLATIVE RESEARCH COUNCIL'; second citation S.D. Register issue of Oct. 5-6, 2026 (next RSS item) ok"
       },
       "notes": ""
     },
@@ -737,8 +740,8 @@
       "coverage": "Supreme Court opinions 2006–present on the site (year filter 2006–2026; year=1996 archive=true returns 0). South Dakota has no intermediate appellate court.",
       "access": {
         "mode": "search-only",
-        "url_pattern": "https://ujs.sd.gov/supreme-court/opinions/?keywords={party}&year={year}&archive=true",
-        "pattern_rules": "Plain GET. keywords matches the case TITLE only (party names): docket numbers (31307) and citation strings ('2010 S.D. 105') do not match. Always add archive=true — older opinions (and some 2026 ones) are 'archived' and hidden otherwise. Each row: date, 'STATE v. LUCERO, 2026 S.D. 48', sequence number; the PDF is https://ujs.sd.gov/media/{random}/{docket}.pdf — the random segment is not constructible, take the link from the listing (fetch_doc.py links … pdf). The docket number is the PDF file name.",
+        "url_pattern": "https://ujs.sd.gov/supreme-court/opinions/?keywords={party}&year={year}",
+        "pattern_rules": "Plain GET. Search WITHOUT archive=true first; if 0 results, repeat the same query with &archive=true. archive=true is a switch, not an 'include archived' toggle: it returns ONLY archived opinions (keywords=Lucero&year=2026&archive=true and keywords=Bialota&year=2026&archive=true return 0; without it each returns 1; year=2026&archive=true lists only 2026 S.D. 15-24). Older years (2010, 2006) are archived, so they need the flag. keywords matches the case TITLE only (party names): docket numbers (31307) and citation strings ('2010 S.D. 105') do not match. Each row: date, 'STATE v. LUCERO, 2026 S.D. 48', sequence number; the PDF is https://ujs.sd.gov/media/{random}/{docket}.pdf — the random segment is not constructible, take the link from the listing (fetch_doc.py links … pdf). The docket number is the PDF file name.",
         "index_url": "https://ujs.sd.gov/supreme-court/opinions/",
         "navigation": "",
         "format": "pdf",
@@ -749,7 +752,7 @@
         "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "User-agent: * / Allow: / (ujs.sd.gov/robots.txt, 23 chars)",
-        "notes": "WebFetch read the listing at https://ujs.sd.gov/supreme-court/opinions (URL from a search result) but the built listing URL with a trailing slash and both opinion PDFs (31307.pdf, 31286.pdf) hit PROVENANCE_REQUIRED. fetch_doc.py's text extraction drops the listing table; use its 'links' command. The old URL /Supreme_Court/opinions.aspx redirects to /supreme-court/opinions/. RSS: /supreme-court/opinions/?rss=1."
+        "notes": "WebFetch read the listing at https://ujs.sd.gov/supreme-court/opinions (URL from a search result) but the built listing URL with a trailing slash and both opinion PDFs (31307.pdf, 31286.pdf) hit PROVENANCE_REQUIRED. fetch_doc.py's text extraction drops the listing table; use its 'links' command. The old URL /Supreme_Court/opinions.aspx redirects to /supreme-court/opinions/. RSS: /supreme-court/opinions/?rss=1. Independent check: WebFetch on the built listing URL with a query string worked."
       },
       "currency": {
         "where": "listing 'Showing 1-10 of N' and filed dates",
@@ -757,7 +760,7 @@
       },
       "hazards": [
         "title-only keyword search",
-        "archived items hidden unless archive=true",
+        "archive=true returns ONLY archived opinions: query without it first, then with it",
         "PDF path has an unpredictable segment",
         "slip opinions: paragraph numbers [¶N.] are the official pinpoint; no N.W.3d pages"
       ],
@@ -769,9 +772,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: listing ?keywords=Lucero&year=2026 → 1 link 'STATE v. LUCERO, 2026 S.D. 48' /media/xw4fesw2/31307.pdf; PDF 8 pages, 13,176 chars, '#31307-a-SPM 2026 S.D. 48', '[¶1.] Jeremy Lucero pled guilty to possession of'. Also ?keywords=Reed&year=2010&archive=true → 25626.pdf (10 pp) '[¶1.] Stanley Reed (Reed) filed a petition'."
+        "evidence": "fetch_doc.py: listing ?keywords=Lucero&year=2026 → 1 link 'STATE v. LUCERO, 2026 S.D. 48' /media/xw4fesw2/31307.pdf; PDF 8 pages, 13,176 chars, '#31307-a-SPM 2026 S.D. 48', '[¶1.] Jeremy Lucero pled guilty to possession of'. Also (archived year) ?keywords=Reed&year=2010&archive=true → 25626.pdf (10 pp) '[¶1.] Stanley Reed (Reed) filed a petition'. | Independent check 2026-10-17: script: PDF '[¶1.] Jeremy Lucero pled guilty to possession of a controlled substance'; second citation Bialota v. Lakota Lakes, LLC, 2026 S.D. 52 (#31286-r-SRJ) ok"
       },
       "notes": "Pinpoints: cite ¶ numbers (SDCL 15-26A-69.1(2)). Docket header form '#31307-a-SPM' = docket-disposition-author initials."
     },
@@ -786,8 +789,8 @@
       "coverage": "Decisions without full opinion under SDCL 15-26A-87.1, 2022–present (year filter), with disposition and circuit judge; not citable as authority (15-26A-87.1(E)).",
       "access": {
         "mode": "search-only",
-        "url_pattern": "https://ujs.sd.gov/supreme-court/summary-dispositions/?keywords={party}&year={year}&archive=true",
-        "pattern_rules": "As sd-opinions-ujs; PDFs named {docket}oadacomp.pdf under /media/{random}/.",
+        "url_pattern": "https://ujs.sd.gov/supreme-court/summary-dispositions/?keywords={party}&year={year}",
+        "pattern_rules": "As sd-opinions-ujs: query without archive=true first, then with it (the flag returns only archived items). PDFs under /media/{random}/ are named {docket}oadacomp.pdf (current) or {docket}_order-of-affirmance.pdf (archived, e.g. 30682_order-of-affirmance.pdf).",
         "index_url": "https://ujs.sd.gov/supreme-court/summary-dispositions/",
         "navigation": "",
         "format": "pdf"
@@ -804,7 +807,8 @@
         "observed": "10/15/2026 Interest of E.L.W., H.L.W., H.L.W. Affirmed (Kelderman) 31521"
       },
       "hazards": [
-        "not precedential"
+        "not precedential",
+        "archive=true returns only archived items; two PDF file-name forms"
       ],
       "probe": {
         "citation": "Interest of E.L.W., No. 31521",
@@ -814,9 +818,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py links: 10 PDFs, first 'Interest of E.L.W., H.L.W., H.L.W.' → /media/hvflyt3r/31521oadacomp.pdf; listing 'Showing 1-10 of 33'."
+        "evidence": "fetch_doc.py links: 10 PDFs, first 'Interest of E.L.W., H.L.W., H.L.W.' → /media/hvflyt3r/31521oadacomp.pdf; listing 'Showing 1-10 of 33'. | Independent check 2026-10-17: script links: first 'Interest of E.L.W., H.L.W., H.L.W.' -> 31521oadacomp.pdf; second citation State v. Hanna (2024, archived) ok"
       },
       "notes": "Lets a docket number with no S.D. citation be identified as a summary affirmance."
     },
@@ -860,9 +864,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES: 'Jeremy Lucero pled guilty to possession of a controlled substance,'; full text through ¶15. Also /2010/25626.html (State v. Reed, 2010 S.D. 105) YES 'Stanley Reed (Reed) filed a petition for writ of habeas'."
+        "evidence": "WebFetch YES: 'Jeremy Lucero pled guilty to possession of a controlled substance,'; full text through ¶15. Also /2010/25626.html (State v. Reed, 2010 S.D. 105) YES 'Stanley Reed (Reed) filed a petition for writ of habeas'. | Independent check 2026-10-17: WebFetch YES 'MYREN, Justice [¶1.] Jeremy Lucero pled guilty to possession of'; second citation Bialota v. Lakota Lakes, LLC, 2026 S.D. 52 ok"
       },
       "notes": "Fallback for 1996–2005 public-domain opinions and older N.W.2d-era opinions not on UJS."
     },
@@ -878,14 +882,14 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.supremecourt.gov/docket/docketfiles/html/public/{scotus_docket}.html",
-        "pattern_rules": "Constructible only once the SCOTUS docket number is known (25-7600, 24A614). From an SD decision alone there is no link: WebSearch '\"Supreme Court of South Dakota\" <party> supremecourt.gov' or the SD docket number, or search by party name.",
+        "pattern_rules": "Constructible only once the SCOTUS docket number is known (25-7600, 24A614). From an SD decision alone there is no link: WebSearch '\"Supreme Court of South Dakota\" <party> supremecourt.gov' or the SD docket number, or search by party name. WebSearch '\"Supreme Court of South Dakota\" \"Lower Ct\" supremecourt.gov' finds SD dockets.",
         "index_url": "https://www.supremecourt.gov/docket/docket.aspx",
         "navigation": "",
         "format": "html"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "docket path allowed (fetch_doc.py ok)",
         "notes": ""
@@ -898,16 +902,16 @@
         "no link from the SD opinion or listing to the SCOTUS docket; party-name search only"
       ],
       "probe": {
-        "citation": "No. 25-7600 (from S.D. Nos. 31006, 31007)",
+        "citation": "Winckler v. South Dakota, No. 25-7600 (from 2026 S.D. 19, S.D. Nos. 31006, 31007)",
         "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-7600.html",
         "expect": "Petition DENIED."
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 'Lower Ct: Supreme Court of South Dakota'; 'Case Numbers: (31006, 31007)'; 'Decision Date: March 11, 2026'; 'Oct 05 2026 Petition DENIED.' Also 24A614: 'Case Numbers: (30448-a-SRJ)'."
+        "evidence": "fetch_doc.py grep: 'Lower Ct: Supreme Court of South Dakota'; 'Case Numbers: (31006, 31007)'; 'Decision Date: March 11, 2026'; 'Oct 05 2026 Petition DENIED.' Also 24A614: 'Case Numbers: (30448-a-SRJ)'. | Independent check 2026-10-17: script+WebFetch 'Oct 05 2026 Petition DENIED.'; 'Lower Ct: Supreme Court of South Dakota'; second citation No. 25-7673 (Walker, S.D. No. 31111) ok"
       },
       "notes": "The citation string is a probe label only; party names on 25-7600 not recorded."
     }
@@ -982,9 +986,9 @@
     }
   ],
   "open_questions": [
-    "Justia statute URLs for lettered titles/chapters (23A, 15-26A) not tested: is it title-23a / chapter-26a?",
     "Does ?all=true on large chapters exceed WebFetch's 100K limit (likely for 15-6)? Not tested.",
     "Code of Judicial Conduct appendix key (16-2-A) not tested.",
-    "Where the UJS posts rehearing grants/denials, if anywhere, is unknown."
+    "Where the UJS posts rehearing grants/denials, if anywhere, is unknown.",
+    "South Dakota Register: is there a dated or volume-indexed listing (e.g. an LRC API document type with DocumentDate) that maps 'NN SDR NNN' to an issue PDF? The RSS is undated."
   ]
 }
