@@ -844,6 +844,88 @@
         }
       ]
     },
+    "mi": {
+      "name": "Michigan",
+      "file": "jurisdictions/mi.md",
+      "sha256": "afad8d88a8666c6495f5a8191b77d58667e238c5c96de4026c99e25a0dfe7b64",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 12,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Michigan Compiled Laws",
+          "regex": "(?:\\bMCLA?\\b|\\bM\\.\\s*C\\.\\s*L\\.(?:\\s*A\\.)?|Mich(?:igan|\\.)?\\s*Comp(?:iled|\\.)?\\s*Laws(?:\\s+Ann(?:otated|\\.)?)?)\\s*\u00a7*\\s*(?P<chapter>\\d{1,3}[A-Za-z]?)\\.(?P<section>\\d+[A-Za-z]*)|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Za-z]?)\\.(?P<section2>\\d+[A-Za-z]*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Michigan\\s+Compiled\\s+Laws",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Public Acts (session laws)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+PA\\s+(?P<act>\\d{1,3})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Constitution of 1963",
+          "regex": "(?:Mich(?:igan|\\.)?\\s*Const(?:itution|\\.)?(?:\\s+(?:of\\s+)?1963)?|\\bConst\\.?\\s+1963),?\\s*art(?:icle|\\.)?\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*\u00a7+\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+(?:1963\\s+)?Michigan\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Court Rules",
+          "regex": "(?:\\bMCR\\b|\\bM\\.\\s*C\\.\\s*R\\.|Mich(?:igan|\\.)?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Michigan\\s+Court\\s+Rules?)\\s*(?P<rule>\\d\\.\\d{3}[A-Z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Rules of Evidence",
+          "regex": "(?:\\bMRE\\b|\\bM\\.\\s*R\\.\\s*E\\.|Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Evid(?:ence|\\.)?)\\s*(?P<rule>\\d{3,4})",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Rules of Professional Conduct",
+          "regex": "Mich(?:igan|\\.)?\\s*R(?:ules?|\\.)?\\s*(?:of\\s+)?Prof(?:essional|'?l\\.?)\\s*Conduct\\s*(?P<rule>\\d\\.\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Administrative Code",
+          "regex": "Mich(?:igan|\\.)?\\s*Admin(?:istrative|\\.)?\\s*Code,?\\s*(?:R\\.?|r\\.|Rule)\\s*(?P<part>\\d{3})\\.(?P<rule>\\d{1,5}[a-z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Bare Michigan rule number (R NNN.NNNN)",
+          "regex": "\\bR\\s+(?P<part>\\d{3})\\.(?P<rule>\\d{3,5}[a-z]?)\\b",
+          "context_required": true
+        },
+        {
+          "label": "Michigan Register",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+MR\\s+(?P<issue>\\d{1,2})\\b|Mich\\.\\s*Reg\\.\\s*(?P<year2>(?:19|20)\\d\\d)-(?P<issue2>\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Michigan Reports / Michigan Appeals Reports",
+          "regex": "(?P<volume>\\d{1,3})\\s+Mich\\.?(?:\\s*(?P<app>App)\\.?)?\\s+(?P<page>\\d{1,4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter with Michigan court parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.?\\s*W\\.?\\s*(?P<series>[23])d\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Mich\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Unpublished Court of Appeals opinion (Michigan style, by docket number)",
+          "regex": "Docket\\s+No(?:s)?\\.?\\s*(?P<docket>\\d{6})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Leave to appeal denied / granted (Michigan style)",
+          "regex": "\\blv\\s+(?:den|gtd|gtd\\s+in\\s+part)\\s+(?P<volume>\\d{1,3}|_+)\\s+Mich\\s+(?P<page>\\d{1,4}|_+)",
+          "context_required": false
+        },
+        {
+          "label": "Westlaw / Lexis unreported Michigan cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Mich\\.|Mich\\.\\s*(?:App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
+        }
+      ]
+    },
     "mn": {
       "name": "Minnesota",
       "file": "jurisdictions/mn.md",

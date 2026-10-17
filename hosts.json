@@ -93,6 +93,13 @@
    ],
    "blocked_sources": []
   },
+  "ars.apps.lara.state.mi.us": {
+   "status": "allowed",
+   "sources": [
+    "mi-admincode-ars"
+   ],
+   "blocked_sources": []
+  },
   "assets.georgiacourts.gov": {
    "status": "allowed",
    "sources": [
@@ -344,6 +351,9 @@
     "md-code-justia",
     "md-constitution-justia",
     "md-cases-justia",
+    "mi-mcl-justia",
+    "mi-constitution-justia",
+    "mi-cases-justia",
     "mn-statutes-justia",
     "mn-constitution-justia",
     "mn-cases-justia",
@@ -438,6 +448,15 @@
    ],
    "blocked_sources": []
   },
+  "legislature.mi.gov": {
+   "status": "allowed",
+   "sources": [
+    "mi-mcl-pdf",
+    "mi-mcl-html",
+    "mi-constitution-legislature"
+   ],
+   "blocked_sources": []
+  },
   "library.law.fsu.edu": {
    "status": "allowed",
    "sources": [
@@ -482,6 +501,13 @@
     "md-code-mgaleg",
     "md-code-mgaleg-pdf",
     "md-constitution-mgaleg"
+   ],
+   "blocked_sources": []
+  },
+  "michigan.gov": {
+   "status": "allowed",
+   "sources": [
+    "mi-register"
    ],
    "blocked_sources": []
   },
@@ -798,6 +824,18 @@
     "ca-opinions-courts"
    ]
   },
+  "www.courts.michigan.gov": {
+   "status": "allowed",
+   "sources": [
+    "mi-rules-mcr",
+    "mi-rules-mre",
+    "mi-rules-mrpc",
+    "mi-opinions-courts",
+    "mi-coa-bound-volumes",
+    "mi-subsequent-history-msc-orders"
+   ],
+   "blocked_sources": []
+  },
   "www.dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -911,6 +949,7 @@
     "il-admincode-lii",
     "ma-cmr-lii",
     "md-comar-lii",
+    "mi-admincode-lii",
     "mn-rules-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
@@ -951,6 +990,13 @@
    "status": "allowed",
    "sources": [
     "ga-legis-session-laws"
+   ],
+   "blocked_sources": []
+  },
+  "www.legislature.mi.gov": {
+   "status": "allowed",
+   "sources": [
+    "mi-mcl-pdf"
    ],
    "blocked_sources": []
   },
@@ -1007,6 +1053,13 @@
     "md-opinions-reported",
     "md-opinions-unreported",
     "md-cert-petitions"
+   ],
+   "blocked_sources": []
+  },
+  "www.michigan.gov": {
+   "status": "allowed",
+   "sources": [
+    "mi-register"
    ],
    "blocked_sources": []
   },
