@@ -143,6 +143,13 @@
    ],
    "blocked_sources": []
   },
+  "coa.nmcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nm-opinions-coa-nmcourts"
+   ],
+   "blocked_sources": []
+  },
   "coa1.azcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -420,6 +427,9 @@
     "nj-opinions-njcourts",
     "nj-cases-justia",
     "nj-subsequent-history-njcourts",
+    "nm-nmsa-justia",
+    "nm-constitution-justia",
+    "nm-cases-justia",
     "nv-nrs-justia",
     "nv-constitution-justia",
     "nv-cases-justia",
@@ -457,6 +467,14 @@
    "status": "allowed",
    "sources": [
     "fl-laws-of-florida"
+   ],
+   "blocked_sources": []
+  },
+  "laws.nmonesource.com": {
+   "status": "allowed",
+   "sources": [
+    "nm-nmsa-nmonesource",
+    "nm-rules-annotated-nmonesource"
    ],
    "blocked_sources": []
   },
@@ -662,6 +680,20 @@
    ],
    "blocked_sources": []
   },
+  "nmonesource.com": {
+   "status": "allowed",
+   "sources": [
+    "nm-nmsa-nmonesource",
+    "nm-nmsa-unanno-nmonesource",
+    "nm-session-laws-nmonesource",
+    "nm-constitution-nmonesource",
+    "nm-rules-unanno-nmonesource",
+    "nm-rules-annotated-nmonesource",
+    "nm-opinions-nmonesource",
+    "nm-subsequent-history"
+   ],
+   "blocked_sources": []
+  },
   "nvcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -690,6 +722,13 @@
    "sources": [
     "co-crs-olls",
     "co-constitution-olls"
+   ],
+   "blocked_sources": []
+  },
+  "prod-rf-lambda.rtssaas.com": {
+   "status": "allowed",
+   "sources": [
+    "nm-register-srca"
    ],
    "blocked_sources": []
   },
@@ -830,6 +869,13 @@
    "sources": [
     "fl-rules-flcourts",
     "fl-opinions-flcourts"
+   ],
+   "blocked_sources": []
+  },
+  "supremecourt.nmcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nm-rules-supremecourt"
    ],
    "blocked_sources": []
   },
@@ -1088,6 +1134,7 @@
     "mt-arm-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
+    "nm-nmac-lii",
     "nv-nac-lii",
     "ny-nycrr-cornell",
     "oh-oac-lii",
@@ -1343,6 +1390,14 @@
    "status": "allowed",
    "sources": [
     "tx-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.srca.nm.gov": {
+   "status": "allowed",
+   "sources": [
+    "nm-nmac-srca",
+    "nm-register-srca"
    ],
    "blocked_sources": []
   },

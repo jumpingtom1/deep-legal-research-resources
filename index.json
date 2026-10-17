@@ -1335,6 +1335,73 @@
         }
       ]
     },
+    "nm": {
+      "name": "New Mexico",
+      "file": "jurisdictions/nm.md",
+      "sha256": "5c61dc4f0dffe8079208fcfd58c9f933ddd8e632bd363dead7578f4a8905ef0f",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 12,
+        "reported": 4
+      },
+      "citation_patterns": [
+        {
+          "label": "New Mexico Statutes Annotated 1978",
+          "regex": "(?:NMSA(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*S\\.\\s*A\\.(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*Stat\\.\\s*Ann\\.\\s*)(?:\u00a7+|[Ss]ec(?:tion|\\.)s?)\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)|(?:(?:[Ss]ection|\u00a7+)\\s*)?(?P<chapter2>\\d{1,2}[A-Z]?)-(?P<article2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:NMSA|N\\.M\\.S\\.A\\.)",
+          "context_required": false
+        },
+        {
+          "label": "New Mexico session laws (Laws YYYY, ch. N)",
+          "regex": "Laws\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*\\(?(?:\\d+(?:st|nd|rd|th)\\s+S\\.S\\.\\)?,?\\s*)?ch\\.\\s*(?P<chapter>\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "New Mexico Constitution",
+          "regex": "N\\.\\s*M\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7+\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:New\\s+Mexico|N\\.\\s*M\\.)\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "New Mexico Rules Annotated (Rule N-NNN NMRA, UJI)",
+          "regex": "(?:(?:Rule|UJI)\\s+)?(?P<set>\\d{1,2}[A-Z]?)-(?P<rule>\\d{3,4}(?:\\.\\d+)?)(?:\\s*\\([A-Za-z0-9]+\\))*,?\\s+(?:NMRA|SCRA)|(?:NMRA|SCRA\\s+1986),?\\s+(?:Rule\\s+)?(?P<set2>\\d{1,2}[A-Z]?)-(?P<rule2>\\d{3,4}(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Bare New Mexico rule number (Rule N-NNN)",
+          "regex": "Rule\\s+(?P<set>\\d{1,2}[A-Z]?)-(?P<rule>\\d{3})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "New Mexico Administrative Code",
+          "regex": "(?P<title>\\d{1,2})\\.(?P<chapter>\\d{1,3})\\.(?P<part>\\d{1,4})(?:\\.(?P<section>\\d{1,4}))?\\s+NMAC|N\\.\\s*M\\.\\s*(?:Admin\\.\\s*Code|Code\\s+R\\.)\\s*(?:r\\.|\u00a7+)?\\s*(?P<title2>\\d{1,2})\\.(?P<chapter2>\\d{1,3})\\.(?P<part2>\\d{1,4})(?:\\.(?P<section2>\\d{1,4}))?",
+          "context_required": false
+        },
+        {
+          "label": "New Mexico Register",
+          "regex": "(?:New\\s+Mexico|N\\.\\s*M\\.)\\s+Reg(?:ister|\\.)\\s*,?\\s*Vol(?:ume|\\.)\\s*(?P<volume>[IVXL]+),?\\s*(?:Issue|No\\.)\\s*(?P<issue>\\d+)|(?P<volume2>\\d{1,2})\\s+N\\.\\s*M\\.\\s*Reg\\.\\s+(?P<page>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Public-domain citations (YYYY-NMSC / NMCA / NMCERT-NNN)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)-NM(?P<court>SC|CA|CERT)-(?P<number>\\d{1,3})(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "New Mexico Reports and Pacific Reporter with (N.M.) parenthetical",
+          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*M\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<pvolume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<ppage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*M\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "New Mexico appellate docket numbers (S-1-SC / A-1-CA), incl. memorandum opinions",
+          "regex": "(?:No\\.\\s*)?(?P<docket>[AS]-1-(?:CA|SC)-\\d{4,6})",
+          "context_required": false
+        },
+        {
+          "label": "Pre-2010 comma docket numbers (No. 27,270)",
+          "regex": "No\\.\\s*(?P<number>\\d{1,2},\\d{3})",
+          "context_required": true
+        }
+      ]
+    },
     "nv": {
       "name": "Nevada",
       "file": "jurisdictions/nv.md",
