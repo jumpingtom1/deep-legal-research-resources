@@ -87,15 +87,15 @@
     "al": {
       "name": "Alabama",
       "file": "jurisdictions/al.md",
-      "sha256": "19b0ca6e83a040d541f9c951392602cb336dc483bbf39bf231dd63cd44b944e0",
+      "sha256": "7b2b231bb0a751074615227b8d2cd568c767769815b47915b5536a2a10318ae8",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 13
+        "verified_independent": 13
       },
       "citation_patterns": [
         {
           "label": "Code of Alabama 1975",
-          "regex": "Ala\\.\\s*Code(?:\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|Code\\s+of\\s+Ala(?:bama|\\.)(?:,?\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title2>\\d{1,2}[A-Z]?)-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:\u00a7\u00a7?|[Ss]ection)\\s*(?P<title3>\\d{1,2}[A-Z]?)-(?P<chapter3>\\d{1,3}[A-Z]?)-(?P<section3>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*,?\\s*(?:Ala\\.\\s*Code|Code\\s+of\\s+Ala(?:bama|\\.))",
+          "regex": "Ala\\.\\s*Code(?:\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|Code\\s+of\\s+Ala(?:bama|\\.)(?:,?\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title2>\\d{1,2}[A-Z]?)-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:\u00a7\u00a7?|[Ss]ection)\\s*(?P<title3>\\d{1,2}[A-Z]?)-(?P<chapter3>\\d{1,3}[A-Z]?)-(?P<section3>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*,?\\s*(?:Ala\\.\\s*Code|Code\\s+of\\s+Ala(?:bama|\\.))|(?:\u00a7\u00a7?|[Ss]ection)\\s*(?P<title4>\\d{1,2}[A-Z]?)-(?P<chapter4>\\d{1,3}[A-Z]?)-(?P<section4>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Code\\s+of\\s+Alabama|Alabama\\s+Code)",
           "context_required": false
         },
         {
@@ -125,12 +125,12 @@
         },
         {
           "label": "Alabama Administrative Code",
-          "regex": "Ala\\.\\s*Admin\\.\\s*Code\\s*(?:\\([^)]{1,40}\\)\\s*)?(?:r\\.|ch\\.|rule|chapter)?\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?)|(?:Rule|Chapter)\\s+(?P<rule2>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?),\\s*Ala\\.\\s*Admin\\.\\s*Code",
+          "regex": "Ala\\.\\s*Admin\\.\\s*Code\\s*(?:\\([^)]{1,40}\\)\\s*)?(?:r\\.|ch\\.|rule|chapter)?\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?(?:-\\.\\d{2}[A-Z]?)?)|(?:Rule|Chapter)\\s+(?P<rule2>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?(?:-\\.\\d{2}[A-Z]?)?),\\s*Ala\\.\\s*Admin\\.\\s*Code",
           "context_required": false
         },
         {
           "label": "Alabama Administrative Code rule numbers (bare)",
-          "regex": "\\b(?:Rule|r\\.)\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}-\\.\\d{2}[A-Z]?)",
+          "regex": "\\b(?:Rule|r\\.)\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?-\\.\\d{2}[A-Z]?)",
           "context_required": true
         },
         {
@@ -150,7 +150,7 @@
         },
         {
           "label": "Alabama court parentheticals and Alabama Reports",
-          "regex": "(?<!denied )(?<!quashed )(?<!granted )\\((?P<court>Ala\\.(?:\\s*(?:Civ\\.\\s*App|Crim\\.\\s*App)\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Ala\\.(?:\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b",
+          "regex": "(?<!denied )(?<!quashed )(?<!granted )(?<!dismissed )(?<!denied, \\d{1} So\\. [23]d \\d{1} )(?<!denied, \\d{1} So\\. [23]d \\d{2} )(?<!denied, \\d{1} So\\. [23]d \\d{3} )(?<!denied, \\d{1} So\\. [23]d \\d{4} )(?<!denied, \\d{1} So\\. [23]d ___ )(?<!denied, \\d{2} So\\. [23]d \\d{1} )(?<!denied, \\d{2} So\\. [23]d \\d{2} )(?<!denied, \\d{2} So\\. [23]d \\d{3} )(?<!denied, \\d{2} So\\. [23]d \\d{4} )(?<!denied, \\d{2} So\\. [23]d ___ )(?<!denied, \\d{3} So\\. [23]d \\d{1} )(?<!denied, \\d{3} So\\. [23]d \\d{2} )(?<!denied, \\d{3} So\\. [23]d \\d{3} )(?<!denied, \\d{3} So\\. [23]d \\d{4} )(?<!denied, \\d{3} So\\. [23]d ___ )(?<!quashed, \\d{1} So\\. [23]d \\d{1} )(?<!quashed, \\d{1} So\\. [23]d \\d{2} )(?<!quashed, \\d{1} So\\. [23]d \\d{3} )(?<!quashed, \\d{1} So\\. [23]d \\d{4} )(?<!quashed, \\d{1} So\\. [23]d ___ )(?<!quashed, \\d{2} So\\. [23]d \\d{1} )(?<!quashed, \\d{2} So\\. [23]d \\d{2} )(?<!quashed, \\d{2} So\\. [23]d \\d{3} )(?<!quashed, \\d{2} So\\. [23]d \\d{4} )(?<!quashed, \\d{2} So\\. [23]d ___ )(?<!quashed, \\d{3} So\\. [23]d \\d{1} )(?<!quashed, \\d{3} So\\. [23]d \\d{2} )(?<!quashed, \\d{3} So\\. [23]d \\d{3} )(?<!quashed, \\d{3} So\\. [23]d \\d{4} )(?<!quashed, \\d{3} So\\. [23]d ___ )(?<!granted, \\d{1} So\\. [23]d \\d{1} )(?<!granted, \\d{1} So\\. [23]d \\d{2} )(?<!granted, \\d{1} So\\. [23]d \\d{3} )(?<!granted, \\d{1} So\\. [23]d \\d{4} )(?<!granted, \\d{1} So\\. [23]d ___ )(?<!granted, \\d{2} So\\. [23]d \\d{1} )(?<!granted, \\d{2} So\\. [23]d \\d{2} )(?<!granted, \\d{2} So\\. [23]d \\d{3} )(?<!granted, \\d{2} So\\. [23]d \\d{4} )(?<!granted, \\d{2} So\\. [23]d ___ )(?<!granted, \\d{3} So\\. [23]d \\d{1} )(?<!granted, \\d{3} So\\. [23]d \\d{2} )(?<!granted, \\d{3} So\\. [23]d \\d{3} )(?<!granted, \\d{3} So\\. [23]d \\d{4} )(?<!granted, \\d{3} So\\. [23]d ___ )(?<!dismissed, \\d{1} So\\. [23]d \\d{1} )(?<!dismissed, \\d{1} So\\. [23]d \\d{2} )(?<!dismissed, \\d{1} So\\. [23]d \\d{3} )(?<!dismissed, \\d{1} So\\. [23]d \\d{4} )(?<!dismissed, \\d{1} So\\. [23]d ___ )(?<!dismissed, \\d{2} So\\. [23]d \\d{1} )(?<!dismissed, \\d{2} So\\. [23]d \\d{2} )(?<!dismissed, \\d{2} So\\. [23]d \\d{3} )(?<!dismissed, \\d{2} So\\. [23]d \\d{4} )(?<!dismissed, \\d{2} So\\. [23]d ___ )(?<!dismissed, \\d{3} So\\. [23]d \\d{1} )(?<!dismissed, \\d{3} So\\. [23]d \\d{2} )(?<!dismissed, \\d{3} So\\. [23]d \\d{3} )(?<!dismissed, \\d{3} So\\. [23]d \\d{4} )(?<!dismissed, \\d{3} So\\. [23]d ___ )\\((?P<court>Ala\\.(?:\\s*(?:Civ\\.\\s*App|Crim\\.\\s*App)\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Ala\\.(?:\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b",
           "context_required": false
         },
         {

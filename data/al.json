@@ -67,9 +67,10 @@
           "Code of Ala. 1975, §22-22A-3",
           "Section 40-1-1, Code of Alabama 1975",
           "Ala. Code §§ 6-5-410 to -411",
-          "Ala. Code 1975 § 10A-2A-1.01"
+          "Ala. Code 1975 § 10A-2A-1.01",
+          "Section 6-5-410 of the Code of Alabama 1975"
         ],
-        "regex": "Ala\\.\\s*Code(?:\\s*(?:19)?75)?,?\\s*(?:§§?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|Code\\s+of\\s+Ala(?:bama|\\.)(?:,?\\s*(?:19)?75)?,?\\s*(?:§§?|sec(?:tion|s?\\.)s?)?\\s*(?P<title2>\\d{1,2}[A-Z]?)-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:§§?|[Ss]ection)\\s*(?P<title3>\\d{1,2}[A-Z]?)-(?P<chapter3>\\d{1,3}[A-Z]?)-(?P<section3>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*,?\\s*(?:Ala\\.\\s*Code|Code\\s+of\\s+Ala(?:bama|\\.))",
+        "regex": "Ala\\.\\s*Code(?:\\s*(?:19)?75)?,?\\s*(?:§§?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|Code\\s+of\\s+Ala(?:bama|\\.)(?:,?\\s*(?:19)?75)?,?\\s*(?:§§?|sec(?:tion|s?\\.)s?)?\\s*(?P<title2>\\d{1,2}[A-Z]?)-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:§§?|[Ss]ection)\\s*(?P<title3>\\d{1,2}[A-Z]?)-(?P<chapter3>\\d{1,3}[A-Z]?)-(?P<section3>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*,?\\s*(?:Ala\\.\\s*Code|Code\\s+of\\s+Ala(?:bama|\\.))|(?:§§?|[Ss]ection)\\s*(?P<title4>\\d{1,2}[A-Z]?)-(?P<chapter4>\\d{1,3}[A-Z]?)-(?P<section4>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Code\\s+of\\s+Alabama|Alabama\\s+Code)",
         "routes_to": [
           "al-code-alison",
           "al-code-justia"
@@ -163,9 +164,10 @@
           "Ala. Admin. Code ch. 335-6-1",
           "Ala. Admin. Code (ADEM) r. 335-6-1-.01",
           "Rule 420-5-10-.01, Ala. Admin. Code",
-          "Ala. Admin. Code r. 30-X-1-.01"
+          "Ala. Admin. Code r. 30-X-1-.01",
+          "Ala. Admin. Code r. 220-2-.01"
         ],
-        "regex": "Ala\\.\\s*Admin\\.\\s*Code\\s*(?:\\([^)]{1,40}\\)\\s*)?(?:r\\.|ch\\.|rule|chapter)?\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?)|(?:Rule|Chapter)\\s+(?P<rule2>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?),\\s*Ala\\.\\s*Admin\\.\\s*Code",
+        "regex": "Ala\\.\\s*Admin\\.\\s*Code\\s*(?:\\([^)]{1,40}\\)\\s*)?(?:r\\.|ch\\.|rule|chapter)?\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?(?:-\\.\\d{2}[A-Z]?)?)|(?:Rule|Chapter)\\s+(?P<rule2>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?(?:-\\.\\d{2}[A-Z]?)?),\\s*Ala\\.\\s*Admin\\.\\s*Code",
         "routes_to": [
           "al-admincode-lsa",
           "al-admincode-lii"
@@ -176,9 +178,10 @@
         "label": "Alabama Administrative Code rule numbers (bare)",
         "examples": [
           "Rule 335-6-1-.01",
-          "r. 290-3-1-.01"
+          "r. 290-3-1-.01",
+          "Rule 220-2-.01"
         ],
-        "regex": "\\b(?:Rule|r\\.)\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}-\\.\\d{2}[A-Z]?)",
+        "regex": "\\b(?:Rule|r\\.)\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}(?:-[0-9A-Z]{1,3})?-\\.\\d{2}[A-Z]?)",
         "routes_to": [
           "al-admincode-lsa",
           "al-admincode-lii"
@@ -238,7 +241,7 @@
           "290 Ala. 123",
           "45 Ala. App. 300"
         ],
-        "regex": "(?<!denied )(?<!quashed )(?<!granted )\\((?P<court>Ala\\.(?:\\s*(?:Civ\\.\\s*App|Crim\\.\\s*App)\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Ala\\.(?:\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b",
+        "regex": "(?<!denied )(?<!quashed )(?<!granted )(?<!dismissed )(?<!denied, \\d{1} So\\. [23]d \\d{1} )(?<!denied, \\d{1} So\\. [23]d \\d{2} )(?<!denied, \\d{1} So\\. [23]d \\d{3} )(?<!denied, \\d{1} So\\. [23]d \\d{4} )(?<!denied, \\d{1} So\\. [23]d ___ )(?<!denied, \\d{2} So\\. [23]d \\d{1} )(?<!denied, \\d{2} So\\. [23]d \\d{2} )(?<!denied, \\d{2} So\\. [23]d \\d{3} )(?<!denied, \\d{2} So\\. [23]d \\d{4} )(?<!denied, \\d{2} So\\. [23]d ___ )(?<!denied, \\d{3} So\\. [23]d \\d{1} )(?<!denied, \\d{3} So\\. [23]d \\d{2} )(?<!denied, \\d{3} So\\. [23]d \\d{3} )(?<!denied, \\d{3} So\\. [23]d \\d{4} )(?<!denied, \\d{3} So\\. [23]d ___ )(?<!quashed, \\d{1} So\\. [23]d \\d{1} )(?<!quashed, \\d{1} So\\. [23]d \\d{2} )(?<!quashed, \\d{1} So\\. [23]d \\d{3} )(?<!quashed, \\d{1} So\\. [23]d \\d{4} )(?<!quashed, \\d{1} So\\. [23]d ___ )(?<!quashed, \\d{2} So\\. [23]d \\d{1} )(?<!quashed, \\d{2} So\\. [23]d \\d{2} )(?<!quashed, \\d{2} So\\. [23]d \\d{3} )(?<!quashed, \\d{2} So\\. [23]d \\d{4} )(?<!quashed, \\d{2} So\\. [23]d ___ )(?<!quashed, \\d{3} So\\. [23]d \\d{1} )(?<!quashed, \\d{3} So\\. [23]d \\d{2} )(?<!quashed, \\d{3} So\\. [23]d \\d{3} )(?<!quashed, \\d{3} So\\. [23]d \\d{4} )(?<!quashed, \\d{3} So\\. [23]d ___ )(?<!granted, \\d{1} So\\. [23]d \\d{1} )(?<!granted, \\d{1} So\\. [23]d \\d{2} )(?<!granted, \\d{1} So\\. [23]d \\d{3} )(?<!granted, \\d{1} So\\. [23]d \\d{4} )(?<!granted, \\d{1} So\\. [23]d ___ )(?<!granted, \\d{2} So\\. [23]d \\d{1} )(?<!granted, \\d{2} So\\. [23]d \\d{2} )(?<!granted, \\d{2} So\\. [23]d \\d{3} )(?<!granted, \\d{2} So\\. [23]d \\d{4} )(?<!granted, \\d{2} So\\. [23]d ___ )(?<!granted, \\d{3} So\\. [23]d \\d{1} )(?<!granted, \\d{3} So\\. [23]d \\d{2} )(?<!granted, \\d{3} So\\. [23]d \\d{3} )(?<!granted, \\d{3} So\\. [23]d \\d{4} )(?<!granted, \\d{3} So\\. [23]d ___ )(?<!dismissed, \\d{1} So\\. [23]d \\d{1} )(?<!dismissed, \\d{1} So\\. [23]d \\d{2} )(?<!dismissed, \\d{1} So\\. [23]d \\d{3} )(?<!dismissed, \\d{1} So\\. [23]d \\d{4} )(?<!dismissed, \\d{1} So\\. [23]d ___ )(?<!dismissed, \\d{2} So\\. [23]d \\d{1} )(?<!dismissed, \\d{2} So\\. [23]d \\d{2} )(?<!dismissed, \\d{2} So\\. [23]d \\d{3} )(?<!dismissed, \\d{2} So\\. [23]d \\d{4} )(?<!dismissed, \\d{2} So\\. [23]d ___ )(?<!dismissed, \\d{3} So\\. [23]d \\d{1} )(?<!dismissed, \\d{3} So\\. [23]d \\d{2} )(?<!dismissed, \\d{3} So\\. [23]d \\d{3} )(?<!dismissed, \\d{3} So\\. [23]d \\d{4} )(?<!dismissed, \\d{3} So\\. [23]d ___ )\\((?P<court>Ala\\.(?:\\s*(?:Civ\\.\\s*App|Crim\\.\\s*App)\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Ala\\.(?:\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b",
         "routes_to": [
           "al-opinions-portal",
           "al-cases-justia"
@@ -263,7 +266,8 @@
         "examples": [
           "cert. denied (Ala. 2015)",
           "cert. quashed, 123 So. 3d 456 (Ala. 2014)",
-          "writ denied (Ala. Mar. 4, 2022)"
+          "writ denied (Ala. Mar. 4, 2022)",
+          "cert. denied, 987 So. 3d 12 (Ala. 2019)"
         ],
         "regex": "(?P<disp>cert\\.\\s*(?:denied|quashed|granted|dismissed)|writ\\s+(?:denied|quashed)),?\\s*(?:(?P<vol>\\d{1,3})\\s+So\\.\\s*(?:2d|3d)\\s+(?P<page>\\d{1,4}|_{2,5})\\s*)?\\(Ala\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:19|20)\\d\\d)\\)",
         "routes_to": [
@@ -286,7 +290,7 @@
       "Alabama Rules of Juvenile Procedure": "jv",
       "Alabama Rules of Professional Conduct": "cond"
     },
-    "notes": "Statutes need no code key: the Code of Alabama 1975 is one code, sections title-chapter-section with letter suffixes (13A-6-2, 22-22A-3) and decimals (10A-2A-1.01). Alabama courts put the code name AFTER the section ('§ 6-5-410, Ala. Code 1975'); the regex's third branch requires that trailing 'Ala. Code'/'Code of Alabama'. Ranges ('§§ 6-5-410 to -411') capture only the first section. law_aliases map rule-set citation forms to the judicial.alabama.gov PDF prefix (cv, ev, ap, cr, jv, cond). Alabama courts likewise cite rules as 'Rule 12(b)(6), Ala. R. Civ. P.'. Bare 'Rule 32 petition', bare 'Rule N(x)', bare admin-rule numbers, bare 'Act 2016-29', legacy 7-digit dockets and regional So./So. 2d/So. 3d cites are context_required. Portal dockets SC-/CL-/CR-YYYY-NNNN are Alabama-specific (4-digit year + 4-digit number). Constitution: the Constitution of 2022 kept the 1901 section numbers and gave amendments decimal sections (111.08); old 'Amend. No. 328' cites do not map to a 2022 section without a lookup. Cert history: Alabama Supreme Court certiorari cases are captioned 'Ex parte <petitioner>'; 'cert. denied (Ala. ...)' routes to the release lists, and the court parenthetical has negative lookbehinds so it does not double-route. No public-domain citation format; unpublished Court of Civil/Criminal Appeals decisions are 'no-opinion' affirmances or unpublished memoranda (table cites in So. 3d). CourtListener ids from memory, unverified."
+    "notes": "Statutes need no code key: the Code of Alabama 1975 is one code, sections title-chapter-section with letter suffixes (13A-6-2, 22-22A-3) and decimals (10A-2A-1.01). Alabama courts put the code name AFTER the section ('§ 6-5-410, Ala. Code 1975'); the regex's third branch requires that trailing 'Ala. Code'/'Code of Alabama'. Ranges ('§§ 6-5-410 to -411') capture only the first section. law_aliases map rule-set citation forms to the judicial.alabama.gov PDF prefix (cv, ev, ap, cr, jv, cond). Alabama courts likewise cite rules as 'Rule 12(b)(6), Ala. R. Civ. P.'. Bare 'Rule 32 petition', bare 'Rule N(x)', bare admin-rule numbers, bare 'Act 2016-29', legacy 7-digit dockets and regional So./So. 2d/So. 3d cites are context_required. Portal dockets SC-/CL-/CR-YYYY-NNNN are Alabama-specific (4-digit year + 4-digit number). Constitution: the Constitution of 2022 kept the 1901 section numbers and gave amendments decimal sections (111.08); old 'Amend. No. 328' cites do not map to a 2022 section without a lookup. Cert history: Alabama Supreme Court certiorari cases are captioned 'Ex parte <petitioner>'; 'cert. denied (Ala. ...)' routes to the release lists, and the court parenthetical has negative lookbehinds so it does not double-route. No public-domain citation format; unpublished Court of Civil/Criminal Appeals decisions are 'no-opinion' affirmances or unpublished memoranda (table cites in So. 3d). CourtListener ids from memory, unverified. Independent-check fixes 2026-10-17: prose 'Section 6-5-410 of the Code of Alabama 1975' added; admin-code regex accepts three-part rules (220-2-.01); the court-parenthetical branch carries fixed-width negative lookbehinds for 'denied/quashed/granted/dismissed, <vol> So. 2d|3d <page> ' (and '___'), so 'cert. denied, 987 So. 3d 12 (Ala. 2019)' routes only to certiorari history. Spacing variants ('So.3d') are not covered by the lookbehinds."
   },
   "sources": [
     {
@@ -301,7 +305,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://alison.legislature.state.al.us/graphql?query=%7BcodesOfAlabama(where%3A%7Btype%3A%7Beq%3ASection%7D%2CdisplayId%3A%7Beq%3A%22{section}%22%7D%7D)%7Bdata%7BdisplayId%20title%20effectiveDate%20supersessionDate%20content%20history%7D%7D%7D",
-        "pattern_rules": "{section} = the full section number exactly as cited, e.g. 6-5-410, 13A-6-2, 22-22A-3, 10A-2A-1.01 (title letters upper-case). The URL is the URL-encoded GraphQL query {codesOfAlabama(where:{type:{eq:Section},displayId:{eq:\"<section>\"}}){data{displayId title effectiveDate supersessionDate content history}}}. Response is JSON; 'content' holds the text with subsection line breaks, 'history' the Acts list. Enclosing article/chapter and its section range: query {codesOfAlabama(where:{codeId:{in:[\"<parentId>\"]}}){data{displayId title sectionRange parentId}}} using parentId from the section. The human page https://alison.legislature.state.al.us/code-of-alabama?section={section} is a JavaScript shell (no text to either tool).",
+        "pattern_rules": "{section} = the full section number exactly as cited, e.g. 6-5-410, 13A-6-2, 22-22A-3, 10A-2A-1.01 (title letters upper-case). The URL is the URL-encoded GraphQL query {codesOfAlabama(where:{type:{eq:Section},displayId:{eq:\"<section>\"}}){data{displayId title effectiveDate supersessionDate content history}}}. Response is JSON; 'content' holds the text with subsection line breaks, 'history' the Acts list. Enclosing article/chapter and its section range: query {codesOfAlabama(where:{codeId:{in:[\"<parentId>\"]}}){data{displayId title sectionRange parentId}}} using parentId from the section. The human page https://alison.legislature.state.al.us/code-of-alabama?section={section} is a JavaScript shell (no text to either tool). A nonexistent or mistyped section returns HTTP 200 with {\"data\":{\"codesOfAlabama\":{\"data\":[]}}} (39 chars), not a 404 or error: empty data[] means no such section (check the cite, or it may be repealed/renumbered). The parent node may be an Article, Part or Division (7-2-314's parent is 'Part 3'), not always an Article.",
         "index_url": "https://alison.legislature.state.al.us/graphql?query=%7Bscaffold%3A%20codeOfAlabamaScaffold%7D",
         "navigation": "Index nodes carry sectionRange (e.g. 'Article 23 Death.' §6-5-410 to §6-5-411). codeOfAlabamaScaffold returns the whole hierarchy (codeId/parentId/displayId, ~1.15M chars).",
         "format": "json"
@@ -321,7 +325,8 @@
         "JavaScript-only human pages",
         "built GraphQL URLs are gated for WebFetch",
         "sections with delayed amendments may return more than one version; check effectiveDate/supersessionDate",
-        "text is JSON-escaped (\\n, \\\" ) - verify quotes against the decoded content"
+        "text is JSON-escaped (\\n, \\\" ) - verify quotes against the decoded content",
+        "missing section = empty data[] with HTTP 200, no error"
       ],
       "probe": {
         "citation": "Ala. Code § 6-5-410",
@@ -331,11 +336,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py read: JSON 2,018 chars, title 'Section 6-5-410 Wrongful Act, Omission, or Negligence Causing Death.', body (a)-(e). Second/third cites 13A-6-2 ('A person commits the crime of murder if') and 40-1-1, 6-2-38 also returned body + history. Article node: 'Article 23 Death.' sectionRange '§6-5-410 to §6-5-411'."
+        "evidence": "fetch_doc.py read: JSON 2,018 chars, title 'Section 6-5-410 Wrongful Act, Omission, or Negligence Causing Death.', body (a)-(e). Second/third cites 13A-6-2 ('A person commits the crime of murder if') and 40-1-1, 6-2-38 also returned body + history. Article node: 'Article 23 Death.' sectionRange '§6-5-410 to §6-5-411'. | Independent check 2026-10-17: script: JSON 2,018 chars, '(a) A personal representative may commence an action and recover such damages'; second citation Ala. Code 1975, § 7-2-314 ok"
       },
-      "notes": "Script candidate: one GET per section, deterministic. The legacy alisondb.legislature.state.al.us/alison/CodeOfAlabama/1975/<section>.htm pages are unreachable (proxy 502 on the host)."
+      "notes": "Script candidate: one GET per section, deterministic. The legacy alisondb.legislature.state.al.us/alison/CodeOfAlabama/1975/<section>.htm pages are unreachable (proxy 502 on the host). Provenance: the code-of-alabama page config sets NEXT_PUBLIC_FE_GRAPHQL_URL = https://alison.legislature.state.al.us/graphql (publisher's own front-end endpoint, same host); robots.txt returns app HTML, no directives (independent check 2026-10-17)."
     },
     {
       "id": "al-code-justia",
@@ -347,11 +352,11 @@
       "official_status_evidence": "Page disclaimer: 'These codes may not be the most recent version.'",
       "coverage": "Annual editions; current pages labelled '2025 Code of Alabama'; year archives /codes/alabama/{year}/ back to 2006 style URLs.",
       "access": {
-        "mode": "constructible",
+        "mode": "index-anchored",
         "url_pattern": "https://law.justia.com/codes/alabama/title-{title}/chapter-{chapter}/article-{article}/section-{section}/",
-        "pattern_rules": "{title}, {chapter} lower-case as cited (13a, 22a); {section} full number lower-case (13a-6-2). {article} is NOT in the citation: Justia chapter pages list articles without section ranges, so take the article number from ALISON (parent node of the section; its title 'Article N ...' and sectionRange). Chapters without articles: omit the article segment (untested).",
+        "pattern_rules": "Usual form https://law.justia.com/codes/alabama/title-{title}/chapter-{chapter}/article-{article}/section-{section}/ ({title}, {chapter}, {section} lower-case: 13a, 22a, 13a-6-2). {article} is not in the citation: take it from ALISON (parent node of the section). The hierarchy differs by title: Title 7 (UCC) is title-7/article-{chapter}/part-{part}/section-7-2-314/ (ALISON chapter = Justia 'article', ALISON parent 'Part N' = Justia part); /title-7/chapter-2/ errors. If a built URL fails, navigate from the title page.",
         "index_url": "https://law.justia.com/codes/alabama/",
-        "navigation": "codes/alabama/ → title-N/ → chapter-N/ (articles by name only, no ranges) → article-N/ → section-...",
+        "navigation": "codes/alabama/title-N/ → follow the listed child (chapter-N, or for Title 7 article-N) → article-N or part-N (names only, no section ranges) → section-...",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -367,7 +372,8 @@
       },
       "hazards": [
         "article number not derivable from citation",
-        "lags the Legislature's text by up to a year"
+        "lags the Legislature's text by up to a year",
+        "built URL fails where the hierarchy differs: Title 7 uses title-7/article-2/part-3/section-7-2-314/ (independent check: second citation § 7-2-314 failed with the chapter/article pattern, reached via title-page navigation)"
       ],
       "probe": {
         "citation": "Ala. Code § 6-5-410",
@@ -377,9 +383,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, body (a)-(f) + history, not truncated. Second cite title-13a/chapter-6/article-1/section-13a-6-2/: YES, '(a) A person commits the crime of murder if he', heading '2025 Code of Alabama'."
+        "evidence": "WebFetch: YES, body (a)-(f) + history, not truncated. Second cite title-13a/chapter-6/article-1/section-13a-6-2/: YES, '(a) A person commits the crime of murder if he', heading '2025 Code of Alabama'. | Independent check 2026-10-17: WebFetch YES: 'A personal representative may commence an action...'; '2025 Code of Alabama'; not truncated"
       },
       "notes": ""
     },
@@ -413,7 +419,8 @@
       },
       "hazards": [
         "enrolled-bill PDFs interleave line numbers with text",
-        "page numbers of the bound Acts volume not given"
+        "page numbers of the bound Acts volume not given",
+        "an act number may belong to a joint resolution: enrolledFileUrl can be an HJR/SJR PDF (2021-123 → HJR92-Enr.pdf)"
       ],
       "probe": {
         "citation": "Act 2016-29",
@@ -423,11 +430,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "GraphQL actNbr 2016-29 → SB22, Regular Session 2016, enrolledFileUrl .../2016RS/PrintFiles/SB22-Enr.pdf; script read: PDF 5 pp, starts '1 SB22 2 171578-3 3 By Senator Whatley'."
+        "evidence": "GraphQL actNbr 2016-29 → SB22, Regular Session 2016, enrolledFileUrl .../2016RS/PrintFiles/SB22-Enr.pdf; script read: PDF 5 pp, starts '1 SB22 2 171578-3 3 By Senator Whatley'. | Independent check 2026-10-17: script grep SB22-Enr.pdf: 5 pp, '1 SB22 2 171578-3 3 By Senator Whatley'; second citation Act No. 2021-123, Ala. Acts ok"
       },
-      "notes": ""
+      "notes": "Provenance: the code-of-alabama page config sets NEXT_PUBLIC_FE_GRAPHQL_URL = https://alison.legislature.state.al.us/graphql (publisher's own front-end endpoint, same host); robots.txt returns app HTML, no directives (independent check 2026-10-17)."
     },
     {
       "id": "al-constitution-alison",
@@ -469,11 +476,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: JSON 411 chars, 'Section 13 Courts to Be Open; Remedies for All Injuries...'. Second: 111.08 'Implementation Date of Laws Providing for Conduct of the General Election.' with body."
+        "evidence": "Script: JSON 411 chars, 'Section 13 Courts to Be Open; Remedies for All Injuries...'. Second: 111.08 'Implementation Date of Laws Providing for Conduct of the General Election.' with body. | Independent check 2026-10-17: script: JSON 411 chars, 'That all courts shall be open; and that every person, for any injury'; second citation Ala. Const. art. I, § 6 ok"
       },
-      "notes": ""
+      "notes": "Provenance: the code-of-alabama page config sets NEXT_PUBLIC_FE_GRAPHQL_URL = https://alison.legislature.state.al.us/graphql (publisher's own front-end endpoint, same host); robots.txt returns app HTML, no directives (independent check 2026-10-17)."
     },
     {
       "id": "al-constitution-justia",
@@ -506,7 +513,8 @@
       "hazards": [
         "opaque per-section ids",
         "index truncation",
-        "version unlabelled (may be 1901 text)"
+        "version unlabelled (may be 1901 text)",
+        "2022 decimal amendment sections (e.g. 111.08) not found in the Justia index; treat Justia text as 1901-era and do not use it for 2022-only sections"
       ],
       "probe": {
         "citation": "Ala. Const. § 13",
@@ -516,9 +524,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch index: 'Alabama Constitution', Section 13 href CA-245544.html; section page YES, 'That all courts shall be open; and that every person,'."
+        "evidence": "WebFetch index: 'Alabama Constitution', Section 13 href CA-245544.html; section page YES, 'That all courts shall be open; and that every person,'. | Independent check 2026-10-17: WebFetch YES: 'That all courts shall be open; and that every person'; 'may not be the most recent version'; second citation Ala. Const. art. I, § 6 ok"
       },
       "notes": ""
     },
@@ -562,9 +570,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script verify exact on cv12.pdf (7 pp). Built URLs ev702 (Evidence, 6 pp), cond1_7 (Prof. Conduct), cr32_1 ('Rule 32. Post-conviction remedies.'), ap39, cv28 all returned rule text. WebFetch cv12.pdf: YES, 'A defendant shall serve an answer within thirty (30) days'."
+        "evidence": "Script verify exact on cv12.pdf (7 pp). Built URLs ev702 (Evidence, 6 pp), cond1_7 (Prof. Conduct), cr32_1 ('Rule 32. Post-conviction remedies.'), ap39, cv28 all returned rule text. WebFetch cv12.pdf: YES, 'A defendant shall serve an answer within thirty (30) days'. | Independent check 2026-10-17: script verify exact cv12.pdf; WebFetch YES, '[Amended 10-14-76, eff. 1-16-77; ... Amended 11-28-2012.]'; second citation Ala. R. Civ. P. 56; Ala. R. Evid. 403 ok"
       },
       "notes": "No tier-2 copy: Justia and LII do not host Alabama court rules."
     },
@@ -580,17 +588,17 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://admincode.legislature.state.al.us/api/rule/{rule}",
-        "pattern_rules": "{rule} as cited, e.g. 335-6-1-.01. Whole chapter: https://admincode.legislature.state.al.us/api/chapter/{chapter} (335-6-1). Both return a PDF (filename 'Rule 335-6-1-.01.pdf'). HTTP 404 = no such rule/chapter (482-1-1 and 810-3-1-.01 404'd).",
+        "pattern_rules": "{rule} as cited, e.g. 335-6-1-.01. Whole chapter: https://admincode.legislature.state.al.us/api/chapter/{chapter} (335-6-1). Both return a PDF (filename 'Rule 335-6-1-.01.pdf'). HTTP 404 = no such rule/chapter (482-1-1 and 810-3-1-.01 404'd). Three-part rule numbers exist (Conservation: 220-2-.01) and work the same way.",
         "index_url": "https://admincode.legislature.state.al.us/",
         "navigation": "Human site is a JavaScript app; its GraphQL API (/api/graphql) is persisted-query only (error 'PersistedQueryOnly'), so there is no tool-readable index: build the rule URL.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "none (robots.txt returns app HTML)",
-        "notes": "WebFetch read /api/chapter/335-1-A (a search-result URL). Built rule URLs may be gated for WebFetch; script works."
+        "notes": "Script is the primary route. WebFetch read /api/chapter/335-1-A only because it came from a search result; WebFetch of built rule URLs was refused (PROVENANCE_REQUIRED, independent check)."
       },
       "currency": {
         "where": "History note at end of each rule; page footers on some chapters",
@@ -608,11 +616,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: PDF 2 pp, 'ALABAMA DEPARTMENT OF ENVIRONMENTAL MANAGEMENT WATER DIVISION', definitions + 'Author: David Ludder Statutory Authority'. Second: r. 420-5-10-.01 (7 pp) and 290-3-1-.01; chapter 335-6-1 (8 pp)."
+        "evidence": "Script: PDF 2 pp, 'ALABAMA DEPARTMENT OF ENVIRONMENTAL MANAGEMENT WATER DIVISION', definitions + 'Author: David Ludder Statutory Authority'. Second: r. 420-5-10-.01 (7 pp) and 290-3-1-.01; chapter 335-6-1 (8 pp). | Independent check 2026-10-17: script verify exact: 'Code of Ala. 1975, §§22-22-1 to 22-22-14' (2 pp PDF); second citation Ala. Admin. Code r. 810-6-1-.01; also r. 540-X-1-.01, r. 220-2-.01 ok"
       },
-      "notes": ""
+      "notes": "Provenance: admincode index.html sets NX_PUBLIC_API_URL '/api' (same origin); the bundle builds API_URL+'graphql' and AAM print links API_URL+'aam/'+id; rule/chapter PDFs come from GraphQL fileUrl fields; robots.txt returns app HTML, no directives (independent check 2026-10-17)."
     },
     {
       "id": "al-admincode-lii",
@@ -644,7 +652,8 @@
       },
       "hazards": [
         "may lag the LSA text; compare History notes before quoting",
-        "crawl-delay 10 s"
+        "crawl-delay 10 s",
+        "no 404 for a nonexistent rule: LII returns a 200 page without rule text (810-5-1-.01, 8,621 chars); confirm the heading names the rule"
       ],
       "probe": {
         "citation": "Ala. Admin. Code r. 335-6-1-.01",
@@ -654,9 +663,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script grep: definitions (a),(b) present; Notes 'Amended: October 10, 1984'. Second: r. 420-5-10-.01 18,012 chars."
+        "evidence": "Script grep: definitions (a),(b) present; Notes 'Amended: October 10, 1984'. Second: r. 420-5-10-.01 18,012 chars. | Independent check 2026-10-17: script grep: 'meanings set forth in the AWPCA \"waters,\" \"pollution,\"'; second citation Ala. Admin. Code r. 810-6-1-.01 ok"
       },
       "notes": ""
     },
@@ -672,7 +681,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://admincode.legislature.state.al.us/api/aam/{yyyy}-{mm}",
-        "pattern_rules": "{yyyy}-{mm} is the issue month key: 2026-08 returned 'VOLUME XLIV, ISSUE NO. 11 August 31, 2026'; 2026-09 returned Issue No. 12. Map Vol./No. cites by reading the cover.",
+        "pattern_rules": "{yyyy}-{mm} is the issue month. Volume year runs October-September: Issue No. 1 = October, so Issue No. N → month ((N+8) mod 12)+1 (No. 6 = March, No. 11 = August, No. 12 = September). Vol. XLIV = Oct 2025 - Sep 2026 (2026-08 returned 'VOLUME XLIV, ISSUE NO. 11 August 31, 2026').",
         "index_url": "https://admincode.legislature.state.al.us/",
         "navigation": "",
         "format": "pdf"
@@ -690,7 +699,7 @@
       },
       "hazards": [
         "long PDFs (65 pp)",
-        "month key vs issue number offset"
+        "URL key is the calendar month; issue No. 1 = October"
       ],
       "probe": {
         "citation": "Ala. Admin. Monthly, Vol. XLIV, No. 11",
@@ -700,11 +709,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: PDF 65 pp, 119,551 chars, filename Volume_XLIV_Issue_No_11.pdf; 'NOTICE OF INTENDED ACTION' entries found. 2026-09: 60 pp. Legacy AAM-FEB-16 .htm: 8,547 chars."
+        "evidence": "Script: PDF 65 pp, 119,551 chars, filename Volume_XLIV_Issue_No_11.pdf; 'NOTICE OF INTENDED ACTION' entries found. 2026-09: 60 pp. Legacy AAM-FEB-16 .htm: 8,547 chars. | Independent check 2026-10-17: script: 'ALABAMA Administrative Monthly VOLUME XLIV, ISSUE NO. 11 August 31, 2026'; second citation Ala. Admin. Monthly, Vol. XLIV, No. 6 ok"
       },
-      "notes": ""
+      "notes": "Provenance: admincode index.html sets NX_PUBLIC_API_URL '/api' (same origin); the bundle builds API_URL+'graphql' and AAM print links API_URL+'aam/'+id; rule/chapter PDFs come from GraphQL fileUrl fields; robots.txt returns app HTML, no directives (independent check 2026-10-17)."
     },
     {
       "id": "al-opinions-portal",
@@ -718,7 +727,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://publicportal-api.alappeals.gov/courts/{courtUUID}/cms/case/{caseInstanceUUID}/docketentrydocuments/{documentLinkUUID}",
-        "pattern_rules": "courtUUID: Supreme Court 68f021c4-6a44-4735-9a76-5360b2e8af13; Civil Appeals 1da1a297-c391-4e4f-9480-1bc68b46f21a; Criminal Appeals b82b30d5-bd3c-46d7-9451-1cb05e470873. (1) Release lists: https://publicportal-api.alappeals.gov/courts/cms/publications?courtID={courtUUID}&page=0&size=10&sort=publicationDate,desc (page is 0-based) → publicationUUID. (2) List detail: https://publicportal-api.alappeals.gov/courts/{courtUUID}/cms/publication/{publicationUUID} → items with caseNumber, caseInstanceUUID, decision, title and documents[{documentName:'Opinion', documentLinkUUID}]. (3) Opinion PDF: url_pattern. Docket lookup: https://publicportal-api.alappeals.gov/courts/{courtUUID}/cms/cases/search?caseNumber={docket} (or /courts/cms/cases?caseHeader.caseNumber={docket}) → caseInstanceUUID; docket entries: /courts/{courtUUID}/cms/cases/{caseInstanceUUID}/docketentries?size=100.",
+        "pattern_rules": "courtUUID: Supreme Court 68f021c4-6a44-4735-9a76-5360b2e8af13; Civil Appeals 1da1a297-c391-4e4f-9480-1bc68b46f21a; Criminal Appeals b82b30d5-bd3c-46d7-9451-1cb05e470873. (1) Release lists: https://publicportal-api.alappeals.gov/courts/cms/publications?courtID={courtUUID}&page=0&size=10&sort=publicationDate,desc (page is 0-based) → publicationUUID. (2) List detail: https://publicportal-api.alappeals.gov/courts/{courtUUID}/cms/publication/{publicationUUID} → JSON key publicationItems: each with caseNumber, caseInstanceUUID, decision, title and documents[{documentName:'Opinion', documentLinkUUID}]. (3) Opinion PDF: url_pattern. Docket lookup: https://publicportal-api.alappeals.gov/courts/{courtUUID}/cms/cases/search?caseNumber={docket} (or /courts/cms/cases?caseHeader.caseNumber={docket}) → caseInstanceUUID; docket entries: /courts/{courtUUID}/cms/cases/{caseInstanceUUID}/docketentries?size=100.",
         "index_url": "https://publicportal.alappeals.gov/",
         "navigation": "court + date → release list for that Friday → item by docket → Opinion documentLinkUUID → PDF",
         "format": "pdf"
@@ -738,7 +747,9 @@
         "slip pagination only (no So. 3d pages)",
         "opinions subject to revision before So. 3d publication",
         "no-opinion affirmances have no document",
-        "several dockets can share one opinion document"
+        "several dockets can share one opinion document",
+        "'Affirmed by Unpublished Memorandum' and no-opinion items have documents []; rehearing items carry a 'Rehearing Notice', not an 'Opinion'",
+        "caseInstanceUUID comes back lower-case from case search, upper-case in release lists; the PDF route accepts either"
       ],
       "probe": {
         "citation": "Lima One Capital, LLC v. City of Birmingham, No. SC-2026-0199 (Ala. Aug. 21, 2026)",
@@ -748,11 +759,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: Opinion.pdf 14 pp, 'Rel: August 21, 2026 ... SUPREME COURT OF ALABAMA ... SC-2026-0199'. Civil Appeals CL-2026-0261 opinion from CL-RELEASE-2026-10-16: 16 pp. Criminal Appeals list CR-RELEASE-2026-10-16 read (7 items). caseNumber search returned SC-2026-0199 and SC-2022-0474."
+        "evidence": "Script: Opinion.pdf 14 pp, 'Rel: August 21, 2026 ... SUPREME COURT OF ALABAMA ... SC-2026-0199'. Civil Appeals CL-2026-0261 opinion from CL-RELEASE-2026-10-16: 16 pp. Criminal Appeals list CR-RELEASE-2026-10-16 read (7 items). caseNumber search returned SC-2026-0199 and SC-2022-0474. | Independent check 2026-10-17: script: Opinion.pdf 14 pp, 'COOK, Justice. In early 2025, the City of Birmingham (\"the City\")'; second citation Ex parte Shaun Michael Davis, No. CR-2026-0250 (Ala. Crim. App. Oct. 9, 2026) ok"
       },
-      "notes": ""
+      "notes": "Provenance: https://publicportal.alappeals.gov/properties.js sets apiRoot 'https://publicportal-api.alappeals.gov' (publisher's own front end, linked from judicial.alabama.gov); API robots.txt 404 = no rules (independent check 2026-10-17)."
     },
     {
       "id": "al-releases-legacy",
@@ -794,9 +805,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 151 displaydocs links on the index (Jan 3, 2020 - May 19, 2023); May 19, 2023 PDF 4 pp listing '2022-0474 Debbie Berry v. PHH Mortgage Corporation ... Affirmed.'"
+        "evidence": "Script: 151 displaydocs links on the index (Jan 3, 2020 - May 19, 2023); May 19, 2023 PDF 4 pp listing '2022-0474 Debbie Berry v. PHH Mortgage Corporation ... Affirmed.' | Independent check 2026-10-17: script: 'SUPREME COURT OF ALABAMA DECISIONS ANNOUNCED ON FRIDAY, MAY 19, 2023'; second citation Court of Civil Appeals release list, May 12, 2023 ok"
       },
       "notes": ""
     },
@@ -841,9 +852,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 2026 Supreme Court listing (3 latest entries); opinion page YES, not truncated, slip pages 1-10, PDF link cases.justia.com/alabama/supreme-court/2026-sc-2026-0563.pdf. Court of Criminal Appeals index: years 1933-2026, latest cr-2023-0282.html (Aug. 21, 2026)."
+        "evidence": "WebFetch: 2026 Supreme Court listing (3 latest entries); opinion page YES, not truncated, slip pages 1-10, PDF link cases.justia.com/alabama/supreme-court/2026-sc-2026-0563.pdf. Court of Criminal Appeals index: years 1933-2026, latest cr-2023-0282.html (Aug. 21, 2026). | Independent check 2026-10-17: WebFetch YES: 'In this wrongful-death case, Adam Bauman and Beth Bauman, as'; slip pages; not truncated; second citation DeMike v. Littrell, No. CL-2025-1072 (Ala. Civ. App. Sept. 18, 2026) ok"
       },
       "notes": ""
     },
@@ -859,7 +870,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://publicportal-api.alappeals.gov/courts/68f021c4-6a44-4735-9a76-5360b2e8af13/cms/publication/{publicationUUID}",
-        "pattern_rules": "Find lists with https://publicportal-api.alappeals.gov/courts/cms/publications?courtID=68f021c4-6a44-4735-9a76-5360b2e8af13&page=0&size=10&sort=publicationDate,desc. Each cert item's title names the lower case: 'Ex parte N.V. PETITION FOR WRIT OF CERTIORARI TO THE COURT OF ... (In re: ...; Civil Appeals: CL-2022-0762)'. The cert proceeding has its own SC- docket; no tested API filter goes from the lower docket to the cert docket.",
+        "pattern_rules": "Find lists with https://publicportal-api.alappeals.gov/courts/cms/publications?courtID=68f021c4-6a44-4735-9a76-5360b2e8af13&page=0&size=10&sort=publicationDate,desc. Each cert item's title names the lower case: 'Ex parte N.V. PETITION FOR WRIT OF CERTIORARI TO THE COURT OF ... (In re: ...; Civil Appeals: CL-2022-0762)'. The cert proceeding has its own SC- docket; no tested API filter goes from the lower docket to the cert docket. Items are under the JSON key publicationItems.",
         "index_url": "https://publicportal.alappeals.gov/",
         "navigation": "From a CL-/CR- decision: scan Supreme Court release lists after the decision date for its docket in item titles, or search the portal by party name ('Ex parte <petitioner>') → SC- docket → caseNumber search → docket entries.",
         "format": "json"
@@ -886,11 +897,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: SC-RELEASE-2026-09-11 JSON lists SC-2026-0461, -0671, -0564 etc. 'Certiorari Pre Examination Decision - Writ Denied. No Opinion.' each with an Order documentLinkUUID."
+        "evidence": "Script: SC-RELEASE-2026-09-11 JSON lists SC-2026-0461, -0671, -0564 etc. 'Certiorari Pre Examination Decision - Writ Denied. No Opinion.' each with an Order documentLinkUUID. | Independent check 2026-10-17: script: SC-2026-0461 'Certiorari Pre Examination Decision - Writ Denied. No Opinion.'; second citation Ex parte City of Gulf Shores, No. SC-2026-0718 (Ala. Oct. 9, 2026) (writ denied; CR-2025-0826) ok"
       },
-      "notes": "Cert grants are decided by opinion under captions 'Ex parte <name>' (In re: <lower case>); cite form 'cert. denied, ___ So. 3d ___ (Ala. 2021)'."
+      "notes": "Cert grants are decided by opinion under captions 'Ex parte <name>' (In re: <lower case>); cite form 'cert. denied, ___ So. 3d ___ (Ala. 2021)'. Provenance: https://publicportal.alappeals.gov/properties.js sets apiRoot 'https://publicportal-api.alappeals.gov' (publisher's own front end, linked from judicial.alabama.gov); API robots.txt 404 = no rules (independent check 2026-10-17)."
     }
   ],
   "absent": [
@@ -965,9 +976,9 @@
   "open_questions": [
     "Is the ALISON online Code official? No statement found; the printed Code of Alabama 1975 (Thomson Reuters) is the commonly cited edition.",
     "Admin Code GraphQL is persisted-query only; no tool-readable agency/chapter index was found. Look for a static index (or LII's index) to map agency names to numbers.",
-    "Justia chapters without articles: confirm the URL form without the article segment.",
     "Portal API: is there a filter from originating (lower-court) docket to the Supreme Court cert docket? Not found in the bundle's route list.",
     "WebFetch access to the GraphQL and portal-API URLs depends on per-URL approval; untested with approval.",
-    "Pre-2020 opinions: portal docket search finds 2002+ cases; whether opinion PDFs are attached for pre-2023 dockets was not tested."
+    "Pre-2020 opinions: portal docket search finds 2002+ cases; whether opinion PDFs are attached for pre-2023 dockets was not tested.",
+    "Justia Code hierarchy differs by title (Title 7 uses article/part); other titles with Parts/Divisions not mapped. Navigate from the title page when a built URL fails."
   ]
 }
