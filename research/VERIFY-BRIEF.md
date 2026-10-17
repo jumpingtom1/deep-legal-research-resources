@@ -36,9 +36,17 @@ as described) or `failed`, with evidence.
 
 ## For every row marked BLOCKED
 
-One WebFetch of its probe/index URL only (the same route the record names).
-Confirm it is still refused. Never try another route, the shell, a mirror or
-a cache.
+Re-confirm the block by the route the robots and refusal policy in
+`SCHEMA.md` allows:
+
+- **Blocked by robots.txt:** run only
+  `python3 scripts/fetch_doc.py --research check <url>`. That command
+  downloads nothing. Do not WebFetch the URL; the policy keeps it off every
+  route.
+- **Blocked by a bot wall or login:** one WebFetch of the probe or index URL
+  the record names.
+
+Never try another route, a mirror or a cache.
 
 ## Citation map
 
