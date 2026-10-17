@@ -5,7 +5,7 @@
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
-      "sha256": "d748e3c9109b8b0afa31d6416f059b343ae3f6e151af2979aa1fdb4a701594a4",
+      "sha256": "74d8a4dec422e1434ba7401cb3a04f6a1585ea2c43ee26b8771864a20d888d65",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 8,
@@ -70,7 +70,7 @@
     "ca": {
       "name": "California",
       "file": "jurisdictions/ca.md",
-      "sha256": "4f37833497b222ab9a4e4c6ca67e9e52f6f3b397426ca4d8babea2b8b6212546",
+      "sha256": "d665453c24e849afce05eb7d007cc5f66a0e3b52a93c2b0afa1857866f4f872d",
       "compiled": "2026-10-16",
       "counts": {
         "blocked": 6,
@@ -103,7 +103,7 @@
     "co": {
       "name": "Colorado",
       "file": "jurisdictions/co.md",
-      "sha256": "d077f7683b1e54e0bff52b61b951398db2cae23c75807ef3f9790b76e7195a9b",
+      "sha256": "bbd18f5235844aa2dad1c87e566190b0cb2c1d9e8c6fab3425e61fba7ead14fc",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 10,
@@ -164,7 +164,7 @@
     "de": {
       "name": "Delaware",
       "file": "jurisdictions/de.md",
-      "sha256": "7cab500976ba902cd0479806217cf980aac7ffcf765659503bef296b3ddcfe92",
+      "sha256": "5696364cc2721b796ddb56545c737b4e886ce3c5cbbc2b90aba22aab0c91c848",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 15,
@@ -240,7 +240,7 @@
     "fl": {
       "name": "Florida",
       "file": "jurisdictions/fl.md",
-      "sha256": "a73a1a33bf04fec14c78ee5c8c64697392ed9b7c436f729ba5c6f91985fd2677",
+      "sha256": "68c3314128efea8f439eb31dd412f9397a45b27bc66afea75c14ff3fd52dfeae",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 17,
@@ -309,7 +309,7 @@
     "ga": {
       "name": "Georgia",
       "file": "jurisdictions/ga.md",
-      "sha256": "4b00cf1ebadee7bea8cce2953cf0cafaba88a79b77215a060e31186d01c55da0",
+      "sha256": "c14013188005fcac5fe0d9f7c19d2c442a76dbc9886b0d81f4ff1eee7d726af8",
       "compiled": "2026-10-16",
       "counts": {
         "reported": 4,
@@ -378,7 +378,7 @@
     "id": {
       "name": "Idaho",
       "file": "jurisdictions/id.md",
-      "sha256": "8a13bfdc8e7309117b339813f24eed401272362fa3a51048d69b816f38b2fbee",
+      "sha256": "94111eb73ef45012e12f47e563e7d3c5fce814a8484822248de91e846b05a56f",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 13,
@@ -426,7 +426,7 @@
     "il": {
       "name": "Illinois",
       "file": "jurisdictions/il.md",
-      "sha256": "d901175f8f0108f51fdbf46e0a44a9cb1d211fbb849ca173585194c807890cfc",
+      "sha256": "487dbd97805e93f787c63a025996aaf45ddd17a4db5172f3046691f343fbd006",
       "compiled": "2026-10-16",
       "counts": {
         "blocked": 4,
@@ -483,7 +483,7 @@
     "ma": {
       "name": "Massachusetts",
       "file": "jurisdictions/ma.md",
-      "sha256": "cc5a220e80cec5bc5fa76c80eaabf1bfbeebe42a082967859476507727f0049f",
+      "sha256": "68a817bfd0b3c78fd52274583ffaee155a428face77a0c4937c168d34b802d38",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 21,
@@ -556,7 +556,7 @@
     "nc": {
       "name": "North Carolina",
       "file": "jurisdictions/nc.md",
-      "sha256": "098ba111cbe3b063d1086c5f0a3cddc1a197b588244c5b65f9f67c8cefaf4122",
+      "sha256": "4705ef122b0278c99032ed38da1b5e371ec2450c619b250118ca0ecf0c7026aa",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 13,
@@ -629,7 +629,7 @@
     "nj": {
       "name": "New Jersey",
       "file": "jurisdictions/nj.md",
-      "sha256": "e3c031e7f060caf15c8ad6b7f315c7d2831051d93922515af79af6b8355d8abe",
+      "sha256": "aa02b891ab1761e438d0fe535570dc6e4c9b3487472008bda36db38c99323c90",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 11,
@@ -686,7 +686,7 @@
     "nv": {
       "name": "Nevada",
       "file": "jurisdictions/nv.md",
-      "sha256": "6cb5ffed3c5733c1d08b8f2e6f007caee43969a2ad0e02f68b6ff34fb7b72770",
+      "sha256": "03a1cad670ab7a0e1f072b71c86b415e7bb84a9620324076ddf08aa8dc4410e7",
       "compiled": "2026-10-16",
       "counts": {
         "verified": 16,
@@ -750,7 +750,7 @@
     "ny": {
       "name": "New York",
       "file": "jurisdictions/ny.md",
-      "sha256": "6c789ef7d8cbf8c704ced7677795d41ab308acd58a688fd8a95687ea70008b93",
+      "sha256": "7d1b9709f4927f00dd54f01df4e8000800f8cf91dfca600c9167d2d9d3b0ad8a",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 13,
@@ -799,7 +799,7 @@
     "pa": {
       "name": "Pennsylvania",
       "file": "jurisdictions/pa.md",
-      "sha256": "0ffdc9bf6717f85485dbde66b67b05df43e2c84d07623bbc129944a6cf4dee73",
+      "sha256": "61b26b76951372b75810085392380bcb8bd0eaa56fe9ab8813ce1f1f2ddab545",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 10,
@@ -863,7 +863,7 @@
     "tx": {
       "name": "Texas",
       "file": "jurisdictions/tx.md",
-      "sha256": "cde6656dfdc7d7fc27ce85183277cd4442908732fa88146e9bfde6936a256e4d",
+      "sha256": "88eef0575b7d27283e24f34485026b07e2465f7ea9d9f92d8bbf44d9335ee325",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 17,

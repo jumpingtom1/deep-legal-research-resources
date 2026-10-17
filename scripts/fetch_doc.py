@@ -10,6 +10,7 @@ nothing is truncated, and every quote check is an exact string match.
     fetch_doc.py grep    URL PATTERN [--regex] [--context 300] [--max 20]
     fetch_doc.py section URL --start REGEX [--end REGEX] [--max-chars 60000]
     fetch_doc.py verify  URL "exact quote"
+    fetch_doc.py links   URL [FILTER] [--regex] [--max 200]   links on an HTML page (follow them)
 
 Exit codes: 0 ok · 2 not found / quote not verified · 3 REFUSED (blocked
 host, robots, bot challenge — never try another route) · 4 fetch error.
@@ -146,6 +147,29 @@ def cmd_section(a):
     print(chunk[:a.max_chars])
 
 
+def cmd_links(a):
+    r = lsnet.get(a.url, max_age=a.max_age, allow_unlisted=RESEARCH)
+    ctype = (r["headers"].get("Content-Type") or r["headers"].get("content-type") or "").lower()
+    if r["body"][:5] == b"%PDF-" or "pdf" in ctype:
+        print("This is a PDF; links are not extracted from PDFs.")
+        sys.exit(2)
+    m = re.search(r"charset=([\w-]+)", ctype)
+    links = lstext.html_links(r["body"], r["final_url"], m.group(1) if m else None)
+    if a.filter:
+        rx = re.compile(a.filter if a.regex else re.escape(a.filter), re.I)
+        links = [(u, t) for u, t in links if rx.search(u) or rx.search(t)]
+    seen, out = set(), []
+    for u, t in links:
+        if (u, t) not in seen:
+            seen.add((u, t))
+            out.append((u, t))
+    print(f"SOURCE {r['final_url']}\n{len(out)} link(s)"
+          + (f"; showing {a.max}" if len(out) > a.max else ""))
+    for u, t in out[:a.max]:
+        print(f"  {t[:90] or '(no text)'}\n    {u}")
+    sys.exit(0 if out else 2)
+
+
 def cmd_verify(a):
     r = load(a.url, a.max_age)
     print(header(r))
@@ -206,6 +230,11 @@ def main():
     s.add_argument("--start", required=True)
     s.add_argument("--end")
     s.add_argument("--max-chars", type=int, default=60000)
+    s = sub.add_parser("links")
+    s.add_argument("url")
+    s.add_argument("filter", nargs="?")
+    s.add_argument("--regex", action="store_true")
+    s.add_argument("--max", type=int, default=200)
     s = sub.add_parser("verify")
     s.add_argument("url")
     s.add_argument("quote")

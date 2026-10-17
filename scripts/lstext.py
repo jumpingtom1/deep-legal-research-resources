@@ -93,6 +93,44 @@ def _sniff_encoding(b, declared=None):
         return "cp1252"
 
 
+class _Links(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links, self._href, self._text = [], None, []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            self._href = dict(attrs).get("href")
+            self._text = []
+
+    def handle_data(self, data):
+        if self._href is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self._href is not None:
+            self.links.append((self._href, re.sub(r"\s+", " ", "".join(self._text)).strip()))
+            self._href = None
+
+
+def html_links(html_bytes, base_url, encoding=None):
+    """Return [(absolute_url, link_text)] for every <a href> on the page."""
+    import urllib.parse
+    enc = _sniff_encoding(html_bytes, encoding)
+    try:
+        s = html_bytes.decode(enc, "replace")
+    except LookupError:
+        s = html_bytes.decode("utf-8", "replace")
+    p = _Links()
+    p.feed(s)
+    out = []
+    for href, text in p.links:
+        if not href or href.startswith(("javascript:", "mailto:", "#")):
+            continue
+        out.append((urllib.parse.urljoin(base_url, html.unescape(href)), text))
+    return out
+
+
 def html_text(html_bytes, encoding=None):
     enc = _sniff_encoding(html_bytes, encoding)
     if enc.lower() in ("iso-8859-1", "latin-1", "latin1", "us-ascii", "ascii"):

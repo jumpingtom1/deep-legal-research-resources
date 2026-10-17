@@ -181,7 +181,7 @@ def render(rec):
              "**corpus** — `corpus.py get|resolve|search|verify` reads a pre-built, "
              "integrity-checked extraction of the official document (state its capture date; "
              "run `corpus.py check` if STALE/EXPIRED); "
-             "**script** — `fetch_doc.py read|grep|section|verify <url>` reads the live "
+             "**script** — `fetch_doc.py read|grep|section|verify|links <url>` reads the live "
              "official file as exact text with no truncation (needs the host reachable from "
              "your sandbox; exit 3 = refused, never retry another way); "
              "**fetch tool** — WebFetch: summarised and cut at ~100K characters, so use it to "
