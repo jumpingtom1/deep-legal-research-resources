@@ -268,6 +268,20 @@ def _looks_like_bot_wall(headers, body, expect):
     if hl.get("cf-mitigated", "").lower() == "challenge":
         return "Cloudflare challenge"
     ctype = hl.get("content-type", "").lower()
+    if "html" in ctype and expect != "pdf":
+        # A CAPTCHA / bot-check page served instead of the content. Require a
+        # short page AND a challenge phrase, so ordinary pages that merely embed
+        # a reCAPTCHA widget in a form are not mistaken for walls.
+        low = body[:200000].decode("utf-8", "replace").lower()
+        visible = re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", low, flags=re.S)
+        visible = re.sub(r"\s+", " ", visible)
+        phrases = ("verify you are human", "are you a robot", "complete the captcha",
+                   "solve the captcha", "please complete the security check",
+                   "checking your browser", "enable javascript and cookies to continue",
+                   "request unsuccessful. incapsula", "access denied", "bot verification",
+                   "captcha")
+        if len(visible) < 3000 and any(ph in visible for ph in phrases):
+            return "CAPTCHA / bot-check page served instead of the content"
     if expect == "pdf" and "pdf" not in ctype and not body[:5] == b"%PDF-":
         sniff = body[:4000].decode("utf-8", "replace").lower()
         if any(s in sniff for s in ("captcha", "challenge", "verify you are human",
@@ -343,7 +357,7 @@ def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
     if code >= 400:
         raise FetchError(f"HTTP {code} for {url}")
     wall = _looks_like_bot_wall(headers, body, expect)
-    if wall and ("challenge" in wall or "bot-check" in wall):
+    if wall and ("challenge" in wall or "bot-check" in wall or "CAPTCHA" in wall):
         mark_refused(final_host or host, wall)
         raise RefusedError(f"{final_host or host}: {wall}. Do not retry by another route.")
     if wall:

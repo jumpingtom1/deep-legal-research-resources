@@ -19,14 +19,14 @@ Statutes, session laws, constitution, court rules, Minnesota Rules and the State
 
 | Recognise | Examples | Route to (in order) |
 |---|---|---|
-| Minnesota Statutes | `Minn. Stat. § 541.05 (2024)`; `Minn. Stat. § 541.05, subd. 1(5) (2024)`; `Minn. Stat. § 336.2-725`; `Minn. Stat. §§ 609.185-.19`; `Minn. Stat. §§ 541.05-541.07`; `Minn. Stat. Ann. § 260C.007`; `Minnesota Statutes, section 541.05`; `Minnesota Statutes 2024, section 609.185`; `section 541.05 of the Minnesota Statutes`; `Minn. Stat. ch. 541`; `M.S.A. § 541.05` | `mn-statutes-revisor` → `mn-statutes-justia` |
+| Minnesota Statutes | `Minn. Stat. § 541.05 (2024)`; `Minn. Stat. § 541.05, subd. 1(5) (2024)`; `Minn. Stat. § 336.2-725`; `Minn. Stat. §§ 609.185-.19`; `Minn. Stat. §§ 541.05-541.07`; `Minn. Stat. Ann. § 260C.007`; `Minnesota Statutes, section 541.05`; `Minnesota Statutes 2024, section 609.185`; `section 541.05 of the Minnesota Statutes`; `Minn. Stat. ch. 541`; `Minnesota Statutes, chapter 363A`; `M.S.A. § 541.05` | `mn-statutes-revisor` → `mn-statutes-justia` |
 | Minnesota Session Laws | `2024 Minn. Laws ch. 127, art. 2, § 5`; `1984 Minn. Laws ch. 543, § 69`; `Laws 2015, chapter 5, article 15, section 18`; `2015 c 5 art 15 s 18` | `mn-laws-revisor` |
-| Minnesota Constitution | `Minn. Const. art. I, § 8`; `Minn. Const. art. XIII, § 4`; `Article I, Section 8 of the Minnesota Constitution`; `Minnesota Constitution, article I, section 7` | `mn-constitution-revisor` → `mn-constitution-justia` |
+| Minnesota Constitution | `Minn. Const. art. I, § 8`; `Minn. Const. art. XIII, § 4`; `Article I, Section 8 of the Minnesota Constitution`; `Minnesota Constitution, article I, section 7`; `Minn. Const. art. 1, § 7` | `mn-constitution-revisor` → `mn-constitution-justia` |
 | Minnesota Rules of Civil Procedure | `Minn. R. Civ. P. 12.02(e)`; `Minn. R. Civ. P. 56.03`; `Rule 12.02 of the Minnesota Rules of Civil Procedure`; `Minn. R. Civ. P. 4.043` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
 | Minnesota Rules of Evidence | `Minn. R. Evid. 702`; `Minn. R. Evid. 803(6)`; `Rule 404(b) of the Minnesota Rules of Evidence` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
 | Minnesota Rules of Civil Appellate Procedure | `Minn. R. Civ. App. P. 103.03(a)`; `Minn. R. Civ. App. P. 136.01, subd. 1(c)`; `Rule 117 of the Minnesota Rules of Civil Appellate Procedure` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
 | Minnesota Rules of Criminal Procedure | `Minn. R. Crim. P. 15.01`; `Minn. R. Crim. P. 28.02, subd. 4(3)`; `Rule 15.05 of the Minnesota Rules of Criminal Procedure` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
-| General Rules of Practice for the District Courts | `Minn. Gen. R. Prac. 115.03`; `Minn. Gen. R. Prac. 302.01`; `Rule 115 of the General Rules of Practice` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
+| General Rules of Practice for the District Courts | `Minn. Gen. R. Prac. 115.03`; `Minn. Gen. R. Prac. 302.01`; `Rule 115 of the Minnesota General Rules of Practice` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
 | Minnesota Rules of Professional Conduct | `Minn. R. Prof. Conduct 1.7`; `MRPC 8.4(c)`; `Rule 1.7 of the Minnesota Rules of Professional Conduct` | `mn-courtrules-revisor` → `mn-courtrules-revisor-pdf` |
 | Minnesota Rules (administrative) | `Minn. R. 7050.0222`; `Minn. R. 7050.0222, subp. 4 (2023)`; `Minnesota Rules, part 1400.5100`; `Minn. R. ch. 7050`; `Minnesota Rules, chapter 1400` | `mn-rules-revisor` → `mn-rules-lii` |
 | Minnesota State Register | `50 Minn. Reg. 123`; `9 SR 2276`; `26 S.R. 391` | `mn-register-revisor` |
@@ -36,14 +36,14 @@ Statutes, session laws, constitution, court rules, Minnesota Rules and the State
 
 Regexes (case-insensitive):
 
-- Minnesota Statutes: `(?:Minn(?:esota)?\.?\s*Stat(?:utes)?\.?(?:\s+Ann\.)?|M\.\s*S\.\s*A\.?)\s*(?:(?:19|20)\d\d,?\s*)?(?:§§?|sec(?:tion|s?\.)|,\s*sections?)\s*(?P<section>\d{1,3}[A-Z]{0,2}\.\d+[A-Za-z]?(?:-\d+(?!\d)(?!\.\d))?)|(?:Minn(?:esota)?\.?\s*Stat(?:utes)?\.?(?:\s+Ann\.)?)\s*(?:ch\.|chapter)\s*(?P<chapter>\d{1,3}[A-Z]{0,2})\b|sec(?:tion|\.)\s*(?P<section2>\d{1,3}[A-Z]{0,2}\.\d+[A-Za-z]?(?:-\d+(?!\d)(?!\.\d))?)(?:,\s*subd(?:ivision|\.)\s*\d+[a-z]?)?(?:\([a-z0-9]+\))*\s+of\s+(?:the\s+)?Minnesota\s+Statutes`
+- Minnesota Statutes: `(?:Minn(?:esota)?\.?\s*Stat(?:utes)?\.?(?:\s+Ann\.)?|M\.\s*S\.\s*A\.?)\s*(?:(?:19|20)\d\d,?\s*)?(?:§§?|sec(?:tion|s?\.)|,\s*sections?)\s*(?P<section>\d{1,3}[A-Z]{0,2}\.\d+[A-Za-z]?(?:-\d+(?!\d)(?!\.\d))?)|(?:Minn(?:esota)?\.?\s*Stat(?:utes)?\.?(?:\s+Ann\.)?)\s*(?:(?:19|20)\d\d)?,?\s*(?:ch\.|chapter)\s*(?P<chapter>\d{1,3}[A-Z]{0,2})\b|sec(?:tion|\.)\s*(?P<section2>\d{1,3}[A-Z]{0,2}\.\d+[A-Za-z]?(?:-\d+(?!\d)(?!\.\d))?)(?:,\s*subd(?:ivision|\.)\s*\d+[a-z]?)?(?:\([a-z0-9]+\))*\s+of\s+(?:the\s+)?Minnesota\s+Statutes`
 - Minnesota Session Laws: `(?P<year>(?:18|19|20)\d\d)\s+Minn\.\s*Laws\s+(?:\d(?:st|nd|rd|th)\s+Spec\.\s*Sess\.\s+)?ch\.\s*(?P<chapter>\d+)|Laws\s+(?P<year2>(?:18|19|20)\d\d),\s*(?:First\s+Special\s+Session\s+)?chapter\s+(?P<chapter2>\d+)|\b(?P<year3>(?:18|19|20)\d\d)\s+c\s+(?P<chapter3>\d+)(?:\s+art\s+\d+)?\s+s\s+\d+`
-- Minnesota Constitution: `Minn\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+),?\s*§\s*(?P<section>\d+[a-z]?)|Article\s+(?P<article2>[IVXL]+),?\s+Section\s+(?P<section2>\d+[a-z]?)\s+of\s+the\s+Minnesota\s+Constitution|Minnesota\s+Constitution,?\s+article\s+(?P<article3>[IVXL]+),?\s+section\s+(?P<section3>\d+[a-z]?)`
+- Minnesota Constitution: `Minn\.\s*Const\.\s*art\.\s*(?P<article>[IVXL]+|\d{1,2}),?\s*§\s*(?P<section>\d+[a-z]?)|Article\s+(?P<article2>[IVXL]+|\d{1,2}),?\s+Section\s+(?P<section2>\d+[a-z]?)\s+of\s+the\s+Minnesota\s+Constitution|Minnesota\s+Constitution,?\s+article\s+(?P<article3>[IVXL]+|\d{1,2}),?\s+section\s+(?P<section3>\d+[a-z]?)`
 - Minnesota Rules of Civil Procedure: `Minn\.\s*R\.\s*Civ\.\s*P\.\s*(?P<rule>\d{1,3})(?:\.(?P<sub>\d+))?|Rule\s+(?P<rule2>\d{1,3})(?:\.\d+)?(?:\([a-z0-9]+\))*\s+of\s+the\s+Minnesota\s+Rules\s+of\s+Civil\s+Procedure`
 - Minnesota Rules of Evidence: `Minn\.\s*R\.\s*Evid\.\s*(?P<rule>\d{3,4})|Rule\s+(?P<rule2>\d{3,4})(?:\([a-z0-9]+\))*\s+of\s+the\s+Minnesota\s+Rules\s+of\s+Evidence`
 - Minnesota Rules of Civil Appellate Procedure: `Minn\.\s*R\.\s*Civ\.\s*App\.\s*P\.\s*(?P<rule>\d{3})(?:\.\d+)?|Rule\s+(?P<rule2>\d{3})(?:\.\d+)?\s+of\s+the\s+Minnesota\s+Rules\s+of\s+Civil\s+Appellate\s+Procedure`
 - Minnesota Rules of Criminal Procedure: `Minn\.\s*R\.\s*Crim\.\s*P\.\s*(?P<rule>\d{1,2})(?:\.\d+)?|Rule\s+(?P<rule2>\d{1,2})(?:\.\d+)?\s+of\s+the\s+Minnesota\s+Rules\s+of\s+Criminal\s+Procedure`
-- General Rules of Practice for the District Courts: `Minn\.\s*Gen\.\s*R\.\s*Prac\.\s*(?P<rule>\d{1,3})(?:\.\d+)?|Rule\s+(?P<rule2>\d{1,3})(?:\.\d+)?\s+of\s+the\s+(?:Minnesota\s+)?General\s+Rules\s+of\s+Practice`
+- General Rules of Practice for the District Courts: `Minn\.\s*Gen\.\s*R\.\s*Prac\.\s*(?P<rule>\d{1,3})(?:\.\d+)?|Rule\s+(?P<rule2>\d{1,3})(?:\.\d+)?\s+of\s+the\s+Minnesota\s+General\s+Rules\s+of\s+Practice`
 - Minnesota Rules of Professional Conduct: `(?:Minn\.\s*R\.\s*Prof(?:'l|\.)?\s*Conduct|MRPC)\s*(?P<rule>\d\.\d{1,2})|Rule\s+(?P<rule2>\d\.\d{1,2})(?:\([a-z0-9]+\))*\s+of\s+the\s+Minnesota\s+Rules\s+of\s+Professional\s+Conduct`
 - Minnesota Rules (administrative): `Minn(?:esota)?\.?\s*R(?:ules)?\.?,?\s*(?:pt\.|part)?\s*(?P<part>\d{4}\.\d{4})|Minn(?:esota)?\.?\s*R(?:ules)?\.?,?\s*(?:ch\.|chapter)\s*(?P<chapter>\d{4})`
 - Minnesota State Register: `(?P<volume>\d{1,2})\s+(?:Minn\.\s*Reg\.|S\.?R\.?)\s+(?P<page>\d{1,5})`
@@ -55,7 +55,7 @@ Short forms → URL key:
 
 Minn. R. Civ. P. → `cp`; Minn. R. Evid. → `ev`; Minn. R. Crim. P. → `cr`; Minn. Gen. R. Prac. → `gp`; Minn. R. Civ. App. P. → `ap/subtype/rcap`; Minn. R. Prof. Conduct → `pr/subtype/cond`; MRPC → `pr/subtype/cond`; Minn. R. Juv. Delinq. P. → `ju`; Minn. R. Juv. Prot. P. → `ju`; Minn. Sent. Guidelines → `sg`; Minn. Spec. R. Prac. (Ct. App.) → `ap/subtype/spec`; Minn. R. Civ. App. P. (family) → `ap/subtype/flam`
 
-No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified).
+No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. The prose form of the General Rules of Practice requires 'Minnesota' ('Rule 115 of the Minnesota General Rules of Practice'): the bare 'General Rules of Practice' also names North Carolina's 'General Rules of Practice for the Superior and District Courts' (build.py --cross). Constitution articles are matched in Roman or Arabic numerals ('art. 1, § 7'). 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified).
 
 ## A. Statutes / code
 
@@ -66,7 +66,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.revisor.mn.gov/laws/{year}/{special_session}/{chapter}/`
-  - Placeholders: special_session = 0 for the regular session, 1, 2 … for special sessions (from the revisor's own links, e.g. /laws/2015/0/5/laws.15.18.0 for '2015 c 5 art 15 s 18'). chapter unpadded. Section anchor form seen in history links: /laws/{year}/0/{chapter}/laws.{article}.{section}.0.
+  - Placeholders: special_session = 0 for the regular session, 1, 2 … for special sessions (2021 Minn. Laws 1st Spec. Sess. ch. 11 → /laws/2021/1/11/, verified) (from the revisor's own links, e.g. /laws/2015/0/5/laws.15.18.0 for '2015 c 5 art 15 s 18'). chapter unpadded. Section anchor form seen in history links: /laws/{year}/0/{chapter}/laws.{article}.{section}.0.
   - Index: `https://www.revisor.mn.gov/laws/`
 - **Automation:** WebFetch untested · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
   - Omnibus chapters are enormous (2024 c 127 = 4.17M chars; 2015 c 5 = 390K chars): use the script's grep/section, never WebFetch.
@@ -80,13 +80,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 
 - **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** Current edition (2025 Minnesota Statutes) per section; prior editions by year from the 1940s/1905 compilations onward (/statutes/{year}/cite/{section}); version lists per section; full chapter text at /statutes/cite/{chapter}/full.
-- **Read via (in order):** **script** → **fetch tool**
+- **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.revisor.mn.gov/statutes/cite/{section}`
   - Placeholders: section verbatim as cited, chapter prefix included (541.05, 609.185, 336.2-725, 260C.007). No padding. Specific edition: https://www.revisor.mn.gov/statutes/{year}/cite/{section} (verified 2024 and 2025). Legacy form /statutes/?id={section} 301-redirects to /statutes/cite/{section}. Authenticated PDF: /statutes/cite/{section}/pdf. Chapter TOC: /statutes/cite/{chapter}; whole chapter: /statutes/cite/{chapter}/full (very long: ch. 609 = 1.06M chars). Subdivision anchors: /statutes/{year}/cite/{section}/subd/{section}.{n}.
   - Index: `https://www.revisor.mn.gov/statutes/`
-- **Automation:** WebFetch ok · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
-  - Section pages are 8-11K chars of text (nav menu ~5.4K chars precedes the body), so WebFetch reads them whole. WebFetch on the bare built URL /statutes/cite/541.05 hit PROVENANCE_REQUIRED (permission prompt) — the search-surfaced form /statutes/2025/cite/609.185 and /statutes/?id=… went through. Repealed sections return a stub '[Repealed, …]', not body text.
+- **Automation:** WebFetch gated · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
+  - Script is the primary route. Section pages are 8-11K chars of text (nav menu ~5.4K chars precedes the body), so WebFetch reads them whole. WebFetch on the bare built URL /statutes/cite/541.05 hit PROVENANCE_REQUIRED (permission prompt) — the search-surfaced form /statutes/2025/cite/609.185 and /statutes/?id=… went through. Repealed sections return a stub '[Repealed, …]', not body text.
 - **Currency:** page heading above the section and in the right-hand resource box — observed: "2025 Minnesota Statutes"
 - **Official status:** https://www.revisor.mn.gov/statutes/info: two official versions — the printed edition and the online authenticated PDFs designated under Minn. Stat. § 3E.04, subd. 2 (UELMA). HTML pages carry the footer 'Official Publication of the State of Minnesota' and an 'Authenticate' link; per-section PDF at /statutes/cite/{section}/pdf.
 - **Hazard:** Current edition is 2025: 2026 session-law amendments are not in the text until the 2026 edition; check /statutes/table2?full={section} (Statutes Changed, Table 2) and 'Recent History' on the page
@@ -126,11 +126,11 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.revisor.mn.gov/constitution/#section_{article_arabic}_{section}`
-  - Placeholders: Single page; anchors id="article_{n}" and id="section_{n}_{s}" with the article in Arabic numerals (Art. I § 8 → #section_1_8). The anchor does not change what WebFetch reads; the whole page (~80K chars) fits in one window.
+  - Placeholders: Article may be cited in Roman or Arabic numerals (art. I = art. 1). Single page; anchors id="article_{n}" and id="section_{n}_{s}" with the article in Arabic numerals (Art. I § 8 → #section_1_8). The anchor does not change what WebFetch reads; the whole page (~80K chars) fits in one window.
   - Index: `https://www.revisor.mn.gov/constitution/`
 - **Automation:** WebFetch ok · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
   - 79,554 chars; complete in one WebFetch window.
-- **Currency:** top of the constitution text — observed: "Generally Revised November 5, 1974 (PDF version dated 2025-01-09)"
+- **Currency:** top of the text gives adoption/revision dates; the 2025-01-09 version date appears only in the Version List / PDF link (/constitution/pdf/version/2025-01-09…) — observed: "Generally Revised November 5, 1974; PDF version 2025-01-09"
 - **Official status:** Revisor page; footer 'Official Publication of the State of Minnesota'; a dated PDF version is linked (/constitution/pdf/version/2025-01-09…). No UELMA statement seen for the constitution specifically.
 - **Hazard:** no explicit 'current through' statement; check the Version List and LRL constitutional amendments page
 - **Probe:** Minn. Const. art. I, § 8 → `https://www.revisor.mn.gov/constitution/` — expect: "Every person is entitled to a certain remedy in the laws"
@@ -160,13 +160,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 
 - **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes (rules promulgated by the Minnesota Supreme Court) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Civil Procedure (cp), Evidence (ev), Criminal Procedure (cr), General Rules of Practice (gp), Appellate Procedure (ap: subtypes rcap = Civil Appellate Procedure, spec = Special Rules of Practice for the Court of Appeals, flam = family/other), Juvenile (ju), District Court Special Rules (dc), Professional Rules (pr: cond = Rules of Professional Conduct, prof = Lawyers Professional Responsibility, judi, admi, boar …), Record Access (ra), Sentencing Guidelines (sg), Miscellaneous (ms).
-- **Read via (in order):** **script** → **fetch tool**
+- **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.revisor.mn.gov/court_rules/{set}/id/{rule}/  |  https://www.revisor.mn.gov/court_rules/{set}/subtype/{subtype}/id/{rule}/`
   - Placeholders: set/subtype key from citation_map.law_aliases: Minn. R. Civ. P. → cp; Minn. R. Evid. → ev; Minn. R. Crim. P. → cr; Minn. Gen. R. Prac. → gp; Minn. R. Civ. App. P. → ap/subtype/rcap; Minn. R. Prof. Conduct → pr/subtype/cond. {rule} = the whole rule number before the first dot for cp/cr/gp/rcap (12.02(e) → id/12; 15.01 → id/15; 115.03 → id/115; 103.03 → id/103), with the subpart anchored as #12.02; evidence rules are three/four digits (id/702); Professional Conduct uses the dotted number (id/1.7). Alternative per-rule form /court_rules/rule/{set}-{rule}/ (e.g. /court_rules/rule/ev-702/) also serves the text. Table of contents: /court_rules/rule/{set}-toh/ (e.g. ev-toh, cr-toh, gp-toh, aprcap-toh, prcond-toh).
   - Index: `https://www.revisor.mn.gov/court_rules/`
-- **Automation:** WebFetch ok · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
-  - Per-rule pages are 10-35K chars including comments; whole rule in one WebFetch window.
+- **Automation:** WebFetch gated · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
+  - Script is the primary route. Per-rule pages are mostly 10-35K chars including comments, but some reach ~75K (cr/id/26); WebFetch read a search-surfaced URL, while built Revisor URLs may hit PROVENANCE_REQUIRED.
 - **Currency:** amendment note after each rule (no site-wide date on the per-rule page); full-set PDFs carry 'With amendments effective through …' — observed: "(Amended effective September 1, 2006.) — Minn. R. Evid. 702"
 - **Official status:** https://www.revisor.mn.gov/court_rules/info/: 'Rules information on this website is not intended to replace an official source'; the official edition is the printed Minnesota Court Rules volume (Minn. Stat. § 3C.08).
 - **Hazard:** online text disclaimed as not official
@@ -199,15 +199,16 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 
 - **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** All agency rules by part (NNNN.NNNN); version lists back to ~2014 snapshots; chapter full text.
-- **Read via (in order):** **script** → **fetch tool**
+- **Read via (in order):** **script**
 - **Access:** `constructible` · format html
   - Pattern: `https://www.revisor.mn.gov/rules/{part}/`
   - Placeholders: part = 4-digit chapter + '.' + 4-digit part, verbatim (7050.0222, 1400.5100). Chapter TOC: /rules/{chapter}/; whole chapter: /rules/{chapter}/full. Versions: /rules/{part}/version/{timestamp} (from version list).
   - Index: `https://www.revisor.mn.gov/rules/`
-- **Automation:** WebFetch ok (truncated) · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
-  - Long parts exceed WebFetch: 7050.0222 page is ~100,210 chars to WebFetch and was cut in subp. 3c item B; use offset=100000 or the script (139,178 chars).
+- **Automation:** WebFetch gated · shell ok · robots: revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed
+  - Script is the primary route: WebFetch on built per-part URLs hits PROVENANCE_REQUIRED (independent check on 4410.4300 and 1400.5100); a search-surfaced URL went through. Long parts exceed WebFetch: 7050.0222 page is ~100,210 chars to WebFetch and was cut in subp. 3c item B; use offset=100000 or the script (139,178 chars).
 - **Currency:** bottom of each part, after History — observed: "Published Electronically: August 6, 2013 (1400.5100)"
 - **Official status:** Footer 'Official Publication of the State of Minnesota'; https://www.revisor.mn.gov/authenticate/ says authenticated PDFs of statutes, laws and administrative rules are official records under UELMA (Minn. Stat. ch. 3E).
+- **Hazard:** built URLs may need WebFetch approval; script route is reliable
 - **Hazard:** WebFetch truncation on long parts (water-quality tables)
 - **Hazard:** 'Published Electronically' is the date that part last changed, not a site-wide currency date
 - **Probe:** Minn. R. 1400.5100 → `https://www.revisor.mn.gov/rules/1400.5100/` — expect: ""Administrative law judge" or "judge" means the person or persons assigned"
@@ -262,13 +263,14 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Access:** `index-anchored` · format pdf
   - Pattern: `https://mn.gov/web/prod/static/lawlib/live/archive/{court}{yy}q{quarter}.html`
   - Placeholders: Quarterly listing pages: court = sct (Supreme Court) | cau (Court of Appeals unpublished/order) | cap? (published, unverified); yy = 2-digit year; quarter 1-4 (sct16q1, sct15q1, cau13q4 verified). PDFs: /archive/supct/{yyyy}/OPA{docket6}-{mmddyy}.pdf (2016 form) or /archive/ctapun/{yymm}/opa{docket6}-{mmddyy}.pdf; docket6 = 2-digit year + 4-digit zero-padded number (A12-1997 → a121997). Take PDF links from the quarterly page; do not build them. Links on the archive home page are relative and resolve wrongly (/archive/sctdate.html on mn.gov root).
-  - Index: `https://www.mn.gov/web/prod/static/lawlib/live/archive/index.html`
-  - Navigation: quarterly page for the decision date (sct{yy}q{n}.html / cau{yy}q{n}.html) → PDF link
+  - Index: `https://mn.gov/web/prod/static/lawlib/live/archive/sctdate.html`
+  - Navigation: date index (Supreme Court: https://mn.gov/web/prod/static/lawlib/live/archive/sctdate.html; Court of Appeals: https://mn.gov/web/prod/static/lawlib/live/archive/capdate.html) → quarterly page for the decision date (sct{yy}q{n}.html / cau{yy}q{n}.html) → PDF link. Do not start from archive/index.html: its index links point to the wrong root (www.mn.gov/archive/sctdate.html).
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: mn.gov: User-agent * — Disallow /cgi-bin, /cgi-sys, /cd_upload/Search, /law-library-stat/archive/, /law-library-stat/briefs/; Visit-time: 0000-1200 (GMT); Request-rate: 10. /web/prod/static/lawlib/ and /admin/assets/ are not disallowed
-  - The same archive is also addressed as /law-library-stat/archive/ (disallowed by robots.txt — never use that path). The /web/prod/static/lawlib/ path is permitted and is the one the archive's own pages link to. The script read the index, sctdate.html and two PDFs, but other requests were redirected to a ShieldSquare CAPTCHA (validate.perfdrive.com) — treat as a bot check; prefer WebFetch.
+  - Route legitimacy (independent check 2026-10-17): fetch_doc check says robots.txt permits /web/prod/static/lawlib/live/archive/ and REFUSES /law-library-stat/archive/; the library's own quarterly pages (cau13q4.html, sct15q1.html) link with absolute hrefs to the static path. The same archive is also addressed as /law-library-stat/archive/ (disallowed by robots.txt — never use that path). The /web/prod/static/lawlib/ path is permitted and is the one the archive's own pages link to. The script read the index, sctdate.html and two PDFs, but other requests were redirected to a ShieldSquare CAPTCHA (validate.perfdrive.com) — treat as a bot check; prefer WebFetch.
 - **Currency:** archive home page — observed: "Supreme Court opinions and orders (May 2, 1996 - March 27, 2013)"
 - **Official status:** Slip opinions as released; no reporter pagination.
-- **Hazard:** ShieldSquare CAPTCHA intermittently for the shell
+- **Hazard:** ShieldSquare CAPTCHA intermittently for the shell (capdate.html redirected to validate.perfdrive.com; never worked around; fetch_doc.py now reports it as REFUSED, exit 3)
+- **Hazard:** archive/index.html links to the wrong root (www.mn.gov/archive/…); start from sctdate.html / capdate.html
 - **Hazard:** robots-disallowed alias path /law-library-stat/archive/
 - **Hazard:** stale coverage statement; ends early 2016
 - **Hazard:** slip pagination only
@@ -328,6 +330,8 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
   - WebFetch only.
 - **Currency:** none
 - **Official status:** Third-party copy of slip opinions; no reporter citation for the case itself.
+- **Hazard:** consolidated appeals use only the first docket in the slug (A24-1341/A24-1489 → a24-1341.html)
+- **Hazard:** posting lag of about a week behind mncourts.gov releases
 - **Hazard:** slip pagination only (bare page numerals in the text, dissents D-1…)
 - **Hazard:** no N.W.3d cite for the case itself
 - **Hazard:** shell blocked
@@ -352,6 +356,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Currency:** none — observed: "Filed – January 27, 2016"
 - **Official status:** Archived court lists.
 - **Hazard:** no docket index — date scanning required
+- **Hazard:** a list can be posted under a later release date (list filed Mar. 17, 2015 sits under the Mar. 25 release): scan both dates
 - **Hazard:** ends early 2016
 - **Hazard:** CAPTCHA for the shell
 - **Probe:** State v. Adams, No. A14-1891, review denied (Minn. Jan. 27, 2016) → `https://mn.gov/web/prod/static/lawlib/live/archive/supct/2016/pfr01-27-2016.pdf` — expect: "State of Minnesota vs. Benjamin Paul Adams – A14-1891 – Denied"
@@ -371,6 +376,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Currency:** page heading — observed: "FILED WEDNESDAY, SEPTEMBER 30, 2026"
 - **Official status:** Court web listing; no official-status statement.
 - **Hazard:** no history: older dispositions are not on the page
+- **Hazard:** page can lag by weeks (still Sept. 30, 2026 on Oct. 17)
 - **Hazard:** shell blocked
 - **Probe:** Honcik v. American Family Mut. Ins. Co., No. A25-1985 (review granted) → `https://mncourts.gov/supremecourt/recentopinions/orders-on-petitions-for-further-review` — expect: "James W. Honcik vs. American Family Mutual Insurance Company, S.I. – A25-1985"
 - **Evidence (2026-10-16):** WebFetch: 'FILED WEDNESDAY, SEPTEMBER 30, 2026'; Granted items 1-5, Denied items 8-38, plus 'Denied – Filed September 25, 2026'; entries are unlinked text with dockets.

@@ -1010,13 +1010,6 @@
    ],
    "blocked_sources": []
   },
-  "www.mn.gov": {
-   "status": "allowed",
-   "sources": [
-    "mn-opinions-lawlib-archive"
-   ],
-   "blocked_sources": []
-  },
   "www.msa.maryland.gov": {
    "status": "allowed",
    "sources": [
