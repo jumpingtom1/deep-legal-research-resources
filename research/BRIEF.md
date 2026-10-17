@@ -112,6 +112,15 @@ can. So for every source, answer these questions:
 - **If WebFetch starts failing for quota or rate reasons** (not a site
   refusal), stop fetching. Finish the record with what you have and say so
   in your final message.
+- **WebFetch may need approval for URLs you built yourself.** URLs that came
+  from a search result or a fetched page usually go through. A URL built from
+  a pattern can wait on a permission prompt or time out, and nobody may be
+  there to answer it.
+  - Don't retry the call.
+  - Verify the row with `python3 scripts/fetch_doc.py --research` instead. A
+    script probe that returns the body text is enough to mark the row
+    `verified`; record the script output as the evidence.
+  - Set `automation.webfetch` to `gated` and add a note.
 - **Dates:** today is the date in your environment (2026-10-16 when this
   brief was written). Use it for every `date` field. `verification.by` is
   `"research"`.

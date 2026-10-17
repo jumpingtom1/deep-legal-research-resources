@@ -53,6 +53,16 @@
    ],
    "blocked_sources": []
   },
+  "appellate.nccourts.org": {
+   "status": "allowed",
+   "sources": [
+    "nc-opinions-appellate-listing",
+    "nc-subsequent-history-dockets"
+   ],
+   "blocked_sources": [
+    "nc-opinions-appellate-pdf"
+   ]
+  },
   "appellatecases.courtinfo.ca.gov": {
    "status": "blocked",
    "sources": [
@@ -126,6 +136,13 @@
    "status": "allowed",
    "sources": [
     "ga-coa-opinions"
+   ],
+   "blocked_sources": []
+  },
+  "files.nc.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-register-oah"
    ],
    "blocked_sources": []
   },
@@ -225,6 +242,9 @@
     "ma-gl-justia",
     "ma-constitution-justia",
     "ma-cases-justia",
+    "nc-gs-justia",
+    "nc-constitution-justia",
+    "nc-cases-justia",
     "nj-statutes-justia",
     "nj-constitution-justia",
     "nj-opinions-njcourts",
@@ -320,6 +340,23 @@
    ],
    "blocked_sources": []
   },
+  "nccourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-rules-appellate",
+    "nc-rules-general-practice",
+    "nc-reports-volumes",
+    "nc-business-court-opinions"
+   ],
+   "blocked_sources": []
+  },
+  "ncleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-constitution-ncleg"
+   ],
+   "blocked_sources": []
+  },
   "nevada.public.law": {
    "status": "allowed",
    "sources": [
@@ -384,6 +421,13 @@
    "sources": [
     "de-admincode-api",
     "de-register-api"
+   ],
+   "blocked_sources": []
+  },
+  "reports.oah.state.nc.us": {
+   "status": "allowed",
+   "sources": [
+    "nc-ncac-oah"
    ],
    "blocked_sources": []
   },
@@ -579,6 +623,7 @@
     "id-idapa-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
+    "nc-ncac-lii",
     "nj-admincode-lii",
     "nv-nac-lii",
     "ny-nycrr-cornell",
@@ -655,6 +700,29 @@
    ],
    "blocked_sources": []
   },
+  "www.nccourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-rules-appellate",
+    "nc-rules-general-practice",
+    "nc-rules-business-court",
+    "nc-opinions-nccourts-gov",
+    "nc-reports-volumes",
+    "nc-business-court-opinions"
+   ],
+   "blocked_sources": []
+  },
+  "www.ncleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-gs-ncleg",
+    "nc-session-laws-ncleg",
+    "nc-constitution-ncleg",
+    "nc-rules-civil-ncleg",
+    "nc-rules-evidence-ncleg"
+   ],
+   "blocked_sources": []
+  },
   "www.njcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -692,6 +760,13 @@
    "sources": [
     "ny-laws-senate",
     "ny-const-senate"
+   ],
+   "blocked_sources": []
+  },
+  "www.oah.nc.gov": {
+   "status": "allowed",
+   "sources": [
+    "nc-register-oah"
    ],
    "blocked_sources": []
   },

@@ -84,7 +84,7 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
       },
       "text": "fetch-and-quote | link-only",
       "automation": {
-        "webfetch": "ok | fail | blocked | untested",      // the skill's WebFetch tool
+        "webfetch": "ok | ok (truncated) | gated | fail | blocked | untested",  // gated = needs per-URL user approval (built URLs)
         "shell": "ok | blocked-robots | blocked-challenge | tls-error | http-error | untested",  // tested with scripts/fetch_doc.py --research
         "robots_txt": "summary of relevant rules, or 'none (404)'",
         "notes": "rate limits, JS-only rendering, crawl-delay …"

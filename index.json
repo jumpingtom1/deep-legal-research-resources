@@ -427,6 +427,79 @@
         }
       ]
     },
+    "nc": {
+      "name": "North Carolina",
+      "file": "jurisdictions/nc.md",
+      "sha256": "098ba111cbe3b063d1086c5f0a3cddc1a197b588244c5b65f9f67c8cefaf4122",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 13,
+        "reported": 6,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "N.C. Rules of Civil Procedure (G.S. 1A-1)",
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?1A-1,?\\s*Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "N.C. Rules of Evidence (G.S. 8C-1)",
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?8C-1,?\\s*Rule\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Evidence"
+        },
+        {
+          "label": "North Carolina General Statutes",
+          "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina\\s+)?General\\s+Statutes"
+        },
+        {
+          "label": "North Carolina Session Laws",
+          "regex": "(?:S\\.L\\.|Session\\s+Law|N\\.C\\.\\s*Sess\\.\\s*Law)\\s*(?P<year>(?:19|20)\\d\\d)-(?P<number>\\d+)|(?P<year2>(?:19|20)\\d\\d)\\s+N\\.C\\.\\s*Sess\\.\\s*Laws\\s*(?:ch\\.\\s*)?(?P<number2>\\d+)"
+        },
+        {
+          "label": "North Carolina Constitution",
+          "regex": "N\\.\\s*C\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Constitution"
+        },
+        {
+          "label": "N.C. Rules of Appellate Procedure",
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "General Rules of Practice for the Superior and District Courts",
+          "regex": "Gen\\.\\s*R\\.\\s*Pract\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|N\\.\\s*C\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Rules\\s+of\\s+Practice"
+        },
+        {
+          "label": "North Carolina Business Court Rules",
+          "regex": "N\\.\\s*C\\.\\s*Bus\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|\\bBCR\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Business\\s+Court\\s+Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "North Carolina Administrative Code",
+          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+(?:NCAC|N\\.\\s*C\\.\\s*A\\.\\s*C\\.|N\\.\\s*C\\.\\s*Admin\\.\\s*Code)\\s*(?P<chapter>\\d{1,2})(?P<subchapter>[A-Z]{1,2})?\\s*\\.(?P<rule>\\d{4})"
+        },
+        {
+          "label": "North Carolina Register",
+          "regex": "(?P<volume>\\d{1,2})(?::(?P<issue>\\d{1,2}))?\\s+(?:NCR|N\\.C\\.R\\.|N\\.C\\.\\s*Reg\\.)\\s*(?P<page>\\d+)"
+        },
+        {
+          "label": "Reported N.C. cases (N.C., N.C. App., S.E.2d)",
+          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*C\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "N.C. universal citations 2021-2022 (NCSC / NCCOA)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)-(?P<court>NCSC|NCCOA)-(?P<number>\\d+)"
+        },
+        {
+          "label": "Business Court public-domain citations",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+NCBC\\s+(?P<number>\\d+)"
+        },
+        {
+          "label": "Appellate docket numbers and unpublished COA opinions",
+          "regex": "(?:No\\.\\s*)?\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})"
+        },
+        {
+          "label": "Westlaw / Lexis unreported cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.|(?:N\\.C\\.(?:\\s*App\\.)?|NCBC)\\s*LEXIS\\s+(?P<lexis>\\d+))"
+        }
+      ]
+    },
     "nj": {
       "name": "New Jersey",
       "file": "jurisdictions/nj.md",

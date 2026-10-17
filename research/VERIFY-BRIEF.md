@@ -68,6 +68,6 @@ Write `research/<xx>-verify.json`:
 ```
 
 Do not edit any other file. No CourtListener tools. Keep quoted page text
-≤ 15 words per entry. Budget ≤ 45 WebFetch calls. If WebFetch fails for quota/rate reasons (not a site refusal), stop and write what you have. Today is 2026-10-16.
+≤ 15 words per entry. Budget ≤ 45 WebFetch calls. WebFetch may wait on an approval prompt for URLs you built yourself; do not retry — run the probe with `python3 scripts/fetch_doc.py --research` instead (that counts as a confirmed probe) and say so in probe_evidence. If WebFetch fails for quota/rate reasons (not a site refusal), stop and write what you have. Today is 2026-10-16.
 Final message: ≤ 150 words — counts by outcome and the most serious
 instruction problems.
