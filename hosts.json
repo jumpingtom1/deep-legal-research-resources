@@ -343,10 +343,26 @@
    ],
    "blocked_sources": []
   },
+  "iar.iga.in.gov": {
+   "status": "allowed",
+   "sources": [
+    "in-admincode-iar",
+    "in-register-iar"
+   ],
+   "blocked_sources": []
+  },
   "icourt.idaho.gov": {
    "status": "blocked",
    "sources": [
     "id-icourt"
+   ],
+   "blocked_sources": []
+  },
+  "iga.in.gov": {
+   "status": "allowed",
+   "sources": [
+    "in-code-iga",
+    "in-constitution-iga"
    ],
    "blocked_sources": []
   },
@@ -425,6 +441,9 @@
     "il-ilcs-justia",
     "il-constitution-justia",
     "il-cases-justia",
+    "in-code-justia",
+    "in-constitution-justia",
+    "in-cases-justia",
     "ma-gl-justia",
     "ma-constitution-justia",
     "ma-cases-justia",
@@ -790,6 +809,15 @@
    ],
    "blocked_sources": []
   },
+  "public.courts.in.gov": {
+   "status": "allowed",
+   "sources": [
+    "in-opinions-decisions-api"
+   ],
+   "blocked_sources": [
+    "in-mycase"
+   ]
+  },
   "public.leginfo.state.ny.us": {
    "status": "blocked",
    "sources": [
@@ -846,6 +874,14 @@
    "status": "allowed",
    "sources": [
     "co-opinions-research"
+   ],
+   "blocked_sources": []
+  },
+  "rules.incourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "in-rules-incourts",
+    "in-rules-pdf"
    ],
    "blocked_sources": []
   },
@@ -1213,6 +1249,13 @@
    ],
    "blocked_sources": []
   },
+  "www.in.gov": {
+   "status": "allowed",
+   "sources": [
+    "in-transfer-dispositions"
+   ],
+   "blocked_sources": []
+  },
   "www.law.cornell.edu": {
    "status": "allowed",
    "sources": [
@@ -1226,6 +1269,7 @@
     "hi-har-lii",
     "id-idapa-lii",
     "il-admincode-lii",
+    "in-admincode-lii",
     "ma-cmr-lii",
     "md-comar-lii",
     "mi-admincode-lii",

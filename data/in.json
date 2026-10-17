@@ -1,0 +1,981 @@
+{
+ "schema_version": 1,
+ "jurisdiction": "in",
+ "name": "Indiana",
+ "compiled": "2026-10-17",
+ "summary": "Court rules are the strongest family: rules.incourts.gov serves every statewide rule set as static per-rule HTML (constructible) plus whole-set PDFs, both script-readable. Opinions since mid-2005 come from a plain-GET JSON API behind public.courts.in.gov/decisions, with PDFs on the same host; transfer dispositions are weekly clerk PDFs on in.gov. The official Code, Constitution, Administrative Code and Register (iga.in.gov, iar.iga.in.gov) are JavaScript-only apps that neither route can read, so statutes and the Constitution fall back to Justia (fetch tool only) and the IAC to Cornell LII. MyCase dockets are robots-disallowed.",
+ "citation_map": {
+  "courts": [
+   {
+    "name": "Indiana Supreme Court",
+    "courtlistener_id": "ind",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Ind.",
+    "reporters": [
+     "N.E.3d",
+     "N.E.2d",
+     "N.E.",
+     "Ind."
+    ],
+    "public_domain_citation": null
+   },
+   {
+    "name": "Indiana Court of Appeals",
+    "courtlistener_id": "indctapp",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Ind. Ct. App.",
+    "reporters": [
+     "N.E.3d",
+     "N.E.2d",
+     "N.E.",
+     "Ind. App."
+    ],
+    "public_domain_citation": null
+   },
+   {
+    "name": "Indiana Tax Court",
+    "courtlistener_id": "indtc",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Ind. T.C.",
+    "reporters": [
+     "N.E.3d",
+     "N.E.2d"
+    ],
+    "public_domain_citation": null
+   }
+  ],
+  "citation_patterns": [
+   {
+    "family": "statutes",
+    "label": "Indiana Code",
+    "examples": [
+     "Ind. Code § 34-11-2-4",
+     "Ind. Code Ann. § 35-42-1-1",
+     "I.C. § 34-11-2-4",
+     "IC 6-1.1-10-16",
+     "Indiana Code section 34-11-2-4",
+     "section 35-38-1-7.1 of the Indiana Code",
+     "Ind. Code §§ 34-11-2-4 to -7"
+    ],
+    "regex": "(?:Ind(?:\\.|iana)\\s*Code(?:\\s+Ann\\.)?\\s*(?:§§?|sec(?:tion|\\.)s?)?\\s*|\\bI\\.\\s?C\\.\\s*§§?\\s*|\\bIC\\s+)(?P<title>\\d{1,2})-(?P<article>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<chapter>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<section>\\d{1,3}(?:\\.\\d{1,2})?)(?![\\d])|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?P<article2>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<chapter2>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<section2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Indiana\\s+Code",
+    "routes_to": [
+     "in-code-justia",
+     "in-code-iga"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "constitution",
+    "label": "Indiana Constitution",
+    "examples": [
+     "Ind. Const. art. 1, § 12",
+     "Ind. Const. art. 7, § 4",
+     "Article 1, Section 12 of the Indiana Constitution",
+     "Indiana Constitution Article 1, Section 23"
+    ],
+    "regex": "Ind(?:\\.|iana)\\s*Const(?:\\.|itution)\\s*,?\\s*art(?:\\.|icle)\\s*(?P<article>\\d{1,2}|[IVX]+),?\\s*(?:§|sec(?:tion|\\.))\\s*(?P<section>\\d{1,2})|Article\\s+(?P<article2>\\d{1,2}|[IVX]+),?\\s+Section\\s+(?P<section2>\\d{1,2})\\s+of\\s+the\\s+Indiana\\s+Constitution|Indiana\\s+Constitution,?\\s+Article\\s+(?P<article3>\\d{1,2}|[IVX]+),?\\s+Section\\s+(?P<section3>\\d{1,2})",
+    "routes_to": [
+     "in-constitution-justia",
+     "in-constitution-iga"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "court_rules",
+    "label": "Indiana court rules (with Ind./Indiana marker)",
+    "examples": [
+     "Ind. Trial Rule 12(B)(6)",
+     "Ind. T.R. 56(C)",
+     "Ind. Evidence Rule 702",
+     "Ind. Appellate Rule 65(D)",
+     "Ind. App. R. 65(D)",
+     "Ind. Crim. Rule 4(C)",
+     "Ind. Professional Conduct Rule 1.7",
+     "Ind. Admission and Discipline Rule 23",
+     "Indiana Trial Rule 56"
+    ],
+    "regex": "Ind(?:\\.|iana)\\s+(?P<set>Trial|T\\.\\s?R\\.|Evid(?:ence|\\.)|App(?:ellate|\\.)|Crim(?:inal|\\.)|Prof(?:essional|\\.)\\s*Cond(?:uct|\\.)|Admis(?:sion|\\.)\\s*(?:and\\s+|&\\s*)?Disc(?:ipline|\\.)|Small\\s+Claims|Post-Conviction|Jury|Tax\\s+Court)\\s*(?:Rule|R\\.)?\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)",
+    "routes_to": [
+     "in-rules-incourts",
+     "in-rules-pdf"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "court_rules",
+    "label": "Indiana court rules (prose: 'of the Indiana Rules of ...')",
+    "examples": [
+     "Rule 12(B)(6) of the Indiana Rules of Trial Procedure",
+     "Rule 702 of the Indiana Rules of Evidence",
+     "Rule 1.7 of the Indiana Rules of Professional Conduct"
+    ],
+    "regex": "Rule\\s+(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Indiana\\s+Rules\\s+(?:of|for)\\s+(?P<set>(?:Trial\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure|Professional\\s+Conduct|Admission\\s+and\\s+Discipline|Small\\s+Claims|Post-Conviction\\s+Remedies|Jury\\s+Rules|Tax\\s+Court|Court))",
+    "routes_to": [
+     "in-rules-incourts",
+     "in-rules-pdf"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "court_rules",
+    "label": "Indiana court rules, bare short forms (T.R., Trial Rule, Evid. R., App. R., Crim. R., Prof. Cond. R., Admis. Disc. R.)",
+    "examples": [
+     "T.R. 56(C)",
+     "Trial Rule 12(B)(6)",
+     "Evidence Rule 702",
+     "Appellate Rule 65(D)",
+     "Criminal Rule 4(C)",
+     "Admis. Disc. R. 23"
+    ],
+    "regex": "(?<![\\w.])(?P<set>T\\.\\s?R\\.|Trial\\s+Rule|Evid(?:\\.\\s?R\\.|ence\\s+Rule)|App(?:\\.\\s?R\\.|ellate\\s+Rule)|Crim(?:\\.\\s?R\\.|inal\\s+Rule)|Prof\\.\\s*Cond\\.\\s*R\\.|Admis\\.\\s*Disc\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)",
+    "routes_to": [
+     "in-rules-incourts",
+     "in-rules-pdf"
+    ],
+    "context_required": true
+   },
+   {
+    "family": "admin_code",
+    "label": "Indiana Administrative Code",
+    "examples": [
+     "410 IAC 1-1-1",
+     "312 IAC 9-2-2",
+     "170 IAC 1-1.1-1",
+     "410 Ind. Admin. Code 1-1-1"
+    ],
+    "regex": "(?P<title>\\d{1,3})\\s+(?:IAC|Ind\\.\\s*Admin\\.\\s*Code)\\s+(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{1,3}(?:\\.\\d{1,2})?))?",
+    "routes_to": [
+     "in-admincode-lii",
+     "in-admincode-iar"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "admin_register",
+    "label": "Indiana Register document IDs",
+    "examples": [
+     "20211208-IR-410210385RFA",
+     "20241204-IR-170240381RNA"
+    ],
+    "regex": "(?P<date>(?:19|20)\\d{6})-IR-(?P<docid>\\d{9}[A-Z]{2,4})",
+    "routes_to": [
+     "in-register-iar"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "case_law",
+    "label": "Reporter citations with Indiana parenthetical (N.E., Ind., Ind. App.)",
+    "examples": [
+     "275 N.E.3d 505 (Ind. 2026)",
+     "141 N.E.3d 384, 386 (Ind. 2020)",
+     "247 N.E.3d 1 (Ind. Ct. App. 2024)",
+     "33 N.E.3d 1 (Ind. T.C. 2015)",
+     "260 Ind. 123",
+     "150 Ind. App. 61"
+    ],
+    "regex": "(?P<volume>\\d{1,4})\\s+N\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-–]\\d+)?)?\\s*\\((?P<court>Ind\\.(?:\\s*(?:Ct\\.\\s*)?App\\.|\\s*T\\.\\s?C\\.|\\s*Tax)?)\\s*(?:[A-Z][a-z]{2,3}\\.?\\s+\\d{1,2},\\s+)?(?P<year>\\d{4})\\)|(?P<volume2>\\d{1,3})\\s+Ind\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page2>\\d{1,4})(?![\\d.])",
+    "routes_to": [
+     "in-opinions-decisions-api",
+     "in-cases-justia"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "case_law",
+    "label": "Bare North Eastern Reporter citation (no court parenthetical)",
+    "examples": [
+     "275 N.E.3d 505",
+     "141 N.E.3d 384, 386"
+    ],
+    "regex": "(?P<volume>\\d{1,4})\\s+N\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+    "routes_to": [
+     "in-opinions-decisions-api",
+     "in-cases-justia"
+    ],
+    "context_required": true
+   },
+   {
+    "family": "case_law",
+    "label": "Indiana appellate docket numbers (old and post-2021 styles)",
+    "examples": [
+     "No. 26A-DC-221",
+     "No. 25S-PL-103",
+     "No. 49S02-1608-CT-00431",
+     "26A-DC-00221"
+    ],
+    "regex": "\\b(?P<yy>\\d{2})(?P<court>[AST])-(?P<ctype>[A-Z]{2})-(?P<num>\\d{1,5})\\b|\\b(?P<county>\\d{2})(?P<court2>[AST])(?P<dist>\\d{2})-(?P<yymm>\\d{4})-(?P<ctype2>[A-Z]{2})-(?P<num2>\\d{1,5})\\b",
+    "routes_to": [
+     "in-opinions-decisions-api",
+     "in-transfer-dispositions"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "case_law",
+    "label": "Memorandum decisions / Westlaw cites with Indiana parenthetical",
+    "examples": [
+     "No. 23A-CR-1234, 2023 WL 6453411 (Ind. Ct. App. Oct. 4, 2023) (mem.)",
+     "2024 WL 112233 (Ind. Ct. App. 2024)"
+    ],
+    "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Ind\\.(?:\\s*(?:Ct\\.\\s*)?App\\.|\\s*T\\.\\s?C\\.)?)",
+    "routes_to": [
+     "in-opinions-decisions-api",
+     "in-cases-justia"
+    ],
+    "context_required": false
+   },
+   {
+    "family": "subsequent_history",
+    "label": "Indiana transfer history (trans. denied / trans. granted / trans. not sought)",
+    "examples": [
+     "trans. denied",
+     "trans. not sought",
+     "trans. granted"
+    ],
+    "regex": "\\btrans\\.\\s+(?P<disp>denied|granted|not\\s+sought|dismissed|vacated)",
+    "routes_to": [
+     "in-transfer-dispositions"
+    ],
+    "context_required": true
+   }
+  ],
+  "law_aliases": {
+   "T.R.": "trial",
+   "Tr. R.": "trial",
+   "Trial Rule": "trial",
+   "Ind. Trial Rule": "trial",
+   "Ind. T.R.": "trial",
+   "Rules of Trial Procedure": "trial",
+   "Evid. R.": "evidence",
+   "Ind. Evid. R.": "evidence",
+   "Evidence Rule": "evidence",
+   "Ind. Evidence Rule": "evidence",
+   "Rules of Evidence": "evidence",
+   "App. R.": "appellate",
+   "Ind. App. R.": "appellate",
+   "Appellate Rule": "appellate",
+   "Ind. Appellate Rule": "appellate",
+   "Rules of Appellate Procedure": "appellate",
+   "Crim. R.": "criminal",
+   "Ind. Crim. Rule": "criminal",
+   "Criminal Rule": "criminal",
+   "Rules of Criminal Procedure": "criminal",
+   "Prof. Cond. R.": "prof-conduct",
+   "Professional Conduct Rule": "prof-conduct",
+   "Rules of Professional Conduct": "prof-conduct",
+   "Admis. Disc. R.": "admission-discipline",
+   "Admission and Discipline Rule": "admission-discipline",
+   "Rules for Admission to the Bar and the Discipline of Attorneys": "admission-discipline",
+   "S.C.R.": "small-claims",
+   "Small Claims Rule": "small-claims",
+   "P-C.R.": "post-conviction",
+   "Post-Conviction Rule": "post-conviction",
+   "Jury Rule": "jury",
+   "Tax Court Rule": "tax",
+   "Admin. R.": "admin",
+   "Administrative Rule": "admin",
+   "A.R.": "admin",
+   "Original Action Rule": "original-actions",
+   "A.D.R.": "adr",
+   "ADR Rule": "adr",
+   "Judicial Conduct Rule": "judicial-conduct"
+  },
+  "notes": "Statute forms require the four-part Indiana number (title-article-chapter-section) after 'Ind. Code', 'I.C. §' or 'IC'; Idaho's 'I.C. § 5-219' (two parts) must not route here. Bare rule short forms (T.R., Trial Rule, Evid. R., App. R., Crim. R., Prof. Cond. R.) are context_required; the abbreviated 'Evid. R.', 'App. R.', 'Crim. R.', 'Prof. Cond. R.' forms (even after 'Ind.') are also matched by Ohio's patterns, so examples use the spelled-out Indiana forms. Old-style dockets like 49A02-1509-CT-1234 are matched by this regex but also overlap D.C./N.C. docket patterns — route them only with Indiana context. law_aliases map rule-set short forms to the rules.incourts.gov {set} key. Indiana has no public-domain citation; App. R. 65(D): memorandum decisions issued on or after Jan. 1, 2023 may be cited for persuasive value. 'trans. denied' is Indiana usage but kept context_required as a bare history phrase."
+ },
+ "sources": [
+  {
+   "id": "in-code-iga",
+   "family": "statutes",
+   "title": "Indiana Code (iga.in.gov)",
+   "publisher": "Indiana General Assembly / Legislative Services Agency",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not determined: every iga.in.gov path returns the same 691-byte React shell to both routes, so no disclaimer or authentication statement could be read.",
+   "coverage": "Current and prior-year Indiana Code by title (reported), Constitution, Acts of Indiana, bill PDFs; IC downloads page reported at /laws/ic/downloads.",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "Reported pattern https://iga.in.gov/laws/{year}/ic/titles/{title} (title unpadded in 2025 links seen in search results; '021' zero-padded in a 2020 link). Not usable: JS-only.",
+    "index_url": "https://iga.in.gov/laws/ic/downloads",
+    "navigation": "JS single-page app; no server-rendered links.",
+    "format": "html",
+    "read_via": "in-code-justia (tier 2) for text"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "http-error",
+    "robots_txt": "/robots.txt returns the same HTML app shell (sha256 61d9d1265c828684), i.e. no robots rules",
+    "notes": "Script: every path (titles/34, /api/…, …/Title_34.pdf, /static/js bundle) returns the identical 0-char shell, served from S3/CloudFront catch-all. WebFetch of /laws/ic/downloads (search-result URL) returned 'You need to enable JavaScript to run this app.'; WebFetch of built /laws/2025/ic/titles/34 was gated (permission timeout)."
+   },
+   "currency": {
+    "where": "none readable",
+    "observed": ""
+   },
+   "hazards": [
+    "JavaScript-only app: neither route sees statute text",
+    "the shell is returned with HTTP 200 for every path, so a 200 does not mean the document exists"
+   ],
+   "probe": {
+    "citation": "Ind. Code § 34-11-2-4",
+    "url": "https://iga.in.gov/laws/2025/ic/titles/34",
+    "expect": "An action for: (1) injury to person or character"
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "fetch_doc --research info: kind=html chars=0 sha256=61d9d1265c828684 (same as /robots.txt and /); WebFetch /laws/ic/downloads: JS shell only."
+   },
+   "notes": "Official publisher of the Code; keep as the link target. Text must come from in-code-justia until an IGA endpoint that serves text is found."
+  },
+  {
+   "id": "in-code-justia",
+   "family": "statutes",
+   "title": "Indiana Code (Justia)",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Page states 'These codes may not be the most recent version.' and points to the official state site.",
+   "coverage": "Indiana Code by edition year (2025 is current default; prior years under /codes/indiana/{year}/).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/codes/indiana/title-{title}/article-{article}/chapter-{chapter}/section-{title}-{article}-{chapter}-{section}/",
+    "pattern_rules": "IC t-a-c-s maps directly; dots in a component become hyphens in the path segment (article 34.1 -> article-34-1, seen as /2023/title-25/article-34-1/chapter-1); the section slug keeps the full number. Unversioned URLs serve the latest edition (2025 heading); prefix /{year}/ after /indiana/ for an older edition.",
+    "index_url": "https://law.justia.com/codes/indiana/",
+    "navigation": "title page lists articles; article page lists chapters; chapter page lists sections (no text).",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "script refused law.justia.com for the day (robots.txt challenge 2026-10-17 09:44)",
+    "notes": "Built per-section URLs went through WebFetch without a gate. Use the fetch tool only (bot wall policy)."
+   },
+   "currency": {
+    "where": "edition heading and universal citation at top of section page; disclaimer at foot",
+    "observed": "2025 Indiana Code ... IN Code § 34-11-2-4 (2025)"
+   },
+   "hazards": [
+    "edition lags the official code by a session",
+    "tier 2: disclose with currency string"
+   ],
+   "probe": {
+    "citation": "Ind. Code § 34-11-2-4",
+    "url": "https://law.justia.com/codes/indiana/title-34/article-11/chapter-2/section-34-11-2-4/",
+    "expect": "An action for: (1) injury to person or character"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: body present 'Sec. 4. (a) An action for: (1) injury to person', complete (a)-(d). Second citation IC 35-42-1-1 at /title-35/article-42/chapter-1/section-35-42-1-1/: 'Sec. 1. A person who: (1) knowingly or intentionally kills', 2025 edition."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-constitution-iga",
+   "family": "constitution",
+   "title": "Constitution of the State of Indiana (iga.in.gov)",
+   "publisher": "Indiana General Assembly",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not readable (JS app).",
+   "coverage": "Current amended Constitution (reported, published with the Indiana Code).",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://iga.in.gov/",
+    "navigation": "JS-only app; no static route found.",
+    "format": "html",
+    "read_via": "in-constitution-justia"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "http-error",
+    "robots_txt": "none (HTML shell)",
+    "notes": "Same 0-char shell as in-code-iga."
+   },
+   "currency": {
+    "where": "none readable",
+    "observed": ""
+   },
+   "hazards": [
+    "JS-only"
+   ],
+   "probe": {
+    "citation": "Ind. Const. art. 1, § 12",
+    "url": "https://iga.in.gov/",
+    "expect": "All courts shall be open"
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "fetch_doc: chars=0 shell for every iga.in.gov path."
+   },
+   "notes": "www.in.gov/history '/constitution-of-1851/' pages are the 1851 text 'as originally written' (historical, not current); do not cite them for current text."
+  },
+  {
+   "id": "in-constitution-justia",
+   "family": "constitution",
+   "title": "Indiana Constitution (Justia)",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Page: 'This Constitution may not be the most recent version.'",
+   "coverage": "Articles 1-16, one page per article, section history notes.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/constitution/indiana/art{article}.html",
+    "pattern_rules": "article in Arabic numerals, unpadded (art1.html). Sections are on the article page.",
+    "index_url": "https://law.justia.com/constitution/indiana/",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "law.justia.com robots challenge to script 2026-10-17",
+    "notes": "fetch tool only"
+   },
+   "currency": {
+    "where": "history note after each section; disclaimer at foot",
+    "observed": "(History: As Amended November 6, 1984)."
+   },
+   "hazards": [
+    "the fetch tool reported Article 1 running through Section 37; Art. 1 § 39 (2016 amendment) may be missing — check currency before relying on recent amendments"
+   ],
+   "probe": {
+    "citation": "Ind. Const. art. 1, § 12",
+    "url": "https://law.justia.com/constitution/indiana/art1.html",
+    "expect": "All courts shall be open; and every person, for injury"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: § 12 body present 'All courts shall be open; and every person, for injury', not truncated."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-rules-incourts",
+   "family": "court_rules",
+   "title": "Indiana Rules of Court (rules.incourts.gov, per-rule HTML)",
+   "publisher": "Indiana Supreme Court",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "No official/unofficial statement on rule pages (WebFetch: 'no disclaimer about official status'). Amendment orders are at https://www.in.gov/courts/public-records/orders/rules/.",
+   "coverage": "All statewide rule sets: Trial Procedure, Evidence, Appellate, Criminal (restyled numbering 1.1… effective Jan. 1, 2024), Professional Conduct, Admission & Discipline, Small Claims, Post-Conviction, Jury, Tax Court, Administrative, Access to Court Records, Original Actions, ADR, Judicial Conduct, Child Support, Parenting Time, etc. Prior versions linked as dated pages ({MM-DD-YYYY}.htm). Local rules: https://www.in.gov/courts/publications/local-rules/ (not probed).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://rules.incourts.gov/Content/{set}/rule{rule}/current.htm",
+    "pattern_rules": "set keys (law_aliases): trial, evidence, appellate, criminal, prof-conduct, admission-discipline, small-claims, post-conviction, jury, tax, admin, records, original-actions, adr, judicial-conduct, child-support, parenting, commercial, problem-solving, trial-denovo. rule = number with '.' replaced by '-' (T.R. 3.1 -> rule3-1; Prof. Cond. 1.7 -> rule1-7; Crim. 1.1 -> rule1-1). Subdivisions ((B)(6)) are on the rule page. Preamble/scope pages: /prof-conduct/preamble/current.htm.",
+    "index_url": "https://rules.incourts.gov/Content/index.htm",
+    "navigation": "index.htm lists sets -> /Content/{set}/default.htm lists every rule with links.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "ok",
+    "robots_txt": "none (404)",
+    "notes": "The bare host root https://rules.incourts.gov/ is a JS shell (0 chars); /Content/… pages are static HTML. rulesqa.incourts.gov is a QA mirror — never use."
+   },
+   "currency": {
+    "where": "line under the rule heading",
+    "observed": "Effective July 1, 2026 (T.R. 12)"
+   },
+   "hazards": [
+    "rule pages include ~1.5K chars of navigation before the heading",
+    "Criminal Rules renumbered 2024: old 'Crim. R. 4(C)' is now Rule 4 in the restyled set — check the effective-date line"
+   ],
+   "probe": {
+    "citation": "Ind. Trial Rule 12(B)(6)",
+    "url": "https://rules.incourts.gov/Content/trial/rule12/current.htm",
+    "expect": "Failure to state a claim upon which relief can be granted"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "fetch_doc grep: T.R. 12 'Effective July 1, 2026 (A) When presented'; Evid. R. 702 'A witness who is qualified as an expert by knowledge'; App. R. 65 'memorandum decision issued on or after January 1, 2023, may be cited for persuasive value'; Prof. Cond. 1.7, Crim. 1.1 OK. WebFetch T.R. 1 (search-result URL): body present, 'Effective January 1, 2026'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-rules-pdf",
+   "family": "court_rules",
+   "title": "Indiana Rules of Court — whole-set PDFs",
+   "publisher": "Indiana Supreme Court",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "As in-rules-incourts.",
+   "coverage": "One PDF per rule set, with TOC and 'Effective' line per rule.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://rules.incourts.gov/pdf/PDF%20-%20{Set}/{set}.pdf",
+    "pattern_rules": "Trial/trial.pdf (216 pp), Evidence/evidence.pdf (50 pp), Appellate/appellate.pdf (116 pp), Criminal/criminal.pdf (36 pp), 'Professional Conduct'/professional-conduct.pdf (170 pp), 'Admission Discipline'/admission-discipline.pdf (194 pp). Take others from the set's default.htm.",
+    "index_url": "https://rules.incourts.gov/Content/index.htm",
+    "navigation": "/Content/{set}/default.htm carries the PDF link.",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "none (404)",
+    "notes": "Space in directory name must be %20-encoded."
+   },
+   "currency": {
+    "where": "Last-Modified header; per-rule 'Effective' line",
+    "observed": "Last-Modified 31 Jul 2026; T.R. 12 'Effective July 1, 2026'"
+   },
+   "hazards": [
+    "long PDFs exceed the fetch tool's ~100K-char window (trial.pdf 462K chars)"
+   ],
+   "probe": {
+    "citation": "Ind. Trial Rule 12",
+    "url": "https://rules.incourts.gov/pdf/PDF%20-%20Trial/trial.pdf",
+    "expect": "Rule 12. Defenses, objections, and motions on the pleadings"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "fetch_doc info: pdf 216 pages 462,254 chars; grep found 'Rule 12. Defenses, objections…' at page 51 with 'Effective July 1, 2026'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-opinions-decisions-api",
+   "family": "case_law",
+   "title": "Indiana Appellate Decisions (public.courts.in.gov/decisions + JSON API)",
+   "publisher": "Indiana Supreme Court / Clerk of the Courts",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Footer: information on this site 'is not to be considered or used as an official court record'.",
+   "coverage": "Supreme Court, Court of Appeals and Tax Court opinions, memorandum decisions (isMemorandum flag) and some orders, from mid-2005 (earliest Supreme Court row 6/23/2005; help page says collection dates back to 2005). Up to 250 results per query.",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "https://public.courts.in.gov/Decisions/api/Search?courtId={court}&fromDate={MM/DD/YYYY}&toDate={MM/DD/YYYY}&caseParty={word}&showMemorandum=true",
+    "pattern_rules": "Plain GET returning JSON. courtId: 9510 Supreme Court, 9530 Court of Appeals, 9550 Tax Court (from /Decisions/api/Dropdown/Court). Other params: caseCategoryId, judgeId, countyId (dropdowns at /Decisions/api/Dropdown/{CaseCategory|Judge|County}). Without showMemorandum=true memorandum decisions are omitted (Sept 1-5 2026 COA: 7 vs 30 rows). Each row: style, caseNumber (e.g. 26A-DC-00221), date, decision, isMemorandum, courts[] with trial-court cause numbers, opinionUrl (relative: prefix https://public.courts.in.gov/Decisions/). There is no docket-number parameter: search by party word + date range, then match caseNumber.",
+    "index_url": "https://public.courts.in.gov/decisions",
+    "navigation": "API row -> opinionUrl 'api/Document/Opinion?Id=…' returns the PDF (filename Opinion.pdf).",
+    "format": "json",
+    "read_via": "opinion PDFs on the same host (script ok)"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "Disallows /MyCase/ca…, /Appellate, /Docket, /*.pdf etc.; /Decisions/ and /Decisions/api/… not covered (script check OK)",
+    "notes": "The /decisions page itself is a Vue app (no rows server-side). Opinion document URLs have no .pdf suffix, so the /*.pdf disallow does not apply. detailsUrl links into MyCase (/mycase/#/vw/CaseSummary/…), whose data calls are robots-disallowed."
+   },
+   "currency": {
+    "where": "date field per row",
+    "observed": "newest row 10/16/2026"
+   },
+   "hazards": [
+    "slip pagination only ('Page 1 of 29'); N.E.3d pages must come from elsewhere",
+    "Id tokens in opinionUrl are opaque; take them from the API",
+    "250-row cap per query: narrow by date"
+   ],
+   "probe": {
+    "citation": "Walls v. Walls, No. 26A-DC-221 (Ind. Ct. App. Oct. 16, 2026)",
+    "url": "https://public.courts.in.gov/Decisions/api/Search?caseParty=Walls&fromDate=10/01/2026&toDate=10/17/2026",
+    "expect": "\"caseNumber\":\"26A-DC-00221\""
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "fetch_doc: Search JSON 1 row 26A-DC-00221; opinionUrl -> pdf 29 pages 54,398 chars, footer 'Court of Appeals of Indiana | Opinion 26A-DC-221 | October 16, 2026 Page 1 of 29'. Year probes: Supreme Court 2008 101 rows, 2005 earliest 6/23/2005, 2004 0 rows."
+   },
+   "notes": "Docket formats: since 2021 'YYA-CT-NNNNN' (COA), 'YYS-CT-NNNNN' (Supreme), 'YYT-TA-…' (Tax); API zero-pads to 5 digits, opinions print unpadded (26A-DC-221). Older: '49A02-1509-CT-1234' / '49S02-1608-CT-00431' (county, court, district, yymm, type, number)."
+  },
+  {
+   "id": "in-cases-justia",
+   "family": "case_law",
+   "title": "Indiana case law (Justia)",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party compilation.",
+   "coverage": "Supreme Court, Court of Appeals, Tax Court by year; full opinion text.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://law.justia.com/cases/indiana/supreme-court/{year}/{docket-lowercase}.html",
+    "pattern_rules": "observed for post-2021 dockets: 25S-PL-00103 -> 25s-pl-00103.html (5-digit zero-padded). Other courts: /cases/indiana/court-of-appeals/{year}/, /cases/indiana/tax-court/{year}/ (reported, not fetched).",
+    "index_url": "https://law.justia.com/cases/indiana/supreme-court/2025/",
+    "navigation": "year page lists cases with docket numbers -> case page.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "script refused (robots challenge) 2026-10-17",
+    "notes": "fetch tool only"
+   },
+   "currency": {
+    "where": "none stated",
+    "observed": ""
+   },
+   "hazards": [
+    "no N.E.3d cite for the opinion itself",
+    "text-extraction artifacts (footnotes, attorney lists)"
+   ],
+   "probe": {
+    "citation": "Brooks v. USA Track & Field, Inc., No. 25S-PL-00103 (Ind. 2025)",
+    "url": "https://law.justia.com/cases/indiana/supreme-court/2025/25s-pl-00103.html",
+    "expect": "This case concerns application of the final judgment rule"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: full opinion with dissent, 'Massa, Justice. This case concerns application of the final judgment rule', ends 'Page 6 of 6'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-transfer-dispositions",
+   "family": "subsequent_history",
+   "title": "Indiana Supreme Court transfer dispositions (weekly lists)",
+   "publisher": "Clerk of the Indiana Supreme Court, Court of Appeals, and Tax Court",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Clerk publication; no official-status statement.",
+   "coverage": "Weekly lists of petitions to transfer granted/denied, 2024-2026 in the archive selector; each row: COA docket, style, petitioner, Granted/Denied, vote, date, COA panel, FP / mem. dec., COA decision date.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "",
+    "pattern_rules": "File names are irregular (transfer-2026-1009.pdf, transfer-list-2026-1002.xlsx, /dA/{hash}/transfer-2026-0109.pdf) — take links from the index.",
+    "index_url": "https://www.in.gov/courts/clerk/transfer/",
+    "navigation": "index (week ending, totals, PDF/XLSX links; year archive selector) -> weekly PDF -> grep the COA docket number (e.g. 25A-CR-338).",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "www.in.gov: 'User-agent: *' with no Disallow",
+    "notes": "Weekly PDFs are small (2 pp, ~6K chars). Granted transfers also appear as Supreme Court opinions in the decisions API (new S docket)."
+   },
+   "currency": {
+    "where": "index table 'Week Ending'",
+    "observed": "10/09/2026 21 0 21"
+   },
+   "hazards": [
+    "finding a disposition from the COA decision needs the week: scan lists after the COA decision date, or use the XLSX"
+   ],
+   "probe": {
+    "citation": "Nour v. State, No. 25A-CR-338 (trans. denied Feb. 10, 2026)",
+    "url": "https://www.in.gov/courts/clerk/files/transfer-2026-0213.pdf",
+    "expect": "25A-CR-338 Kamal Nour v. State of Indiana Appellant Denied"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "fetch_doc: pdf 2 pages 6,104 chars; rows '25A-CR-338 Kamal Nour v. State of Indiana Appellant Denied All Justices concur. 2/10/26'. Index lists weekly PDF+XLSX links back to 2026-01-09 with 2024/2025 archive."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-mycase",
+   "family": "subsequent_history",
+   "title": "MyCase / appellate docket (public.courts.in.gov)",
+   "publisher": "Indiana Office of Judicial Administration",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Footer: 'not to be considered or used as an official court record'.",
+   "coverage": "Trial and appellate dockets incl. transfer filings and orders.",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://public.courts.in.gov/mycase/",
+    "navigation": "JS app; case summaries reachable only via data calls under /mycase/Case… which robots disallows.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "blocked",
+    "shell": "blocked-robots",
+    "robots_txt": "Disallow: /MYCASE/ca (+case variants), /Appellate, /AppellateDocket, /Docket, /*.pdf …",
+    "notes": "fetch_doc check: /mycase/Case/CaseSummary REFUSED (rule Disallow: /MYCASE/ca); /Appellate/ REFUSED. Give users the decisions API detailsUrl as a link only."
+   },
+   "currency": {
+    "where": "n/a",
+    "observed": ""
+   },
+   "hazards": [
+    "robots-disallowed"
+   ],
+   "probe": {
+    "citation": "26A-DC-221 docket",
+    "url": "https://public.courts.in.gov/mycase/Case/CaseSummary",
+    "expect": ""
+   },
+   "verification": {
+    "status": "blocked",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "REFUSED: robots.txt on public.courts.in.gov disallows /mycase/Case/CaseSummary (rule: Disallow: /MYCASE/ca)."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-admincode-iar",
+   "family": "admin_code",
+   "title": "Indiana Administrative Code (iar.iga.in.gov)",
+   "publisher": "Legislative Services Agency",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not readable (JS app).",
+   "coverage": "Current IAC by title/article (reported).",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://iar.iga.in.gov/",
+    "navigation": "JS single-page app; every path returns the same shell.",
+    "format": "html",
+    "read_via": "in-admincode-lii (tier 2)"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "http-error",
+    "robots_txt": "/robots.txt returns the app shell (sha256 f91bd4e755d1cdd9) — no rules",
+    "notes": "fetch_doc: '/', '/code/current/410' identical 0-char shell. Legacy host iac.iga.in.gov (linked from rules.incourts.gov) failed TLS handshake (UNEXPECTED_EOF) on robots.txt."
+   },
+   "currency": {
+    "where": "none readable",
+    "observed": ""
+   },
+   "hazards": [
+    "JS-only"
+   ],
+   "probe": {
+    "citation": "410 IAC 1-1-1",
+    "url": "https://iar.iga.in.gov/code/current/410",
+    "expect": "Every child less than nineteen (19) years of age"
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "kind=html chars=0 sha256=f91bd4e755d1cdd9 for every path."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-register-iar",
+   "family": "admin_register",
+   "title": "Indiana Register (iar.iga.in.gov)",
+   "publisher": "Legislative Services Agency",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Not readable (JS app).",
+   "coverage": "Indiana Register documents, IDs like 20211208-IR-410210385RFA (date-IR-title+year+LSA no.+type).",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "pattern_rules": "",
+    "index_url": "https://iar.iga.in.gov/",
+    "navigation": "JS app.",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "http-error",
+    "robots_txt": "app shell, no rules",
+    "notes": "Agencies sometimes host their own copies (e.g. secure.in.gov/iurc/files/20241204-IR-170240381RNA.pdf, seen in search, not fetched)."
+   },
+   "currency": {
+    "where": "none readable",
+    "observed": ""
+   },
+   "hazards": [
+    "JS-only"
+   ],
+   "probe": {
+    "citation": "20211208-IR-410210385RFA",
+    "url": "https://iar.iga.in.gov/",
+    "expect": ""
+   },
+   "verification": {
+    "status": "reported",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "0-char shell."
+   },
+   "notes": ""
+  },
+  {
+   "id": "in-admincode-lii",
+   "family": "admin_code",
+   "title": "Indiana Administrative Code (Cornell LII)",
+   "publisher": "Legal Information Institute",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party; 'State regulations are updated quarterly'.",
+   "coverage": "All IAC titles, one page per section with Authority/Affected lines and Indiana Register history notes.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://www.law.cornell.edu/regulations/indiana/{title}-IAC-{article}-{rule}-{section}",
+    "pattern_rules": "Section number verbatim incl. dots (170-IAC-1-1.1-1). Rule-level index URLs are irregular (title-410/article-1/rule-410-IAC-1-1 vs rule-2) — navigate if needed.",
+    "index_url": "https://www.law.cornell.edu/regulations/indiana",
+    "navigation": "title-{t} -> article-{a} -> rule page -> section",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "permits (script check OK)",
+    "notes": ""
+   },
+   "currency": {
+    "where": "foot of section page",
+    "observed": "State regulations are updated quarterly; we currently have two versions available."
+   },
+   "hazards": [
+    "LII mislabels Title 410 as 'INDIANA UTILITY REGULATORY COMMISSION' (410 is the Department of Health) — ignore its title captions",
+    "quarterly lag"
+   ],
+   "probe": {
+    "citation": "410 IAC 1-1-1",
+    "url": "https://www.law.cornell.edu/regulations/indiana/410-IAC-1-1-1",
+    "expect": "Every child less than nineteen (19) years of age residing in Indiana"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-17",
+    "by": "research",
+    "result": "OK",
+    "evidence": "fetch_doc grep: 410-IAC-1-1-1 'Sec. 1. Every child less than nineteen (19) years of age'; 170-IAC-1-1.1-1 'This rule shall govern the practice and procedure'; 312-IAC-9-2-2 'An individual must not take or chase a wild mammal'."
+   },
+   "notes": ""
+  }
+ ],
+ "absent": [
+  {
+   "family": "case_law",
+   "what": "Opinions before mid-2005 on any official Indiana host",
+   "evidence": "Decisions API: Supreme Court 2004 range returns 0 rows, earliest 2005 row 6/23/2005; legacy www.in.gov/judiciary/opinions/pdf/11250901.pdf returns HTTP 404.",
+   "date": "2026-10-17"
+  },
+  {
+   "family": "case_law",
+   "what": "Free official reporter pagination",
+   "evidence": "Opinion PDFs carry slip pagination only ('Page 1 of 29'); Indiana Reports/Ind. App. Reports ceased; N.E.3d is West's.",
+   "date": "2026-10-17"
+  },
+  {
+   "family": "case_law",
+   "what": "Public-domain (vendor-neutral) citation format",
+   "evidence": "Opinions are identified by docket number only (e.g. 26A-DC-221); App. R. 65 prescribes no neutral citation.",
+   "date": "2026-10-17"
+  },
+  {
+   "family": "constitution",
+   "what": "Current Constitution text on www.in.gov",
+   "evidence": "in.gov/history '/constitution-of-1851/' pages are titled 'Constitution of 1851 as originally written'.",
+   "date": "2026-10-17"
+  }
+ ],
+ "script_candidates": [
+  {
+   "source_id": "in-opinions-decisions-api",
+   "why": "GET /Decisions/api/Search (courtId, fromDate, toDate, caseParty, judgeId, countyId, caseCategoryId, showMemorandum) returns JSON with caseNumber, date, decision, isMemorandum, trial-court cause numbers and opinion document URL; a script can resolve (court, docket, date) -> PDF deterministically."
+  },
+  {
+   "source_id": "in-transfer-dispositions",
+   "why": "Weekly PDF + XLSX lists of transfer dispositions keyed by COA docket; a script can index the XLSX files from the index page to answer 'trans. denied?' by docket."
+  },
+  {
+   "source_id": "in-rules-incourts",
+   "why": "Static per-rule HTML with dated prior versions; set default.htm pages enumerate every rule."
+  }
+ ],
+ "corpus_candidates": [
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Trial/trial.pdf",
+   "why": "216 pp / 462K chars; fetch tool stops near 100K chars",
+   "split_hint": "'Rule N. Title' headings followed by 'Effective <date>' line",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Appellate/appellate.pdf",
+   "why": "116 pp / 206K chars",
+   "split_hint": "'Rule N. Title' + 'Effective' line",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Evidence/evidence.pdf",
+   "why": "50 pp / 77K chars (fits, but a corpus avoids per-rule fetches)",
+   "split_hint": "'Rule NNN. Title' + 'Effective' line",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Criminal/criminal.pdf",
+   "why": "36 pp / 67K chars; restyled 2024 numbering",
+   "split_hint": "'Rule N.N. Title' + 'Effective' line",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Professional%20Conduct/professional-conduct.pdf",
+   "why": "170 pp / 415K chars",
+   "split_hint": "'Rule N.N. Title' headings",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-rules-pdf",
+   "url": "https://rules.incourts.gov/pdf/PDF%20-%20Admission%20Discipline/admission-discipline.pdf",
+   "why": "194 pp / 447K chars",
+   "split_hint": "'Rule N. Title' / 'Section N' headings",
+   "bulk": ""
+  },
+  {
+   "source_id": "in-code-iga",
+   "url": "https://iga.in.gov/laws/ic/downloads",
+   "why": "Official IC download page (reported via search); JS-only, not reachable by either route — would give an official statute corpus if a static file URL is found",
+   "split_hint": "IC t-a-c-s headings",
+   "bulk": "https://iga.in.gov/laws/ic/downloads (unverified)"
+  }
+ ],
+ "open_questions": [
+  "Find a static/API endpoint behind iga.in.gov (Code, Constitution, Acts) and iar.iga.in.gov (IAC, Register): every path, including /static/js bundles, returned the same HTML shell through the agent proxy; a browser session may reveal the real API host.",
+  "Justia Indiana Constitution: confirm whether Art. 1 § 39 (2016) and other recent amendments are present.",
+  "Justia court-of-appeals / tax-court case URL slugs not fetched; older (pre-2021) docket slug format unverified.",
+  "Local court rules index https://www.in.gov/courts/publications/local-rules/ not probed."
+ ]
+}

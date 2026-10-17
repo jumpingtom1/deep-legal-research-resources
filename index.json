@@ -867,6 +867,79 @@
         }
       ]
     },
+    "in": {
+      "name": "Indiana",
+      "file": "jurisdictions/in.md",
+      "sha256": "c89facc90d44ff2e8f16f245cb8eacf9f712be97a8e0617de46d90bc97c76e92",
+      "compiled": "2026-10-17",
+      "counts": {
+        "reported": 4,
+        "verified": 8,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Indiana Code",
+          "regex": "(?:Ind(?:\\.|iana)\\s*Code(?:\\s+Ann\\.)?\\s*(?:\u00a7\u00a7?|sec(?:tion|\\.)s?)?\\s*|\\bI\\.\\s?C\\.\\s*\u00a7\u00a7?\\s*|\\bIC\\s+)(?P<title>\\d{1,2})-(?P<article>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<chapter>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<section>\\d{1,3}(?:\\.\\d{1,2})?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<article2>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<chapter2>\\d{1,2}(?:\\.\\d{1,2})?)-(?P<section2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Indiana\\s+Code",
+          "context_required": false
+        },
+        {
+          "label": "Indiana Constitution",
+          "regex": "Ind(?:\\.|iana)\\s*Const(?:\\.|itution)\\s*,?\\s*art(?:\\.|icle)\\s*(?P<article>\\d{1,2}|[IVX]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section>\\d{1,2})|Article\\s+(?P<article2>\\d{1,2}|[IVX]+),?\\s+Section\\s+(?P<section2>\\d{1,2})\\s+of\\s+the\\s+Indiana\\s+Constitution|Indiana\\s+Constitution,?\\s+Article\\s+(?P<article3>\\d{1,2}|[IVX]+),?\\s+Section\\s+(?P<section3>\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Indiana court rules (with Ind./Indiana marker)",
+          "regex": "Ind(?:\\.|iana)\\s+(?P<set>Trial|T\\.\\s?R\\.|Evid(?:ence|\\.)|App(?:ellate|\\.)|Crim(?:inal|\\.)|Prof(?:essional|\\.)\\s*Cond(?:uct|\\.)|Admis(?:sion|\\.)\\s*(?:and\\s+|&\\s*)?Disc(?:ipline|\\.)|Small\\s+Claims|Post-Conviction|Jury|Tax\\s+Court)\\s*(?:Rule|R\\.)?\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)",
+          "context_required": false
+        },
+        {
+          "label": "Indiana court rules (prose: 'of the Indiana Rules of ...')",
+          "regex": "Rule\\s+(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Indiana\\s+Rules\\s+(?:of|for)\\s+(?P<set>(?:Trial\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure|Professional\\s+Conduct|Admission\\s+and\\s+Discipline|Small\\s+Claims|Post-Conviction\\s+Remedies|Jury\\s+Rules|Tax\\s+Court|Court))",
+          "context_required": false
+        },
+        {
+          "label": "Indiana court rules, bare short forms (T.R., Trial Rule, Evid. R., App. R., Crim. R., Prof. Cond. R., Admis. Disc. R.)",
+          "regex": "(?<![\\w.])(?P<set>T\\.\\s?R\\.|Trial\\s+Rule|Evid(?:\\.\\s?R\\.|ence\\s+Rule)|App(?:\\.\\s?R\\.|ellate\\s+Rule)|Crim(?:\\.\\s?R\\.|inal\\s+Rule)|Prof\\.\\s*Cond\\.\\s*R\\.|Admis\\.\\s*Disc\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)",
+          "context_required": true
+        },
+        {
+          "label": "Indiana Administrative Code",
+          "regex": "(?P<title>\\d{1,3})\\s+(?:IAC|Ind\\.\\s*Admin\\.\\s*Code)\\s+(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)(?:-(?P<section>\\d{1,3}(?:\\.\\d{1,2})?))?",
+          "context_required": false
+        },
+        {
+          "label": "Indiana Register document IDs",
+          "regex": "(?P<date>(?:19|20)\\d{6})-IR-(?P<docid>\\d{9}[A-Z]{2,4})",
+          "context_required": false
+        },
+        {
+          "label": "Reporter citations with Indiana parenthetical (N.E., Ind., Ind. App.)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Ind\\.(?:\\s*(?:Ct\\.\\s*)?App\\.|\\s*T\\.\\s?C\\.|\\s*Tax)?)\\s*(?:[A-Z][a-z]{2,3}\\.?\\s+\\d{1,2},\\s+)?(?P<year>\\d{4})\\)|(?P<volume2>\\d{1,3})\\s+Ind\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page2>\\d{1,4})(?![\\d.])",
+          "context_required": false
+        },
+        {
+          "label": "Bare North Eastern Reporter citation (no court parenthetical)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+          "context_required": true
+        },
+        {
+          "label": "Indiana appellate docket numbers (old and post-2021 styles)",
+          "regex": "\\b(?P<yy>\\d{2})(?P<court>[AST])-(?P<ctype>[A-Z]{2})-(?P<num>\\d{1,5})\\b|\\b(?P<county>\\d{2})(?P<court2>[AST])(?P<dist>\\d{2})-(?P<yymm>\\d{4})-(?P<ctype2>[A-Z]{2})-(?P<num2>\\d{1,5})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Memorandum decisions / Westlaw cites with Indiana parenthetical",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Ind\\.(?:\\s*(?:Ct\\.\\s*)?App\\.|\\s*T\\.\\s?C\\.)?)",
+          "context_required": false
+        },
+        {
+          "label": "Indiana transfer history (trans. denied / trans. granted / trans. not sought)",
+          "regex": "\\btrans\\.\\s+(?P<disp>denied|granted|not\\s+sought|dismissed|vacated)",
+          "context_required": true
+        }
+      ]
+    },
     "ma": {
       "name": "Massachusetts",
       "file": "jurisdictions/ma.md",
