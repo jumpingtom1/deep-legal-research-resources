@@ -1,0 +1,971 @@
+{
+ "schema_version": 1,
+ "jurisdiction": "id",
+ "name": "Idaho",
+ "compiled": "2026-10-16",
+ "summary": "Statutes and Constitution: legislature.idaho.gov serves one HTML page per section, constructible from the citation (chapter = section digits minus the last two, or the middle number in three-part UPC/UCC sections), current through the 2026 session; Justia 2025 is the tier-2 fallback. Court rules: isc.idaho.gov serves every I.R.C.P./I.A.R./I.R.E./I.C.R. rule on its own constructible print page; full-set pages are 120K-420K characters and truncate in the fetch tool. IDAPA rules and the Administrative Bulletin are chapter/issue PDFs at constructible adminrules.idaho.gov URLs that redirect to files.dfm.idaho.gov (the fetch tool will not follow that redirect; the script does); Cornell LII mirrors IDAPA per section. Case law: the new isc.idaho.gov site is a JavaScript app, but its public GET JSON API (/api/cms-content-search, /api/cms-document) finds Supreme Court (late 2019 on) and Court of Appeals (2013-16, 2020 on) opinions by docket or party and links slip PDFs the script reads; Justia covers 1866 on; old isc.idaho.gov opinion URLs now 404; iCourt is behind a Cloudflare challenge.",
+ "citation_map": {
+  "courts": [
+   {
+    "name": "Idaho Supreme Court",
+    "courtlistener_id": "idaho",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Idaho",
+    "reporters": [
+     "Idaho",
+     "P.3d",
+     "P.2d",
+     "P."
+    ],
+    "public_domain_citation": null
+   },
+   {
+    "name": "Idaho Court of Appeals",
+    "courtlistener_id": "idahoctapp",
+    "courtlistener_id_unverified": true,
+    "bluebook_abbrev": "Idaho Ct. App.",
+    "reporters": [
+     "Idaho",
+     "P.3d",
+     "P.2d"
+    ],
+    "public_domain_citation": null
+   }
+  ],
+  "citation_patterns": [
+   {
+    "family": "statutes",
+    "label": "Idaho Code",
+    "examples": [
+     "Idaho Code § 5-219",
+     "I.C. § 5-219(4)",
+     "Idaho Code Ann. § 18-4001",
+     "I.C. § 15-2-101",
+     "section 5-219, Idaho Code",
+     "Idaho Code section 67-5279",
+     "I.C. §§ 5-216 to 5-219",
+     "Idaho Code § 63-3022A"
+    ],
+    "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:§§?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code",
+    "routes_to": [
+     "id-statutes-leg",
+     "id-statutes-justia"
+    ]
+   },
+   {
+    "family": "statutes",
+    "label": "Idaho Session Laws",
+    "examples": [
+     "2025 Idaho Sess. Laws ch. 1",
+     "1971 Idaho Sess. Laws 845",
+     "am. 1971, ch. 180, sec. 1, p. 845"
+    ],
+    "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Idaho\\s+Sess\\.\\s*Laws(?:\\s+ch\\.\\s*(?P<chapter>\\d+)|\\s+(?P<page>\\d+))|am\\.\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter2>\\d+)",
+    "routes_to": [
+     "id-session-laws"
+    ]
+   },
+   {
+    "family": "constitution",
+    "label": "Idaho Constitution",
+    "examples": [
+     "Idaho Const. art. I, § 13",
+     "Idaho Const. art. V, sec. 9",
+     "Article I, Section 22 of the Idaho Constitution",
+     "Art. I, § 17, Idaho Constitution"
+    ],
+    "regex": "Idaho\\s+Const\\.?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:§|sec\\.?)\\s*(?P<section>\\d+[A-Za-z]?)|Art(?:icle|\\.)\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|sec\\.?|§)\\s*(?P<section2>\\d+[A-Za-z]?),?\\s+(?:of\\s+the\\s+)?Idaho\\s+Constitution",
+    "routes_to": [
+     "id-constitution-leg",
+     "id-constitution-justia"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Idaho court rules (I.R.C.P., I.A.R., I.R.E., I.C.R., I.C.A.R., I.R.F.L.P., I.M.C.R., I.J.R., I.I.R., I.R.E.F.S.)",
+    "examples": [
+     "I.R.C.P. 56(c)",
+     "IRCP 12(b)(6)",
+     "Idaho R. Civ. P. 56",
+     "I.A.R. 118",
+     "I.R.E. 702",
+     "Idaho R. Evid. 403",
+     "I.C.R. 35",
+     "I.C.R. 33.1",
+     "Idaho Crim. R. 11",
+     "I.C.A.R. 32",
+     "I.R.F.L.P. 101",
+     "Rule 56 of the Idaho Rules of Civil Procedure",
+     "Idaho Appellate Rule 11(a)",
+     "Idaho Criminal Rule 35(b)"
+    ],
+    "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)",
+    "routes_to": [
+     "id-rules-isc"
+    ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Idaho Rules of Professional Conduct",
+    "examples": [
+     "I.R.P.C. 1.7",
+     "IRPC 8.4(c)",
+     "Idaho Rule of Professional Conduct 1.15",
+     "Rule 1.7 of the Idaho Rules of Professional Conduct"
+    ],
+    "regex": "(?:I\\.?\\s?R\\.?\\s?P\\.?\\s?C\\.?|Idaho\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Idaho\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+    "routes_to": [
+     "id-rules-irpc"
+    ]
+   },
+   {
+    "family": "admin_code",
+    "label": "IDAPA (Idaho Administrative Code)",
+    "examples": [
+     "IDAPA 16.03.09.010",
+     "IDAPA 58.01.02",
+     "Idaho Admin. Code r. 58.01.02.001",
+     "IDAPA 58.01.02.250.02"
+    ],
+    "regex": "(?:IDAPA|Idaho\\s+Admin\\.\\s*Code\\s+r\\.)\\s*(?P<agency>\\d{2})\\.(?P<title>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<section>\\d{3}))?(?:\\.(?P<subsection>\\d{2}))?",
+    "routes_to": [
+     "id-idapa-dfm",
+     "id-idapa-lii"
+    ]
+   },
+   {
+    "family": "admin_register",
+    "label": "Idaho Administrative Bulletin",
+    "examples": [
+     "Idaho Admin. Bull. Vol. 26-10",
+     "Idaho Administrative Bulletin, Vol. 25-1, p. 45",
+     "Vol. 26-10 Idaho Admin. Bull."
+    ],
+    "regex": "(?:Idaho\\s+Admin(?:\\.|istrative)\\s*Bull(?:\\.|etin),?\\s*Vol\\.\\s*(?P<yy>\\d{2})-(?P<issue>\\d{1,2})|Vol\\.\\s*(?P<yy2>\\d{2})-(?P<issue2>\\d{1,2}),?\\s+Idaho\\s+Admin\\.\\s*Bull\\.)(?:,?\\s*p\\.\\s*(?P<page>\\d+))?",
+    "routes_to": [
+     "id-bulletin-dfm"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Reported Idaho cases (Idaho Reports / Pacific Reporter)",
+    "examples": [
+     "State v. Dorff, 171 Idaho 818, 526 P.3d 988 (2023)",
+     "172 Idaho 825, 537 P.3d 66 (2023)",
+     "State v. Doe, 140 Idaho 271, 92 P.3d 521 (Ct. App. 2004)",
+     "526 P.3d 988 (Idaho 2023)",
+     "92 P.3d 521 (Idaho Ct. App. 2004)"
+    ],
+    "regex": "(?P<idvol>\\d{1,3})\\s+Idaho\\s+(?P<idpage>\\d{1,4})(?:,\\s*\\d+)?(?:,\\s*(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage>\\d{1,5}))?|(?P<pvol2>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage2>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Idaho(?:\\s+Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+    "routes_to": [
+     "id-opinions-isc-api",
+     "id-cases-justia"
+    ]
+   },
+   {
+    "family": "case_law",
+    "label": "Unpublished / slip opinions by docket number",
+    "examples": [
+     "State v. Cowell, Docket No. 53548 (Idaho Ct. App. Oct. 16, 2026) (unpublished)",
+     "Docket No. 53539",
+     "No. 46085-2018",
+     "2024 WL 123456 (Idaho Ct. App. Jan. 5, 2024)"
+    ],
+    "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?:-(?P<year>(?:19|20)\\d\\d))?|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)[^()]{0,30}\\(Idaho",
+    "routes_to": [
+     "id-opinions-isc-api",
+     "id-cases-justia"
+    ]
+   }
+  ],
+  "law_aliases": {
+   "I.R.C.P.": "ircp",
+   "IRCP": "ircp",
+   "Idaho R. Civ. P.": "ircp",
+   "Idaho Rules of Civil Procedure": "ircp",
+   "I.A.R.": "iar",
+   "IAR": "iar",
+   "Idaho App. R.": "iar",
+   "Idaho Appellate Rules": "iar",
+   "I.R.E.": "ire",
+   "IRE": "ire",
+   "Idaho R. Evid.": "ire",
+   "Idaho Rules of Evidence": "ire",
+   "I.C.R.": "icr",
+   "ICR": "icr",
+   "Idaho Crim. R.": "icr",
+   "Idaho R. Crim. P.": "icr",
+   "Idaho Criminal Rules": "icr",
+   "I.C.A.R.": "icar",
+   "ICAR": "icar",
+   "Idaho Court Administrative Rules": "icar",
+   "I.R.F.L.P.": "irfl",
+   "IRFLP": "irfl",
+   "Idaho Rules of Family Law Procedure": "irfl",
+   "I.M.C.R.": "imcr",
+   "I.J.R.": "ijr",
+   "I.I.R.": "iir",
+   "I.R.E.F.S.": "irefs",
+   "I.R.S.C.A.": "irsca",
+   "I.R.T.C.": "irtc"
+  },
+  "notes": "Idaho Code sections are cited 'Idaho Code § 5-219', 'I.C. § 5-219' (Idaho courts' own style) or 'section 5-219, Idaho Code' (statutory cross-reference style); Bluebook uses 'Idaho Code Ann. § 5-219'. Two-part sections (title-NNNN[A]) encode the chapter as the digits before the last two (5-219 → ch. 2; 18-4001 → ch. 40; 67-5279 → ch. 52; 63-3022A → ch. 30); three-part sections in uniform-act titles (15 UPC, 28 UCC, 30 business entities, etc.) give the chapter in the middle (15-2-101 → ch. 2). The regex reads '§§ 5-216 to 5-219' as its first section and never reads a hyphenated range as a three-part section (three-part needs a 1-2 digit middle and 3-4 digit tail). Guards: bare 'I.C.' is routed only when followed by § or a T-NNN section number; bare 'Rule 56', 'Evidence Rule 702' or 'Criminal Rule 35' without an Idaho marker must not route here; 'I.R.E.' and 'I.C.R.' collide with other states' informal abbreviations, so route on them only with Idaho context. Rule-set aliases map to the isc.idaho.gov print-page slug in law_aliases. Unpublished Court of Appeals opinions are marked 'THIS IS AN UNPUBLISHED OPINION AND SHALL NOT BE CITED AS AUTHORITY' and are cited by docket number and date. Idaho has no public-domain citation; reporter cites are Idaho Reports (West) parallel with P./P.2d/P.3d, with '(Ct. App. YYYY)' for the Court of Appeals in Idaho style. Docket numbers are five digits, sometimes with a filing-year suffix ('46085-2018'); a granted petition for review moves the case to a NEW Supreme Court docket number (46085-2018 → 48109-2020). CourtListener ids 'idaho' and 'idahoctapp' are from memory and unverified. Interstate: Idaho shares the Snake River boundary with Oregon; no compact surfaced during probing."
+ },
+ "sources": [
+  {
+   "id": "id-statutes-leg",
+   "family": "statutes",
+   "title": "Idaho Statutes (Idaho Code)",
+   "publisher": "Idaho Legislature, Legislative Services Office",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Site Disclaimer (https://legislature.idaho.gov/site-disclaimer/) says official copies of the Idaho Code are published for the Idaho Code Commission by LEXIS Publishing; no UELMA authentication statement on section pages.",
+   "coverage": "All titles of the Idaho Code, one HTML page per section with history note; per-chapter PDF downloads.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://legislature.idaho.gov/statutesrules/idstat/Title{title}/T{title}CH{chapter}/SECT{title}-{section}/",
+    "pattern_rules": "title and chapter unpadded integers. Two-part section 'T-NNNN[A]': chapter = section digits without the last two (5-219 → T5CH2/SECT5-219; 18-4001 → T18CH40/SECT18-4001; 67-5279 → T67CH52/SECT67-5279; 63-3022A → T63CH30/SECT63-3022A). Three-part section 'T-C-NNN': chapter = middle number, section kept whole (15-2-101 → Title15/T15CH2/SECT15-2-101; 28-9-109 → Title28/T28CH9/SECT28-9-109). Letter suffix upper-case (SECT5-214A). Path is case-insensitive (search engines index the lower-case form title5/t5ch2/sect5-219/). A wrong chapter or non-existent section returns HTTP 404 ('not found'), so a bad guess is detectable; then use the chapter index, which lists every section number and catchline.",
+    "index_url": "https://legislature.idaho.gov/statutesrules/idstat/",
+    "navigation": "Fallback when the chapter cannot be inferred: /statutesrules/idstat/Title{title}/ lists chapters (titles only, NO section ranges) → /Title{title}/T{title}CH{chapter}/ lists every section with catchline → SECT page holds text.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "ok",
+    "robots_txt": "200; User-agent * disallows only /wp-admin/ and committee-calendar paths; Semrushbot disallowed entirely",
+    "notes": "WebFetch refused hand-built (constructed) URLs with PROVENANCE_REQUIRED (permission prompt not answered) during research; it fetched the same pages when the URL came from a WebSearch result. The script route reads constructed URLs directly. Section pages are 4-21K characters, so no truncation."
+   },
+   "currency": {
+    "where": "Banner on every section page; fuller statement at /statutesrules/howcurrentisthislaw",
+    "observed": "Idaho Statutes and Constitutions are current through the 2026 Legislative Session."
+   },
+   "hazards": [
+    "chapter must be derived from the section number (two-part vs three-part forms)",
+    "web text updated only July 1 after each session: mid-year amendments with emergency clauses are not shown",
+    "fetch tool may refuse constructed URLs (provenance) — use the script route or a search-result URL"
+   ],
+   "probe": {
+    "citation": "Idaho Code § 5-219",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/Title5/T5CH2/SECT5-219/",
+    "expect": "Within two (2) years: An action against a sheriff, coroner"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch (search-result URL /title5/t5ch2/sect5-219/): YES, 'Within two (2) years: An action against a sheriff, coroner'; not truncated. WebFetch /title18/t18ch40/sect18-4001/: YES 'Murder is the unlawful killing of a human being including'. Script: 5-219 (6,981 chars), 18-4001, 5-214A, 67-5279, 15-2-101, 28-9-109, 63-3022A all body present; T5CH3/SECT5-219 → 404."
+   },
+   "notes": "Per-chapter PDF: https://legislature.idaho.gov/wp-content/uploads/statutesrules/idstat/Title{title}/T{title}CH{chapter}.pdf (T5CH2.pdf: 13 pp, last-modified 15 Sep 2025, script OK). No whole-code bulk XML/JSON found."
+  },
+  {
+   "id": "id-statutes-justia",
+   "family": "statutes",
+   "title": "Justia — Idaho Code (2025)",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Pages state 'These codes may not be the most recent version.'",
+   "coverage": "Idaho Code editions incl. 2013-2025; unversioned URL serves 2025.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/codes/idaho/title-{title}/chapter-{chapter}/section-{title}-{section}/",
+    "pattern_rules": "Same title/chapter derivation as id-statutes-leg; section lower-case incl. letter suffix (section-5-214a). Insert /{year}/ after /idaho/ for an edition (e.g. /codes/idaho/2021/title-5/chapter-2/). Title pages list chapters without section ranges.",
+    "index_url": "https://law.justia.com/codes/idaho/",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "could not read: robots.txt answers with a Cloudflare challenge",
+    "notes": "fetch_doc.py: 'law.justia.com answers robots.txt with a bot check (challenge); automated access refused.' Use WebFetch only."
+   },
+   "currency": {
+    "where": "page header and Universal Citation line",
+    "observed": "2025 Idaho Code; 'ID Code § 5-219 (2025)'"
+   },
+   "hazards": [
+    "edition lags official text by a session",
+    "shell blocked by Cloudflare"
+   ],
+   "probe": {
+    "citation": "Idaho Code § 5-219",
+    "url": "https://law.justia.com/codes/idaho/title-5/chapter-2/section-5-219/",
+    "expect": "ACTIONS AGAINST OFFICERS, FOR PENALTIES, ON BONDS"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES body present; 'ID Code § 5-219 (2025)'; chain /codes/idaho/2025 → /title-5/ ('2025 Idaho Code', no section ranges) → /chapter-2/ (section-5-214a, section-5-219 hrefs)."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-session-laws",
+   "family": "statutes",
+   "title": "Idaho Session Laws (annual volumes)",
+   "publisher": "Idaho Legislature",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Site Disclaimer: official copies of Session Laws are published for the Legislature by Custom Printing.",
+   "coverage": "Scanned/typeset PDF volumes 1945-2025 (vol1/vol2 from 1993); current-session acts via /sessioninfo/{year}/legislation/.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "",
+    "index_url": "https://legislature.idaho.gov/statutesrules/sessionlaws/",
+    "navigation": "Index lists /wp-content/uploads/sessionlaws/sessionlaws_vol{1|2}_{year}.pdf (1993-2025) or sessionlaws_{year}.pdf (1945-1992); which volume holds a chapter is not stated — grep the volume for 'CHAPTER {n}' with fetch_doc.py.",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "as id-statutes-leg",
+    "notes": "Volumes are huge (2025 vol 1: 779 pp, 2.7M chars) — script grep only; the fetch tool would see a tiny fraction."
+   },
+   "currency": {
+    "where": "index page",
+    "observed": "latest volume listed: sessionlaws_vol1_2025.pdf / vol2_2025.pdf"
+   },
+   "hazards": [
+    "very large PDFs",
+    "volume split not indexed by chapter"
+   ],
+   "probe": {
+    "citation": "2025 Idaho Sess. Laws ch. 1",
+    "url": "https://legislature.idaho.gov/wp-content/uploads/sessionlaws/sessionlaws_vol1_2025.pdf",
+    "expect": "CHAPTER 1 (H.B. No. 3) AN ACT RELATING TO TAXATION"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: application/pdf 779 pp, last-modified 3 Jul 2025; grep found '2025 IDAHO SESSION LAWS 3 CHAPTER 1 (H.B. No. 3)' on p. 3."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-constitution-leg",
+   "family": "constitution",
+   "title": "Idaho Constitution",
+   "publisher": "Idaho Legislature",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Same site disclaimer as id-statutes-leg; no authentication statement.",
+   "coverage": "Full constitution, one page per section.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://legislature.idaho.gov/statutesrules/idconst/Art{article_roman}/Sect{section}/",
+    "pattern_rules": "article as upper-case Roman numeral (ArtI, ArtV, ArtXXI); section unpadded integer. Path case-insensitive. Article index /idconst/Art{roman}/ lists sections.",
+    "index_url": "https://legislature.idaho.gov/statutesrules/idconst/",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "ok",
+    "robots_txt": "as id-statutes-leg",
+    "notes": ""
+   },
+   "currency": {
+    "where": "banner on each section page; /statutesrules/howcurrentisthislaw",
+    "observed": "Idaho Statutes and Constitutions are current through the 2026 Legislative Session."
+   },
+   "hazards": [],
+   "probe": {
+    "citation": "Idaho Const. art. I, § 22",
+    "url": "https://legislature.idaho.gov/statutesrules/idconst/ArtI/Sect22",
+    "expect": "Rights of crime victims. A crime victim, as"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch ArtI/Sect22: YES 'Section 22. Rights of crime victims. A crime victim, as'; not truncated. Script ArtI/Sect13 ('the party accused shall have the right to a speedy and public trial') and ArtV/Sect9 OK."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-constitution-justia",
+   "family": "constitution",
+   "title": "Justia — Idaho Constitution",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Page: 'This Constitution may not be the most recent version.'",
+   "coverage": "Per-section pages.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://law.justia.com/constitution/idaho/article-{article_roman_lower}/section-{section}/",
+    "pattern_rules": "article lower-case Roman (article-i); section unpadded.",
+    "index_url": "https://law.justia.com/constitution/idaho/",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "Cloudflare challenge on robots.txt",
+    "notes": "WebFetch only."
+   },
+   "currency": {
+    "where": "page notice",
+    "observed": "This Constitution may not be the most recent version."
+   },
+   "hazards": [
+    "shell blocked by Cloudflare"
+   ],
+   "probe": {
+    "citation": "Idaho Const. art. I, § 22",
+    "url": "https://law.justia.com/constitution/idaho/article-i/section-22/",
+    "expect": "A crime victim, as defined by statute, has the following"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES 'A crime victim, as defined by statute, has the following'."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-rules-isc",
+   "family": "court_rules",
+   "title": "Idaho Court Rules (I.R.C.P., I.A.R., I.R.E., I.C.R., I.C.A.R., I.R.F.L.P. and others)",
+   "publisher": "Idaho Supreme Court",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "No official/unofficial statement on rule pages; each rule carries its adoption/amendment history and orders are linked as PDFs.",
+   "coverage": "Rule sets: iar, icar, icr, iir, ijr, imcr, ircp, ire, irefs, irfl, irsca, irtc.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://isc.idaho.gov/rules-procedure/print/{set}/{rule}",
+    "pattern_rules": "set = law_aliases slug (ircp, iar, ire, icr, icar, irfl, imcr, ijr, iir, irefs, irsca, irtc); rule = number as cited incl. decimal (icr/33.1, iar/11.1); subsection dropped (I.R.C.P. 56(c) → print/ircp/56). Non-existent rule → HTTP 404 (icr/11.1). Full set on one page: https://isc.idaho.gov/rules-procedure/{set}#rule-{rule} (anchors id='rule-56'). Legacy short URLs like isc.idaho.gov/ire702 301 to the full-set page.",
+    "index_url": "https://isc.idaho.gov/rules-procedure",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "ok",
+    "robots_txt": "200; disallows /admin, /cdn-cgi/, /isc-network/, /__preview, /api/cms-page-preview",
+    "notes": "Per-rule print pages are small (≈5K chars). Full-set pages are large: ircp 417,681 chars, icr 263,642, iar 232,420, ire 127,721; WebFetch on /ire702 → full I.R.E. page stopped at ~100K chars in Rule 703. Use the print page."
+   },
+   "currency": {
+    "where": "adoption/amendment note at end of each rule",
+    "observed": "(Adopted March 26, 2018, effective July 1, 2018.) [I.R.E. 702]"
+   },
+   "hazards": [
+    "full-set pages truncate in the fetch tool",
+    "old isc.idaho.gov rule URLs (printpdf/NNN) now 404"
+   ],
+   "probe": {
+    "citation": "I.R.C.P. 56(a)",
+    "url": "https://isc.idaho.gov/rules-procedure/print/ircp/56",
+    "expect": "A party may move for summary judgment, identifying each claim"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch print/ircp/56: YES, '(Adopted March 1, 2016, effective July 1, 2016'; print/ire/702: YES 'A witness who is qualified as an expert by knowledge,'. Script OK: iar/118, icr/35, icr/33.1, iar/11, ircp/12."
+   },
+   "notes": "I.A.R. 118 governs petitions for review of Court of Appeals decisions."
+  },
+  {
+   "id": "id-rules-irpc",
+   "family": "court_rules",
+   "title": "Idaho Rules of Professional Conduct",
+   "publisher": "Idaho State Bar",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Bar-published PDF; no authentication statement found.",
+   "coverage": "Whole IRPC with comments in one PDF.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "",
+    "index_url": "https://isb.idaho.gov/bar-counsel/irpc/",
+    "navigation": "Index page links one PDF: https://isb.idaho.gov/wp-content/uploads/IRPC-acc.pdf; grep 'RULE {n}:' with fetch_doc.py.",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "ok",
+    "robots_txt": "200; Yoast block, User-agent * Disallow: (nothing)",
+    "notes": "67 pp, 544,451 chars — far beyond the fetch tool's ~100K window."
+   },
+   "currency": {
+    "where": "none stated in PDF; HTTP last-modified only",
+    "observed": "last-modified Mon, 09 Mar 2026"
+   },
+   "hazards": [
+    "two-column layout: extracted text interleaves table-of-contents columns",
+    "length beyond fetch tool window"
+   ],
+   "probe": {
+    "citation": "I.R.P.C. 1.7",
+    "url": "https://isb.idaho.gov/wp-content/uploads/IRPC-acc.pdf",
+    "expect": "RULE 1.7: CONFLICT OF INTEREST: CURRENT CLIENTS"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: application/pdf 67 pp; grep 'RULE 1.7: CONFLICT OF INTEREST: CURRENT' found (31 matches incl. body on p. 15)."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-idapa-dfm",
+   "family": "admin_code",
+   "title": "IDAPA — Idaho Administrative Rules (current chapters)",
+   "publisher": "Office of the Administrative Rules Coordinator, Division of Financial Management",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "No official-status statement found on adminrules.idaho.gov current-rules page.",
+   "coverage": "Current rule chapters as PDFs; annual archives back to 1996 (rules/{year} Archive/...).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://adminrules.idaho.gov/rules/current/{agency}/{agency}{title}{chapter}.pdf",
+    "pattern_rules": "IDAPA AA.TT.CC[.SSS] → /rules/current/AA/AATTCC.pdf (58.01.02 → /rules/current/58/580102.pdf). The URL 301-redirects to https://files.dfm.idaho.gov/dfm-admin-website/rules/current/AA/AATTCC.pdf. Archive years: /rules/{YYYY}%20Archive/AA/AATTCC.pdf (2021, 2025 verified). Section SSS is a heading inside the PDF ('010. DEFINITIONS.'), grep it. A 404 means the chapter number is not current — IDAPA 16 (Health and Welfare) chapters were renumbered (16.03.09, 16.03.10 → 404; 16.03.01 OK).",
+    "index_url": "https://adminrules.idaho.gov/current-rules/",
+    "navigation": "",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "ok",
+    "robots_txt": "none (404 on adminrules.idaho.gov and files.dfm.idaho.gov)",
+    "notes": "WebFetch does not follow the cross-host redirect to files.dfm.idaho.gov and was refused the files.dfm URL (PROVENANCE_REQUIRED). The current-rules listing is filled by a POST-only, nonce-protected WP REST call (/wp-json/dfm-document-display/fetch-documents); on 2026-10-16 the site showed a banner about a technical issue with document search and listings. WebFetch on /rules/current/58 returned a listing without links while the shell got 404 — treat agency index pages as unreliable."
+   },
+   "currency": {
+    "where": "each section ends with its effective-date stamp, e.g. '(3-31-22)'; HTTP last-modified",
+    "observed": "58.01.02 PDF last-modified Thu, 30 Jul 2026"
+   },
+   "hazards": [
+    "cross-host redirect to files.dfm.idaho.gov",
+    "long PDFs (58.01.02: 181 pp, 713,747 chars)",
+    "IDAPA 16 renumbering makes older chapter cites 404",
+    "listing pages JavaScript/POST-only"
+   ],
+   "probe": {
+    "citation": "IDAPA 58.01.02",
+    "url": "https://adminrules.idaho.gov/rules/current/58/580102.pdf",
+    "expect": "These rules are titled IDAPA 58.01.02, “Water Quality Standards.”"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 301 → files.dfm.idaho.gov/.../580102.pdf, 181 pp; '001. TITLE AND SCOPE. 01. Title. These rules are titled IDAPA 58.01.02'. 16/160301.pdf 20 pp OK. WebFetch on adminrules bulletin URL: '302 Found' redirect not followed."
+   },
+   "notes": "Cumulative index and History Notes pages exist on adminrules.idaho.gov."
+  },
+  {
+   "id": "id-idapa-lii",
+   "family": "admin_code",
+   "title": "Cornell LII — Idaho Administrative Code",
+   "publisher": "Legal Information Institute",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party compilation; 'State regulations are updated quarterly'.",
+   "coverage": "Per-section pages for IDAPA titles.",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://www.law.cornell.edu/regulations/idaho/IDAPA-{agency}.{title}.{chapter}.{section}",
+    "pattern_rules": "IDAPA 58.01.02.001 → /regulations/idaho/IDAPA-58.01.02.001 (two-digit groups, three-digit section). Chapter listing: /regulations/idaho/title-IDAPA-{agency}/rule-{agency}.{title}.{chapter}.",
+    "index_url": "https://www.law.cornell.edu/regulations/idaho",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "ok",
+    "robots_txt": "Crawl-delay 10 (per DE record); Idaho regulation paths permitted",
+    "notes": ""
+   },
+   "currency": {
+    "where": "page note",
+    "observed": "State regulations are updated quarterly; we currently have two versions available."
+   },
+   "hazards": [
+    "lag behind official chapter (58.01.02.001 last-modified 1 Aug 2025)",
+    "IDAPA 58.01.08.900 returned NOT PRESENT (section may not exist) — confirm numbers on the chapter listing"
+   ],
+   "probe": {
+    "citation": "IDAPA 59.01.01.001",
+    "url": "https://www.law.cornell.edu/regulations/idaho/IDAPA-59.01.01.001",
+    "expect": "Sections 50-1507, 50-1508, 50-1524, 59-1301"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES body present; chapter page rule-58.01.02 lists IDAPA-58.01.02.001 / .010 hrefs. Script: IDAPA-58.01.02.001 200, 2,865 chars, title-and-scope text present."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-bulletin-dfm",
+   "family": "admin_register",
+   "title": "Idaho Administrative Bulletin",
+   "publisher": "Office of the Administrative Rules Coordinator, Division of Financial Management",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "Cover: published monthly by the Office of the Administrative Rules Coordinator; no authentication statement.",
+   "coverage": "Monthly issues; archives on adminrules.idaho.gov (2003 and 2018 issues indexed by search engines).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://adminrules.idaho.gov/bulletin/{year}/{month:02d}.pdf",
+    "pattern_rules": "Vol. YY-M → /bulletin/20YY/MM.pdf (Vol. 26-10 → /bulletin/2026/10.pdf). Redirects (301/302) to https://files.dfm.idaho.gov/dfm-admin-website/bulletin/{year}/{MM}.pdf.",
+    "index_url": "https://adminrules.idaho.gov/latest-bulletins/",
+    "navigation": "",
+    "format": "pdf"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "ok",
+    "robots_txt": "none (404)",
+    "notes": "WebFetch stopped at the redirect ('302 Found') and was refused the files.dfm URL (PROVENANCE_REQUIRED). Issues are huge (Vol. 26-10: 428 pp, 1.88M chars) — script grep only."
+   },
+   "currency": {
+    "where": "cover page",
+    "observed": "October 7, 2026 – Vol. 26-10"
+   },
+   "hazards": [
+    "cross-host redirect",
+    "very long PDFs"
+   ],
+   "probe": {
+    "citation": "Idaho Admin. Bull. Vol. 26-10",
+    "url": "https://adminrules.idaho.gov/bulletin/2026/10.pdf",
+    "expect": "IDAHO ADMINISTRATIVE BULLETIN October 7, 2026 – Vol. 26-10"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: 301 → files.dfm.idaho.gov, application/pdf 428 pp, last-modified 7 Oct 2026; cover 'October 7, 2026 – Vol. 26-10'. 2026/09 and 2025/01 also 301 to files.dfm."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-opinions-isc-api",
+   "family": "case_law",
+   "title": "Idaho Supreme Court and Court of Appeals opinions (isc.idaho.gov)",
+   "publisher": "Idaho Supreme Court",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Opinions page: 'subject to formal revision before publication in the preliminary print of the Pacific Reporter'; West publishes Idaho Reports and P.3d.",
+   "coverage": "Slip-opinion PDFs. Supreme Court ('ISC Opinion'): earliest entry 2019-09-11 (2018 tag holds petition-for-review orders), full years 2020-2026. Court of Appeals ('ICA Opinion', incl. unpublished and per curiam): 2013-2016 and 2020-2026; 2017-2019 essentially absent (2017: 1 record; 2018-2019: 0).",
+   "access": {
+    "mode": "constructible",
+    "url_pattern": "https://isc.idaho.gov/api/cms-content-search?scope=documents&document_type={ISC%20Opinion|ICA%20Opinion}&q={docket_or_party}&limit=20",
+    "pattern_rules": "Plain GET JSON. q matches docket number (result 'name' = docket, e.g. '53539' or '50045.pdf') and party names in the summary ('Dorff' → 48119). Optional tag={year}, sort_by=entry_date&sort_direction=DESC|ASC, cursor={nextCursor}. Then GET https://isc.idaho.gov/api/cms-document?id={id} → content[0].content.opinion_file.value.url = https://api.isc.idaho.gov/uploads/Documents/{ISC|ICA}/{Category}/{year}/{timestamp}-{docket}.pdf (not constructible: timestamp prefix). Categories: ISC Civil, ISC Criminal, ICA Civil, ICA Criminal & Post-Conviction, ICA Unpublished, ICA Unpublished Per Curiam.",
+    "index_url": "https://isc.idaho.gov/cases-opinions/isc-opinions",
+    "navigation": "",
+    "format": "json",
+    "read_via": "PDFs on api.isc.idaho.gov (no robots.txt; 'Cannot GET /robots.txt' 404) — fetch_doc.py reads them in full."
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "ok",
+    "robots_txt": "isc.idaho.gov: 200; disallows /admin, /cdn-cgi/, /isc-network/, /__preview, /api/cms-page-preview (search API permitted)",
+    "notes": "The HTML listing pages (/cases-opinions/isc-opinions, /cases-opinions/ica-opinions) are a Nuxt JavaScript app: WebFetch saw only the search form, no opinions. WebFetch refuses API/PDF URLs that did not come from a search result (PROVENANCE_REQUIRED). All old-site opinion URLs (isc.idaho.gov/opinions/*.pdf, /print/appeals-court/*) return 404; /appeals-court/isc_civil 301s to the new page."
+   },
+   "currency": {
+    "where": "API entry_date / last_modified",
+    "observed": "latest ICA entry 2026-10-16 (docket 53548); latest ISC 2026-10-14 (53539)"
+   },
+   "hazards": [
+    "slip pagination only; no Idaho Reports / P.3d pagination",
+    "coverage gaps (ISC before late 2019; ICA 2017-2019)",
+    "legacy opinion links 404",
+    "PDF URL carries an unpredictable timestamp"
+   ],
+   "probe": {
+    "citation": "State v. Pendleton, Docket No. 53539 (Idaho Oct. 14, 2026)",
+    "url": "https://isc.idaho.gov/api/cms-content-search?scope=documents&document_type=ISC%20Opinion&sort_by=entry_date&sort_direction=DESC&limit=2",
+    "expect": "\"name\":\"53539\",\"document_type\":\"ISC Opinion\""
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: search JSON returned id 22184 name '53539'; cms-document?id=22184 → opinion_file .../ISC/Criminal/2026/1791997359508-53539.pdf; PDF 22 pp, 'IN THE SUPREME COURT OF THE STATE OF IDAHO Docket No. 53539'. q=Dorff → 48119 (2023); q=50045 → Shumway v. IDOL PDF 12 pp."
+   },
+   "notes": "Opinion headers give docket, term and 'Opinion Filed' date; no opinion-number line in 2023/2026 samples. ICA unpublished headers carry 'THIS IS AN UNPUBLISHED OPINION AND SHALL NOT BE CITED AS AUTHORITY'. Email alerts offered on the opinions page."
+  },
+  {
+   "id": "id-cases-justia",
+   "family": "case_law",
+   "title": "Justia — Idaho Supreme Court and Court of Appeals",
+   "publisher": "Justia",
+   "tier": 2,
+   "official_status": "unofficial",
+   "official_status_evidence": "Third-party; mirrors slip opinions.",
+   "coverage": "Supreme Court 1866-2026; Court of Appeals 1982-2026.",
+   "access": {
+    "mode": "index-anchored",
+    "url_pattern": "https://law.justia.com/cases/idaho/{court-category}/{year}/{docket}[-N].html",
+    "pattern_rules": "court-category is supreme-court, supreme-court-civil, supreme-court-criminal, court-of-appeals, court-of-appeals-civil or court-of-appeals-criminal (newer cases sit in the civil/criminal paths); some dockets carry '-0' suffix (48846-0.html). Category and suffix cannot be predicted — use the year listing.",
+    "index_url": "https://law.justia.com/cases/idaho/",
+    "navigation": "/cases/idaho/ → supreme-court/ or court-of-appeals/ (year list) → /{year}/ list of cases with hrefs → case page.",
+    "format": "html"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "ok",
+    "shell": "blocked-challenge",
+    "robots_txt": "Cloudflare challenge on robots.txt",
+    "notes": "WebFetch only."
+   },
+   "currency": {
+    "where": "year listing pages",
+    "observed": "Supreme Court latest year 2026 (112 decisions)"
+   },
+   "hazards": [
+    "slip pagination only (no star paging)",
+    "category path unpredictable",
+    "shell blocked by Cloudflare"
+   ],
+   "probe": {
+    "citation": "State v. Dorff, 171 Idaho 818, 526 P.3d 988 (2023)",
+    "url": "https://law.justia.com/cases/idaho/supreme-court-criminal/2023/48119.html",
+    "expect": "Kirby Dorff appeals from the denial of his motion to"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "WebFetch: YES full text, 'Docket No. 48119', no reporter cite, slip page markers 1-19, ends with dissent; not truncated. Year indexes: supreme-court 1866-2026, court-of-appeals 1982-2026."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-icourt",
+   "family": "case_law",
+   "title": "Idaho iCourt Portal (case search / dockets)",
+   "publisher": "Idaho Judicial Branch (Tyler Odyssey)",
+   "tier": 1,
+   "official_status": "unknown",
+   "official_status_evidence": "not reachable",
+   "coverage": "Trial and appellate case registers.",
+   "access": {
+    "mode": "link-only",
+    "url_pattern": "",
+    "index_url": "https://icourt.idaho.gov/",
+    "navigation": "",
+    "format": "html"
+   },
+   "text": "link-only",
+   "automation": {
+    "webfetch": "untested",
+    "shell": "blocked-challenge",
+    "robots_txt": "robots.txt itself returns HTTP 403 Cloudflare 'Just a moment...' challenge",
+    "notes": "fetch_doc.py: 'icourt.idaho.gov answers robots.txt with a bot check (challenge); automated access refused.' Link for humans only."
+   },
+   "currency": {
+    "where": "n/a",
+    "observed": "n/a"
+   },
+   "hazards": [
+    "Cloudflare managed challenge"
+   ],
+   "probe": {
+    "citation": "",
+    "url": "https://icourt.idaho.gov/robots.txt",
+    "expect": ""
+   },
+   "verification": {
+    "status": "blocked",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "FAIL",
+    "evidence": "HTTP 403, cf challenge page 'Just a moment...' on robots.txt and /."
+   },
+   "notes": ""
+  },
+  {
+   "id": "id-subsequent-history-isc",
+   "family": "subsequent_history",
+   "title": "Petition-for-review orders and Supreme Court opinions on review (isc.idaho.gov API)",
+   "publisher": "Idaho Supreme Court",
+   "tier": 1,
+   "official_status": "unofficial",
+   "official_status_evidence": "Same as id-opinions-isc-api.",
+   "coverage": "Some orders granting review are posted as 'ISC Opinion' documents (e.g. 46085ORD.pdf, SMITHORD.pdf, 2020); routine denials are not posted.",
+   "access": {
+    "mode": "search-only",
+    "url_pattern": "https://isc.idaho.gov/api/cms-content-search?scope=documents&q={ica_docket_or_party}&limit=20",
+    "pattern_rules": "Search by the Court of Appeals docket number or party name (no document_type filter). An order granting review names the ICA docket and the NEW Supreme Court docket (46085-2018 → 48109-2020); then search that new docket for the Supreme Court opinion. Denials of review appear only as 'review denied' in West's P.3d/Idaho Reports history — no free official source found.",
+    "index_url": "https://isc.idaho.gov/cases-opinions/isc-opinions",
+    "navigation": "",
+    "format": "json"
+   },
+   "text": "fetch-and-quote",
+   "automation": {
+    "webfetch": "fail",
+    "shell": "ok",
+    "robots_txt": "as id-opinions-isc-api",
+    "notes": "q='Petition for Review' returned the 46085 and 45758 orders; q='Petition for Review denied' returned nothing."
+   },
+   "currency": {
+    "where": "n/a",
+    "observed": "orders dated 06/23/2020 and 2020-10-09"
+   },
+   "hazards": [
+    "docket changes on grant of review",
+    "denials not published",
+    "ICA 2017-2019 opinions absent, so the decision below may be missing"
+   ],
+   "probe": {
+    "citation": "State v. Huckabay, No. 46085-2018 (petition for review)",
+    "url": "https://isc.idaho.gov/api/cms-content-search?scope=documents&q=46085&limit=10",
+    "expect": "Petition for Review Docket No. 46085-2018"
+   },
+   "verification": {
+    "status": "verified",
+    "date": "2026-10-16",
+    "by": "research",
+    "result": "OK",
+    "evidence": "Script: q=46085 → 46085ORD.pdf (ISC Opinion, category ICA Criminal & Post-Conviction); PDF: 'Court of Appeals Case No. 46085-2018 is CLOSED And Supreme Court Case No. 48109-2020'; 'Order Granting Petition for Review'."
+   },
+   "notes": "I.A.R. 118 (id-rules-isc, print/iar/118) governs petitions for review."
+  }
+ ],
+ "absent": [
+  {
+   "family": "statutes",
+   "what": "public.law edition of the Idaho Code",
+   "evidence": "www.public.law home lists Oregon among its states but not Idaho; idaho.public.law fails at the proxy (CONNECT 502).",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "statutes",
+   "what": "Cornell LII Idaho Code / Constitution / opinions",
+   "evidence": "https://www.law.cornell.edu/states/idaho links out to legislature.idaho.gov, isc.idaho.gov, adminrules; LII hosts only the Idaho Administrative Code.",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "statutes",
+   "what": "Official bulk download (XML/JSON) of the Idaho Code",
+   "evidence": "Only per-chapter PDFs (T{t}CH{c}.pdf) linked from title pages; no bulk or API found.",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "case_law",
+   "what": "Free official reporter (Idaho Reports / P.3d) pagination",
+   "evidence": "Opinions page: West publishes cited opinions in Pacific Reporter and Idaho Reports; court PDFs carry slip pagination only.",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "case_law",
+   "what": "Public-domain (vendor-neutral) citation format",
+   "evidence": "Opinion PDFs carry docket number and filing date only; none observed.",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "case_law",
+   "what": "isc.idaho.gov Supreme Court opinions before late 2019 and Court of Appeals 2017-2019",
+   "evidence": "API: ISC Opinion ASC earliest entry 2019-09-11; tag counts ISC 2010-2017 = 0; ICA 2017 = 1, 2018 = 0, 2019 = 0. Old-site PDFs (/opinions/*.pdf) 404.",
+   "date": "2026-10-16"
+  },
+  {
+   "family": "subsequent_history",
+   "what": "Published list of petition-for-review denials",
+   "evidence": "API q='Petition for Review denied' → 0 results; old weekly 'casesfiled' PDFs (isc.idaho.gov/opinions/casesfiledMMDDYY.pdf) return 404.",
+   "date": "2026-10-16"
+  }
+ ],
+ "script_candidates": [
+  {
+   "source_id": "id-opinions-isc-api",
+   "why": "Public GET JSON: /api/cms-content-search (document_type, q, tag=year, sort, cursor) and /api/cms-document?id= (docket, parties, release_date, summary, opinion_file URL). A small script can resolve (court, docket) or party → PDF and list petition-for-review orders."
+  },
+  {
+   "source_id": "id-statutes-leg",
+   "why": "Deterministic per-section URLs plus per-chapter PDFs; chapter derivation is mechanical."
+  }
+ ],
+ "corpus_candidates": [
+  {
+   "source_id": "id-rules-isc",
+   "url": "https://isc.idaho.gov/rules-procedure/ircp",
+   "why": "417,681 chars on one page; fetch tool stops ~100K. Per-rule print pages exist, so corpus is optional.",
+   "split_hint": "element ids 'rule-{n}' and headings 'Idaho Rules of Civil Procedure Rule N. Title.'",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-rules-isc",
+   "url": "https://isc.idaho.gov/rules-procedure/icr",
+   "why": "263,642 chars",
+   "split_hint": "ids 'rule-{n}'",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-rules-isc",
+   "url": "https://isc.idaho.gov/rules-procedure/iar",
+   "why": "232,420 chars",
+   "split_hint": "ids 'rule-{n}'",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-rules-isc",
+   "url": "https://isc.idaho.gov/rules-procedure/ire",
+   "why": "127,721 chars; WebFetch stopped in Rule 703",
+   "split_hint": "ids 'rule-{n}'",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-rules-irpc",
+   "url": "https://isb.idaho.gov/wp-content/uploads/IRPC-acc.pdf",
+   "why": "67 pp, 544,451 chars; only source for IRPC",
+   "split_hint": "'RULE n.n: TITLE' headings; two-column layout",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-idapa-dfm",
+   "url": "https://files.dfm.idaho.gov/dfm-admin-website/rules/current/58/580102.pdf",
+   "why": "IDAPA chapters run to 700K+ chars (58.01.02: 181 pp)",
+   "split_hint": "section headings 'NNN. TITLE.' at left margin",
+   "bulk": ""
+  },
+  {
+   "source_id": "id-statutes-leg",
+   "url": "https://legislature.idaho.gov/wp-content/uploads/statutesrules/idstat/Title5/T5CH2.pdf",
+   "why": "official per-chapter PDFs suit ingest of whole chapters",
+   "split_hint": "section headings 'T-NNN. Catchline.'",
+   "bulk": "per-chapter PDFs only: /wp-content/uploads/statutesrules/idstat/Title{t}/T{t}CH{c}.pdf"
+  }
+ ],
+ "open_questions": [
+  "WebFetch could not be tested on api.isc.idaho.gov opinion PDFs or files.dfm.idaho.gov PDFs because hand-built URLs were refused (PROVENANCE_REQUIRED); an independent verifier with URL permissions should retest.",
+  "Do Supreme Court opinions on review still receive a new docket number after 2020, or keep the Court of Appeals docket?",
+  "Where (if anywhere) are pre-2019 Supreme Court and 2017-2019 Court of Appeals opinions on the new isc.idaho.gov site (the 'Include Archived' toggle did not change API results)?",
+  "Current mapping of renumbered IDAPA 16 chapters (e.g. former 16.03.09 Medicaid Basic Plan) — the listing API is POST-only and the site reported a listings outage on 2026-10-16."
+ ]
+}

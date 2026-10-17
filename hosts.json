@@ -22,6 +22,14 @@
    ],
    "blocked_sources": []
   },
+  "adminrules.idaho.gov": {
+   "status": "allowed",
+   "sources": [
+    "id-idapa-dfm",
+    "id-bulletin-dfm"
+   ],
+   "blocked_sources": []
+  },
   "advance.lexis.com": {
    "status": "allowed",
    "sources": [
@@ -121,6 +129,13 @@
    ],
    "blocked_sources": []
   },
+  "icourt.idaho.gov": {
+   "status": "blocked",
+   "sources": [
+    "id-icourt"
+   ],
+   "blocked_sources": []
+  },
   "ilcourtsaudio.blob.core.windows.net": {
    "status": "allowed",
    "sources": [
@@ -139,6 +154,22 @@
    ],
    "blocked_sources": []
   },
+  "isb.idaho.gov": {
+   "status": "allowed",
+   "sources": [
+    "id-rules-irpc"
+   ],
+   "blocked_sources": []
+  },
+  "isc.idaho.gov": {
+   "status": "allowed",
+   "sources": [
+    "id-rules-isc",
+    "id-opinions-isc-api",
+    "id-subsequent-history-isc"
+   ],
+   "blocked_sources": []
+  },
   "law.justia.com": {
    "status": "allowed",
    "sources": [
@@ -152,6 +183,9 @@
     "fl-constitution-justia",
     "fl-cases-justia",
     "fl-subsequent-history-justia",
+    "id-statutes-justia",
+    "id-constitution-justia",
+    "id-cases-justia",
     "il-ilcs-justia",
     "il-constitution-justia",
     "il-cases-justia",
@@ -200,6 +234,15 @@
    "status": "allowed",
    "sources": [
     "ny-laws-senate-api"
+   ],
+   "blocked_sources": []
+  },
+  "legislature.idaho.gov": {
+   "status": "allowed",
+   "sources": [
+    "id-statutes-leg",
+    "id-session-laws",
+    "id-constitution-leg"
    ],
    "blocked_sources": []
   },
@@ -422,6 +465,7 @@
     "ca-ccr-lii",
     "de-admincode-lii",
     "fl-fac-lii",
+    "id-idapa-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
     "nj-admincode-lii",

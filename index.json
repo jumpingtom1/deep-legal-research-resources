@@ -180,6 +180,54 @@
         }
       ]
     },
+    "id": {
+      "name": "Idaho",
+      "file": "jurisdictions/id.md",
+      "sha256": "8a13bfdc8e7309117b339813f24eed401272362fa3a51048d69b816f38b2fbee",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 13,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Idaho Code",
+          "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code"
+        },
+        {
+          "label": "Idaho Session Laws",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Idaho\\s+Sess\\.\\s*Laws(?:\\s+ch\\.\\s*(?P<chapter>\\d+)|\\s+(?P<page>\\d+))|am\\.\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter2>\\d+)"
+        },
+        {
+          "label": "Idaho Constitution",
+          "regex": "Idaho\\s+Const\\.?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.?)\\s*(?P<section>\\d+[A-Za-z]?)|Art(?:icle|\\.)\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|sec\\.?|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?),?\\s+(?:of\\s+the\\s+)?Idaho\\s+Constitution"
+        },
+        {
+          "label": "Idaho court rules (I.R.C.P., I.A.R., I.R.E., I.C.R., I.C.A.R., I.R.F.L.P., I.M.C.R., I.J.R., I.I.R., I.R.E.F.S.)",
+          "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)"
+        },
+        {
+          "label": "Idaho Rules of Professional Conduct",
+          "regex": "(?:I\\.?\\s?R\\.?\\s?P\\.?\\s?C\\.?|Idaho\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Idaho\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "IDAPA (Idaho Administrative Code)",
+          "regex": "(?:IDAPA|Idaho\\s+Admin\\.\\s*Code\\s+r\\.)\\s*(?P<agency>\\d{2})\\.(?P<title>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<section>\\d{3}))?(?:\\.(?P<subsection>\\d{2}))?"
+        },
+        {
+          "label": "Idaho Administrative Bulletin",
+          "regex": "(?:Idaho\\s+Admin(?:\\.|istrative)\\s*Bull(?:\\.|etin),?\\s*Vol\\.\\s*(?P<yy>\\d{2})-(?P<issue>\\d{1,2})|Vol\\.\\s*(?P<yy2>\\d{2})-(?P<issue2>\\d{1,2}),?\\s+Idaho\\s+Admin\\.\\s*Bull\\.)(?:,?\\s*p\\.\\s*(?P<page>\\d+))?"
+        },
+        {
+          "label": "Reported Idaho cases (Idaho Reports / Pacific Reporter)",
+          "regex": "(?P<idvol>\\d{1,3})\\s+Idaho\\s+(?P<idpage>\\d{1,4})(?:,\\s*\\d+)?(?:,\\s*(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage>\\d{1,5}))?|(?P<pvol2>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage2>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Idaho(?:\\s+Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Unpublished / slip opinions by docket number",
+          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?:-(?P<year>(?:19|20)\\d\\d))?|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)[^()]{0,30}\\(Idaho"
+        }
+      ]
+    },
     "il": {
       "name": "Illinois",
       "file": "jurisdictions/il.md",
