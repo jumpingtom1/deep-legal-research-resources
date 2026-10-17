@@ -64,3 +64,10 @@ Tools: S = `scripts/fetch_doc.py --research`, W = WebFetch, WS = WebSearch, C = 
 
 WebSearch: 7 queries (OSCN statute URLs; oklegislature titles; rules.ok.gov; Oklahoma Register; Justia 2024 cases; Justia constitution; ORPC PDF).
 WebFetch calls: 23.
+
+## Fix pass 2026-10-17 (from research/ok-verify.json)
+- The OSCN rows are now blocked-robots: the independent check got fetch_doc.py REFUSED with robots 'User-agent: * Disallow: /'. The earlier Turnstile wall is kept as history.
+- Justia: added the hazard and fallback for 2025 version-index pages that have no text (47 O.S. § 11-902, 10A O.S. § 1-1-105): use the linked 2024 edition and disclose it.
+- Justia constitution: lettered-section slugs now tested (X-9A.html). Added hazards for case-name typos in Justia headers and for pages marked 'NOT RELEASED FOR PUBLICATION'.
+- Regex: added the prose form '§ N of Title T of the Oklahoma Statutes', the trailing-marker form 'Rule 1.191, Okla. Sup. Ct. R.', and the West 'Okl.St.Ann.' form to the Pleading/Evidence Code pattern.
+- No new fetches in this pass.

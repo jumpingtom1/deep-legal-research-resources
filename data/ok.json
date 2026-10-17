@@ -3,7 +3,7 @@
   "jurisdiction": "ok",
   "name": "Oklahoma",
   "compiled": "2026-10-17",
-  "summary": "OSCN (oscn.net), the official free host of the statutes, constitution, court-rule appendices, case law with public-domain citations (2019 OK 12, ¶ 10) and dockets, put up a Cloudflare Turnstile wall during research (even on robots.txt), so every OSCN row is blocked; the Legislature's statute files are robots-disallowed and rules.ok.gov (OAC, Oklahoma Register) answers robots.txt with a bot check. Working routes: Justia 2025 statutes, constitution and year-listed opinions of all three appellate courts (WebFetch; tier 2), the Senate's constitution PDFs (script, tier 1, Jan 2022) and Cornell LII for the OAC (script). Supreme Court Rules, ORPC, District Court Rules, OCCA Rules, the Register and certiorari dispositions have no unblocked free source.",
+  "summary": "OSCN (oscn.net), the official free host of the statutes, constitution, court-rule appendices, case law with public-domain citations (2019 OK 12, ¶ 10) and dockets, now refuses all automated access by robots.txt 'Disallow: /' (earlier the same day a Cloudflare Turnstile wall), so every OSCN row is blocked; the Legislature's statute files are robots-disallowed and rules.ok.gov (OAC, Oklahoma Register) answers robots.txt with a bot check. Working routes: Justia 2025 statutes, constitution and year-listed opinions of all three appellate courts (WebFetch; tier 2), the Senate's constitution PDFs (script, tier 1, Jan 2022) and Cornell LII for the OAC (script). Supreme Court Rules, ORPC, District Court Rules, OCCA Rules, the Register and certiorari dispositions have no unblocked free source. Justia's 2025 page for a section amended by several 2025 acts is a text-less version list: fall back to the linked 2024 edition and disclose it.",
   "citation_map": {
     "courts": [
       {
@@ -61,9 +61,12 @@
           "12 O.S. §§ 2001-2027",
           "Section 1-1-105 of Title 10A of the Oklahoma Statutes",
           "title 12, section 95 of the Oklahoma Statutes",
-          "21 O.S.2021, § 701.7"
+          "21 O.S.2021, § 701.7",
+          "§ 701.7 of Title 21 of the Oklahoma Statutes",
+          "47 O.S.2021, § 11-902",
+          "12 Okl.St.Ann. § 2012"
         ],
-        "regex": "(?P<title>\\d{1,3}[A-Z]?)\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*(?:§(?!§)\\s*(?P<section>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<sectionr>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|Okla\\.\\s*Stat\\.\\s*(?:Ann\\.\\s*)?tit\\.\\s*(?P<title2>\\d{1,3}[A-Z]?),?\\s*(?:§(?!§)\\s*(?P<section2>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<section2r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|(?P<title3>\\d{1,3}[A-Z]?)\\s+Okla?\\.\\s*St(?:at)?\\.\\s*(?:Ann\\.\\s*)?(?:§(?!§)\\s*(?P<section3>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<section3r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|[Ss]ections?\\s+(?P<section4>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*)*)\\s+(?:(?:to|through|and)\\s+\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*\\s+)?of\\s+[Tt]itle\\s+(?P<title4>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+Oklahoma\\s+Statutes|[Tt]itle\\s+(?P<title5>\\d{1,3}[A-Z]?),\\s+[Ss]ection\\s+(?P<section5>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)\\s+of\\s+the\\s+Oklahoma\\s+Statutes",
+        "regex": "(?P<title>\\d{1,3}[A-Z]?)\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*(?:§(?!§)\\s*(?P<section>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<sectionr>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|Okla\\.\\s*Stat\\.\\s*(?:Ann\\.\\s*)?tit\\.\\s*(?P<title2>\\d{1,3}[A-Z]?),?\\s*(?:§(?!§)\\s*(?P<section2>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<section2r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|(?P<title3>\\d{1,3}[A-Z]?)\\s+Okla?\\.\\s*St(?:at)?\\.\\s*(?:Ann\\.\\s*)?(?:§(?!§)\\s*(?P<section3>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|§§\\s*(?P<section3r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|[Ss]ections?\\s+(?P<section4>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*)*)\\s+(?:(?:to|through|and)\\s+\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*\\s+)?of\\s+[Tt]itle\\s+(?P<title4>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+Oklahoma\\s+Statutes|[Tt]itle\\s+(?P<title5>\\d{1,3}[A-Z]?),\\s+[Ss]ection\\s+(?P<section5>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)\\s+of\\s+the\\s+Oklahoma\\s+Statutes|§\\s*(?P<section6>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)\\s+of\\s+[Tt]itle\\s+(?P<title6>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+Oklahoma\\s+Statutes",
         "routes_to": [
           "ok-statutes-justia",
           "ok-statutes-oscn"
@@ -104,9 +107,11 @@
           "Rule 4, Rules for District Courts of Oklahoma, 12 O.S. 2021, ch. 2, app.",
           "Rule 3.5(A)(5), Rules of the Oklahoma Court of Criminal Appeals, Title 22, Ch. 18, App. (2024)",
           "12 O.S. Supp. 2021, ch. 15, app. 1",
-          "22 O.S. 2021, Ch. 18, App."
+          "22 O.S. 2021, Ch. 18, App.",
+          "Rule 1.191, Okla. Sup. Ct. R.",
+          "Rule 13, Rules for District Courts of Oklahoma"
         ],
-        "regex": "(?:Okla\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Okla\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Okla\\.\\s*Ct\\.\\s*Crim\\.\\s*App\\.\\s*R\\.|Okla\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.|\\bORPC|\\bRGDP)\\s*(?P<rule>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9A-Za-z]+\\))*,\\s*(?P<set>(?:Oklahoma\\s+)?Supreme\\s+Court\\s+Rules,\\s*12\\s+O\\.\\s*S\\.|Oklahoma\\s+Supreme\\s+Court\\s+Rules|Oklahoma\\s+Rules\\s+of\\s+Professional\\s+Conduct|Rules\\s+Governing\\s+Disciplinary\\s+Proceedings,\\s*5\\s+O\\.\\s*S\\.|Rules\\s+for\\s+District\\s+Courts\\s+of\\s+Oklahoma|Rules\\s+of\\s+the\\s+(?:Oklahoma\\s+)?Court\\s+of\\s+Criminal\\s+Appeals)|(?P<title>\\d{1,2})\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*[Cc]h\\.\\s*(?P<chapter>\\d{1,3}),\\s*[Aa]pp\\.\\s*(?P<app>\\d{1,2}(?:-[A-Z])?)?",
+        "regex": "(?:Okla\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Okla\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Okla\\.\\s*Ct\\.\\s*Crim\\.\\s*App\\.\\s*R\\.|Okla\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.|\\bORPC|\\bRGDP)\\s*(?P<rule>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9A-Za-z]+\\))*,\\s*(?P<set>(?:Oklahoma\\s+)?Supreme\\s+Court\\s+Rules,\\s*12\\s+O\\.\\s*S\\.|Oklahoma\\s+Supreme\\s+Court\\s+Rules|Oklahoma\\s+Rules\\s+of\\s+Professional\\s+Conduct|Rules\\s+Governing\\s+Disciplinary\\s+Proceedings,\\s*5\\s+O\\.\\s*S\\.|Rules\\s+for\\s+District\\s+Courts\\s+of\\s+Oklahoma|Rules\\s+of\\s+the\\s+(?:Oklahoma\\s+)?Court\\s+of\\s+Criminal\\s+Appeals)|(?P<title>\\d{1,2})\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*[Cc]h\\.\\s*(?P<chapter>\\d{1,3}),\\s*[Aa]pp\\.\\s*(?P<app>\\d{1,2}(?:-[A-Z])?)?|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9A-Za-z]+\\))*,\\s*(?:Okla\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Okla\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Okla\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.)",
         "routes_to": [
           "ok-rules-oscn"
         ],
@@ -118,9 +123,10 @@
         "examples": [
           "12 O.S. § 2012(B)(6)",
           "12 O.S.2021 § 2702",
-          "12 O.S. § 3226(B)(1)"
+          "12 O.S. § 3226(B)(1)",
+          "12 Okl.St.Ann. § 2012"
         ],
-        "regex": "(?P<title>12)\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*§\\s*(?P<section>[23]\\d{3}(?:\\.\\d{1,2})?)(?!\\d)",
+        "regex": "(?P<title>12)\\s+(?:O\\.\\s*S\\.|Okla?\\.\\s*St(?:at)?\\.\\s*(?:Ann\\.)?)\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*§\\s*(?P<section>[23]\\d{3}(?:\\.\\d{1,2})?)(?!\\d)",
         "routes_to": [
           "ok-rules-justia",
           "ok-statutes-oscn"
@@ -335,7 +341,7 @@
       "Okla. R. Prof'l Conduct": "ORPC",
       "RGDP": "RGDP"
     },
-    "notes": "Oklahoma style: '12 O.S.2021 § 2012(B)(6)' (edition year glued to O.S.), '12 O.S. Supp. 2024 § 3226'; Bluebook 'Okla. Stat. tit. 12, § 95'; West 'Okl.St.Ann.'. Statute sections may be dotted (701.7) or hyphenated (63 O.S. § 1-705, 10A O.S. § 1-1-105): a single § keeps hyphens; after §§ only the first number is taken, so '§§ 2001-2027' reads as 2001. Civil procedure and evidence are statutes (Pleading Code 12 O.S. §§ 2001-2027, Evidence Code §§ 2101-3009), routed by the 'Pleading Code / Evidence Code' pattern as well. Court rules are cited as statute appendices ('Rule 1.36, Oklahoma Supreme Court Rules, 12 O.S. Supp. 2021, ch. 15, app. 1'; ORPC 5 O.S. ch. 1, app. 3-A; RGDP app. 1-A; OCCA Rules 22 O.S. ch. 18, app.); bare 'Rule 1.36' is context_required. Public-domain citations: 'YYYY OK N' (Supreme Court), 'YYYY OK CIV APP N', 'YYYY OK CR N', 'YYYY OK AG N' (AG opinions), pinpoint by ¶; mandatory since 1997 and assigned retroactively on OSCN (from memory). COCA neutral-citation year is the publication year and may follow the decision year. Bare P.2d/P.3d cites, bare dockets (OCCA F-/C-/S-/RE-/PC-YYYY-N, Supreme Court 'No. 121,610', SCBD-N) and 'cert. denied' are context_required. OAC colon form '165:10-3-1' is distinctive only with 'OAC'/'Okla. Admin. Code'; the bare form is context_required (New Jersey N.J.A.C. also uses a colon). Known conflict: Ohio's OAC pattern (\\bO.?A.?C.?\\s+NNN:NN-N-N) also claims 'OAC 165:10-3-1' — fix belongs in oh.json (Ohio colon rules have 4-digit agency numbers). CourtListener ids from memory, unverified."
+    "notes": "Oklahoma style: '12 O.S.2021 § 2012(B)(6)' (edition year glued to O.S.), '12 O.S. Supp. 2024 § 3226'; Bluebook 'Okla. Stat. tit. 12, § 95'; West 'Okl.St.Ann.'. Statute sections may be dotted (701.7) or hyphenated (63 O.S. § 1-705, 10A O.S. § 1-1-105): a single § keeps hyphens; after §§ only the first number is taken, so '§§ 2001-2027' reads as 2001. Civil procedure and evidence are statutes (Pleading Code 12 O.S. §§ 2001-2027, Evidence Code §§ 2101-3009), routed by the 'Pleading Code / Evidence Code' pattern as well. Court rules are cited as statute appendices ('Rule 1.36, Oklahoma Supreme Court Rules, 12 O.S. Supp. 2021, ch. 15, app. 1'; ORPC 5 O.S. ch. 1, app. 3-A; RGDP app. 1-A; OCCA Rules 22 O.S. ch. 18, app.); bare 'Rule 1.36' is context_required. Public-domain citations: 'YYYY OK N' (Supreme Court), 'YYYY OK CIV APP N', 'YYYY OK CR N', 'YYYY OK AG N' (AG opinions), pinpoint by ¶; mandatory since 1997 and assigned retroactively on OSCN (from memory). COCA neutral-citation year is the publication year and may follow the decision year. Bare P.2d/P.3d cites, bare dockets (OCCA F-/C-/S-/RE-/PC-YYYY-N, Supreme Court 'No. 121,610', SCBD-N) and 'cert. denied' are context_required. OAC colon form '165:10-3-1' is distinctive only with 'OAC'/'Okla. Admin. Code'; the bare form is context_required (New Jersey N.J.A.C. also uses a colon). The earlier clash with Ohio's bare 'OAC …' pattern was fixed in oh.json (now context_required). CourtListener ids from memory, unverified. Trailing-marker rule cites ('Rule 1.191, Okla. Sup. Ct. R.') and prose '§ 701.7 of Title 21 of the Oklahoma Statutes' are covered (independent regex tests 2026-10-17)."
   },
   "sources": [
     {
@@ -356,16 +362,16 @@
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "blocked",
-        "shell": "blocked-challenge",
-        "robots_txt": "/robots.txt answered with an 'OSCN Turnstile' Cloudflare challenge page (2026-10-17); fetch_doc.py had cached it earlier as 'ok, no rules'.",
-        "notes": "Bot wall is intermittent: first script reads returned body text, then a CAPTCHA interstitial. Host treated as off for automated access. "
+        "shell": "blocked-robots",
+        "robots_txt": "User-agent: * Disallow: / (fetch_doc.py, 2026-10-17). Earlier the same day robots.txt served an 'OSCN Turnstile' Cloudflare challenge instead (history).",
+        "notes": "Blocked for every route by robots Disallow: /. History: before that, fetch_doc.py read three statute pages, then received a Turnstile interstitial ('verify they are human'), and WebFetch returned ROBOTS_DISALLOWED. "
       },
       "currency": {
         "where": "'Cite as:' line under the section heading",
         "observed": "Cite as: 21 O.S. § 701.7 (OSCN 2026)"
       },
       "hazards": [
-        "Turnstile bot wall (intermittent): never retry another route",
+        "robots.txt Disallow: / — blocked for every route, fetch tool included",
         "CiteIDs opaque: index hop required",
         "Citationizer table of citing cases follows the 'Historical Data' line on the same page: stop quoting there",
         "superseded versions are separate documents ('superseded document available')"
@@ -380,7 +386,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Before the wall: fetch_doc.py 15,447 chars, 'A. Civil actions other than for the recovery of real property'; § 2012 38,320 chars; 21 O.S. § 701.7 39,947 chars. Then OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt."
+        "evidence": "Before the wall: fetch_doc.py 15,447 chars, 'A. Civil actions other than for the recovery of real property'; § 2012 38,320 chars; 21 O.S. § 701.7 39,947 chars. Then OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check DeliverDocument.asp?CiteID=439150: REFUSED robots.txt 'Disallow: /'"
       },
       "notes": "If the wall lifts, this is the best tier-1 statute route (complete, current, with history). The site is also the only free official host of the court rules appendices and dockets."
     },
@@ -422,7 +428,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: REFUSED robots.txt disallows /OK_Statutes/CompleteTitles/os12.pdf (Disallow: /*.pdf$); osstatuestitle.html and os12.rtf refused (Disallow: /)."
+        "evidence": "fetch_doc.py: REFUSED robots.txt disallows /OK_Statutes/CompleteTitles/os12.pdf (Disallow: /*.pdf$); osstatuestitle.html and os12.rtf refused (Disallow: /). | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check: REFUSED os12.pdf (Disallow: /*.pdf$); osstatuestitle.html REFUSED (Disallow: /)"
       }
     },
     {
@@ -437,7 +443,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/oklahoma/title-{title}/section-{title}-{section_dashed}/",
-        "pattern_rules": "{title} as cited, lower-case letter suffix assumed for 10A etc. (untested); {section_dashed} = section with dots and hyphens both as '-': 12 O.S. § 95 -> title-12/section-12-95/ ; 21 O.S. § 701.7 -> title-21/section-21-701-7/ ; 12 O.S. § 2012 -> title-12/section-12-2012/. Hyphenated sections (63 O.S. § 1-705) would collide with dotted ones in this scheme: confirm on the title index https://law.justia.com/codes/oklahoma/title-{title}/.",
+        "pattern_rules": "{title} as cited, lower-case (10A -> title-10a); {section_dashed} = section with dots and hyphens both as '-': 12 O.S. § 95 -> title-12/section-12-95/ ; 21 O.S. § 701.7 -> title-21/section-21-701-7/ ; 47 O.S. § 11-902 -> title-47/section-47-11-902/ ; 10A O.S. § 1-1-105 -> title-10a/section-10a-1-1-105/ (both tested independently). If the page says 'See the following versions' (no text), follow its link to the 2024 edition /codes/oklahoma/2024/title-{title}/section-{title}-{section_dashed}/ and disclose the 2024 edition. Title index: https://law.justia.com/codes/oklahoma/title-{title}/.",
         "index_url": "https://law.justia.com/codes/oklahoma/2025/",
         "format": "html"
       },
@@ -455,8 +461,9 @@
       "hazards": [
         "tier 2: disclose with the '2025' edition string",
         "may lag session laws effective after the snapshot",
-        "dotted vs hyphenated section slugs (701.7 and 1-705 both use '-'): confirm on the title index",
-        "script route refused (bot check)"
+        "script route refused (bot check)",
+        "2025 version index: a section amended by more than one 2025 act (47 O.S. § 11-902, 10A O.S. § 1-1-105) has a 2025 page 'See the following versions' listing unlinked versions with NO text; follow the page's link to the 2024 edition (/codes/oklahoma/2024/title-{title}/section-...) and disclose '2024 edition; 2025 amendments not reflected' with any quote",
+        "dotted and hyphenated sections share the '-' slug form (701.7 -> 701-7, 11-902 -> 11-902): confirm on the title index if both could exist"
       ],
       "probe": {
         "citation": "12 O.S. § 95",
@@ -466,9 +473,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, 'A. Civil actions other than for the recovery of real property'; '2025 Oklahoma Statutes'; not truncated. Second: built /title-21/section-21-701-7/: YES 'A person commits murder in the first degree when that'; third /title-12/section-12-2012/ subsection B 'Every defense, in law or fact, to a claim for'."
+        "evidence": "WebFetch: YES, 'A. Civil actions other than for the recovery of real property'; '2025 Oklahoma Statutes'; not truncated. Second: built /title-21/section-21-701-7/: YES 'A person commits murder in the first degree when that'; third /title-12/section-12-2012/ subsection B 'Every defense, in law or fact, to a claim for'. | Independent check 2026-10-17: WebFetch YES 'A. Civil actions other than for the recovery of real property'; '2025 Oklahoma Statutes'; not truncated"
       }
     },
     {
@@ -489,16 +496,16 @@
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "blocked",
-        "shell": "blocked-challenge",
-        "robots_txt": "/robots.txt answered with an 'OSCN Turnstile' Cloudflare challenge page (2026-10-17); fetch_doc.py had cached it earlier as 'ok, no rules'.",
-        "notes": "Bot wall is intermittent: first script reads returned body text, then a CAPTCHA interstitial. Host treated as off for automated access. "
+        "shell": "blocked-robots",
+        "robots_txt": "User-agent: * Disallow: / (fetch_doc.py, 2026-10-17). Earlier the same day robots.txt served an 'OSCN Turnstile' Cloudflare challenge instead (history).",
+        "notes": "Blocked for every route by robots Disallow: /. History: before that, fetch_doc.py read three statute pages, then received a Turnstile interstitial ('verify they are human'), and WebFetch returned ROBOTS_DISALLOWED. "
       },
       "currency": {
         "where": "n/a",
         "observed": "n/a"
       },
       "hazards": [
-        "Turnstile bot wall"
+        "robots.txt Disallow: / — blocked for every route, fetch tool included"
       ],
       "probe": {
         "citation": "Okla. Const. art. 2, § 7",
@@ -510,8 +517,9 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch (URL taken from oklahoma.gov/libraries page): ROBOTS_DISALLOWED. OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt."
-      }
+        "evidence": "WebFetch (URL taken from oklahoma.gov/libraries page): ROBOTS_DISALLOWED. OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check index.asp?level=1&ftdb=STOKCN: REFUSED (rule: Disallow: /)"
+      },
+      "notes": ""
     },
     {
       "id": "ok-constitution-senate",
@@ -544,7 +552,8 @@
         "may omit amendments adopted after Jan 2022 (no currency statement): check the section's history note against later State Questions",
         "per-article PDFs older (Dec 2019)",
         "table of contents repeats every heading: skip to the body match",
-        "file paths contain upload-month folders (2019-12, 2022-01): a newer upload would have a new path"
+        "file paths contain upload-month folders (2019-12, 2022-01): a newer upload would have a new path",
+        "probe responses may come from fetch_doc.py's one-day cache: use --max-age 0 for a fresh download when currency matters"
       ],
       "probe": {
         "citation": "Okla. Const. art. 2, § 7",
@@ -554,9 +563,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: PDF 231 pp, 691,110 chars; 'SECTION II-7. Due process of law. No person shall be deprived of life' at p.14 (TOC match at p.1). Second: 'SECTION V-46. Local and special laws on certain subjects prohibited.' p.41; per-article oc2.pdf (13 pp) and oc5.pdf (19 pp) also read."
+        "evidence": "fetch_doc.py: PDF 231 pp, 691,110 chars; 'SECTION II-7. Due process of law. No person shall be deprived of life' at p.14 (TOC match at p.1). Second: 'SECTION V-46. Local and special laws on certain subjects prohibited.' p.41; per-article oc2.pdf (13 pp) and oc5.pdf (19 pp) also read. | Independent check 2026-10-17: fetch_doc grep: 231 pp; p.14 'SECTION II-7. Due process of law. No person shall be deprived' (cached today); second citation Okla. Const. art. 10, § 9A ok"
       }
     },
     {
@@ -571,7 +580,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/constitution/oklahoma/{article_roman}-{section}.html",
-        "pattern_rules": "Art. 2 § 7 -> II-7.html; Art. 5 § 46 -> V-46.html (upper-case Roman article). Lettered sections (10-9A) untested. Index: https://law.justia.com/constitution/oklahoma/",
+        "pattern_rules": "Art. 2 § 7 -> II-7.html; Art. 5 § 46 -> V-46.html; Art. 10 § 9A -> X-9A.html (upper-case Roman article; lettered sections tested). Index: https://law.justia.com/constitution/oklahoma/",
         "index_url": "https://law.justia.com/constitution/oklahoma/",
         "format": "html"
       },
@@ -587,8 +596,7 @@
         "observed": "This Constitution may not be the most recent version."
       },
       "hazards": [
-        "tier 2",
-        "lettered-section slugs untested"
+        "tier 2"
       ],
       "probe": {
         "citation": "Okla. Const. art. 2, § 7",
@@ -598,9 +606,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES 'No person shall be deprived of life, liberty, or property,'; not truncated. Second: built V-46.html YES 'The Legislature shall not, except as otherwise provided in this'."
+        "evidence": "WebFetch: YES 'No person shall be deprived of life, liberty, or property,'; not truncated. Second: built V-46.html YES 'The Legislature shall not, except as otherwise provided in this'. | Independent check 2026-10-17: WebFetch YES 'No person shall be deprived of life, liberty, or property,'; disclaimer 'may not be the most recent version'; second citation Okla. Const. art. 10, § 9A ok"
       }
     },
     {
@@ -621,16 +629,16 @@
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "blocked",
-        "shell": "blocked-challenge",
-        "robots_txt": "/robots.txt answered with an 'OSCN Turnstile' Cloudflare challenge page (2026-10-17); fetch_doc.py had cached it earlier as 'ok, no rules'.",
-        "notes": "Bot wall is intermittent: first script reads returned body text, then a CAPTCHA interstitial. Host treated as off for automated access. "
+        "shell": "blocked-robots",
+        "robots_txt": "User-agent: * Disallow: / (fetch_doc.py, 2026-10-17). Earlier the same day robots.txt served an 'OSCN Turnstile' Cloudflare challenge instead (history).",
+        "notes": "Blocked for every route by robots Disallow: /. History: before that, fetch_doc.py read three statute pages, then received a Turnstile interstitial ('verify they are human'), and WebFetch returned ROBOTS_DISALLOWED. "
       },
       "currency": {
         "where": "n/a",
         "observed": "n/a"
       },
       "hazards": [
-        "Turnstile bot wall",
+        "robots.txt Disallow: / — blocked for every route, fetch tool included",
         "appendix structure not verified"
       ],
       "probe": {
@@ -643,8 +651,9 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch on the Title 12 index: PROVENANCE_REQUIRED (gated) — then ROBOTS_DISALLOWED on other OSCN index pages. OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt."
-      }
+        "evidence": "WebFetch on the Title 12 index: PROVENANCE_REQUIRED (gated) — then ROBOTS_DISALLOWED on other OSCN index pages. OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check index.asp?ftdb=STOKST12&level=1: REFUSED (rule: Disallow: /)"
+      },
+      "notes": ""
     },
     {
       "id": "ok-rules-justia",
@@ -674,7 +683,8 @@
       },
       "hazards": [
         "tier 2",
-        "no Supreme Court / District Court / ORPC / OCCA rules"
+        "no Supreme Court / District Court / ORPC / OCCA rules",
+        "inherits the 2025 version-index gap from ok-statutes-justia: if the page lists versions without text, use the linked 2024 edition and disclose it"
       ],
       "probe": {
         "citation": "12 O.S. § 2012(B)",
@@ -684,9 +694,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, subsection B 'Every defense, in law or fact, to a claim for'; '2025 Oklahoma Statutes'; reaches history line. WebFetch on /codes/oklahoma/title-5/: no appendix or rules entries."
+        "evidence": "WebFetch: YES, subsection B 'Every defense, in law or fact, to a claim for'; '2025 Oklahoma Statutes'; reaches history line. WebFetch on /codes/oklahoma/title-5/: no appendix or rules entries. | Independent check 2026-10-17: WebFetch YES 'Every defense, in law or fact, to a claim for relief'; '2025 Oklahoma Statutes'; second citation 12 O.S. § 3226 ok"
       }
     },
     {
@@ -709,7 +719,7 @@
         "webfetch": "gated",
         "shell": "blocked-challenge",
         "robots_txt": "rules.ok.gov answers robots.txt with a bot check (fetch_doc.py)",
-        "notes": "WebFetch on https://rules.ok.gov (link taken from opers.ok.gov) held for approval and timed out."
+        "notes": "WebFetch on https://rules.ok.gov (link taken from opers.ok.gov) held for approval and timed out. Independent check: reached from the opers.ok.gov link, WebFetch was still gated; a future run should retry from that linking page with an approver present."
       },
       "currency": {
         "where": "n/a",
@@ -729,7 +739,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: REFUSED 'rules.ok.gov answers robots.txt with a bot check (challenge)'. WebFetch https://rules.ok.gov/ and https://rules.ok.gov: PROVENANCE_REQUIRED (not answered)."
+        "evidence": "fetch_doc.py: REFUSED 'rules.ok.gov answers robots.txt with a bot check (challenge)'. WebFetch https://rules.ok.gov/ and https://rules.ok.gov: PROVENANCE_REQUIRED (not answered). | Re-confirmed blocked 2026-10-17: WebFetch https://rules.ok.gov/: PROVENANCE_REQUIRED (approval timed out); fetch_doc check: REFUSED robots bot check"
       }
     },
     {
@@ -772,9 +782,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 12,620 chars; heading 'Okla. Admin. Code § 165:10-3-1 - Required approval of notice of intent to drill'; '(1) Except as provided in (I) of this Section'. Second: OAC-310-667-1-1 (2,512 chars) heading '§ 310:667-1-1 - Purpose', Notes 'Amended by Oklahoma Register, Volume 39, Issue 24'. Guessed slug Okla-Admin-Code-SS-310-667-1-1 returned the title list."
+        "evidence": "fetch_doc.py: 12,620 chars; heading 'Okla. Admin. Code § 165:10-3-1 - Required approval of notice of intent to drill'; '(1) Except as provided in (I) of this Section'. Second: OAC-310-667-1-1 (2,512 chars) heading '§ 310:667-1-1 - Purpose', Notes 'Amended by Oklahoma Register, Volume 39, Issue 24'. Guessed slug Okla-Admin-Code-SS-310-667-1-1 returned the title list. | Independent check 2026-10-17: fetch_doc grep: 12,620 chars; 'shall obtain for the well a Permit to Drill approved by the Conservation Division'; second citation OAC 252:100-1-3 ok"
       }
     },
     {
@@ -817,7 +827,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "As ok-oac-rules: fetch_doc.py REFUSED (robots.txt bot check); WebFetch PROVENANCE_REQUIRED."
+        "evidence": "As ok-oac-rules: fetch_doc.py REFUSED (robots.txt bot check); WebFetch PROVENANCE_REQUIRED. | Re-confirmed blocked 2026-10-17: Same host/probe as ok-oac-rules: WebFetch PROVENANCE_REQUIRED; fetch_doc REFUSED bot check"
       }
     },
     {
@@ -838,16 +848,16 @@
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "blocked",
-        "shell": "blocked-challenge",
-        "robots_txt": "/robots.txt answered with an 'OSCN Turnstile' Cloudflare challenge page (2026-10-17); fetch_doc.py had cached it earlier as 'ok, no rules'.",
-        "notes": "Bot wall is intermittent: first script reads returned body text, then a CAPTCHA interstitial. Host treated as off for automated access. "
+        "shell": "blocked-robots",
+        "robots_txt": "User-agent: * Disallow: / (fetch_doc.py, 2026-10-17). Earlier the same day robots.txt served an 'OSCN Turnstile' Cloudflare challenge instead (history).",
+        "notes": "Blocked for every route by robots Disallow: /. History: before that, fetch_doc.py read three statute pages, then received a Turnstile interstitial ('verify they are human'), and WebFetch returned ROBOTS_DISALLOWED. "
       },
       "currency": {
         "where": "n/a",
         "observed": "n/a"
       },
       "hazards": [
-        "Turnstile bot wall"
+        "robots.txt Disallow: / — blocked for every route, fetch tool included"
       ],
       "probe": {
         "citation": "In re J.O., 2024 OK 82",
@@ -859,8 +869,9 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt."
-      }
+        "evidence": "OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check https://www.oscn.net/: REFUSED (rule: Disallow: /)"
+      },
+      "notes": ""
     },
     {
       "id": "ok-cases-justia",
@@ -892,7 +903,9 @@
         "tier 2",
         "slug not constructible (docket vs citation forms)",
         "COCA neutral-citation year may differ from listing year",
-        "¶ pinpoints are the official pinpoint form; no P.3d page numbers"
+        "¶ pinpoints are the official pinpoint form; no P.3d page numbers",
+        "case-name typos in Justia headers (OCCA 2025 OK CR 25: header 'NAPOLEAN', opinion 'Napoleon'): take the name from the opinion body",
+        "some Supreme Court pages carry 'NOT RELEASED FOR PUBLICATION' (2024 OK 82): check release status before relying on or quoting as final"
       ],
       "probe": {
         "citation": "In re J.O., 2024 OK 82",
@@ -902,9 +915,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES 'The State of Oklahoma moved to terminate Father's (Parker) parental rights.'; ¶ numbers present; not truncated. Second: Jimenez v. State, 2024 OK CR 33 (court-of-appeals-criminal/2024/c-2023-951.html) 'On January 9, 2023, Petitioner, Luis Jimenez, entered a semi-blind plea'; third: 2025 OK CIV APP 8 (court-of-appeals-civil/2024/121092.html) 'Mandate Issued: 03/27/2025', ¶1-¶36."
+        "evidence": "WebFetch: YES 'The State of Oklahoma moved to terminate Father's (Parker) parental rights.'; ¶ numbers present; not truncated. Second: Jimenez v. State, 2024 OK CR 33 (court-of-appeals-criminal/2024/c-2023-951.html) 'On January 9, 2023, Petitioner, Luis Jimenez, entered a semi-blind plea'; third: 2025 OK CIV APP 8 (court-of-appeals-civil/2024/121092.html) 'Mandate Issued: 03/27/2025', ¶1-¶36. | Independent check 2026-10-17: WebFetch YES 'The State of Oklahoma moved to terminate Father's (Parker) parental rights.'; ¶1-¶19; 2024 OK 82; second citation Napolean v. State, 2025 OK CR 25 (F-2024-123, Dec. 18, 2025) ok"
       }
     },
     {
@@ -925,16 +938,16 @@
       "text": "link-only",
       "automation": {
         "webfetch": "blocked",
-        "shell": "blocked-challenge",
-        "robots_txt": "/robots.txt answered with an 'OSCN Turnstile' Cloudflare challenge page (2026-10-17); fetch_doc.py had cached it earlier as 'ok, no rules'.",
-        "notes": "Bot wall is intermittent: first script reads returned body text, then a CAPTCHA interstitial. Host treated as off for automated access. Docket paths not probed after the wall appeared."
+        "shell": "blocked-robots",
+        "robots_txt": "User-agent: * Disallow: / (fetch_doc.py, 2026-10-17). Earlier the same day robots.txt served an 'OSCN Turnstile' Cloudflare challenge instead (history).",
+        "notes": "Blocked for every route by robots Disallow: /. History: before that, fetch_doc.py read three statute pages, then received a Turnstile interstitial ('verify they are human'), and WebFetch returned ROBOTS_DISALLOWED. Docket paths never probed."
       },
       "currency": {
         "where": "n/a",
         "observed": "n/a"
       },
       "hazards": [
-        "Turnstile bot wall"
+        "robots.txt Disallow: / — blocked for every route, fetch tool included"
       ],
       "probe": {
         "citation": "No. 121,092 (cert. history)",
@@ -946,8 +959,9 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Host-wide: OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt."
-      }
+        "evidence": "Host-wide: OSCN Turnstile (Cloudflare) wall: fetch_doc.py read 12 O.S. §§ 95, 2012 and 21 O.S. § 701.7 at 10:31-10:32, then got a 444-char page 'verify they are human' for the Title 23 index (10:31:47; not detected by fetch_doc.py's phrase list); robots.txt itself now serves 'OSCN Turnstile' (curl read of robots.txt only); WebFetch: ROBOTS_DISALLOWED on index.asp STOKCN and STOKST74 and on /robots.txt. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check https://www.oscn.net/: REFUSED (rule: Disallow: /)"
+      },
+      "notes": ""
     },
     {
       "id": "ok-history-justia",
@@ -1030,12 +1044,11 @@
     }
   ],
   "open_questions": [
-    "OSCN Turnstile wall: re-test on another day whether oscn.net (statutes, constitution, court rules, opinions, dockets) and its robots.txt are reachable; if so, re-research every ok-*-oscn row.",
-    "fetch_doc.py did not recognise the OSCN interstitial ('verify they are human', title 'OSCN Turnstile', 444 chars) as a bot wall: add these phrases to the challenge detector in scripts/lsnet.py.",
+    "OSCN robots Disallow: / (earlier a Turnstile wall): re-test on another day whether oscn.net (statutes, constitution, court rules, opinions, dockets) and its robots.txt are reachable; if so, re-research every ok-*-oscn row.",
     "rules.ok.gov (OAC and Oklahoma Register): WebFetch was gated; test whether it reads the site, whether it is a JS app, and whether the Register is browsable.",
     "oklahoma.public.law: robots.txt unreachable (proxy 502) — existence of a public.law Oklahoma edition unconfirmed.",
-    "Justia statute slugs for hyphenated sections (63 O.S. § 1-705) and letter-suffix titles (10A) untested; Justia constitution lettered sections untested.",
     "Does Justia ever show certiorari dispositions for COCA opinions? Only one page checked.",
-    "Senate constitution PDF currency: check for amendments adopted after Jan 2022."
+    "Senate constitution PDF currency: check for amendments adopted after Jan 2022.",
+    "Justia 2025 version-index pages (multiple 2025 amendments) carry no text: is there any free reachable source of the current text for such sections while OSCN is robots-blocked?"
   ]
 }
