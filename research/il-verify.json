@@ -1,0 +1,209 @@
+{
+ "jurisdiction": "il",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "il-ilcs-ilga",
+   "outcome": "still-blocked",
+   "probe_evidence": "WebFetch ROBOTS_DISALLOWED on ilcs3.asp?ActID=2017&ChapterID=56",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": "Verifier note: a fetch_doc.py `check` (no download) was also run once in error; it reported TLS chain failure, consistent with the record."
+  },
+  {
+   "id": "il-ilcs-justia",
+   "outcome": "discrepancy",
+   "probe_evidence": "YES: 'Unfair methods of competition and unfair or deceptive acts or'; '2025 Illinois Compiled Statutes'",
+   "generalised_citation": "625 ILCS 5/11-501",
+   "generalised_url": "https://law.justia.com/codes/illinois/chapter-625/act-625-ilcs-5/chapter-11/",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Pattern assumes large acts split into article-{roman}; the Vehicle Code (625 ILCS 5) uses chapter-{n} slugs (chapter-11, chapter-13c, chapter-18a), so a constructed article-xi URL is wrong. Worse, the Chapter 11 page (125,332 chars) ends mid-sentence at 11-212 even with offset=100000, so 11-501 (DUI) is unreachable, the same truncation as 735 ILCS 5 Art. II after 2-622. Justia truncates any long subdivision page; many heavily cited sections are not reachable.",
+   "suggested_fix": "Make the access mode index-anchored: fetch the act page and follow its subdivision link (article-* or chapter-*), never construct the slug. Add a hazard saying Justia subdivision pages stop at about 125K chars (seen: 735 ILCS 5 Art. II after 2-622; 625 ILCS 5 Ch. 11 after 11-212), and say a section past the cut has no free source here."
+  },
+  {
+   "id": "il-constitution-ilga",
+   "outcome": "still-blocked",
+   "probe_evidence": "WebFetch ROBOTS_DISALLOWED on ilga.gov/commission/lrb/conmain.htm",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "il-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "YES: 'No person shall be deprived of life, liberty or property'; disclaimer matches; ends § 24",
+   "generalised_citation": "Ill. Const. 1970, art. VI, § 4(b)",
+   "generalised_url": "https://law.justia.com/constitution/illinois/con6.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Confirmed: Art. I page still ends at § 24 (no § 25), so the stale-text hazard stands."
+  },
+  {
+   "id": "il-rules-appellate-local",
+   "outcome": "confirmed",
+   "probe_evidence": "Index lists 'View Rules' for Districts 1-5 and WC; direct blob PDF links",
+   "generalised_citation": "",
+   "generalised_url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/3fdb89b1-bef9-4b47-bea9-ce036e129415/Local%20Rules%201st.pdf",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Row has no probe and says 'not fetched'. The index is reachable and links go straight to blob PDFs (no /file hop). fetch_doc.py info read Local Rules 1st (31 pp., Last-Modified May 18, 2026).",
+   "suggested_fix": "Record the index as reachable, give the per-district blob PDF links and a probe (First District Local Rules), and consider promoting the row after a quote probe. Note the separate First District Local Order PDF."
+  },
+  {
+   "id": "il-rules-evidence",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES: '“Relevant evidence” means evidence having any tendency'; history line matches",
+   "generalised_citation": "Ill. R. Evid. 803(18)",
+   "generalised_url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/a7d180dd-943e-4b8e-882d-02a4b3afd7bb/Evid.%20Rule%20803.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "(1) The script route now WORKS: fetch_doc.py --research grep reached the text through the blob URL and through www.illinoiscourts.gov/resources/{guid}/file, following the 302, for Rules 401 and 803. The record's 'fetch_doc.py refused' and the 'script route refused' hazard are out of date. (2) The probe expect string drops the curly quotes ('“Relevant evidence” means'). An exact script grep or verify of the expect string returns 0 matches. (3) Confirmed: the Rule 803 index href has a stray space before /file ('a7d180dd-… /file'); its status cell reads 'Amended Jan. 25, 2023, eff. immediately'.",
+   "suggested_fix": "Add the script route before the fetch tool and remove the refusal hazard and read_via note. Change the expect string to 'means evidence having any tendency to make the existence of any fact'."
+  },
+  {
+   "id": "il-rules-supreme",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES: 'An order entered under subpart (b) or (c) of this rule'; 'amended June 3, 2025, eff. immediately.'",
+   "generalised_citation": "Ill. R. Prof'l Conduct (2010) R. 1.5(a)",
+   "generalised_url": "https://www.illinoiscourts.gov/resources/ce9cba94-4700-49ed-9183-a43cfcd0c3a5/file",
+   "generalised_outcome": "ok",
+   "instruction_problems": "(1) WebFetch cannot reach the Article VIII (RPC) rows of the index. WebFetch reports the index text as 105,662 chars. Window 1 ends at Article V ('Rules 506 to 525'), offset=100000 covers only Rules 526-573, and offset 150000 is beyond the end. The record's advice to use offset=100000 for RPC 1.7 (~char 107,900) uses fetch_doc.py text offsets, not WebFetch offsets, and fails. The raw HTML is 776,592 bytes and appears to be cut before conversion. A fetch-tool-only run cannot find the RPC 1.5 guid (or other Article VI-XI guids). (2) The script route now WORKS: fetch_doc.py --research reached the index (145,695 chars, all rows), Rule 23 via its blob URL, and RPC 1.5 via /resources/ce9cba94-…/file, following the 302 to 'RULE%201.5.pdf'. The RPC 1.5 text began 'A lawyer shall not make an agreement for, charge, or collect'.",
+   "suggested_fix": "Make the order script → fetch tool. Say Article VI-XI rows (including RPC) are reachable only through fetch_doc.py read or grep on the index; WebFetch stops at about Rule 573. Remove the 'script route refused on the PDF host' hazard and the corpus-candidate claim that ingest is blocked."
+  },
+  {
+   "id": "il-admincode-jcar",
+   "outcome": "still-blocked",
+   "probe_evidence": "WebFetch ROBOTS_DISALLOWED on www.ilga.gov/agencies/JCAR/AdminCode",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "il-admincode-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "YES: 'This Part sets forth the rules generally applicable to proceedings'; 43 Ill. Reg. 9674",
+   "generalised_citation": "23 Ill. Adm. Code 226.10",
+   "generalised_url": "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-226.10",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "Both routes worked. WebFetch gave the heading '§ 226.10 - Purpose' and 'Amended at 40 Ill. Reg. 2220'. The script grep matched 'This Part establishes the requirements' (Last-Modified Aug 1, 2025)."
+  },
+  {
+   "id": "il-register-sos",
+   "outcome": "still-blocked",
+   "probe_evidence": "WebFetch ROBOTS_DISALLOWED on volume50 issue_40 PDF",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "il-opinions-courts",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES: ¶ 1 'Plaintiff Mary Rehfield filed a two-count amended complaint'; Official Reports header; ¶ 70",
+   "generalised_citation": "People v. Scott, 2026 IL App (4th) 241597 (No. 4-24-1597, filed Oct. 16, 2026)",
+   "generalised_url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e014bd0c-d13e-409e-b36e-38d6f21de803/People%20v.%20Scott%202026%20IL%20App%20(4th)%20241597.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "(1) The script route now WORKS. fetch_doc.py --research grep reached the Rehfield blob PDF (¶ 1 matched) and People v. Scott through three link forms: the blob URL, /resources/{guid}/file, and the RSS link /resources/{guid}/{name}.pdf (encode spaces as %20), all after the 302. It also read both RSS feeds. The 'fetch_doc.py REFUSED' text is out of date. (2) RSS links are /resources/{guid}/{Case name citation}.pdf (with raw spaces), not /resources/{guid}/file as the pattern says. (3) Scott (slip, 46 pp.) has no 'Illinois Official Reports' header, as described. Its pages show only '- N -' markers, with the docket in the caption, not a running header. WebFetch gave Location on the /file 302, as documented.",
+   "suggested_fix": "Order script → fetch tool. Remove the refusal hazard and read_via text. Document the RSS link form and say to percent-encode spaces. Say running headers vary by opinion."
+  },
+  {
+   "id": "il-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "YES: ¶ 1 'Plaintiff Mary Rehfield filed a two-count amended complaint against defendant,'; ¶ 70, complete",
+   "generalised_citation": "People v. Scott, 2026 IL App (4th) 241597",
+   "generalised_url": "https://law.justia.com/cases/illinois/court-of-appeals-fourth-appellate-district/2026/4-24-1597.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": "The Fourth District slug and the docket mapping work, and the opinion was on Justia on its filing day (¶¶ 1-154 complete)."
+  },
+  {
+   "id": "il-subsequent-history-pla",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES: heading present; first entry '131298 - People State of Illinois, petitioner, v. Terry T. Collins'",
+   "generalised_citation": "PLA list Sept. 28, 2026, entry for appellate No. 5-25-0391 (People v. Beneway, 132193)",
+   "generalised_url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/73a0e883-a0d0-4ef5-9f1f-c9ae8c6b8f7a/September%2028%202026.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "(1) The script route now WORKS on the blob PDFs (Sept. 30, 25 and 28 lists, exit 0). The record's 'fetch_doc.py refused' is out of date. (2) The heading is singular on one-case lists: Sept. 25, 2026 reads 'THE FOLLOWING CASE ... WAS DISPOSED OF'. An exact match on the plural expect string fails there. (3) Appellate dockets can carry a suffix ('1-26-0690B, 1-26-0691B'). A search for the plain docket still finds them as a substring, but the citation-map docket regex does not.",
+   "suggested_fix": "Order script → fetch tool. Note the singular heading and the B docket suffix."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "750 ILCS 5/602.7(b)",
+   "matched_label": "Illinois Compiled Statutes (ILCS)",
+   "expected_label": "Illinois Compiled Statutes (ILCS)"
+  },
+  {
+   "citation": "section 12-610 of the Code of Civil Procedure",
+   "matched_label": "Illinois Compiled Statutes (ILCS)",
+   "expected_label": "Illinois Compiled Statutes (ILCS)"
+  },
+  {
+   "citation": "section 2 of the Wrongful Death Act (740 ILCS 180/2)",
+   "matched_label": "Illinois Compiled Statutes (ILCS)",
+   "expected_label": "Illinois Compiled Statutes (ILCS)"
+  },
+  {
+   "citation": "section 2 of the Wrongful Death Act",
+   "matched_label": null,
+   "expected_label": "Illinois Compiled Statutes (ILCS)"
+  },
+  {
+   "citation": "article VI, section 6 of the Illinois Constitution",
+   "matched_label": "Illinois Constitution of 1970",
+   "expected_label": "Illinois Constitution of 1970"
+  },
+  {
+   "citation": "Ill. S. Ct. R. 341(h)(7) (eff. Oct. 1, 2020)",
+   "matched_label": "Illinois Supreme Court Rules",
+   "expected_label": "Illinois Supreme Court Rules"
+  },
+  {
+   "citation": "Ill. R. Prof'l Conduct (2010) R. 8.4(c) (eff. Jan. 1, 2010)",
+   "matched_label": "Illinois Rules of Professional Conduct of 2010",
+   "expected_label": "Illinois Rules of Professional Conduct of 2010"
+  },
+  {
+   "citation": "Ill. R. Evid. 803(18) (eff. Jan. 25, 2023)",
+   "matched_label": "Illinois Rules of Evidence",
+   "expected_label": "Illinois Rules of Evidence"
+  },
+  {
+   "citation": "People v. Smith, 2019 IL App (3d) 160494-U, ¶ 18",
+   "matched_label": "Public-domain citations (Ill. S. Ct. R. 6, from July 1, 2011)",
+   "expected_label": "Public-domain citations (Ill. S. Ct. R. 6, from July 1, 2011)"
+  },
+  {
+   "citation": "People v. Cunningham, 212 Ill. 2d 274, 280 (2004)",
+   "matched_label": "Reporter citations (Ill. 2d, Ill. App. 3d, Ill. Dec., N.E. with Illinois parenthetical)",
+   "expected_label": "Reporter citations (Ill. 2d, Ill. App. 3d, Ill. Dec., N.E. with Illinois parenthetical)"
+  },
+  {
+   "citation": "50 Ill. Adm. Code 2001.10",
+   "matched_label": "Illinois Administrative Code",
+   "expected_label": "Illinois Administrative Code"
+  },
+  {
+   "citation": "No. 1-26-0690B",
+   "matched_label": null,
+   "expected_label": "Appellate Court docket numbers"
+  },
+  {
+   "citation": "Ill. Rev. Stat. 1991, ch. 110, par. 2-619",
+   "matched_label": null,
+   "expected_label": "null (no route expected)"
+  },
+  {
+   "citation": "Ind. Code § 34-11-2-4 and 852 N.E.2d 1 (Ind. 2006)",
+   "matched_label": null,
+   "expected_label": "null (no route expected)"
+  }
+ ],
+ "overall": "Probes held: all 8 VERIFIED rows reproduced, 4 BLOCKED rows still refuse WebFetch, and the REPORTED local-rules index is reachable. The main change is the updated fetch_doc.py: it now reads every ilcourtsaudio blob PDF, including through illinoiscourts.gov /resources/{guid}/file and RSS .pdf links, so every 'script refused' statement for rules, evidence, opinions and PLA lists is out of date. Serious problems: (1) WebFetch cannot see Supreme Court Rules index rows past about Rule 573, so RPC guids need the script, and the offset=100000 advice is wrong. (2) Justia ILCS article-{roman} slugs are wrong for chapter-structured acts (Vehicle Code), and long subdivision pages truncate (625 ILCS 5/11-501 unreachable). Regex misses: prose acts not in the list (Wrongful Death Act) and B-suffixed dockets."
+}
