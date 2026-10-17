@@ -1,0 +1,1555 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "ma",
+  "name": "Massachusetts",
+  "compiled": "2026-10-16",
+  "summary": "Statutes: malegislature.gov General Laws (unofficial) are constructible from chapter and section alone, because /Laws/GeneralLaws/Chapter{c}/Section{s} redirects to the Part/Title URL. A public JSON API (/api/Chapters/{c}/Sections/{s}) returns the same text, and Justia 2025 is the tier-2 fallback. The Constitution is a single 357K-character page that WebFetch cannot read past the early Amendments; fetch_doc.py reads all of it. Court rules and the Guide to Evidence have per-rule pages on mass.gov (index-anchored slugs that drop the decimal point) plus full-set PDFs (corpus candidates). CMR chapters are mass.gov PDFs (unofficial), with LII as a constructible tier-2 source. Case law: mass.gov carries only recent slip opinions; 128archive.com (Reporter of Decisions) has a GET search of Rule 23.0 decisions since 2008; Justia is the free route for older opinions. No free official Mass. Reports pagination exists. The FAR docket host (ma-appellatecourts.org) refuses automated access.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Judicial Court of Massachusetts",
+        "courtlistener_id": "mass",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Mass.",
+        "reporters": [
+          "Mass.",
+          "N.E.3d",
+          "N.E.2d",
+          "N.E."
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Massachusetts Appeals Court",
+        "courtlistener_id": "massappct",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Mass. App. Ct.",
+        "reporters": [
+          "Mass. App. Ct.",
+          "N.E.3d",
+          "N.E.2d"
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Massachusetts General Laws",
+        "examples": [
+          "G. L. c. 93A, § 9",
+          "G.L. c. 93A, § 9(3)",
+          "M.G.L. c. 231, § 85",
+          "MGL c. 151B § 4",
+          "Mass. Gen. Laws ch. 93A, § 9",
+          "Mass. Gen. Laws Ann. ch. 265, § 13A",
+          "ALM GL ch. 149, § 148",
+          "G. L. c. 231, §§ 60B-60E",
+          "section 9 of chapter 93A of the General Laws",
+          "chapter 231, section 85 of the General Laws"
+        ],
+        "regex": "(?:(?:M\\.\\s?G\\.\\s?L\\.?|MGL|G\\.\\s?L\\.|ALM\\s+GL|Mass\\.\\s*Gen\\.\\s*Laws(?:\\s+Ann\\.)?|Mass\\.\\s*Ann\\.\\s*Laws)\\s*(?:c|ch|chapter)\\.?\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\s*,?\\s*(?:§§?|s\\.|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,3}[A-Z]{0,3}(?:½|1/2)?)|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d{1,3}[A-Z]{0,3})(?:\\([a-z0-9]+\\))*\\s+of\\s+chapter\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2}),?\\s+(?:sec(?:tion|\\.)|§)\\s*(?P<section3>\\d{1,3}[A-Z]{0,3})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws)",
+        "routes_to": [
+          "ma-gl-malegislature",
+          "ma-gl-api",
+          "ma-gl-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Massachusetts Session Laws (Acts / St.)",
+        "examples": [
+          "St. 2016, c. 219, § 35",
+          "Acts 2024, c. 150",
+          "Acts of 2016, chapter 219",
+          "St. 1973, c. 1114"
+        ],
+        "regex": "(?:\\bSt\\.|\\bStat\\.|\\bActs\\s+(?:of\\s+)?)\\s*(?P<year>1[6-9]\\d{2}|20\\d{2}),?\\s*(?:c\\.|ch\\.|chapter)\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "ma-session-laws"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Massachusetts Constitution",
+        "examples": [
+          "Mass. Const. art. 89",
+          "Mass. Const. pt. 1, art. 14",
+          "Mass. Const. amend. art. 48",
+          "art. 12 of the Massachusetts Declaration of Rights",
+          "art. 89 of the Amendments to the Massachusetts Constitution",
+          "Part the First, Article XIV of the Massachusetts Constitution"
+        ],
+        "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:§\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution",
+        "routes_to": [
+          "ma-constitution-malegislature",
+          "ma-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Massachusetts Rules of Civil Procedure",
+        "examples": [
+          "Mass. R. Civ. P. 12(b)(6)",
+          "Mass.R.Civ.P. 56",
+          "Mass. R. Civ. P. 23.1",
+          "Rule 12(b)(6) of the Massachusetts Rules of Civil Procedure"
+        ],
+        "regex": "Mass\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "routes_to": [
+          "ma-rules-civil",
+          "ma-rules-civil-pdf"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Massachusetts Rules of Criminal Procedure",
+        "examples": [
+          "Mass. R. Crim. P. 14(a)(1)",
+          "Mass.R.Crim.P. 30(b)",
+          "Rule 14 of the Massachusetts Rules of Criminal Procedure"
+        ],
+        "regex": "Mass\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+        "routes_to": [
+          "ma-rules-criminal"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Massachusetts Rules of Appellate Procedure",
+        "examples": [
+          "Mass. R. A. P. 27.1",
+          "Mass. R. App. P. 16(a)(9)",
+          "Mass.R.A.P. 11",
+          "Rule 27.1 of the Massachusetts Rules of Appellate Procedure"
+        ],
+        "regex": "Mass\\.\\s*R\\.\\s*A(?:pp)?\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "routes_to": [
+          "ma-rules-appellate"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of the Supreme Judicial Court (incl. Rules of Professional Conduct, SJC Rule 3:07)",
+        "examples": [
+          "S.J.C. Rule 1:03",
+          "SJC Rule 3:07",
+          "Mass. R. Prof. C. 1.7",
+          "Rule 1:21 of the Supreme Judicial Court"
+        ],
+        "regex": "(?:S\\.\\s?J\\.\\s?C\\.|SJC|Supreme\\s+Judicial\\s+Court)\\s+Rule\\s+(?P<rule>\\d:\\d{2}[A-Z]?)|Mass\\.\\s*R\\.\\s*Prof\\.\\s*C(?:onduct)?\\.\\s*(?P<rpc>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d:\\d{2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Supreme\\s+Judicial\\s+Court",
+        "routes_to": [
+          "ma-rules-sjc",
+          "ma-rules-sjc-pdf"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Appeals Court Rules (incl. Rule 23.0, formerly 1:28)",
+        "examples": [
+          "Appeals Court Rule 23.0",
+          "Mass. App. Ct. R. 23.0",
+          "M.A.C. Rule 23.0",
+          "Appeals Court Rule 1:28",
+          "decided under rule 1:28"
+        ],
+        "regex": "(?:Mass\\.\\s*App\\.\\s*Ct\\.\\s*R\\.|Appeals\\s+Court\\s+Rule|M\\.A\\.C\\.\\s+Rule)\\s*(?P<rule>\\d{1,2}\\.\\d|1:\\d{2})|(?:rule|Rule)\\s+(?P<rule2>1:28|23\\.0)\\b",
+        "routes_to": [
+          "ma-rules-appeals-court"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Superior Court Rules",
+        "examples": [
+          "Superior Court Rule 9A",
+          "Super. Ct. R. 9A",
+          "Rule 9A of the Rules of the Superior Court"
+        ],
+        "regex": "(?:Super(?:ior)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Superior\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,2}[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Superior\\s+Court(?:\\s+Rules)?",
+        "routes_to": [
+          "ma-rules-superior"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Massachusetts Guide to Evidence",
+        "examples": [
+          "Mass. G. Evid. § 803(6)(A)",
+          "Mass. Guide Evid. § 1119",
+          "Section 803 of the Massachusetts Guide to Evidence"
+        ],
+        "regex": "Mass\\.\\s*G(?:uide|\\.)\\s*Evid\\.\\s*§\\s*(?P<section>\\d{3,4})|(?:Section|§)\\s*(?P<section2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Guide\\s+to\\s+Evidence",
+        "routes_to": [
+          "ma-guide-evidence",
+          "ma-guide-evidence-pdf"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Code of Massachusetts Regulations",
+        "examples": [
+          "940 CMR 3.16",
+          "940 C.M.R. 3.16(1)",
+          "310 Code Mass. Regs. § 10.02",
+          "940 CMR 3.00"
+        ],
+        "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|Code\\s+Mass\\.\\s+Regs\\.)\\s*(?:§\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})",
+        "routes_to": [
+          "ma-cmr-massgov",
+          "ma-cmr-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Massachusetts Register",
+        "examples": [
+          "Mass. Register #1420",
+          "Mass. Reg. No. 1337",
+          "Massachusetts Register Issue 1475"
+        ],
+        "regex": "(?:Mass\\.|Massachusetts)\\s*Reg(?:ister|\\.)\\s*(?:#|No\\.\\s*|Issue\\s*)\\s*(?P<issue>\\d{3,4})",
+        "routes_to": [
+          "ma-register-statelib",
+          "ma-register-sos"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Massachusetts Reports / Appeals Court Reports / N.E. with Mass. parenthetical",
+        "examples": [
+          "Commonwealth v. Goncalves, 497 Mass. 1 (2026)",
+          "Iannacchino v. Ford Motor Co., 451 Mass. 623 (2008)",
+          "100 Mass. App. Ct. 1101 (2021)",
+          "888 N.E.2d 879 (Mass. 2008)",
+          "200 N.E.3d 12 (Mass. App. Ct. 2022)",
+          "Commonwealth v. Doe, 100 Mass. App. Ct. 1101 (2021) (Rule 23.0 decision)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?!App\\.\\s*D)(?P<app>App\\.\\s+Ct\\.\\s+)?(?P<page>\\d{1,4})\\b|(?P<nevol>\\d{1,3})\\s+N\\.E\\.(?:2d|3d)?\\s+(?P<nepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<ct>Mass\\.(?:\\s+App\\.(?:\\s+Ct\\.)?)?)\\s*\\d{4}\\)",
+        "routes_to": [
+          "ma-cases-justia",
+          "ma-opinions-massgov",
+          "ma-rule23-128archive"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Massachusetts appellate docket numbers (SJC-, FAR-, YY-P-, YY-J-)",
+        "examples": [
+          "SJC-13880",
+          "FAR-30123",
+          "No. 25-P-0254",
+          "2025-P-0383",
+          "No. 24-J-0101"
+        ],
+        "regex": "\\b(?P<sjc>SJC-\\d{4,5})\\b|\\b(?P<far>FAR-\\d{4,5})\\b|\\b(?P<ac>(?:19|20)?\\d{2}-[PJ]-\\d{1,4})\\b",
+        "routes_to": [
+          "ma-opinions-massgov",
+          "ma-rule23-128archive",
+          "ma-cases-justia"
+        ]
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Further appellate review dispositions",
+        "examples": [
+          "further appellate review denied, 491 Mass. 1102 (2023)",
+          "further appellate review granted, 489 Mass. 1104 (2022)"
+        ],
+        "regex": "further\\s+appellate\\s+review\\s+(?P<disp>denied|granted|allowed)(?:,\\s*(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?P<page>\\d{1,4}))?",
+        "routes_to": [
+          "ma-docket-appellatecourts",
+          "ma-far-lists-massgov"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "G. L.": "General Laws",
+      "G.L.": "General Laws",
+      "M.G.L.": "General Laws",
+      "MGL": "General Laws",
+      "Mass. Gen. Laws": "General Laws",
+      "Mass. Gen. Laws Ann.": "General Laws",
+      "ALM GL": "General Laws",
+      "Mass. Ann. Laws": "General Laws",
+      "Chapter 93A": "93A",
+      "Consumer Protection Act": "93A",
+      "Wage Act": "149 § 148",
+      "Massachusetts Civil Rights Act": "12 § 11I",
+      "MCRA": "12 § 11I",
+      "Massachusetts Tort Claims Act": "258",
+      "MTCA": "258",
+      "anti-SLAPP statute": "231 § 59H",
+      "Chapter 151B": "151B",
+      "Chapter 40B": "40B",
+      "Open Meeting Law": "30A § 18",
+      "Public Records Law": "66 § 10",
+      "Comparative negligence statute": "231 § 85",
+      "Mass. R. Civ. P.": "ma-rules-civil",
+      "Mass. R. Crim. P.": "ma-rules-criminal",
+      "Mass. R. A. P.": "ma-rules-appellate",
+      "Mass. R. App. P.": "ma-rules-appellate",
+      "S.J.C. Rule": "ma-rules-sjc",
+      "Mass. R. Prof. C.": "ma-rules-sjc (Rule 3:07)",
+      "Appeals Court Rule": "ma-rules-appeals-court",
+      "M.A.C. Rule": "ma-rules-appeals-court",
+      "Rule 1:28": "Appeals Court Rule 23.0",
+      "Super. Ct. R.": "ma-rules-superior",
+      "Mass. G. Evid.": "ma-guide-evidence",
+      "Mass. Guide Evid.": "ma-guide-evidence",
+      "CMR": "Code of Massachusetts Regulations",
+      "C.M.R.": "Code of Massachusetts Regulations",
+      "Code Mass. Regs.": "Code of Massachusetts Regulations"
+    },
+    "notes": "Massachusetts style (SJC Style Manual) cites 'G. L. c. 93A, § 9', 'St. 2016, c. 219, § 35', 'art. 14 of the Massachusetts Declaration of Rights' / 'art. 89 of the Amendments' (Arabic numerals; the legislature's anchors use Roman), 'Mass. R. Civ. P. 12 (b) (6)' (space before subdivision parentheses), 'Mass. G. Evid. § 803(6)(A)', '940 CMR 3.16'. Bluebook: 'Mass. Gen. Laws ch. 93A, § 9', 'Mass. Const. pt. 1, art. 14', 'Mass. Const. amend. art. 89', '940 Mass. Code Regs. 3.16'. ALM GL is the LexisNexis annotated code. No public-domain citation; Mass. and Mass. App. Ct. are official (LexisNexis), N.E. is West. Rule 23.0 (formerly 1:28) summary decisions are cited by case name, the Mass. App. Ct. table page where noted (pages 1101+), and a Rule 23.0 / 1:28 notation; those issued before Feb. 26, 2008 may not be cited. FAR is cited 'further appellate review denied, 491 Mass. 1102 (2023)' (table pages 1101+). Routing guards: bare 'c. 93A' or 'chapter 93A' without G.L./General Laws, bare 'Rule 12', bare 'Declaration of Rights' (also Maryland, New Hampshire) and bare 'N.E.2d/3d' (also IL, IN, NY, OH) must not route here without a Massachusetts marker; the N.E. regex requires a '(Mass.' or '(Mass. App. Ct.' parenthetical. 'Mass. App. Div.' and 'Mass. App. Dec.' (District Court Appellate Division) are excluded from the case regex. Docket numbers: SJC-NNNNN, FAR-NNNNN, YY-P-NNNN (panel) and YY-J-NNNN (single justice); route on dockets only with Massachusetts context. Section ranges '§§ 60B-60E' are spans: the regex takes the first section (MA section numbers never contain hyphens). law_aliases maps popular names to chapter/section from memory (unverified) and rule abbreviations to source ids. CourtListener ids from memory, unverified."
+  },
+  "sources": [
+    {
+      "id": "ma-gl-malegislature",
+      "family": "statutes",
+      "title": "General Laws of Massachusetts (malegislature.gov)",
+      "publisher": "The General Court of the Commonwealth of Massachusetts",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "https://malegislature.gov/Laws/GeneralLaws: 'NOTICE: This is NOT the official version of the General Laws of Massachusetts' ... check the Official Edition (printed every two years).",
+      "coverage": "All chapters of the General Laws (Parts I-V), section by section; amendments passed before May 31, 2026 per landing-page notice.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://malegislature.gov/Laws/GeneralLaws/Chapter{chapter}/Section{section}",
+        "pattern_rules": "chapter and section exactly as cited, letters upper-case (93A, 151B; 13A, 60B, 11I); lower-case is accepted (Chapter93a redirects). The short form redirects to the canonical /Laws/GeneralLaws/Part{I-V}/Title{roman}/Chapter{chapter}/Section{section} URL, so Part/Title need not be known (verified: c.93A s.9 -> PartI/TitleXV; c.231 s.85 -> PartIII/TitleII; c.151B s.4 -> PartI/TitleXXI; c.265 s.13A -> PartIV/TitleI; c.12 s.11I -> PartI/TitleII; c.149 s.148 -> PartI/TitleXXI). A non-existent section returns HTTP 404 (Chapter93A/Section99), not a soft page. Chapter page without section: /Laws/GeneralLaws/Chapter{chapter} (redirects to the chapter's section list). A section range '§§ 60B-60E' is a span: fetch the first section, then each one.",
+        "index_url": "https://malegislature.gov/Laws/GeneralLaws",
+        "navigation": "Not needed (short URL redirects). If a redirect ever fails: /Laws/GeneralLaws -> Part{I..V} page lists Titles WITH chapter ranges (e.g. 'Title XV ... Chapters 93 - 110H') -> Title page -> Chapter page -> Section link.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent: * / Disallow: (empty) - everything allowed",
+        "notes": "Section pages are ~13K chars of site chrome plus the section text; body follows 'Print Page Previous Next'. Largest probed (c.151B s.4) 71,576 chars in total, under the WebFetch window. Page header shows today's date and weather (not a currency line)."
+      },
+      "currency": {
+        "where": "General Laws landing page (https://malegislature.gov/Laws/GeneralLaws) notice paragraph; nothing on section pages",
+        "observed": "includes all amendments to the General Laws passed before May 31, 2026"
+      },
+      "hazards": [
+        "unofficial text - Official Edition is the printed General Laws",
+        "later amendments (after the stated cut-off) only in Session Laws",
+        "site header date/weather can be mistaken for a currency statement",
+        "repealed or renumbered sections: check the section heading and 'IsRepealed' in the API"
+      ],
+      "probe": {
+        "citation": "G. L. c. 93A, § 9",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93A/Section9",
+        "expect": "Any person, other than a person entitled to bring action under section eleven"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES, body '(1) Any person, other than a person entitled to bring'; complete through (8). Second: /Laws/GeneralLaws/Chapter231/Section85 YES 'Contributory negligence shall not bar recovery in any action by'. fetch_doc.py: both 200, short URLs redirect to Part/Title URLs."
+      },
+      "notes": "Constitution is at https://malegislature.gov/Laws/Constitution (see ma-constitution-malegislature). Same host serves a JSON API (ma-gl-api)."
+    },
+    {
+      "id": "ma-gl-api",
+      "family": "statutes",
+      "title": "Massachusetts Legislature public API - General Laws and Session Laws (JSON)",
+      "publisher": "The General Court of the Commonwealth of Massachusetts",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Same data as the malegislature.gov General Laws pages, which carry the 'NOT the official version' notice.",
+      "coverage": "GET /api/Parts, /api/Chapters, /api/Chapters/{chapter}, /api/Chapters/{chapter}/Sections/{section} (Code, Name, IsRepealed, Text, Part/Title links); /api/SessionLaws (all acts with ChapterText, 3.3M chars); /api/Documents (bills).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://malegislature.gov/api/Chapters/{chapter}/Sections/{section}",
+        "pattern_rules": "Same chapter/section tokens as the HTML route (93A, 13A). No key required. Response is JSON; 'Text' holds the whole section starting 'Section N.'. Verified for c.93A s.9, c.231 s.85, c.265 s.13A.",
+        "format": "json"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent: * / Disallow: (empty)",
+        "notes": "No Swagger page at /api/swagger/ui/index (404); /api/Constitution 404. /api/SessionLaws and /api/Documents are multi-MB - avoid with WebFetch."
+      },
+      "currency": {
+        "where": "none in JSON; see General Laws landing page",
+        "observed": ""
+      },
+      "hazards": [
+        "JSON text has no paragraph markup beyond newlines",
+        "bulk endpoints are very large"
+      ],
+      "probe": {
+        "citation": "G. L. c. 231, § 85",
+        "url": "https://malegislature.gov/api/Chapters/231/Sections/85",
+        "expect": "Section 85. Contributory negligence shall not bar recovery in any action"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES: Text begins 'Section 85. Contributory negligence shall not bar recovery in any action'. fetch_doc.py: /api/Chapters/93A/Sections/9 JSON 'Text':'Section 9. (1) Any person, other than a person entitled'; /api/Parts lists I-V."
+      },
+      "notes": "Best script route for statutes: deterministic, no HTML chrome."
+    },
+    {
+      "id": "ma-gl-justia",
+      "family": "statutes",
+      "title": "Justia - Massachusetts General Laws",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'Disclaimer: These codes may not be the most recent version.'",
+      "coverage": "2025 edition (current) plus prior annual editions (2024, 2023 ...).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/massachusetts/part-{part}/title-{title}/chapter-{chapter}/section-{section}/",
+        "pattern_rules": "part and title are lower-case Roman numerals (part-i, title-xv); chapter/section lower-case (chapter-93a). Part/Title are NOT derivable from the chapter: take them from the malegislature.gov redirect target (e.g. /PartIII/TitleII/Chapter231) and lower-case them. Prior editions: insert the year after /massachusetts/ (/codes/massachusetts/2024/part-i/...).",
+        "index_url": "https://law.justia.com/codes/massachusetts/",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com robots.txt answered with a bot challenge to fetch_doc.py (REFUSED)",
+        "notes": "WebFetch only."
+      },
+      "currency": {
+        "where": "page heading",
+        "observed": "2025 Massachusetts General Laws"
+      },
+      "hazards": [
+        "edition lags the legislature site (2025 edition)",
+        "shell route refused"
+      ],
+      "probe": {
+        "citation": "G. L. c. 93A, § 9",
+        "url": "https://law.justia.com/codes/massachusetts/part-i/title-xv/chapter-93a/section-9/",
+        "expect": "Any person, other than a person entitled to bring action"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES '2025 Massachusetts General Laws'; body 'Any person, other than a person entitled to bring action'. Second: part-iii/title-ii/chapter-231/section-85 YES 'Contributory negligence shall not bar recovery in any action by'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-session-laws",
+      "family": "statutes",
+      "title": "Session Laws (Acts and Resolves) - malegislature.gov",
+      "publisher": "The General Court of the Commonwealth of Massachusetts",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No disclaimer located on the chapter page; the General Laws notice does not address session laws.",
+      "coverage": "Acts and Resolves 1997-2026 per the site's year selector.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://malegislature.gov/Laws/SessionLaws/{type}/{year}/Chapter{chapter}",
+        "pattern_rules": "type = Acts | Resolves; 'St. 2016, c. 219' and 'Acts 2016, c. 219' -> /Acts/2016/Chapter219. Earlier years not offered by the selector.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "everything allowed",
+        "notes": "Omnibus acts are long: Acts 2016 c.219 = 136K chars of text; WebFetch stopped at SECTION 35 (use offset=100000 or fetch_doc.py)."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "WebFetch truncation on omnibus acts",
+        "pre-1997 acts not online here"
+      ],
+      "probe": {
+        "citation": "St. 2016, c. 219",
+        "url": "https://malegislature.gov/Laws/SessionLaws/Acts/2016/Chapter219",
+        "expect": "AN ACT RELATIVE TO JOB CREATION AND WORKFORCE DEVELOPMENT"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES, body 'Whereas, The deferred operation of this act would tend to'; truncated at SECTION 35. fetch_doc.py: 241,114 chars, title 'AN ACT RELATIVE TO JOB CREATION AND WORKFORCE DEVELOPMENT'; also Acts 2024 c.150 200."
+      },
+      "notes": "Also in the JSON API: /api/SessionLaws."
+    },
+    {
+      "id": "ma-constitution-malegislature",
+      "family": "constitution",
+      "title": "Constitution of the Commonwealth of Massachusetts (malegislature.gov)",
+      "publisher": "The General Court of the Commonwealth of Massachusetts",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official/unofficial statement on the page.",
+      "coverage": "Preamble; Part the First (Declaration of Rights, arts. I-XXX); Part the Second (Frame of Government); Articles of Amendment through CXXI.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://malegislature.gov/Laws/Constitution#{anchor}",
+        "pattern_rules": "One page; anchors: Declaration of Rights art. N -> #article{ROMAN} (art. 14 -> #articleXIV); Articles of Amendment art. N -> #amendmentArticle{ROMAN} (art. 89 -> #amendmentArticleLXXXIX); Frame of Government -> #chapter{C}Section{S}Article{A} (e.g. #chapterISectionIArticleIV), #chapterVI ... Convert Arabic citation numbers ('art. 14 of the Declaration of Rights') to Roman. Anchor only scrolls: the fetch returns the whole page.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "everything allowed",
+        "notes": "fetch_doc.py returns all 356,822 chars (Article CXXI present at offset ~318K). WebFetch sees ~118K chars: window 0-100K ends inside Articles of Amendment art. V; offset=100000 ends in art. XVI; amendments LXXXIX and CXXI NOT reachable by WebFetch."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "single 357K-char page - WebFetch cannot reach most Articles of Amendment",
+        "citations use Arabic numerals, anchors use Roman",
+        "annulled/superseded amendment text is retained in the page"
+      ],
+      "probe": {
+        "citation": "Mass. Const. pt. 1, art. 14",
+        "url": "https://malegislature.gov/Laws/Constitution",
+        "expect": "Every subject has a right to be secure from all unreasonable searches"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: art. XIV YES 'Every subject has a right to be secure from all'; art. LXXXIX NOT PRESENT (truncated). fetch_doc.py grep: 'Article LXXXIX.' at offset 265906, 'Article CXXI.' at 318167."
+      },
+      "notes": "Corpus candidate (see corpus_candidates)."
+    },
+    {
+      "id": "ma-constitution-justia",
+      "family": "constitution",
+      "title": "Justia - Massachusetts Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; no currency statement.",
+      "coverage": "Whole constitution on one page with #fragment anchors.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://law.justia.com/constitution/massachusetts/",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "blocked-challenge",
+        "robots_txt": "bot challenge to fetch_doc.py",
+        "notes": "130,293 chars; WebFetch window ends in Articles of Amendment art. IV."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "truncated by WebFetch",
+        "no currency statement"
+      ],
+      "probe": {
+        "citation": "Mass. Const. pt. 1, art. 14",
+        "url": "https://law.justia.com/constitution/massachusetts/",
+        "expect": "Every subject has a right to be secure from all"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: art. XIV YES 'Every subject has a right to be secure from all'; page truncated at Amendment art. IV; no currency line."
+      },
+      "notes": "Weaker than the tier-1 page; use only to locate."
+    },
+    {
+      "id": "ma-rules-civil",
+      "family": "court_rules",
+      "title": "Massachusetts Rules of Civil Procedure (per-rule pages)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Massachusetts Rules of Civil Procedure (per-rule pages)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-rules-of-civil-procedure",
+        "pattern_rules": "Slugs are /rules-of-civil-procedure/civil-procedure-rule-{N without dot}-{title-slug}; not constructible (title in slug). Decimal dropped: 23.1 -> rule-231, 55.1 -> rule-551, 65.3 -> rule-653. COLLISIONS: Rule 4.1 and Rule 41 both 'rule-41-...' (attachment vs dismissal of actions); 4.2/42 (trustee process vs consolidation); 4.3/43 (arrest vs evidence); 8.1/81 (consumer debts vs applicability) - pick by title. Rule 11 has two pages: effective-until-january-1-2027 and effective-january-1-2027.",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' and 'Updates' lines",
+        "observed": "Effective Date: 07/01/2008"
+      },
+      "hazards": [
+        "slug drops the decimal point or colon: Rule 23.1 -> 'rule-231', 4.1 -> 'rule-41' (collides with Rule 41)",
+        "two versions of Rule 11 (amendment effective Jan. 1, 2027)",
+        "Reporter's Notes on the same page are not rule text"
+      ],
+      "probe": {
+        "citation": "Mass. R. Civ. P. 12(b)(6)",
+        "url": "https://www.mass.gov/rules-of-civil-procedure/civil-procedure-rule-12-defenses-and-objections-when-and-how-presented-by-pleading-or-motion-motion-for-judgment-on-pleadings",
+        "expect": "After service upon him of any pleading requiring a responsive pleading"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES, (a) 'After service upon him of any pleading requiring a responsive'; (a)-(h) complete; Reporter's Notes 2008/1973; 'Effective Date: 07/01/2008'. fetch_doc.py 200, 36,154 chars."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-rules-civil-pdf",
+      "family": "court_rules",
+      "title": "Massachusetts Rules of Civil Procedure - full-set PDF",
+      "publisher": "Massachusetts Trial Court Law Libraries",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No statement in PDF front matter.",
+      "coverage": "All rules with Reporter's Notes, 271 pp.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.mass.gov/doc/massachusetts-rules-of-civil-procedure/download",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "827,883 chars; WebFetch stops in Rule 6(b)."
+      },
+      "currency": {
+        "where": "PDF cover",
+        "observed": "Including amendments effective March 10, 2025"
+      },
+      "hazards": [
+        "WebFetch truncation (Rule 6 of 85)",
+        "edition can lag the per-rule pages (March 2025)"
+      ],
+      "probe": {
+        "citation": "Mass. R. Civ. P. 12",
+        "url": "https://www.mass.gov/doc/massachusetts-rules-of-civil-procedure/download",
+        "expect": "Including amendments effective March 10, 2025"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 271 pp, filename jud-lib-rules-of-civil-procedure-effective-March-2025-accessible.pdf. WebFetch: cover 'Including amendments effective March 10, 2025'; Rule 12 NOT PRESENT; ends Rule 6(b)."
+      },
+      "notes": "Corpus candidate."
+    },
+    {
+      "id": "ma-rules-criminal",
+      "family": "court_rules",
+      "title": "Massachusetts Rules of Criminal Procedure (per-rule pages)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Massachusetts Rules of Criminal Procedure (per-rule pages)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-rules-of-criminal-procedure",
+        "pattern_rules": "Slugs /rules-of-criminal-procedure/criminal-procedure-rule-{N without dot}-{title-slug}; 14.1 -> rule-141 etc.",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' line",
+        "observed": "Effective Date: 03/01/2025"
+      },
+      "hazards": [
+        "slug drops the decimal point or colon: Rule 23.1 -> 'rule-231', 4.1 -> 'rule-41' (collides with Rule 41)"
+      ],
+      "probe": {
+        "citation": "Mass. R. Crim. P. 14",
+        "url": "https://www.mass.gov/rules-of-criminal-procedure/criminal-procedure-rule-14-pretrial-discovery-from-the-prosecution",
+        "expect": "Criminal Procedure Rule 14: Pretrial discovery from the prosecution"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200: 'Criminal Procedure Rule 14: Pretrial discovery from the prosecution Effective Date: 03/01/2025'. WebFetch not run (budget)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-rules-appellate",
+      "family": "court_rules",
+      "title": "Massachusetts Rules of Appellate Procedure (per-rule pages)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Massachusetts Rules of Appellate Procedure (per-rule pages)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-rules-of-appellate-procedure",
+        "pattern_rules": "Slugs /rules-of-appellate-procedure/appellate-procedure-rule-{N without dot}-{title-slug}; 27.1 -> rule-271-further-appellate-review; 11.1 -> rule-111.",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' line",
+        "observed": "Effective Date: 09/01/2021"
+      },
+      "hazards": [
+        "slug drops the decimal point or colon: Rule 23.1 -> 'rule-231', 4.1 -> 'rule-41' (collides with Rule 41)"
+      ],
+      "probe": {
+        "citation": "Mass. R. A. P. 27.1",
+        "url": "https://www.mass.gov/rules-of-appellate-procedure/appellate-procedure-rule-271-further-appellate-review",
+        "expect": "Appellate Procedure Rule 27.1: Further appellate review"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200: 'Appellate Procedure Rule 27.1: Further appellate review Effective Date: 09/01/2021'. WebFetch not run."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-rules-sjc",
+      "family": "court_rules",
+      "title": "Rules of the Supreme Judicial Court (per-rule pages; Rules of Professional Conduct are SJC Rule 3:07)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Rules of the Supreme Judicial Court (per-rule pages; Rules of Professional Conduct are SJC Rule 3:07)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-supreme-judicial-court-rules",
+        "pattern_rules": "Slugs /supreme-judicial-court-rules/supreme-judicial-court-rule-{chapter}{rule}-{title-slug}: colon dropped (1:03 -> rule-103, 1:02A -> rule-102a). Rules of Professional Conduct (SJC Rule 3:07) are indexed from https://www.mass.gov/info-details/massachusetts-rules-of-professional-conduct (not probed).",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' line",
+        "observed": "Effective Date: 01/01/1981"
+      },
+      "hazards": [
+        "colon dropped in slug (1:03 -> 103) - ambiguous with e.g. 10:3 style; pick by title"
+      ],
+      "probe": {
+        "citation": "S.J.C. Rule 1:03",
+        "url": "https://www.mass.gov/supreme-judicial-court-rules/supreme-judicial-court-rule-103-uniform-certification-of-questions-of-law",
+        "expect": "Supreme Judicial Court Rule 1:03: Uniform Certification of Questions of Law"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200: 'Supreme Judicial Court Rule 1:03: Uniform Certification of Questions of Law Effective Date: 01/01/1981'. Full-set PDF (ma-rules-sjc-pdf) WebFetch: Rule 1:03 YES."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-rules-sjc-pdf",
+      "family": "court_rules",
+      "title": "Rules of the Supreme Judicial Court - full-set PDF",
+      "publisher": "Massachusetts Trial Court Law Libraries",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No statement on cover.",
+      "coverage": "All SJC rules (chs. 1-4) incl. Rule 3:07 Rules of Professional Conduct; 470 pp.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.mass.gov/doc/massachusetts-supreme-judicial-court-rules-and-orders/download",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "1,152,705 chars; WebFetch stops inside Rule 1:18 (Uniform Rules on Dispute Resolution, Rule 7(i)); Rule 3:07 NOT PRESENT."
+      },
+      "currency": {
+        "where": "PDF cover",
+        "observed": "Including rule amendments effective August 1, 2026"
+      },
+      "hazards": [
+        "WebFetch truncation (chapter 1 only)"
+      ],
+      "probe": {
+        "citation": "S.J.C. Rule 1:03",
+        "url": "https://www.mass.gov/doc/massachusetts-supreme-judicial-court-rules-and-orders/download",
+        "expect": "Including rule amendments effective August 1, 2026"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 470 pp, jud-lib-sjc-rules-August-2026-accessible.pdf. WebFetch: cover 'Including rule amendments effective August 1, 2026'; Rule 1:03 YES; Rule 3:07 NOT PRESENT."
+      },
+      "notes": "Corpus candidate."
+    },
+    {
+      "id": "ma-rules-appeals-court",
+      "family": "court_rules",
+      "title": "Rules of the Appeals Court (per-rule pages), incl. Rule 23.0 (formerly 1:28)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Rules of the Appeals Court (per-rule pages), incl. Rule 23.0 (formerly 1:28)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-appeals-court-rules",
+        "pattern_rules": "Slugs /appeals-court-rules/appeals-court-rule-{N without dot}-{title-slug}: 23.0 -> appeals-court-rule-230-summary-disposition-formerly-known-as-appeals-court-rule-128; 1.0 -> rule-10. Full set PDF: https://www.mass.gov/doc/appeals-court-rules/download (23 pp, July 2024).",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' line",
+        "observed": "Effective Date: 07/01/2020"
+      },
+      "hazards": [
+        "'rule-230' slug for 23.0 and 'rule-10' for 1.0"
+      ],
+      "probe": {
+        "citation": "Appeals Court Rule 23.0",
+        "url": "https://www.mass.gov/appeals-court-rules/appeals-court-rule-230-summary-disposition-formerly-known-as-appeals-court-rule-128",
+        "expect": "a panel of the justices of this court may determine that no substantial question"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200, 13,703 chars: '(1) Summary disposition without oral argument'; '(2) Citation of summary dispositions'; 'Effective Date: 07/01/2020'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-rules-superior",
+      "family": "court_rules",
+      "title": "Rules of the Superior Court (per-rule pages)",
+      "publisher": "Massachusetts Trial Court Law Libraries / Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "mass.gov rule pages carry no official/unofficial statement; rules are promulgated by the SJC (or the trial-court department).",
+      "coverage": "Rules of the Superior Court (per-rule pages)",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/massachusetts-superior-court-rules",
+        "pattern_rules": "Slugs /superior-court-rules/superior-court-rule-{N}{letter}-{title-slug} (9A -> superior-court-rule-9a-civil-motions). Full-set PDF https://www.mass.gov/doc/massachusetts-superior-court-rules-and-orders/download (122 pp, 256,749 chars, 'Sept-2025').",
+        "navigation": "index page lists one link per rule (slug includes the rule title) -> rule page holds the rule text, 'Effective Date' and 'Updates' history, often with Reporter's Notes.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "Per-rule pages are ~10K chars of chrome plus rule text."
+      },
+      "currency": {
+        "where": "rule page 'Effective Date' line",
+        "observed": "Effective Date: 09/15/2025"
+      },
+      "hazards": [
+        "full-set PDF exceeds the WebFetch window"
+      ],
+      "probe": {
+        "citation": "Superior Court Rule 9A",
+        "url": "https://www.mass.gov/superior-court-rules/superior-court-rule-9a-civil-motions",
+        "expect": "Superior Court Rule 9A: Civil motions"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200: 'Superior Court Rule 9A: Civil motions Effective Date: 09/15/2025'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-guide-evidence",
+      "family": "court_rules",
+      "title": "Massachusetts Guide to Evidence (per-section pages)",
+      "publisher": "SJC Advisory Committee on Massachusetts Evidence Law (mass.gov)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "The Guide is a non-binding SJC committee compilation of Massachusetts evidence law (not rules adopted as such); annual editions.",
+      "coverage": "Sections 101-1121 with Notes; 2026 edition.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/guide/massachusetts-guide-to-evidence",
+        "pattern_rules": "Slugs /guide-to-evidence/section-{N}-{title-slug} (803 -> section-803-hearsay-exceptions-availability-of-declarant-immaterial); take from the index (/guides/... redirects to /guide/...).",
+        "navigation": "guide index -> section link -> section text then long Note",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated on long sections)",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "§ 803 page = 95,435 chars (fetch_doc) / 102,958 (WebFetch): section text complete, Note cut off at (6)(C)."
+      },
+      "currency": {
+        "where": "section page 'Adopted Date'; index intro",
+        "observed": "Adopted Date: 02/01/2026 (2026 edition)"
+      },
+      "hazards": [
+        "long Notes truncated by WebFetch",
+        "Notes are commentary, not rule text",
+        "annual edition: cite the year"
+      ],
+      "probe": {
+        "citation": "Mass. G. Evid. § 803",
+        "url": "https://www.mass.gov/guide-to-evidence/section-803-hearsay-exceptions-availability-of-declarant-immaterial",
+        "expect": "The following are not excluded by the hearsay rule, even though the declarant"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES 'The following are not excluded by the hearsay rule, even'; (18) present; Note truncated. fetch_doc.py 200, 95,435 chars."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-guide-evidence-pdf",
+      "family": "court_rules",
+      "title": "Massachusetts Guide to Evidence - 2026 edition PDF",
+      "publisher": "SJC Advisory Committee on Massachusetts Evidence Law",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Committee guide; see ma-guide-evidence.",
+      "coverage": "Whole 2026 edition, 446 pp.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.mass.gov/doc/massachusetts-guide-to-evidence-2026-edition/download",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "1,463,018 chars; WebFetch stops in the Note to § 202; § 803 at PDF page 262 (fetch_doc grep)."
+      },
+      "currency": {
+        "where": "PDF cover",
+        "observed": "MASSACHUSETTS GUIDE TO EVIDENCE 2026 Edition"
+      },
+      "hazards": [
+        "WebFetch truncation (Article II of XI)",
+        "URL slug changes each edition (...-2026-edition)"
+      ],
+      "probe": {
+        "citation": "Mass. G. Evid. § 803",
+        "url": "https://www.mass.gov/doc/massachusetts-guide-to-evidence-2026-edition/download",
+        "expect": "Section 803. Hearsay Exceptions; Availability of Declarant Immaterial"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 446 pp, jud-sjc-Massachusetts-Guide-to-Evidence-2026.pdf; 'Section 803. Hearsay Exceptions' at page 262. WebFetch: '2026 Edition'; § 104 YES; § 803 NOT PRESENT."
+      },
+      "notes": "Corpus candidate."
+    },
+    {
+      "id": "ma-cmr-massgov",
+      "family": "admin_code",
+      "title": "Code of Massachusetts Regulations - mass.gov (Trial Court Law Libraries) PDFs",
+      "publisher": "Trial Court Law Libraries / issuing agencies (mass.gov)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Regulation page: 'Official Version: Purchase the official print version' (official CMR is published by the Secretary of the Commonwealth).",
+      "coverage": "CMR by title (agency) and chapter; per-chapter PDF copies.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/law-library/{title}-cmr",
+        "pattern_rules": "Title index /law-library/{title}-cmr (e.g. /law-library/940-cmr, /law-library/310-cmr; full list at /info-details/code-of-massachusetts-regulations-cmr-by-number, some titles use /info-details/ pages e.g. 220 CMR, 452 CMR). Chapter page slug /regulations/{title}-CMR-{chapter x100, no dot}-{title-slug} (940 CMR 3.00 -> 940-CMR-300-general-regulation; 310 CMR 10.00 -> 310-CMR-1000-wetlands-protection). The chapter page holds only a summary; the text is the linked PDF /doc/{slug}/download (slug not derivable).",
+        "navigation": "title index -> chapter page (regulations/{title}-CMR-{chapter}00-...) -> 'Download a PDF copy' link -> PDF; find the section (3.16) inside the PDF.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "940 CMR 3.00 PDF 84,945 chars fits WebFetch; 310 CMR 10.00 PDF 627,647 chars (245 pp) will be truncated."
+      },
+      "currency": {
+        "where": "PDF page footers (register issue of last amendment)",
+        "observed": "(Mass. Register #1420 6/26/20)"
+      },
+      "hazards": [
+        "PDF may be stale - check footer register number and file date (310 CMR 10 PDF last-modified 2017)",
+        "long chapters truncated by WebFetch",
+        "unofficial copy"
+      ],
+      "probe": {
+        "citation": "940 CMR 3.16",
+        "url": "https://www.mass.gov/doc/940-cmr-3-consumer-protection-general-regulations/download",
+        "expect": "Without limiting the scope of any other rule, regulation or statute"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES 3.16 'Without limiting the scope of any other rule, regulation or'; 3.19 present; footer '(Mass. Register #1420 6/26/20)'. fetch_doc.py: 22 pp. Second: 310 CMR 10.02 found in /doc/310-cmr-10-wetlands-protection/download (245 pp)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-cmr-lii",
+      "family": "admin_code",
+      "title": "Cornell LII - Code of Massachusetts Regulations",
+      "publisher": "Legal Information Institute",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party; 'State regulations are updated quarterly'.",
+      "coverage": "CMR titles 101 CMR onward, per section.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/massachusetts/{title}-CMR-{chapter}-{section}",
+        "pattern_rules": "940 CMR 3.16 -> 940-CMR-3-16; 310 CMR 10.02 -> 310-CMR-10-02 (keep the section's leading zero). Title index https://www.law.cornell.edu/regulations/massachusetts.",
+        "index_url": "https://www.law.cornell.edu/regulations/massachusetts",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay 10; disallows /search/, /user/ and admin paths (per DE log)",
+        "notes": "Pages last-modified Aug. 2, 2025 - may lag."
+      },
+      "currency": {
+        "where": "Notes block at foot of section",
+        "observed": "State regulations are updated quarterly"
+      },
+      "hazards": [
+        "may lag the official CMR (pages dated Aug 2025)"
+      ],
+      "probe": {
+        "citation": "940 CMR 3.16",
+        "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-16",
+        "expect": "Without limiting the scope of any other rule, regulation or statute"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py 200: '940 CMR, § 3.16 - General' body 'Without limiting the scope of any other rule, regulation or statute'; 310-CMR-10-02 also 200 with body."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-register-statelib",
+      "family": "admin_register",
+      "title": "Massachusetts Register - State Library of Massachusetts digital collection (DSpace)",
+      "publisher": "State Library of Massachusetts (issues published by the Secretary of the Commonwealth)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Scanned issues of the Register published by the Secretary of the Commonwealth; no authentication statement seen.",
+      "coverage": "Issues by number (e.g. no. 1337, 2017-04-21); collection 'Registers 1201 through 1400' seen; latest coverage not checked.",
+      "access": {
+        "mode": "search-only",
+        "index_url": "https://archives.lib.state.ma.us/",
+        "navigation": "Find the issue entity page (via WebSearch 'Massachusetts Register (YYYY-MM-DD; no. NNNN)') -> entity page lists the PDF file; robots disallows /search and /browse/* so the site's own search cannot be used by scripts.",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "Disallow /search, /browse/*, /entities/*/*/*, /statistics; entity pages allowed",
+        "notes": "Entity page server-renders metadata (fetch_doc 1,224 chars) but the PDF link was not found in raw HTML (Angular app); bitstream download untested."
+      },
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "no deterministic issue -> URL mapping",
+        "PDF link not in raw HTML"
+      ],
+      "probe": {
+        "citation": "Mass. Register #1337",
+        "url": "https://archives.lib.state.ma.us/entities/journalfile/b44bea6e-965b-474f-b9a9-04ae8f68f90d",
+        "expect": "Massachusetts Register (2017-04-21; no. 1337)"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: entity page 200 'Massachusetts Register (2017-04-21; no. 1337)', file ocm04109606-2017-04-21.pdf listed; PDF not fetched."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-register-sos",
+      "family": "admin_register",
+      "title": "Massachusetts Register - Secretary of the Commonwealth, State Publications and Regulations Division",
+      "publisher": "Secretary of the Commonwealth",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "The SOS publishes the official CMR and Register (print/subscription); from memory, not seen on a fetched page.",
+      "coverage": "Register issues and official CMR - subscription/purchase (reported).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.sec.state.ma.us/divisions/spr/massachusetts-register.htm",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "fail",
+        "shell": "http-error",
+        "robots_txt": "Disallows /spr, /Pubs, /search and many others; /divisions/spr not disallowed",
+        "notes": "fetch_doc.py returned 0 characters; WebFetch errored on /divisions/spr/massachusetts-register.htm and /divisions/spr/index.htm."
+      },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "not readable by either tool"
+      ],
+      "probe": {
+        "citation": "Massachusetts Register",
+        "url": "https://www.sec.state.ma.us/divisions/spr/massachusetts-register.htm",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: 200 with 0 chars of text; WebFetch: 'There was an error while fetching.' (twice)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "ma-opinions-massgov",
+      "family": "case_law",
+      "title": "SJC and Appeals Court slip opinions - Reporter of Decisions 'Today's Opinions' (mass.gov)",
+      "publisher": "Office of the Reporter of Decisions, Supreme Judicial Court",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Slip PDF notice: slip opinions are 'superseded by the advance sheets and bound volumes of the Official Reports'; Reporter's page: 'There is no official version of the Massachusetts Reports available online.'",
+      "coverage": "Recently released published opinions of the SJC and Appeals Court only (listing shows about the last two weeks); plus daily lists of unpublished Appeals Court decisions.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.mass.gov/info-details/new-opinions",
+        "pattern_rules": "PDF URL /doc/{case-name-slug}-{sjc|ac}-{letter}{docket digits}/download, e.g. commonwealth-v-goncalves-sjc-c13880 (SJC-13880), bruno-v-alliance-rental-group-llc-ac-s25p0383 (2025-P-0383). The letter prefix (c, p, s, w, j, x) is not derivable from the citation - take the link from the listing.",
+        "navigation": "new-opinions page -> case link -> PDF (filename = {letter}{docket}.pdf). Older opinions: use ma-cases-justia.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "28-page SJC opinion = 44,757 chars, fits WebFetch."
+      },
+      "currency": {
+        "where": "listing updated daily",
+        "observed": ""
+      },
+      "hazards": [
+        "slip pagination only - no Mass. Reports page numbers",
+        "listing is short-lived; older mass.gov /doc links can 404 (FAR lists from 2022-2026 found by search returned 404)",
+        "slug letter prefix not derivable"
+      ],
+      "probe": {
+        "citation": "Commonwealth v. Goncalves, SJC-13880 (Mass. Oct. 6, 2026)",
+        "url": "https://www.mass.gov/doc/commonwealth-v-goncalves-sjc-c13880/download",
+        "expect": "DEWAR, J. The defendant, Clerence H. Goncalves, surreptitiously photographed a"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body present, not truncated, no Mass. cite, slip pagination; 'Dukes County. April 6, 2026. - October 6, 2026.' fetch_doc.py: PDF 28 pp, filename c13880.pdf."
+      },
+      "notes": "Appellate Opinion Portal https://www.mass.gov/appellate-opinion-portal links: new opinions, unofficial collections list, Rule 23.0 archive (128archive.com), revisions, bound-volume errata."
+    },
+    {
+      "id": "ma-rule23-128archive",
+      "family": "case_law",
+      "title": "Appeals Court Summary Dispositions under Rule 23.0 (formerly 1:28) - Reporter of Decisions archive",
+      "publisher": "Office of the Reporter of Decisions (linked from mass.gov Appellate Opinion Portal)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Each PDF opens with the rule 23.0 notice that summary decisions are primarily directed to the parties and citable only for persuasive value (if issued after Feb. 25, 2008).",
+      "coverage": "About 20,030 Rule 1:28/23.0 decisions; earliest released about Feb. 2008 (9 released before 2/28/2008; 933 through 12/31/2008) to today.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://128archive.com/?DocketNumber={yy}-P-{nnnn}",
+        "pattern_rules": "GET search (form method=get): DocketNumber in 'YY-P-NNNN' form (zero-pad to 4: 25-P-0254); also PartyName={last name}, ReleaseDateFrom/ReleaseDateTo=mm/dd/yyyy, Keywords=term;term, SortColumnName, SortOrder, PageSize. Result rows give case name, docket, release date and links /Disposition/DownloadDisposition/{id}?dispositionId={id2} (PDF) - ids not derivable.",
+        "index_url": "https://128archive.com/",
+        "navigation": "GET search -> row -> Download PDF link",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": "'Read in Full' HTML view (ViewDispositionDocInHtml) redirected to an error page for fetch_doc.py; use the PDF link."
+      },
+      "currency": {
+        "where": "results default to newest first",
+        "observed": "newest release date 10/16/2026"
+      },
+      "hazards": [
+        "non-precedential; cite with Rule 23.0 notation",
+        "HTML view errors; PDF only",
+        "party-name search is last name only"
+      ],
+      "probe": {
+        "citation": "Commonwealth v. Washington, No. 25-P-0254 (Mass. App. Ct. Oct. 16, 2026) (Rule 23.0)",
+        "url": "https://128archive.com/?DocketNumber=25-P-0254",
+        "expect": "COMMONWEALTH vs. TRAVIS C. WASHINGTON. Docket Number 25-P-0254"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 'SHOWING RESULTS: 1 of 1', Commonwealth vs. Travis C. Washington, 25-P-0254, 10/16/2026, PDF /Disposition/DownloadDisposition/22056?dispositionId=22080. fetch_doc.py: PartyName=Loreti 2 rows; PDF 25P0907.pdf 5 pp opens with the rule 23.0 NOTICE."
+      },
+      "notes": "Host is not on mass.gov but is the archive the Reporter of Decisions' portal links as 'Search Appeals Court summary dispositions'."
+    },
+    {
+      "id": "ma-cases-justia",
+      "family": "case_law",
+      "title": "Justia - Massachusetts SJC and Appeals Court opinions",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Listing: opinions 'may not be the official published versions'.",
+      "coverage": "SJC and Appeals Court by year and by volume archive (year range not stated); slip text only.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/massachusetts/supreme-court/{year}/sjc-{docket}.html",
+        "pattern_rules": "SJC: year = decision year, docket digits from SJC-NNNNN (verified sjc-13880). Appeals Court: https://law.justia.com/cases/massachusetts/court-of-appeals/{year}/{yy}-p-{n}.html with the number UNPADDED (25-p-396, 25-p-1082 seen in the 2026 listing; not fetched individually). Year listings: /cases/massachusetts/supreme-court/{year}/ and /court-of-appeals/{year}/; older by volume: /volumes/.",
+        "index_url": "https://law.justia.com/cases/massachusetts/",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "bot challenge to fetch_doc.py",
+        "notes": "Pages carry an AI-summary notice; quote only opinion text."
+      },
+      "currency": {
+        "where": "year listing",
+        "observed": "newest SJC entry Oct. 14, 2026"
+      },
+      "hazards": [
+        "slip text, no Mass. Reports pagination",
+        "AI-generated summaries on page",
+        "Rule 23.0 coverage unknown",
+        "shell refused"
+      ],
+      "probe": {
+        "citation": "Commonwealth v. Goncalves, SJC-13880 (Mass. 2026)",
+        "url": "https://law.justia.com/cases/massachusetts/supreme-court/2026/sjc-13880.html",
+        "expect": "The defendant, Clerence H. Goncalves, surreptitiously photographed a sexual encounter"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body present 'The defendant, Clerence H. Goncalves, surreptitiously photographed a sexual encounter'; no Mass. Reports pagination. Listings 2026 SJC (Daikin SJC-13881 Oct. 14) and Appeals Court (25-P-1082 Sept. 21) OK."
+      },
+      "notes": "Main free route for opinions older than the mass.gov listing."
+    },
+    {
+      "id": "ma-mass-reports-lexis",
+      "family": "case_law",
+      "title": "Massachusetts Reports Public Access (LexisNexis, for the Reporter of Decisions)",
+      "publisher": "LexisNexis (official reports publisher)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Reporter's 'Unofficial collections' page lists it under free unofficial collections.",
+      "coverage": "Unknown (not fetched).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://www.lexisnexis.com/clients/macourts/",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "blocked-robots",
+        "robots_txt": "www.lexisnexis.com: User-agent * Disallow: /clients/",
+        "notes": "Not fetched with WebFetch either, per the no-workaround rule."
+      },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "robots-disallowed"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.lexisnexis.com/clients/macourts/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED - robots.txt disallows /clients/ (rule: Disallow: /clients/)."
+      },
+      "notes": "Linked from https://www.mass.gov/lists/unofficial-collections-of-published-opinions."
+    },
+    {
+      "id": "ma-docket-appellatecourts",
+      "family": "subsequent_history",
+      "title": "Massachusetts Appellate Courts public docket (SJC, Appeals Court, FAR applications)",
+      "publisher": "Supreme Judicial Court / Appeals Court clerks",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "",
+      "coverage": "Dockets for SJC (SJC-NNNNN), FAR applications (FAR-NNNNN), Appeals Court (YY-P-NNNN, YY-J-NNNN) - reported.",
+      "access": {
+        "mode": "search-only",
+        "index_url": "https://www.ma-appellatecourts.org/",
+        "navigation": "Search by docket number or party in a browser; the Appeals Court docket shows the FAR application and its disposition (reported, not seen).",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "fail",
+        "shell": "blocked-challenge",
+        "robots_txt": "robots.txt answered with a bot challenge",
+        "notes": "WebFetch 'There was an error while fetching.' on / and a docket URL."
+      },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "bot challenge - never route around it"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.ma-appellatecourts.org/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: REFUSED (robots.txt challenge). WebFetch: CLIENT_ERROR 'There was an error while fetching.'"
+      },
+      "notes": "The only free place where FAR dispositions are tied to the Appeals Court docket. Without it, FAR history is visible only in later opinions' history lines, in the Mass. Reports FAR tables (cited as 'further appellate review denied, 491 Mass. 1102'), or via party-name search on Justia/CourtListener."
+    },
+    {
+      "id": "ma-far-lists-massgov",
+      "family": "subsequent_history",
+      "title": "SJC 'Further appellate review denied' lists (mass.gov PDFs)",
+      "publisher": "Supreme Judicial Court (mass.gov)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "",
+      "coverage": "Periodic PDF lists of FAR applications denied (titles seen in search 2018-2023).",
+      "access": {
+        "mode": "search-only",
+        "index_url": "https://www.mass.gov/info-details/new-opinions",
+        "navigation": "No index page found; WebSearch surfaces /doc/far-denied-list-{date}/download and /doc/further-appellate-review-denied-list-{date}/download URLs, but the ones tried are 404.",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "http-error",
+        "robots_txt": "User-agent * : Disallow /search/, /node/*, /media/*, /taxonomy/term/*, /doc/courts-dwnld-*, /*?auHash=; /law-library/, /rules-of-*/, /regulations/, /guide-to-evidence/, /doc/*/download allowed. SemrushBot fully disallowed.",
+        "notes": "404 on /doc/further-appellate-review-denied-list-july-29-2022/download, /doc/far-denied-list-may-12-2023/download, /doc/fard-redacted-order-july-31-2026/download."
+      },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "documents removed (404) after posting",
+        "no index"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.mass.gov/doc/far-denied-list-may-12-2023/download",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: HTTP 404 on three search-result URLs (2022, 2023, 2026)."
+      },
+      "notes": ""
+    }
+  ],
+  "absent": [
+    {
+      "family": "case_law",
+      "what": "Free official Massachusetts Reports / Appeals Court Reports text or pagination",
+      "evidence": "Reporter of Decisions page https://www.mass.gov/lists/unofficial-collections-of-published-opinions: 'There is no official version of the Massachusetts Reports available online.' The LexisNexis public-access site is robots-blocked.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain (vendor-neutral) citation format",
+      "evidence": "Rule 23.0(2) and the slip opinions cite only Mass. / Mass. App. Ct. reports and docket numbers; no neutral format found.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "public.law edition of Massachusetts law",
+      "evidence": "www.public.law home page has no 'Massachusetts' (fetch_doc grep 0 matches); massachusetts.public.law: proxy 502 when fetching robots.txt.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "statutes",
+      "what": "Cornell LII Massachusetts statutes / constitution / opinions",
+      "evidence": "https://www.law.cornell.edu/states/massachusetts links out to state sites; LII hosts only the CMR.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "subsequent_history",
+      "what": "Index page of SJC FAR-denied lists on mass.gov",
+      "evidence": "Only individual /doc/ PDFs surfaced by WebSearch, and the three tried returned HTTP 404.",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "ma-gl-api",
+      "why": "Public JSON API without key: /api/Chapters/{c}/Sections/{s} gives section Text and IsRepealed; /api/Chapters lists all chapters; /api/SessionLaws returns all acts with ChapterText (3.3 MB). Turns 'G. L. c. X, § Y' into exact text in one GET."
+    },
+    {
+      "source_id": "ma-rule23-128archive",
+      "why": "GET search by DocketNumber / PartyName / date range returns structured rows (name, docket, release date, PDF id) for ~20,000 Rule 23.0 decisions since 2008."
+    },
+    {
+      "source_id": "ma-rules-civil",
+      "why": "Static mass.gov law-library index pages (civil, criminal, appellate, SJC, Appeals Court, Superior, Guide to Evidence, CMR titles) can be scraped once into rule -> slug maps, making every rule and CMR chapter constructible and resolving the dropped-decimal collisions (4.1 vs 41)."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "ma-guide-evidence-pdf",
+      "url": "https://www.mass.gov/doc/massachusetts-guide-to-evidence-2026-edition/download",
+      "why": "446 pp / 1.46M chars; WebFetch stops in the Note to § 202; per-section pages also cut long Notes (§ 803).",
+      "split_hint": "'Section NNN. Title' headings at left margin; each followed by 'NOTE'",
+      "bulk": ""
+    },
+    {
+      "source_id": "ma-rules-civil-pdf",
+      "url": "https://www.mass.gov/doc/massachusetts-rules-of-civil-procedure/download",
+      "why": "271 pp / 828K chars; WebFetch stops in Rule 6(b). Ingest is also the fix for the rule-41 slug collisions.",
+      "split_hint": "'RULE N.' headings; Reporter's Notes follow each rule",
+      "bulk": ""
+    },
+    {
+      "source_id": "ma-rules-sjc-pdf",
+      "url": "https://www.mass.gov/doc/massachusetts-supreme-judicial-court-rules-and-orders/download",
+      "why": "470 pp / 1.15M chars; WebFetch stops in Rule 1:18; Rule 3:07 (Rules of Professional Conduct) unreachable.",
+      "split_hint": "'RULE C:NN' headings",
+      "bulk": ""
+    },
+    {
+      "source_id": "ma-constitution-malegislature",
+      "url": "https://malegislature.gov/Laws/Constitution",
+      "why": "Single 357K-char HTML page; WebFetch cannot reach Articles of Amendment after about art. V.",
+      "split_hint": "HTML anchors id=article{ROMAN}, chapter{..}Section{..}Article{..}, amendmentArticle{ROMAN}",
+      "bulk": ""
+    },
+    {
+      "source_id": "ma-rules-superior",
+      "url": "https://www.mass.gov/doc/massachusetts-superior-court-rules-and-orders/download",
+      "why": "122 pp / 257K chars full set, beyond the WebFetch window (not WebFetched).",
+      "split_hint": "'RULE N' headings",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "Do mass.gov slip-opinion /doc/ links persist after they leave the 'Today's Opinions' listing? The FAR-list PDFs found by search are 404.",
+    "ma-appellatecourts.org (dockets, FAR) refuses automated access: is there any other free official record of FAR dispositions linked to the Appeals Court docket?",
+    "Justia Appeals Court case URLs ({yy}-p-{n}.html, unpadded) were seen only in the listing; fetch one to verify. Justia's year coverage was not checked.",
+    "Rules of Professional Conduct (SJC Rule 3:07) per-rule pages under /info-details/massachusetts-rules-of-professional-conduct were not probed.",
+    "Massachusetts Register: no free official current source was readable (SOS page empty / WebFetch error); State Library DSpace PDF download untested; latest issue held unknown.",
+    "Superior Court opinions (mass.gov 'Published Trial Court Opinions' lists 1980-date) and SJC single-justice decisions (archive from 2019) were not traced to a host.",
+    "law_aliases popular-name chapter mappings (Wage Act, MCRA, MTCA, anti-SLAPP, Open Meeting, Public Records) are from memory.",
+    "Criminal, appellate, SJC, Appeals Court and Superior per-rule pages were verified with fetch_doc.py only; WebFetch was not run on them."
+  ]
+}
