@@ -234,6 +234,15 @@
    ],
    "blocked_sources": []
   },
+  "data.capitol.hawaii.gov": {
+   "status": "allowed",
+   "sources": [
+    "hi-hrs-capitol",
+    "hi-session-laws",
+    "hi-constitution-capitol"
+   ],
+   "blocked_sources": []
+  },
   "dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -317,6 +326,13 @@
    ],
    "blocked_sources": []
   },
+  "health.hawaii.gov": {
+   "status": "allowed",
+   "sources": [
+    "hi-har-agencies"
+   ],
+   "blocked_sources": []
+  },
   "iapps.courts.state.ny.us": {
    "status": "blocked",
    "sources": [
@@ -397,6 +413,9 @@
     "ga-code-justia",
     "ga-constitution-justia",
     "ga-cases-justia",
+    "hi-hrs-justia",
+    "hi-constitution-justia",
+    "hi-cases-justia",
     "id-statutes-justia",
     "id-constitution-justia",
     "id-cases-justia",
@@ -564,6 +583,13 @@
    ],
    "blocked_sources": []
   },
+  "lrb.hawaii.gov": {
+   "status": "allowed",
+   "sources": [
+    "hi-constitution-lrb"
+   ],
+   "blocked_sources": []
+  },
   "lrl.texas.gov": {
    "status": "blocked",
    "sources": [
@@ -576,6 +602,14 @@
    "sources": [
     "ak-constitution-ltgov",
     "ak-online-public-notices"
+   ],
+   "blocked_sources": []
+  },
+  "ltgov.hawaii.gov": {
+   "status": "allowed",
+   "sources": [
+    "hi-har-agencies",
+    "hi-admin-rules-updates"
    ],
    "blocked_sources": []
   },
@@ -977,6 +1011,13 @@
    ],
    "blocked_sources": []
   },
+  "www.capitol.hawaii.gov": {
+   "status": "blocked",
+   "sources": [
+    "hi-hrs-capitol-www"
+   ],
+   "blocked_sources": []
+  },
   "www.coloradojudicial.gov": {
    "status": "allowed",
    "sources": [
@@ -1012,6 +1053,18 @@
     "mi-opinions-courts",
     "mi-coa-bound-volumes",
     "mi-subsequent-history-msc-orders"
+   ],
+   "blocked_sources": []
+  },
+  "www.courts.state.hi.us": {
+   "status": "allowed",
+   "sources": [
+    "hi-rules-index",
+    "hi-rules-hrcp",
+    "hi-rules-hrap",
+    "hi-rules-hrpp",
+    "hi-opinions-judiciary",
+    "hi-subsequent-history-cert"
    ],
    "blocked_sources": []
   },
@@ -1125,6 +1178,7 @@
     "de-admincode-lii",
     "fl-fac-lii",
     "ga-admincode-lii",
+    "hi-har-lii",
     "id-idapa-lii",
     "il-admincode-lii",
     "ma-cmr-lii",

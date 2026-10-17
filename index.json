@@ -646,6 +646,94 @@
         }
       ]
     },
+    "hi": {
+      "name": "Hawaii",
+      "file": "jurisdictions/hi.md",
+      "sha256": "7d66f383e1143f366e1265adda5cb9569ba79f8e5ed23cc9a515d67c048afdd6",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 14,
+        "blocked": 1,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Hawaii Revised Statutes",
+          "regex": "(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rev(?:ised)?\\.?\\s*Stat(?:utes|s)?\\.?(?:\\s+Ann\\.)?|\\bHRS)\\s*\u00a7*\\s*(?P<chapter>\\d{1,3}[A-Z]?)(?::(?P<article>\\d{1,2}[A-Z]?))?-(?P<section>\\d{1,4}(?:\\.\\d{1,2})?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]?)(?::(?P<article2>\\d{1,2}[A-Z]?))?-(?P<section2>\\d{1,4}(?:\\.\\d{1,2})?)(?:\\([a-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Revised\\s+Statutes|HRS)",
+          "context_required": false
+        },
+        {
+          "label": "Session Laws of Hawaii",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Sess\\.\\s*Laws\\s+Act\\s+(?P<act>\\d+)|Act\\s+(?P<act2>\\d+),?\\s*(?:SLH|Session\\s+Laws\\s+of\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?))\\s*(?P<year2>(?:18|19|20)\\d\\d)|\\bSLH\\s*(?P<year3>(?:18|19|20)\\d\\d),?\\s*Act\\s+(?P<act3>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Hawaii Constitution",
+          "regex": "(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Const(?:itution)?\\.?)\\s*,?\\s*art(?:icle|\\.)?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:State\\s+of\\s+)?(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*(?:State\\s+)?Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Hawai'i Rules of Civil Procedure",
+          "regex": "(?:\\bHRCP\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*)(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules\\s+of\\s+Civil\\s+Procedure\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Hawai'i Rules of Appellate Procedure",
+          "regex": "(?:\\bHRAP\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*App\\.\\s*P\\.\\s*)(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules\\s+of\\s+Appellate\\s+Procedure\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Hawai'i Rules of Penal Procedure",
+          "regex": "(?:\\bHRPP\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Penal\\s*P\\.\\s*)(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules\\s+of\\s+Penal\\s+Procedure\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules\\s+of\\s+Penal\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Hawaii Rules of Evidence (HRS chapter 626)",
+          "regex": "(?:\\bHRE\\b\\s*(?:Rule\\s*)?|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Evid\\.\\s*)(?P<rule>\\d{3,4}(?:\\.\\d{1,2})?)|(?:(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*)?Rules\\s+of\\s+Evidence\\s*(?:,\\s*)?Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Other Hawai'i court rules (RSCH, HRPC, DCRCP, HFCR, RCCH, HPR ...)",
+          "regex": "\\b(?P<set>RSCH|HRPC|DCRCP|HFCR|RCCH|RDCH|HPR|HCTR|HCRR|HEFSR|RICA|RLC|RCJC|HAR\\s+Arb\\.)\\s*(?:Rule\\s*)?(?P<rule>\\d{1,3}(?:\\.\\d{1,3})?)|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*R\\.\\s*Prof(?:'|\u2019)?l\\s*Conduct\\s*(?P<rule2>\\d\\.\\d{1,2})|Rules\\s+of\\s+the\\s+Supreme\\s+Court\\s+of\\s+the\\s+State\\s+of\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*,?\\s*Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d{1,3})?)",
+          "context_required": false
+        },
+        {
+          "label": "Hawaii Administrative Rules",
+          "regex": "(?:\\bHAR|(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*(?:Admin(?:istrative)?\\.?\\s*R(?:ules?|\\.)|Code\\s*R\\.))\\s*\u00a7*\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,4}(?:\\.\\d)?[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d{1,2})?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,4}(?:\\.\\d)?[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d{1,2})?),?\\s+(?:of\\s+the\\s+)?(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)\\s*Administrative\\s+Rules",
+          "context_required": false
+        },
+        {
+          "label": "Hawai'i Reports / Hawaii Appellate Reports",
+          "regex": "(?P<volume>\\d{1,3})\\s+(?:Haw(?:ai(?:['\u2018\u2019\u02bb`]|\\s)?i)?\\.?)(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Pacific Reporter with Hawai'i court parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:\\s*n\\.\\s*\\d+)?)?\\s*\\((?P<court>Haw\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Hawai'i appellate docket numbers (SCWC/SCAP/CAAP ...)",
+          "regex": "\\b(?P<prefix>SCWC|SCAP|SCPW|SCAD|SCPR|SCOT|SCEC|SCCQ|SCMF|SCRU|CAAP)-(?:(?P<yy>\\d{2})-(?P<seq>\\d{7})|(?P<old>\\d{5}))\\b",
+          "context_required": false
+        },
+        {
+          "label": "Unpublished Hawai'i dispositions (WL / LEXIS)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?|Haw\\.\\s*(?:App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))\\s*\\((?P<court>Haw\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)",
+          "context_required": false
+        },
+        {
+          "label": "SDO / memorandum opinion marker (generic)",
+          "regex": "\\((?:SDO|mem(?:\\.|orandum)\\s*op(?:\\.|inion))\\)|summary\\s+disposition\\s+order",
+          "context_required": true
+        },
+        {
+          "label": "Hawai'i certiorari dispositions (cert. rejected / accepted)",
+          "regex": "cert\\.\\s*(?P<disp>rejected|accepted|granted|dismissed)(?:,\\s*(?:No\\.\\s*)?(?P<docket>SCWC-\\d{2}-\\d{7}))?",
+          "context_required": true
+        }
+      ]
+    },
     "id": {
       "name": "Idaho",
       "file": "jurisdictions/id.md",
