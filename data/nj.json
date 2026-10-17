@@ -92,9 +92,12 @@
           "NJ Rev Stat § 2A:14-1 (2025)",
           "section 2A:14-1 of the New Jersey Statutes",
           "P.L.1993, c.30 (C.45:22A-47)",
-          "N.J.S.A. 52:14B-7.1"
+          "N.J.S.A. 52:14B-7.1",
+          "R.S.39:4-50",
+          "N.J. Stat. § 39:4-50",
+          "N.J.S.A. 10:5-12(d)"
         ],
-        "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?\\s*Ann\\.?|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:§+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)",
+        "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])R\\.\\s*S\\.|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:§+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)",
         "routes_to": [
           "nj-statutes-njleg",
           "nj-statutes-bulk",
@@ -189,6 +192,20 @@
         ]
       },
       {
+        "family": "subsequent_history",
+        "label": "Certification history (certif. denied / granted)",
+        "examples": [
+          "certif. denied, 250 N.J. 123 (2022)",
+          "certif. granted, 255 N.J. 487 (2023)",
+          "certif. denied, ___ N.J. ___ (2025)",
+          "certif. denied, 244 N.J. 336 (2020)"
+        ],
+        "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)",
+        "routes_to": [
+          "nj-subsequent-history-njcourts"
+        ]
+      },
+      {
         "family": "case_law",
         "label": "Reported New Jersey cases (N.J., N.J. Super., N.J. Tax, old N.J.L./N.J. Eq.)",
         "examples": [
@@ -199,7 +216,7 @@
           "320 A.3d 1 (N.J. 2024)",
           "290 A.3d 1 (N.J. Super. Ct. App. Div. 2023)"
         ],
-        "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)",
+        "regex": "(?<!\\d)(?<!denied, )(?<!granted, )(?<!dismissed, )(?<!denied,)(?<!granted,)(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)",
         "routes_to": [
           "nj-cases-justia",
           "nj-opinions-njcourts"
@@ -213,9 +230,10 @@
           "No. A-2551-24 (App. Div. Oct. 5, 2026) (slip op. at 4)",
           "A-39-23",
           "A-37/38-23",
-          "A-0921-24/A-1568-24"
+          "A-0921-24/A-1568-24",
+          "State v. Smith, No. A-4318-14T1 (App. Div. Mar. 3, 2017)"
         ],
-        "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})\\b",
+        "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})(?:T(?P<team>\\d))?\\b",
         "routes_to": [
           "nj-cases-justia",
           "nj-opinions-njcourts",
@@ -235,19 +253,6 @@
           "nj-cases-justia",
           "nj-opinions-njcourts"
         ]
-      },
-      {
-        "family": "subsequent_history",
-        "label": "Certification history (certif. denied / granted)",
-        "examples": [
-          "certif. denied, 250 N.J. 123 (2022)",
-          "certif. granted, 255 N.J. 487 (2023)",
-          "certif. denied, ___ N.J. ___ (2025)"
-        ],
-        "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)",
-        "routes_to": [
-          "nj-subsequent-history-njcourts"
-        ]
       }
     ],
     "law_aliases": {
@@ -266,7 +271,7 @@
       "N.J.R.": "NJR",
       "P.L.": "PL"
     },
-    "notes": "NJ statute cites use the colon-hyphen form title:chapter-section (2A:14-1, 2C:11-3, 52:14B-7.1); route a bare 'title:chapter-section' here only with an N.J.S.A./N.J.S./N.J. Stat. Ann./NJ Rev Stat prefix, a '(C.x:y-z)' compiled-statute cite, or explicit New Jersey context — 'N.J.S.' (no A) denotes a Title 2A/2B/2C/3B/12A/14A-type revised section and is the same code. N.J.S.A. ranges are written '2A:14-1 to -2' or '§§ 2A:14-1 to -3': take the first section. Court rules are cited 'R. 4:46-2' (part:rule-subrule); the colon form is NJ-specific, but bare 'Rule 12' or 'R. 56' (no colon) must not route here. 'P.L.2021, c.379' is a NJ chapter law; federal 'Pub. L. 111-148' / 'P.L. 111-148' has no comma-year-chapter and is excluded by the regex. 'N.J.R.' (Register) vs 'N.J.R.E.' (Evidence) differ by the trailing E and the volume-before form. Supreme Court dockets 'A-39-23' (term number-year) and Appellate Division dockets 'A-0117-23' (4-digit, zero-padded) share one regex; the digit count tells them apart. Unpublished Appellate Division opinions (R. 1:36-3) are cited by docket and date or WL/LEXIS; resolve them through Justia's appellate-division-unpublished year listing. 'certif. denied' cites point to N.J. Reports tables (commercial); no free official equivalent. CourtListener ids are from memory and unverified; pre-1948 Court of Errors and Appeals id uncertain."
+    "notes": "NJ statute cites use the colon-hyphen form title:chapter-section (2A:14-1, 2C:11-3, 52:14B-7.1); route a bare 'title:chapter-section' here only with an N.J.S.A./N.J.S./N.J. Stat. Ann./NJ Rev Stat prefix, a '(C.x:y-z)' compiled-statute cite, or explicit New Jersey context — 'N.J.S.' (no A) denotes a Title 2A/2B/2C/3B/12A/14A-type revised section and is the same code. N.J.S.A. ranges are written '2A:14-1 to -2' or '§§ 2A:14-1 to -3': take the first section. Court rules are cited 'R. 4:46-2' (part:rule-subrule); the colon form is NJ-specific, but bare 'Rule 12' or 'R. 56' (no colon) must not route here. 'P.L.2021, c.379' is a NJ chapter law; federal 'Pub. L. 111-148' / 'P.L. 111-148' has no comma-year-chapter and is excluded by the regex. 'N.J.R.' (Register) vs 'N.J.R.E.' (Evidence) differ by the trailing E and the volume-before form. Supreme Court dockets 'A-39-23' (term number-year) and Appellate Division dockets 'A-0117-23' (4-digit, zero-padded) share one regex; the digit count tells them apart. Unpublished Appellate Division opinions (R. 1:36-3) are cited by docket and date or WL/LEXIS; resolve them through Justia's appellate-division-unpublished year listing. 'certif. denied' cites point to N.J. Reports tables (commercial); no free official equivalent. CourtListener ids are from memory and unverified; pre-1948 Court of Errors and Appeals id uncertain. Fixes after the independent check: pre-2017 Appellate Division dockets carry a team suffix (A-4318-14T1) and now match; 'R.S.39:4-50' (Revised Statutes form) and 'N.J. Stat. §' route to statutes — 'R.S.' is guarded by a lookbehind so 'M.R.S.' (Maine) and similar prefixed forms do not route here, and it still requires the colon-hyphen section form. 'certif. denied/granted, V N.J. P' routes to subsequent history: that pattern is listed before reported cases, and the reported-case regex refuses an N.J. cite immediately preceded by 'denied, ' / 'granted, ' / 'dismissed, '."
   },
   "sources": [
     {
@@ -281,9 +286,9 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/{title_node}/{section_node}",
-        "pattern_rules": "Node ids are sequential integers assigned when the Folio infobase is rebuilt (it is rebuilt every weekday), so they are NOT derivable from the citation and may shift; never store or guess them. Resolve per request: (1) GET https://lis.njleg.state.nj.us/nxt/gateway.dll?f=xmlcontents&command=getchildren&basepathid=statutes%2F1&maxnodes=500&minnodesleft=5 → XML <n id='statutes/1/NNN' t='TITLE 2A  ADMINISTRATION OF …'> (title names only, no section ranges); (2) GET the same URL with basepathid=statutes%2F1%2F{title_node}&maxnodes=5000 → flat list of every section in the title (no chapter level), each <n ct='text/xml' id='statutes/1/{title}/{node}' t='2A:14-1.  6 years'>; match the t attribute prefix exactly '{title}:{chapter}-{section}' followed by '.', space, or end (2A:14-1 vs 2A:14-1.1 differ); (3) GET https://lis.njleg.state.nj.us/nxt/gateway.dll/{id} (bare path, no query) for the section text. Verified: N.J.S.A. 2A:14-1 → statutes/1/112/303; N.J.S.A. 2C:11-3 → statutes/1/2785/2868 (2026-10-16).",
+        "pattern_rules": "Node ids are sequential integers assigned when the Folio infobase is rebuilt (it is rebuilt every weekday), so they are NOT derivable from the citation and may shift; never store or guess them. Resolve per request: (1) GET https://lis.njleg.state.nj.us/nxt/gateway.dll?f=xmlcontents&command=getchildren&basepathid=statutes%2F1&maxnodes=500&minnodesleft=5 → XML <n id='statutes/1/NNN' t='TITLE 2A  ADMINISTRATION OF …'> (title names only, no section ranges); (2) GET the same URL with basepathid=statutes%2F1%2F{title_node}&maxnodes=5000 → flat list of every section in the title (no chapter level), each <n ct='text/xml' id='statutes/1/{title}/{node}' t='2A:14-1.  6 years'>; match the t attribute with the regex ^{title}:{chapter}-{section}\\.?\\s — the section number, an optional period, then whitespace — so 10:5-12 matches '10:5-12.  …' but NOT '10:5-12.1  …' (a looser 'followed by a period' rule returned 13 hits for 10:5-12); (3) GET https://lis.njleg.state.nj.us/nxt/gateway.dll/{id} (bare path, no query) for the section text. Verified: N.J.S.A. 2A:14-1 → statutes/1/112/303; N.J.S.A. 2C:11-3 → statutes/1/2785/2868 (2026-10-16). Third verified: N.J.S.A. 10:5-12 → Title 10 = statutes/1/7555, section node statutes/1/7555/7610.",
         "index_url": "https://lis.njleg.state.nj.us/nxt/gateway.dll?f=xmlcontents&command=getchildren&basepathid=statutes%2F1&maxnodes=500&minnodesleft=5",
-        "navigation": "xmlcontents root (title folders, e.g. statutes/1/112 = TITLE 2A, statutes/1/2785 = TITLE 2C) → xmlcontents of the title folder (every section listed with its number in the t attribute) → document URL gateway.dll/{id}. The HTML front end (gateway.dll?f=templates&fn=default.htm&vid=Publish:10.1048/Enu) is a JavaScript search app — do not use it.",
+        "navigation": "Use WebFetch for the xmlcontents steps: fetch_doc.py strips XML tags and attributes (it returns only 'getchildrenstatutes/1'), so ids and section titles are invisible to the script. xmlcontents root (title folders, e.g. statutes/1/112 = TITLE 2A, statutes/1/2785 = TITLE 2C, statutes/1/7555 = TITLE 10) → xmlcontents of the title folder (every section listed with its number in the t attribute) → document URL gateway.dll/{id} (readable by WebFetch or fetch_doc). The HTML front end (gateway.dll?f=templates&fn=default.htm&vid=Publish:10.1048/Enu) is a JavaScript search app — do not use it.",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -291,17 +296,18 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "lis.njleg.state.nj.us/robots.txt 302 → njleg.state.nj.us/robots.txt: User-agent * Allow: /",
-        "notes": "Use the bare document path: WebFetch of the same document with '?f=templates$fn=document-frameset.htm' returned a client error. WebFetch reads the xmlcontents XML but truncates large titles (Title 2C list cut at 2C:40A-4); fetch_doc.py reads it whole, or use a smaller maxnodes and command=getmore. A non-folder basepathid returns HTTP 500 'xmlcontents did not succeed'."
+        "notes": "Use the bare document path: WebFetch of the same document with '?f=templates$fn=document-frameset.htm' returned a client error. TOC lookup needs WebFetch (fetch_doc strips XML attributes); WebFetch truncates large title lists (Title 2C cut at 2C:40A-4) — use a smaller maxnodes and command=getmore&start={last name}&direction=… or offset. A non-folder basepathid returns HTTP 500 'xmlcontents did not succeed'. Section documents themselves read fine with fetch_doc."
       },
       "currency": {
-        "where": "title of the TOC root node 'statutes/1' (xmlcontents XML) and line 2 of the bulk STATUTES.TXT; not on section pages",
-        "observed": "UPDATED THROUGH  P.L.2026, c.50, and J.R.1"
+        "where": "none on section pages or in the xmlcontents output seen by the independent check; the bulk STATUTES.TXT header (pub.njleg.gov) carries an 'UPDATED THROUGH' line",
+        "observed": ""
       },
       "hazards": [
         "node ids not derivable from citations and may shift on the weekday rebuild — resolve through xmlcontents each time",
         "JavaScript front end (gateway.dll default.htm) shows only a search shell",
         "no currency line on section pages",
-        "section-number prefix matching must respect suffixes (2A:14-1 vs 2A:14-1.1 vs 2C:11-3a)"
+        "section-number matching must stop at whitespace: ^{t}:{c}-{s}\\.?\\s (10:5-12 vs 10:5-12.1 vs 2C:11-3a)",
+        "fetch_doc.py cannot see the xmlcontents ids/titles (attributes stripped) — TOC navigation is WebFetch-only"
       ],
       "probe": {
         "citation": "N.J.S.A. 2C:11-3",
@@ -311,9 +317,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 2C:11-3 body present ('a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'), complete through subsection j. fetch_doc verify OK (8,165 chars). Second citation N.J.S.A. 2A:14-1 at /statutes/1/112/303: fetch_doc read 'Every action at law for trespass to real property', ends 'amended 2021, c.379.'"
+        "evidence": "WebFetch: 2C:11-3 body present ('a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'), complete through subsection j. fetch_doc verify OK (8,165 chars). Second citation N.J.S.A. 2A:14-1 at /statutes/1/112/303: fetch_doc read 'Every action at law for trespass to real property', ends 'amended 2021, c.379.' | Independent check 2026-10-16: WebFetch YES 'Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder when'; complete; second citation N.J.S.A. 10:5-12 ok"
       },
       "notes": "Node ids recorded here are evidence only, valid on 2026-10-16."
     },
@@ -334,19 +340,20 @@
         "navigation": "directory listing → STATUTES-TEXT.zip → STATUTES.TXT; search for a line starting with the section number.",
         "format": "zip (txt, rtf)"
       },
-      "text": "fetch-and-quote",
+      "text": "link-only",
       "automation": {
-        "webfetch": "untested",
-        "shell": "ok",
+        "webfetch": "fail",
+        "shell": "http-error",
         "robots_txt": "pub.njleg.gov/robots.txt 302 → njleg.state.nj.us/robots.txt: Allow: /",
-        "notes": "41 MB zip; script-only (fetch_doc reads the directory listing and _READ_ME.txt; the zip was downloaded by shell). 'Updated every week day at 2AM' per _READ_ME.txt; files dated 10/16/2026 6:00 AM."
+        "notes": "binary zip; ingest only. fetch_doc.py does not unzip (it reads the 41 MB zip as html garbage) and WebFetch returns a client error; the directory listing and _READ_ME.txt are readable. Use as a maintainer corpus/ingest input, not a live read route."
       },
       "currency": {
         "where": "line 2 of STATUTES.TXT",
         "observed": "(UPDATED THROUGH  P.L.2026, c.50, and J.R.1)"
       },
       "hazards": [
-        "very large file — not for WebFetch",
+        "binary zip — not readable by fetch_doc.py or WebFetch; ingest only",
+        "very large file",
         "section heading format varies (with/without trailing period)"
       ],
       "probe": {
@@ -357,9 +364,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Shell: 200 application/x-zip-compressed, 41,443,870 B, last-modified 16 Oct 2026; STATUTES.TXT line 3694 '2A:14-1.  6 years', line 3703 '2A:14-1.1.'; header 'UPDATED THROUGH  P.L.2026, c.50, and J.R.1'. fetch_doc read the directory listing and _READ_ME.txt."
+        "evidence": "Shell: 200 application/x-zip-compressed, 41,443,870 B, last-modified 16 Oct 2026; STATUTES.TXT line 3694 '2A:14-1.  6 years', line 3703 '2A:14-1.1.'; header 'UPDATED THROUGH  P.L.2026, c.50, and J.R.1'. fetch_doc read the directory listing and _READ_ME.txt. | Independent check 2026-10-16: WebFetch CLIENT_ERROR on zip; fetch_doc reads raw ZIP bytes, grep 'UPDATED THROUGH' 0 matches — live route unusable, kept as ingest input; second citation N.J.S.A. 10:5-12 failed via live routes"
       },
       "notes": "Best bulk statute source in the pilot so far: a script can index every section from one file daily."
     },
@@ -375,7 +382,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/new-jersey/title-{title_lower}/section-{title_lower}-{chapter_lower}-{section}/",
-        "pattern_rules": "title lower-cased (2A → 2a, 2C → 2c); section slug = title-chapter-section joined by hyphens, all lower-case (2A:14-1 → section-2a-14-1). No chapter segment in the path. Decimal sections (2A:14-1.1) are untested — expected section-2a-14-1-1 but confirm from the title page. Year-specific: insert /{year}/ after /new-jersey/.",
+        "pattern_rules": "title lower-cased (2A → 2a, 2C → 2c); section slug = title-chapter-section joined by hyphens, all lower-case (2A:14-1 → section-2a-14-1). No chapter segment in the path. Decimal sections: '.' → '-' (10:5-12.1 → /title-10/section-10-5-12-1/, verified). Year-specific: insert /{year}/ after /new-jersey/.",
         "index_url": "https://law.justia.com/codes/new-jersey/",
         "navigation": "",
         "format": "html"
@@ -393,8 +400,7 @@
       },
       "hazards": [
         "edition lags official text",
-        "shell blocked by Cloudflare",
-        "decimal-section slug unverified"
+        "shell blocked by Cloudflare"
       ],
       "probe": {
         "citation": "N.J.S.A. 2A:14-1",
@@ -404,9 +410,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present, '2025 New Jersey Revised Statutes', 'NJ Rev Stat § 2A:14-1 (2025)'. Second citation 2C:11-3 at /title-2c/section-2c-11-3/: 'a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'."
+        "evidence": "WebFetch: body present, '2025 New Jersey Revised Statutes', 'NJ Rev Stat § 2A:14-1 (2025)'. Second citation 2C:11-3 at /title-2c/section-2c-11-3/: 'a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'. | Independent check 2026-10-16: YES '2A:14-1. a. Every action at law for trespass to real property'; 'NJ Rev Stat § 2A:14-1 (2025)'; second citation N.J.S.A. 10:5-12.1 ok"
       },
       "notes": ""
     },
@@ -422,7 +428,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://pub.njleg.gov/bills/{session}/PL{yy}/{chapter}_.HTM",
-        "pattern_rules": "From 'P.L.{year}, c.{chapter}': yy = last two digits of year; session = first year of the two-year session = year if even, year − 1 if odd (P.L.2017 → 2016; P.L.2021 → 2020). Chapters signed in January of an even year before the new session opens may still sit under the earlier session (P.L.2021, c.379 was approved January 18, 2022 and is under 2020/PL21 because the folder follows the P.L. year). chapter unpadded. Replace .HTM with .PDF for the PDF.",
+        "pattern_rules": "From 'P.L.{year}, c.{chapter}': yy = last two digits of year; session = first year of the two-year session = year if even, year − 1 if odd (P.L.2017 → 2016; P.L.2021 → 2020). Chapters signed in January of an even year before the new session opens may still sit under the earlier session (P.L.2021, c.379 was approved January 18, 2022 and is under 2020/PL21 because the folder follows the P.L. year). chapter unpadded. Even-year rule verified: P.L.2022, c.40 → /bills/2022/PL22/40_.HTM. Replace .HTM with .PDF for the PDF.",
         "index_url": "https://pub.njleg.gov/bills/",
         "navigation": "",
         "format": "html"
@@ -432,14 +438,14 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "302 → njleg.state.nj.us/robots.txt: Allow: /",
-        "notes": "Rule for even P.L. years (session = year) not separately probed."
+        "notes": "HTM text has CR/LF and non-breaking spaces between words: fetch_doc grep with a literal multi-word phrase can return 0 matches — use fetch_doc verify (whitespace-normalised) or grep --regex with \\s+."
       },
       "currency": {
         "where": "none stated",
         "observed": ""
       },
       "hazards": [
-        "even-year P.L. session folder rule unprobed"
+        "NBSP/CRLF between words defeats literal grep — use verify or \\s+ regex"
       ],
       "probe": {
         "citation": "P.L.2017, c.150",
@@ -449,9 +455,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'An Act concerning certain murders and amending N.J.S.2C:11-3', 'Approved July 21, 2017.', complete. Second citation P.L.2021, c.379 at /bills/2020/PL21/379_.HTM: fetch_doc 'CHAPTER 379 An Act concerning construction defects', 'Approved January 18, 2022.'"
+        "evidence": "WebFetch: 'An Act concerning certain murders and amending N.J.S.2C:11-3', 'Approved July 21, 2017.', complete. Second citation P.L.2021, c.379 at /bills/2020/PL21/379_.HTM: fetch_doc 'CHAPTER 379 An Act concerning construction defects', 'Approved January 18, 2022.' | Independent check 2026-10-16: WebFetch YES 'An Act concerning certain murders and amending N.J.S.2C:11-3'; 'Approved July 21, 2017.'; second citation P.L.2022, c.40 ok"
       },
       "notes": "Statute section history notes cite chapter laws in this form (e.g. 'amended 2021, c.379')."
     },
@@ -496,9 +502,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I ¶ 1 YES; Art. VIII § IV ¶ 1 NOT PRESENT (truncated). fetch_doc: verify OK at offset 1,779; second citation Art. VI § I ¶ 1 'The judicial power shall be vested in a Supreme Court' at offset 78,747; Art. VIII § IV ¶ 1 at 146,127."
+        "evidence": "WebFetch: Art. I ¶ 1 YES; Art. VIII § IV ¶ 1 NOT PRESENT (truncated). fetch_doc: verify OK at offset 1,779; second citation Art. VI § I ¶ 1 'The judicial power shall be vested in a Supreme Court' at offset 78,747; Art. VIII § IV ¶ 1 at 146,127. | Independent check 2026-10-16: YES Art. I para 1; '(Updated Through Amendments Adopted in November, 2021)'; WebFetch truncated in Art. VIII § I; Art. IX para 1 at offset 148,621; second citation N.J. Const. art. IX, para. 1 ok"
       },
       "notes": ""
     },
@@ -543,9 +549,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I ¶ 1 body present; single page; truncated in Art. VIII § II; no currency statement."
+        "evidence": "WebFetch: Art. I ¶ 1 body present; single page; truncated in Art. VIII § II; no currency statement. | Independent check 2026-10-16: YES Art. I para 1; no currency statement; window 1 ends at start of Art. VIII § II; second citation N.J. Const. art. IX, para. 1 (offset=100000) ok"
       },
       "notes": ""
     },
@@ -592,7 +598,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc: 'REFUSED: www.njcourts.gov refused automated access: HTTP 403'; headers show Incapsula (x-iinfo, visid_incap cookie, /_Incapsula_Resource). WebFetch: 'There was an error while fetching.' on three index URLs."
+        "evidence": "fetch_doc: 'REFUSED: www.njcourts.gov refused automated access: HTTP 403'; headers show Incapsula (x-iinfo, visid_incap cookie, /_Incapsula_Resource). WebFetch: 'There was an error while fetching.' on three index URLs. | Re-confirmed blocked 2026-10-16: WebFetch CLIENT_ERROR 'There was an error while fetching.'; fetch_doc REFUSED (403 Incapsula)"
       },
       "notes": "No tier-2 host serves the NJ court rules (Justia, LII and public.law do not); other sites found by search are unvetted third parties."
     },
@@ -637,7 +643,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Same index as nj-rules-of-court: script 403 Incapsula, WebFetch client error."
+        "evidence": "Same index as nj-rules-of-court: script 403 Incapsula, WebFetch client error. | Re-confirmed blocked 2026-10-16: WebFetch CLIENT_ERROR 'There was an error while fetching.'; fetch_doc REFUSED (403 Incapsula)"
       },
       "notes": ""
     },
@@ -683,7 +689,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: empty page; fetch_doc: 200, 0 chars. Linked from nj.gov/oal as the public-access Code."
+        "evidence": "WebFetch: empty page; fetch_doc: 200, 0 chars. Linked from nj.gov/oal as the public-access Code. | Independent check 2026-10-16: confirmed index 302 → advance.lexis.com container; page empty"
       },
       "notes": "Link users here for the current Code; quote from nj-admincode-lii only with its currency caveat."
     },
@@ -709,7 +715,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Crawl-delay 10; disallows /search/ and admin paths (per DE log); /regulations/ allowed",
-        "notes": ""
+        "notes": "A literal fetch_doc grep of a multi-word phrase can miss because of whitespace; fetch_doc verify passes."
       },
       "currency": {
         "where": "bottom of section page",
@@ -727,9 +733,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present, complete; note 'Amended by 52 N.J.R. 1822(b), effective 10/5/2020'. Second citation N.J.A.C. 7:7-1.1: fetch_doc verify 'This chapter establishes the rules of the Department' OK."
+        "evidence": "WebFetch: body present, complete; note 'Amended by 52 N.J.R. 1822(b), effective 10/5/2020'. Second citation N.J.A.C. 7:7-1.1: fetch_doc verify 'This chapter establishes the rules of the Department' OK. | Independent check 2026-10-16: YES '(a) The rules in this chapter supersede all rules in effect'; 'updated quarterly'; 52 N.J.R. 1822(b); second citation N.J.A.C. 5:23-2.1 ok"
       },
       "notes": ""
     },
@@ -752,7 +758,7 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "not determined",
         "notes": "fetch_doc: redirect to advance.lexis.com/container?config=00JABk…, 200 with 0 chars."
@@ -774,7 +780,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc: 0 chars after redirect. OAL rulemaking portal (nj.gov/oal/rules/portal/) lists active proposals at oalrulesproduction.dynamics365portals.us (not probed)."
+        "evidence": "fetch_doc: 0 chars after redirect. OAL rulemaking portal (nj.gov/oal/rules/portal/) lists active proposals at oalrulesproduction.dynamics365portals.us (not probed). | Independent check 2026-10-16: WebFetch 302 → advance.lexis.com/container?config=00JABk… (JS app)"
       },
       "notes": "OAL also posts rulemaking notices at https://www.nj.gov/oal/rules/proposals/ (script 200, not examined)."
     },
@@ -788,16 +794,16 @@
       "official_status_evidence": "Slip opinions; Supreme Court PDFs open 'This syllabus is not part of the Court's opinion'; the official reports are N.J., N.J. Super. and N.J. Tax (commercial).",
       "coverage": "Supreme Court and Appellate Division opinions confirmed for 2024–2026; earliest year not determined (listing pages unreadable). Appellate Division unpublished opinions, Tax Court and published trial-court opinions are reportedly posted in the same tree but were not confirmed.",
       "access": {
-        "mode": "constructible",
-        "url_pattern": "https://www.njcourts.gov/system/files/court-opinions/{decision_year}/{file}.pdf",
-        "pattern_rules": "decision_year = year decided (not docket year). Supreme Court docket A-{n}-{yy} → file 'a_{n}_{yy}' (A-39-23 decided 2024 → /2024/a_39_23.pdf; A-66-21 → /2024/a_66_21.pdf); a hyphen form '/2024/a-15-23.pdf' also appears in search results, and A-18-24 (/2024/a_18_24.pdf) failed — if the underscore form fails try 'a-{n}-{yy}', then fall back to Justia. Appellate Division docket A-{nnnn}-{yy} (4-digit, zero-padded) → file 'a{nnnn}-{yy}' (A-0117-23 decided 2025 → /2025/a0117-23.pdf; A-0891-24 → /2026/a0891-24.pdf). Consolidated dockets (A-0921-24/A-1568-24) and an unpublished opinion (A-2551-24, /2026/a2551-24.pdf) failed — form unknown.",
-        "index_url": "https://www.njcourts.gov/attorneys/opinions/supreme",
-        "navigation": "Listing pages /attorneys/opinions/{supreme|published-appellate|unpublished-appellate|tax|published-trial} are JavaScript/Incapsula-protected: WebFetch errors or returns only docket numbers and dates without links. Build the PDF URL from docket + decision date instead (date from Justia or the citation).",
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Do NOT construct opinion PDF URLs. Observed filenames (evidence only): Supreme /2024/a_39_23.pdf, /2024/a_66_21.pdf; Appellate Division /2025/a0117-23.pdf, /2026/a0891-24.pdf. URLs built from these forms failed for 8 other opinions (a_18_24, a0921-24, a2551-24 at research; a_4_25, a-4-25, a3222-24, a1103-24, a_8_25 at the independent check) and failures cannot be told from host errors. Read an njcourts PDF only from a URL actually found on a page (e.g. a link surfaced by a search result or listing); otherwise read the Justia text.",
+        "index_url": "https://law.justia.com/cases/new-jersey/",
+        "navigation": "Locate the opinion on Justia (court → year listing → docket) or another listing; read the official PDF only if its exact njcourts URL was found; njcourts listing pages /attorneys/opinions/{supreme|published-appellate|…} are JavaScript/Incapsula-protected (WebFetch errors or returns dockets and dates without links).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok (PDF paths only)",
+        "webfetch": "ok (found PDF URLs only)",
         "shell": "blocked-challenge",
         "robots_txt": "Disallow /search (site search off-limits); /attorneys/ and /system/files/ allowed",
         "notes": "Shell: Imperva Incapsula challenge (HTTP 403) — fetch_doc refuses the host for the day. WebFetch reads PDFs (converted to text) but fails on most HTML pages. Long opinions exceed the 100K window (Zingis 109,924 chars) — use offset=100000."
@@ -807,6 +813,7 @@
         "observed": ""
       },
       "hazards": [
+        "pattern not constructible: 8 URLs built from observed filename forms failed (research 3, independent check 5) while the recorded files load",
         "slip pagination only — no N.J. / N.J. Super. page numbers",
         "filename form varies (a_39_23 vs a-15-23); consolidated and unpublished forms unknown",
         "shell blocked by Incapsula; WebFetch intermittent on HTML pages",
@@ -821,9 +828,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rodriguez (A-39-23, 089044) syllabus and opinion text present. Second Supreme: /2024/a_66_21.pdf State v. Zingis, decided August 8, 2024. Appellate: /2025/a0117-23.pdf 'After a jury trial, defendant Anthony Gibson, a police officer, was found'; /2026/a0891-24.pdf 'APPROVED FOR PUBLICATION' January 12, 2026. Failures: a_18_24, a0921-24, a2551-24 (client error)."
+        "evidence": "WebFetch: Rodriguez (A-39-23, 089044) syllabus and opinion text present. Second Supreme: /2024/a_66_21.pdf State v. Zingis, decided August 8, 2024. Appellate: /2025/a0117-23.pdf 'After a jury trial, defendant Anthony Gibson, a police officer, was found'; /2026/a0891-24.pdf 'APPROVED FOR PUBLICATION' January 12, 2026. Failures: a_18_24, a0921-24, a2551-24 (client error). | Independent check 2026-10-16: probe YES (Rodriguez syllabus 'This syllabus is not part of the Court's opinion'); /2026/a0891-24.pdf re-confirmed; 5 freshly constructed URLs failed — row verified only for reading a found URL"
       },
       "notes": "Public-domain citation: none. Unpublished Appellate Division opinions are cited by docket and date; R. 1:36-3 restricts citing them."
     },
@@ -857,7 +864,7 @@
       },
       "hazards": [
         "JS notice; links missing",
-        "court below not shown",
+        "Decided date may be missing or lag (State v. Myers, A-4-25: no Decided date though Justia lists Aug. 17, 2026)",
         "shell blocked"
       ],
       "probe": {
@@ -868,11 +875,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'Leave to Appeal Granted: May 10, 2024', 'Argued: Sept. 9, 2024', 'Decided: Dec. 12, 2024'. Second: /cases/a-1489-22 State v. A.H.-S., 'Argued: Oct. 16, 2024'."
+        "evidence": "WebFetch: 'Leave to Appeal Granted: May 10, 2024', 'Argued: Sept. 9, 2024', 'Decided: Dec. 12, 2024'. Second: /cases/a-1489-22 State v. A.H.-S., 'Argued: Oct. 16, 2024'. | Independent check 2026-10-16: 'Leave to Appeal Granted: May 10, 2024', 'Argued: Sept. 9, 2024', 'Decided: Dec. 12, 2024'; JS notice; second citation State v. Myers, A-4-25 ok"
       },
-      "notes": "Use as a pointer only; quote opinions from the PDF or Justia."
+      "notes": "Use as a pointer only; quote opinions from the PDF or Justia. Certification-granted pages name the Appellate Division docket ('Appellate Opinion A-2045-22' on A-4-25)."
     },
     {
       "id": "nj-cases-justia",
@@ -906,7 +913,8 @@
         "slip pagination only",
         "published App. Div. text may be the redacted version",
         "AI-assisted metadata",
-        "shell blocked"
+        "shell blocked",
+        "the appellate-division-published/{year}/ listing also includes unpublished entries — take publication status from the URL segment and the opinion legend, not the listing"
       ],
       "probe": {
         "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23 (N.J. 2024)",
@@ -916,9 +924,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: full opinion, slip pagination, not truncated. Also /appellate-division-published/2025/a-0117-23.html ('APPROVED FOR PUBLICATION AS REDACTED') and /appellate-division-unpublished/2026/a-2551-24.html ('PER CURIAM S.J.M. appeals from a March 21, 2025 order of the')."
+        "evidence": "WebFetch: full opinion, slip pagination, not truncated. Also /appellate-division-published/2025/a-0117-23.html ('APPROVED FOR PUBLICATION AS REDACTED') and /appellate-division-unpublished/2026/a-2551-24.html ('PER CURIAM S.J.M. appeals from a March 21, 2025 order of the'). | Independent check 2026-10-16: YES 'In this appeal, we consider whether the Hartford Underwriters Insurance'; complete, slip pagination; second citation State v. Myers, A-4-25 (2026); Carbone, A-3222-24 (App. Div. 2026); State v. Mwangi, A-2889-24 (unpub.) ok"
       },
       "notes": "Practical first stop for locating NJ opinions by year/name, because the njcourts listings are unreadable."
     },
@@ -934,7 +942,7 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.njcourts.gov/cases/{supreme_docket_lower}",
-        "pattern_rules": "Only the Supreme Court's own A-{n}-{yy} docket opens the case page; the Appellate Division docket does not lead to it. To find review of an Appellate Division decision, search Justia's supreme-court year listings (and later years) by party name, then confirm the court below in the opinion's opening lines.",
+        "pattern_rules": "Only the Supreme Court's own A-{n}-{yy} docket opens the case page; the Appellate Division docket does not lead to it. To find review of an Appellate Division decision, search Justia's supreme-court year listings (and later years) by party name, then confirm the court below in the opinion caption ('On certification to the Superior Court, Appellate Division'); certification-granted case pages also name the Appellate Division docket.",
         "index_url": "https://law.justia.com/cases/new-jersey/supreme-court/",
         "navigation": "party name → Justia Supreme Court year listing → Supreme docket → njcourts /cases/{docket} for grant date, and the opinion PDF for the disposition",
         "format": "html"
@@ -953,7 +961,8 @@
       "hazards": [
         "party-name search only",
         "denials of certification not findable free",
-        "njcourts HTML partially readable"
+        "njcourts HTML partially readable",
+        "case page may lack the Decided date (A-4-25)"
       ],
       "probe": {
         "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23",
@@ -963,9 +972,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: grant, argument and decision dates present; court below not listed on the page."
+        "evidence": "WebFetch: grant, argument and decision dates present; court below not listed on the page. | Independent check 2026-10-16: 'Leave to Appeal Granted: May 10, 2024'; argued/decided dates; second citation State v. Myers, A-4-25 (cert. from App. Div. A-2045-22) ok"
       },
       "notes": "'certif. denied, 250 N.J. 123 (2022)' points to an N.J. Reports page (commercial); no free official equivalent was found."
     }
@@ -1049,9 +1058,9 @@
     "njcourts opinion PDF filenames for consolidated dockets, unpublished App. Div. opinions (a2551-24 failed), Tax Court and trial-court opinions; whether Supreme files use a_N_YY or a-N-YY consistently.",
     "Earliest year of opinions on njcourts.gov.",
     "Whether NXT node ids stay stable between weekday rebuilds.",
-    "Justia slug for decimal statute sections (2A:14-1.1).",
-    "P.L. folder rule for even years (P.L.2022 → 2022/PL22?) not probed.",
     "CourtListener ids (nj, njsuperctappdiv, njsuperctlawdiv, njsuperctchdiv, njtaxct) unverified.",
-    "Whether the Legislature's statutes/Constitution are official (no statement found; UELMA status unknown)."
+    "Whether the Legislature's statutes/Constitution are official (no statement found; UELMA status unknown).",
+    "Whether any njcourts opinion PDF filename rule exists beyond the four observed files (5 fresh constructions failed in the independent check).",
+    "A live (non-ingest) route to the bulk statutes zip: fetch_doc.py would need zip support."
   ]
 }

@@ -313,17 +313,17 @@
     "nj": {
       "name": "New Jersey",
       "file": "jurisdictions/nj.md",
-      "sha256": "915b34f750b7376affee6e54408fb1299a383f32d1cc6804b0d12b2a18f630a6",
+      "sha256": "e3c031e7f060caf15c8ad6b7f315c7d2831051d93922515af79af6b8355d8abe",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 11,
+        "verified_independent": 11,
         "blocked": 2,
         "reported": 2
       },
       "citation_patterns": [
         {
           "label": "New Jersey Statutes (N.J.S.A.)",
-          "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?\\s*Ann\\.?|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)"
+          "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])R\\.\\s*S\\.|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)"
         },
         {
           "label": "Pamphlet Laws (session laws)",
@@ -350,20 +350,20 @@
           "regex": "(?P<volume>\\d{1,2})\\s+N\\.\\s*J\\.\\s*R\\.\\s+(?P<page>\\d+)(?:\\((?P<item>[a-z])\\))?"
         },
         {
+          "label": "Certification history (certif. denied / granted)",
+          "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)"
+        },
+        {
           "label": "Reported New Jersey cases (N.J., N.J. Super., N.J. Tax, old N.J.L./N.J. Eq.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?<!\\d)(?<!denied, )(?<!granted, )(?<!dismissed, )(?<!denied,)(?<!granted,)(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)"
         },
         {
           "label": "Docket-number citations (Supreme A-N-YY; Appellate Division A-NNNN-YY, incl. unpublished)",
-          "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})\\b"
+          "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})(?:T(?P<team>\\d))?\\b"
         },
         {
           "label": "Westlaw / Lexis unreported NJ cites",
           "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.\\s*J\\.|N\\.\\s*J\\.\\s*(?:(?P<lexcourt>Super\\.(?:\\s*Unpub\\.)?|Tax)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
-        },
-        {
-          "label": "Certification history (certif. denied / granted)",
-          "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)"
         }
       ]
     },
