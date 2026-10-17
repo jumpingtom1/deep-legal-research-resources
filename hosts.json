@@ -333,6 +333,15 @@
    ],
    "blocked_sources": []
   },
+  "courts.nh.gov": {
+   "status": "allowed",
+   "sources": [
+    "nh-rules-evidence-courts",
+    "nh-rules-crimp-courts",
+    "nh-rules-superior-courts"
+   ],
+   "blocked_sources": []
+  },
   "ctrack.sccourts.org": {
    "status": "allowed",
    "sources": [
@@ -436,6 +445,15 @@
    "status": "allowed",
    "sources": [
     "fl-far-flrules"
+   ],
+   "blocked_sources": []
+  },
+  "gc.nh.gov": {
+   "status": "allowed",
+   "sources": [
+    "nh-rsa-gc",
+    "nh-session-laws-gc",
+    "nh-admin-rules-gc"
    ],
    "blocked_sources": []
   },
@@ -651,6 +669,9 @@
     "ne-statutes-justia",
     "ne-constitution-justia",
     "ne-cases-justia",
+    "nh-rsa-justia",
+    "nh-constitution-justia",
+    "nh-cases-justia",
     "nj-statutes-justia",
     "nj-constitution-justia",
     "nj-opinions-njcourts",
@@ -1532,6 +1553,14 @@
     "mo-opinions-courts"
    ]
   },
+  "www.courts.nh.gov": {
+   "status": "allowed",
+   "sources": [
+    "nh-opinions-courts",
+    "nh-orders-courts"
+   ],
+   "blocked_sources": []
+  },
   "www.courts.state.hi.us": {
    "status": "allowed",
    "sources": [
@@ -1541,6 +1570,14 @@
     "hi-rules-hrpp",
     "hi-opinions-judiciary",
     "hi-subsequent-history-cert"
+   ],
+   "blocked_sources": []
+  },
+  "www.courts.state.nh.us": {
+   "status": "allowed",
+   "sources": [
+    "nh-rules-supreme-courts",
+    "nh-opinions-courts"
    ],
    "blocked_sources": []
   },
@@ -1632,6 +1669,13 @@
     "ga-rules-uscr-gasupreme",
     "ga-sc-opinion-pdfs"
    ]
+  },
+  "www.gc.nh.gov": {
+   "status": "allowed",
+   "sources": [
+    "nh-register-gc"
+   ],
+   "blocked_sources": []
   },
   "www.ilga.gov": {
    "status": "blocked",
@@ -1791,6 +1835,7 @@
     "mt-arm-lii",
     "nc-ncac-lii",
     "ne-admincode-lii",
+    "nh-admin-rules-lii",
     "nj-admincode-lii",
     "nm-nmac-lii",
     "nv-nac-lii",
@@ -1976,6 +2021,13 @@
    "sources": [
     "ne-opinions-library",
     "ne-pfr-lists"
+   ],
+   "blocked_sources": []
+  },
+  "www.nh.gov": {
+   "status": "blocked",
+   "sources": [
+    "nh-constitution-nhgov"
    ],
    "blocked_sources": []
   },
@@ -2177,7 +2229,8 @@
   "www.supremecourt.gov": {
    "status": "allowed",
    "sources": [
-    "dc-scotus-docket"
+    "dc-scotus-docket",
+    "nh-scotus-docket"
    ],
    "blocked_sources": []
   },
