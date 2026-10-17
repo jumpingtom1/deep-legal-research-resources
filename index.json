@@ -1502,16 +1502,16 @@
     "nm": {
       "name": "New Mexico",
       "file": "jurisdictions/nm.md",
-      "sha256": "5c61dc4f0dffe8079208fcfd58c9f933ddd8e632bd363dead7578f4a8905ef0f",
+      "sha256": "444aac98edb3ac1c8b396136080f5bedc097b904fe15b86cfdfccbc5e35b2851",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 12,
+        "verified_independent": 12,
         "reported": 4
       },
       "citation_patterns": [
         {
           "label": "New Mexico Statutes Annotated 1978",
-          "regex": "(?:NMSA(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*S\\.\\s*A\\.(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*Stat\\.\\s*Ann\\.\\s*)(?:\u00a7+|[Ss]ec(?:tion|\\.)s?)\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)|(?:(?:[Ss]ection|\u00a7+)\\s*)?(?P<chapter2>\\d{1,2}[A-Z]?)-(?P<article2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:NMSA|N\\.M\\.S\\.A\\.)",
+          "regex": "(?:NMSA(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*S\\.\\s*A\\.(?:\\s*1978)?,?\\s*|N\\.\\s*M\\.\\s*Stat\\.\\s*Ann\\.\\s*)(?:\u00a7+|[Ss]ec(?:tion|\\.)s?)\\s*(?P<chapter>\\d{1,2}[A-Z]?)-(?P<article>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)|(?:(?:[Ss]ection|\u00a7+)\\s*)?(?P<chapter2>\\d{1,2}[A-Z]?)-(?P<article2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:NMSA|N\\.M\\.S\\.A\\.|New\\s+Mexico\\s+Statutes\\s+Annotated)",
           "context_required": false
         },
         {
@@ -1521,7 +1521,7 @@
         },
         {
           "label": "New Mexico Constitution",
-          "regex": "N\\.\\s*M\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7+\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:New\\s+Mexico|N\\.\\s*M\\.)\\s+Constitution",
+          "regex": "N\\.\\s*M\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7+\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:New\\s+Mexico|N\\.\\s*M\\.)\\s+Constitution",
           "context_required": false
         },
         {
