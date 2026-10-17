@@ -736,6 +736,9 @@
     "sc-code-justia",
     "sc-constitution-justia",
     "sc-cases-justia",
+    "sd-sdcl-justia",
+    "sd-constitution-justia",
+    "sd-cases-justia",
     "tn-code-justia",
     "tn-constitution-justia",
     "tn-cases-justia",
@@ -1013,6 +1016,13 @@
    "status": "allowed",
    "sources": [
     "md-constitution-msa"
+   ],
+   "blocked_sources": []
+  },
+  "mylrc.sdlegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "sd-register-lrc"
    ],
    "blocked_sources": []
   },
@@ -1341,6 +1351,19 @@
    ],
    "blocked_sources": []
   },
+  "sdlegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "sd-sdcl-lrc",
+    "sd-session-laws-lrc",
+    "sd-constitution-lrc",
+    "sd-rules-sdcl",
+    "sd-rules-professional-conduct",
+    "sd-arsd-lrc",
+    "sd-register-lrc"
+   ],
+   "blocked_sources": []
+  },
   "search-prod.lis.state.oh.us": {
    "status": "allowed",
    "sources": [
@@ -1471,6 +1494,15 @@
    "status": "allowed",
    "sources": [
     "tx-tac-sos"
+   ],
+   "blocked_sources": []
+  },
+  "ujs.sd.gov": {
+   "status": "allowed",
+   "sources": [
+    "sd-rules-orders-ujs",
+    "sd-opinions-ujs",
+    "sd-summary-dispositions-ujs"
    ],
    "blocked_sources": []
   },
@@ -1961,6 +1993,7 @@
     "pa-rules-lii",
     "pa-admincode-lii",
     "ri-ricr-lii",
+    "sd-arsd-lii",
     "tn-admincode-lii",
     "tx-tac-lii",
     "ut-admincode-lii",
@@ -2373,7 +2406,8 @@
    "sources": [
     "dc-scotus-docket",
     "nd-scotus-docket",
-    "nh-scotus-docket"
+    "nh-scotus-docket",
+    "sd-scotus-docket"
    ],
    "blocked_sources": []
   },

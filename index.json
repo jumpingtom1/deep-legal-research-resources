@@ -3421,6 +3421,82 @@
         }
       ]
     },
+    "sd": {
+      "name": "South Dakota",
+      "file": "jurisdictions/sd.md",
+      "sha256": "0daa33df0a37d8ae8ee08fd071f391f013f3706146d51d1f182b78a7d1879229",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 15
+      },
+      "citation_patterns": [
+        {
+          "label": "South Dakota Codified Laws",
+          "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.\\s?D\\.\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:\u00a7\u00a7?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|\u00a7)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota Session Laws",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+S\\.\\s?D\\.\\s*(?:Sess\\.\\s*)?Laws,?\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota Session Laws (bare SL source-note form)",
+          "regex": "\\bSL\\s+(?P<year>(?:18|19|20)\\d\\d),\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "South Dakota Constitution",
+          "regex": "S\\.\\s?D\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)\\s+of\\s+the\\s+South\\s+Dakota\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "SDCL-codified court rules (civil, appellate, evidence, criminal procedure)",
+          "regex": "\\bSDCL\\s*(?:\u00a7\u00a7?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota Rules of Professional Conduct",
+          "regex": "Rule\\s+(?P<rule>\\d\\.\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Dakota\\s+Rules\\s+of\\s+Professional\\s+Conduct|SDCL\\s*(?:ch\\.\\s*)?16-18,?\\s*App(?:endix|\\.)?,?\\s*(?:Rule|R\\.)\\s*(?P<rule2>\\d\\.\\d+)|S\\.\\s?D\\.\\s*Rules\\s+of\\s+Prof(?:'l|essional)\\s+Conduct\\s*(?:R\\.|Rule)\\s*(?P<rule3>\\d\\.\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Administrative Rules of South Dakota",
+          "regex": "(?:\\bARSD|\\bA\\.\\s?R\\.\\s?S\\.\\s?D\\.|S\\.\\s?D\\.\\s*Admin\\.\\s*R\\.)\\s*(?:\u00a7\\s*)?(?P<rule>\\d{1,2}:\\d{1,2}(?::\\d{1,2}(?::\\d{1,2}(?:\\.\\d+)?)?)?)",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+SDR\\s+(?P<page>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota public-domain citation (1996-)",
+          "regex": "(?<!\\d)(?P<year>199[6-9]|20\\d\\d)\\s+S\\.?\\s?D\\.?\\s+(?P<number>\\d{1,3})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter with (S.D. YYYY)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(S\\.\\s?D\\.\\s*(?P<year>\\d{4})\\)|(?P<sdvol>\\d{1,2})\\s+S\\.\\s?D\\.\\s+(?P<sdpage>\\d{1,4}),\\s*(?P<nwvol>\\d{1,4})\\s+N\\.\\s?W\\.",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter (generic, no court parenthetical)",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+          "context_required": true
+        },
+        {
+          "label": "South Dakota Reports (official reporter to 1976)",
+          "regex": "(?<![\\d.])(?P<volume>\\d{1,2})\\s+S\\.\\s?D\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "South Dakota Supreme Court docket number",
+          "regex": "(?:#|No\\.\\s*)(?P<docket>\\d{5})(?:-[a-z]-[A-Z]{2,4})?(?!\\d)",
+          "context_required": true
+        }
+      ]
+    },
     "tn": {
       "name": "Tennessee",
       "file": "jurisdictions/tn.md",

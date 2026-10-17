@@ -143,4 +143,4 @@ All probes on 2026-10-17 by `research`. "script" = `python3 scripts/fetch_doc.py
 
 ## Notes
 - WebFetch calls used: 25 (3 PROVENANCE_REQUIRED, 3 CLIENT_ERROR on Justia built URLs). No quota or rate failures.
-- `build.py --check`: clean for sd.json. `--cross`: SD-only harness (all SD examples vs all other regexes, and all other examples vs SD's non-context regexes) found 0 hits; the full `--cross` run takes several minutes on the shared data set.
+- `build.py --check`: clean for sd.json. `--cross`: SD-only harness (all SD examples vs all other regexes, and all other examples vs SD's non-context regexes) found 0 hits. After the maintainer's build.py fix, full `--cross`: "0 cross-jurisdiction match(es)".
