@@ -183,17 +183,17 @@
     "il": {
       "name": "Illinois",
       "file": "jurisdictions/il.md",
-      "sha256": "f0208fa70b9cf34f6bacade5e62afd6149ee2f0fa1c149548ec07678f8c7e00f",
+      "sha256": "d901175f8f0108f51fdbf46e0a44a9cb1d211fbb849ca173585194c807890cfc",
       "compiled": "2026-10-16",
       "counts": {
         "blocked": 4,
-        "verified": 8,
-        "reported": 1
+        "verified_independent": 8,
+        "verified": 1
       },
       "citation_patterns": [
         {
           "label": "Illinois Compiled Statutes (ILCS)",
-          "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act)"
+          "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act|Wrongful\\s+Death\\s+Act|Survival\\s+Act|(?:Local\\s+Governmental\\s+and\\s+Governmental\\s+Employees\\s+)?Tort\\s+Immunity\\s+Act|Joint\\s+Tortfeasor\\s+Contribution\\s+Act|Illinois\\s+Wage\\s+Payment\\s+and\\s+Collection\\s+Act|Juvenile\\s+Court\\s+Act\\s+of\\s+1987|Condominium\\s+Property\\s+Act|Eviction\\s+Act|Illinois\\s+Insurance\\s+Code|Business\\s+Corporation\\s+Act\\s+of\\s+1983|Limited\\s+Liability\\s+Company\\s+Act|Open\\s+Meetings\\s+Act|Mental\\s+Health\\s+and\\s+Developmental\\s+Disabilities\\s+Code)"
         },
         {
           "label": "Illinois Constitution of 1970",
@@ -229,7 +229,7 @@
         },
         {
           "label": "Appellate Court docket numbers",
-          "regex": "\\bNo(?:s)?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<wc>WC)?\\b"
+          "regex": "\\bNos?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<suffix>WC|[A-Z])?\\b"
         },
         {
           "label": "Westlaw cites with Illinois parenthetical",

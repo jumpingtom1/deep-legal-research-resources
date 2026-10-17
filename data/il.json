@@ -3,7 +3,7 @@
   "jurisdiction": "il",
   "name": "Illinois",
   "compiled": "2026-10-16",
-  "summary": "Statutes, Constitution and Admin Code: the official ilga.gov host refuses both routes from this workspace (WebFetch ROBOTS_DISALLOWED, shell TLS failure), so text comes only from tier 2 — Justia (ILCS 2025, Constitution) and Cornell LII (Admin Code). Court rules, Rules of Evidence, opinions (Supreme Court from 1996, Appellate Court, Rule 23 orders) and PLA disposition lists are on illinoiscourts.gov, which links through a 302 to blob-storage PDFs that WebFetch reads but fetch_doc.py refuses (blob robots.txt 403). Opinion search is ASP.NET POST-only; RSS feeds give recent opinions by GET. Illinois has public-domain citations (2021 IL 125656; 2026 IL App (1st) 232256-U) from July 1, 2011, and the Appellate number maps to the docket (1-23-2256).",
+  "summary": "Statutes, Constitution and Admin Code: the official ilga.gov host refuses both routes from this workspace (WebFetch ROBOTS_DISALLOWED, shell TLS failure), so text comes only from tier 2 — Justia (ILCS 2025, whose long article/chapter pages truncate near 120K chars; Constitution) and Cornell LII (Admin Code). Court rules, Rules of Evidence, opinions (Supreme Court from 1996, Appellate Court, Rule 23 orders) and PLA disposition lists are on illinoiscourts.gov, which links through a 302 to blob-storage PDFs: fetch_doc.py follows it and reads them in full (the only route to Supreme Court Rules index rows past ~Rule 573, incl. the Rules of Professional Conduct); WebFetch needs two calls. Opinion search is ASP.NET POST-only; RSS feeds give recent opinions by GET. Illinois has public-domain citations (2021 IL 125656; 2026 IL App (1st) 232256-U) from July 1, 2011, and the Appellate number maps to the docket (1-23-2256).",
   "citation_map": {
     "courts": [
       {
@@ -50,9 +50,12 @@
           "625 ILCS 5/11-501.1",
           "section 2-619 of the Code of Civil Procedure",
           "section 10a of the Consumer Fraud and Deceptive Business Practices Act",
-          "720 ILCS 5/12-3.05"
+          "720 ILCS 5/12-3.05",
+          "section 2 of the Wrongful Death Act",
+          "section 2-101 of the Tort Immunity Act",
+          "750 ILCS 5/602.7(b)"
         ],
-        "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act)",
+        "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act|Wrongful\\s+Death\\s+Act|Survival\\s+Act|(?:Local\\s+Governmental\\s+and\\s+Governmental\\s+Employees\\s+)?Tort\\s+Immunity\\s+Act|Joint\\s+Tortfeasor\\s+Contribution\\s+Act|Illinois\\s+Wage\\s+Payment\\s+and\\s+Collection\\s+Act|Juvenile\\s+Court\\s+Act\\s+of\\s+1987|Condominium\\s+Property\\s+Act|Eviction\\s+Act|Illinois\\s+Insurance\\s+Code|Business\\s+Corporation\\s+Act\\s+of\\s+1983|Limited\\s+Liability\\s+Company\\s+Act|Open\\s+Meetings\\s+Act|Mental\\s+Health\\s+and\\s+Developmental\\s+Disabilities\\s+Code)",
         "routes_to": [
           "il-ilcs-ilga",
           "il-ilcs-justia"
@@ -177,9 +180,11 @@
         "examples": [
           "No. 1-23-2256",
           "No. 2-23-0584",
-          "Nos. 4-19-0123"
+          "Nos. 4-19-0123",
+          "No. 1-26-0690B",
+          "No. 1-15-1234WC"
         ],
-        "regex": "\\bNo(?:s)?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<wc>WC)?\\b",
+        "regex": "\\bNos?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<suffix>WC|[A-Z])?\\b",
         "routes_to": [
           "il-opinions-courts",
           "il-cases-justia"
@@ -222,9 +227,23 @@
       "Freedom of Information Act": "5 ILCS 140",
       "FOIA": "5 ILCS 140",
       "Ill. Comp. Stat.": "ILCS",
-      "Ill. Comp. Stat. Ann.": "ILCS"
+      "Ill. Comp. Stat. Ann.": "ILCS",
+      "Wrongful Death Act": "740 ILCS 180",
+      "Survival Act": "755 ILCS 5/27-6",
+      "Tort Immunity Act": "745 ILCS 10",
+      "Local Governmental and Governmental Employees Tort Immunity Act": "745 ILCS 10",
+      "Joint Tortfeasor Contribution Act": "740 ILCS 100",
+      "Illinois Wage Payment and Collection Act": "820 ILCS 115",
+      "Juvenile Court Act of 1987": "705 ILCS 405",
+      "Condominium Property Act": "765 ILCS 605",
+      "Eviction Act": "735 ILCS 5/9",
+      "Illinois Insurance Code": "215 ILCS 5",
+      "Business Corporation Act of 1983": "805 ILCS 5",
+      "Limited Liability Company Act": "805 ILCS 180",
+      "Open Meetings Act": "5 ILCS 120",
+      "Mental Health and Developmental Disabilities Code": "405 ILCS 5"
     },
-    "notes": "Ill. S. Ct. R. 6 (verified): cases filed on or after July 1, 2011 are cited by public-domain citation — 'YYYY IL NNNNNN' (Supreme Court) or 'YYYY IL App (Nth) NNNNNN' (district: 1st, 2d, 3d, 4th, 5th) — with paragraph pinpoints ', ¶ 15' / ', ¶¶ 21-23'; Rule 23 orders add '-U'; earlier published cases are cited to the Official Reports (Ill., Ill. 2d, Ill. App., Ill. App. 2d/3d), N.E. and Ill. Dec. optional. Docket mapping (observed on Wancket/Moore and PLA lists): the six-digit Appellate number is the docket — 2026 IL App (1st) 232256 = No. 1-23-2256; the Supreme number is the Supreme docket (2021 IL 125656 = No. 125656). Workers' Compensation Division cites carry 'WC' (e.g. '141234WC'; from memory). Suffixes -B/-C (modified/upon rehearing) from memory. Rule 23 orders: not precedential; per Rule 23(e)(1) as amended (eff. Jan. 1, 2021, from memory) orders entered on or after that date may be cited for persuasive purposes. Routing guards: bare 'Rule 23', 'Supreme Court Rule 41' or 'Section 2-619' do not route here without 'Ill.'/'Illinois' or an Illinois act name (the Supreme Court Rule regex requires 'Ill. S. Ct. R.', 'Illinois Supreme Court Rule' or '… of the Illinois Supreme Court Rules'). N.E. and WL cites route here only with an '(Ill.' parenthetical (N.E. also covers IN, MA, NY, OH). 'Ill. Reg.' and 'Ill. Adm. Code' are distinct from reporter cites because a digit must follow 'Ill.' for the reporter regex. Ranges: '735 ILCS 5/2-619 to 2-622' captures only the first section; the section group refuses a trailing hyphen-digit run. Pre-1993 citations to Ill. Rev. Stat. ('Ill. Rev. Stat. 1991, ch. 110, par. 2-619') have no free source here; ch. 110 = 735 ILCS 5. CourtListener ids from memory: 'ill' (Supreme Court of Illinois), 'illappct' (Appellate Court of Illinois) — unverified."
+    "notes": "Ill. S. Ct. R. 6 (verified): cases filed on or after July 1, 2011 are cited by public-domain citation — 'YYYY IL NNNNNN' (Supreme Court) or 'YYYY IL App (Nth) NNNNNN' (district: 1st, 2d, 3d, 4th, 5th) — with paragraph pinpoints ', ¶ 15' / ', ¶¶ 21-23'; Rule 23 orders add '-U'; earlier published cases are cited to the Official Reports (Ill., Ill. 2d, Ill. App., Ill. App. 2d/3d), N.E. and Ill. Dec. optional. Docket mapping (observed on Wancket/Moore and PLA lists): the six-digit Appellate number is the docket — 2026 IL App (1st) 232256 = No. 1-23-2256; the Supreme number is the Supreme docket (2021 IL 125656 = No. 125656). Workers' Compensation Division cites carry 'WC' (e.g. '141234WC'; from memory). Suffixes -B/-C (modified/upon rehearing) from memory. Rule 23 orders: not precedential; per Rule 23(e)(1) as amended (eff. Jan. 1, 2021, from memory) orders entered on or after that date may be cited for persuasive purposes. Routing guards: bare 'Rule 23', 'Supreme Court Rule 41' or 'Section 2-619' do not route here without 'Ill.'/'Illinois' or an Illinois act name (the Supreme Court Rule regex requires 'Ill. S. Ct. R.', 'Illinois Supreme Court Rule' or '… of the Illinois Supreme Court Rules'). N.E. and WL cites route here only with an '(Ill.' parenthetical (N.E. also covers IN, MA, NY, OH). 'Ill. Reg.' and 'Ill. Adm. Code' are distinct from reporter cites because a digit must follow 'Ill.' for the reporter regex. Ranges: '735 ILCS 5/2-619 to 2-622' captures only the first section; the section group refuses a trailing hyphen-digit run. Pre-1993 citations to Ill. Rev. Stat. ('Ill. Rev. Stat. 1991, ch. 110, par. 2-619') have no free source here; ch. 110 = 735 ILCS 5. CourtListener ids from memory: 'ill' (Supreme Court of Illinois), 'illappct' (Appellate Court of Illinois) — unverified. Generic act names (Wrongful Death Act, Survival Act, Open Meetings Act, Eviction Act, Limited Liability Company Act, Freedom of Information Act) exist in other states: the prose-form ILCS alternative routes here only when the query has Illinois context; otherwise ask or treat as ambiguous. Appellate dockets may carry a letter suffix (1-26-0690B) or 'WC'; the docket regex accepts both. Survival Act and Eviction Act aliases point to the Article/section where they sit (755 ILCS 5/27-6; 735 ILCS 5/Art. IX)."
   },
   "sources": [
     {
@@ -269,9 +288,9 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: ROBOTS_DISALLOWED (4 URLs incl. robots.txt). fetch_doc.py --research info: FETCH ERROR TLS certificate chain does not verify (www.ilga.gov, ilga.gov)."
+        "evidence": "WebFetch: ROBOTS_DISALLOWED (4 URLs incl. robots.txt). fetch_doc.py --research info: FETCH ERROR TLS certificate chain does not verify (www.ilga.gov, ilga.gov). | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on ilcs3.asp?ActID=2017&ChapterID=56; fetch_doc.py check TLS chain failure"
       },
-      "notes": "The same publisher's content answers on witnessslips.ilga.gov (one WebFetch returned 815 ILCS 175/15-5 body text), but using a mirror host to get around www.ilga.gov's refusal would be a workaround, so it is NOT recorded as a source. See open_questions."
+      "notes": "witnessslips.ilga.gov and lrb.ilga.gov mirror ILGA content; decided 2026-10-16 that they stay out of the record because they mirror a host that refuses automation. Never use them."
     },
     {
       "id": "il-ilcs-justia",
@@ -283,11 +302,11 @@
       "official_status_evidence": "Chapter page states 'These codes may not be the most recent version.' (https://law.justia.com/codes/illinois/chapter-815/)",
       "coverage": "ILCS 2025 edition (unversioned URL); prior years at /codes/illinois/{year}/... (2024 and 2023 links seen on the act page).",
       "access": {
-        "mode": "constructible",
-        "url_pattern": "https://law.justia.com/codes/illinois/chapter-{chapter}/act-{chapter}-ilcs-{act}/[article-{article_roman_lower}/]",
-        "pattern_rules": "chapter and act unpadded (chapter-815/act-815-ilcs-505/, chapter-735/act-735-ilcs-5/). Small acts: the act page holds every section in sequence (no per-section links). Large acts (735 ILCS 5) have an act page that is only a list of articles; the article = the section prefix before the hyphen in Roman lower case (5/2-619 -> article-ii). No per-section URL: /section-815-ilcs-505-2/ returned a client error. Year-specific: insert /{year}/ after /illinois/.",
-        "index_url": "https://law.justia.com/codes/illinois/",
-        "navigation": "act page -> (large acts) article page -> find 'Sec. N.' / '(735 ILCS 5/2-619)' heading in the page text",
+        "mode": "index-anchored",
+        "url_pattern": "https://law.justia.com/codes/illinois/chapter-{chapter}/act-{chapter}-ilcs-{act}/",
+        "pattern_rules": "Only the act page is constructible: chapter and act unpadded (chapter-815/act-815-ilcs-505/, chapter-735/act-735-ilcs-5/). Small acts: the act page holds every section in sequence (no per-section links). Large acts: the act page lists subdivision links whose slug varies by act — article-{roman} for 735 ILCS 5 (article-ii) but chapter-{n} for 625 ILCS 5 (chapter-11, chapter-13c, chapter-18a). Never construct the subdivision slug; follow the link from the act page. No per-section URL (/section-815-ilcs-505-2/ returned a client error). Year-specific: insert /{year}/ after /illinois/.",
+        "index_url": "https://law.justia.com/codes/illinois/chapter-{chapter}/act-{chapter}-ilcs-{act}/",
+        "navigation": "act page -> (large acts) follow the article-* or chapter-* link that covers the section -> find the '(735 ILCS 5/2-619)' / 'Sec. N.' heading in the text; use offset=100000 for the second window",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -295,7 +314,7 @@
         "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "unreadable (Cloudflare challenge on robots.txt; fetch_doc.py REFUSED law.justia.com for the day)",
-        "notes": "WebFetch reads 100,000 characters per call; use offset=100000 for later sections. 815 ILCS 505 act page = 125,589 chars; 735 ILCS 5 Article II page = 117,765 chars and stops mid-word after § 2-622."
+        "notes": "WebFetch reads 100,000 characters per call; use offset=100000 for later sections. 815 ILCS 505 act page = 125,589 chars; 735 ILCS 5 Art. II page = 117,765 chars and stops mid-word after § 2-622; 625 ILCS 5 Ch. 11 page = 125,332 chars and stops at § 11-212."
       },
       "currency": {
         "where": "page header",
@@ -304,8 +323,10 @@
       "hazards": [
         "edition lags the official ILCS by up to a year",
         "no per-section pages; long acts/articles exceed one WebFetch window (use offset=100000)",
-        "735 ILCS 5 Article II page ends after § 2-622: later Article II sections (e.g. 2-1001, 2-1401) NOT PRESENT even with offset",
-        "shell blocked by Cloudflare"
+        "shell blocked by Cloudflare",
+        "Justia subdivision pages stop at about 117-125K characters, mid-text, even with offset=100000 (seen: 735 ILCS 5 Art. II after § 2-622; 625 ILCS 5 Ch. 11 after § 11-212). Sections past the cut (e.g. 735 ILCS 5/2-1401, 625 ILCS 5/11-501) have no free source reachable here — say so rather than quoting.",
+        "subdivision slug differs by act (article-ii vs chapter-11): never construct it",
+        "Independent check 2026-10-16: second citation 625 ILCS 5/11-501 FAILED — Vehicle Code uses chapter-11 (not article-xi) and that page ends at § 11-212, so § 11-501 is unreachable."
       ],
       "probe": {
         "citation": "815 ILCS 505/2",
@@ -315,11 +336,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 505/2 body 'Unfair methods of competition and unfair or deceptive acts or practices, including'; '2025 Illinois Compiled Statutes'. Second: 735 ILCS 5/2-619 at /act-735-ilcs-5/article-ii/ offset=100000 '(a) Defendant may, within the time for pleading, file a motion for'."
+        "evidence": "WebFetch: 505/2 body 'Unfair methods of competition and unfair or deceptive acts or practices, including'; '2025 Illinois Compiled Statutes'. Second: 735 ILCS 5/2-619 at /act-735-ilcs-5/article-ii/ offset=100000 '(a) Defendant may, within the time for pleading, file a motion for'. | Independent check 2026-10-16: YES: 'Unfair methods of competition and unfair or deceptive acts or'; '2025 Illinois Compiled Statutes'"
       },
-      "notes": "The only reachable statute text for Illinois from this workspace. Where to find sections past § 2-622 of 735 ILCS 5 Article II on Justia is unresolved (open question)."
+      "notes": "The only reachable statute text for Illinois from this workspace; truncated subdivision pages leave many heavily cited sections without a free source."
     },
     {
       "id": "il-constitution-ilga",
@@ -362,7 +383,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch ROBOTS_DISALLOWED; fetch_doc.py TLS certificate chain does not verify."
+        "evidence": "WebFetch ROBOTS_DISALLOWED; fetch_doc.py TLS certificate chain does not verify. | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on ilga.gov/commission/lrb/conmain.htm"
       },
       "notes": ""
     },
@@ -406,9 +427,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: § 2 'No person shall be deprived of life, liberty or property without due'; second citation art. I, § 12 'Every person shall find a certain remedy in'; page runs through § 24. Index: con6.html link for Art. VI (not fetched)."
+        "evidence": "WebFetch: § 2 'No person shall be deprived of life, liberty or property without due'; second citation art. I, § 12 'Every person shall find a certain remedy in'; page runs through § 24. Index: con6.html link for Art. VI (not fetched). | Independent check 2026-10-16: YES: 'No person shall be deprived of life, liberty or property'; disclaimer matches; ends § 24; second citation Ill. Const. 1970, art. VI, § 4(b) ok"
       },
       "notes": "The Art. I page ending at § 24 suggests Justia lacks Art. I § 25 (Workers' Rights Amendment, 2022, from memory) — treat as possibly stale."
     },
@@ -426,26 +447,25 @@
         "url_pattern": "https://www.illinoiscourts.gov/resources/{guid}/file",
         "pattern_rules": "guid is not derivable: take it from the index row whose 'Rule N' cell matches (Rule 6 -> 2374deda-…, Rule 23 -> 650f76b5-…, Rule 315 -> ce707476-…, RPC 1.7 -> e3223b75-…). /resources/{guid}/file answers 302 to https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/{guid}/{filename}.pdf (filename e.g. 'Rule%2023.pdf'). WebFetch does not follow that cross-host redirect: call it again on the Location URL it reports.",
         "index_url": "https://www.illinoiscourts.gov/rules-law/supreme-court-rules/",
-        "navigation": "index (one table: Article | Rule N | linked title + 'Amended …, eff. …') -> /resources/{guid}/file -> 302 -> blob PDF",
+        "navigation": "SCRIPT FIRST: fetch_doc.py --research read/grep the index (all 145,695 chars, every Article I-XI row) to get the guid -> fetch_doc.py read/grep /resources/{guid}/file (follows the 302 to the blob PDF). Fetch tool: index window 1 ends at about Rule 525 and offset=100000 reaches only Rules 526-573, so Articles VI-XI (incl. Article VIII Rules of Professional Conduct) guids are reachable ONLY through the script; then WebFetch /resources/{guid}/file and call again on the reported Location.",
         "format": "pdf",
-        "read_via": "PDF text lives on ilcourtsaudio.blob.core.windows.net: WebFetch ok; fetch_doc.py REFUSED (blob robots.txt answers 401/403)."
+        "read_via": "Script: fetch_doc.py follows the 302 from www.illinoiscourts.gov/resources/{guid}/file to ilcourtsaudio.blob.core.windows.net and reads the full PDF (blob host's 401/403 robots reply = no rules, RFC 9309). Fetch tool: two hops (WebFetch reports the cross-host Location; call again on it)."
       },
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "ok",
-        "shell": "blocked-challenge",
-        "robots_txt": "www.illinoiscourts.gov: User-agent * Allow /, Disallow /antilles/, /App_Code/, /Bin/. ilcourtsaudio.blob.core.windows.net: robots.txt refused (401/403) -> fetch_doc.py treats host as bot-walled",
-        "notes": "Index page is shell-readable (fetch_doc.py ok, 145,695 chars); WebFetch window 1 of the index ends near Article VIII (RPC 1.7 row at char ~107,900) — use offset=100000 for RPC and later articles. Each rule PDF is short and fits one window."
+        "shell": "ok",
+        "robots_txt": "www.illinoiscourts.gov: User-agent * Allow /, Disallow /antilles/, /App_Code/, /Bin/. ilcourtsaudio.blob.core.windows.net: robots.txt answers 401/403 (Azure 'no robots.txt' error) = no rules",
+        "notes": "Index: fetch_doc.py reads all 145,695 chars; WebFetch sees the index as ~105,662 chars (raw HTML 776,592 bytes cut before conversion): window 1 ends at 'Rules 506 to 525', offset=100000 covers Rules 526-573, offset 150000 is past the end. The script is the only route past the fetch tool's ~105K cutoff (e.g. Article VIII RPC rows). Each rule PDF is short and fits one WebFetch window."
       },
       "currency": {
         "where": "index row status cell and the history line at the end of each rule PDF",
         "observed": "Rule 23: Amended June 3, 2025, eff. immediately (PDF history line)"
       },
       "hazards": [
-        "two-hop cross-host redirect to blob storage",
+        "two-hop cross-host redirect to blob storage (fetch tool only; the script follows it)",
         "guid per rule not derivable",
-        "index longer than one WebFetch window",
-        "script route refused on the PDF host",
+        "fetch tool cannot see index rows past ~Rule 573 (Articles VI-XI incl. RPC): use the script on the index",
         "repealed rules listed in the same table (e.g. 'VIII - Repealed Rule 1.7')"
       ],
       "probe": {
@@ -456,9 +476,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 23(e)(1) 'An order entered under subpart (b) or (c) of this rule is'; history ends 'amended June 3, 2025, eff. immediately.' Second: Rule 6 PDF 'Citation of Illinois cases filed prior to July 1, 2011, and published'."
+        "evidence": "WebFetch: 23(e)(1) 'An order entered under subpart (b) or (c) of this rule is'; history ends 'amended June 3, 2025, eff. immediately.' Second: Rule 6 PDF 'Citation of Illinois cases filed prior to July 1, 2011, and published'. | Independent check 2026-10-16: WebFetch YES: 'An order entered under subpart (b) or (c) of this rule'; 'amended June 3, 2025, eff. immediately.'; second citation Ill. R. Prof'l Conduct (2010) R. 1.5(a) ok (fetch_doc.py via /resources/ce9cba94-4700-49ed-9183-a43cfcd0c3a5/file -> 'RULE%201.5.pdf'; script also read Rule 23 by this researcher)"
       },
       "notes": "Rule 6 (citation form) and Rule 23 (unpublished orders) drive the citation_map. Rule 315 (PLA) at guid ce707476-e53a-48e3-9119-6496ef58aa41 (not fetched)."
     },
@@ -476,82 +496,85 @@
         "url_pattern": "https://www.illinoiscourts.gov/resources/{guid}/file",
         "pattern_rules": "guid from the index row (Rule 401 -> 6a5bd4c5-f59c-4bdd-9183-0a0e78f9e2a7). Some index hrefs contain a stray space before '/file' ('ad47521f-… /file' for Rule 702) — strip it. Redirects 302 to the blob host ('Evid.%20Rule%20401.pdf').",
         "index_url": "https://www.illinoiscourts.gov/courts/supreme-court/courts-supreme-court-illinois-rules-of-evidence/",
-        "navigation": "index table (Article | Rule N | title link) -> /resources/{guid}/file -> 302 -> blob PDF",
+        "navigation": "SCRIPT FIRST: fetch_doc.py read/grep the index -> fetch_doc.py read/grep /resources/{guid}/file (follows the 302). Fetch tool: index table -> /resources/{guid}/file -> reported Location -> blob PDF.",
         "format": "pdf",
-        "read_via": "ilcourtsaudio.blob.core.windows.net (WebFetch ok; fetch_doc.py refused)"
+        "read_via": "Script: fetch_doc.py follows the 302 from www.illinoiscourts.gov/resources/{guid}/file to ilcourtsaudio.blob.core.windows.net and reads the full PDF (blob host's 401/403 robots reply = no rules, RFC 9309). Fetch tool: two hops."
       },
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "ok",
-        "shell": "blocked-challenge",
-        "robots_txt": "see il-rules-supreme",
-        "notes": "Index 38,665 chars (shell ok)."
+        "shell": "ok",
+        "robots_txt": "www.illinoiscourts.gov: User-agent * Allow /, Disallow /antilles/, /App_Code/, /Bin/. ilcourtsaudio.blob.core.windows.net: robots.txt answers 401/403 (Azure 'no robots.txt' error) = no rules",
+        "notes": "Index 38,665 chars (fits one WebFetch window). The script is the only route past the fetch tool's ~105K cutoff for any longer page; rule PDFs are short."
       },
       "currency": {
-        "where": "history line at the end of each rule PDF; index row status cell",
+        "where": "history line at the end of each rule PDF; index row status cell (Rule 803: 'Amended Jan. 25, 2023, eff. immediately')",
         "observed": "Adopted September 27, 2010, eff. January 1, 2011."
       },
       "hazards": [
-        "two-hop redirect to blob storage",
-        "stray spaces in some index hrefs",
-        "script route refused on the PDF host"
+        "two-hop redirect to blob storage (fetch tool only)",
+        "stray spaces in some index hrefs (Rule 702, Rule 803: 'guid /file')",
+        "rule text uses curly quotes (“Relevant evidence”): exact-match quotes must keep them"
       ],
       "probe": {
         "citation": "Ill. R. Evid. 401",
         "url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/6a5bd4c5-f59c-4bdd-9183-0a0e78f9e2a7/Evid.%20Rule%20401.pdf",
-        "expect": "Relevant evidence means evidence having any tendency to make the existence of"
+        "expect": "means evidence having any tendency to make the existence of any fact"
       },
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'Relevant evidence means evidence having any tendency to make the existence of'; complete. Second citation not fetched (Rule 702 guid ad47521f-… recorded from index)."
+        "evidence": "WebFetch: 'Relevant evidence means evidence having any tendency to make the existence of'; complete. Second citation not fetched (Rule 702 guid ad47521f-… recorded from index). | Independent check 2026-10-16: WebFetch YES: '“Relevant evidence” means evidence having any tendency'; history line matches; second citation Ill. R. Evid. 803(18) ok"
       },
       "notes": ""
     },
     {
       "id": "il-rules-appellate-local",
       "family": "court_rules",
-      "title": "Appellate Court Local Rules",
+      "title": "Illinois Appellate Court Local Rules (per-district PDFs)",
       "publisher": "Illinois Appellate Court",
       "tier": 1,
       "official_status": "unknown",
-      "official_status_evidence": "Not fetched.",
-      "coverage": "Local rules of the five appellate districts (linked from the illinoiscourts.gov menu).",
+      "official_status_evidence": "Court-published; First District rules adopted under Ill. S. Ct. R. 22(h); no online official/unofficial statement.",
+      "coverage": "Local rules of Districts 1-5 and the Workers' Compensation Commission Division; separate First District Local Order PDF (05-15-26).",
       "access": {
-        "mode": "link-only",
-        "url_pattern": "",
-        "pattern_rules": "",
+        "mode": "index-anchored",
+        "url_pattern": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/{guid}/{filename}.pdf",
+        "pattern_rules": "Index 'View Rules' links go straight to blob PDFs (no /file hop): 1st 3fdb89b1-…/Local%20Rules%201st.pdf; 2nd 4ae1c388-…/Local Rules 2nd.pdf; 3rd 1ad6c7b2-…/3rd District Appellate Court Local Rules.pdf; 4th e566761b-…/Local Rules 4th.pdf; 5th 01cf24f0-…/Local Rules 5th.pdf. Encode spaces as %20. guids change on re-issue: take them from the index.",
         "index_url": "https://www.illinoiscourts.gov/courts/appellate-court/appellate-court-local-rules/",
-        "navigation": "",
-        "format": "html"
+        "navigation": "index -> district 'View Rules' (or 'View Local Order') -> PDF",
+        "format": "pdf"
       },
-      "text": "link-only",
+      "text": "fetch-and-quote",
       "automation": {
         "webfetch": "untested",
-        "shell": "untested",
-        "robots_txt": "www.illinoiscourts.gov allows /",
-        "notes": ""
+        "shell": "ok",
+        "robots_txt": "www.illinoiscourts.gov allows /; blob host 401/403 = no rules",
+        "notes": "First District PDF 31 pp., 54,950 chars — fits one WebFetch window; the script reads it in full."
       },
       "currency": {
-        "where": "",
-        "observed": ""
+        "where": "PDF title block; Last-Modified header",
+        "observed": "Amended August 1, 2022, August 31, 2023, and May 15, 2026"
       },
-      "hazards": [],
+      "hazards": [
+        "separate Local Order PDF supplements the First District rules",
+        "guid changes on re-issue"
+      ],
       "probe": {
-        "citation": "",
-        "url": "",
-        "expect": ""
+        "citation": "Ill. App. Ct. 1st Dist. Local Rules, Preamble",
+        "url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/3fdb89b1-bef9-4b47-bea9-ce036e129415/Local%20Rules%201st.pdf",
+        "expect": "The Appellate Court of Illinois, First District, adopts these rules pursuant to"
       },
       "verification": {
-        "status": "reported",
+        "status": "verified",
         "date": "2026-10-16",
         "by": "research",
-        "result": "FAIL",
-        "evidence": "Link seen on the illinoiscourts.gov home page menu (shell); page not fetched."
+        "result": "OK",
+        "evidence": "fetch_doc.py read: 31 pp., 'RULES OF THE ILLINOIS APPELLATE COURT, FIRST DISTRICT'; Preamble present; Last-Modified May 18, 2026. Independent check found the index reachable with direct blob links for all districts and WC."
       },
-      "notes": "Low priority; IPI jury instructions are at /rules-law/ipi-jury-instructions/ (link only)."
+      "notes": "IPI jury instructions are at /rules-law/ipi-jury-instructions/ (link only)."
     },
     {
       "id": "il-admincode-jcar",
@@ -594,7 +617,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: ROBOTS_DISALLOWED. Shell: TLS certificate chain does not verify (www.ilga.gov)."
+        "evidence": "WebFetch: ROBOTS_DISALLOWED. Shell: TLS certificate chain does not verify (www.ilga.gov). | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on www.ilga.gov/agencies/JCAR/AdminCode"
       },
       "notes": ""
     },
@@ -639,9 +662,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'This Part sets forth the rules generally applicable to proceedings before the'; fetch_doc.py ok, note 'Amended at 43 Ill. Reg. 9674'. Second: 86 Ill. Adm. Code 130.101 (fetch_doc.py) heading present, 'Amended at 47 Ill. Reg. 2116'."
+        "evidence": "WebFetch: 'This Part sets forth the rules generally applicable to proceedings before the'; fetch_doc.py ok, note 'Amended at 43 Ill. Reg. 9674'. Second: 86 Ill. Adm. Code 130.101 (fetch_doc.py) heading present, 'Amended at 47 Ill. Reg. 2116'. | Independent check 2026-10-16: YES: 'This Part sets forth the rules generally applicable to proceedings'; 43 Ill. Reg. 9674; second citation 23 Ill. Adm. Code 226.10 ok"
       },
       "notes": "The only reachable Admin Code text for Illinois from this workspace."
     },
@@ -688,7 +711,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: ROBOTS_DISALLOWED on the issue PDF; home.html readable, 'not the official publication of the Illinois Register'. Shell: robots.txt unreachable."
+        "evidence": "WebFetch: ROBOTS_DISALLOWED on the issue PDF; home.html readable, 'not the official publication of the Illinois Register'. Shell: robots.txt unreachable. | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on volume50 issue_40 PDF"
       },
       "notes": "Ill. Reg. history notes on LII pages (il-admincode-lii) are the practical way to identify amending Register cites."
     },
@@ -704,18 +727,18 @@
       "access": {
         "mode": "search-only",
         "url_pattern": "https://www.illinoiscourts.gov/resources/{guid}/file",
-        "pattern_rules": "The opinion URL uses a guid that is not derivable from the citation; the file name on the blob host after the 302 is '{Case name} {citation}.pdf' (e.g. 'Rehfield v. Diocese of Joliet, 2021 IL 125656.pdf') but the guid is still needed. Finding an opinion: (1) the listing page shows the latest ~150 rows (case name link, citation, filing date, court, Opinion/Rule 23, status); (2) the search form is ASP.NET POST-only (GET query strings such as ?ctl00$ctl04$txtFilterName=… are ignored — tested): fields ctl00$ctl04$txtFilterName (free text — matches opinion full text, not just party names: searching 'Rehfield' also returned cases citing it), ddlFilterFilingDate ('Search All Years'), ddlFilterCourtType ('Supreme Court', 'First District Appellate Court' … 'Workers' Compensation'), ddlFilterType ('Opinion' | 'Rule 23'), ddlFilterStatus; hdnSortField=FilingDate, hdnSortDirection=ASC|DESC; results 150 rows per page, paged by __doPostBack Page$N. (3) RSS (plain GET, XML): /views/courts/rss/opinions-supreme.aspx and /views/courts/rss/opinions-appellate.aspx with opinion:citationnum, filingdate, court, docketstatus and a direct link.",
+        "pattern_rules": "The opinion URL uses a guid that is not derivable from the citation; the file name on the blob host after the 302 is '{Case name} {citation}.pdf' (e.g. 'Rehfield v. Diocese of Joliet, 2021 IL 125656.pdf') but the guid is still needed. Finding an opinion: (1) the listing page shows the latest ~150 rows (case name link, citation, filing date, court, Opinion/Rule 23, status); (2) the search form is ASP.NET POST-only (GET query strings such as ?ctl00$ctl04$txtFilterName=… are ignored — tested): fields ctl00$ctl04$txtFilterName (free text — matches opinion full text, not just party names: searching 'Rehfield' also returned cases citing it), ddlFilterFilingDate ('Search All Years'), ddlFilterCourtType ('Supreme Court', 'First District Appellate Court' … 'Workers' Compensation'), ddlFilterType ('Opinion' | 'Rule 23'), ddlFilterStatus; hdnSortField=FilingDate, hdnSortDirection=ASC|DESC; results 150 rows per page, paged by __doPostBack Page$N. (3) RSS (plain GET, XML): /views/courts/rss/opinions-supreme.aspx and /views/courts/rss/opinions-appellate.aspx with opinion:citationnum, filingdate, court, docketstatus and a link of the form https://www.illinoiscourts.gov/resources/{guid}/{Case name} {citation}.pdf containing raw spaces — percent-encode spaces as %20 before fetching; it also 302s to the blob host.",
         "index_url": "https://www.illinoiscourts.gov/top-level-opinions/",
-        "navigation": "listing / POST search / RSS -> row link /resources/{guid}/file -> 302 -> ilcourtsaudio.blob.core.windows.net/…/{name}.pdf (WebFetch: call again on the reported Location)",
+        "navigation": "SCRIPT FIRST: listing / POST search / RSS -> fetch_doc.py read/grep /resources/{guid}/file (or the RSS .pdf link, spaces %20-encoded); the script follows the 302 to the blob PDF. Fetch tool: /resources/{guid}/file -> reported Location -> blob PDF.",
         "format": "pdf",
-        "read_via": "PDFs on ilcourtsaudio.blob.core.windows.net: WebFetch ok; fetch_doc.py REFUSED (robots.txt 401/403 -> bot wall)."
+        "read_via": "Script: fetch_doc.py follows the 302 from www.illinoiscourts.gov/resources/{guid}/file to ilcourtsaudio.blob.core.windows.net and reads the full PDF (blob host's 401/403 robots reply = no rules, RFC 9309). Fetch tool: two hops."
       },
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "ok",
-        "shell": "blocked-challenge",
-        "robots_txt": "www.illinoiscourts.gov: Allow / (Disallow /antilles/, /App_Code/, /Bin/); blob host robots.txt refused",
-        "notes": "Listing page: shell ok (328 KB HTML); WebFetch reads it but text is 175,706 chars (window 1 = first ~100K). Several 'Connection reset by peer' / proxy tunnel closures on rapid POSTs — space requests. Opinion PDFs fit one WebFetch window (Rehfield 70 ¶¶, Wancket 86 ¶¶)."
+        "shell": "ok",
+        "robots_txt": "www.illinoiscourts.gov: Allow / (Disallow /antilles/, /App_Code/, /Bin/); blob host robots.txt 401/403 = no rules",
+        "notes": "Listing page: shell ok (328 KB HTML); WebFetch text 175,706 chars (window 1 = first ~100K). The script is the only route past the fetch tool's ~105K cutoff for long listings and long opinions. Several 'Connection reset by peer' / proxy tunnel closures on rapid POSTs — space requests. Opinion PDFs seen fit one WebFetch window (Rehfield 70 ¶¶, Wancket 86 ¶¶, Scott 46 pp.)."
       },
       "currency": {
         "where": "listing (newest filing date) and RSS pubDate",
@@ -723,11 +746,12 @@
       },
       "hazards": [
         "guid URLs not derivable; search is POST-only",
-        "cross-host 302 to blob storage; script route refused there",
         "slip opinions may change on rehearing; 'Illinois Official Reports' header only on final versions",
-        "running page headers ('No. 1-23-2256') split sentences across pages — quote-match across the break",
         "free-text filter matches citing cases, not just the named case",
-        "WebFetch 'first words of ¶ N' answers were unreliable once (Wancket ¶ 2) — confirm with a phrase search"
+        "WebFetch 'first words of ¶ N' answers were unreliable once (Wancket ¶ 2) — confirm with a phrase search",
+        "cross-host 302 to blob storage (fetch tool needs two calls; the script follows it)",
+        "running headers vary by opinion: Wancket repeats 'No. 1-23-2256' at page tops (splits sentences — quote-match across the break); Scott shows only '- N -' page markers",
+        "RSS links contain raw spaces: encode as %20"
       ],
       "probe": {
         "citation": "Rehfield v. Diocese of Joliet, 2021 IL 125656",
@@ -737,9 +761,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "POST search (Supreme Court, all years, 'Rehfield v. Diocese of Joliet') -> 2021 IL 125656, 02/04/2021, Final. WebFetch PDF: ¶ 1 present, 'Illinois Official Reports' header, ¶¶ 1-70 complete. Second: Wancket, 2026 IL App (1st) 232256 (Slip, no header, ¶¶ 1-86); Rule 23 order Moore, 2026 IL App (1st) 251481-U ok."
+        "evidence": "POST search (Supreme Court, all years, 'Rehfield v. Diocese of Joliet') -> 2021 IL 125656, 02/04/2021, Final. WebFetch PDF: ¶ 1 present, 'Illinois Official Reports' header, ¶¶ 1-70 complete. Second: Wancket, 2026 IL App (1st) 232256 (Slip, no header, ¶¶ 1-86); Rule 23 order Moore, 2026 IL App (1st) 251481-U ok. | Independent check 2026-10-16: WebFetch YES: ¶ 1 'Plaintiff Mary Rehfield filed a two-count amended complaint'; Official Reports header; ¶ 70; second citation People v. Scott, 2026 IL App (4th) 241597 (No. 4-24-1597, filed Oct. 16, 2026) ok (script read Rehfield and Scott via blob URL, /file and RSS .pdf links)"
       },
       "notes": "Rule 23 orders show 'NOTICE: This order was filed under Supreme Court Rule 23 and is not precedent except' at the top. Ill. S. Ct. R. 23(e)(1): such orders entered on or after Jan. 1, 2021 may be cited for persuasive purposes (from memory; 23(e)(1) text verified only by its first words)."
     },
@@ -755,7 +779,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/illinois/{court-slug}/{year}/{docket}.html",
-        "pattern_rules": "Supreme Court: court-slug supreme-court, docket = the six-digit number of the public-domain cite (2021 IL 125656 -> /supreme-court/2021/125656.html). Appellate: court-slug court-of-appeals-{first|second|third|fourth|fifth}-appellate-district, docket = district-yy-nnnn built from the public-domain number (2026 IL App (1st) 232256 -> 1-23-2256 -> /court-of-appeals-first-appellate-district/2026/1-23-2256.html). Rule 23 (-U) and Workers' Compensation slugs not checked.",
+        "pattern_rules": "Supreme Court: court-slug supreme-court, docket = the six-digit number of the public-domain cite (2021 IL 125656 -> /supreme-court/2021/125656.html). Appellate: court-slug court-of-appeals-{first|second|third|fourth|fifth}-appellate-district, docket = district-yy-nnnn built from the public-domain number (2026 IL App (1st) 232256 -> 1-23-2256 -> /court-of-appeals-first-appellate-district/2026/1-23-2256.html). Fourth District slug court-of-appeals-fourth-appellate-district verified (4-24-1597). Rule 23 (-U) and Workers' Compensation slugs not checked.",
         "index_url": "https://law.justia.com/cases/illinois/",
         "navigation": "",
         "format": "html"
@@ -784,11 +808,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: ¶ 1 present, ¶¶ 1-70 complete. Second: /court-of-appeals-first-appellate-district/2026/1-23-2256.html = Wancket, 2026 IL App (1st) 232256, complete through 'Affirmed.'"
+        "evidence": "WebFetch: ¶ 1 present, ¶¶ 1-70 complete. Second: /court-of-appeals-first-appellate-district/2026/1-23-2256.html = Wancket, 2026 IL App (1st) 232256, complete through 'Affirmed.' | Independent check 2026-10-16: YES: ¶ 1 'Plaintiff Mary Rehfield filed a two-count amended complaint against defendant,'; ¶ 70, complete; second citation People v. Scott, 2026 IL App (4th) 241597 ok"
       },
-      "notes": ""
+      "notes": "Fresh opinions appear the day they are filed (People v. Scott, 2026 IL App (4th) 241597, filed Oct. 16, 2026, present ¶¶ 1-154)."
     },
     {
       "id": "il-subsequent-history-pla",
@@ -802,18 +826,18 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/{guid}/{Month}%20{D}%20{YYYY}.pdf",
-        "pattern_rules": "guid not derivable; take the dated link from the index. Entries: Supreme docket - case name (petitioner/respondent) - 'Appellate Court, {N} District' + appellate docket ('2-23-0584') - disposition ('Petition for Leave to Appeal Denied' / 'Allowed', supervisory orders). Lists do NOT use public-domain citations: convert the decision below first — '2026 IL App (1st) 232256' -> docket 1-23-2256 (district digit, then the 6-digit number split 2+4) — and search the lists dated after the appellate filing (PLA due 35 days after judgment, Rule 315(b), from memory).",
+        "pattern_rules": "guid not derivable; take the dated link from the index. Entries: Supreme docket - case name (petitioner/respondent) - 'Appellate Court, {N} District' + appellate docket ('2-23-0584') - disposition ('Petition for Leave to Appeal Denied' / 'Allowed', supervisory orders). Lists do NOT use public-domain citations: convert the decision below first — '2026 IL App (1st) 232256' -> docket 1-23-2256 (district digit, then the 6-digit number split 2+4) — and search the lists dated after the appellate filing (PLA due 35 days after judgment, Rule 315(b), from memory). Appellate dockets can carry a letter suffix ('1-26-0690B, 1-26-0691B'): search the plain docket as a substring.",
         "index_url": "https://www.illinoiscourts.gov/courts/supreme-court/leave-to-appeal/",
-        "navigation": "index (links are direct blob URLs, newest first; older years via the category filter) -> dated PDF -> find appellate docket",
+        "navigation": "SCRIPT FIRST: fetch_doc.py read the index -> fetch_doc.py grep the dated blob PDFs for the appellate docket. Fetch tool: index -> dated PDF (direct blob links, one hop) -> find appellate docket.",
         "format": "pdf",
-        "read_via": "blob host: WebFetch ok, fetch_doc.py refused"
+        "read_via": "blob host: fetch_doc.py ok (401/403 robots reply = no rules); WebFetch ok"
       },
       "text": "fetch-and-quote",
       "automation": {
         "webfetch": "ok",
-        "shell": "blocked-challenge",
+        "shell": "ok",
         "robots_txt": "see il-opinions-courts",
-        "notes": "Index page is shell-readable; the year filter is a postback (only current-year links in the initial HTML, ~120)."
+        "notes": "Index page is shell-readable; the year filter is a postback (only current-year links in the initial HTML, ~120). Lists fit one WebFetch window; the script is the only route past the fetch tool's ~105K cutoff should a list exceed it."
       },
       "currency": {
         "where": "index (newest list date)",
@@ -822,7 +846,9 @@
       "hazards": [
         "no search: scan dated lists",
         "keyed by appellate docket, not citation",
-        "year filter is POST/postback"
+        "year filter is POST/postback",
+        "heading is singular on one-case lists ('THE FOLLOWING CASE … WAS DISPOSED OF', Sept. 25, 2026): match both forms",
+        "appellate dockets may carry a 'B' suffix (1-26-0690B)"
       ],
       "probe": {
         "citation": "PLA dispositions, Sept. 30, 2026",
@@ -832,9 +858,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: heading present; first entry '131298 - People State of Illinois, petitioner, v. Terry T. Collins, respondent.'; ~305 entries, complete."
+        "evidence": "WebFetch: heading present; first entry '131298 - People State of Illinois, petitioner, v. Terry T. Collins, respondent.'; ~305 entries, complete. | Independent check 2026-10-16: WebFetch YES: heading present; first entry '131298 - People State of Illinois, petitioner, v. Terry T. Collins'; second citation PLA list Sept. 28, 2026, entry for appellate No. 5-25-0391 (People v. Beneway, 132193) ok"
       },
       "notes": "When leave is allowed, the Supreme Court opinion itself names the appellate citation; search the opinions POST filter with the appellate citation or party name (free-text). US cert is the only further review."
     }
@@ -862,7 +888,7 @@
   "script_candidates": [
     {
       "source_id": "il-opinions-courts",
-      "why": "RSS feeds by plain GET (/views/courts/rss/opinions-supreme.aspx, opinions-appellate.aspx) carry citationnum, filing date, court, status and the PDF link; the ASP.NET POST search (full-text filter, court, type, status, sort) returns structured rows with guid links — a script can resolve a public-domain citation to its PDF. Blocked for fetch_doc.py only at the blob PDF host."
+      "why": "RSS feeds by plain GET (/views/courts/rss/opinions-supreme.aspx, opinions-appellate.aspx) carry citationnum, filing date, court, status and the PDF link; the ASP.NET POST search (full-text filter, court, type, status, sort) returns structured rows with guid links — a script can resolve a public-domain citation to its PDF. fetch_doc.py reads the blob PDFs."
     },
     {
       "source_id": "il-rules-supreme",
@@ -870,30 +896,29 @@
     },
     {
       "source_id": "il-subsequent-history-pla",
-      "why": "Dated PLA lists keyed by appellate docket; the citation->docket mapping is deterministic, so a script could index all lists 2007-2026 by appellate docket (needs the blob host to be readable)."
+      "why": "Dated PLA lists keyed by appellate docket; the citation->docket mapping is deterministic, so a script could index all lists 2007-2026 by appellate docket (fetch_doc.py reads the blob PDFs)."
     }
   ],
   "corpus_candidates": [
     {
       "source_id": "il-rules-supreme",
       "url": "https://www.illinoiscourts.gov/rules-law/supreme-court-rules/",
-      "why": "Index page (145,695 chars) exceeds one WebFetch window (Article VIII rows past char 100,000); text is ~400 separate per-rule PDFs reached by a two-hop redirect. A corpus would remove both hops — but ingest must read the blob host, which fetch_doc.py refuses (robots.txt 403).",
+      "why": "Index page (145,695 chars) exceeds the fetch tool's ~105K window (Articles VI-XI rows unreachable by WebFetch); text is ~400 separate per-rule PDFs behind a redirect. fetch_doc.py reads both the index and the PDFs, so a corpus is ingestible.",
       "split_hint": "one PDF per rule; unit id = index 'Rule N' cell",
       "bulk": ""
     },
     {
       "source_id": "il-rules-evidence",
       "url": "https://www.illinoiscourts.gov/courts/supreme-court/courts-supreme-court-illinois-rules-of-evidence/",
-      "why": "Per-rule PDFs behind a two-hop redirect; small set (~60 rules) suited to a corpus once the blob host is readable.",
+      "why": "Per-rule PDFs behind a redirect; small set (~60 rules), readable by fetch_doc.py, suited to a corpus.",
       "split_hint": "one PDF per rule",
       "bulk": ""
     }
   ],
   "open_questions": [
     "ilga.gov: is WebFetch's ROBOTS_DISALLOWED a real robots.txt rule or a fetch failure reported as robots (it was returned even for /robots.txt)? Re-test from a host with working TLS before treating ILCS as permanently tier-2-only.",
-    "Policy decision needed: witnessslips.ilga.gov (and lrb.ilga.gov) mirror ILGA content; one WebFetch returned 815 ILCS 175/15-5 body text from witnessslips. Not recorded as a source because using it would work around www.ilga.gov's refusal.",
     "ILCS bulk data (ILGA FTP, from memory) not checkable: host refused.",
-    "Justia 735 ILCS 5 Article II page ends after § 2-622; where Justia serves §§ 2-1001 onward (e.g. 2-1401) is unknown.",
+    "Justia subdivision pages truncate near 120K chars (735 ILCS 5 Art. II after § 2-622; 625 ILCS 5 Ch. 11 after § 11-212): no free reachable source for later sections (e.g. 2-1401, 11-501) while ilga.gov refuses automation.",
     "Appellate Court coverage start year on illinoiscourts.gov not established (POST searches hit connection resets).",
     "Justia slugs for Rule 23 (-U) orders and Workers' Compensation Division decisions not checked.",
     "Illinois Register current issues: ilsos.gov PDFs robots-disallowed to WebFetch; no reachable source for Ill. Reg. text.",
