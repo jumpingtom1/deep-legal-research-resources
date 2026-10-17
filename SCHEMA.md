@@ -21,6 +21,23 @@ citation) or *index-anchored* (fetch the stated index, follow real links).
 that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
 "site blocked") is recorded as such, not retried by another route.
 
+## Robots and refusal policy (settled 2026-10-17)
+
+| What the host does | Script (`fetch_doc.py`) | Fetch tool (WebFetch) |
+|---|---|---|
+| robots.txt `Disallow` covering the path for `*` or for our agent — **including malformed one-line files whose intent is plain** (`User-agent: * Disallow: /`, codes.ohio.gov) | refused | **not used either** — row is `blocked` |
+| robots.txt names no rule for us (rules only for some other named agent — palegis.us) | allowed | allowed |
+| robots.txt missing: 404, or a cloud-storage 401/403 XML "no such file" (RFC 9309: no rules) | allowed | allowed |
+| bot wall: CAPTCHA, Cloudflare/Incapsula challenge, 401/403 HTML on robots.txt or the page | refused (host off for the day) | allowed if it reads the page; that host's rows use the fetch tool |
+| plain 401/403/451 on one document | that URL refused | — |
+| HTTP 429 | retry later, not a refusal | — |
+| TLS chain fails to verify | error; verification never disabled | — |
+
+Never use a mirror, alternate host or cache to get around a refusal
+(e.g. witnessslips.ilga.gov was left out for Illinois). An alternate path
+on the **same** host is fine when robots.txt permits it and the publisher's
+own pages link to it (Minnesota law-library `/web/prod/static/lawlib/`).
+
 ## Families (A–G)
 
 | Code | `family` value | Covers |

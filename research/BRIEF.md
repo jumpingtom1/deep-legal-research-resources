@@ -95,6 +95,9 @@ can. So for every source, answer these questions:
 - **Tier 1** is official or government sources. **Tier 2** is public.law,
   Justia (law.justia.com) and Cornell LII only. Record tier-2 rows for every
   family where they exist; they are the fallback. Use no other third parties.
+- **Follow the robots and refusal policy table in `SCHEMA.md`.** In
+  particular, an explicit robots `Disallow` that covers the path means the
+  row is `blocked` for **every** route, the fetch tool included.
 - **Never work around a block:** robots.txt, a bot challenge, a login, "site
   blocked", or a TLS failure. Record it with its evidence and move on.
 - **Do not use any CourtListener tool.**
