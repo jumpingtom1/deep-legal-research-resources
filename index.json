@@ -165,6 +165,84 @@
         }
       ]
     },
+    "ar": {
+      "name": "Arkansas",
+      "file": "jurisdictions/ar.md",
+      "sha256": "acdd6d5c361bc54f1d0951c995481fafe45b697c9127422c93c241488047a6be",
+      "compiled": "2026-10-17",
+      "counts": {
+        "reported": 2,
+        "verified": 9,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Arkansas Code Annotated",
+          "regex": "(?:Ark(?:ansas|\\.)\\s*Code(?:\\s*Ann(?:otated|\\.)?)?|\\bA\\.\\s*C\\.\\s*A\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3})-(?P<section>\\d{3,4}(?:\\.\\d+)?)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,3})-(?P<section2>\\d{3,4}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Arkansas\\s+Code",
+          "context_required": false
+        },
+        {
+          "label": "Acts of Arkansas (session laws), with Arkansas marker",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Ark\\.\\s*Acts,?\\s*(?:No\\.\\s*)?(?P<act>\\d{1,4})|Arkansas\\s+Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>(?:19|20)\\d\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Act N of YYYY (bare, generic)",
+          "regex": "\\bAct\\s+(?:No\\.\\s*)?(?P<act>\\d{1,4})\\s+of\\s+(?:the\\s+(?:Regular|Fiscal|(?:First\\s+|Second\\s+)?Extraordinary)\\s+Session\\s+of\\s+)?(?P<year>(?:19|20)\\d\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Arkansas Constitution of 1874 and amendments",
+          "regex": "Ark\\.\\s*Const\\.,?\\s*(?:art\\.?\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec\\.?|section)\\s*(?P<section>\\d+)|amend\\.?\\s*(?P<amendment>\\d{1,3})(?:,?\\s*(?:\u00a7|sec\\.?|section)\\s*(?P<asection>\\d+))?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:Arkansas\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Arkansas)|Amendment\\s+(?P<amendment2>\\d{1,3})\\s+(?:to|of)\\s+the\\s+Arkansas\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Arkansas Rules of Civil/Criminal/Appellate Procedure, Evidence, Professional Conduct",
+          "regex": "Ark\\.\\s*R\\.\\s*(?P<set>Civ\\.\\s*P|Evid|Crim\\.\\s*P|App\\.\\s*P\\.?\\s*[\u2013\u2014-]\\s*(?:Civ|Crim)|Prof'?l\\s*Conduct)\\.?\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)|Arkansas\\s+Rules?\\s+of\\s+(?P<set2>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)\\s*(?P<rule2>\\d{1,4}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,4}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Arkansas\\s+Rules\\s+of\\s+(?P<set3>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)",
+          "context_required": false
+        },
+        {
+          "label": "Rules of the Supreme Court and Court of Appeals",
+          "regex": "Ark\\.\\s*(?:Sup\\.\\s*Ct\\.|Ct\\.\\s*App\\.)\\s*R\\.\\s*(?P<rule>\\d-\\d{1,2})|Arkansas\\s+(?:Supreme\\s+Court|Court\\s+of\\s+Appeals)\\s+Rule\\s+(?P<rule2>\\d-\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Arkansas court rules (bare forms)",
+          "regex": "\\bRule\\s+(?P<rule>\\d-\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*|\\bRule\\s+(?P<rule2>37(?:\\.\\d)?)\\s+petition|\\bRule\\s+(?P<rule3>\\d{1,2})\\s*\\([a-z]\\)\\s*\\(\\d\\)",
+          "context_required": true
+        },
+        {
+          "label": "Code of Arkansas Rules (CAR, from 2025)",
+          "regex": "(?P<title>\\d{1,2})\\s+(?:CAR|C\\.A\\.R\\.)\\s*\u00a7+\\s*(?P<part>\\d{1,4})-(?P<section>\\d{3,4})",
+          "context_required": false
+        },
+        {
+          "label": "Arkansas public-domain citations (from July 2009)",
+          "regex": "\\b(?P<year>20\\d\\d)\\s+Ark\\.(?P<app>\\s*App\\.)?\\s+(?P<number>\\d{1,4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Arkansas Reports / Arkansas Appellate Reports and court parentheticals",
+          "regex": "\\b(?P<vol>\\d{1,3})\\s+Ark\\.(?P<app>\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b|\\((?P<court>Ark\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)",
+          "context_required": false
+        },
+        {
+          "label": "Arkansas appellate docket numbers (generic)",
+          "regex": "\\b(?P<docket>(?P<type>CV|CR|CA|CACR|CACV|JV|E|D)-(?P<yy>\\d{2})-(?P<num>\\d{1,4}))\\b",
+          "context_required": true
+        },
+        {
+          "label": "South Western Reporter (regional, generic)",
+          "regex": "\\b(?P<vol>\\d{1,4})\\s+S\\.\\s*W\\.\\s*(?:2d|3d)?\\s+(?P<page>\\d{1,5})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Petition for review / rehearing dispositions (generic)",
+          "regex": "(?P<disp>(?:pet(?:ition)?\\.?\\s+for\\s+)?review\\s+(?:denied|granted)|reh'?g\\s+denied)",
+          "context_required": true
+        }
+      ]
+    },
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
@@ -1194,7 +1272,7 @@
     "ks": {
       "name": "Kansas",
       "file": "jurisdictions/ks.md",
-      "sha256": "82b174db298bb1c10243d16916b897763bb4f392a94fc33f9443c161fd165488",
+      "sha256": "5aa7c3c559b7cfbbf81ac8886f2cba794705190bba56a69d6d0069f35cdcca96",
       "compiled": "2026-10-17",
       "counts": {
         "verified_independent": 14,
@@ -1213,7 +1291,7 @@
         },
         {
           "label": "Kansas Supreme Court Rules (marked)",
-          "regex": "(?:Kan\\.\\s*(?:Sup|S)\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Kansas\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?![\\d.]?\\d)|(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9a-zA-Z]+\\))*\\s*\\(\\d{4}\\s+Kan\\.\\s*S\\.\\s*Ct\\.\\s*R\\.|(?:KRPC|Kan\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Kansas\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<krpc>\\d\\.\\d{1,2}[a-z]?)",
+          "regex": "(?:\\bKan\\.\\s*(?:Sup|S)\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|\\bKansas\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?![\\d.]?\\d)|(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9a-zA-Z]+\\))*\\s*\\(\\d{4}\\s+Kan\\.\\s*S\\.\\s*Ct\\.\\s*R\\.|(?:KRPC|Kan\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|\\bKansas\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<krpc>\\d\\.\\d{1,2}[a-z]?)",
           "context_required": false
         },
         {

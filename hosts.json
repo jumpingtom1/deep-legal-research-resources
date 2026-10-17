@@ -158,6 +158,13 @@
    ],
    "blocked_sources": []
   },
+  "arkleg.state.ar.us": {
+   "status": "allowed",
+   "sources": [
+    "ar-acts-arkleg"
+   ],
+   "blocked_sources": []
+  },
   "ars.apps.lara.state.mi.us": {
    "status": "allowed",
    "sources": [
@@ -220,6 +227,13 @@
     "dc-code-council",
     "dc-laws-council",
     "dc-homerule-council"
+   ],
+   "blocked_sources": []
+  },
+  "codeofarrules.arkansas.gov": {
+   "status": "allowed",
+   "sources": [
+    "ar-admincode-car"
    ],
    "blocked_sources": []
   },
@@ -526,6 +540,9 @@
     "al-code-justia",
     "al-constitution-justia",
     "al-cases-justia",
+    "ar-code-justia",
+    "ar-constitution-justia",
+    "ar-cases-justia",
     "az-ars-justia",
     "az-cases-justia",
     "ca-codes-justia",
@@ -973,6 +990,15 @@
    ],
    "blocked_sources": []
   },
+  "opinions.arcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ar-rules-arcourts",
+    "ar-opinions-arcourts",
+    "ar-review-arcourts"
+   ],
+   "blocked_sources": []
+  },
   "opinions.kycourts.net": {
    "status": "allowed",
    "sources": [
@@ -1204,6 +1230,13 @@
     "tn-public-acts-sos",
     "tn-admincode-sos",
     "tn-admin-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "ssl-sos-site.ark.org": {
+   "status": "allowed",
+   "sources": [
+    "ar-constitution-sos"
    ],
    "blocked_sources": []
   },
@@ -1751,6 +1784,7 @@
   "www.lexisnexis.com": {
    "status": "allowed",
    "sources": [
+    "ar-code-lexis",
     "co-crs-lexis",
     "co-rules-lexis",
     "nj-admincode-lexis",
@@ -1982,6 +2016,15 @@
     "ma-register-sos"
    ],
    "blocked_sources": []
+  },
+  "www.sos.arkansas.gov": {
+   "status": "allowed",
+   "sources": [
+    "ar-register-sos"
+   ],
+   "blocked_sources": [
+    "ar-admin-rules-sos-legacy"
+   ]
   },
   "www.sos.ks.gov": {
    "status": "allowed",
