@@ -1,0 +1,1057 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "nj",
+  "name": "New Jersey",
+  "compiled": "2026-10-16",
+  "summary": "Statutes: the Legislature's Folio NXT database (lis.njleg.state.nj.us) serves per-section text at bare gateway.dll/statutes/1/{title}/{node} URLs; node ids are found through its XML table of contents, and an official weekday-refreshed bulk text file (pub.njleg.gov/statutes) covers the whole code; Justia 2025 is a constructible tier-2 fallback. Constitution: one 177K-char Legislature page (WebFetch stops in Art. VIII). Court rules and N.J.R.E.: njcourts.gov is behind an Imperva Incapsula challenge — blocked for the script, index pages fail in WebFetch; no free tier-2 copy. N.J.A.C. and N.J. Register are on a JavaScript-only LexisNexis site (not official); LII serves N.J.A.C. sections (possibly stale). Case law: njcourts.gov opinion PDFs are constructible from docket + decision year and readable by WebFetch only; Justia (Supreme 1900–, App. Div. published/unpublished 1944–, Tax 1980–) is the locator. Certification denials are not free online.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of New Jersey",
+        "courtlistener_id": "nj",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J.",
+        "reporters": [
+          "N.J.",
+          "A.3d",
+          "A.2d",
+          "A."
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Superior Court of New Jersey, Appellate Division",
+        "courtlistener_id": "njsuperctappdiv",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J. Super. Ct. App. Div.",
+        "reporters": [
+          "N.J. Super.",
+          "A.3d",
+          "A.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Superior Court of New Jersey, Law Division",
+        "courtlistener_id": "njsuperctlawdiv",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J. Super. Ct. Law Div.",
+        "reporters": [
+          "N.J. Super.",
+          "A.3d",
+          "A.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Superior Court of New Jersey, Chancery Division",
+        "courtlistener_id": "njsuperctchdiv",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J. Super. Ct. Ch. Div.",
+        "reporters": [
+          "N.J. Super.",
+          "A.3d",
+          "A.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Tax Court of New Jersey",
+        "courtlistener_id": "njtaxct",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J. Tax Ct.",
+        "reporters": [
+          "N.J. Tax"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "New Jersey Court of Errors and Appeals (to 1948)",
+        "courtlistener_id": "nj",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "N.J. Err. & App.",
+        "reporters": [
+          "N.J.L.",
+          "N.J. Eq.",
+          "A."
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "New Jersey Statutes (N.J.S.A.)",
+        "examples": [
+          "N.J.S.A. 2A:14-1",
+          "N.J. Stat. Ann. § 2A:14-1",
+          "N.J.S. 2C:11-3",
+          "N.J.S.2C:11-4",
+          "N.J.S.A. 2A:14-1.1",
+          "N.J. Rev. Stat. § 2C:11-3",
+          "NJ Rev Stat § 2A:14-1 (2025)",
+          "section 2A:14-1 of the New Jersey Statutes",
+          "P.L.1993, c.30 (C.45:22A-47)",
+          "N.J.S.A. 52:14B-7.1"
+        ],
+        "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?\\s*Ann\\.?|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:§+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)",
+        "routes_to": [
+          "nj-statutes-njleg",
+          "nj-statutes-bulk",
+          "nj-statutes-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Pamphlet Laws (session laws)",
+        "examples": [
+          "P.L.2021, c.379",
+          "P.L. 2017, c. 150",
+          "L. 1951 (1st SS), c. 344",
+          "L.1961, c. 121"
+        ],
+        "regex": "(?:P\\.\\s*L\\.|\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "nj-session-laws-njleg"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "New Jersey Constitution",
+        "examples": [
+          "N.J. Const. art. I, ¶ 1",
+          "N.J. Const. art. VI, § 2, ¶ 3",
+          "N.J. Const. art. VIII, § 4, ¶ 1",
+          "Article I, Paragraph 7 of the New Jersey Constitution",
+          "N.J. Const. art. I, para. 5"
+        ],
+        "regex": "N\\.\\s*J\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:§\\s*(?P<section>\\d+|[IVXL]+),?\\s*)?(?:¶|para\\.?)\\s*(?P<paragraph>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section\\s+(?P<section2>[IVXL]+|\\d+),?\\s+)?Paragraph\\s+(?P<paragraph2>\\d+)\\s+of\\s+the\\s+New\\s+Jersey\\s+Constitution",
+        "routes_to": [
+          "nj-constitution-njleg",
+          "nj-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules Governing the Courts of the State of New Jersey",
+        "examples": [
+          "R. 4:46-2",
+          "R. 4:46-2(c)",
+          "Rule 1:36-3",
+          "R. 2:2-3(a)(1)",
+          "N.J. Ct. R. 3:22-4",
+          "Rule 4:6-2(e) of the New Jersey Court Rules",
+          "R. 4:5B-2"
+        ],
+        "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?",
+        "routes_to": [
+          "nj-rules-of-court"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "New Jersey Rules of Evidence",
+        "examples": [
+          "N.J.R.E. 803(c)(6)",
+          "N.J.R.E. 702",
+          "New Jersey Rule of Evidence 404(b)"
+        ],
+        "regex": "(?:N\\.\\s*J\\.\\s*R\\.\\s*E\\.|New\\s+Jersey\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3})",
+        "routes_to": [
+          "nj-rules-evidence"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "New Jersey Administrative Code",
+        "examples": [
+          "N.J.A.C. 7:7-1.1",
+          "N.J. Admin. Code § 6A:14-1.1",
+          "N.J.A.C. 10:122D-2.4",
+          "N.J.A.C. 1:1-1"
+        ],
+        "regex": "(?:N\\.\\s*J\\.\\s*A\\.\\s*C\\.|N\\.\\s*J\\.\\s*Admin\\.?\\s*Code)\\s*(?:§+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)(?:-(?P<subchapter>\\d+[A-Z]?)(?:\\.(?P<section>\\d+[A-Z]?))?)?",
+        "routes_to": [
+          "nj-admincode-lii",
+          "nj-admincode-lexis"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "New Jersey Register",
+        "examples": [
+          "52 N.J.R. 1822(b)",
+          "47 N.J.R. 1392(a)"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+N\\.\\s*J\\.\\s*R\\.\\s+(?P<page>\\d+)(?:\\((?P<item>[a-z])\\))?",
+        "routes_to": [
+          "nj-register-lexis"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Reported New Jersey cases (N.J., N.J. Super., N.J. Tax, old N.J.L./N.J. Eq.)",
+        "examples": [
+          "257 N.J. 247 (2024)",
+          "475 N.J. Super. 123 (App. Div. 2023)",
+          "33 N.J. Tax 1 (Tax 2022)",
+          "135 N.J. Eq. 1 (E. & A. 1944)",
+          "320 A.3d 1 (N.J. 2024)",
+          "290 A.3d 1 (N.J. Super. Ct. App. Div. 2023)"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "nj-cases-justia",
+          "nj-opinions-njcourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Docket-number citations (Supreme A-N-YY; Appellate Division A-NNNN-YY, incl. unpublished)",
+        "examples": [
+          "State v. Gibson, No. A-0117-23 (App. Div. Dec. 19, 2025)",
+          "No. A-2551-24 (App. Div. Oct. 5, 2026) (slip op. at 4)",
+          "A-39-23",
+          "A-37/38-23",
+          "A-0921-24/A-1568-24"
+        ],
+        "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})\\b",
+        "routes_to": [
+          "nj-cases-justia",
+          "nj-opinions-njcourts",
+          "nj-case-pages-njcourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Westlaw / Lexis unreported NJ cites",
+        "examples": [
+          "2024 WL 123456 (N.J. Super. Ct. App. Div. Mar. 1, 2024)",
+          "2023 N.J. Super. Unpub. LEXIS 1234",
+          "2022 N.J. Tax LEXIS 5"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.\\s*J\\.|N\\.\\s*J\\.\\s*(?:(?P<lexcourt>Super\\.(?:\\s*Unpub\\.)?|Tax)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+        "routes_to": [
+          "nj-cases-justia",
+          "nj-opinions-njcourts"
+        ]
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Certification history (certif. denied / granted)",
+        "examples": [
+          "certif. denied, 250 N.J. 123 (2022)",
+          "certif. granted, 255 N.J. 487 (2023)",
+          "certif. denied, ___ N.J. ___ (2025)"
+        ],
+        "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)",
+        "routes_to": [
+          "nj-subsequent-history-njcourts"
+        ]
+      }
+    ],
+    "law_aliases": {
+      "N.J.S.A.": "NJSA",
+      "N.J.S.": "NJSA",
+      "N.J. Stat. Ann.": "NJSA",
+      "N.J. Rev. Stat.": "NJSA",
+      "NJ Rev Stat": "NJSA",
+      "C.": "NJSA",
+      "N.J.A.C.": "NJAC",
+      "N.J. Admin. Code": "NJAC",
+      "R.": "NJ-CT-R",
+      "N.J. Ct. R.": "NJ-CT-R",
+      "Rule": "NJ-CT-R",
+      "N.J.R.E.": "NJRE",
+      "N.J.R.": "NJR",
+      "P.L.": "PL"
+    },
+    "notes": "NJ statute cites use the colon-hyphen form title:chapter-section (2A:14-1, 2C:11-3, 52:14B-7.1); route a bare 'title:chapter-section' here only with an N.J.S.A./N.J.S./N.J. Stat. Ann./NJ Rev Stat prefix, a '(C.x:y-z)' compiled-statute cite, or explicit New Jersey context — 'N.J.S.' (no A) denotes a Title 2A/2B/2C/3B/12A/14A-type revised section and is the same code. N.J.S.A. ranges are written '2A:14-1 to -2' or '§§ 2A:14-1 to -3': take the first section. Court rules are cited 'R. 4:46-2' (part:rule-subrule); the colon form is NJ-specific, but bare 'Rule 12' or 'R. 56' (no colon) must not route here. 'P.L.2021, c.379' is a NJ chapter law; federal 'Pub. L. 111-148' / 'P.L. 111-148' has no comma-year-chapter and is excluded by the regex. 'N.J.R.' (Register) vs 'N.J.R.E.' (Evidence) differ by the trailing E and the volume-before form. Supreme Court dockets 'A-39-23' (term number-year) and Appellate Division dockets 'A-0117-23' (4-digit, zero-padded) share one regex; the digit count tells them apart. Unpublished Appellate Division opinions (R. 1:36-3) are cited by docket and date or WL/LEXIS; resolve them through Justia's appellate-division-unpublished year listing. 'certif. denied' cites point to N.J. Reports tables (commercial); no free official equivalent. CourtListener ids are from memory and unverified; pre-1948 Court of Errors and Appeals id uncertain."
+  },
+  "sources": [
+    {
+      "id": "nj-statutes-njleg",
+      "family": "statutes",
+      "title": "New Jersey Statutes (Unannotated) — Legislature's Folio NXT statutes database",
+      "publisher": "New Jersey Legislature, Office of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Legislature disclaimer (https://www.njleg.state.nj.us/disclaimer, read by WebFetch) says the statute and Constitution text are not annotated; it makes no official/unofficial statement. The TOC root is titled 'New Jersey Statutes (Unannotated)'. The annotated N.J.S.A. is a commercial publication. No UELMA authentication statement found.",
+      "coverage": "All titles of the Revised Statutes / N.J.S.A. as currently in force (Title 1 through Title 59 and Appendix A), one document per section.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/{title_node}/{section_node}",
+        "pattern_rules": "Node ids are sequential integers assigned when the Folio infobase is rebuilt (it is rebuilt every weekday), so they are NOT derivable from the citation and may shift; never store or guess them. Resolve per request: (1) GET https://lis.njleg.state.nj.us/nxt/gateway.dll?f=xmlcontents&command=getchildren&basepathid=statutes%2F1&maxnodes=500&minnodesleft=5 → XML <n id='statutes/1/NNN' t='TITLE 2A  ADMINISTRATION OF …'> (title names only, no section ranges); (2) GET the same URL with basepathid=statutes%2F1%2F{title_node}&maxnodes=5000 → flat list of every section in the title (no chapter level), each <n ct='text/xml' id='statutes/1/{title}/{node}' t='2A:14-1.  6 years'>; match the t attribute prefix exactly '{title}:{chapter}-{section}' followed by '.', space, or end (2A:14-1 vs 2A:14-1.1 differ); (3) GET https://lis.njleg.state.nj.us/nxt/gateway.dll/{id} (bare path, no query) for the section text. Verified: N.J.S.A. 2A:14-1 → statutes/1/112/303; N.J.S.A. 2C:11-3 → statutes/1/2785/2868 (2026-10-16).",
+        "index_url": "https://lis.njleg.state.nj.us/nxt/gateway.dll?f=xmlcontents&command=getchildren&basepathid=statutes%2F1&maxnodes=500&minnodesleft=5",
+        "navigation": "xmlcontents root (title folders, e.g. statutes/1/112 = TITLE 2A, statutes/1/2785 = TITLE 2C) → xmlcontents of the title folder (every section listed with its number in the t attribute) → document URL gateway.dll/{id}. The HTML front end (gateway.dll?f=templates&fn=default.htm&vid=Publish:10.1048/Enu) is a JavaScript search app — do not use it.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "lis.njleg.state.nj.us/robots.txt 302 → njleg.state.nj.us/robots.txt: User-agent * Allow: /",
+        "notes": "Use the bare document path: WebFetch of the same document with '?f=templates$fn=document-frameset.htm' returned a client error. WebFetch reads the xmlcontents XML but truncates large titles (Title 2C list cut at 2C:40A-4); fetch_doc.py reads it whole, or use a smaller maxnodes and command=getmore. A non-folder basepathid returns HTTP 500 'xmlcontents did not succeed'."
+      },
+      "currency": {
+        "where": "title of the TOC root node 'statutes/1' (xmlcontents XML) and line 2 of the bulk STATUTES.TXT; not on section pages",
+        "observed": "UPDATED THROUGH  P.L.2026, c.50, and J.R.1"
+      },
+      "hazards": [
+        "node ids not derivable from citations and may shift on the weekday rebuild — resolve through xmlcontents each time",
+        "JavaScript front end (gateway.dll default.htm) shows only a search shell",
+        "no currency line on section pages",
+        "section-number prefix matching must respect suffixes (2A:14-1 vs 2A:14-1.1 vs 2C:11-3a)"
+      ],
+      "probe": {
+        "citation": "N.J.S.A. 2C:11-3",
+        "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/2785/2868",
+        "expect": "Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 2C:11-3 body present ('a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'), complete through subsection j. fetch_doc verify OK (8,165 chars). Second citation N.J.S.A. 2A:14-1 at /statutes/1/112/303: fetch_doc read 'Every action at law for trespass to real property', ends 'amended 2021, c.379.'"
+      },
+      "notes": "Node ids recorded here are evidence only, valid on 2026-10-16."
+    },
+    {
+      "id": "nj-statutes-bulk",
+      "family": "statutes",
+      "title": "New Jersey Statutes — official bulk text download (STATUTES-TEXT.zip)",
+      "publisher": "New Jersey Legislature, Office of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Same Legislature text as nj-statutes-njleg; _READ_ME.txt describes formats only, no official-status statement.",
+      "coverage": "Entire unannotated statutes in one plain-text file (STATUTES.TXT, 84 MB) and RTF; also Folio infobase; Constitution (NJCONST-TEXT.zip) and Legislative Counsel TOC (LCTOC).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://pub.njleg.gov/statutes/STATUTES-TEXT.zip",
+        "pattern_rules": "Fixed file names in the directory listing. Inside STATUTES.TXT each section starts on a line beginning with the section number, e.g. '2A:14-1.  6 years' or '2C:11-3  Murder.' (period after the number is inconsistent).",
+        "index_url": "https://pub.njleg.gov/statutes/",
+        "navigation": "directory listing → STATUTES-TEXT.zip → STATUTES.TXT; search for a line starting with the section number.",
+        "format": "zip (txt, rtf)"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "pub.njleg.gov/robots.txt 302 → njleg.state.nj.us/robots.txt: Allow: /",
+        "notes": "41 MB zip; script-only (fetch_doc reads the directory listing and _READ_ME.txt; the zip was downloaded by shell). 'Updated every week day at 2AM' per _READ_ME.txt; files dated 10/16/2026 6:00 AM."
+      },
+      "currency": {
+        "where": "line 2 of STATUTES.TXT",
+        "observed": "(UPDATED THROUGH  P.L.2026, c.50, and J.R.1)"
+      },
+      "hazards": [
+        "very large file — not for WebFetch",
+        "section heading format varies (with/without trailing period)"
+      ],
+      "probe": {
+        "citation": "N.J.S.A. 2A:14-1",
+        "url": "https://pub.njleg.gov/statutes/STATUTES-TEXT.zip",
+        "expect": "2A:14-1.  6 years"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Shell: 200 application/x-zip-compressed, 41,443,870 B, last-modified 16 Oct 2026; STATUTES.TXT line 3694 '2A:14-1.  6 years', line 3703 '2A:14-1.1.'; header 'UPDATED THROUGH  P.L.2026, c.50, and J.R.1'. fetch_doc read the directory listing and _READ_ME.txt."
+      },
+      "notes": "Best bulk statute source in the pilot so far: a script can index every section from one file daily."
+    },
+    {
+      "id": "nj-statutes-justia",
+      "family": "statutes",
+      "title": "Justia — New Jersey Revised Statutes (2025)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; page labels the edition '2025 New Jersey Revised Statutes'.",
+      "coverage": "N.J.S.A. by title and section; editions by year, unversioned URL serves 2025.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/new-jersey/title-{title_lower}/section-{title_lower}-{chapter_lower}-{section}/",
+        "pattern_rules": "title lower-cased (2A → 2a, 2C → 2c); section slug = title-chapter-section joined by hyphens, all lower-case (2A:14-1 → section-2a-14-1). No chapter segment in the path. Decimal sections (2A:14-1.1) are untested — expected section-2a-14-1-1 but confirm from the title page. Year-specific: insert /{year}/ after /new-jersey/.",
+        "index_url": "https://law.justia.com/codes/new-jersey/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable: law.justia.com answers robots.txt with a Cloudflare challenge",
+        "notes": "fetch_doc.py REFUSED (bot challenge). WebFetch only."
+      },
+      "currency": {
+        "where": "page header and Universal Citation line",
+        "observed": "2025 New Jersey Revised Statutes; NJ Rev Stat § 2A:14-1 (2025)"
+      },
+      "hazards": [
+        "edition lags official text",
+        "shell blocked by Cloudflare",
+        "decimal-section slug unverified"
+      ],
+      "probe": {
+        "citation": "N.J.S.A. 2A:14-1",
+        "url": "https://law.justia.com/codes/new-jersey/title-2a/section-2a-14-1/",
+        "expect": "Every action at law for trespass to real property, for"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body present, '2025 New Jersey Revised Statutes', 'NJ Rev Stat § 2A:14-1 (2025)'. Second citation 2C:11-3 at /title-2c/section-2c-11-3/: 'a. Except as provided in N.J.S.2C:11-4, criminal homicide constitutes murder'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nj-session-laws-njleg",
+      "family": "statutes",
+      "title": "Pamphlet Laws (P.L.) chapter texts — Legislature bill archive",
+      "publisher": "New Jersey Legislature, Office of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Chapter-law text and PDF posted by the Legislature; no official/unofficial statement on the page.",
+      "coverage": "Enacted chapter laws by two-year session; HTM and PDF per chapter (verified for P.L.2017 and P.L.2021).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://pub.njleg.gov/bills/{session}/PL{yy}/{chapter}_.HTM",
+        "pattern_rules": "From 'P.L.{year}, c.{chapter}': yy = last two digits of year; session = first year of the two-year session = year if even, year − 1 if odd (P.L.2017 → 2016; P.L.2021 → 2020). Chapters signed in January of an even year before the new session opens may still sit under the earlier session (P.L.2021, c.379 was approved January 18, 2022 and is under 2020/PL21 because the folder follows the P.L. year). chapter unpadded. Replace .HTM with .PDF for the PDF.",
+        "index_url": "https://pub.njleg.gov/bills/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "302 → njleg.state.nj.us/robots.txt: Allow: /",
+        "notes": "Rule for even P.L. years (session = year) not separately probed."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "even-year P.L. session folder rule unprobed"
+      ],
+      "probe": {
+        "citation": "P.L.2017, c.150",
+        "url": "https://pub.njleg.gov/bills/2016/PL17/150_.HTM",
+        "expect": "An Act concerning certain murders and amending N.J.S.2C:11-3"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 'An Act concerning certain murders and amending N.J.S.2C:11-3', 'Approved July 21, 2017.', complete. Second citation P.L.2021, c.379 at /bills/2020/PL21/379_.HTM: fetch_doc 'CHAPTER 379 An Act concerning construction defects', 'Approved January 18, 2022.'"
+      },
+      "notes": "Statute section history notes cite chapter laws in this form (e.g. 'amended 2021, c.379')."
+    },
+    {
+      "id": "nj-constitution-njleg",
+      "family": "constitution",
+      "title": "New Jersey State Constitution 1947 (Legislature)",
+      "publisher": "New Jersey Legislature, Office of Legislative Services",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Legislature disclaimer says the Constitution text is not annotated; no official-status statement.",
+      "coverage": "1947 Constitution as amended, whole document on one page, with amendment notes after each article.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.njleg.state.nj.us/constitution",
+        "pattern_rules": "Single page for the whole Constitution; no per-article anchors. Locate 'Article {roman}' then 'Section {roman}' then the paragraph number. Bulk alternative: https://pub.njleg.gov/statutes/NJCONST-TEXT.zip (NJCONST.TXT).",
+        "index_url": "https://www.njleg.state.nj.us/constitution",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "Allow: /",
+        "notes": "WebFetch window 1 (0–100,000 of 141,147 chars) ends in Art. VIII § I; later provisions (e.g. Art. VIII § IV ¶ 1, Art. IX, Art. XI) need offset=100000 or fetch_doc.py, which reads the whole 177,072-char page."
+      },
+      "currency": {
+        "where": "heading at top of page",
+        "observed": "(Updated Through Amendments Adopted in November, 2021)"
+      },
+      "hazards": [
+        "WebFetch truncation after Art. VIII § I",
+        "no anchors",
+        "currency string may lag recent amendments"
+      ],
+      "probe": {
+        "citation": "N.J. Const. art. I, ¶ 1",
+        "url": "https://www.njleg.state.nj.us/constitution",
+        "expect": "All persons are by nature free and independent, and have"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Art. I ¶ 1 YES; Art. VIII § IV ¶ 1 NOT PRESENT (truncated). fetch_doc: verify OK at offset 1,779; second citation Art. VI § I ¶ 1 'The judicial power shall be vested in a Supreme Court' at offset 78,747; Art. VIII § IV ¶ 1 at 146,127."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nj-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — New Jersey Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; no currency statement.",
+      "coverage": "Whole constitution on one page.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/new-jersey/",
+        "pattern_rules": "single page, no article links",
+        "index_url": "https://law.justia.com/constitution/new-jersey/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "137,263 chars; WebFetch window 1 ends in Art. VIII § II; use offset=100000."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "WebFetch truncation",
+        "no currency date",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "N.J. Const. art. I, ¶ 1",
+        "url": "https://law.justia.com/constitution/new-jersey/",
+        "expect": "All persons are by nature free and independent, and have"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Art. I ¶ 1 body present; single page; truncated in Art. VIII § II; no currency statement."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nj-rules-of-court",
+      "family": "court_rules",
+      "title": "Rules Governing the Courts of the State of New Jersey (Parts I–VIII, appendices) — njcourts.gov",
+      "publisher": "New Jersey Judiciary (Supreme Court of New Jersey)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Not read: every rules page on njcourts.gov errored or was refused (Imperva Incapsula).",
+      "coverage": "Part I (all courts), II (appellate), III (criminal), IV (civil), V (family), VI (tenancy), VII (municipal), VIII (tax); appendices incl. RPC; cited 'R. 4:46-2'.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "Per-part / per-rule PDF URLs not established; a guessed /sites/default/files/rules/r4-46.pdf failed. Do not guess.",
+        "index_url": "https://www.njcourts.gov/attorneys/rules-of-court",
+        "navigation": "rules-of-court index → part or rule link (not observed)",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "fail",
+        "shell": "blocked-challenge",
+        "robots_txt": "njcourts.gov robots.txt allows /attorneys/ and /system/files/ (disallows /search, /admin/, /user/…); the host itself answers the script with an Incapsula challenge (HTTP 403)",
+        "notes": "WebFetch CLIENT_ERROR on /attorneys/rules-of-court, ?page=0, and /attorneys/rules-court. Opinion PDFs on the same host DO work in WebFetch, so rule PDFs may too once their URLs are known."
+      },
+      "currency": {
+        "where": "not observed",
+        "observed": ""
+      },
+      "hazards": [
+        "Incapsula bot challenge on the shell",
+        "WebFetch errors on index pages",
+        "rule PDF URLs unknown"
+      ],
+      "probe": {
+        "citation": "R. 4:46-2",
+        "url": "https://www.njcourts.gov/attorneys/rules-of-court",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc: 'REFUSED: www.njcourts.gov refused automated access: HTTP 403'; headers show Incapsula (x-iinfo, visid_incap cookie, /_Incapsula_Resource). WebFetch: 'There was an error while fetching.' on three index URLs."
+      },
+      "notes": "No tier-2 host serves the NJ court rules (Justia, LII and public.law do not); other sites found by search are unvetted third parties."
+    },
+    {
+      "id": "nj-rules-evidence",
+      "family": "court_rules",
+      "title": "New Jersey Rules of Evidence (N.J.R.E.) — njcourts.gov",
+      "publisher": "New Jersey Judiciary",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Not read (host blocked).",
+      "coverage": "N.J.R.E. 101–1103, adopted under the Evidence Act (N.J.S.A. 2A:84A).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "URL not established.",
+        "index_url": "https://www.njcourts.gov/attorneys/rules-of-court",
+        "navigation": "rules-of-court index → Rules of Evidence (reported, not observed)",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "fail",
+        "shell": "blocked-challenge",
+        "robots_txt": "see nj-rules-of-court",
+        "notes": ""
+      },
+      "currency": {
+        "where": "not observed",
+        "observed": ""
+      },
+      "hazards": [
+        "host blocked"
+      ],
+      "probe": {
+        "citation": "N.J.R.E. 803(c)(6)",
+        "url": "https://www.njcourts.gov/attorneys/rules-of-court",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "Same index as nj-rules-of-court: script 403 Incapsula, WebFetch client error."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nj-admincode-lexis",
+      "family": "admin_code",
+      "title": "New Jersey Administrative Code — free public access (LexisNexis)",
+      "publisher": "LexisNexis under contract with the Office of Administrative Law",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "OAL page https://www.nj.gov/oal/rules/accessp: 'Please note that the online version of the Code is not the official Code.'",
+      "coverage": "Semi-monthly updated N.J.A.C. (per OAL).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.lexisnexis.com/hottopics/njcode/",
+        "navigation": "302 redirect to advance.lexis.com/container?config=… — a JavaScript application; no per-section URL usable by tools.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "fail",
+        "shell": "http-error",
+        "robots_txt": "not determined",
+        "notes": "fetch_doc follows the 302 and gets HTTP 200 with 0 characters of text (JavaScript shell); WebFetch reports the redirect, then an empty page."
+      },
+      "currency": {
+        "where": "not observable",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript-only application",
+        "not the official Code"
+      ],
+      "probe": {
+        "citation": "N.J.A.C. 7:7-1.1",
+        "url": "https://advance.lexis.com/container?config=00JAA5OTY5MTdjZi1lMzYxLTQxNTEtOWFkNi0xMmU5ZTViODQ2M2MKAFBvZENhdGFsb2coFSYEAfv22IKqMT9DIHrf",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: empty page; fetch_doc: 200, 0 chars. Linked from nj.gov/oal as the public-access Code."
+      },
+      "notes": "Link users here for the current Code; quote from nj-admincode-lii only with its currency caveat."
+    },
+    {
+      "id": "nj-admincode-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — New Jersey Administrative Code",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; 'State regulations are updated quarterly'.",
+      "coverage": "N.J.A.C. per section with history notes; pages last modified August 2025 (latest N.J.R. note seen 2020 on 6A:14-1.1).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-{title}-{chapter}-{subchapter}-{section}",
+        "pattern_rules": "N.J.A.C. {title}:{chapter}-{subchapter}.{section} → replace ':' '-' '.' with hyphens, keep letter suffixes upper-case as cited (7:7-1.1 → N-J-A-C-7-7-1-1; 6A:14-1.1 → N-J-A-C-6A-14-1-1).",
+        "index_url": "https://www.law.cornell.edu/regulations/new-jersey",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "Crawl-delay 10; disallows /search/ and admin paths (per DE log); /regulations/ allowed",
+        "notes": ""
+      },
+      "currency": {
+        "where": "bottom of section page",
+        "observed": "State regulations are updated quarterly; we currently have two versions available."
+      },
+      "hazards": [
+        "possibly stale (Last-Modified Aug 2025)",
+        "no as-of date for the text"
+      ],
+      "probe": {
+        "citation": "N.J.A.C. 6A:14-1.1",
+        "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-14-1-1",
+        "expect": "(a) The rules in this chapter supersede all rules in"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: body present, complete; note 'Amended by 52 N.J.R. 1822(b), effective 10/5/2020'. Second citation N.J.A.C. 7:7-1.1: fetch_doc verify 'This chapter establishes the rules of the Department' OK."
+      },
+      "notes": ""
+    },
+    {
+      "id": "nj-register-lexis",
+      "family": "admin_register",
+      "title": "New Jersey Register — free public access (LexisNexis)",
+      "publisher": "LexisNexis under contract with the Office of Administrative Law",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "OAL accessp page: free online access to the Register from the current issue back to July 3, 1995; earlier issues (from Sept. 25, 1969) via the New Jersey State Library.",
+      "coverage": "N.J.R. July 3, 1995 – current.",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.lexisnexis.com/hottopics/njoal/",
+        "navigation": "302 redirect to advance.lexis.com JavaScript application.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "http-error",
+        "robots_txt": "not determined",
+        "notes": "fetch_doc: redirect to advance.lexis.com/container?config=00JABk…, 200 with 0 chars."
+      },
+      "currency": {
+        "where": "not observable",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript-only application"
+      ],
+      "probe": {
+        "citation": "52 N.J.R. 1822(b)",
+        "url": "https://www.lexisnexis.com/hottopics/njoal/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc: 0 chars after redirect. OAL rulemaking portal (nj.gov/oal/rules/portal/) lists active proposals at oalrulesproduction.dynamics365portals.us (not probed)."
+      },
+      "notes": "OAL also posts rulemaking notices at https://www.nj.gov/oal/rules/proposals/ (script 200, not examined)."
+    },
+    {
+      "id": "nj-opinions-njcourts",
+      "family": "case_law",
+      "title": "New Jersey Courts — opinion PDFs (Supreme Court, Appellate Division, Tax Court, trial courts)",
+      "publisher": "New Jersey Judiciary",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Slip opinions; Supreme Court PDFs open 'This syllabus is not part of the Court's opinion'; the official reports are N.J., N.J. Super. and N.J. Tax (commercial).",
+      "coverage": "Supreme Court and Appellate Division opinions confirmed for 2024–2026; earliest year not determined (listing pages unreadable). Appellate Division unpublished opinions, Tax Court and published trial-court opinions are reportedly posted in the same tree but were not confirmed.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.njcourts.gov/system/files/court-opinions/{decision_year}/{file}.pdf",
+        "pattern_rules": "decision_year = year decided (not docket year). Supreme Court docket A-{n}-{yy} → file 'a_{n}_{yy}' (A-39-23 decided 2024 → /2024/a_39_23.pdf; A-66-21 → /2024/a_66_21.pdf); a hyphen form '/2024/a-15-23.pdf' also appears in search results, and A-18-24 (/2024/a_18_24.pdf) failed — if the underscore form fails try 'a-{n}-{yy}', then fall back to Justia. Appellate Division docket A-{nnnn}-{yy} (4-digit, zero-padded) → file 'a{nnnn}-{yy}' (A-0117-23 decided 2025 → /2025/a0117-23.pdf; A-0891-24 → /2026/a0891-24.pdf). Consolidated dockets (A-0921-24/A-1568-24) and an unpublished opinion (A-2551-24, /2026/a2551-24.pdf) failed — form unknown.",
+        "index_url": "https://www.njcourts.gov/attorneys/opinions/supreme",
+        "navigation": "Listing pages /attorneys/opinions/{supreme|published-appellate|unpublished-appellate|tax|published-trial} are JavaScript/Incapsula-protected: WebFetch errors or returns only docket numbers and dates without links. Build the PDF URL from docket + decision date instead (date from Justia or the citation).",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (PDF paths only)",
+        "shell": "blocked-challenge",
+        "robots_txt": "Disallow /search (site search off-limits); /attorneys/ and /system/files/ allowed",
+        "notes": "Shell: Imperva Incapsula challenge (HTTP 403) — fetch_doc refuses the host for the day. WebFetch reads PDFs (converted to text) but fails on most HTML pages. Long opinions exceed the 100K window (Zingis 109,924 chars) — use offset=100000."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "slip pagination only — no N.J. / N.J. Super. page numbers",
+        "filename form varies (a_39_23 vs a-15-23); consolidated and unpublished forms unknown",
+        "shell blocked by Incapsula; WebFetch intermittent on HTML pages",
+        "the Appellate Division PDF may be the full unredacted slip opinion while the published version omits parts (Gibson: Justia text 'APPROVED FOR PUBLICATION AS REDACTED'; njcourts PDF carries the not-for-publication legend)",
+        "WebFetch truncation on long opinions"
+      ],
+      "probe": {
+        "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23 (N.J. Dec. 12, 2024)",
+        "url": "https://www.njcourts.gov/system/files/court-opinions/2024/a_39_23.pdf",
+        "expect": "SYLLABUS This syllabus is not part of the Court's opinion"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: Rodriguez (A-39-23, 089044) syllabus and opinion text present. Second Supreme: /2024/a_66_21.pdf State v. Zingis, decided August 8, 2024. Appellate: /2025/a0117-23.pdf 'After a jury trial, defendant Anthony Gibson, a police officer, was found'; /2026/a0891-24.pdf 'APPROVED FOR PUBLICATION' January 12, 2026. Failures: a_18_24, a0921-24, a2551-24 (client error)."
+      },
+      "notes": "Public-domain citation: none. Unpublished Appellate Division opinions are cited by docket and date; R. 1:36-3 restricts citing them."
+    },
+    {
+      "id": "nj-case-pages-njcourts",
+      "family": "case_law",
+      "title": "New Jersey Courts — case pages (/cases/{docket})",
+      "publisher": "New Jersey Judiciary",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Court-posted case summaries (argued/decided dates, questions presented).",
+      "coverage": "Supreme Court cases (grant, argument, decision dates, question presented) and some Appellate Division argued cases; briefs posted under /system/files/cases/briefs/.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.njcourts.gov/cases/{docket_lower}",
+        "pattern_rules": "docket lower-case, as cited with hyphens: A-39-23 → a-39-23; A-1489-22 → a-1489-22.",
+        "index_url": "https://www.njcourts.gov/attorneys/opinions/supreme",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok (partial)",
+        "shell": "blocked-challenge",
+        "robots_txt": "/cases/ not disallowed",
+        "notes": "WebFetch returns the page text below a 'Sorry, you need to enable JavaScript' notice; no document links come through."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "JS notice; links missing",
+        "court below not shown",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23",
+        "url": "https://www.njcourts.gov/cases/a-39-23",
+        "expect": "Leave to Appeal Granted"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: 'Leave to Appeal Granted: May 10, 2024', 'Argued: Sept. 9, 2024', 'Decided: Dec. 12, 2024'. Second: /cases/a-1489-22 State v. A.H.-S., 'Argued: Oct. 16, 2024'."
+      },
+      "notes": "Use as a pointer only; quote opinions from the PDF or Justia."
+    },
+    {
+      "id": "nj-cases-justia",
+      "family": "case_law",
+      "title": "Justia — New Jersey case law",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Pages warn opinions 'may not be the official published versions'; some metadata/summaries AI-assisted.",
+      "coverage": "Supreme Court 1900–2026; Appellate Division 1944–2026 (published and unpublished collections); Tax Court 1980–2026; Court of Errors and Appeals; Advisory Committee on Professional Ethics.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/new-jersey/{court}/{decision_year}/{docket_slug}.html",
+        "pattern_rules": "court = supreme-court | appellate-division-published | appellate-division-unpublished | tax-court (the umbrella appellate-division/ path lists years). docket_slug = docket lower-cased with '/' → '-' (A-39-23 → a-39-23; A-37/38-23 → a-37-38-23; A-0117-23 → a-0117-23; consolidated App. Div. uses the first docket, A-0921-24/A-1568-24 → a-0921-24). Tax Court slug = docket like 001081-2024. decision_year = year decided. If unsure, open the year listing /cases/new-jersey/{court}/{year}/ which lists names, dates, dockets and URLs.",
+        "index_url": "https://law.justia.com/cases/new-jersey/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "unreadable (Cloudflare challenge)",
+        "notes": "PDF copies at cases.justia.com/new-jersey/{court}/{year}-{docket_slug}.pdf?ts=… (seen, not fetched)."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "slip pagination only",
+        "published App. Div. text may be the redacted version",
+        "AI-assisted metadata",
+        "shell blocked"
+      ],
+      "probe": {
+        "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23 (N.J. 2024)",
+        "url": "https://law.justia.com/cases/new-jersey/supreme-court/2024/a-39-23.html",
+        "expect": "In this appeal, we consider whether the Hartford Underwriters Insurance Company (Hartford)"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: full opinion, slip pagination, not truncated. Also /appellate-division-published/2025/a-0117-23.html ('APPROVED FOR PUBLICATION AS REDACTED') and /appellate-division-unpublished/2026/a-2551-24.html ('PER CURIAM S.J.M. appeals from a March 21, 2025 order of the')."
+      },
+      "notes": "Practical first stop for locating NJ opinions by year/name, because the njcourts listings are unreadable."
+    },
+    {
+      "id": "nj-subsequent-history-njcourts",
+      "family": "subsequent_history",
+      "title": "New Jersey Supreme Court — certification / leave-to-appeal grants on case pages and in opinions",
+      "publisher": "New Jersey Judiciary",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Court-posted case pages and slip opinions.",
+      "coverage": "Grants only: Supreme Court case pages show 'Certification Granted' / 'Leave to Appeal Granted' dates, argument and decision dates; the opinion names the court below. Certification DENIALS are not posted as individual items (found only as tables in the N.J. Reports, commercial).",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://www.njcourts.gov/cases/{supreme_docket_lower}",
+        "pattern_rules": "Only the Supreme Court's own A-{n}-{yy} docket opens the case page; the Appellate Division docket does not lead to it. To find review of an Appellate Division decision, search Justia's supreme-court year listings (and later years) by party name, then confirm the court below in the opinion's opening lines.",
+        "index_url": "https://law.justia.com/cases/new-jersey/supreme-court/",
+        "navigation": "party name → Justia Supreme Court year listing → Supreme docket → njcourts /cases/{docket} for grant date, and the opinion PDF for the disposition",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "ok (partial)",
+        "shell": "blocked-challenge",
+        "robots_txt": "see nj-opinions-njcourts",
+        "notes": ""
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "party-name search only",
+        "denials of certification not findable free",
+        "njcourts HTML partially readable"
+      ],
+      "probe": {
+        "citation": "Rodriguez v. Shelbourne Spring, LLC, A-39-23",
+        "url": "https://www.njcourts.gov/cases/a-39-23",
+        "expect": "Leave to Appeal Granted: May 10, 2024"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-16",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: grant, argument and decision dates present; court below not listed on the page."
+      },
+      "notes": "'certif. denied, 250 N.J. 123 (2022)' points to an N.J. Reports page (commercial); no free official equivalent was found."
+    }
+  ],
+  "absent": [
+    {
+      "family": "statutes",
+      "what": "Cornell LII and public.law editions of the N.J. Statutes / Constitution",
+      "evidence": "public.law lists only CA, CO, FL, NV, NY, OR, TX (DE pilot check, same day); LII hosts NJ regulations only.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "court_rules",
+      "what": "Tier-2 copy of the NJ Rules of Court or N.J.R.E.",
+      "evidence": "Justia, LII and public.law do not host them; search results were unvetted third-party sites only.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "admin_code",
+      "what": "Official, tool-readable N.J.A.C. text",
+      "evidence": "OAL: online Code 'is not the official Code'; the Lexis public-access site is a JavaScript app returning 0 characters.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Free official reporter pagination (N.J., N.J. Super., N.J. Tax)",
+      "evidence": "njcourts and Justia texts carry slip pagination only.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain (vendor-neutral) citation format",
+      "evidence": "None in use; citations are to N.J./N.J. Super./A.3d or by docket number and date.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "case_law",
+      "what": "Rutgers Law Library NJ opinion archive as a permitted source",
+      "evidence": "Third party, not tier 1 or the vetted tier-2 list; not probed.",
+      "date": "2026-10-16"
+    },
+    {
+      "family": "subsequent_history",
+      "what": "Free official list of certification denials",
+      "evidence": "No njcourts list found by three searches; denials are tabulated in the commercial N.J. Reports.",
+      "date": "2026-10-16"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "nj-statutes-njleg",
+      "why": "Folio NXT XML TOC (gateway.dll?f=xmlcontents&command=getchildren&basepathid=…) lists every section with its number per title; a script maps 'N.J.S.A. t:c-s' → node id → bare document URL in two requests, no JavaScript."
+    },
+    {
+      "source_id": "nj-statutes-bulk",
+      "why": "Official weekday-refreshed bulk download (STATUTES-TEXT.zip, 41 MB) — a script can build a full section index and serve exact text offline."
+    },
+    {
+      "source_id": "nj-session-laws-njleg",
+      "why": "Deterministic P.L. year/chapter → HTM/PDF URLs."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "nj-constitution-njleg",
+      "url": "https://www.njleg.state.nj.us/constitution",
+      "why": "177K-char single page; WebFetch stops in Art. VIII § I (Art. VIII § IV, IX, X, XI unreachable without offset).",
+      "split_hint": "'Article {Roman}' headings, then 'Section {Roman}', then numbered paragraphs '1.'; amendment notes follow each article",
+      "bulk": "https://pub.njleg.gov/statutes/NJCONST-TEXT.zip"
+    },
+    {
+      "source_id": "nj-statutes-bulk",
+      "url": "https://pub.njleg.gov/statutes/STATUTES-TEXT.zip",
+      "why": "Whole N.J.S.A. in one official 84 MB text file refreshed every weekday; ideal for a section-level corpus.",
+      "split_hint": "lines starting '^\\d+[A-Z]?:\\d+[A-Z]*-\\d+(\\.\\d+)*[a-z]?\\.?\\s' (e.g. '2A:14-1.  6 years'); 'TITLE N' lines separate titles",
+      "bulk": "https://pub.njleg.gov/statutes/STATUTES-TEXT.zip"
+    }
+  ],
+  "open_questions": [
+    "Official URLs of the Rules of Court part/rule PDFs and N.J.R.E. on njcourts.gov (index pages unreadable; Incapsula).",
+    "njcourts opinion PDF filenames for consolidated dockets, unpublished App. Div. opinions (a2551-24 failed), Tax Court and trial-court opinions; whether Supreme files use a_N_YY or a-N-YY consistently.",
+    "Earliest year of opinions on njcourts.gov.",
+    "Whether NXT node ids stay stable between weekday rebuilds.",
+    "Justia slug for decimal statute sections (2A:14-1.1).",
+    "P.L. folder rule for even years (P.L.2022 → 2022/PL22?) not probed.",
+    "CourtListener ids (nj, njsuperctappdiv, njsuperctlawdiv, njsuperctchdiv, njtaxct) unverified.",
+    "Whether the Legislature's statutes/Constitution are official (no statement found; UELMA status unknown)."
+  ]
+}

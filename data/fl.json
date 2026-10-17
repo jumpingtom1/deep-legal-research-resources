@@ -104,9 +104,10 @@
           "Fla. Stat. Ann. § 90.803",
           "§ 768.81(3), Fla. Stat. (2023)",
           "§§ 768.71-768.81, Fla. Stat.",
-          "section 1001.42 of the Florida Statutes"
+          "section 1001.42 of the Florida Statutes",
+          "Fla. Stat. section 83.56"
         ],
-        "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*§+\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:§+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-–]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)",
+        "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*(?:§+|sec(?:tion|\\.)|s\\.)\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:§+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-–]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)",
         "routes_to": [
           "fl-statutes-online-sunshine",
           "fl-statutes-flsenate",
@@ -153,8 +154,8 @@
         ],
         "regex": "Fla\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*§\\s*(?P<section>\\d+[a-z]?)|art(?:icle|\\.)\\s*(?P<article2>[IVX]+),?\\s*(?:§|sec(?:tion|\\.))\\s*(?P<section2>\\d+[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:Fla\\.\\s*Const\\.|of\\s+the\\s+(?:Florida|Fla\\.)\\s+Constitution)",
         "routes_to": [
-          "fl-constitution-flsenate",
           "fl-constitution-online-sunshine",
+          "fl-constitution-flsenate",
           "fl-constitution-justia"
         ]
       },
@@ -164,9 +165,10 @@
         "examples": [
           "Fla. R. Civ. P. 1.510",
           "Florida Rule of Civil Procedure 1.510(a)",
-          "rule 1.510, Florida Rules of Civil Procedure"
+          "rule 1.510, Florida Rules of Civil Procedure",
+          "Rule 1.442 of the Florida Rules of Civil Procedure"
         ],
-        "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure|rule\\s+(?P<rule4>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure",
         "routes_to": [
           "fl-rules-civil-floridabar"
         ]
@@ -177,9 +179,10 @@
         "examples": [
           "Fla. R. Crim. P. 3.850",
           "Florida Rule of Criminal Procedure 3.191(a)",
-          "rule 3.800(a), Florida Rules of Criminal Procedure"
+          "rule 3.800(a), Florida Rules of Criminal Procedure",
+          "Rule 3.850 of the Florida Rules of Criminal Procedure"
         ],
-        "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+        "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure|rule\\s+(?P<rule4>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
         "routes_to": [
           "fl-rules-criminal-floridabar"
         ]
@@ -190,9 +193,10 @@
         "examples": [
           "Fla. R. App. P. 9.030(a)(2)(A)(iv)",
           "Florida Rule of Appellate Procedure 9.330",
-          "rule 9.141(d), Florida Rules of Appellate Procedure"
+          "rule 9.141(d), Florida Rules of Appellate Procedure",
+          "Rule 9.331 of the Florida Rules of Appellate Procedure"
         ],
-        "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure|rule\\s+(?P<rule4>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
         "routes_to": [
           "fl-rules-appellate-floridabar"
         ]
@@ -203,9 +207,10 @@
         "examples": [
           "Fla. R. Gen. Prac. & Jud. Admin. 2.420",
           "Fla. R. Jud. Admin. 2.516",
-          "Florida Rule of General Practice and Judicial Administration 2.514"
+          "Florida Rule of General Practice and Judicial Administration 2.514",
+          "Rule 2.420 of the Florida Rules of General Practice and Judicial Administration"
         ],
-        "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})",
+        "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})|rule\\s+(?P<rule3>2\\.\\d{3})(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration",
         "routes_to": [
           "fl-rules-judadmin-floridabar"
         ]
@@ -316,7 +321,7 @@
       "FAR": "fl-far-flrules",
       "Fla. Admin. Reg.": "fl-far-flrules"
     },
-    "notes": "Florida has no public-domain/vendor-neutral case citation; cases are cited to So./So. 2d/So. 3d (West) or, before reporter publication, to Florida Law Weekly (commercial; S = Supreme Court, D = DCAs) or Westlaw. Florida style (Fla. R. App. P. 9.800) writes DCA courts as '(Fla. 4th DCA 2019)'; Bluebook writes '(Fla. Dist. Ct. App. 2019)': both are matched. Florida statutes are a single code (section = chapter.number), so no code key is needed; statutes are cited as 'Fla. Stat. § 768.81 (2024)' (Bluebook), '§ 768.81, Fla. Stat. (2024)' (Florida style) or 's. 768.81, F.S.' (legislative style). A '§§ 768.71-768.81' range is two sections, not one hyphenated number: the regex takes the first. The Evidence Code is statutory (ch. 90), not a court rule set. Guards: bare 'Rule 1.510', 'rule 3.850' or 'section 90.803' must not route here without a 'Fla.'/'Florida' marker (other states number rules similarly). Docket forms 'SC2022-0378' / '4D2024-0558' (ACIS, 2023 on) and '4D19-0993' / 'SC19-87' (earlier) are Florida-specific in shape but route only with Florida context. PCA (per curiam affirmed without opinion) decisions appear in So. 3d only as table entries and on Justia as one-line opinions; under Jenkins v. State, 385 So. 2d 1356 (Fla. 1980) (from memory, unverified), a citation-free PCA cannot be reviewed by the Supreme Court for conflict, so it is normally final. Since Jan. 1, 2023 there are six DCAs (Sixth DCA, Lakeland). CourtListener ids 'fla' and 'fladistctapp' are from memory and unverified; CourtListener groups all DCAs under one id. Rules Regulating The Florida Bar ('R. Regulating Fla. Bar 4-1.7') and Family Law / Small Claims / Juvenile rules were not probed: no route recorded."
+    "notes": "Florida has no public-domain/vendor-neutral case citation; cases are cited to So./So. 2d/So. 3d (West) or, before reporter publication, to Florida Law Weekly (commercial; S = Supreme Court, D = DCAs) or Westlaw. Florida style (Fla. R. App. P. 9.800) writes DCA courts as '(Fla. 4th DCA 2019)'; Bluebook writes '(Fla. Dist. Ct. App. 2019)': both are matched. Florida statutes are a single code (section = chapter.number), so no code key is needed; statutes are cited as 'Fla. Stat. § 768.81 (2024)' (Bluebook), '§ 768.81, Fla. Stat. (2024)' (Florida style) or 's. 768.81, F.S.' (legislative style). A '§§ 768.71-768.81' range is two sections, not one hyphenated number: the regex takes the first. The Evidence Code is statutory (ch. 90), not a court rule set. Guards: bare 'Rule 1.510', 'rule 3.850' or 'section 90.803' must not route here without a 'Fla.'/'Florida' marker (other states number rules similarly). Docket forms 'SC2022-0378' / '4D2024-0558' (ACIS, 2023 on) and '4D19-0993' / 'SC19-87' (earlier) are Florida-specific in shape but route only with Florida context. PCA (per curiam affirmed without opinion) decisions appear in So. 3d only as table entries and on Justia as one-line opinions; under Jenkins v. State, 385 So. 2d 1356 (Fla. 1980) (from memory, unverified), a citation-free PCA cannot be reviewed by the Supreme Court for conflict, so it is normally final. Since Jan. 1, 2023 there are six DCAs (Sixth DCA, Lakeland). CourtListener ids 'fla' and 'fladistctapp' are from memory and unverified; CourtListener groups all DCAs under one id. Rules Regulating The Florida Bar ('R. Regulating Fla. Bar 4-1.7') and Family Law / Small Claims / Juvenile rules were not probed: no route recorded. Evidence-code cites (§ 90.xxx, Fla. Stat.) match both the Florida Statutes and Evidence Code patterns; both route to the same statute sources, so the double match is harmless. Prose rule forms 'Rule 3.850 of the Florida Rules of Criminal Procedure' and 'Fla. Stat. section 83.56' added after the independent check."
   },
   "sources": [
     {
@@ -360,9 +365,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, body '(1) DEFINITIONS.—As used in this section, the term:'; 'The 2026 Florida Statutes'; complete through (6) and History. fetch_doc.py: 768.81 (9,490 chars), 90.803 ('The provision of s. 90.802 to the contrary notwithstanding'), 1001.42 (Title XLVIII) all body present; StatuteYear=2023 returns 'The 2023 Florida Statutes (including Special Session C)'."
+        "evidence": "WebFetch: YES, body '(1) DEFINITIONS.—As used in this section, the term:'; 'The 2026 Florida Statutes'; complete through (6) and History. fetch_doc.py: 768.81 (9,490 chars), 90.803 ('The provision of s. 90.802 to the contrary notwithstanding'), 1001.42 (Title XLVIII) all body present; StatuteYear=2023 returns 'The 2023 Florida Statutes (including Special Session C)'. | Independent check 2026-10-16: WebFetch YES '(1) DEFINITIONS.—As used in this section, the term:'; 'The 2026 Florida Statutes'; complete; second citation Fla. Stat. § 316.193 (also § 83.56) ok"
       },
       "notes": "Bulk: the Statutes Download page (index.cfm?Mode=Statutes%20Download&Submenu=7&Tab=statutes) offers only a Windows installer zip (FLLawDL2026.zip, 'Advanced Legislative Search & Browse'), not structured XML/JSON."
     },
@@ -388,14 +393,14 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "User-agent * — Crawl-delay: 10; Disallow /api/, /API/, admin and tracker paths; Allow /Laws/",
-        "notes": "Crawl-delay 10 s: after ~8 script fetches in a few minutes the host answered HTTP 429 (fetch_doc REFUSED). Space requests ≥10 s; prefer Online Sunshine as the first fetch and flsenate as the second."
+        "notes": "Crawl-delay 10 s. On 2026-10-16 the host answered HTTP 429 after ~8 script fetches in a few minutes; fetch_doc.py now treats 429 as 'rate-limited, try later' (no day-long lockout). Re-test after the fix: fetch_doc.py info /2026/768.81 → html 15,341 chars. Use Online Sunshine as the first statute fetch and flsenate as the second; if the script gets 429, wait and retry or use WebFetch."
       },
       "currency": {
         "where": "breadcrumb and heading of each section page",
         "observed": "2025 Florida Statutes (for /2025/ URLs); '2026 Florida Statutes' for /2026/"
       },
       "hazards": [
-        "HTTP 429 under the 10-second crawl-delay",
+        "HTTP 429 rate-limiting under the 10-second crawl-delay (retry later, or use WebFetch)",
         "year must be chosen in the URL"
       ],
       "probe": {
@@ -406,9 +411,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES '…motion of any party, the', '2025 Florida Statutes', subsections (1)-(8), not truncated, disclaimer 'information on this system is unverified'. fetch_doc.py: /2025/768.81 15,273 chars; /2026/90.803 heading '2026 Florida Statutes … Section 803' with body."
+        "evidence": "WebFetch: YES '…motion of any party, the', '2025 Florida Statutes', subsections (1)-(8), not truncated, disclaimer 'information on this system is unverified'. fetch_doc.py: /2025/768.81 15,273 chars; /2026/90.803 heading '2026 Florida Statutes … Section 803' with body. | Independent check 2026-10-16: WebFetch YES 'Upon the court's initiative or motion of any party, the'; '2025 Florida Statutes'; second citation Fla. Stat. § 83.56 (2026) ok | Script re-test 2026-10-16 after lsnet 429 fix: /2026/768.81 html 15,341 chars."
       },
       "notes": ""
     },
@@ -424,7 +429,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/florida/title-{title_roman_lower}/chapter-{chapter}/[part-{part_roman_lower}/]section-{chapter}-{subsection}/",
-        "pattern_rules": "Section dot becomes a hyphen (768.81 → section-768-81). Title (Roman, lower case) and part (Roman, lower case; omitted when the chapter has no parts, e.g. ch. 90) are not in the citation: take them from the Online Sunshine title index, which shows 'Part II … (ss. 768.71-768.81)'. Examples: 768.81 → /title-xlv/chapter-768/part-ii/section-768-81/; 90.803 → /title-vii/chapter-90/section-90-803/.",
+        "pattern_rules": "Section dot becomes a hyphen (768.81 → section-768-81). Title (Roman, lower case) and part (Roman, lower case; omitted when the chapter has no parts, e.g. ch. 90) are not in the citation: take them from the Online Sunshine title index, which shows 'Part II … (ss. 768.71-768.81)'. Examples: 768.81 → /title-xlv/chapter-768/part-ii/section-768-81/; 90.803 → /title-vii/chapter-90/section-90-803/. Part ranges: compare the digits after the dot as INTEGERS, not decimals — 83.56 → 56 lies in Part II 'ss. 83.40-83.684' (40-684), not Part I 'ss. 83.001-83.251' (1-251). The title Roman numeral is in the Online Sunshine section-page header ('Title VI'); that header gives no part, so take the part from the title index ranges.",
         "index_url": "https://law.justia.com/codes/florida/",
         "navigation": "",
         "format": "html"
@@ -443,7 +448,8 @@
       "hazards": [
         "edition lags the official 2026 text",
         "title/part segments need an index hop",
-        "shell blocked by Cloudflare"
+        "shell blocked by Cloudflare",
+        "part hop ambiguous if ranges are read as decimals (83.56 vs 83.001-83.251): compare as integers"
       ],
       "probe": {
         "citation": "Fla. Stat. § 768.81",
@@ -453,9 +459,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, '2025 Florida Statutes', 'FL Stat § 768.81 (2025)', complete. Also /title-vii/chapter-90/section-90-803/: YES 'The provision of s. 90.802 to the contrary notwithstanding, the'."
+        "evidence": "WebFetch: YES, '2025 Florida Statutes', 'FL Stat § 768.81 (2025)', complete. Also /title-vii/chapter-90/section-90-803/: YES 'The provision of s. 90.802 to the contrary notwithstanding, the'. | Independent check 2026-10-16: WebFetch YES; '2025 Florida Statutes'; 'FL Stat § 768.81 (2025)'; complete; second citation Fla. Stat. § 83.56 ok"
       },
       "notes": ""
     },
@@ -498,9 +504,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, 'Current through Fall 2025', '(accessed Aug. 7, 2025)', complete through (8). fetch_doc.py: fla._stat._768.81 and fla._stat._90.803 body present; source line cites flsenate 2024."
+        "evidence": "WebFetch: YES, 'Current through Fall 2025', '(accessed Aug. 7, 2025)', complete through (8). fetch_doc.py: fla._stat._768.81 and fla._stat._90.803 body present; source line cites flsenate 2024. | Independent check 2026-10-16: WebFetch YES; 'Current through Fall 2025'; '(accessed Aug. 7, 2025)'; complete; second citation Fla. Stat. § 83.56 ok"
       },
       "notes": "Use last: older than Justia (2025) and the official 2026 text."
     },
@@ -543,9 +549,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, 31 sections, 'Approved by the Governor March 24, 2023', not truncated. fetch_doc.py: pdf 21 pp; /2025/2 pdf 5 pp."
+        "evidence": "WebFetch: YES, 31 sections, 'Approved by the Governor March 24, 2023', not truncated. fetch_doc.py: pdf 21 pp; /2025/2 pdf 5 pp. | Independent check 2026-10-16: WebFetch YES: 'An act relating to civil remedies'; 'Approved by the Governor March 24, 2023'; complete; second citation Ch. 2024-5, Laws of Fla. ok"
       },
       "notes": ""
     },
@@ -571,7 +577,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Crawl-delay 10; /Laws/ allowed",
-        "notes": "WebFetch reports the page text as 133,252 chars: window 1 ends in Art. IV § 9; offset=100000 reaches Art. V § 3(b)(3) but ends at Art. V § 13. Articles VI-XII are beyond what WebFetch extracts. fetch_doc.py reads the whole page (419,692 chars incl. Art. VII § 6 'Homestead exemptions')."
+        "notes": "WebFetch reports the page text as 133,252 chars: window 1 ends in Art. IV § 9; offset=100000 reaches Art. V § 3(b)(3) but ends at Art. V § 13. Articles VI-XII are beyond what WebFetch extracts. fetch_doc.py reads the whole page (419,692 chars incl. Art. VII § 6 'Homestead exemptions'). Articles VI-XII: prefer fl-constitution-online-sunshine via fetch_doc.py (Art. X § 4 reached at offset ~254K), since flsenate may rate-limit (429) the script."
       },
       "currency": {
         "where": "title line at top of the text",
@@ -579,7 +585,8 @@
       },
       "hazards": [
         "single huge page; WebFetch cannot reach Articles VI-XII",
-        "no amended-through date"
+        "no amended-through date",
+        "HTTP 429 rate-limiting on flsenate.gov can interrupt the script route; for Arts. VI-XII use Online Sunshine via the script"
       ],
       "probe": {
         "citation": "Fla. Const. art. I, § 9",
@@ -589,9 +596,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I § 9 YES 'No person shall be deprived of life, liberty or property'; Art. V § 3(b)(3) NOT PRESENT in window 1, YES at offset=100000 ('May review any decision of a district court of appeal'). fetch_doc.py 419,692 chars, Art. VII reached."
+        "evidence": "WebFetch: Art. I § 9 YES 'No person shall be deprived of life, liberty or property'; Art. V § 3(b)(3) NOT PRESENT in window 1, YES at offset=100000 ('May review any decision of a district court of appeal'). fetch_doc.py 419,692 chars, Art. VII reached. | Independent check 2026-10-16: WebFetch YES Art. I § 9; 'AS REVISED IN 1968 AND SUBSEQUENTLY AMENDED'; window 1 ends Art. IV § 9; second citation Art. V, § 3(b)(3), Fla. Const. ok"
       },
       "notes": ""
     },
@@ -617,7 +624,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Disallow /employees/ only",
-        "notes": "WebFetch text 136,480 chars; window 1 ends in Art. IV § 13. Art. V § 3(b)(3) sits at ~104K chars of the shell text."
+        "notes": "WebFetch text 136,480 chars; window 1 ends in Art. IV § 13. Art. V § 3(b)(3) sits at ~104K chars of the shell text. fetch_doc.py reads the whole page and is the preferred route to Articles VI-XII (Art. X § 4(a) 'Homestead; exemptions' at offset 254,535). The script follows a redirect to a /Statutes/index.cfm?…&CFID=… session URL (harmless). WebFetch may report the site title instead of the 'AS REVISED IN 1968' line."
       },
       "currency": {
         "where": "title line",
@@ -634,9 +641,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I § 9 YES; Art. V § 3(b)(3) NOT PRESENT (truncated in Art. IV § 13). fetch_doc.py grep found 'expressly and directly conflicts' (Art. V § 3(b)(3)) at offset 103,924."
+        "evidence": "WebFetch: Art. I § 9 YES; Art. V § 3(b)(3) NOT PRESENT (truncated in Art. IV § 13). fetch_doc.py grep found 'expressly and directly conflicts' (Art. V § 3(b)(3)) at offset 103,924. | Independent check 2026-10-16: WebFetch YES Art. I § 9; window 1 ends Art. IV § 13 (truncated); second citation Art. X, § 4(a), Fla. Const. ok"
       },
       "notes": ""
     },
@@ -680,11 +687,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES Art. I § 9; truncated mid Art. V § 10."
+        "evidence": "WebFetch: YES Art. I § 9; truncated mid Art. V § 10. | Independent check 2026-10-16: WebFetch YES Art. I § 9; truncated mid Art. V § 10 ('Retention; election and ter')"
       },
-      "notes": ""
+      "notes": "WebFetch may report the title 'CONSTITUTION OF THE STATE OF FLORIDA' rather than the 'AS REVISED IN 1968…' line."
     },
     {
       "id": "fl-rules-civil-floridabar",
@@ -698,7 +705,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www-media.floridabar.org/uploads/2026/10/Civil-Procedure-Rules-10-01-26.pdf",
-        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename.",
+        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename. Accept only the pamphlet filenames ('<Set>-Rules-MM-DD-YY.pdf' or 'YYYY_NN-MON-<Set>-Rules-M-D-YYYY.pdf'); ignore 'Proposed', 'Publication-Notice' and committee PDFs on the same host.",
         "index_url": "https://www.floridabar.org/rules/florida-rules-of-court/",
         "navigation": "index page (unreachable: WebFetch CLIENT_ERROR, shell Cloudflare) → newest www-media.floridabar.org/uploads/{yyyy}/{mm}/… PDF; in practice found by WebSearch",
         "format": "pdf"
@@ -727,9 +734,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: cover 'current through 2026 WL 2603472'; Rule 1.510 NOT PRESENT; window 1 ends in Rule 1.190(f); offset=100000 shows only Rule 1.200 then ends. Shell REFUSED (Cloudflare)."
+        "evidence": "WebFetch: cover 'current through 2026 WL 2603472'; Rule 1.510 NOT PRESENT; window 1 ends in Rule 1.190(f); offset=100000 shows only Rule 1.200 then ends. Shell REFUSED (Cloudflare). | Independent check 2026-10-16: WebFetch: 'Rules in this pamphlet are current through 2026 WL 2603472.'; 1.510 absent; second citation Fla. R. Civ. P. 1.140 ok"
       },
       "notes": "Earlier editions exist at …/uploads/2025/11/Civil-Procedure-Rules-06-19-25.pdf and …/uploads/2024/03/Civil-Procedure-Rules-04-01-24.pdf (WebSearch, not fetched)."
     },
@@ -745,7 +752,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www-media.floridabar.org/uploads/2026/09/Appellate-Court-Rules-09-01-26.pdf",
-        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename.",
+        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename. Accept only the pamphlet filenames ('<Set>-Rules-MM-DD-YY.pdf' or 'YYYY_NN-MON-<Set>-Rules-M-D-YYYY.pdf'); ignore 'Proposed', 'Publication-Notice' and committee PDFs on the same host.",
         "index_url": "https://www.floridabar.org/rules/florida-rules-of-court/",
         "navigation": "index page (unreachable: WebFetch CLIENT_ERROR, shell Cloudflare) → newest www-media.floridabar.org/uploads/{yyyy}/{mm}/… PDF; in practice found by WebSearch",
         "format": "pdf"
@@ -774,9 +781,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 9.030 YES; cover 'current through 434 So.3d 978'; text 112,114 chars, ends after Rule 9.110 notes; TOC lists rules to 9.900."
+        "evidence": "WebFetch: Rule 9.030 YES; cover 'current through 434 So.3d 978'; text 112,114 chars, ends after Rule 9.110 notes; TOC lists rules to 9.900. | Independent check 2026-10-16: WebFetch YES Rule 9.030; 'current through 434 So.3d 978'; body ends Rule 9.110; second citation Fla. R. App. P. 9.020 ok"
       },
       "notes": ""
     },
@@ -792,7 +799,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf",
-        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename.",
+        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename. Accept only the pamphlet filenames ('<Set>-Rules-MM-DD-YY.pdf' or 'YYYY_NN-MON-<Set>-Rules-M-D-YYYY.pdf'); ignore 'Proposed', 'Publication-Notice' and committee PDFs on the same host.",
         "index_url": "https://www.floridabar.org/rules/florida-rules-of-court/",
         "navigation": "index page (unreachable: WebFetch CLIENT_ERROR, shell Cloudflare) → newest www-media.floridabar.org/uploads/{yyyy}/{mm}/… PDF; in practice found by WebSearch",
         "format": "pdf"
@@ -821,9 +828,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 3.191 NOT PRESENT; last body text Rule 3.130(d); text 114,916 chars; TOC lists to 3.996; header 'Florida Rules of Criminal Procedure July 13, 2026'."
+        "evidence": "WebFetch: Rule 3.191 NOT PRESENT; last body text Rule 3.130(d); text 114,916 chars; TOC lists to 3.996; header 'Florida Rules of Criminal Procedure July 13, 2026'. | Independent check 2026-10-16: WebFetch: header 'Florida Rules of Criminal Procedure July 13, 2026'; 3.191 absent; ends 3.130(d); second citation Fla. R. Crim. P. 3.111 ok"
       },
       "notes": "Probe expect is the running header, not rule text: no criminal rule beyond 3.130 could be read."
     },
@@ -839,21 +846,21 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www-media.floridabar.org/uploads/2026/08/2027_01-JULY-Florida-Rules-of-General-Practice-and-Judicial-Administration-7-1-2026.pdf",
-        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename.",
+        "pattern_rules": "Filename changes on every re-publication (e.g. Civil-Procedure-Rules-06-19-25.pdf → …-10-01-26.pdf). The Bar's index page is unreachable by both tools; find the newest PDF by WebSearch 'site:www-media.floridabar.org <rule set> Rules pdf' and prefer the latest date in the filename. Accept only the pamphlet filenames ('<Set>-Rules-MM-DD-YY.pdf' or 'YYYY_NN-MON-<Set>-Rules-M-D-YYYY.pdf'); ignore 'Proposed', 'Publication-Notice' and committee PDFs on the same host.",
         "index_url": "https://www.floridabar.org/rules/florida-rules-of-court/",
         "navigation": "index page (unreachable: WebFetch CLIENT_ERROR, shell Cloudflare) → newest www-media.floridabar.org/uploads/{yyyy}/{mm}/… PDF; in practice found by WebSearch",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "www.floridabar.org and www-media.floridabar.org answer robots.txt with a Cloudflare 'Attention Required!' page (403); fetch_doc.py REFUSED",
-        "notes": "untested"
+        "notes": "WebFetch body text ends in Rule 2.225(d)(3); 2.420, 2.514, 2.516 appear only in the TOC and are unreachable."
       },
       "currency": {
-        "where": "PDF cover 'NOTE TO USERS' line (Civil, Appellate) or running header date (Criminal)",
-        "observed": ""
+        "where": "running page header",
+        "observed": "July 1, 2026 Fla. R. Gen. Prac. & Jud. Admin."
       },
       "hazards": [
         "WebFetch extracts only ~100-115K chars of the PDF: later rules are unreachable even with offset",
@@ -861,18 +868,18 @@
         "URL changes on each amendment"
       ],
       "probe": {
-        "citation": "Fla. R. Gen. Prac. & Jud. Admin. 2.420",
+        "citation": "Fla. R. Gen. Prac. & Jud. Admin. (running header; Rule 2.420 probe)",
         "url": "https://www-media.floridabar.org/uploads/2026/08/2027_01-JULY-Florida-Rules-of-General-Practice-and-Judicial-Administration-7-1-2026.pdf",
-        "expect": ""
+        "expect": "July 1, 2026 Fla. R. Gen. Prac. & Jud. Admin."
       },
       "verification": {
-        "status": "reported",
+        "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
-        "result": "FAIL",
-        "evidence": "Not fetched (WebFetch budget). URL from WebSearch only."
+        "by": "independent",
+        "result": "OK",
+        "evidence": "Research: not fetched (budget).  | Independent check 2026-10-16: WebFetch: PDF reads; header 'July 1, 2026 Fla. R. Gen. Prac. & Jud. Admin.'; 2.420 body ABSENT"
       },
-      "notes": "Reported only."
+      "notes": "Probe expect is the running header: the probe rule 2.420 is beyond the WebFetch window."
     },
     {
       "id": "fl-rules-flcourts",
@@ -915,7 +922,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "robots.txt 'Disallow: /' for User-agent *; WebFetch ROBOTS_DISALLOWED; fetch_doc.py REFUSED."
+        "evidence": "robots.txt 'Disallow: /' for User-agent *; WebFetch ROBOTS_DISALLOWED; fetch_doc.py REFUSED. | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on /case-information/opinions"
       },
       "notes": ""
     },
@@ -960,9 +967,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: metadata only, body NOT in page; VIEW_RULE href readFile.asp?…tid=31199582…; effective 8/20/2026; no challenge. fetch_doc.py: 62-302.530 page 'Effective Date: 11/25/2025'. .doc text unreadable by both tools."
+        "evidence": "WebFetch: metadata only, body NOT in page; VIEW_RULE href readFile.asp?…tid=31199582…; effective 8/20/2026; no challenge. fetch_doc.py: 62-302.530 page 'Effective Date: 11/25/2025'. .doc text unreadable by both tools. | Independent check 2026-10-16: WebFetch YES 'Rule Title: Grounds for Disciplinary Proceedings'; 'Effective Date: 8/20/2026'; tid=31199582; second citation Fla. Admin. Code R. 64B8-9.003 ok"
       },
       "notes": ""
     },
@@ -991,7 +998,7 @@
         "notes": ""
       },
       "currency": {
-        "where": "history Notes at the foot of the rule and the 'updated quarterly' box",
+        "where": "last date in the rule's History note (Notes section), compared with the flrules.org 'Effective Date'; newer amendments also carry 'Amended by Florida Register Volume …' lines, older ones do not (64B8-9.003 ends '9-9-13')",
         "observed": "Amended by Florida Register Volume 49, Number 065, April 4, 2023 effective 4/19/2023"
       },
       "hazards": [
@@ -1005,9 +1012,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, last amendment 'effective 4/19/2023'. fetch_doc.py: same body; 62-302.530 page present."
+        "evidence": "WebFetch: YES, last amendment 'effective 4/19/2023'. fetch_doc.py: same body; 62-302.530 page present. | Independent check 2026-10-16: WebFetch YES '(1) Pursuant to Section 471.033(2), F.S.'; 'effective 4/19/2023'; second citation Fla. Admin. Code R. 64B8-9.003 ok"
       },
       "notes": ""
     },
@@ -1023,7 +1030,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "",
-        "pattern_rules": "Volume = year − 1974 (Vol. 51 = 2025, Vol. 52 = 2026). Issue page ids (IID) and PDF ids are not derivable. Entire-issue PDF: https://flrules.org/gateway/GotoLink.asp?Goto=BigDocFAW&Para={year}/{docid}/{docid}doc.pdf, which redirects to /Faw/FAWDocuments/FAWVOLUMEFOLDERS{year}/{docid}/{docid}doc.pdf. Individual notices: https://www.flrules.org/gateway/View_notice.asp?id={notice_id} (ids listed on each rule's history table).",
+        "pattern_rules": "Volume = year − 1974 (Vol. 51 = 2025, Vol. 52 = 2026). Issue page ids (IID) and PDF ids are not derivable. Entire-issue PDF: https://flrules.org/gateway/GotoLink.asp?Goto=BigDocFAW&Para={year}/{docid}/{docid}doc.pdf, which redirects to /Faw/FAWDocuments/FAWVOLUMEFOLDERS{year}/{docid}/{docid}doc.pdf. Individual notices: https://www.flrules.org/gateway/View_notice.asp?id={notice_id} (ids listed on each rule's history table). Observed docid = volume + 2-digit issue number (51247 = Vol. 51 No. 247; 5202 = Vol. 52 No. 2) — try it, but confirm via the issue page.",
         "index_url": "https://flrules.org/bigDoc/Default.asp?Year={YYYY}",
         "navigation": "year listing ('January 2, 2026 - Vol/No 52/01' …) → View_Faw.asp?IID={iid} → 'Entire Issue' PDF link (or View_Section.asp?Issue={iid}&Section={n})",
         "format": "pdf"
@@ -1042,7 +1049,8 @@
       "hazards": [
         "ids not derivable",
         "issue PDFs exceed WebFetch window",
-        "notice text links are .doc files"
+        "notice text links are .doc files",
+        "issue PDFs truncated in WebFetch (Vol. 51/247 cut in Section VI)"
       ],
       "probe": {
         "citation": "Fla. Admin. Reg. Vol. 51, No. 247 (Dec. 23, 2025)",
@@ -1052,9 +1060,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: View_Faw.asp?IID=4546 gave the Entire Issue href. fetch_doc.py: PDF 27 pp, 165,321 chars, header as expected; year listing 'All FAR Issues in Year 2026'."
+        "evidence": "WebFetch: View_Faw.asp?IID=4546 gave the Entire Issue href. fetch_doc.py: PDF 27 pp, 165,321 chars, header as expected; year listing 'All FAR Issues in Year 2026'. | Independent check 2026-10-16: WebFetch YES header Vol. 51 No. 247; truncated in Section VI (as hazard says); second citation Fla. Admin. Reg. Vol. 52, No. 2 (Jan. 5, 2026) ok"
       },
       "notes": ""
     },
@@ -1099,7 +1107,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "robots.txt Disallow: / on all eight flcourts hosts checked; WebFetch ROBOTS_DISALLOWED (2 URLs); fetch_doc.py REFUSED."
+        "evidence": "robots.txt Disallow: / on all eight flcourts hosts checked; WebFetch ROBOTS_DISALLOWED (2 URLs); fetch_doc.py REFUSED. | Re-confirmed blocked 2026-10-16: WebFetch ROBOTS_DISALLOWED on https://1dca.flcourts.gov/"
       },
       "notes": ""
     },
@@ -1144,9 +1152,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, complete, slip pagination '- 2 -'. fetch_doc.py: pdf 39 pp, 49,996 chars. Docket page shows 'Citation: 379 So.3d 1080'."
+        "evidence": "WebFetch: YES, complete, slip pagination '- 2 -'. fetch_doc.py: pdf 39 pp, 49,996 chars. Docket page shows 'Citation: 379 So.3d 1080'. | Independent check 2026-10-16: WebFetch YES 'Markeith Demangzlo Loyd was charged with and convicted of first-degree'; '- 2 -'; second citation In re Amendments to Rules Regulating The Florida Bar 4-7.19 & 4-7.20, 410 So. 3d 533 (Fla. 2025), No. SC2025-0018 ok"
       },
       "notes": "Tier-1 classification is a judgment call (state university, not the court); see open_questions."
     },
@@ -1162,7 +1170,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/florida/{court-slug}/{year}/{docket-slug}.html",
-        "pattern_rules": "court-slug: supreme-court | first-district-court-of-appeal | second-… | third-… | fourth-… | fifth-… | sixth-district-court-of-appeal. year = decision year. docket-slug = docket number lower-cased as printed: 'SC2022-0378' → sc2022-0378; '4D2024-0558' → 4d2024-0558; '6D23-3822' → 6d23-3822. Older Justia slugs sometimes drop the court prefix (PDF names like 2020-19-0993 for 4D19-0993): if the guess 404s, scan the year listing https://law.justia.com/cases/florida/{court-slug}/{year}/ (500 per page).",
+        "pattern_rules": "court-slug: supreme-court | first-district-court-of-appeal | second-… | third-… | fourth-… | fifth-… | sixth-district-court-of-appeal. year = decision year. docket-slug = docket number lower-cased as printed: 'SC2022-0378' → sc2022-0378; '4D2024-0558' → 4d2024-0558; '6D23-3822' → 6d23-3822. Older Justia slugs sometimes drop the court prefix (PDF names like 2020-19-0993 for 4D19-0993): if the guess 404s, scan the year listing https://law.justia.com/cases/florida/{court-slug}/{year}/ (500 per page). DCAs differ in docket form: the Third DCA still prints 2-digit-year dockets in 2026 (3D24-2193 → 3d24-2193.html), others use 4-digit years (4D2024-0558).",
         "index_url": "https://law.justia.com/cases/florida/",
         "navigation": "year listing → decision link",
         "format": "html"
@@ -1181,7 +1189,8 @@
       "hazards": [
         "slip text, no So. 3d pagination",
         "docket-slug variants",
-        "shell blocked"
+        "shell blocked",
+        "coverage lag: on 2026-10-16 the newest Third DCA 2026 entry was Aug. 14, 2026 (~2 months behind)"
       ],
       "probe": {
         "citation": "Loyd v. State, No. SC2022-0378 (Fla. Nov. 16, 2023)",
@@ -1191,9 +1200,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, complete with concurrence. Also /fourth-district-court-of-appeal/2025/4d2024-0558.html: PCA 'PER CURIAM. Affirmed.' (Apr. 24, 2025); Sixth DCA 2025 listing '1 - 500 of 1182'."
+        "evidence": "WebFetch: YES, complete with concurrence. Also /fourth-district-court-of-appeal/2025/4d2024-0558.html: PCA 'PER CURIAM. Affirmed.' (Apr. 24, 2025); Sixth DCA 2025 listing '1 - 500 of 1182'. | Independent check 2026-10-16: WebFetch YES 'PER CURIAM. Markeith Demangzlo Loyd was charged'; Nov. 16, 2023; slip pagination only; second citation Key Largo Beautification, Inc. v. Monroe County, No. 3D24-2193 (Fla. 3d DCA Aug. 13, 2026) ok"
       },
       "notes": ""
     },
@@ -1239,7 +1248,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: JS shell, no content. fetch_doc.py info: html, 0 chars."
+        "evidence": "WebFetch: JS shell, no content. fetch_doc.py info: html, 0 chars. | Independent check 2026-10-16: JS shell only: 'this application doesn't work properly without JavaScript enabled' (row left reported)"
       },
       "notes": "The FSU docket pages link 'Full Docket (ACIS)' for each Supreme Court case."
     },
@@ -1285,7 +1294,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Supreme Court index fetched (years 1848-2026) but no DCA→Supreme Court review trail was traced."
+        "evidence": "Supreme Court index fetched (years 1848-2026) but no DCA→Supreme Court review trail was traced. | Independent check 2026-10-16: Index lists years 1848-2026; 2026 listing href present (row left reported)"
       },
       "notes": "Review route: Art. V, § 3(b)(3), Fla. Const. (express and direct conflict) and Fla. R. App. P. 9.030(a)(2)(A); a PCA without citation is not reviewable for conflict (Jenkins v. State, from memory). The So. 3d tables ('rev. denied, 123 So. 3d 456 (Fla. 2014)') are the usual published trace — not free."
     }
@@ -1332,6 +1341,12 @@
       "what": "Machine-readable official FAC rule text",
       "evidence": "flrules.org serves rule text only as binary Word .doc files.",
       "date": "2026-10-16"
+    },
+    {
+      "family": "court_rules",
+      "what": "Fetchable text of Fla. R. Gen. Prac. & Jud. Admin. 2.420, 2.514, 2.516",
+      "evidence": "Bar PDF reachable by WebFetch only to Rule 2.225(d)(3); shell blocked by Cloudflare; flcourts.gov robots-disallowed.",
+      "date": "2026-10-16"
     }
   ],
   "script_candidates": [
@@ -1376,15 +1391,22 @@
       "why": "single 420K-char page; WebFetch extracts 133K and cannot reach Articles VI-XII; fetch_doc.py reads it all",
       "split_hint": "anchors name='A{n}S{nn}'; 'SECTION N. Title.—' headings",
       "bulk": ""
+    },
+    {
+      "source_id": "fl-rules-judadmin-floridabar",
+      "url": "https://www-media.floridabar.org/uploads/2026/08/2027_01-JULY-Florida-Rules-of-General-Practice-and-Judicial-Administration-7-1-2026.pdf",
+      "why": "WebFetch body text ends in Rule 2.225(d)(3); 2.420/2.514/2.516 unreachable; shell blocked",
+      "split_hint": "'RULE 2.NNN. TITLE' headings",
+      "bulk": ""
     }
   ],
   "open_questions": [
     "Florida Bar rule PDFs: is there any route the shell may use (the Bar answers robots.txt with a Cloudflare 403)? Without one, corpus ingest of the rules cannot fetch the official file.",
     "Is the FSU College of Law archive acceptable as tier 1 (state university, not the court)? It is the only fetchable host serving Supreme Court slip-opinion PDFs.",
-    "fl-rules-judadmin-floridabar not fetched (budget); Family Law, Small Claims, Juvenile, Probate rules and Rules Regulating The Florida Bar not probed.",
     "Subsequent history: no free fetchable source for orders declining conflict review (ACIS is JS + altcha). Confirm whether Justia's Supreme Court listing includes any jurisdiction-declined orders.",
-    "flsenate.gov year range before 2015 not confirmed (HTTP 429 cut the check).",
     "Laws of Florida coverage start year on laws.flrules.org not checked.",
-    "schema: automation.shell has no value for a 200 response that is an empty JavaScript shell (used 'http-error' for ACIS)."
+    "schema: automation.shell has no value for a 200 response that is an empty JavaScript shell (used 'http-error' for ACIS).",
+    "Family Law, Small Claims, Juvenile, Probate rules and Rules Regulating The Florida Bar not probed.",
+    "flsenate.gov year range before 2015 not confirmed."
   ]
 }

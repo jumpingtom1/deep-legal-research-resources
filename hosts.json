@@ -22,6 +22,13 @@
    ],
    "blocked_sources": []
   },
+  "advance.lexis.com": {
+   "status": "allowed",
+   "sources": [
+    "nj-admincode-lexis"
+   ],
+   "blocked_sources": []
+  },
   "appellatecases.courtinfo.ca.gov": {
    "status": "blocked",
    "sources": [
@@ -150,8 +157,15 @@
     "ma-gl-justia",
     "ma-constitution-justia",
     "ma-cases-justia",
+    "nj-statutes-justia",
+    "nj-constitution-justia",
+    "nj-cases-justia",
+    "nj-subsequent-history-njcourts",
     "ny-laws-justia",
     "ny-cases-justia",
+    "pa-cons-statutes-justia",
+    "pa-constitution-justia",
+    "pa-cases-justia",
     "tx-statutes-justia",
     "tx-constitution-justia",
     "tx-cases-justia"
@@ -194,6 +208,13 @@
    ],
    "blocked_sources": []
   },
+  "lis.njleg.state.nj.us": {
+   "status": "allowed",
+   "sources": [
+    "nj-statutes-njleg"
+   ],
+   "blocked_sources": []
+  },
   "lrl.texas.gov": {
    "status": "blocked",
    "sources": [
@@ -229,6 +250,14 @@
    "status": "allowed",
    "sources": [
     "ca-notice-register"
+   ],
+   "blocked_sources": []
+  },
+  "pub.njleg.gov": {
+   "status": "allowed",
+   "sources": [
+    "nj-statutes-bulk",
+    "nj-session-laws-njleg"
    ],
    "blocked_sources": []
   },
@@ -304,6 +333,13 @@
    "status": "allowed",
    "sources": [
     "tx-tac-sos"
+   ],
+   "blocked_sources": []
+  },
+  "ujsportal.pacourts.us": {
+   "status": "blocked",
+   "sources": [
+    "pa-dockets-ujsportal"
    ],
    "blocked_sources": []
   },
@@ -386,7 +422,10 @@
     "fl-fac-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
+    "nj-admincode-lii",
     "ny-nycrr-cornell",
+    "pa-rules-lii",
+    "pa-admincode-lii",
     "tx-tac-lii"
    ],
    "blocked_sources": []
@@ -400,12 +439,15 @@
    "blocked_sources": []
   },
   "www.lexisnexis.com": {
-   "status": "blocked",
+   "status": "allowed",
    "sources": [
+    "nj-admincode-lexis",
+    "nj-register-lexis"
+   ],
+   "blocked_sources": [
     "ca-official-reports-lexis",
     "ma-mass-reports-lexis"
-   ],
-   "blocked_sources": []
+   ]
   },
   "www.ma-appellatecourts.org": {
    "status": "blocked",
@@ -433,6 +475,25 @@
    ],
    "blocked_sources": []
   },
+  "www.njcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "nj-opinions-njcourts",
+    "nj-case-pages-njcourts",
+    "nj-subsequent-history-njcourts"
+   ],
+   "blocked_sources": [
+    "nj-rules-of-court",
+    "nj-rules-evidence"
+   ]
+  },
+  "www.njleg.state.nj.us": {
+   "status": "allowed",
+   "sources": [
+    "nj-constitution-njleg"
+   ],
+   "blocked_sources": []
+  },
   "www.nycourts.gov": {
    "status": "allowed",
    "sources": [
@@ -453,6 +514,35 @@
     "ny-const-senate"
    ],
    "blocked_sources": []
+  },
+  "www.pacodeandbulletin.gov": {
+   "status": "blocked",
+   "sources": [
+    "pa-rules-pacode",
+    "pa-admincode-pacode",
+    "pa-bulletin-pacode"
+   ],
+   "blocked_sources": []
+  },
+  "www.pacourts.us": {
+   "status": "allowed",
+   "sources": [
+    "pa-opinions-pacourts",
+    "pa-allocatur-pacourts"
+   ],
+   "blocked_sources": []
+  },
+  "www.palegis.us": {
+   "status": "allowed",
+   "sources": [
+    "pa-cons-statutes-palegis",
+    "pa-uncons-statutes-palegis",
+    "pa-constitution-palegis"
+   ],
+   "blocked_sources": [
+    "pa-rules-pacode",
+    "pa-admincode-pacode"
+   ]
   },
   "www.sec.state.ma.us": {
    "status": "allowed",

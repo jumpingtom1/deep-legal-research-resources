@@ -114,17 +114,17 @@
     "fl": {
       "name": "Florida",
       "file": "jurisdictions/fl.md",
-      "sha256": "16b770e3fce3d7597949fd12d345d343ad7736a6df99a1b7e101ef04edd910d5",
+      "sha256": "a73a1a33bf04fec14c78ee5c8c64697392ed9b7c436f729ba5c6f91985fd2677",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 16,
-        "reported": 3,
-        "blocked": 2
+        "verified_independent": 17,
+        "blocked": 2,
+        "reported": 2
       },
       "citation_patterns": [
         {
           "label": "Florida Statutes",
-          "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*\u00a7+\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:\u00a7+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-\u2013]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)"
+          "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*(?:\u00a7+|sec(?:tion|\\.)|s\\.)\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:\u00a7+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-\u2013]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)"
         },
         {
           "label": "Florida Evidence Code (Fla. Stat. ch. 90)",
@@ -140,19 +140,19 @@
         },
         {
           "label": "Florida Rules of Civil Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure|rule\\s+(?P<rule4>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure"
         },
         {
           "label": "Florida Rules of Criminal Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure|rule\\s+(?P<rule4>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
         },
         {
           "label": "Florida Rules of Appellate Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure|rule\\s+(?P<rule4>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
         },
         {
           "label": "Florida Rules of General Practice and Judicial Administration",
-          "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})"
+          "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})|rule\\s+(?P<rule3>2\\.\\d{3})(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration"
         },
         {
           "label": "Florida Administrative Code",
@@ -310,6 +310,63 @@
         }
       ]
     },
+    "nj": {
+      "name": "New Jersey",
+      "file": "jurisdictions/nj.md",
+      "sha256": "915b34f750b7376affee6e54408fb1299a383f32d1cc6804b0d12b2a18f630a6",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 11,
+        "blocked": 2,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "New Jersey Statutes (N.J.S.A.)",
+          "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?\\s*Ann\\.?|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)"
+        },
+        {
+          "label": "Pamphlet Laws (session laws)",
+          "regex": "(?:P\\.\\s*L\\.|\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)"
+        },
+        {
+          "label": "New Jersey Constitution",
+          "regex": "N\\.\\s*J\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7\\s*(?P<section>\\d+|[IVXL]+),?\\s*)?(?:\u00b6|para\\.?)\\s*(?P<paragraph>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section\\s+(?P<section2>[IVXL]+|\\d+),?\\s+)?Paragraph\\s+(?P<paragraph2>\\d+)\\s+of\\s+the\\s+New\\s+Jersey\\s+Constitution"
+        },
+        {
+          "label": "Rules Governing the Courts of the State of New Jersey",
+          "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?"
+        },
+        {
+          "label": "New Jersey Rules of Evidence",
+          "regex": "(?:N\\.\\s*J\\.\\s*R\\.\\s*E\\.|New\\s+Jersey\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3})"
+        },
+        {
+          "label": "New Jersey Administrative Code",
+          "regex": "(?:N\\.\\s*J\\.\\s*A\\.\\s*C\\.|N\\.\\s*J\\.\\s*Admin\\.?\\s*Code)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)(?:-(?P<subchapter>\\d+[A-Z]?)(?:\\.(?P<section>\\d+[A-Z]?))?)?"
+        },
+        {
+          "label": "New Jersey Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+N\\.\\s*J\\.\\s*R\\.\\s+(?P<page>\\d+)(?:\\((?P<item>[a-z])\\))?"
+        },
+        {
+          "label": "Reported New Jersey cases (N.J., N.J. Super., N.J. Tax, old N.J.L./N.J. Eq.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Docket-number citations (Supreme A-N-YY; Appellate Division A-NNNN-YY, incl. unpublished)",
+          "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})\\b"
+        },
+        {
+          "label": "Westlaw / Lexis unreported NJ cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.\\s*J\\.|N\\.\\s*J\\.\\s*(?:(?P<lexcourt>Super\\.(?:\\s*Unpub\\.)?|Tax)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        },
+        {
+          "label": "Certification history (certif. denied / granted)",
+          "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)"
+        }
+      ]
+    },
     "ny": {
       "name": "New York",
       "file": "jurisdictions/ny.md",
@@ -356,6 +413,70 @@
         {
           "label": "Regional / West reporters",
           "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?|N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})"
+        }
+      ]
+    },
+    "pa": {
+      "name": "Pennsylvania",
+      "file": "jurisdictions/pa.md",
+      "sha256": "89bd0d0c20a1c591e85bdc0b884baf91244a6787a4f8c2e76dad5d9d35af5fcd",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 10,
+        "blocked": 4
+      },
+      "citation_patterns": [
+        {
+          "label": "Pennsylvania Consolidated Statutes (Pa.C.S.)",
+          "regex": "(?P<title>\\d{1,2})\\s+Pa\\.?\\s*(?:C\\.\\s*S\\.(?:\\s*A\\.)?|Cons\\.?\\s+Stat\\.?(?:\\s+Ann\\.?)?)\\s*\u00a7+\\s*(?P<section>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?![\\d.]*\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Pennsylvania\\s+Consolidated\\s+Statutes|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+(?P<codename>Judicial\\s+Code|Crimes\\s+Code|Vehicle\\s+Code|Domestic\\s+Relations\\s+Code|Probate,\\s+Estates\\s+and\\s+Fiduciaries\\s+Code|Uniform\\s+Commercial\\s+Code)"
+        },
+        {
+          "label": "Purdon's unconsolidated statutes (P.S.)",
+          "regex": "(?P<title>\\d{1,2})\\s+(?:P\\.\\s*S\\.(?:\\s*A\\.)?|Pa\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?(?:-\\d+(?:\\.\\d+)?)?[A-Za-z]?)"
+        },
+        {
+          "label": "Pennsylvania session laws / act citations",
+          "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)|Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})"
+        },
+        {
+          "label": "Pennsylvania Constitution",
+          "regex": "Pa\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Constitution"
+        },
+        {
+          "label": "Pennsylvania statewide procedural rules (Pa.R.C.P., Pa.R.A.P., Pa.R.Crim.P., Pa.R.E., Pa.R.J.C.P.)",
+          "regex": "(?P<set>Pa\\.\\s*R\\.\\s*(?:C\\.\\s*P\\.|Civ\\.\\s*P\\.|A\\.\\s*P\\.|App\\.\\s*P\\.|Crim\\.\\s*P\\.|E\\.|Evid\\.|J\\.\\s*C\\.\\s*P\\.))\\s*(?:No\\.\\s*)?(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Rules\\s+of\\s+(?P<setname>Civil\\s+Procedure|Appellate\\s+Procedure|Criminal\\s+Procedure|Evidence|Juvenile\\s+Court\\s+Procedure)|(?P<title>2\\d\\d)\\s+Pa\\.\\s*Code\\s+r(?:ule)?\\.\\s*(?P<rule3>\\d+(?:\\.\\d+)?)"
+        },
+        {
+          "label": "Pennsylvania Code (agency regulations)",
+          "regex": "(?P<title>\\d{1,3})\\s+Pa\\.\\s*Code\\s*\u00a7+\\s*(?P<section>\\d+\\.\\d+[a-z]?)|Title\\s+(?P<title2>\\d{1,3}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+\\.\\d+[a-z]?)\\s+of\\s+the\\s+Pennsylvania\\s+Code"
+        },
+        {
+          "label": "Pennsylvania Bulletin",
+          "regex": "(?P<volume>\\d{1,2})\\s+Pa\\.\\s*B\\.\\s*(?P<page>\\d{1,5})"
+        },
+        {
+          "label": "Reported Pennsylvania cases (Atlantic Reporter)",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Pa\\.(?:\\s*(?:Super(?:\\.\\s*Ct)?|Cmwlth|Commw\\.\\s*Ct)\\.?)?)\\s*(?P<year>\\d{4})\\)"
+        },
+        {
+          "label": "Official state reporters (Pa., Pa. Super., Pa. Cmwlth.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Pa\\.\\s+(?:(?P<court>Super|Cmwlth|Commw)\\.\\s+)?(?P<page>\\d{1,4})(?!\\d)"
+        },
+        {
+          "label": "Superior Court 'PA Super' slip number",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+PA\\s+Super\\s+(?P<number>\\d{1,4})"
+        },
+        {
+          "label": "Appellate docket numbers (incl. unpublished memoranda / unreported opinions)",
+          "regex": "(?P<number>\\d{1,4})\\s+(?P<code>[EMW]DA|[EMW]AP|[EMW]AL|[EMW]M|[EMW]DM|C\\.\\s?D\\.|M\\.\\s?D\\.|PGH|PHL|HBG)\\s+(?P<year>(?:19|20)?\\d\\d)(?!\\d)"
+        },
+        {
+          "label": "Westlaw / Lexis cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Pa\\.|Pa\\.\\s*(?:(?P<lexcourt>Super\\.|Commw\\.)\\s*)?(?:Unpub\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        },
+        {
+          "label": "Allocatur (petition for allowance of appeal) history",
+          "regex": "(?:appeal|allocatur)\\s+(?P<disp>denied|granted)\\s*,\\s*(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})|(?P<number>\\d{1,4})\\s+(?P<code>[EMW]AL)\\s+(?P<year>(?:19|20)\\d\\d)"
         }
       ]
     },
