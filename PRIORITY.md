@@ -60,3 +60,16 @@ check's findings are fixed, and the wave is committed.
 | Connecticut | 2026-10-17 | 2026-10-17 | 8 | 3 | — |
 | South Carolina | 2026-10-17 | 2026-10-17 | 8 | 2 | — |
 | Louisiana | 2026-10-17 | 2026-10-17 | 14 | 0 | — |
+| Alabama | 2026-10-17 | 2026-10-17 | 13 | 0 | — |
+| Oklahoma | 2026-10-17 | 2026-10-17 | 6 | 8 | — |
+| Kentucky | 2026-10-17 | 2026-10-17 | 11 | 1 | — |
+| Kansas | 2026-10-17 | 2026-10-17 | 14 | 0 | — |
+| Iowa | 2026-10-17 | 2026-10-17 | 14 | 0 | — |
+| Nebraska | 2026-10-17 | 2026-10-17 | 10 | 0 | — |
+| Arkansas | 2026-10-17 | 2026-10-17 | 9 | 1 | — |
+| Mississippi | 2026-10-17 | 2026-10-17 | 16 | 1 | — |
+| Maine | 2026-10-17 | 2026-10-17 | 15 | 2 | — |
+| New Hampshire | 2026-10-17 | 2026-10-17 | 10 | 1 | — |
+| Vermont | 2026-10-17 | 2026-10-17 | 11 | 0 | — |
+
+In progress (2026-10-17): Rhode Island, West Virginia, South Dakota, North Dakota, Wyoming.
