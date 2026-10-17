@@ -75,5 +75,6 @@ check's findings are fixed, and the wave is committed.
 | West Virginia | 2026-10-17 | 2026-10-17 | 20 | 1 | — |
 | Wyoming | 2026-10-17 | 2026-10-17 | 12 | 0 | — |
 | South Dakota | 2026-10-17 | 2026-10-17 | 15 | 0 | — |
+| North Dakota | 2026-10-17 | 2026-10-17 | 12 | 0 | — |
 
-In progress (2026-10-17): North Dakota (independent check).
+All 49 jurisdictions in this repository are done (2026-10-17). Oregon and Washington stay bundled in the skill.
