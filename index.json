@@ -1183,21 +1183,21 @@
     "mt": {
       "name": "Montana",
       "file": "jurisdictions/mt.md",
-      "sha256": "6cadf7a7bf3ef0706dab41780ad992d70b5304b1c4c20656e65b1b6b6c2b5f55",
+      "sha256": "cbdf6363f2b239166195b7ee1d7a46429502b67fd742433f8eecf9474c426523",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 11,
+        "verified_independent": 11,
         "reported": 5
       },
       "citation_patterns": [
         {
           "label": "Montana Code Annotated",
-          "regex": "(?:Mont\\.\\s*Code\\s+Ann\\.|\\bM\\.?C\\.?A\\.?)\\s*\u00a7\u00a7?\\s*(?P<section>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])|\u00a7\u00a7\\s*(?P<section4>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])[^;\u00a7]{0,40}?,?\\s+(?:M\\.C\\.A\\.|MCA)\\b|(?P<section2>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])(?:\\([a-z0-9]+\\))*,?\\s+(?:M\\.C\\.A\\.|MCA)\\b|sec(?:tion|\\.)\\s+(?P<section3>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Code(?:\\s+Annotated)?",
+          "regex": "(?:Mont\\.\\s*Code\\s+Ann\\.|\\bM\\.?C\\.?A\\.?)\\s*\u00a7\u00a7?\\s*(?P<section>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])|\u00a7\u00a7\\s*(?P<section4>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])[^;\u00a7]{0,40}?,?\\s+(?:M\\.C\\.A\\.|MCA\\b)|(?P<section2>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])(?:\\([a-z0-9]+\\))*,?\\s+(?:M\\.C\\.A\\.|MCA\\b)|sec(?:tion|\\.)\\s+(?P<section3>\\d{1,2}-\\d{1,3}[A-Z]?-\\d{3,4})(?![\\d-])(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Code(?:\\s+Annotated)?",
           "context_required": false
         },
         {
           "label": "Montana Constitution",
-          "regex": "Mont\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Art(?:icle|\\.)\\s+(?P<article2>[IVX]+),\\s*(?:Section|Sec\\.|\u00a7)\\s*(?P<section2>\\d+)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+Montana\\s+Constitution|Mont\\.\\s*Const\\.)",
+          "regex": "Mont\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+)|Art(?:icle|\\.)\\s+(?P<article2>[IVX]+),\\s*(?:Section|Sec\\.|\u00a7)\\s*(?P<section2>\\d+)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+Montana\\s+Constitution|Mont\\.\\s*Const\\.)",
           "context_required": false
         },
         {
@@ -1217,12 +1217,12 @@
         },
         {
           "label": "Montana Uniform District Court Rules",
-          "regex": "Mont\\.\\s*Unif\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,2})|\\bU\\.\\s*D\\.\\s*C\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2})|Uniform\\s+District\\s+Court\\s+Rule\\s+(?P<rule3>\\d{1,2})|Rule\\s+(?P<rule4>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Montana\\s+)?Uniform\\s+District\\s+Court\\s+Rules",
+          "regex": "Mont\\.\\s*Unif\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,2})|\\bU\\.\\s*D\\.\\s*C\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2})|Uniform\\s+District\\s+Court\\s+Rule\\s+(?P<rule3>\\d{1,2})|Rule\\s+(?P<rule4>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Montana\\s+)?Uniform\\s+District\\s+Court\\s+Rules|Rule\\s+(?P<rule5>\\d{1,2})(?:\\([a-z0-9]+\\))*,\\s*(?:Montana\\s+)?Uniform\\s+District\\s+Court\\s+Rules",
           "context_required": false
         },
         {
           "label": "Montana Rules of Professional Conduct",
-          "regex": "(?:Mont\\.|\\bM\\.)\\s*R\\.\\s*Prof\\.\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "regex": "(?:Mont\\.|\\bM\\.)\\s*R\\.\\s*Prof(?:'l|\u2019l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
           "context_required": false
         },
         {
