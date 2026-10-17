@@ -45,6 +45,13 @@
    ],
    "blocked_sources": []
   },
+  "adminrules.utah.gov": {
+   "status": "allowed",
+   "sources": [
+    "ut-admincode-oar"
+   ],
+   "blocked_sources": []
+  },
   "advance.lexis.com": {
    "status": "allowed",
    "sources": [
@@ -427,6 +434,9 @@
     "tx-statutes-justia",
     "tx-constitution-justia",
     "tx-cases-justia",
+    "ut-code-justia",
+    "ut-constitution-justia",
+    "ut-cases-justia",
     "va-code-justia",
     "va-constitution-justia",
     "va-cases-justia"
@@ -450,6 +460,15 @@
    ],
    "blocked_sources": []
   },
+  "le.utah.gov": {
+   "status": "allowed",
+   "sources": [
+    "ut-code-le",
+    "ut-session-laws",
+    "ut-constitution-le"
+   ],
+   "blocked_sources": []
+  },
   "leg.colorado.gov": {
    "status": "blocked",
    "sources": [
@@ -463,6 +482,15 @@
     "nv-nrs-leg"
    ],
    "blocked_sources": []
+  },
+  "legacy.utcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ut-rules-utcourts"
+   ],
+   "blocked_sources": [
+    "ut-opinions-utcourts"
+   ]
   },
   "leginfo.legislature.ca.gov": {
    "status": "blocked",
@@ -743,6 +771,13 @@
    "sources": [
     "ga-admincode-sos",
     "ga-admin-bulletin"
+   ],
+   "blocked_sources": []
+  },
+  "rules.utah.gov": {
+   "status": "allowed",
+   "sources": [
+    "ut-bulletin"
    ],
    "blocked_sources": []
   },
@@ -1059,6 +1094,7 @@
     "pa-rules-lii",
     "pa-admincode-lii",
     "tx-tac-lii",
+    "ut-admincode-lii",
     "va-admincode-lii"
    ],
    "blocked_sources": []
@@ -1347,6 +1383,13 @@
     "tx-business-court-opinions",
     "tx-subsequent-scotx-orders",
     "tx-subsequent-cca-pdr-granted"
+   ],
+   "blocked_sources": []
+  },
+  "www.utcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ut-cert-petitions"
    ],
    "blocked_sources": []
   },

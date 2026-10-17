@@ -1748,6 +1748,94 @@
         }
       ]
     },
+    "ut": {
+      "name": "Utah",
+      "file": "jurisdictions/ut.md",
+      "sha256": "8bfad2183c46f1f9eaf6da7080780938468df2e1304ae650389d743fc17ca53b",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 9,
+        "reported": 2,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Utah Code",
+          "regex": "(?:Utah\\s+Code(?:\\s+Ann(?:otated|\\.)?)?|U\\.\\s*C\\.\\s*A\\.)\\s*(?:\u00a7+|sec(?:tion|\\.)|)\\s*(?P<title>\\d{1,2}[A-Za-z]?)-(?P<chapter>\\d{1,3}[A-Za-z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Za-z]?)-(?P<chapter2>\\d{1,3}[A-Za-z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Code",
+          "context_required": false
+        },
+        {
+          "label": "Laws of Utah (session laws)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+Utah\\s+Laws,?\\s*(?:ch\\.|c\\.|chapter)\\s*(?P<chapter>\\d+)|Laws\\s+of\\s+Utah\\s+(?P<year2>(?:19|20)\\d\\d),?\\s*(?:ch\\.|chapter)\\s*(?P<chapter2>\\d+)|Chapter\\s+(?P<chapter3>\\d+),\\s+(?P<year3>(?:19|20)\\d\\d)\\s+(?:General|First\\s+Special|Second\\s+Special|Third\\s+Special|Fourth\\s+Special|Fifth\\s+Special)\\s+Session",
+          "context_required": false
+        },
+        {
+          "label": "Utah Constitution",
+          "regex": "Utah\\s+Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Utah\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Civil Procedure",
+          "regex": "(?:Utah\\s+R\\.\\s*Civ\\.\\s*P\\.|URCP)\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Evidence",
+          "regex": "(?:Utah\\s+R\\.\\s*Evid\\.|URE)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Appellate Procedure",
+          "regex": "(?:Utah\\s+R\\.\\s*App\\.\\s*P\\.|URAP)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Criminal Procedure",
+          "regex": "(?:Utah\\s+R\\.\\s*Crim\\.\\s*P\\.|URCrP)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah Code of Judicial Administration",
+          "regex": "(?:Utah\\s+Code\\s+Jud(?:icial|\\.)\\s*Admin(?:istration|\\.)?|UCJA)\\s*(?:R(?:ule)?\\.?\\s*)?(?P<rule>\\d{1,2}-\\d{3}(?:\\.\\d{2})?)|[Rr]ule\\s+(?P<rule2>\\d{1,2}-\\d{3}(?:\\.\\d{2})?)\\s+of\\s+the\\s+Utah\\s+Code\\s+of\\s+Judicial\\s+Administration",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Professional Conduct (Supreme Court Rules of Professional Practice ch. 3)",
+          "regex": "Utah\\s+(?:R\\.\\s*Prof(?:'|\u2019)?l\\s*Conduct|Rules?\\s+of\\s+Prof(?:essional|'l)\\s+Conduct)\\s*(?:R(?:ule)?\\.?\\s*)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
+        },
+        {
+          "label": "Utah Administrative Code",
+          "regex": "Utah\\s+Admin(?:istrative|\\.)\\s+Code\\s*(?:r\\.\\s*)?(?:\u00a7\\s*)?(?P<rule>R\\d{2,4}-\\d+[A-Za-z]?)(?:-(?P<section>\\d+[a-z]?))?",
+          "context_required": false
+        },
+        {
+          "label": "Utah State Bulletin",
+          "regex": "Utah\\s+State\\s+Bulletin,?\\s*(?:Number|No\\.)\\s*(?P<year>(?:19|20)\\d\\d)-(?P<issue>\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Utah public-domain citations (since 1999)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+UT\\s+(?P<app>App\\s+)?(?P<number>\\d{1,3})(?P<unpub>U)?(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Pacific Reporter / Utah Reports with Utah parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Utah(?:\\s+Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<uvol>\\d{1,3})\\s+Utah(?:\\s+2d)?\\s+(?P<upage>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Utah appellate docket numbers",
+          "regex": "(?:No\\.\\s*)?(?P<docket>(?:19|20)\\d{6})(?:-(?P<court>CA|SC))?",
+          "context_required": true
+        },
+        {
+          "label": "Utah certiorari history",
+          "regex": "cert\\.\\s+(?P<disposition>denied|granted|dismissed),?\\s+(?P<volume>\\d{1,4})\\s+P\\.\\s*(?P<series>[23])d\\s+(?P<page>\\d{1,5})\\s*\\(Utah\\s+(?P<year>\\d{4})\\)",
+          "context_required": false
+        }
+      ]
+    },
     "va": {
       "name": "Virginia",
       "file": "jurisdictions/va.md",
