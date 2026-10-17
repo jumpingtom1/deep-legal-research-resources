@@ -304,8 +304,18 @@ def _looks_like_bot_wall(headers, body, expect):
     return None
 
 
+def safe_url(url):
+    """Percent-encode characters a server would reject (spaces, non-ASCII) while
+    leaving existing %-escapes and URL syntax alone."""
+    p = urllib.parse.urlsplit(url.strip())
+    path = urllib.parse.quote(p.path, safe="/%:@!$&'()*+,;=-._~")
+    query = urllib.parse.quote(p.query, safe="/%:@!$&'()*+,;=?-._~")
+    return urllib.parse.urlunsplit((p.scheme, p.netloc, path, query, p.fragment))
+
+
 def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
     """Fetch url politely. Returns dict(body, headers, final_url, cached, sha256)."""
+    url = safe_url(url)
     parts = urllib.parse.urlsplit(url)
     if parts.scheme != "https":
         url = urllib.parse.urlunsplit(("https",) + tuple(parts[1:]))
