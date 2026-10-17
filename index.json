@@ -168,11 +168,11 @@
     "ar": {
       "name": "Arkansas",
       "file": "jurisdictions/ar.md",
-      "sha256": "acdd6d5c361bc54f1d0951c995481fafe45b697c9127422c93c241488047a6be",
+      "sha256": "05c6ad75702134e2b0224bf5912873a460a3b59d54193797399aa25064a197bc",
       "compiled": "2026-10-17",
       "counts": {
         "reported": 2,
-        "verified": 9,
+        "verified_independent": 9,
         "blocked": 1
       },
       "citation_patterns": [
@@ -198,7 +198,7 @@
         },
         {
           "label": "Arkansas Rules of Civil/Criminal/Appellate Procedure, Evidence, Professional Conduct",
-          "regex": "Ark\\.\\s*R\\.\\s*(?P<set>Civ\\.\\s*P|Evid|Crim\\.\\s*P|App\\.\\s*P\\.?\\s*[\u2013\u2014-]\\s*(?:Civ|Crim)|Prof'?l\\s*Conduct)\\.?\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)|Arkansas\\s+Rules?\\s+of\\s+(?P<set2>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)\\s*(?P<rule2>\\d{1,4}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,4}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Arkansas\\s+Rules\\s+of\\s+(?P<set3>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)",
+          "regex": "Ark\\.\\s*R\\.\\s*(?P<set>Civ\\.\\s*P|Evid|Crim\\.\\s*P|App\\.\\s*P\\.?\\s*(?:[\u2013\u2014-]\\s*)?(?:Civ|Crim)|Prof(?:'?l|\\.)\\s*Conduct)\\.?\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)|Arkansas\\s+Rules?\\s+of\\s+(?P<set2>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)\\s*(?P<rule2>\\d{1,4}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,4}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Arkansas\\s+Rules\\s+of\\s+(?P<set3>Civil\\s+Procedure|Evidence|Criminal\\s+Procedure|Appellate\\s+Procedure\\s*[\u2013\u2014-]\\s*(?:Civil|Criminal)|Professional\\s+Conduct)",
           "context_required": false
         },
         {
