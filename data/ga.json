@@ -11,7 +11,12 @@
         "courtlistener_id": "ga",
         "courtlistener_id_unverified": true,
         "bluebook_abbrev": "Ga.",
-        "reporters": ["Ga.", "S.E.2d", "S.E.", "S.E.3d"],
+        "reporters": [
+          "Ga.",
+          "S.E.2d",
+          "S.E.",
+          "S.E.3d"
+        ],
         "public_domain_citation": null
       },
       {
@@ -19,7 +24,12 @@
         "courtlistener_id": "gactapp",
         "courtlistener_id_unverified": true,
         "bluebook_abbrev": "Ga. Ct. App.",
-        "reporters": ["Ga. App.", "S.E.2d", "S.E.", "S.E.3d"],
+        "reporters": [
+          "Ga. App.",
+          "S.E.2d",
+          "S.E.",
+          "S.E.3d"
+        ],
         "public_domain_citation": null
       }
     ],
@@ -37,7 +47,10 @@
           "section 9-11-12 of the Official Code of Georgia Annotated"
         ],
         "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?|Code\\s+Section)\\s*§*\\s*|(?:sec(?:tion|\\.)|§)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
-        "routes_to": ["ga-code-justia", "ga-code-lexis"]
+        "routes_to": [
+          "ga-code-justia",
+          "ga-code-lexis"
+        ]
       },
       {
         "family": "statutes",
@@ -48,7 +61,9 @@
           "2023 Ga. Laws 123"
         ],
         "regex": "Ga\\.\\s*L\\.\\s*(?P<year>(?:18|19|20)\\d\\d),\\s*p\\.\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Ga\\.\\s*Laws\\s+(?P<page2>\\d+)",
-        "routes_to": ["ga-legis-session-laws"]
+        "routes_to": [
+          "ga-legis-session-laws"
+        ]
       },
       {
         "family": "constitution",
@@ -57,10 +72,14 @@
           "Ga. Const. art. I, § I, para. XII",
           "Ga. Const. of 1983, Art. I, Sec. I, Par. XII",
           "Ga. Const. art. VI, § VI, ¶ II",
-          "Article I, Section I, Paragraph XII of the Georgia Constitution"
+          "Article I, Section I, Paragraph XII of the Georgia Constitution",
+          "Paragraph II of Section VI of Article VI of the Georgia Constitution"
         ],
-        "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:§|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|¶)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)",
-        "routes_to": ["ga-constitution-sos", "ga-constitution-justia"]
+        "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:§|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|¶)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)|Paragraph\\s+(?P<paragraph3>[IVXL]+(?:-[A-Z])?)\\s+of\\s+Section\\s+(?P<section3>[IVXL]+)\\s+of\\s+Article\\s+(?P<article3>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)",
+        "routes_to": [
+          "ga-constitution-sos",
+          "ga-constitution-justia"
+        ]
       },
       {
         "family": "court_rules",
@@ -69,10 +88,14 @@
           "Uniform Superior Court Rule 6.4",
           "USCR 6.4 (B)",
           "Ga. Unif. Super. Ct. R. 6.4",
-          "Rule 6.4 of the Uniform Superior Court Rules"
+          "Rule 6.4 of the Uniform Superior Court Rules",
+          "Unif. Super. Ct. R. 24.2"
         ],
-        "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|Ga\\.\\s*Unif\\.\\s*Super\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules",
-        "routes_to": ["ga-rules-uscr-assets", "ga-rules-uscr-gasupreme"]
+        "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|(?:Ga\\.\\s*)?Unif(?:orm|\\.)\\s*Super(?:ior|\\.)\\s*C(?:our)?t\\.?\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules",
+        "routes_to": [
+          "ga-rules-uscr-assets",
+          "ga-rules-uscr-gasupreme"
+        ]
       },
       {
         "family": "court_rules",
@@ -83,7 +106,9 @@
           "Rule 40 of the Rules of the Supreme Court of Georgia"
         ],
         "regex": "(?:Ga\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|(?:Georgia\\s+)?Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+Supreme\\s+Court\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia",
-        "routes_to": ["ga-rules-supreme"]
+        "routes_to": [
+          "ga-rules-supreme"
+        ]
       },
       {
         "family": "court_rules",
@@ -95,7 +120,10 @@
           "COA Rule 30"
         ],
         "regex": "(?:Ga\\.\\s*Ct\\.\\s*App\\.\\s*R\\.|(?:Court\\s+of\\s+Appeals|COA)\\s+Rule)\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Court\\s+of\\s+Appeals\\s+of\\s+Georgia",
-        "routes_to": ["ga-rules-coa-html", "ga-rules-coa-pdf"]
+        "routes_to": [
+          "ga-rules-coa-html",
+          "ga-rules-coa-pdf"
+        ]
       },
       {
         "family": "court_rules",
@@ -107,7 +135,9 @@
           "Bar Rule 4-102"
         ],
         "regex": "(?:Ga\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|GRPC)\\s*(?P<rule>\\d\\.\\d+)|Rule\\s+(?P<rule2>\\d\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Georgia\\s+Rules\\s+of\\s+Professional\\s+Conduct|Bar\\s+Rule\\s+(?P<barrule>\\d-\\d{3}(?:\\.\\d+)?)",
-        "routes_to": ["ga-rules-prof-conduct-gabar"]
+        "routes_to": [
+          "ga-rules-prof-conduct-gabar"
+        ]
       },
       {
         "family": "admin_code",
@@ -119,7 +149,10 @@
           "Rule 160-1-3-.04"
         ],
         "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
-        "routes_to": ["ga-admincode-sos", "ga-admincode-lii"]
+        "routes_to": [
+          "ga-admincode-sos",
+          "ga-admincode-lii"
+        ]
       },
       {
         "family": "admin_register",
@@ -129,7 +162,9 @@
           "Ga. Admin. Bulletin (June 2026)"
         ],
         "regex": "(?:Georgia\\s+Monthly\\s+Bulletin\\s+for|Ga\\.\\s*Admin\\.\\s*Bulletin\\s*\\()\\s*(?P<month>[A-Z][a-z]+)\\s+(?P<year>(?:19|20)\\d\\d)",
-        "routes_to": ["ga-admin-bulletin"]
+        "routes_to": [
+          "ga-admin-bulletin"
+        ]
       },
       {
         "family": "case_law",
@@ -140,7 +175,11 @@
           "Smith v. State, 300 Ga. 532 (796 S.E.2d 666) (2017)"
         ],
         "regex": "(?P<volume>\\d{1,3})\\s+Ga\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)",
-        "routes_to": ["ga-cases-justia", "ga-coa-opinions", "ga-sc-opinions-list"]
+        "routes_to": [
+          "ga-cases-justia",
+          "ga-coa-opinions",
+          "ga-sc-opinions-list"
+        ]
       },
       {
         "family": "case_law",
@@ -151,7 +190,11 @@
           "911 S.E.2d 638, 640 (Ga. 2025)"
         ],
         "regex": "(?P<volume>\\d{1,4})\\s+S\\.?\\s*E\\.?\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ga\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
-        "routes_to": ["ga-cases-justia", "ga-coa-opinions", "ga-sc-opinions-list"]
+        "routes_to": [
+          "ga-cases-justia",
+          "ga-coa-opinions",
+          "ga-sc-opinions-list"
+        ]
       },
       {
         "family": "case_law",
@@ -164,7 +207,12 @@
           "S26C1177"
         ],
         "regex": "\\b(?P<docket>(?P<court>[SA])(?P<yy>\\d{2})(?P<kind>[A-Z])(?P<number>\\d{4}))\\b",
-        "routes_to": ["ga-coa-opinions", "ga-cases-justia", "ga-sc-opinions-list", "ga-sc-docket-pubdoc"]
+        "routes_to": [
+          "ga-coa-opinions",
+          "ga-cases-justia",
+          "ga-sc-opinions-list",
+          "ga-sc-docket-pubdoc"
+        ]
       },
       {
         "family": "case_law",
@@ -175,7 +223,10 @@
           "2024 Ga. App. LEXIS 456"
         ],
         "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ga\\.|Ga\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
-        "routes_to": ["ga-cases-justia", "ga-coa-opinions"]
+        "routes_to": [
+          "ga-cases-justia",
+          "ga-coa-opinions"
+        ]
       },
       {
         "family": "subsequent_history",
@@ -186,7 +237,10 @@
           "physical precedent only"
         ],
         "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)|(?P<physical>physical\\s+precedent\\s+only)",
-        "routes_to": ["ga-cert-lists", "ga-coa-docket-cert"]
+        "routes_to": [
+          "ga-cert-lists",
+          "ga-coa-docket-cert"
+        ]
       }
     ],
     "law_aliases": {
@@ -205,7 +259,7 @@
       "GRPC": "grpc",
       "Ga. R. Prof'l Conduct": "grpc"
     },
-    "notes": "Georgia's own court style omits periods in the regional reporter and puts it in parentheses after the official cite: 'Young v. Johnson, 359 Ga. App. 769, 770 (860 SE2d 82) (2021)', and writes subsections with spaces: 'OCGA § 9-11-12 (b) (6)'. There is no public-domain citation format. O.C.G.A. sections are always title-chapter-section (with optional decimals, e.g. 16-13-30.1); 'Code Section' in Georgia acts means O.C.G.A. A '§§ 9-11-12 to 9-11-16' or '§§ 9-11-12 - 9-11-16' range is two sections: the regex takes the first and refuses a following hyphen-digit. Bare 'Rule 33.2' or 'Rule 22' must not route here without 'Court of Appeals' / 'Supreme Court' / 'Georgia' context; 'Code Section' also needs Georgia context. 'Rule NNN-N-N-.NN' with the '-.' separator is distinctive of the Georgia administrative code. Georgia's Civil Practice Act (O.C.G.A. § 9-11-1 et seq.) and Evidence Code (Title 24) are statutes, not court rules, so 'Rule 12(b)(6)' arguments in Georgia cite O.C.G.A. § 9-11-12 (b) (6). Docket prefixes: Supreme Court S{yy}A appeal, S{yy}C certiorari petition, S{yy}G certiorari granted, S{yy}D discretionary application, S{yy}I interlocutory application, S{yy}Q certified question, S{yy}Y bar discipline, S{yy}Z judicial discipline; Court of Appeals A{yy}A appeal, A{yy}D discretionary, A{yy}I interlocutory, A{yy}E emergency (from listing observation and memory). Court of Appeals Rule 33.2: opinions decided before Aug. 1, 2020 with special concurrences or concurrences in judgment only are 'physical precedent only' and must be marked so when cited; unreported decisions (Rule 34) and Rule 36 affirmances have no precedential value. 'cert. denied' entries route here only with Georgia context. CourtListener ids ga / gactapp are from memory, unverified. Docket-number regex must be used only with Georgia context: S/A + 2-digit year + letter + 4 digits can collide with other courts' styles."
+    "notes": "Georgia's own court style omits periods in the regional reporter and puts it in parentheses after the official cite: 'Young v. Johnson, 359 Ga. App. 769, 770 (860 SE2d 82) (2021)', and writes subsections with spaces: 'OCGA § 9-11-12 (b) (6)'. There is no public-domain citation format. O.C.G.A. sections are always title-chapter-section (with optional decimals, e.g. 16-13-30.1); 'Code Section' in Georgia acts means O.C.G.A. A '§§ 9-11-12 to 9-11-16' or '§§ 9-11-12 - 9-11-16' range is two sections: the regex takes the first and refuses a following hyphen-digit. Bare 'Rule 33.2' or 'Rule 22' must not route here without 'Court of Appeals' / 'Supreme Court' / 'Georgia' context; 'Code Section' also needs Georgia context. 'Rule NNN-N-N-.NN' with the '-.' separator is distinctive of the Georgia administrative code. Georgia's Civil Practice Act (O.C.G.A. § 9-11-1 et seq.) and Evidence Code (Title 24) are statutes, not court rules, so 'Rule 12(b)(6)' arguments in Georgia cite O.C.G.A. § 9-11-12 (b) (6). Docket prefixes: Supreme Court S{yy}A appeal, S{yy}C certiorari petition, S{yy}G certiorari granted, S{yy}D discretionary application, S{yy}I interlocutory application, S{yy}Q certified question, S{yy}Y bar discipline, S{yy}Z judicial discipline; Court of Appeals A{yy}A appeal, A{yy}D discretionary, A{yy}I interlocutory, A{yy}E emergency (from listing observation and memory). Court of Appeals Rule 33.2: opinions decided before Aug. 1, 2020 with special concurrences or concurrences in judgment only are 'physical precedent only' and must be marked so when cited; unreported decisions (Rule 34) and Rule 36 affirmances have no precedential value. 'cert. denied' entries route here only with Georgia context. CourtListener ids ga / gactapp are from memory, unverified. Docket-number regex must be used only with Georgia context: S/A + 2-digit year + letter + 4 digits can collide with other courts' styles. 'Unif. Super. Ct. R.' without a 'Ga.' prefix routes here: no other state uses 'Uniform Superior Court Rules', but route only with Georgia context if another state's 'Unif. Super. Ct. R.' turns up."
   },
   "sources": [
     {
@@ -236,7 +290,11 @@
         "where": "none observed (app did not render)",
         "observed": ""
       },
-      "hazards": ["JavaScript-only app", "no per-section URLs", "session-specific crid/prid parameters may expire"],
+      "hazards": [
+        "JavaScript-only app",
+        "no per-section URLs",
+        "session-specific crid/prid parameters may expire"
+      ],
       "probe": {
         "citation": "O.C.G.A. (container)",
         "url": "https://advance.lexis.com/container?config=00JAAzZDgzNzU2ZC05MDA0LTRmMDItYjkzMS0xOGY3MjE3OWNlODIKAFBvZENhdGFsb2fcIFfJnJ2IC8XZi1AYM4Ne&crid=201b1720-1ebe-46e4-9504-f2dd7251f381&prid=32ba624a-aa70-40c3-ba64-d4997b64b7ba",
@@ -262,10 +320,10 @@
       "coverage": "Code of Georgia 2025 edition (unversioned URLs), earlier editions under /codes/georgia/{year}/ (2023, 2024 seen; 2022 in search results). Pages include the annotations (Judicial Decisions etc.) after the section text.",
       "access": {
         "mode": "index-anchored",
-        "url_pattern": "https://law.justia.com/codes/georgia/title-{title}/chapter-{chapter}/[article-{article}/][part-{part}/]section-{title}-{chapter}-{section}/",
-        "pattern_rules": "Title and chapter as plain integers from the citation (9-11-12 → title-9/chapter-11). Article (and part, where a chapter has parts) is NOT in the citation: read it from the chapter index, whose link texts show section ranges, e.g. 'Article 3 - Pleadings and Motions (§§ 9-11-7 — 9-11-16)'. Chapters without articles omit the segment (51-1-6 → /title-51/chapter-1/section-51-1-6/). Decimal sections (16-13-30.1) slug form not verified — take it from the index. Year-specific: insert /{year}/ after /georgia/.",
+        "url_pattern": "https://law.justia.com/codes/georgia/title-{title}/chapter-{chapter}/[article-{article}/][part-{part}/]section-{title}-{chapter}-{section_dot_to_hyphen}/",
+        "pattern_rules": "Title and chapter as plain integers from the citation (9-11-12 → title-9/chapter-11). Article (and part, where a chapter has parts) is NOT in the citation: read it from the chapter index, whose link texts show section ranges, e.g. 'Article 3 - Pleadings and Motions (§§ 9-11-7 — 9-11-16)'. Chapters without articles omit the segment (51-1-6 → /title-51/chapter-1/section-51-1-6/). Decimal sections: '.' becomes '-' (16-13-30.1 → section-16-13-30-1, verified at /title-16/chapter-13/article-2/part-1/section-16-13-30-1/). Year-specific: insert /{year}/ after /georgia/.",
         "index_url": "https://law.justia.com/codes/georgia/title-{title}/chapter-{chapter}/",
-        "navigation": "chapter index (shows article links with §§ ranges, em dash) → article page → section page. Verified: 9-11-12 → /title-9/chapter-11/article-3/section-9-11-12/; 16-5-1 → /title-16/chapter-5/article-1/section-16-5-1/; 51-1-6 → /title-51/chapter-1/section-51-1-6/.",
+        "navigation": "chapter index (article links with §§ ranges, em dash) → if an article link shows 'Pts.' instead of §§ (e.g. 'Article 2 - Regulation of Controlled Substances (Pts. 1 — 2)'), open the article page and choose the part by its §§ range (two index hops) → section page. Verified: 9-11-12 → /title-9/chapter-11/article-3/section-9-11-12/; 16-5-1 → /title-16/chapter-5/article-1/section-16-5-1/; 51-1-6 → /title-51/chapter-1/section-51-1-6/; 24-8-801 → /title-24/chapter-8/article-1/section-24-8-801/; 16-13-30.1 → /title-16/chapter-13/article-2/part-1/section-16-13-30-1/.",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -283,7 +341,8 @@
         "article/part level not derivable from the citation (index hop)",
         "edition lags the session laws (2026 Acts not reflected)",
         "shell blocked by Cloudflare: WebFetch only",
-        "annotations follow the statute text; do not quote annotations as statute"
+        "annotations follow the statute text; do not quote annotations as statute",
+        "articles divided into parts show 'Pts.' ranges on the chapter index: one more hop to the article page"
       ],
       "probe": {
         "citation": "O.C.G.A. § 9-11-12",
@@ -293,9 +352,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body (a)-(j)(5) present, '2025 Code of Georgia'; truncated only inside annotations. Also 16-5-1 '(a) A person commits the offense of murder when he'; 51-1-6 'When the law requires a person to perform an act'."
+        "evidence": "WebFetch: body (a)-(j)(5) present, '2025 Code of Georgia'; truncated only inside annotations. Also 16-5-1 '(a) A person commits the offense of murder when he'; 51-1-6 'When the law requires a person to perform an act'. | Independent check 2026-10-16: WebFetch: '(a) When answer presented. (1) Except as provided in paragraph'; '2025 Code of Georgia'; second citation O.C.G.A. § 24-8-801; also O.C.G.A. § 16-13-30.1 ok"
       },
       "notes": "This is the only text source for the O.C.G.A. reachable by the skill. Two-fetch rule: a second fetch of the same Justia page, or of a different-year Justia edition, is not independent of the first; quotes from Georgia statutes should be flagged as single-source tier 2."
     },
@@ -323,8 +382,13 @@
         "robots_txt": "script robots check: permits",
         "notes": "fetch_doc.py: home page is a 113-character JavaScript shell. WebFetch of https://www.legis.ga.gov/ was refused by the session's URL-provenance gate (permission request unanswered), not by the site."
       },
-      "currency": {"where": "none observed", "observed": ""},
-      "hazards": ["JavaScript-only app"],
+      "currency": {
+        "where": "none observed",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript-only app"
+      ],
       "probe": {
         "citation": "legis.ga.gov home",
         "url": "https://www.legis.ga.gov/",
@@ -347,7 +411,7 @@
       "tier": 1,
       "official_status": "unknown",
       "official_status_evidence": "Published by the Secretary of State; no official/unofficial statement seen in the fetched window.",
-      "coverage": "Constitution of 1983 as amended; cover says revised January 2023; TOC lists Article XI at p. 89.",
+      "coverage": "Constitution of 1983 as amended; cover says revised January 2023; TOC lists Article XI at p. 89. Readable by WebFetch only through Art. VI § I.",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://sos.ga.gov/sites/default/files/2023-08/Georgia Constitution - Electronic Version - January%2C 2023.pdf",
@@ -361,16 +425,16 @@
         "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "sos.ga.gov answers robots.txt with a bot check (fetch_doc.py REFUSED)",
-        "notes": "WebFetch window 1 ends in Art. III, § IX, para. VI; later articles need offset=100000 and beyond."
+        "notes": "WebFetch extracts only 133,449 characters in total: window 1 ends in Art. III § IX; offset=100000 ends mid-Art. VI § I ¶ X; offset=200000 returns 'Nothing left to read'. Art. VI § II through Art. XI are unreachable on this source (shell blocked too): route them to ga-constitution-justia."
       },
       "currency": {
         "where": "PDF cover",
         "observed": "Revised January 2023"
       },
       "hazards": [
-        "WebFetch truncation in Article III",
         "January 2023 revision predates amendments ratified Nov. 2024 (check the SOS amendment booklets)",
-        "shell blocked by bot check"
+        "shell blocked by bot check",
+        "WebFetch reaches only Art. I through Art. VI § I (133,449 chars total); Art. VI § II onward unreachable here — second citation Ga. Const. art. VI, § VI, para. II failed; use ga-constitution-justia"
       ],
       "probe": {
         "citation": "Ga. Const. art. I, § I, para. XII",
@@ -380,9 +444,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I § I ¶ XII present 'No person shall be deprived of the right to prosecute'; cover 'Revised January 2023'; truncated in Art. III § IX."
+        "evidence": "WebFetch: Art. I § I ¶ XII present 'No person shall be deprived of the right to prosecute'; cover 'Revised January 2023'; truncated in Art. III § IX. | Independent check 2026-10-16: WebFetch: 'No person shall be deprived of the right to prosecute'; 'Revised January 2023'"
       },
       "notes": "Cornell LII's Georgia page still links an older 2013 SOS constitution PDF."
     },
@@ -414,7 +478,10 @@
         "where": "index page",
         "observed": "This Constitution may not be the most recent version."
       },
-      "hazards": ["possibly stale text", "shell blocked"],
+      "hazards": [
+        "possibly stale text",
+        "shell blocked"
+      ],
       "probe": {
         "citation": "Ga. Const. art. I, § I, para. XII",
         "url": "https://law.justia.com/constitution/georgia/conart1.html",
@@ -423,11 +490,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: ¶ XII present 'No person shall be deprived of the right to prosecute'; page runs through Art. I § III ¶ III, not truncated."
+        "evidence": "WebFetch: ¶ XII present 'No person shall be deprived of the right to prosecute'; page runs through Art. I § III ¶ III, not truncated. | Independent check 2026-10-16: WebFetch: ¶ XII 'No person shall be deprived of the right to prosecute'; 'may not be the most recent version'; second citation Ga. Const. art. VI, § VI, para. II ok"
       },
-      "notes": "Matches the SOS text for ¶ XII, giving a second fetch for Article I."
+      "notes": "Matches the SOS text for ¶ XII. The only reachable source for Art. VI § II onward (the SOS PDF stops at Art. VI § I for WebFetch and is shell-blocked); conart6 verified for Art. VI § VI ¶ II."
     },
     {
       "id": "ga-rules-coa-html",
@@ -457,7 +524,9 @@
         "where": "top of each rules page",
         "observed": "These rules are effective on March 26, 2026."
       },
-      "hazards": ["group pages, not one page per rule"],
+      "hazards": [
+        "group pages, not one page per rule"
+      ],
       "probe": {
         "citation": "Ga. Ct. App. R. 33.2",
         "url": "https://www.gaappeals.gov/rules-33-36/",
@@ -466,9 +535,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 'Rule 33.2. Judgment as Precedent. (a) Effective Dates.' and 'physical precedent only'; rules-1-8 has Rule 1 and Rule 8 text."
+        "evidence": "fetch_doc.py grep: 'Rule 33.2. Judgment as Precedent. (a) Effective Dates.' and 'physical precedent only'; rules-1-8 has Rule 1 and Rule 8 text. | Independent check 2026-10-16: script grep: 'Rule 33.2. Judgment as Precedent. (a) Effective Dates.'; 'effective on March 26, 2026'; second citation Ga. Ct. App. R. 16 (a) ok"
       },
       "notes": "Rule 33.2 defines binding vs. physical precedent; Rule 34 reporting; Rule 36 affirmance without opinion; Rule 38 certiorari."
     },
@@ -500,7 +569,10 @@
         "where": "rules page link text",
         "observed": "Download Rules - Effective March 26, 2026 (PDF)"
       },
-      "hazards": ["upload path changes on re-issue", "likely WebFetch truncation (118K chars)"],
+      "hazards": [
+        "upload path changes on re-issue",
+        "likely WebFetch truncation (118K chars)"
+      ],
       "probe": {
         "citation": "Ga. Ct. App. R. (complete)",
         "url": "https://www.gaappeals.gov/wp-content/uploads/2026/03/COA-Rules-Complete-Eff-26-March-26.pdf",
@@ -509,9 +581,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py info: kind=pdf pages=53 chars=118679, last-modified 25 Mar 2026."
+        "evidence": "fetch_doc.py info: kind=pdf pages=53 chars=118679, last-modified 25 Mar 2026. | Independent check 2026-10-16: script: pdf 53 pp, 118,679 chars, last-modified 25 Mar 2026; 'Rule 36. Affirmance without Opinion'; second citation Ga. Ct. App. R. 36 ok"
       },
       "notes": "A Spanish translation PDF is also linked."
     },
@@ -543,7 +615,9 @@
         "where": "PDF filename",
         "observed": "SupremeCourtRules_eff-July-2-2026.pdf"
       },
-      "hazards": ["robots-disallowed"],
+      "hazards": [
+        "robots-disallowed"
+      ],
       "probe": {
         "citation": "Ga. Sup. Ct. R.",
         "url": "https://www.gasupreme.us/wp-content/uploads/2026/07/SupremeCourtRules_eff-July-2-2026.pdf",
@@ -586,7 +660,9 @@
         "where": "PDF filename",
         "observed": "UNIFORM-SUPERIOR-COURT-RULES-2026_04_09.pdf"
       },
-      "hazards": ["robots-disallowed"],
+      "hazards": [
+        "robots-disallowed"
+      ],
       "probe": {
         "citation": "USCR (current)",
         "url": "https://www.gasupreme.us/wp-content/uploads/2026/04/UNIFORM-SUPERIOR-COURT-RULES-2026_04_09.pdf",
@@ -629,7 +705,11 @@
         "where": "PDF cover",
         "observed": "Including Amendments Received Through March 6, 2025"
       },
-      "hazards": ["stale: current edition is 2026-04-09", "WebFetch truncation after Rule 9.1"],
+      "hazards": [
+        "stale: current edition is 2026-04-09",
+        "WebFetch truncation after Rule 9.1",
+        "grep for 'Rule N.N' first hits the table of contents (pp. 1-6): grep the heading with its title (e.g. 'Rule 24.2. Financial Data Required') or use 'section --start' and take a match after page 6"
+      ],
       "probe": {
         "citation": "Uniform Superior Court Rule 6.4",
         "url": "https://assets.georgiacourts.gov/4/wp-content/uploads/2025/05/03170432/UNIFORM-SUPERIOR-COURT-RULES-2025_03_06.pdf",
@@ -638,9 +718,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch and fetch_doc.py: Rule 6.4 '(A) Motions to compel discovery in accordance with OCGA § 9-11-37 shall:'; pdf 145 pp."
+        "evidence": "WebFetch and fetch_doc.py: Rule 6.4 '(A) Motions to compel discovery in accordance with OCGA § 9-11-37 shall:'; pdf 145 pp. | Independent check 2026-10-16: script grep: 'Rule 6.4 ... (A) Motions to compel discovery in accordance with OCGA § 9-11-37 shall:'; second citation Uniform Superior Court Rule 24.2 ok"
       },
       "notes": ""
     },
@@ -668,8 +748,14 @@
         "robots_txt": "permits; crawl-delay 2",
         "notes": "fetch_doc.py on handbook?rule=rule58 returns only the site chrome (5,528 chars); the rule text is injected by JavaScript."
       },
-      "currency": {"where": "none observed", "observed": ""},
-      "hazards": ["JS-injected rule text", "id-based URLs"],
+      "currency": {
+        "where": "none observed",
+        "observed": ""
+      },
+      "hazards": [
+        "JS-injected rule text",
+        "id-based URLs"
+      ],
       "probe": {
         "citation": "Ga. R. Prof'l Conduct 1.7",
         "url": "https://www.gabar.org/handbook?rule=rule58",
@@ -712,7 +798,11 @@
         "where": "home page and Download page header",
         "observed": "Current through Rules and Regulations filed through September 17, 2026"
       },
-      "hazards": ["per-rule URLs robots-disallowed", "very long subject pages", "named AI-crawler user-agents disallowed site-wide"],
+      "hazards": [
+        "per-rule URLs robots-disallowed",
+        "very long subject pages",
+        "named AI-crawler user-agents disallowed site-wide"
+      ],
       "probe": {
         "citation": "Ga. Comp. R. & Regs. 160-1-3-.04",
         "url": "https://rules.sos.ga.gov/gac/160-1-3",
@@ -721,9 +811,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 'Rule 160-1-3-.04 School Law Tribunals and Appeals (1) Purpose.' (37,725 chars). Also /gac/391-3-6 'Rule 391-3-6-.03 Designated Uses and Water Quality Standards'."
+        "evidence": "fetch_doc.py grep: 'Rule 160-1-3-.04 School Law Tribunals and Appeals (1) Purpose.' (37,725 chars). Also /gac/391-3-6 'Rule 391-3-6-.03 Designated Uses and Water Quality Standards'. | Independent check 2026-10-16: script: 'Rule 160-1-3-.04 School Law Tribunals and Appeals (1) Purpose.'; 'filed through September 17, 2026'; second citation Ga. Comp. R. & Regs. 111-8-62-.01 ok"
       },
       "notes": "Whole-department PDFs: https://rules.sos.ga.gov/Download_pdf.aspx?st=GASOS&year=2026&dept=Departments&pdf=Department%20{n}%20{DEPARTMENT NAME} (Dept 20 = 90-page PDF)."
     },
@@ -753,9 +843,12 @@
       },
       "currency": {
         "where": "page header",
-        "observed": "State regulations are updated quarterly"
+        "observed": "State regulations are updated quarterly; we currently have two versions available."
       },
-      "hazards": ["quarterly lag behind rules.sos.ga.gov"],
+      "hazards": [
+        "quarterly lag behind rules.sos.ga.gov",
+        "long rules (391-3-6-.03, ~111K chars) exceed one WebFetch window; prefer the script"
+      ],
       "probe": {
         "citation": "Ga. Comp. R. & Regs. 160-1-3-.04",
         "url": "https://www.law.cornell.edu/regulations/georgia/Ga-Comp-R-Regs-R-160-1-3-.04",
@@ -764,9 +857,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch and fetch_doc.py: body present '(1) Purpose. The purpose of this rule is to specify the procedures'; history f. May 26, 1998. Script also 391-3-6-.03 ok."
+        "evidence": "WebFetch and fetch_doc.py: body present '(1) Purpose. The purpose of this rule is to specify the procedures'; history f. May 26, 1998. Script also 391-3-6-.03 ok. | Independent check 2026-10-16: WebFetch+script: '(1) Purpose. The purpose of this rule is to specify the procedures'; second citation Ga. Comp. R. & Regs. 111-8-62-.01 (script); 391-3-6-.03 (WebFetch) ok"
       },
       "notes": "Per-rule pages make LII the practical WebFetch route and an independent second fetch for rules.sos.ga.gov text."
     },
@@ -798,7 +891,10 @@
         "where": "Bulletins list on Download page",
         "observed": "latest listed: 2026-06 Georgia Monthly Bulletin for June 2026"
       },
-      "hazards": ["long PDFs", "bulletins lag several months"],
+      "hazards": [
+        "long PDFs",
+        "bulletins lag several months"
+      ],
       "probe": {
         "citation": "Georgia Monthly Bulletin for June 2026",
         "url": "https://rules.sos.ga.gov/Download_pdf.aspx?st=GASOS&dept=Bulletins&pdf=2026-06%20Georgia%20Monthly%20Bulletin%20for%20June%202026",
@@ -807,9 +903,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: pdf 130 pp; begins 'Georgia Rules and Regulations Administrative Bulletin for June 2026'."
+        "evidence": "fetch_doc.py: pdf 130 pp; begins 'Georgia Rules and Regulations Administrative Bulletin for June 2026'. | Independent check 2026-10-16: script: pdf 130 pp; 'Georgia Rules and Regulations Administrative Bulletin for June 2026'; second citation Georgia Monthly Bulletin for November 2025 ok"
       },
       "notes": "Georgia has no register of proposed rules in this series; proposed-rule notices are on the SOS 'Rules Watch' service (services.georgia.gov/sos/sos-rw/searchHome.do, not probed)."
     },
@@ -828,7 +924,8 @@
         "pattern_rules": "YYYY = decision year (2017-2026). Rows read 'S26A0604. WARE v. THE STATE' under a date heading. Each row links to /wp-content/uploads/{YYYY}/{MM}/{docket_lower}.pdf (e.g. /2026/10/s26a0699.pdf), which robots.txt disallows — use the row only to confirm docket, name and date, then read the text from ga-cases-justia.",
         "index_url": "https://www.gasupreme.us/2026-opinions/",
         "navigation": "year page → date heading → docket row",
-        "format": "html"
+        "format": "html",
+        "read_via": "script (fetch_doc.py); WebFetch untested on gasupreme.us"
       },
       "text": "link-only",
       "automation": {
@@ -841,7 +938,11 @@
         "where": "listing page; newest date heading",
         "observed": "October 14, 2026"
       },
-      "hazards": ["opinion PDFs robots-disallowed", "slip pagination only", "pre-2017 opinions not listed"],
+      "hazards": [
+        "opinion PDFs robots-disallowed",
+        "slip pagination only",
+        "pre-2017 opinions not listed"
+      ],
       "probe": {
         "citation": "Ware v. State, S26A0604 (Ga. Sept. 22, 2026)",
         "url": "https://www.gasupreme.us/2026-opinions/",
@@ -850,9 +951,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: html 14,629 chars; 'September 22, 2026' heading with 'S26A0604. WARE v. THE STATE'; 2017 page lists 'S17A1412. CARTER v. THE STATE'."
+        "evidence": "fetch_doc.py: html 14,629 chars; 'September 22, 2026' heading with 'S26A0604. WARE v. THE STATE'; 2017 page lists 'S17A1412. CARTER v. THE STATE'. | Independent check 2026-10-16: script: 'September 22, 2026 ... S26A0604. WARE v. THE STATE'; newest heading October 14, 2026; second citation 2019 Supreme Court of Georgia opinions ok"
       },
       "notes": ""
     },
@@ -880,8 +981,13 @@
         "robots_txt": "Disallow: /wp-content/uploads/",
         "notes": "fetch_doc.py REFUSED s26a0699.pdf (rule Disallow: /wp-content/uploads/)."
       },
-      "currency": {"where": "none", "observed": ""},
-      "hazards": ["robots-disallowed"],
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "robots-disallowed"
+      ],
       "probe": {
         "citation": "Chatham County v. Smith, S26A0699 (Ga. Oct. 14, 2026)",
         "url": "https://www.gasupreme.us/wp-content/uploads/2026/10/s26a0699.pdf",
@@ -920,8 +1026,13 @@
         "robots_txt": "no robots file ('Not found'); script check permits",
         "notes": "pubdoc.gasupreme.gov redirects to /ui/: 49 characters of text, a Vue app plus an obfuscated bot-fingerprint script setting x-bni cookies. Not probed further."
       },
-      "currency": {"where": "none", "observed": ""},
-      "hazards": ["JavaScript app with bot fingerprinting"],
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "JavaScript app with bot fingerprinting"
+      ],
       "probe": {
         "citation": "docket search",
         "url": "https://pubdoc.gasupreme.gov/",
@@ -948,9 +1059,9 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.gaappeals.gov/wp-content/themes/benjamin/docket/results_one_record.php?docr_case_num={docket}",
-        "pattern_rules": "Docket record by GET: docr_case_num = docket as written (A26A0896). It shows trial court, judgment and date, and 'Opinion/Order View'. Opinion list by GET date range: https://www.gaappeals.gov/wp-content/themes/benjamin/docket/docketdate/results_all.php?OPstartDate={YYYY-MM-DD}&OPendDate={YYYY-MM-DD}&submit=Start+Opinions+Search — rows give docket, style, judgment date, ruling, and a PDF link https://efast.gaappeals.gov/download?filingId={uuid} (not derivable; take it from the row). Party-name search by GET: https://www.gaappeals.gov/wp-content/themes/benjamin/docket/results_all.php?searchterm={term}&submit=Start+Docket+Search.",
+        "pattern_rules": "Docket record by GET: docr_case_num = docket as written (A26A0896). It shows trial court, judgment and date, and 'Opinion/Order View'. Opinion list by GET date range: https://www.gaappeals.gov/wp-content/themes/benjamin/docket/docketdate/results_all.php?OPstartDate={YYYY-MM-DD}&OPendDate={YYYY-MM-DD}&submit=Start+Opinions+Search — rows give docket, style, judgment date, ruling, and a PDF link https://efast.gaappeals.gov/download?filingId={uuid} (not derivable; get it with fetch_doc.py links, see navigation). Party-name search by GET: https://www.gaappeals.gov/wp-content/themes/benjamin/docket/results_all.php?searchterm={term}&submit=Start+Docket+Search.",
         "index_url": "https://www.gaappeals.gov/opinion-search/",
-        "navigation": "",
+        "navigation": "Get the PDF link with `fetch_doc.py links <url> efast` (read/grep output drops hrefs). Best: docket record results_one_record.php?docr_case_num={docket} → `links … efast` returns the single 'View' link https://efast.gaappeals.gov/download?filingId={uuid}. From a date search, `links <results_all.php?OPstartDate…> filingId` lists one 'View PDF File' link per row in row order (match by position, or narrow the date range); the 'Open Record' href is ../results_one_record.php?docr_case_num={docket}.",
         "format": "pdf",
         "read_via": "PDFs on efast.gaappeals.gov (script ok)"
       },
@@ -965,7 +1076,12 @@
         "where": "none; date search returns same-week decisions",
         "observed": "18 Results for dates 10-14-2026 thru 10-14-2026"
       },
-      "hazards": ["slip pagination only", "no PDFs before ~2013", "filingId not derivable", "old host gaappeals.us is a moved-site notice"],
+      "hazards": [
+        "slip pagination only",
+        "no PDFs before ~2013",
+        "filingId not derivable",
+        "old host gaappeals.us is a moved-site notice"
+      ],
       "probe": {
         "citation": "Moultrie-Colquitt County Parks & Recreation Auth. v. Dekle, A26A0896 (Ga. Ct. App. Oct. 14, 2026)",
         "url": "https://efast.gaappeals.gov/download?filingId=f49ddd90-c64b-4f9e-b707-416661ddffae",
@@ -974,9 +1090,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: date search 10/14/2026 → 18 rows incl. A26A0896 'REVERSED'; PDF 11 pp, 'MARKLE, Judge. After Mack Dekle was injured on a bike path'; docket record shows trial court Thomas County."
+        "evidence": "fetch_doc.py: date search 10/14/2026 → 18 rows incl. A26A0896 'REVERSED'; PDF 11 pp, 'MARKLE, Judge. After Mack Dekle was injured on a bike path'; docket record shows trial court Thomas County. | Independent check 2026-10-16: script: PDF 11 pp, 'MARKLE, Judge. After Mack Dekle was injured on a bike path'; second citation Morrow GA Investors, LLC v. 1590 Adamson, LLC, A26A0857 (Ga. Ct. App. Oct. 7, 2026) ok"
       },
       "notes": ""
     },
@@ -1004,8 +1120,16 @@
         "robots_txt": "unreadable (bot check)",
         "notes": "WebFetch only."
       },
-      "currency": {"where": "none", "observed": ""},
-      "hazards": ["posting lag of weeks", "slip pagination, no Ga./S.E.2d star paging", "shell blocked"],
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "posting lag of weeks",
+        "slip pagination, no Ga./S.E.2d star paging",
+        "shell blocked",
+        "Justia 'Date Decided' can be off by a day (A26A0857: Oct. 6 vs. Oct. 7, 2026 in the opinion header and court listing) — take the date from the opinion or the court listing"
+      ],
       "probe": {
         "citation": "Ware v. State, S26A0604 (Ga. 2026)",
         "url": "https://law.justia.com/cases/georgia/supreme-court/2026/s26a0604.html",
@@ -1014,9 +1138,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: full body 'Appellant Sterling Ware challenges his 2024 convictions for malice murder'; no reporter cite. Also /court-of-appeals/2026/a26a0896.html body 'After Mack Dekle was injured on a bike path'."
+        "evidence": "WebFetch: full body 'Appellant Sterling Ware challenges his 2024 convictions for malice murder'; no reporter cite. Also /court-of-appeals/2026/a26a0896.html body 'After Mack Dekle was injured on a bike path'. | Independent check 2026-10-16: WebFetch: 'LAGRUA, Justice. Appellant Sterling Ware challenges his 2024 convictions for malice'; second citation Morrow GA Investors, LLC v. 1590 Adamson, LLC, A26A0857 (Ga. Ct. App. 2026) ok"
       },
       "notes": "The readable route for Supreme Court of Georgia text, since the Court's PDFs are robots-disallowed."
     },
@@ -1048,7 +1172,10 @@
         "where": "page metadata line",
         "observed": "2026 Denied … 2026-10-14"
       },
-      "hazards": ["only 2022 onward", "pre-2022 cert history must come from the Court of Appeals docket record"],
+      "hazards": [
+        "only 2022 onward",
+        "pre-2022 cert history must come from the Court of Appeals docket record"
+      ],
       "probe": {
         "citation": "Vincent v. State Farm, A25A2138 → S26C1177",
         "url": "https://www.gasupreme.us/2026-denied/",
@@ -1057,9 +1184,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 2026-denied (23,660 chars) lists 'S26C1177. VINCENT v. STATE FARM MUTUAL AUTOMOBILE INSURANCE COMPANY (A25A2138)' under October 14, 2026."
+        "evidence": "fetch_doc.py: 2026-denied (23,660 chars) lists 'S26C1177. VINCENT v. STATE FARM MUTUAL AUTOMOBILE INSURANCE COMPANY (A25A2138)' under October 14, 2026. | Independent check 2026-10-16: script: 'S26C1177. VINCENT v. STATE FARM ... (A25A2138)' under October 14, 2026; second citation Jackson v. Stevenson, A24A1853 -> S25G0922 (cert. granted Aug. 12, 2025) ok"
       },
       "notes": ""
     },
@@ -1087,8 +1214,13 @@
         "robots_txt": "allowed",
         "notes": ""
       },
-      "currency": {"where": "none", "observed": ""},
-      "hazards": ["Disposition field lags: S26C1177 denied Oct. 14, 2026 still blank on Oct. 16"],
+      "currency": {
+        "where": "none",
+        "observed": ""
+      },
+      "hazards": [
+        "Disposition field lags: S26C1177 denied Oct. 14, 2026 still blank on Oct. 16"
+      ],
       "probe": {
         "citation": "A25A2138",
         "url": "https://www.gaappeals.gov/wp-content/themes/benjamin/docket/results_one_record.php?docr_case_num=A25A2138",
@@ -1097,11 +1229,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 'Notice of Intent March 25, 2026 Application Date April 6, 2026 Certiorari Number S26C1177'; Disposition blank."
+        "evidence": "fetch_doc.py grep: 'Notice of Intent March 25, 2026 Application Date April 6, 2026 Certiorari Number S26C1177'; Disposition blank. | Independent check 2026-10-16: script: 'Notice of Intent March 25, 2026 ... Certiorari Number S26C1177'; Disposition blank; second citation A24A1853 ok"
       },
-      "notes": "Gives the cert number deterministically from the Court of Appeals docket; confirm the disposition on ga-cert-lists."
+      "notes": "Gives the cert number deterministically from the Court of Appeals docket; confirm the disposition on ga-cert-lists. On grant the record shows the G number with 'Disposition Granted' and date (A24A1853 → S25G0922, Aug. 12, 2025)."
     }
   ],
   "absent": [
@@ -1185,9 +1317,9 @@
     "Whether the Supreme Court 'Final Copy' replacements (advance-sheet versions) carry Ga. Reports pagination — not checkable (PDFs robots-disallowed).",
     "Whether SOS has published a constitution revised after the November 2024 amendments; only the January 2023 PDF was found.",
     "Supreme Court of Georgia opinions before 2017 on the Court's site: year pages exist only for 2017-2026.",
-    "Justia slug for decimal O.C.G.A. sections (e.g. 16-13-30.1) not verified.",
     "Georgia Laws (session laws) text route not established: legis.ga.gov is a JS app; Digital Library of Georgia copy not probed.",
     "Exact year the Court of Appeals PDFs begin (spot checks: none 2010-2012, present March 2013).",
-    "CourtListener court ids ga / gactapp unverified."
+    "CourtListener court ids ga / gactapp unverified.",
+    "Rows ga-legis-session-laws, ga-rules-prof-conduct-gabar, ga-sc-docket-pubdoc (reported) and ga-rules-supreme, ga-rules-uscr-gasupreme, ga-sc-opinion-pdfs (blocked) were not re-observed by the independent check: its WebFetch attempts waited on the session's URL-approval prompt (not site behaviour). Re-check them in a session without that gate; the robots blocks were observed by the script in the research pass."
   ]
 }

@@ -309,11 +309,11 @@
     "ga": {
       "name": "Georgia",
       "file": "jurisdictions/ga.md",
-      "sha256": "c14013188005fcac5fe0d9f7c19d2c442a76dbc9886b0d81f4ff1eee7d726af8",
+      "sha256": "fb5e7b06ca851ed020ce2b156a262a1902f68565ddb7064b2e81f835e29e4dad",
       "compiled": "2026-10-16",
       "counts": {
         "reported": 4,
-        "verified": 14,
+        "verified_independent": 14,
         "blocked": 3
       },
       "citation_patterns": [
@@ -327,11 +327,11 @@
         },
         {
           "label": "Georgia Constitution of 1983",
-          "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|\u00b6)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)"
+          "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|\u00b6)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)|Paragraph\\s+(?P<paragraph3>[IVXL]+(?:-[A-Z])?)\\s+of\\s+Section\\s+(?P<section3>[IVXL]+)\\s+of\\s+Article\\s+(?P<article3>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)"
         },
         {
           "label": "Uniform Superior Court Rules",
-          "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|Ga\\.\\s*Unif\\.\\s*Super\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules"
+          "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|(?:Ga\\.\\s*)?Unif(?:orm|\\.)\\s*Super(?:ior|\\.)\\s*C(?:our)?t\\.?\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules"
         },
         {
           "label": "Rules of the Supreme Court of Georgia",
