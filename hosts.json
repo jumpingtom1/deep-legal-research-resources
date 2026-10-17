@@ -696,6 +696,9 @@
     "pa-cons-statutes-justia",
     "pa-constitution-justia",
     "pa-cases-justia",
+    "ri-gl-justia",
+    "ri-constitution-justia",
+    "ri-cases-justia",
     "sc-code-justia",
     "sc-constitution-justia",
     "sc-cases-justia",
@@ -1159,6 +1162,13 @@
    ],
    "blocked_sources": []
   },
+  "publicportal.courts.ri.gov": {
+   "status": "allowed",
+   "sources": [
+    "ri-docket-publicportal"
+   ],
+   "blocked_sources": []
+  },
   "raw.githubusercontent.com": {
    "status": "allowed",
    "sources": [
@@ -1254,6 +1264,14 @@
    "sources": [
     "ga-admincode-sos",
     "ga-admin-bulletin"
+   ],
+   "blocked_sources": []
+  },
+  "rules.sos.ri.gov": {
+   "status": "allowed",
+   "sources": [
+    "ri-ricr-sos",
+    "ri-ricr-proposed"
    ],
    "blocked_sources": []
   },
@@ -1415,6 +1433,14 @@
    ],
    "blocked_sources": []
   },
+  "webserver.rilegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "ri-gl-legislature",
+    "ri-public-laws"
+   ],
+   "blocked_sources": []
+  },
   "wscca.wicourts.gov": {
    "status": "allowed",
    "sources": [
@@ -1558,6 +1584,20 @@
    "sources": [
     "nh-opinions-courts",
     "nh-orders-courts"
+   ],
+   "blocked_sources": []
+  },
+  "www.courts.ri.gov": {
+   "status": "allowed",
+   "sources": [
+    "ri-rules-superior-civil",
+    "ri-rules-superior-criminal",
+    "ri-rules-supreme",
+    "ri-rules-evidence",
+    "ri-rules-other-courts",
+    "ri-opinions-supreme",
+    "ri-decisions-trial",
+    "ri-orders-supreme"
    ],
    "blocked_sources": []
   },
@@ -1844,6 +1884,7 @@
     "ok-oac-lii",
     "pa-rules-lii",
     "pa-admincode-lii",
+    "ri-ricr-lii",
     "tn-admincode-lii",
     "tx-tac-lii",
     "ut-admincode-lii",
@@ -2142,6 +2183,13 @@
     "mn-courtrules-revisor-pdf",
     "mn-rules-revisor",
     "mn-register-revisor"
+   ],
+   "blocked_sources": []
+  },
+  "www.rilegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "ri-constitution-legislature"
    ],
    "blocked_sources": []
   },

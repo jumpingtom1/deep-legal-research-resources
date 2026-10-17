@@ -3149,6 +3149,98 @@
         }
       ]
     },
+    "ri": {
+      "name": "Rhode Island",
+      "file": "jurisdictions/ri.md",
+      "sha256": "7c34de4af3345aa94a6b247076a2fea96ce7aef15e789ae74c803f8a52264392",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 17,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Rhode Island General Laws",
+          "regex": "(?:R\\.\\s*I\\.\\s*Gen\\.\\s*Laws(?:\\s+Ann\\.)?|R\\.\\s*I\\.\\s*G\\.\\s*L\\.|G\\.\\s*L\\.\\s*(?:R\\.\\s*I\\.\\s*)?1956|Gen(?:eral|\\.)?\\s+Laws\\s+1956)\\s*,?\\s*(?:\\(\\d{4}\\s+Reenactment\\)\\s*)?\u00a7\u00a7?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}(?:\\.\\d+)?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}(?:\\.\\d+)?-\\d{1,4}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?General\\s+Laws|(?:R\\.\\s*I\\.\\s*Gen\\.\\s*Laws|G\\.\\s*L\\.\\s*1956)\\s*,?\\s*ch(?:apter|\\.)\\s*(?P<chapter3>\\d{1,2}[A-Z]?-\\d{1,3}(?:\\.\\d+)?)(?![\\d])|chapter\\s+(?P<chapter4>\\d{1,2}[A-Z]?-\\d{1,3}(?:\\.\\d+)?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?General\\s+Laws",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island General Laws (bare section, no marker)",
+          "regex": "(?:\u00a7\u00a7?|\\bsec(?:tion|\\.))\\s*(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}(?:\\.\\d+)?-\\d{1,4}(?:\\.\\d+)?)(?![\\d])",
+          "context_required": true
+        },
+        {
+          "label": "Rhode Island Public Laws (session laws, Bluebook)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+R\\.\\s*I\\.\\s*Pub\\.\\s*Laws\\s+(?:ch\\.\\s*(?P<chapter>\\d{1,3})|(?P<page>\\d{1,5}))",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island Public Laws (P.L. year, ch. N)",
+          "regex": "P\\.\\s*L\\.\\s*(?P<year>(?:19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d{1,3})",
+          "context_required": true
+        },
+        {
+          "label": "Rhode Island Constitution",
+          "regex": "R\\.\\s*I\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|sec\\.)\\s*(?P<section>\\d{1,2})|article\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+section\\s+(?P<section2>\\d{1,2})\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Rhode\\s+Island)",
+          "context_required": false
+        },
+        {
+          "label": "Superior Court Rules of Civil Procedure",
+          "regex": "(?:R\\.\\s*I\\.\\s*)?Super\\.\\s*(?:Ct\\.\\s*)?R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Superior\\s+Court\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Superior Court Rules of Criminal Procedure",
+          "regex": "(?:R\\.\\s*I\\.\\s*)?Super\\.\\s*(?:Ct\\.\\s*)?R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Superior\\s+Court\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Superior Court Rules of Civil / Criminal Procedure (prose, no state marker)",
+          "regex": "Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Superior\\s+Court\\s+Rules\\s+of\\s+(?P<kind>Civil|Criminal)\\s+Procedure",
+          "context_required": true
+        },
+        {
+          "label": "Supreme Court Rules (Articles I-X: appellate procedure, discipline, professional conduct, judicial conduct)",
+          "regex": "Article\\s+(?P<article>[IVX]+),?\\s+Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?[A-Z]?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?Supreme\\s+Court\\s+Rules|R\\.\\s*I\\.\\s*Sup(?:r|reme)?\\.?\\s*Ct\\.\\s*R(?:ules?|\\.)?,?\\s*art\\.\\s*(?P<article2>[IVX]+),?\\s*R(?:ule|\\.)\\s*(?P<rule2>\\d{1,2}(?:\\.\\d+)?[A-Z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island Rules of Evidence",
+          "regex": "R\\.\\s*I\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Family Court and District Court rules",
+          "regex": "Fam\\.\\s*Ct\\.\\s*R\\.\\s*Dom\\.\\s*Rel\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?(?:Family\\s+Court\\s+Rules\\s+of\\s+Domestic\\s+Relations\\s+Procedure|District\\s+Court\\s+Civil\\s+Rules)|R\\.\\s*I\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule3>\\d{1,2}(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island Code of Regulations (RICR)",
+          "regex": "(?:\\d{3}\\s+R\\.\\s*I\\.\\s*Code\\s+R\\.\\s*)?(?P<title>\\d{3})-RICR-(?P<chapter>\\d{2,3})-(?P<subchapter>\\d{2})-(?P<part>\\d{1,3})(?:\\.(?P<section>\\d+(?:\\.\\d+)*))?",
+          "context_required": false
+        },
+        {
+          "label": "Reported Rhode Island cases (Atlantic Reporter)",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>R\\.\\s*I\\.(?:\\s*Super\\.(?:\\s*Ct\\.)?)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*)?(?P<year>\\d{4})\\)|(?P<rivol>\\d{1,3})\\s+R\\.\\s*I\\.\\s+(?P<ripage>\\d{1,4}),\\s*(?P<volume2>\\d{1,4})\\s+A\\.(?:\\s*(?P<series2>2)d)?\\s+(?P<page2>\\d{1,5})",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island Reports (official, to 1980)",
+          "regex": "(?P<volume>\\d{1,3})\\s+R\\.\\s*I\\.\\s+(?P<page>\\d{1,4})(?![\\d])",
+          "context_required": false
+        },
+        {
+          "label": "Rhode Island Supreme Court docket number",
+          "regex": "No\\.\\s*(?P<year>(?:19|20)?\\d\\d)-(?P<seq>\\d{1,4})-(?P<type>Appeal|C\\.\\s*A\\.|M\\.\\s*P\\.|M\\.\\s*R\\.|C\\.\\s*P\\.)",
+          "context_required": false
+        },
+        {
+          "label": "Superior Court civil action number (county prefix)",
+          "regex": "(?:C\\.\\s*A\\.\\s*No\\.\\s*)?(?P<county>[PKNW][CM]|PB)-(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{3,5})(?![\\d])",
+          "context_required": true
+        }
+      ]
+    },
     "sc": {
       "name": "South Carolina",
       "file": "jurisdictions/sc.md",
