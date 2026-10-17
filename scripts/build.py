@@ -407,9 +407,14 @@ def main():
     if not check_only and not all_err:
         write_hosts()
         (ROOT / "corpus").mkdir(exist_ok=True)
-        (ROOT / "corpus" / "index.json").write_text(json.dumps(
-            {"generated": date.today().isoformat(), "collections": CORPUS_INDEX},
-            indent=1) + "\n")
+        ci = ROOT / "corpus" / "index.json"
+        try:
+            prev = json.loads(ci.read_text())
+        except Exception:
+            prev = {}
+        if prev.get("collections") != CORPUS_INDEX:      # no date-only churn
+            ci.write_text(json.dumps({"generated": date.today().isoformat(),
+                                      "collections": CORPUS_INDEX}, indent=1) + "\n")
     for w in all_warn:
         print("WARN ", w)
     for e in all_err:
