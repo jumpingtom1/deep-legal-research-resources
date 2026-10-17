@@ -1,0 +1,137 @@
+{
+  "jurisdiction": "sc",
+  "date": "2026-10-17",
+  "rows": [
+    {
+      "id": "sc-acts-scstatehouse",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch newlaws.php YES 'Ratification Sheets & Act Lists', '2025-2026 Legislative Session'; script grep same",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Index only; act text pages still unprobed, so a run cannot quote session-law text from this row.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sc-code-scstatehouse",
+      "outcome": "confirmed",
+      "probe_evidence": "Script grep 'SECTION 15-3-530. Three years. Within three years: (1) an action upon a contract'; WebFetch YES, ends 15-3-700, not truncated",
+      "generalised_citation": "S.C. Code Ann. § 33-41-510",
+      "generalised_url": "https://www.scstatehouse.gov/code/t33c041.php",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": "Currency string re-confirmed verbatim on statmast.php: 'now current through the 2025 Session of the General Assembly'."
+    },
+    {
+      "id": "sc-code-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES 'Within three years: (1) an action upon a contract, obligation,'; '2025 South Carolina Code of Laws'",
+      "generalised_citation": "S.C. Code Ann. § 39-5-20",
+      "generalised_url": "https://law.justia.com/codes/south-carolina/title-39/chapter-5/section-39-5-20/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sc-constitution-scstatehouse",
+      "outcome": "confirmed",
+      "probe_evidence": "Script grep A01.pdf 'The right of the people to be secure in their persons'; WebFetch YES, last § 25",
+      "generalised_citation": "S.C. Const. art. III, § 17",
+      "generalised_url": "https://www.scstatehouse.gov/scconstitution/A03.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Grep 'SECTION 17' alone first hits an Editor's Note ('Art II, Section 17'); search 'SECTION 17. ' with the period-space.",
+      "suggested_fix": "In placeholders say: locate 'SECTION {n}. ' (with period and space) - editor's notes cite 1868-constitution sections by the same number."
+    },
+    {
+      "id": "sc-constitution-justia",
+      "outcome": "discrepancy",
+      "probe_evidence": "WebFetch a01.html YES 'The right of the people to be secure in their'; last § 24",
+      "generalised_citation": "S.C. Const. art. III, § 17",
+      "generalised_url": "https://law.justia.com/constitution/south-carolina/a03.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Currency recorded as 'none stated', but WebFetch reported the page says 'current through the 2005 Regular Session' - i.e. ~20 years stale, worse than the record implies.",
+      "suggested_fix": "Set currency.where = page note, observed = 'current through the 2005 Regular Session of the South Carolina General Assembly'; add hazard 'text as of 2005'."
+    },
+    {
+      "id": "sc-rules-sccourts",
+      "outcome": "still-blocked",
+      "probe_evidence": "fetch_doc.py check REFUSED: robots.txt on www.sccourts.org disallows /court-rules/ (Disallow: /)",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sc-regs-scstatehouse",
+      "outcome": "discrepancy",
+      "probe_evidence": "Script Chapter%2061-62.pdf p.60: 'Depart- ment approved malfunction plan' (line-break hyphen); currency 'Volume 50, Issue 3, effective March 27, 2026'",
+      "generalised_citation": "S.C. Code Ann. Regs. 67-1201",
+      "generalised_url": "https://www.scstatehouse.gov/coderegs/Chapter%2067.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Probe 'expect' string 'Department approved malfunction plan' does not occur verbatim in the extracted PDF text (hyphenated across a line: 'Depart- ment'), so an exact verify/grep of the expect string fails. Index links are printed with a raw space ('Chapter 67.pdf'); the %20 note in placeholders correctly covers this.",
+      "suggested_fix": "Change probe.expect to 'approved malfunction plan' (or another unhyphenated phrase); add hazard 'PDF line-break hyphenation splits words'."
+    },
+    {
+      "id": "sc-register-scstatehouse",
+      "outcome": "confirmed",
+      "probe_evidence": "Script Sr50-9.pdf 53 pp, 'Published September 25, 2026 Volume 50'",
+      "generalised_citation": "49 S.C. Reg. (June 27, 2025), Issue No. 6",
+      "generalised_url": "https://www.scstatehouse.gov/state_register.php?first=FILE&pdf=1&file=Sr49-6.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sc-advance-sheets-statelibrary",
+      "outcome": "confirmed",
+      "probe_evidence": "Script item page: 'South Carolina State Documents Depository Judicial Department Advance Sheets ... advance sheet no. 26'",
+      "generalised_citation": "",
+      "generalised_url": "https://dc.statelibrary.sc.gov/handle/10827/31198",
+      "generalised_outcome": "failed",
+      "instruction_problems": "PROVENANCE (settled): acceptable as tier 1 - the State Library publishes these under its own statutory depository (S.C. Code 60-2-10), not an unadvertised mirror. statelibrary.sc.gov/state-agencies/state-documents-depository (robots OK) says 'Born digital and digitized state documents are available online through the digital South Carolina State Documents Depository'; item breadcrumb 'South Carolina State Documents Depository > Judicial Department > Advance Sheets', collection 3af736e4-f93e-4852-9c7d-d29c9e326d84, handle 10827/31198; item metadata says it was saved from a publicly posted PDF. ROBOTS: dc.statelibrary.sc.gov allows /entities/publication/*, /handle/*, /bitstreams/*/download, and explicitly 'Allow: /server/api/core/bitstreams' (but 'Disallow: /server/api/*', /search, /browse; Crawl-delay 10). TEXT NOT REACHABLE: handle page links https://dc.statelibrary.sc.gov/bitstreams/d86abe6b-7e28-4034-a5fe-d9d24d69c9c6/download, which returns a 434-char Angular shell; the real file /server/api/core/bitstreams/{id}/content returned HTTP 403 (script REFUSED; a second bitstream from search results also 403). WebFetch of the item page: 'error while fetching' (target error, not quota). Not retried.",
+      "suggested_fix": "Record route: index-anchored, tier 1 (publisher: SC State Library, State Documents Depository), text link-only; navigation: web search or handle URL https://dc.statelibrary.sc.gov/handle/10827/{n} (script 'links' exposes the collection and bitstreams/{uuid}/download) -> PDF; automation shell http-error (bitstream content 403), webfetch failed; hazard 'PDF bitstreams 403 to automated clients'; hazard 'no robots-permitted search/browse; collection page renders empty to the script'. Close the open question on provenance; keep status reported, link-only."
+    },
+    {
+      "id": "sc-opinions-sccourts",
+      "outcome": "still-blocked",
+      "probe_evidence": "fetch_doc.py check REFUSED: robots.txt on www.sccourts.org disallows /opinions/ (Disallow: /)",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "sc-cases-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch 2024/28245.html YES 'When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy'",
+      "generalised_citation": "SC Public Interest Found. v. Oconee County, Op. No. 28352 (S.C. Sept. 9, 2026)",
+      "generalised_url": "https://law.justia.com/cases/south-carolina/supreme-court/2026/28352.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Currency moved: Supreme Court listing now ends Sept. 9, 2026 (No. 28352), not Aug. 12. Court of Appeals 2026 listing ends July 24, 2026 (2026-UP-390), about 12 weeks behind - the COA lag is not recorded. Slip-only pagination confirmed on 28352 (Appellate Case No. 2025-000790).",
+      "suggested_fix": "Update currency.observed to 'latest Supreme Court entry Sept. 9, 2026 (No. 28352)'; add 'Court of Appeals listing ends July 24, 2026 (~3 months lag)' to hazards."
+    },
+    {
+      "id": "sc-ctrack-appellate-dockets",
+      "outcome": "confirmed",
+      "probe_evidence": "Script -> caseView.do?csIID=78122: '10/14/2025 Supreme Court of the United States - Notice that Certiorari Denied'",
+      "generalised_citation": "Bodman v. State, 403 S.C. 60, 742 S.E.2d 363 (2013) (shortTitle=Bodman, courtID=10001)",
+      "generalised_url": "https://ctrack.sccourts.org/public/caseSearch.do?courtID=10001&shortTitle=Bodman&submitValue=Search&action=Search&startRow=1&displayRows=50&orderBy=FileDt&orderDir=DESC&href=/public/caseView.do",
+      "generalised_outcome": "ok",
+      "instruction_problems": "PROVENANCE (settled): fetch_doc.py check OK - ctrack.sccourts.org robots.txt is 404 (no rules). The Judicial Department's own FY2013-14 accountability report (https://www.scstatehouse.gov/Archives/aar2014/B04.pdf, p. 3, script-read) states 'a public version of the Appellate CMS, C-Track, was added to the SCJD Website' for public case information; web search also shows the court's link sccourts.org/ACMS (not fetched: apex sccourts.org robots 'Disallow: /' too, check REFUSED). So it is the court's own linked docket application, acceptable for docket/disposition events only - NOT as a substitute for the robots-blocked opinion pages (its Documents column must not be used to pull opinion PDFs). Coverage note is off: shortTitle=Bodman returned 2011-187466 (filed 03/14/2011, disposition 05/08/2013, legacy documents), so coverage reaches at least 2011 filings.",
+      "suggested_fix": "Add provenance evidence (aar2014/B04.pdf p.3 quote) to notes; add hazard/note 'docket events only; do not retrieve opinion documents from C-Track'; change coverage to 'cases filed or pending from about 2011 (legacy files for older pending cases)'."
+    }
+  ],
+  "regex_tests": [
+    {"citation": "Rule 59(e), SCRCP", "matched_label": "SC Rules of Civil Procedure (SCRCP)", "expected_label": "SC Rules of Civil Procedure (SCRCP)"},
+    {"citation": "section 15-78-60 of the South Carolina Code", "matched_label": "SC Code of Laws", "expected_label": "SC Code of Laws"},
+    {"citation": "Doe v. State, 421 S.C. 490, 808 S.E.2d 807 (2017)", "matched_label": "Reported SC cases (S.C. Reports; S.E.2d with S.C. parenthetical)", "expected_label": "Reported SC cases (S.C. Reports; S.E.2d with S.C. parenthetical)"},
+    {"citation": "Op. No. 2025-UP-112 (S.C. Ct. App. filed Mar. 26, 2025)", "matched_label": "SC opinion numbers, unpublished and memorandum opinions, advance sheets", "expected_label": "SC opinion numbers, unpublished and memorandum opinions, advance sheets"},
+    {"citation": "S.C. Const. art. III, § 17", "matched_label": "SC Constitution", "expected_label": "SC Constitution"},
+    {"citation": "S.C. Code Ann. Regs. 67-1201", "matched_label": "SC Code of Regulations", "expected_label": "SC Code of Regulations"},
+    {"citation": "Rule 4.2, RPC, Rule 407, SCACR", "matched_label": "SC Appellate Court Rules (SCACR) incl. Rule 407 RPC", "expected_label": "SC Appellate Court Rules (SCACR) incl. Rule 407 RPC"},
+    {"citation": "Section 1714 of the Civil Code", "matched_label": null, "expected_label": "null (California cite; negative control)"}
+  ],
+  "overall": "Eight live rows confirmed or usable; two discrepancies: the Justia Constitution says it is current through the 2005 session (recorded as no date), and the regs probe's expected text is split by a line-break hyphen in the PDF ('Depart- ment'). Justia's currency has moved (Supreme Court to Sept. 9, 2026), and its Court of Appeals listing lags about 3 months, which isn't recorded. Both www.sccourts.org rows are still blocked. C-Track provenance is settled: robots.txt is 404, and the Judicial Department's own 2014 accountability report says it added C-Track to its website, so it's usable for docket events only. The State Library advance sheets are an acceptable tier-1 publication (the State Library's own statutory depository collection), but the PDF bitstreams return 403, so they stay link-only. No regex misses or false routes."
+}
