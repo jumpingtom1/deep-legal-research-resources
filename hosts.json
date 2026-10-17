@@ -297,6 +297,14 @@
    ],
    "blocked_sources": []
   },
+  "courts.maine.gov": {
+   "status": "allowed",
+   "sources": [
+    "me-opinions-courts",
+    "me-subsequent-history-lawcourt"
+   ],
+   "blocked_sources": []
+  },
   "courts.ms.gov": {
    "status": "allowed",
    "sources": [
@@ -618,6 +626,9 @@
     "md-code-justia",
     "md-constitution-justia",
     "md-cases-justia",
+    "me-statutes-justia",
+    "me-constitution-justia",
+    "me-cases-justia",
     "mi-mcl-justia",
     "mi-constitution-justia",
     "mi-cases-justia",
@@ -790,6 +801,14 @@
    ],
    "blocked_sources": []
   },
+  "legislature.maine.gov": {
+   "status": "allowed",
+   "sources": [
+    "me-statutes-legislature",
+    "me-constitution-revisor"
+   ],
+   "blocked_sources": []
+  },
   "legislature.mi.gov": {
    "status": "allowed",
    "sources": [
@@ -810,6 +829,14 @@
    "status": "allowed",
    "sources": [
     "nj-statutes-njleg"
+   ],
+   "blocked_sources": []
+  },
+  "lldc.mainelegislature.org": {
+   "status": "allowed",
+   "sources": [
+    "me-session-laws-lldc",
+    "me-maine-reports-lldc"
    ],
    "blocked_sources": []
   },
@@ -1450,6 +1477,18 @@
     "ca-opinions-courts"
    ]
   },
+  "www.courts.maine.gov": {
+   "status": "allowed",
+   "sources": [
+    "me-rules-civil",
+    "me-rules-criminal",
+    "me-rules-evidence",
+    "me-rules-appellate",
+    "me-rules-professional-conduct",
+    "me-bcd-orders"
+   ],
+   "blocked_sources": []
+  },
   "www.courts.michigan.gov": {
    "status": "blocked",
    "sources": [
@@ -1725,6 +1764,7 @@
     "la-lac-lii",
     "ma-cmr-lii",
     "md-comar-lii",
+    "me-cmr-lii",
     "mi-admincode-lii",
     "mn-rules-lii",
     "mo-csr-lii",
@@ -1832,6 +1872,14 @@
    "status": "blocked",
    "sources": [
     "ma-docket-appellatecourts"
+   ],
+   "blocked_sources": []
+  },
+  "www.maine.gov": {
+   "status": "blocked",
+   "sources": [
+    "me-cmr-sos",
+    "me-register-sos"
    ],
    "blocked_sources": []
   },

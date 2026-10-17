@@ -378,7 +378,7 @@
     "co": {
       "name": "Colorado",
       "file": "jurisdictions/co.md",
-      "sha256": "a73a30aa570ec0abf52cc3adc75be84c9af52b5456cd351b2e5db41698388b6d",
+      "sha256": "75efd9e4b6d8389839e5d08cba6c190c5c36c52aa8155a4fac37db1f5e2c7a30",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 10,
@@ -414,7 +414,7 @@
         },
         {
           "label": "Colorado Rules of Criminal Procedure",
-          "regex": "(?:Colo\\.\\s*R\\.\\s*Crim\\.\\s*P\\.|(?<!R\\.\\s)(?<!R\\.)Crim\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "regex": "(?:Colo\\.\\s*R\\.\\s*Crim\\.\\s*P\\.|(?<![A-Za-z]\\.\\s)(?<![A-Za-z]\\.)(?<!Unified\\s)Crim\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
           "context_required": false
         },
         {
@@ -1757,6 +1757,119 @@
         }
       ]
     },
+    "me": {
+      "name": "Maine",
+      "file": "jurisdictions/me.md",
+      "sha256": "a1b558dbd8255d6cf0869429ebaa2fffa03fc80568bf5a627fd49ab4889a1f91",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 15,
+        "blocked": 2,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Maine Revised Statutes",
+          "regex": "(?:(?P<title>\\d{1,2}(?:-[A-D])?)\\s+M\\.?\\s?R\\.?\\s?S\\.?(?:\\s?A\\.?)?|Me\\.\\s*(?:Rev\\.\\s*)?Stat\\.(?:\\s*Ann\\.)?\\s*tit\\.\\s*(?P<title2>\\d{1,2}(?:-[A-D])?),?)\\s*(?:\u00a7(?!\u00a7)\\s*(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?![\\d-])|\u00a7\u00a7\\s*(?P<section_first>\\d+(?:-[A-Z]{1,2})?))|Title\\s+(?P<title3>\\d{1,2}(?:-[A-D])?),?\\s+(?:section|\u00a7)\\s*(?P<section3>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?:,\\s*sub(?:section|\u00a7)\\s*\\w+)*\\s+of\\s+the\\s+Maine\\s+Revised\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "Maine Revised Statutes (bare 'Title N, section N' house style)",
+          "regex": "Title\\s+(?P<title>\\d{1,2}(?:-[A-D])?),\\s+section\\s+(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)",
+          "context_required": true
+        },
+        {
+          "label": "Laws of Maine (session laws, Bluebook / P. & S.L. forms)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Me\\.\\s*(?:Laws|Legis\\.\\s*Serv\\.)\\s*(?:ch?\\.|chapter)\\s*(?P<chapter>\\d+)|P\\.\\s*&\\s*S\\.\\s*L\\.\\s*(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:ch?\\.|chapter)\\s*(?P<chapter2>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Laws of Maine (bare P.L. / Resolves / CR forms)",
+          "regex": "(?:P\\.\\s*L\\.|Resolves?|CR|Const\\.\\s*Res\\.)\\s*(?P<year>(?:18|19|20)\\d\\d),\\s*(?:ch?\\.|chapter)\\s*(?P<chapter>\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "Maine Constitution",
+          "regex": "Me\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*(?:pt\\.\\s*(?P<part>\\d+|[A-Za-z]+),?\\s*)?\u00a7+\\s*(?P<section>\\d+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVX]+),?\\s+(?:Part\\s+(?P<part2>\\w+),?\\s+)?section\\s+(?P<section2>\\d+(?:-[A-Z])?)\\s+of\\s+the\\s+(?:Maine\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Maine)|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Maine,\\s+Article\\s+(?P<article3>[IVX]+),\\s+(?:Part\\s+(?P<part3>\\w+),\\s+)?Section\\s+(?P<section3>\\d+(?:-[A-Z])?)",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Civil Procedure",
+          "regex": "Me\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Maine\\s+Rules\\s+of\\s+Civil\\s+Procedure|Maine\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule3>\\d+[A-Z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Civil Procedure (M.R. Civ. P., shared with Montana's 'M. R. Civ. P.')",
+          "regex": "M\\.\\s?R\\.\\s?Civ\\.\\s?P\\.\\s*(?P<rule>\\d+[A-Z]?)",
+          "context_required": true
+        },
+        {
+          "label": "Maine Rules of Unified Criminal Procedure",
+          "regex": "M\\.\\s?R\\.\\s?U\\.\\s?Crim\\.\\s?P\\.\\s*(?P<rule>\\d+[A-Z]?)|Me\\.\\s*R\\.\\s*Unified\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d+[A-Z]?)|Rule\\s+(?P<rule3>\\d+[A-Z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Maine\\s+Rules\\s+of\\s+Unified\\s+Criminal\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Evidence",
+          "regex": "Me\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Maine\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Maine\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Evidence (M.R. Evid., shared with Montana)",
+          "regex": "M\\.\\s?R\\.\\s?Evid\\.\\s*(?P<rule>\\d{3,4})",
+          "context_required": true
+        },
+        {
+          "label": "Maine Rules of Appellate Procedure",
+          "regex": "Me\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Maine\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Appellate Procedure (M.R. App. P., shared with Montana)",
+          "regex": "M\\.\\s?R\\.\\s?App\\.\\s?P\\.\\s*(?P<rule>\\d+[A-Z]?)",
+          "context_required": true
+        },
+        {
+          "label": "Maine Rules of Professional Conduct",
+          "regex": "Me\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct\\s*(?P<rule>\\d\\.\\d+)|Rule\\s+(?P<rule2>\\d\\.\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Maine\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
+        },
+        {
+          "label": "Maine Rules of Professional Conduct (M.R. Prof. Conduct, shared with Montana)",
+          "regex": "M\\.\\s?R\\.\\s?Prof\\.\\s*Cond(?:uct|\\.)\\s*(?P<rule>\\d\\.\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "Code of Maine Rules",
+          "regex": "(?P<agency>\\d{2})-(?P<unit>\\d{3})\\s*C\\.?\\s?M\\.?\\s?R\\.?\\s*(?:ch\\.?|chapter)\\s*(?P<chapter>\\d+[A-Z]?)(?:,\\s*\u00a7\\s*(?P<section>\\d+))?|(?P<agency2>\\d{2})-(?P<unit2>\\d{3})-(?P<chapter2>\\d+[A-Z]?)\\s+Me\\.\\s*Code\\s*R\\.(?:\\s*\u00a7\\s*(?P<section2>\\d+))?|Code\\s+Me\\.\\s*R\\.\\s*(?:tit\\.\\s*)?(?P<agency3>\\d{2})-(?P<unit3>\\d{3}),?\\s*(?:ch\\.?|chapter)\\s*(?P<chapter3>\\d+[A-Z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Maine public-domain citation (YYYY ME N)",
+          "regex": "(?P<year>(?:199[7-9]|20\\d\\d))\\s+ME\\s+(?P<number>\\d{1,3})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Atlantic Reporter with Maine parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Me\\.(?:\\s*Super\\.(?:\\s*Ct\\.)?|\\s*Bus\\.\\s*&\\s*Consumer\\s*Ct\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Me\\.",
+          "context_required": false
+        },
+        {
+          "label": "Maine Reports (official reporter, vols. 1-161, 1820-1965)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Me\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Law Court docket numbers (county-coded)",
+          "regex": "(?P<county>And|Aro|Cum|Fra|Han|Ken|Kno|Lin|Oxf|Pen|Pis|Sag|Som|Wal|Was|Yor|BCD|WCB|SRP)-(?P<yy>\\d{2})-(?P<number>\\d{1,4})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Law Court memorandum of decision",
+          "regex": "Mem(?:\\.\\s*Dec\\.)?[-\\s]?(?P<yy>\\d{2})-(?P<number>\\d{1,3})(?!\\d)",
+          "context_required": true
+        }
+      ]
+    },
     "mi": {
       "name": "Michigan",
       "file": "jurisdictions/mi.md",
@@ -2111,7 +2224,7 @@
     "mt": {
       "name": "Montana",
       "file": "jurisdictions/mt.md",
-      "sha256": "cbdf6363f2b239166195b7ee1d7a46429502b67fd742433f8eecf9474c426523",
+      "sha256": "5736b79ca0e6fb1f86f11ac164618571ad92f94a4e6866b07e40368a8c40d2dc",
       "compiled": "2026-10-17",
       "counts": {
         "verified_independent": 11,
@@ -2130,18 +2243,33 @@
         },
         {
           "label": "Montana Rules of Civil Procedure",
-          "regex": "(?:\\bM\\.\\s*R\\.\\s*Civ\\.\\s*P\\.|Mont\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Civ\\.\\s*P\\.|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "regex": "Mont\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Civil\\s+Procedure",
           "context_required": false
+        },
+        {
+          "label": "Montana Rules of Civil Procedure (bare 'M. R.')",
+          "regex": "\\bM\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Civ\\.\\s*P\\.",
+          "context_required": true
         },
         {
           "label": "Montana Rules of Evidence",
-          "regex": "(?:\\bM\\.\\s*R\\.\\s*Evid\\.|Mont\\.\\s*R\\.\\s*Evid\\.)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Evid\\.|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Evidence",
+          "regex": "Mont\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Evidence",
           "context_required": false
         },
         {
+          "label": "Montana Rules of Evidence (bare 'M. R.')",
+          "regex": "\\bM\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Evid\\.",
+          "context_required": true
+        },
+        {
           "label": "Montana Rules of Appellate Procedure",
-          "regex": "(?:\\bM\\.\\s*R\\.\\s*App\\.\\s*P\\.|Mont\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule2>\\d{1,2})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*App\\.\\s*P\\.|Rule\\s+(?P<rule3>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "regex": "Mont\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule3>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
           "context_required": false
+        },
+        {
+          "label": "Montana Rules of Appellate Procedure (bare 'M. R.')",
+          "regex": "\\bM\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule2>\\d{1,2})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*App\\.\\s*P\\.",
+          "context_required": true
         },
         {
           "label": "Montana Uniform District Court Rules",
@@ -2150,8 +2278,13 @@
         },
         {
           "label": "Montana Rules of Professional Conduct",
-          "regex": "(?:Mont\\.|\\bM\\.)\\s*R\\.\\s*Prof(?:'l|\u2019l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "regex": "Mont\\.\\s*R\\.\\s*Prof(?:'l|\u2019l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
           "context_required": false
+        },
+        {
+          "label": "Montana Rules of Professional Conduct (bare 'M. R.')",
+          "regex": "\\bM\\.\\s*R\\.\\s*Prof(?:'l|\u2019l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})",
+          "context_required": true
         },
         {
           "label": "Administrative Rules of Montana (ARM)",
@@ -2358,7 +2491,7 @@
     "nj": {
       "name": "New Jersey",
       "file": "jurisdictions/nj.md",
-      "sha256": "e5c523d7a2fcf14b7fe4fd33f0575e1c6621657a7e5d7504b5210f1e9089e111",
+      "sha256": "b19e56ff05dbf203229f266f303ca6bc2463fdcd4a91866b913dd32c08b3c153",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 11,
@@ -2373,7 +2506,7 @@
         },
         {
           "label": "Pamphlet Laws (session laws)",
-          "regex": "(?:P\\.\\s*L\\.|\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)",
+          "regex": "(?:\\bP\\.\\s*L\\.|(?<![A-Za-z]\\.)(?<![A-Za-z]\\.\\s)\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c\\.\\s*(?P<chapter>\\d+)",
           "context_required": false
         },
         {

@@ -76,13 +76,10 @@
         "family": "court_rules",
         "label": "Montana Rules of Civil Procedure",
         "examples": [
-          "M. R. Civ. P. 12(b)(6)",
-          "M.R.Civ.P. 56(c)",
           "Mont. R. Civ. P. 4.1",
-          "Rule 12(b)(6), M. R. Civ. P.",
           "Rule 56 of the Montana Rules of Civil Procedure"
         ],
-        "regex": "(?:\\bM\\.\\s*R\\.\\s*Civ\\.\\s*P\\.|Mont\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Civ\\.\\s*P\\.|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "regex": "Mont\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Civil\\s+Procedure",
         "routes_to": [
           "mt-rules-mca-civ",
           "mt-rules-courts-pdf"
@@ -90,14 +87,27 @@
       },
       {
         "family": "court_rules",
+        "label": "Montana Rules of Civil Procedure (bare 'M. R.')",
+        "examples": [
+          "M. R. Civ. P. 12(b)(6)",
+          "M.R.Civ.P. 56(c)",
+          "Rule 12(b)(6), M. R. Civ. P."
+        ],
+        "regex": "\\bM\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Civ\\.\\s*P\\.",
+        "routes_to": [
+          "mt-rules-mca-civ",
+          "mt-rules-courts-pdf"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "court_rules",
         "label": "Montana Rules of Evidence",
         "examples": [
-          "M. R. Evid. 702",
           "Mont. R. Evid. 404(b)",
-          "Rule 702, M.R.Evid.",
           "Rule 404(b) of the Montana Rules of Evidence"
         ],
-        "regex": "(?:\\bM\\.\\s*R\\.\\s*Evid\\.|Mont\\.\\s*R\\.\\s*Evid\\.)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Evid\\.|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Evidence",
+        "regex": "Mont\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Evidence",
         "routes_to": [
           "mt-rules-mca-evid",
           "mt-rules-courts-pdf"
@@ -105,18 +115,44 @@
       },
       {
         "family": "court_rules",
+        "label": "Montana Rules of Evidence (bare 'M. R.')",
+        "examples": [
+          "M. R. Evid. 702",
+          "Rule 702, M.R.Evid."
+        ],
+        "regex": "\\bM\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*Evid\\.",
+        "routes_to": [
+          "mt-rules-mca-evid",
+          "mt-rules-courts-pdf"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "court_rules",
         "label": "Montana Rules of Appellate Procedure",
         "examples": [
-          "M. R. App. P. 12(1)(f)",
           "Mont. R. App. P. 20",
-          "Rule 14(3), M. R. App. P.",
           "Rule 4 of the Montana Rules of Appellate Procedure"
         ],
-        "regex": "(?:\\bM\\.\\s*R\\.\\s*App\\.\\s*P\\.|Mont\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule2>\\d{1,2})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*App\\.\\s*P\\.|Rule\\s+(?P<rule3>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "regex": "Mont\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule3>\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
         "routes_to": [
           "mt-rules-mca-app",
           "mt-rules-courts-pdf"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Montana Rules of Appellate Procedure (bare 'M. R.')",
+        "examples": [
+          "M. R. App. P. 12(1)(f)",
+          "Rule 14(3), M. R. App. P."
+        ],
+        "regex": "\\bM\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})|Rule\\s+(?P<rule2>\\d{1,2})(?:\\([a-z0-9]+\\))*,\\s*M\\.\\s*R\\.\\s*App\\.\\s*P\\.",
+        "routes_to": [
+          "mt-rules-mca-app",
+          "mt-rules-courts-pdf"
+        ],
+        "context_required": true
       },
       {
         "family": "court_rules",
@@ -140,14 +176,25 @@
         "label": "Montana Rules of Professional Conduct",
         "examples": [
           "Mont. R. Prof. Conduct 1.7",
-          "M. R. Prof. Cond. 3.3(a)",
           "Rule 1.7 of the Montana Rules of Professional Conduct",
           "Mont. R. Prof'l Conduct 1.7"
         ],
-        "regex": "(?:Mont\\.|\\bM\\.)\\s*R\\.\\s*Prof(?:'l|’l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+        "regex": "Mont\\.\\s*R\\.\\s*Prof(?:'l|’l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Montana\\s+Rules\\s+of\\s+Professional\\s+Conduct",
         "routes_to": [
           "mt-rules-courts-pdf"
         ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Montana Rules of Professional Conduct (bare 'M. R.')",
+        "examples": [
+          "M. R. Prof. Cond. 3.3(a)"
+        ],
+        "regex": "\\bM\\.\\s*R\\.\\s*Prof(?:'l|’l|\\.)\\s*Cond(?:uct|\\.)?\\s*(?P<rule>\\d\\.\\d{1,2})",
+        "routes_to": [
+          "mt-rules-courts-pdf"
+        ],
+        "context_required": true
       },
       {
         "family": "admin_code",
@@ -254,7 +301,7 @@
       "Mont. Admin. R.": "ARM",
       "A.R.M.": "ARM"
     },
-    "notes": "Montana's own statute style puts the code name AFTER the section ('§ 27-2-204, MCA' or '27-2-204, MCA'); Bluebook is 'Mont. Code Ann. § 27-2-204'. Section numbers are always title-chapter-section with a 3- or 4-digit last element, and a chapter may carry a letter (30-9A-101); the statute regex requires an MCA / Mont. Code Ann. / 'Montana Code' marker, so bare hyphenated numbers (shared with many states) never route here. Ranges ('§§ 27-2-201 through 27-2-205, MCA') capture the first section (group section4); the (?![\\d-]) guard keeps a range from being read as one hyphenated number. Court rules: law_aliases map the rule sets to the MCA title-chapter that hosts them (25-20 civil, 26-10 evidence, 25-21 appellate, 25-19 Uniform District Court Rules). Criminal procedure is statutory (MCA Title 46), cited as sections, not rules. Bare 'Rule 12(b)(6)' or 'Rule 702' is not routed here. Case citations: the Dec. 16, 1997 order (courts.mt.gov/external/library/docs/cite_cases.pdf) created 'YYYY MT N' with ¶ numbering from Jan. 1, 1998; N = noncitable, W = withdrawing order, A = amending order; the 2009 order sets the pinpoint form 'Doe v. Roe, 1998 MT 12, ¶¶ 44-45, 286 Mont. 175, 989 P.2d 1312'. Montana Reports (Mont.) is the official reporter; pre-1998 form is 'Roe v. Doe (1997), 284 Mont. 301, 989 P.2d 472'. There is no intermediate appellate court. CourtListener ids from memory, unverified; no id known for the Workers' Compensation Court. Independent check 2026-10-17 fixes: M.C.A. suffix now matches (\\b moved inside MCA), 'Mont. Const. Art. II, sec. N', 'Mont. R. Prof'l Conduct', and 'Rule N, Uniform District Court Rules' added. No false routes were found."
+    "notes": "Montana's own statute style puts the code name AFTER the section ('§ 27-2-204, MCA' or '27-2-204, MCA'); Bluebook is 'Mont. Code Ann. § 27-2-204'. Section numbers are always title-chapter-section with a 3- or 4-digit last element, and a chapter may carry a letter (30-9A-101); the statute regex requires an MCA / Mont. Code Ann. / 'Montana Code' marker, so bare hyphenated numbers (shared with many states) never route here. Ranges ('§§ 27-2-201 through 27-2-205, MCA') capture the first section (group section4); the (?![\\d-]) guard keeps a range from being read as one hyphenated number. Court rules: law_aliases map the rule sets to the MCA title-chapter that hosts them (25-20 civil, 26-10 evidence, 25-21 appellate, 25-19 Uniform District Court Rules). Criminal procedure is statutory (MCA Title 46), cited as sections, not rules. Bare 'Rule 12(b)(6)' or 'Rule 702' is not routed here. Case citations: the Dec. 16, 1997 order (courts.mt.gov/external/library/docs/cite_cases.pdf) created 'YYYY MT N' with ¶ numbering from Jan. 1, 1998; N = noncitable, W = withdrawing order, A = amending order; the 2009 order sets the pinpoint form 'Doe v. Roe, 1998 MT 12, ¶¶ 44-45, 286 Mont. 175, 989 P.2d 1312'. Montana Reports (Mont.) is the official reporter; pre-1998 form is 'Roe v. Doe (1997), 284 Mont. 301, 989 P.2d 472'. There is no intermediate appellate court. CourtListener ids from memory, unverified; no id known for the Workers' Compensation Court. Independent check 2026-10-17 fixes: M.C.A. suffix now matches (\\b moved inside MCA), 'Mont. Const. Art. II, sec. N', 'Mont. R. Prof'l Conduct', and 'Rule N, Uniform District Court Rules' added. No false routes were found. Bare 'M. R. Civ. P.', 'M. R. Evid.', 'M. R. App. P.', 'M. R. Prof. Cond.' are context_required: Maine uses the same 'M.R.' forms (split 2026-10-17)."
   },
   "sources": [
     {
