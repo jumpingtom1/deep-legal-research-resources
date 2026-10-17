@@ -25,8 +25,14 @@ check's findings are fixed, and the wave is committed.
 
 ## Status
 
-| Jurisdiction | Researched | Independently checked | Corpus collections |
-|---|---|---|---|
-| California | 2026-10-16 | 2026-10-16 | — |
-| Delaware | 2026-10-16 | 2026-10-16 | Superior Court Criminal Rules |
-| New York | 2026-10-16 | 2026-10-16 | — |
+| Jurisdiction | Researched | Independently checked | Sources checked twice | Blocked | Corpus collections |
+|---|---|---|---|---|---|
+| California | 2026-10-16 | 2026-10-16 | 9 | 6 | — |
+| Delaware | 2026-10-16 | 2026-10-16 | 15 | 0 | Superior Court Rules of Criminal Procedure |
+| New York | 2026-10-16 | 2026-10-16 | 13 | 4 | — |
+| Texas | 2026-10-16 | 2026-10-16 | 17 | 3 | — |
+| Florida | 2026-10-16 | 2026-10-16 | 17 | 2 | — |
+| Illinois | 2026-10-16 | 2026-10-16 | 8 | 4 | — |
+| Pennsylvania | 2026-10-16 | 2026-10-16 | 10 | 4 | — |
+| New Jersey | 2026-10-16 | 2026-10-16 | 11 | 2 | — |
+| Massachusetts | 2026-10-16 | 2026-10-16 | 21 | 2 | — |

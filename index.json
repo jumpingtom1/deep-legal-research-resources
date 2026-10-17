@@ -483,17 +483,17 @@
     "tx": {
       "name": "Texas",
       "file": "jurisdictions/tx.md",
-      "sha256": "bd43e60919ab1ac4056784bb805d0cb0c49549fbe3babea113d684fc00480b90",
+      "sha256": "cde6656dfdc7d7fc27ce85183277cd4442908732fa88146e9bfde6936a256e4d",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 16,
+        "verified_independent": 17,
         "blocked": 3,
-        "reported": 3
+        "reported": 2
       },
       "citation_patterns": [
         {
           "label": "Texas codes",
-          "regex": "Tex(?:as|\\.)\\s+(?P<code>(?:(?:[A-Z&][\\w.'\u2019&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'\u2019&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*\u00a7+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)"
+          "regex": "Tex(?:as|\\.)\\s+(?!Admin(?:istrative|\\.)\\s*Code)(?P<code>(?:(?:[A-Z&][\\w.'\u2019&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'\u2019&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*\u00a7+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)"
         },
         {
           "label": "Vernon's Texas Civil Statutes (uncodified articles)",

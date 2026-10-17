@@ -24,10 +24,6 @@ lives here.
 | `scripts/lsnet.py` · `lstext.py` | Shared code: allowlist, robots, refusals, politeness, cache · extraction and exact quote matching |
 | `research/` | Briefs for the research and verification agents, probe logs, independent-check results |
 
-## Status (2026-10-16)
+## Status
 
-| Jurisdiction | Independently verified | Reported | Blocked | Corpus |
-|---|---|---|---|---|
-| California | 9 | 1 | 6 | — |
-| Delaware | 15 | 2 | 0 | Superior Court Criminal Rules (85 units) |
-| New York | 13 | 3 | 4 | — |
+See `PRIORITY.md` for the build order and per-jurisdiction status. Done so far: California, Delaware, New York, Texas, Florida, Illinois, Pennsylvania, New Jersey, Massachusetts.

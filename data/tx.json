@@ -83,7 +83,7 @@
           "CPRC § 16.003",
           "Tex. Civ. Prac. & Rem. Code §§ 16.003-.004"
         ],
-        "regex": "Tex(?:as|\\.)\\s+(?P<code>(?:(?:[A-Z&][\\w.'’&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:§§?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|§)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'’&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*§+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)",
+        "regex": "Tex(?:as|\\.)\\s+(?!Admin(?:istrative|\\.)\\s*Code)(?P<code>(?:(?:[A-Z&][\\w.'’&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:§§?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|§)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'’&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*§+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)",
         "routes_to": [
           "tx-statutes-tcss",
           "tx-statutes-justia",
@@ -359,7 +359,7 @@
       "Texas Constitution": "CN",
       "Insurance Code - Not Codified": "I1"
     },
-    "notes": "Statute citations: Bluebook 'Tex. Civ. Prac. & Rem. Code Ann. § 16.003 (West 20xx)'; Texas Greenbook (Texas Rules of Form) drops 'Ann.' and the publisher. Every Texas code section number is {chapter}.{section-within-chapter}, so the chapter is the part before the first dot (§ 16.003 → ch. 16; § 552.325 → ch. 552; art. 38.23 → ch. 38; § 2001.038 → ch. 2001; CCP chapters can carry letters: ch. 2A). The Code of Criminal Procedure uses 'art.' not '§'; it was partly recodified effective Jan. 1, 2025 (Acts 2023, H.B. 4504), so pre-2025 article numbers in older opinions may not exist in the current chapter file. 'Prob. Code' (PB) is repealed (replaced by the Estates Code, 2014) — the site no longer lists it in StatuteCodes.json; treat a Probate Code cite as historical. Guard against other states: bare 'Penal Code', 'Government Code', 'Family Code', 'Probate Code', 'Insurance Code', 'Labor Code', 'Education Code', 'Water Code', 'Property Code' route here ONLY with a 'Tex.'/'Texas' prefix — California has Penal Code § 187 and dotted sections like Penal Code § 12022.53, and 'Code of Civil Procedure § 425.16' is California, not Texas. Prose forms without 'Texas' route here only for Texas-unique code names (Civil Practice and Remedies, Code of Criminal Procedure, Business Organizations, Parks and Wildlife, Special District Local Laws, Alcoholic Beverage, Occupations, Human Resources, Business and Commerce, Estates). Bare 'CCP' is ambiguous (California Code of Civil Procedure) and is not routed. A range '§§ 16.003-.004' or '§§ 16.003–16.004' is a span: take the first section only (the regex stops at the hyphen). Bare 'Rule 91a' / 'Rule 47.7' route here only in a Texas context; 'TRE'/'TRAP'/'TRCP' acronyms are Texas-specific. Case citations: Texas cites carry the subsequent-history parenthetical inside the court/date parenthetical. Civil (Sept. 1, 1997 onward, petition for review to the Supreme Court): 'pet. denied', 'pet. granted', 'pet. dism'd', 'pet. dism'd w.o.j.', 'pet. abated', 'pet. filed', 'no pet.' (time expired, none filed), 'no pet. h.' (no history yet). Civil before Sept. 1, 1997 (application for writ of error): 'writ ref'd' (= Supreme Court precedent), 'writ ref'd n.r.e.', 'writ denied', 'writ dism'd w.o.j.', 'writ dism'd by agr.', 'no writ'. Criminal (petition for discretionary review to the Court of Criminal Appeals): 'pet. ref'd', 'pet. granted', 'pet. dism'd', 'untimely pet.', 'no pet.'; 'PDR' is a docket term, not a citation form. Civil petition history → tx-subsequent-scotx-orders (weekly orders lists name the COA docket); criminal 'pet. ref'd' is published only in TAMES (blocked) — cite it as reported, unconfirmed. Courts of appeals: 'Tex. App.—Houston [1st Dist.]', '[14th Dist.]', 'Tex. App.—Dallas', 'Tex. App.—Austin', 'Tex. App.—San Antonio', 'Tex. App.—Fort Worth', 'Tex. App.—Amarillo', 'Tex. App.—El Paso', 'Tex. App.—Beaumont', 'Tex. App.—Waco', 'Tex. App.—Eastland', 'Tex. App.—Tyler', 'Tex. App.—Texarkana', 'Tex. App.—Corpus Christi–Edinburg' (formerly 'Corpus Christi'); the Fifteenth Court of Appeals (statewide, from Sept. 1, 2024) is cited 'Tex. App.—15th Dist.' (form per orders lists; Greenbook form unverified). COA docket NN-YY-NNNNN-CV/CR: the first two digits are the district (01-15). Unpublished/memorandum opinions: civil memorandum opinions are precedential (TRAP 47.7(b)); criminal opinions marked 'do not publish' / 'not designated for publication' have no precedential value (TRAP 47.7(a)). Supreme Court docket 'No. YY-NNNN' collides with many courts' docket shapes — route only with a '(Tex.' parenthetical. Business Court cites are public-domain ('2026 Tex. Bus. 72 (8th Div.)'), paragraph-pinpointed. The Supreme Court and CCA have no vendor-neutral citation. CourtListener ids (tex, texcrimapp, texapp, texreview) are from memory and unverified; no id known for the Business Court."
+    "notes": "Statute citations: Bluebook 'Tex. Civ. Prac. & Rem. Code Ann. § 16.003 (West 20xx)'; Texas Greenbook (Texas Rules of Form) drops 'Ann.' and the publisher. Every Texas code section number is {chapter}.{section-within-chapter}, so the chapter is the part before the first dot (§ 16.003 → ch. 16; § 552.325 → ch. 552; art. 38.23 → ch. 38; § 2001.038 → ch. 2001; CCP chapters can carry letters: ch. 2A). The Code of Criminal Procedure uses 'art.' not '§'; it was partly recodified effective Jan. 1, 2025 (Acts 2023, H.B. 4504), so pre-2025 article numbers in older opinions may not exist in the current chapter file. 'Prob. Code' (PB) is repealed (replaced by the Estates Code, 2014) — the site no longer lists it in StatuteCodes.json; treat a Probate Code cite as historical. Guard against other states: bare 'Penal Code', 'Government Code', 'Family Code', 'Probate Code', 'Insurance Code', 'Labor Code', 'Education Code', 'Water Code', 'Property Code' route here ONLY with a 'Tex.'/'Texas' prefix — California has Penal Code § 187 and dotted sections like Penal Code § 12022.53, and 'Code of Civil Procedure § 425.16' is California, not Texas. Prose forms without 'Texas' route here only for Texas-unique code names (Civil Practice and Remedies, Code of Criminal Procedure, Business Organizations, Parks and Wildlife, Special District Local Laws, Alcoholic Beverage, Occupations, Human Resources, Business and Commerce, Estates). Bare 'CCP' is ambiguous (California Code of Civil Procedure) and is not routed. A range '§§ 16.003-.004' or '§§ 16.003–16.004' is a span: take the first section only (the regex stops at the hyphen). Bare 'Rule 91a' / 'Rule 47.7' route here only in a Texas context; 'TRE'/'TRAP'/'TRCP' acronyms are Texas-specific. Case citations: Texas cites carry the subsequent-history parenthetical inside the court/date parenthetical. Civil (Sept. 1, 1997 onward, petition for review to the Supreme Court): 'pet. denied', 'pet. granted', 'pet. dism'd', 'pet. dism'd w.o.j.', 'pet. abated', 'pet. filed', 'no pet.' (time expired, none filed), 'no pet. h.' (no history yet). Civil before Sept. 1, 1997 (application for writ of error): 'writ ref'd' (= Supreme Court precedent), 'writ ref'd n.r.e.', 'writ denied', 'writ dism'd w.o.j.', 'writ dism'd by agr.', 'no writ'. Criminal (petition for discretionary review to the Court of Criminal Appeals): 'pet. ref'd', 'pet. granted', 'pet. dism'd', 'untimely pet.', 'no pet.'; 'PDR' is a docket term, not a citation form. Civil petition history → tx-subsequent-scotx-orders (weekly orders lists name the COA docket); criminal 'pet. ref'd' is published only in TAMES (blocked) — cite it as reported, unconfirmed. Courts of appeals: 'Tex. App.—Houston [1st Dist.]', '[14th Dist.]', 'Tex. App.—Dallas', 'Tex. App.—Austin', 'Tex. App.—San Antonio', 'Tex. App.—Fort Worth', 'Tex. App.—Amarillo', 'Tex. App.—El Paso', 'Tex. App.—Beaumont', 'Tex. App.—Waco', 'Tex. App.—Eastland', 'Tex. App.—Tyler', 'Tex. App.—Texarkana', 'Tex. App.—Corpus Christi–Edinburg' (formerly 'Corpus Christi'); the Fifteenth Court of Appeals (statewide, from Sept. 1, 2024) is cited 'Tex. App.—15th Dist.' (form per orders lists; Greenbook form unverified). COA docket NN-YY-NNNNN-CV/CR: the first two digits are the district (01-15). Unpublished/memorandum opinions: civil memorandum opinions are precedential (TRAP 47.7(b)); criminal opinions marked 'do not publish' / 'not designated for publication' have no precedential value (TRAP 47.7(a)). Supreme Court docket 'No. YY-NNNN' collides with many courts' docket shapes — route only with a '(Tex.' parenthetical. Business Court cites are public-domain ('2026 Tex. Bus. 72 (8th Div.)'), paragraph-pinpointed. The Supreme Court and CCA have no vendor-neutral citation. CourtListener ids (tex, texcrimapp, texapp, texreview) are from memory and unverified; no id known for the Business Court. The Texas codes regex refuses 'Tex. Admin. Code' / 'Texas Administrative Code' (negative lookahead) so '30 Tex. Admin. Code § 305.1' routes only to the Texas Administrative Code pattern."
   },
   "sources": [
     {
@@ -384,7 +384,7 @@
         "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "none (tcss.legis.texas.gov/robots.txt → 404)",
-        "notes": "The fetch tool reads the whole of small and medium chapters (CP.16, 55K chars; PE.19). Large chapters are cut off and offset does NOT reach the rest: GV.552 (346K chars by script) — WebFetch reported only ~103K chars, ending at § 552.113; offset=100000 returned a fragment, § 552.325 NOT PRESENT. Use fetch_doc.py for any chapter over ~90K chars (e.g. GV.552, TX.151 434K, HS.481 295K, FA.153 215K, CR.38 155K), or the chapter PDF."
+        "notes": "The fetch tool reads the whole of small and medium chapters (CP.16, 55K chars; PE.19). Large chapters are cut off and offset does NOT reach the rest: GV.552 (346K chars by script) — WebFetch reported only ~103K chars, ending at § 552.113; offset=100000 returned a fragment, § 552.325 NOT PRESENT. Use fetch_doc.py (or the chapter PDF) for ANY chapter over ~90K chars — the examples are not exhaustive: GV.552 346K, TX.151 434K, HS.481 295K, CR.38 155K, FA.153 ~138K, BC.17 ~106K (WebFetch stops in § 17.60)."
       },
       "currency": {
         "where": "Not on chapter files. Site-wide message from https://tcss.legis.texas.gov/api/GetProperty/StatutesCurrentMsg (shown in the app's Site Information panel)",
@@ -392,7 +392,7 @@
       },
       "hazards": [
         "statutes.capitol.texas.gov (the address everyone cites, incl. old /Docs/CP/htm/CP.16.htm links) is a JavaScript app: the fetch tool and fetch_doc.py get only a code list. Rewrite to tcss.legis.texas.gov/resources/… instead.",
-        "large chapter files exceed the fetch tool's window and offsets do not recover the tail (GV.552 § 552.325 unreachable) — use fetch_doc.py",
+        "any chapter over ~90K chars exceeds the fetch tool's window and offsets may not recover the tail (GV.552 § 552.325 unreachable; BC.17 stops in § 17.60) — use fetch_doc.py",
         "#section anchors are ignored by the fetch tool",
         "no currency line in the files themselves",
         "CCP recodification (eff. 1/1/2025) moved many articles; old article numbers may be absent",
@@ -406,9 +406,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: § 16.003 YES 'Except as provided by Sections 16.010, 16.0031, and 16.0045, a'; complete through § 16.073. Second code: PE.19 § 19.02(b) YES 'A person commits an offense if the person: (1) intentionally'. fetch_doc.py verify OK on both; CR.38 art. 38.23 and GV.552 § 552.325 found by script grep. Large-chapter test: GV.552 § 552.325 NOT PRESENT in WebFetch even with offset."
+        "evidence": "WebFetch: § 16.003 YES 'Except as provided by Sections 16.010, 16.0031, and 16.0045, a'; complete through § 16.073. Second code: PE.19 § 19.02(b) YES 'A person commits an offense if the person: (1) intentionally'. fetch_doc.py verify OK on both; CR.38 art. 38.23 and GV.552 § 552.325 found by script grep. Large-chapter test: GV.552 § 552.325 NOT PRESENT in WebFetch even with offset. | Independent check 2026-10-16: YES 'Except as provided by Sections 16.010, 16.0031, and 16.0045, a person'; complete to 16.073; second citation Tex. Bus. & Com. Code § 17.46; Tex. Fam. Code § 153.002 (script); Tex. Gov't Code § 552.325 (script) ok"
       },
       "notes": "Bulk: per-code zips at https://tcss.legis.texas.gov/resources/Zips/{CODE}.htm.zip (also .pdf.zip, .doc.zip; CP.htm.zip 655,256 bytes, HTTP 200) and whole-code PDFs at /resources/SDocs/{CODENAME}.pdf (e.g. CIVILPRACTICEANDREMEDIESCODE.pdf, 1.8 MB) — list in https://statutes.capitol.texas.gov/assets/StatuteCodeDownloads.json (paths there are relative to /resources). Note /Zips/… without /resources → 404. API base https://tcss.legis.texas.gov/api/ (GetProperty/{name}, StatutesByDate/GetCodes/{yyyy-mm-dd}, DocViewer/GetDocument/…)."
     },
@@ -451,25 +451,25 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "FAIL",
-        "evidence": "WebFetch: NOT PRESENT, 'only navigation and an app shell'. fetch_doc.py: 200, 1,402 chars, same sha256 for /robots.txt, /Docs/CP/htm/CP.16.htm and /Docs/PE/htm/PE.19.htm."
+        "evidence": "WebFetch: NOT PRESENT, 'only navigation and an app shell'. fetch_doc.py: 200, 1,402 chars, same sha256 for /robots.txt, /Docs/CP/htm/CP.16.htm and /Docs/PE/htm/PE.19.htm. | Independent check 2026-10-16: NO body text; 'navigation homepage listing Texas codes' only (JS shell)"
       },
       "notes": "Recorded so the skill rewrites these links rather than reporting the statute missing."
     },
     {
       "id": "tx-statutes-justia",
       "family": "statutes",
-      "title": "Justia — Texas Statutes (2025)",
+      "title": "Justia — Texas Statutes",
       "publisher": "Justia",
       "tier": 2,
       "official_status": "unofficial",
       "official_status_evidence": "Third-party compilation; edition labelled by year.",
-      "coverage": "Texas codes, editions incl. 2023, 2024, 2025 ('View All Versions'); unversioned URL serves 2025.",
+      "coverage": "Texas codes, editions incl. 2023, 2024, 2025 ('View All Versions'). The unversioned URL serves the latest Justia edition FOR THAT CODE, which varies: 2025 for Civ. Prac. & Rem. Code, 2024 for Bus. & Com. Code (§ 17.46) as of 2026-10-16.",
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://law.justia.com/codes/texas/{code-slug}/title-{title}/[subtitle-{subtitle_letter}/]chapter-{chapter}/[subchapter-{subchapter_letter}/]section-{section_hyphenated}/",
-        "pattern_rules": "code-slug = full code name lower-case hyphenated (civil-practice-and-remedies-code, penal-code). section dots → hyphens (16.003 → section-16-003; 19.02 → section-19-02). title/subtitle/subchapter are NOT in the citation: read them from the header of the official chapter file (tx-statutes-tcss: 'TITLE 2 … SUBTITLE B … SUBCHAPTER A') and lower-case the letters. Subtitle and subchapter segments are omitted where the code has none (penal-code/title-5/chapter-19/section-19-02/).",
+        "pattern_rules": "code-slug = full code name lower-case hyphenated (civil-practice-and-remedies-code, penal-code). section dots → hyphens (16.003 → section-16-003; 19.02 → section-19-02). title/subtitle/subchapter are NOT in the citation: read them from the header of the official chapter file (tx-statutes-tcss: 'TITLE 2 … SUBTITLE B … SUBCHAPTER A') and lower-case the letters. Subtitle and subchapter segments are omitted where the code has none (penal-code/title-5/chapter-19/section-19-02/). Take the subchapter from the SUBCHAPTER heading immediately preceding the section in the official file, not the file's first header (which shows only the first subchapter, e.g. BC.17 → § 17.46 is subchapter-e). Verified: business-and-commerce-code/title-2/chapter-17/subchapter-e/section-17-46/.",
         "index_url": "https://law.justia.com/codes/texas/",
         "navigation": "official chapter file header → title/subtitle/subchapter → Justia section URL",
         "format": "html"
@@ -482,11 +482,11 @@
         "notes": "fetch_doc.py: REFUSED (robots.txt challenge) for law.justia.com. WebFetch only."
       },
       "currency": {
-        "where": "page header; Universal Citation line",
-        "observed": "2025 Texas Statutes; 'TX Civ Prac & Rem Code § 16.003 (2025)'"
+        "where": "page header and Universal Citation line — read per page; edition differs by code",
+        "observed": "'2025 Texas Statutes' (CPRC § 16.003); '2024 Texas Statutes' (Bus. & Com. § 17.46)"
       },
       "hazards": [
-        "2025 edition may not reflect 89th Leg. called-session changes",
+        "edition varies by code (2024 for Bus. & Com., 2025 for CPRC) and lags the official text — always record the page's edition label",
         "hierarchy segments must be learned from the official file",
         "shell blocked by Cloudflare"
       ],
@@ -498,9 +498,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body YES; '2025 Texas Statutes'; 'TX Civ Prac & Rem Code § 16.003 (2025)'. Second code: /codes/texas/penal-code/title-5/chapter-19/section-19-02/ YES, '(b) A person commits an offense if the person: (1) intentionally'; editions 2023, 2024 also listed."
+        "evidence": "WebFetch: body YES; '2025 Texas Statutes'; 'TX Civ Prac & Rem Code § 16.003 (2025)'. Second code: /codes/texas/penal-code/title-5/chapter-19/section-19-02/ YES, '(b) A person commits an offense if the person: (1) intentionally'; editions 2023, 2024 also listed. | Independent check 2026-10-16: YES 'Except as provided by Sections 16.010...'; '2025 Texas Statutes'; 'TX Civ Prac & Rem Code § 16.003 (2025)'; second citation Tex. Bus. & Com. Code § 17.46 ok"
       },
       "notes": ""
     },
@@ -516,7 +516,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://texas.public.law/statutes/tex._{code_slug}_section_{section}",
-        "pattern_rules": "code_slug = public.law's abbreviation, lower-case with underscores: civ._practice_and_remedies_code, penal_code (others unverified — confirm from https://texas.public.law/statutes). section verbatim with dots (16.003, 19.02).",
+        "pattern_rules": "code_slug is public.law's own abbreviation and is NOT guessable — confirm from https://texas.public.law/statutes. Verified slugs: civ._practice_and_remedies_code, penal_code, bus._&_com._code (not bus._and_com._code), fam._code. section verbatim with dots (16.003, 17.46).",
         "index_url": "https://texas.public.law/statutes",
         "navigation": "",
         "format": "html"
@@ -544,9 +544,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body YES; 'Up to date', 'Verified: May 26, 2025'. fetch_doc.py: 200, last-modified 11 May 2025; index 'Texas Statutes Updated May 26, 2025'. Second code: tex._penal_code_section_19.02 '(b) A person commits an offense if the person'."
+        "evidence": "WebFetch: body YES; 'Up to date', 'Verified: May 26, 2025'. fetch_doc.py: 200, last-modified 11 May 2025; index 'Texas Statutes Updated May 26, 2025'. Second code: tex._penal_code_section_19.02 '(b) A person commits an offense if the person'. | Independent check 2026-10-16: YES 'Except as provided by Sections 16.010 (Misappropriation of Trade Secrets),'; Verified: May 26, 2025; second citation Tex. Bus. & Com. Code § 17.46 ok"
       },
       "notes": "Last resort only; prefer tx-statutes-justia, and quote only from tx-statutes-tcss."
     },
@@ -635,11 +635,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: art. 1 § 19 YES 'No citizen of this State shall be deprived of life'; runs through Sec. 37, not truncated. fetch_doc.py: CN.1/CN.1.19.htm holds § 19 alone; second citation art. V § 1 in CN.5.htm 'The judicial power of this State shall be vested in one Supreme Court'."
+        "evidence": "WebFetch: art. 1 § 19 YES 'No citizen of this State shall be deprived of life'; runs through Sec. 37, not truncated. fetch_doc.py: CN.1/CN.1.19.htm holds § 19 alone; second citation art. V § 1 in CN.5.htm 'The judicial power of this State shall be vested in one Supreme Court'. | Independent check 2026-10-16: YES 'No citizen of this State shall be deprived of life,'; runs to Sec. 37, not truncated; second citation Tex. Const. art. VIII, § 1 ok"
       },
-      "notes": "Whole-constitution PDF: https://tcss.legis.texas.gov/resources/SDocs/THETEXASCONSTITUTION.pdf (from StatuteCodeDownloads.json; not fetched)."
+      "notes": "Whole-constitution PDF: https://tcss.legis.texas.gov/resources/SDocs/THETEXASCONSTITUTION.pdf (from StatuteCodeDownloads.json; not fetched). Independent check confirmed the currency message verbatim at /api/GetProperty/StatutesCurrentMsg; art. VIII § 1 per-section file CN.8/CN.8.1.htm ok."
     },
     {
       "id": "tx-constitution-justia",
@@ -728,9 +728,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 13 YES 'The signatures of attorneys or parties constitute a certificate by'; Rule 91a.1 NOT PRESENT; truncated in Rule 21(f)(7). fetch_doc.py: 369 pp, 998,155 chars; Rule 91a body at p. 69 ('91a.1 Motion and Grounds'); verify Rule 13 OK."
+        "evidence": "WebFetch: Rule 13 YES 'The signatures of attorneys or parties constitute a certificate by'; Rule 91a.1 NOT PRESENT; truncated in Rule 21(f)(7). fetch_doc.py: 369 pp, 998,155 chars; Rule 91a body at p. 69 ('91a.1 Motion and Grounds'); verify Rule 13 OK. | Independent check 2026-10-16: YES Rule 13 'The signatures of attorneys or parties constitute a certificate by'; truncated Rule 21(f)(7); second citation Tex. R. Civ. P. 91a.1 ok"
       },
       "notes": "Local rules, forms and standing orders: https://topics.txcourts.gov/ (OCA database, not probed)."
     },
@@ -775,9 +775,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 9.4 YES 'Except for the record, a document filed with an appellate court, including'; Rule 47.7 NOT PRESENT; truncated at Rule 14.3. fetch_doc.py verify 9.4 OK (reading-order text); 147 pp."
+        "evidence": "WebFetch: Rule 9.4 YES 'Except for the record, a document filed with an appellate court, including'; Rule 47.7 NOT PRESENT; truncated at Rule 14.3. fetch_doc.py verify 9.4 OK (reading-order text); 147 pp. | Independent check 2026-10-16: YES Rule 9.4 'Except for the record, a document filed with an appellate court'; ends Rule 14.3; second citation Tex. R. App. P. 47.7 ok"
       },
       "notes": "TRAP 47.7 governs citation of unpublished opinions; TRAP 53 (petition for review) and 66-79 (PDR) define the history notations."
     },
@@ -820,9 +820,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Rule 401 YES; Rule 702 YES 'A witness who is qualified as an expert by knowledge,'; truncated in 803(10). fetch_doc.py: 62 pp, 144,658 chars; verify 401 OK."
+        "evidence": "WebFetch: Rule 401 YES; Rule 702 YES 'A witness who is qualified as an expert by knowledge,'; truncated in 803(10). fetch_doc.py: 62 pp, 144,658 chars; verify 401 OK. | Independent check 2026-10-16: YES 401 'Evidence is relevant if: (a) it has any tendency'; 'Effective July 2, 2026'; cut in 803(10); second citation Tex. R. Evid. 803(6) ok"
       },
       "notes": ""
     },
@@ -845,17 +845,17 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "allowed",
-        "notes": "Not WebFetch-probed (budget). At ~371K chars expect the window to end in Rule 1.0x; Rule 1.06 sits at offset ~83.6K so it is probably inside window 1."
+        "notes": "WebFetch window 1 ends in Rule 1.07 comment 5 (Rule 1.06 readable); later rules (e.g. 3.03, p. 64) only by fetch_doc.py or offsets."
       },
       "currency": {
         "where": "PDF cover; rules index 'Last Amended'",
         "observed": "(Effective March 7, 2025)"
       },
       "hazards": [
-        "fetch tool truncation expected (371K chars)"
+        "fetch tool truncation after Rule 1.07 cmt. 5 (371K chars)"
       ],
       "probe": {
         "citation": "Tex. Disciplinary Rules Prof'l Conduct R. 1.06(a)",
@@ -865,9 +865,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 118 pp, 370,680 chars, cover '(Effective March 7, 2025)'; verify Rule 1.06(a) OK at p. 28. WebFetch not run."
+        "evidence": "fetch_doc.py: 118 pp, 370,680 chars, cover '(Effective March 7, 2025)'; verify Rule 1.06(a) OK at p. 28. WebFetch not run. | Independent check 2026-10-16: YES 1.06(a) 'A lawyer shall not represent opposing parties to the same litigation.'; '(Effective March 7, 2025)'; second citation TDRPC 3.03 ok"
       },
       "notes": "Bluebook cites these as reprinted in Tex. Gov't Code Ann., tit. 2, subtit. G, app. A."
     },
@@ -890,27 +890,29 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
-        "shell": "untested",
+        "webfetch": "ok",
+        "shell": "ok",
         "robots_txt": "allowed",
-        "notes": "Link read from the rules index only."
+        "notes": "~109K chars: WebFetch reads Rule 6.1 complete; the tail (e.g. Rule 16) may need offset=100000 or fetch_doc.py."
       },
       "currency": {
-        "where": "rules index 'Last Amended'",
+        "where": "rules index 'Last Amended'; PDF '(effective July 1, 2026)'",
         "observed": "Last Amended July 1, 2026"
       },
-      "hazards": [],
+      "hazards": [
+        "~109K chars — tail beyond the fetch tool's first window"
+      ],
       "probe": {
         "citation": "Tex. R. Jud. Admin. 6.1",
         "url": "https://www.txcourts.gov/media/1462861/texas-rules-of-judicial-administration-07012026.pdf",
-        "expect": ""
+        "expect": "District, statutory county, and business court judges should, so far as"
       },
       "verification": {
-        "status": "reported",
+        "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
-        "result": "FAIL",
-        "evidence": "Link and 'Last Amended July 1, 2026' read from the rules index (curl); document not fetched."
+        "by": "independent",
+        "result": "OK",
+        "evidence": "Link and 'Last Amended July 1, 2026' read from the rules index (curl); document not fetched. | Independent check 2026-10-16: YES 'District, statutory county, and business court judges should, so far as'; '(effective July 1, 2026)'; WebFetch Rule 6.1 complete; script 45 pp, 109,004 chars."
       },
       "notes": "Same index also lists the Code of Judicial Conduct (June 12, 2026), Rules of Disciplinary Procedure (Oct. 1, 2024), Judicial Bypass Rules, Statewide e-filing rules for criminal cases."
     },
@@ -1000,11 +1002,11 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body YES '(a) Filing requirements. (1) Except as provided under subsection (e) of'; 'State regulations are updated quarterly; we currently have two versions available.' fetch_doc.py: 200, last-modified 7 Aug 2025, verify OK."
+        "evidence": "WebFetch: body YES '(a) Filing requirements. (1) Except as provided under subsection (e) of'; 'State regulations are updated quarterly; we currently have two versions available.' fetch_doc.py: 200, last-modified 7 Aug 2025, verify OK. | Independent check 2026-10-16: YES '(a) Filing requirements. (1) Except as provided under subsection (e)'; '50 TexReg 0835'; second citation 30 Tex. Admin. Code § 330.3 ok"
       },
-      "notes": "Only one title probed; a second-title probe is an open question."
+      "notes": "Second title confirmed by the independent check (30 Tex. Admin. Code § 330.3)."
     },
     {
       "id": "tx-register-sos",
@@ -1020,7 +1022,7 @@
         "url_pattern": "https://www.sos.state.tx.us/texreg/pdf/backview/{MMDD}/{MMDD}is.pdf",
         "pattern_rules": "MMDD = issue date (Friday). The backview index lists each issue with its page range ('October 9, 2026 - Pages 6983-7090'): find the issue whose range contains the cited TexReg page. Section PDFs: {MMDD}prop.pdf (proposed), {MMDD}with.pdf, {MMDD}gov.pdf, {MMDD}ag.pdf, {MMDD}con.pdf (contents).",
         "index_url": "https://www.sos.state.tx.us/texreg/pdf/backview/index.shtml",
-        "navigation": "backview index → issue whose page range covers the cite → {MMDD}is.pdf",
+        "navigation": "backview index → issue page /texreg/pdf/backview/{MMDD}/index.shtml (its page range covers the cite) → {MMDD}is.pdf (the constructed is.pdf URL also works directly)",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -1047,9 +1049,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: cover line matches; truncated after 51 TexReg 7113. fetch_doc.py: 112 pp, 734,516 chars, verify cover OK."
+        "evidence": "WebFetch: cover line matches; truncated after 51 TexReg 7113. fetch_doc.py: 112 pp, 734,516 chars, verify cover OK. | Independent check 2026-10-16: YES 'Volume 51 Number 42 October 16, 2026 Pages 7091 - 7200'; truncated at 7113; second citation 51 Tex. Reg. 6700 (Sept. 25, 2026) ok"
       },
       "notes": ""
     },
@@ -1065,7 +1067,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www.txcourts.gov/supreme/orders-opinions/{YYYY}/{month}/{month}-{D}-{YYYY}/",
-        "pattern_rules": "month = full lower-case month name; D unpadded (may-29-2026). Release dates are irregular (usually Fridays, plus extra days): take them from the year page /supreme/orders-opinions/{YYYY}/. Opinion PDFs: /media/{id}/{docket without hyphen}{suffix}.pdf (240205.pdf; 240205c.pdf concurring; 240286d.pdf dissent) — the media id is not derivable; take it from the day page. Older pages may keep the hyphen (12-0657c1.pdf).",
+        "pattern_rules": "month = full lower-case month name; D unpadded (may-29-2026). Release dates are irregular (usually Fridays, plus extra days): take them from the year page /supreme/orders-opinions/{YYYY}/. Opinion PDFs: /media/{id}/{docket without hyphen}{suffix}.pdf (240205.pdf; 240205c.pdf concurring; 240286d.pdf dissent) — the media id is not derivable; take it from the day page. Older pages may keep the hyphen (12-0657c1.pdf). Consolidated causes may be filed under a joined name {docket1}_{docket2}.pdf (e.g. 230593_230742.pdf).",
         "index_url": "https://www.txcourts.gov/supreme/orders-opinions/",
         "navigation": "year page → release-day page → 'opinion of the Court' / 'concurring opinion' link (/media/…pdf). Print-friendly orders PDF on each day page (supreme-court-of-texas-orders-MM-DD-YYYY.pdf).",
         "format": "pdf"
@@ -1084,7 +1086,8 @@
       "hazards": [
         "slip pagination only — no S.W.3d page numbers",
         "nothing before Oct. 2014 on txcourts.gov; older opinions only in TAMES (blocked) or Justia",
-        "no search: find by date or by docket within year pages"
+        "no search: find by date or by docket within year pages",
+        "WebFetch's summary of a year page can omit the newest day listed in the raw HTML — confirm the latest day by fetch_doc.py"
       ],
       "probe": {
         "citation": "Huffman Asset Mgmt., LLC v. Colter, No. 24-0205 (Tex. May 29, 2026)",
@@ -1094,9 +1097,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: opinion YES, 15 pp, slip pagination, no S.W.3d cite for itself, not truncated. fetch_doc.py: 15 pp, 24,992 chars, verify OK. Day page May 29, 2026 lists 240205.pdf, 240205c.pdf, 240286.pdf/c/d, 241057.pdf. Older: June 12, 2015 page links /media/996482/130047.pdf."
+        "evidence": "WebFetch: opinion YES, 15 pp, slip pagination, no S.W.3d cite for itself, not truncated. fetch_doc.py: 15 pp, 24,992 chars, verify OK. Day page May 29, 2026 lists 240205.pdf, 240205c.pdf, 240286.pdf/c/d, 241057.pdf. Older: June 12, 2015 page links /media/996482/130047.pdf. | Independent check 2026-10-16: YES 'This residential-lease dispute involves an appeal from a no-answer default judgment'; 15 pp, no S.W.3d; second citation Equinor Energy LP v. Lindale Pipeline, LLC, No. 24-0425 (Tex. Mar. 13, 2026) ok"
       },
       "notes": "Opinions also posted for 2014-2026 per-day; earliest year page lists Oct.-Dec. 2014 days only."
     },
@@ -1187,9 +1190,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch listing: 'The Business Court prefers citations to paragraph numbers in its opinions, not page numbers.' fetch_doc.py PDF: 19 pp, header '2026 Tex. Bus. 72', 'Cause No. 25-BC08A-0014', '¶1 Before the Court is Defendant'."
+        "evidence": "WebFetch listing: 'The Business Court prefers citations to paragraph numbers in its opinions, not page numbers.' fetch_doc.py PDF: 19 pp, header '2026 Tex. Bus. 72', 'Cause No. 25-BC08A-0014', '¶1 Before the Court is Defendant'. | Independent check 2026-10-16: YES header '2026 Tex. Bus. 72'; 'Cause No. 25-BC08A-0014'; ¶1-¶31, complete; second citation Guillaume v. Armstrong, 2026 Tex. Bus. 70 (1st Div.) ok"
       },
       "notes": "Appeals from the Business Court go to the Fifteenth Court of Appeals."
     },
@@ -1205,9 +1208,9 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/texas/{court-slug}/{YYYY}/{docket-slug}.html",
-        "pattern_rules": "court-slug: supreme-court | court-of-criminal-appeals | first-court-of-appeals … fifteenth-court-of-appeals | special-court-of-review. YYYY = decision year. docket-slug = docket lower-cased, commas → hyphens: '24-0205' → 24-0205; '05-23-00190-CV' → 05-23-00190-cv; 'PD-0643-25' → pd-0643-25; 'AP-77,122' → ap-77-122; 'WR-97,760-01' → wr-97-760-01. Several opinions on one docket get suffixes -0, -1 (concurrences/dissents); concurrences are NOT included on the main opinion page (24-0205.html omits Huddle, J., concurring). If the first guess fails, use the year listing /cases/texas/{court-slug}/{YYYY}/.",
+        "pattern_rules": "court-slug: supreme-court | court-of-criminal-appeals | first-court-of-appeals … fifteenth-court-of-appeals | special-court-of-review. YYYY = decision year. docket-slug = docket lower-cased, commas → hyphens: '24-0205' → 24-0205; '05-23-00190-CV' → 05-23-00190-cv; 'PD-0643-25' → pd-0643-25; 'AP-77,122' → ap-77-122; 'WR-97,760-01' → wr-97-760-01. Several opinions on one docket share the slug with suffixes -0, -1, -2 …; the unsuffixed page may hold ANY of them — e.g. CCA pd-0643-25.html = Yeary, J., dissenting, -0 = Parker, J., dissenting, -1 = the per curiam majority. Read each candidate's heading (opinion type/author) and try the unsuffixed slug, then -0, -1, -2 until the majority is found; concurrences are NOT included on the main opinion page (24-0205.html omits Huddle, J., concurring). If the first guess fails, use the year listing /cases/texas/{court-slug}/{YYYY}/ — it is paginated, newest first (first-court-of-appeals/2025/ page 1 shows only Dec.-Sept.), so follow its next-page links for earlier months.",
         "index_url": "https://law.justia.com/cases/texas/",
-        "navigation": "year listing lists every decision with docket and link",
+        "navigation": "year listing (paginated, newest first) lists every decision with docket and link",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -1224,8 +1227,9 @@
       "hazards": [
         "the only allowed text route for court of appeals and CCA opinions",
         "slip text, no S.W.3d pagination",
-        "-0/-1 suffix variants; separate opinions on separate pages",
-        "shell blocked"
+        "the unsuffixed slug may be a dissent; the majority can sit at -0/-1/-2 — check the heading of each page",
+        "shell blocked",
+        "year listings are paginated; one fetch shows only the latest months"
       ],
       "probe": {
         "citation": "Gonzalez v. Zubarik, No. 05-23-00190-CV (Tex. App.—Dallas Aug. 21, 2024)",
@@ -1235,9 +1239,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 05-23-00190-CV YES, Aug. 21, 2024, complete, no S.W.3d cite. Also supreme-court/2026/24-0205.html YES (May 29, 2026); court-of-criminal-appeals/2026/ap-77-122.html YES, 'Do Not Publish'; fifteenth-court-of-appeals/2025/ listing (15-25-00116-cv.html, -0 concurrence)."
+        "evidence": "WebFetch: 05-23-00190-CV YES, Aug. 21, 2024, complete, no S.W.3d cite. Also supreme-court/2026/24-0205.html YES (May 29, 2026); court-of-criminal-appeals/2026/ap-77-122.html YES, 'Do Not Publish'; fifteenth-court-of-appeals/2025/ listing (15-25-00116-cv.html, -0 concurrence). | Independent check 2026-10-16: YES 'This appeal arises from a dispute between homeowners regarding whether'; Aug. 21, 2024, complete; second citation AABC Travels, Inc. v. Delta Airlines, Inc., No. 01-24-00893-CV (Tex. App.—Houston [1st Dist.] Sept. 18, 2025); Mason v. State, No. PD-0643-25 (Tex. Crim. App. Oct. 8, 2026) ok"
       },
       "notes": ""
     },
@@ -1253,7 +1257,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "https://www.txcourts.gov/supreme/orders-opinions/{YYYY}/{month}/{month}-{D}-{YYYY}/",
-        "pattern_rules": "No search. Petition for review must be filed within 45 days of the COA judgment (TRAP 53.7) and is usually decided 3-12 months later: scan the release-day pages after the COA judgment date for the COA docket number (NN-YY-NNNNN-CV) — it appears verbatim on the page. WebSearch with the quoted COA docket and site:txcourts.gov did not find it (2026-10-16 test returned unrelated pages).",
+        "pattern_rules": "No search. Petition for review must be filed within 45 days of the COA judgment (TRAP 53.7) and is usually decided 3-12 months later: scan the release-day pages after the COA judgment date for the COA docket number (NN-YY-NNNNN-CV) — it appears verbatim on the page. WebSearch with the quoted COA docket and site:txcourts.gov did not find it (2026-10-16 test returned unrelated pages). Scan ALL later day pages, not just to the first hit: a docket can appear on several order days (e.g. 01-23-00816-CV on Feb. 13, 2026 and again Apr. 10, 2026 — petition denied, then rehearing). Record each hit with its section heading (denied / granted / rehearing denied / dismissed).",
         "index_url": "https://www.txcourts.gov/supreme/orders-opinions/",
         "navigation": "year page → each release-day page after the COA judgment → search page text for the COA docket under 'PETITIONS FOR REVIEW ARE DENIED' / 'GRANTED'",
         "format": "html"
@@ -1272,7 +1276,9 @@
       "hazards": [
         "no docket search; linear scan of day pages",
         "denials before Oct. 2014 not on txcourts.gov",
-        "criminal cases never appear here (CCA handles PDRs)"
+        "criminal cases never appear here (CCA handles PDRs)",
+        "a docket can appear on several order days (petition, then rehearing) — stopping at the first hit can misreport final history",
+        "no hit is NOT evidence of 'no pet.': the petition may be pending, never filed, or outside the scanned range — report history as unknown"
       ],
       "probe": {
         "citation": "Gonzalez v. Zubarik, No. 05-23-00190-CV (Tex. App.—Dallas 2024) → pet. denied, No. 24-0824 (Tex. May 29, 2026)",
@@ -1282,9 +1288,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: under 'THE FOLLOWING PETITIONS FOR REVIEW ARE DENIED': 24-0289 (02-22-00347-CV …), 24-0824 (05-23-00190-CV, ___ SW3d ___, 08-21-24), 25-0202 (14-22-00856-CV …). fetch_doc.py verify '05-23-00190-CV' OK."
+        "evidence": "WebFetch: under 'THE FOLLOWING PETITIONS FOR REVIEW ARE DENIED': 24-0289 (02-22-00347-CV …), 24-0824 (05-23-00190-CV, ___ SW3d ___, 08-21-24), 25-0202 (14-22-00856-CV …). fetch_doc.py verify '05-23-00190-CV' OK. | Independent check 2026-10-16: YES under 'PETITIONS FOR REVIEW ARE DENIED': 24-0824 ... (05-23-00190-CV, ___ SW3d ___, 08-21-24); second citation Smith El-Bey v. Roberson, No. 01-23-00816-CV (Tex. App.—Houston [1st Dist.] Sept. 30, 2025) ok"
       },
       "notes": "Same page shows 'pet. granted' dispositions (e.g. 26-0110 from the 15th COA, 15-25-00116-CV, 729 SW3d 483)."
     },
@@ -1352,10 +1358,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "allowed",
-        "notes": "Found by party name only (appellant surname); PDR numbers are CCA numbers (PD-NNNN-YY written as 'YY-NNNN')."
+        "notes": "Found by party name only (appellant surname); PDR numbers are CCA numbers (PD-NNNN-YY written as 'YY-NNNN'). WebFetch reads the whole PDF (not truncated), but its summary misreported the file date once — take the href from raw HTML."
       },
       "currency": {
         "where": "PDF title line",
@@ -1372,9 +1378,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-16",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 14 pp, 35,203 chars; 'PDR GRANTED ISSUES', 'ALPHABETICAL LISTING WITHOUT ISSUES', rows like '26-0257 AGUIRRE, ERIK 09/03/26'. WebFetch not run."
+        "evidence": "fetch_doc.py: 14 pp, 35,203 chars; 'PDR GRANTED ISSUES', 'ALPHABETICAL LISTING WITHOUT ISSUES', rows like '26-0257 AGUIRRE, ERIK 09/03/26'. WebFetch not run. | Independent check 2026-10-16: YES 'PDR GRANTED ISSUES'; 'NO ISSUES GRANTED OCTOBER 15, 2026'; row '26-0257 AGUIRRE, ERIK 09/03/26'"
       },
       "notes": ""
     }
@@ -1463,16 +1469,15 @@
     {
       "source_id": "tx-statutes-tcss",
       "url": "https://tcss.legis.texas.gov/resources/GV/htm/GV.552.htm",
-      "why": "Large chapters (GV.552 346K, TX.151 434K, HS.481 295K, FA.153 215K, CR.38 155K chars) are cut off by the fetch tool and offsets do not reach later sections.",
+      "why": "Large chapters (GV.552 346K, TX.151 434K, HS.481 295K, FA.153 ~138K, BC.17 ~106K, CR.38 155K chars) are cut off by the fetch tool and offsets do not reach later sections.",
       "split_hint": "HTML: one section per <a name=\"{section}\"> anchor; headings 'Sec. N.NNN. TITLE.' / 'Art. N.NN. TITLE.'",
       "bulk": "https://tcss.legis.texas.gov/resources/Zips/{CODE}.htm.zip (per code; also .pdf.zip, .doc.zip; whole-code PDF /resources/SDocs/{CODENAME}.pdf) — index https://statutes.capitol.texas.gov/assets/StatuteCodeDownloads.json"
     }
   ],
   "open_questions": [
     "Official status of tcss.legis.texas.gov text: no statement found in the app; whether Texas has adopted UELMA authentication for the statutes was not checked.",
-    "Texas Administrative Code: no stable per-rule URL on the SOS Appian portal; whether the portal has a public API behind it was not investigated. Only one LII title probed (16 TAC § 3.1).",
+    "Texas Administrative Code: no stable per-rule URL on the SOS Appian portal; whether the portal has a public API behind it was not investigated.",
     "Texas Register issues older than the rolling one-year PDF backview (HTML archive /texreg/archive/) not probed.",
-    "TDRPC and PDR-issues PDFs not WebFetch-probed; Texas Rules of Judicial Administration not fetched (reported).",
     "Justia per-section Texas Constitution URLs not determined; Justia COA year listings show 1985 onward but actual density for 1985-2002 not checked.",
     "Greenbook (Texas Rules of Form) citation form for the Fifteenth Court of Appeals and the Business Court not confirmed from a primary source; the regex accepts 'Tex. App.—15th Dist.' as used in Supreme Court orders lists.",
     "CourtListener ids (tex, texcrimapp, texapp, texreview) unverified; Business Court id unknown.",
