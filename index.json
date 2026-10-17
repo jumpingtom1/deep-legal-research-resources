@@ -3424,15 +3424,15 @@
     "sd": {
       "name": "South Dakota",
       "file": "jurisdictions/sd.md",
-      "sha256": "0daa33df0a37d8ae8ee08fd071f391f013f3706146d51d1f182b78a7d1879229",
+      "sha256": "6fdd4b3d5e2ffee855cd678d83db7b9e58d563c2a48f5de9d6a939e9913b8885",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 15
+        "verified_independent": 15
       },
       "citation_patterns": [
         {
           "label": "South Dakota Codified Laws",
-          "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.\\s?D\\.\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:\u00a7\u00a7?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|\u00a7)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
+          "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.?\\s?D\\.?\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:\u00a7\u00a7?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|\u00a7)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
           "context_required": false
         },
         {
@@ -3452,7 +3452,7 @@
         },
         {
           "label": "SDCL-codified court rules (civil, appellate, evidence, criminal procedure)",
-          "regex": "\\bSDCL\\s*(?:\u00a7\u00a7?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
+          "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
           "context_required": false
         },
         {
@@ -4119,16 +4119,16 @@
     "wy": {
       "name": "Wyoming",
       "file": "jurisdictions/wy.md",
-      "sha256": "54c9fb639abdf79a9ebb5b8d4795a1064207571b89839da3a708d01ca2e61f50",
+      "sha256": "b09b23dda9a1ff01662898ea6f7e9957867c76c884aaaa866ea1d98789d38928",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 12,
+        "verified_independent": 12,
         "reported": 6
       },
       "citation_patterns": [
         {
           "label": "Wyoming Statutes",
-          "regex": "(?:(?:Wyo(?:ming)?\\.?\\s*Stat(?:utes|\\.)?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])W\\.\\s*S\\.(?:\\s*1977)?),?\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2})-(?P<chapter>\\d{1,2}[A-Za-z]?)-(?P<section>\\d{3,4}[A-Za-z]?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,2}[A-Za-z]?)-(?P<section2>\\d{3,4}[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Wyoming\\s+Statutes)",
+          "regex": "(?:(?:Wyo(?:ming)?\\.?\\s*Stat(?:utes?|\\.)?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])W\\.\\s*S\\.(?:\\s*1977)?),?\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2})-(?P<chapter>\\d{1,2}[A-Za-z]?)-(?P<section>\\d{3,4}[A-Za-z]?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,2}[A-Za-z]?)-(?P<section2>\\d{3,4}[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Wyoming\\s+Statutes)",
           "context_required": false
         },
         {
@@ -4138,7 +4138,7 @@
         },
         {
           "label": "Wyoming Constitution",
-          "regex": "Wyo(?:ming)?\\.?\\s*Const(?:itution|\\.)?\\s*art(?:icle|\\.)?\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Wyoming\\s+Constitution",
+          "regex": "Wyo(?:ming)?\\.?\\s*Const(?:itution|\\.)?\\s*art(?:icle|\\.)?\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Wyoming\\s+Constitution",
           "context_required": false
         },
         {
