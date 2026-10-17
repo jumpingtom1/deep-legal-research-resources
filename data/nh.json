@@ -11,7 +11,12 @@
         "courtlistener_id": "nh",
         "courtlistener_id_unverified": true,
         "bluebook_abbrev": "N.H.",
-        "reporters": ["N.H.", "A.3d", "A.2d", "A."],
+        "reporters": [
+          "N.H.",
+          "A.3d",
+          "A.2d",
+          "A."
+        ],
         "public_domain_citation": "2024 N.H. 1 (year N.H. opinion number; paragraph pinpoints ¶ N), for opinions issued on or after January 1, 2024"
       },
       {
@@ -35,10 +40,14 @@
           "N.H. Rev. Stat. Ann. § 507:7-d",
           "RSA chapter 358-A",
           "RSA ch. 126-G",
-          "New Hampshire Revised Statutes Annotated 458:2"
+          "New Hampshire Revised Statutes Annotated 458:2",
+          "section 637:3 of the New Hampshire Revised Statutes"
         ],
-        "regex": "(?:\\bRSA|N\\.\\s*H\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|New\\s+Hampshire\\s+Revised\\s+Statutes(?:\\s+Annotated)?)\\s*(?:§+\\s*)?(?:(?P<chapter>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section>\\d{1,3}(?:-[a-z]{1,2})?)(?![\\d:])|(?:ch(?:apter|\\.)\\s*)(?P<chapter2>\\d{1,3}(?:-[A-Za-z]{1,2})?)\\b)",
-        "routes_to": ["nh-rsa-gc", "nh-rsa-justia"],
+        "regex": "(?:\\bRSA|N\\.\\s*H\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|New\\s+Hampshire\\s+Revised\\s+Statutes(?:\\s+Annotated)?)\\s*(?:§+\\s*)?(?:(?P<chapter>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section>\\d{1,3}(?:-[a-z]{1,2})?)(?![\\d:])|(?:ch(?:apter|\\.)\\s*)(?P<chapter2>\\d{1,3}(?:-[A-Za-z]{1,2})?)\\b)|sec(?:tion|\\.)\\s*(?P<chapter3>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section3>\\d{1,3}(?:-[a-z]{1,2})?)(?:,\\s*[IVXL]+)?\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Revised\\s+Statutes(?:\\s+Annotated)?",
+        "routes_to": [
+          "nh-rsa-gc",
+          "nh-rsa-justia"
+        ],
         "context_required": false
       },
       {
@@ -50,7 +59,9 @@
           "Laws 1995, 310:79"
         ],
         "regex": "(?P<year>(?:17|18|19|20)\\d{2})\\s+N\\.\\s*H\\.\\s+Laws,?\\s*(?:ch\\.\\s*)?(?P<chapter>\\d{1,3})(?::(?P<section>\\d+))?|\\bLaws\\s+(?P<year2>(?:17|18|19|20)\\d{2}),\\s*(?P<chapter2>\\d{1,3}):(?P<section2>\\d+(?:-[a-z])?)",
-        "routes_to": ["nh-session-laws-gc"],
+        "routes_to": [
+          "nh-session-laws-gc"
+        ],
         "context_required": false
       },
       {
@@ -60,10 +71,14 @@
           "N.H. Const. pt. I, art. 15",
           "N.H. CONST. pt. II, art. 73-a",
           "Part I, Article 15 of the New Hampshire Constitution",
-          "Part II, Article 83 of the N.H. Constitution"
+          "Part II, Article 83 of the N.H. Constitution",
+          "Article 2-b of Part I of the New Hampshire Constitution"
         ],
-        "regex": "N\\.\\s*H\\.\\s*Const\\.\\s*pt\\.\\s*(?P<part>I{1,2}|1|2),?\\s*art\\.\\s*(?P<article>\\d{1,3}(?:-[a-z])?)|Part\\s+(?P<part2>I{1,2}|First|Second|1|2),?\\s+Art(?:icle|\\.)\\s*(?P<article2>\\d{1,3}(?:-[a-z])?)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution",
-        "routes_to": ["nh-constitution-nhgov", "nh-constitution-justia"],
+        "regex": "N\\.\\s*H\\.\\s*Const\\.\\s*pt\\.\\s*(?P<part>I{1,2}|1|2),?\\s*art\\.\\s*(?P<article>\\d{1,3}(?:-[a-z])?)|Part\\s+(?P<part2>I{1,2}|First|Second|1|2),?\\s+Art(?:icle|\\.)\\s*(?P<article2>\\d{1,3}(?:-[a-z])?)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution|Art(?:icle|\\.)\\s*(?P<article3>\\d{1,3}(?:-[a-z])?)\\s+of\\s+Part\\s+(?P<part3>I{1,2}|First|Second|1|2)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution",
+        "routes_to": [
+          "nh-constitution-nhgov",
+          "nh-constitution-justia"
+        ],
         "context_required": false
       },
       {
@@ -79,7 +94,12 @@
           "Rule 7 of the Rules of the Supreme Court of New Hampshire"
         ],
         "regex": "N\\.\\s*H\\.\\s*(?:R\\.\\s*(?P<set>Evid|Crim\\.\\s*P|Prof\\.\\s*Conduct)\\.?|(?P<court>Sup|Super|Dist|Prob|Fam|Cir)\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?(?:-[A-Z])?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?(?:-[A-Z])?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:New\\s+Hampshire\\s+Rules\\s+of\\s+(?:Evidence|Criminal\\s+Procedure|Professional\\s+Conduct)|Rules\\s+of\\s+the\\s+(?:Supreme|Superior)\\s+Court\\s+of\\s+(?:the\\s+State\\s+of\\s+)?New\\s+Hampshire)",
-        "routes_to": ["nh-rules-evidence-courts", "nh-rules-crimp-courts", "nh-rules-supreme-courts", "nh-rules-superior-courts"],
+        "routes_to": [
+          "nh-rules-evidence-courts",
+          "nh-rules-crimp-courts",
+          "nh-rules-supreme-courts",
+          "nh-rules-superior-courts"
+        ],
         "context_required": false
       },
       {
@@ -92,7 +112,10 @@
           "Superior Court Rule 12"
         ],
         "regex": "(?:Sup(?:reme)?\\.?\\s*(?:Ct\\.|Court)\\s*R(?:ule|\\.)|Super(?:ior)?\\.?\\s*(?:Ct\\.|Court)\\s*R(?:ule|\\.))\\s*(?P<rule>\\d{1,3}(?:-[A-Z])?)",
-        "routes_to": ["nh-rules-supreme-courts", "nh-rules-superior-courts"],
+        "routes_to": [
+          "nh-rules-supreme-courts",
+          "nh-rules-superior-courts"
+        ],
         "context_required": true
       },
       {
@@ -105,7 +128,10 @@
           "N.H. Admin. Code § Ban 101.01"
         ],
         "regex": "N\\.\\s*H\\.\\s*(?:Admin\\.\\s*Code|Code\\s+Admin\\.\\s*R(?:ules|\\.)?|Admin\\.\\s*R(?:ules|\\.)?)\\s*(?:§\\s*)?(?P<prefix>[A-Z][a-z]{1,3}(?:-[A-Z][a-z]{0,3})?)\\s+(?P<section>\\d{2,4}(?:\\.\\d{2,3})?)",
-        "routes_to": ["nh-admin-rules-gc", "nh-admin-rules-lii"],
+        "routes_to": [
+          "nh-admin-rules-gc",
+          "nh-admin-rules-lii"
+        ],
         "context_required": false
       },
       {
@@ -116,8 +142,11 @@
           "Ban 101.01",
           "Saf-C 6000"
         ],
-        "regex": "\\b(?P<prefix>[A-Z][a-z]{1,3}(?:-[A-Z][a-z]{0,3})?)\\s+(?P<section>\\d{3,4}(?:\\.\\d{2,3})?)\\b",
-        "routes_to": ["nh-admin-rules-gc", "nh-admin-rules-lii"],
+        "regex": "(?-i:\\b(?!(?:Rule|Rules|Laws?|Part|Art|Title|Vol|Page|Sec|Supp|Chap|Ch|Act|Acts|Note|Form|Pub|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|No)\\b)(?P<prefix>[A-Z][a-z]{1,3}(?:-[A-Z][a-z]{0,3})?)\\s+(?P<section>\\d{3,4}(?:\\.\\d{2,3})?)\\b)",
+        "routes_to": [
+          "nh-admin-rules-gc",
+          "nh-admin-rules-lii"
+        ],
         "context_required": true
       },
       {
@@ -128,7 +157,9 @@
           "New Hampshire Rulemaking Register No. 34 (Aug. 27, 2026)"
         ],
         "regex": "(?:N\\.\\s*H\\.|New\\s+Hampshire)\\s+Rulemaking\\s+Register(?:,?\\s*Vol\\.\\s*(?P<volume>[IVXLC]+))?(?:,?\\s*No\\.\\s*(?P<number>\\d{1,2}))?",
-        "routes_to": ["nh-register-gc"],
+        "routes_to": [
+          "nh-register-gc"
+        ],
         "context_required": false
       },
       {
@@ -143,7 +174,10 @@
           "950 A.2d 175 (N.H. 2008)"
         ],
         "regex": "\\b(?P<pdyear>(?:19|20)\\d{2})\\s+N\\.\\s*H\\.\\s+(?P<pdnum>\\d{1,4})(?!\\d)|\\b(?P<volume>\\d{1,3})\\s+N\\.\\s*H\\.\\s+(?P<page>\\d{1,4})\\b|\\b(?P<avol>\\d{1,3})\\s+A\\.(?:2d|3d)?\\s+(?P<apage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\(N\\.\\s*H\\.\\s*(?:Super\\.\\s*(?:Ct\\.\\s*)?)?\\d{4}\\)",
-        "routes_to": ["nh-opinions-courts", "nh-cases-justia"],
+        "routes_to": [
+          "nh-opinions-courts",
+          "nh-cases-justia"
+        ],
         "context_required": false
       },
       {
@@ -154,7 +188,11 @@
           "No. 2025-0297"
         ],
         "regex": "\\bNo\\.\\s*(?P<year>(?:19|20)\\d{2})-(?P<num>\\d{4})\\b",
-        "routes_to": ["nh-opinions-courts", "nh-orders-courts", "nh-cases-justia"],
+        "routes_to": [
+          "nh-opinions-courts",
+          "nh-orders-courts",
+          "nh-cases-justia"
+        ],
         "context_required": true
       },
       {
@@ -165,7 +203,9 @@
           "reh'g denied"
         ],
         "regex": "cert\\.\\s+(?P<disp>denied|granted|dismissed)(?:,\\s*(?P<volume>\\d{1,3})\\s+U\\.S\\.\\s+(?P<page>\\d{1,4}))?|reh'?g\\s+(?:denied|granted)",
-        "routes_to": ["nh-scotus-docket"],
+        "routes_to": [
+          "nh-scotus-docket"
+        ],
         "context_required": true
       }
     ],
@@ -176,7 +216,7 @@
       "NH RSA": "rsa",
       "New Hampshire Revised Statutes Annotated": "rsa"
     },
-    "notes": "RSA citations are distinctive ('RSA 358-A:2', chapter:section with a colon). The URL also needs the title as a Roman numeral, which a citation does not carry; take it from the chapter ranges on https://gc.nh.gov/rsa/html/nhtoc.htm. Subdivisions are Roman numerals after a comma ('RSA 126-G:2, I'), so do not read the ', I' as part of the section. Neutral citations ('2024 N.H. 1') have a four-digit year and N.H. Reports citations ('176 N.H. 319') have a three-digit volume; the regex keeps the two apart. Bare 'Sup. Ct. R. 7', 'Superior Court Rule 12', bare agency-prefixed rule numbers ('Env-Wq 1001.01', 'Ban 101.01'), bare docket numbers and 'cert. denied' are context_required. The Supreme Court's nonprecedential final orders (Sup. Ct. R. 12-D) are cited by docket number and date. CourtListener ids 'nh' and 'nhsuperct' are from memory and unverified."
+    "notes": "RSA citations are distinctive ('RSA 358-A:2', chapter:section with a colon). The URL also needs the title as a Roman numeral, which a citation does not carry; take it from the chapter ranges on https://gc.nh.gov/rsa/html/nhtoc.htm. Subdivisions are Roman numerals after a comma ('RSA 126-G:2, I'), so do not read the ', I' as part of the section. Neutral citations ('2024 N.H. 1') have a four-digit year and N.H. Reports citations ('176 N.H. 319') have a three-digit volume; the regex keeps the two apart. Bare 'Sup. Ct. R. 7', 'Superior Court Rule 12', bare agency-prefixed rule numbers ('Env-Wq 1001.01', 'Ban 101.01'), bare docket numbers and 'cert. denied' are context_required. The Supreme Court's nonprecedential final orders (Sup. Ct. R. 12-D) are cited by docket number and date. CourtListener ids 'nh' and 'nhsuperct' are from memory and unverified. The bare agency-prefix pattern is case-sensitive (inline (?-i:)) and excludes common words (Rule, Laws, Part, Title, month names …), so 'RSA 507', 'Laws 1986' and 'Rule 404' no longer match it (independent check 2026-10-17)."
   },
   "sources": [
     {
@@ -191,7 +231,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://gc.nh.gov/rsa/html/{title_roman}/{chapter}/{chapter}-{section}.htm",
-        "pattern_rules": "title_roman: the RSA title in upper-case Roman numerals. A citation does not give it: look it up in the chapter ranges on https://gc.nh.gov/rsa/html/nhtoc.htm ('TITLE XXXI: TRADE AND COMMERCE (Includes Chapters 333 - 359-V)'). chapter: as cited, with an upper-case letter suffix (567-A, 126-G). section: the part after the colon; the colon becomes a hyphen (567-A:1 → 567-A-1.htm). Whole chapter: https://gc.nh.gov/rsa/html/{title_roman}/{chapter}/{chapter}-mrg.htm. Chapter TOC: https://gc.nh.gov/rsa/html/NHTOC/NHTOC-{title_roman}-{chapter}.htm. Lettered sections (507:7-d) are not verified; the case of the suffix is unknown, so confirm through the chapter TOC. The older host www.gencourt.state.nh.us serves the same paths.",
+        "pattern_rules": "title_roman: the RSA title in upper-case Roman numerals. A citation does not give it: look it up in the chapter ranges on https://gc.nh.gov/rsa/html/nhtoc.htm ('TITLE XXXI: TRADE AND COMMERCE (Includes Chapters 333 - 359-V)'). chapter: as cited, with an upper-case letter suffix (567-A, 126-G). section: the part after the colon; the colon becomes a hyphen (567-A:1 → 567-A-1.htm). Whole chapter: https://gc.nh.gov/rsa/html/{title_roman}/{chapter}/{chapter}-mrg.htm. Chapter TOC: https://gc.nh.gov/rsa/html/NHTOC/NHTOC-{title_roman}-{chapter}.htm. Lettered section suffixes are lower case in file names (RSA 507:7-d → /rsa/html/LII/507/507-7-d.htm; independently verified). The older host www.gencourt.state.nh.us serves the same paths.",
         "index_url": "https://gc.nh.gov/rsa/html/nhtoc.htm",
         "navigation": "nhtoc.htm (titles with chapter ranges) → NHTOC/NHTOC-{title}.htm (chapters) → NHTOC/NHTOC-{title}-{chapter}.htm (section links and the -mrg whole-chapter link) → section page.",
         "format": "html"
@@ -222,9 +262,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch 126-G-2.htm YES 'In this chapter: I. \"Area\" means'; Source line '1989, 255:2. 1995, 310:79'. Second citation RSA 567-A:1 (title LVI): YES 'A person who is aggrieved by a decree, order, appointment'. 126-G-mrg.htm holds 126-G:1 to :5, not truncated. nhtoc.htm shows chapter ranges."
+        "evidence": "WebFetch 126-G-2.htm YES 'In this chapter: I. \"Area\" means'; Source line '1989, 255:2. 1995, 310:79'. Second citation RSA 567-A:1 (title LVI): YES 'A person who is aggrieved by a decree, order, appointment'. 126-G-mrg.htm holds 126-G:1 to :5, not truncated. nhtoc.htm shows chapter ranges. | Independent check 2026-10-17: WebFetch YES 'In this chapter: I. \"Area\" means'; Source '1989, 255:2. 1995, 310:79'; second citation RSA 507:7-d (title LII) and RSA 637:3 (title LXII) ok"
       },
       "notes": "Two titles verified (X and LVI). The script route needs a later retry; if gc.nh.gov answers, set automation.shell from the result."
     },
@@ -268,9 +308,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES 'If any doubt exists whether any marriage is void, or'; heading '2025 New Hampshire Revised Statutes'. Title and chapter pages list section links in the pattern above."
+        "evidence": "WebFetch YES 'If any doubt exists whether any marriage is void, or'; heading '2025 New Hampshire Revised Statutes'. Title and chapter pages list section links in the pattern above. | Independent check 2026-10-17: WebFetch YES 'If any doubt exists whether any marriage is void, or'; '2025 New Hampshire Revised Statutes'; second citation RSA 637:3 ok"
       },
       "notes": ""
     },
@@ -284,27 +324,37 @@
       "official_status_evidence": "",
       "coverage": "Chaptered laws reached through the gc.nh.gov bill-status pages. Not probed.",
       "access": {
-        "mode": "search-only",
+        "mode": "link-only",
         "index_url": "https://gc.nh.gov/bill_Status/",
         "navigation": "Not probed. The RSA section 'Source.' lines give year and chapter:section ('1989, 255:2').",
         "format": "html"
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "fail",
         "shell": "http-error",
         "robots_txt": "unreadable (connection closed)",
         "notes": "gc.nh.gov drops script connections."
       },
-      "currency": { "where": "unknown", "observed": "" },
-      "hazards": ["not probed"],
-      "probe": { "citation": "", "url": "", "expect": "" },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "not probed",
+        "index https://gc.nh.gov/bill_Status/ unreadable: WebFetch CLIENT_ERROR (independent check 2026-10-17); no working route to session-law text"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "",
+        "expect": ""
+      },
       "verification": {
         "status": "reported",
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Not probed (budget and priority). The gc.nh.gov 'dynamicdatadump' bulk files cover bills/LSRs, not session-law text."
+        "evidence": "Not probed (budget and priority). The gc.nh.gov 'dynamicdatadump' bulk files cover bills/LSRs, not session-law text. | Independent check 2026-10-17: WebFetch https://gc.nh.gov/bill_Status/ CLIENT_ERROR 'There was an error while fetching.' (failed)"
       },
       "notes": ""
     },
@@ -330,15 +380,24 @@
         "robots_txt": "www.nh.gov answers robots.txt with a bot check",
         "notes": "WebFetch: 'There was an error while fetching.'"
       },
-      "currency": { "where": "unknown", "observed": "" },
-      "hazards": ["bot check on the host; never route around it"],
-      "probe": { "citation": "N.H. Const. pt. I, art. 15", "url": "https://www.nh.gov/glance/state-constitution", "expect": "" },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "bot check on the host; never route around it"
+      ],
+      "probe": {
+        "citation": "N.H. Const. pt. I, art. 15",
+        "url": "https://www.nh.gov/glance/state-constitution",
+        "expect": ""
+      },
       "verification": {
         "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: REFUSED, 'www.nh.gov answers robots.txt with a bot check'. WebFetch: CLIENT_ERROR 'There was an error while fetching.'"
+        "evidence": "fetch_doc.py: REFUSED, 'www.nh.gov answers robots.txt with a bot check'. WebFetch: CLIENT_ERROR 'There was an error while fetching.' | Re-confirmed blocked 2026-10-17: WebFetch CLIENT_ERROR 'There was an error while fetching.'; fetch_doc.py check REFUSED (bot check)"
       },
       "notes": "No other official constitution text found: gc.nh.gov and sos.nh.gov hosted none in search results. sos.nh.gov's robots.txt also answers with a bot check."
     },
@@ -350,13 +409,13 @@
       "tier": 2,
       "official_status": "unofficial",
       "official_status_evidence": "Third-party; index says 'may not be the most recent version.'",
-      "coverage": "Part First (Bill of Rights) and Part Second (Form of Government), one page each.",
+      "coverage": "Part First (Bill of Rights) on billofrights.html; Part Second (Form of Government) split over 11 pages by subject.",
       "access": {
-        "mode": "constructible",
+        "mode": "index-anchored",
         "url_pattern": "https://law.justia.com/constitution/new-hampshire/{part_page}",
-        "pattern_rules": "part_page = billofrights.html for pt. I, formofgov.html for pt. II; find the article on the page by its number heading ('15. Right of accused.').",
+        "pattern_rules": "pt. I: billofrights.html. pt. II: choose the page by article range. formofgov.html Arts. 1-8; house 9-24; senate 25-40; governor 41-59; council 60-66; secretary 67-70; treasurer 71-72; judicial 72-a-81; clerks 82; lit 83; oaths 84-101. Only formofgov.html and judicial.html were seen as file names; take the other page links from the index, not by appending '.html' to the stem. Find the article on the page by its number heading.",
         "index_url": "https://law.justia.com/constitution/new-hampshire/",
-        "navigation": "index (headings only, no text) → billofrights.html or formofgov.html",
+        "navigation": "index (headings and page links, no text) → billofrights.html for pt. I, or the pt. II subject page whose article range covers the article (pt. II, art. 73-a → judicial.html)",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -372,7 +431,9 @@
       },
       "hazards": [
         "stale: in force December 1990; later amendments (e.g. pt. I art. 2-b, 2018) may be missing",
-        "index page holds headings only"
+        "index page holds headings only",
+        "pt. II is split across 11 pages: formofgov.html holds only Arts. 1-8 (independent check 2026-10-17 found pt. II art. 73-a on judicial.html, not formofgov.html)",
+        "pt. I art. 2-b is missing from billofrights.html (confirmed independently)"
       ],
       "probe": {
         "citation": "N.H. Const. pt. I, art. 15",
@@ -382,9 +443,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES 'No subject shall be held to answer for any crime,'; header 'IN FORCE DECEMBER 1990'; amendment notes 1966 and 1984; not truncated. Index page: Art. 15 body NOT PRESENT."
+        "evidence": "WebFetch YES 'No subject shall be held to answer for any crime,'; header 'IN FORCE DECEMBER 1990'; amendment notes 1966 and 1984; not truncated. Index page: Art. 15 body NOT PRESENT. | Independent check 2026-10-17: WebFetch YES Art. 15 'No subject shall be held to answer for any crime,'; 'IN FORCE DECEMBER 1990'; pt. II art. 73-a failed at formofgov.html, found on judicial.html 'The chief justice of the supreme court shall be the administrative'"
       },
       "notes": "Only as a last resort, and always with the 1990 currency warning."
     },
@@ -415,7 +476,10 @@
         "where": "amendment notes under the rules",
         "observed": "made by supreme court order dated April 20, 2017, effective July 1, 2017"
       },
-      "hazards": ["truncation at about 100K characters", "script route blocked by bot check"],
+      "hazards": [
+        "truncation at about 100K characters",
+        "script route blocked by bot check"
+      ],
       "probe": {
         "citation": "N.H. R. Evid. 403",
         "url": "https://courts.nh.gov/rules-evidence",
@@ -424,9 +488,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES Rule 403 'The court may exclude relevant evidence if its probative value is'; Rule 401 present; page 110,415 chars, cut off after Rule 902(4)(A)."
+        "evidence": "WebFetch YES Rule 403 'The court may exclude relevant evidence if its probative value is'; Rule 401 present; page 110,415 chars, cut off after Rule 902(4)(A). | Independent check 2026-10-17: WebFetch YES Rule 403; 'April 20, 2017, effective July 1, 2017' note; cut in 902(4)(A); fetch_doc.py REFUSED (exit 3)"
       },
       "notes": ""
     },
@@ -457,7 +521,10 @@
         "where": "Rule 2(b)",
         "observed": "These rules govern all proceedings filed on or after January 1, 2024."
       },
-      "hazards": ["truncation at about 100K characters (ends in Rule 23)", "script route blocked"],
+      "hazards": [
+        "truncation at about 100K characters (ends in Rule 23)",
+        "script route blocked"
+      ],
       "probe": {
         "citation": "N.H. R. Crim. P. 1",
         "url": "https://courts.nh.gov/new-hampshire-rules-criminal-procedure",
@@ -466,9 +533,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES Rule 1 'These rules govern the procedure in circuit court-district division and'; 136,231 chars; truncated mid Rule 23."
+        "evidence": "WebFetch YES Rule 1 'These rules govern the procedure in circuit court-district division and'; 136,231 chars; truncated mid Rule 23. | Independent check 2026-10-17: WebFetch YES Rule 1(a); Rule 2(b) currency string present; 136,231 chars, cut mid Rule 23(b)(8)"
       },
       "notes": ""
     },
@@ -482,9 +549,9 @@
       "official_status_evidence": "Rules index disclaimer: 'not an official publication of the court rules'. The note says revisions are published in the New Hampshire Bar News.",
       "coverage": "Supreme Court Rules (incl. Rule 7 appeals, Rule 12-D final orders, Rule 22 rehearing).",
       "access": {
-        "mode": "index-anchored",
+        "mode": "link-only",
         "index_url": "https://www.courts.state.nh.us/rules/scr/index.htm",
-        "navigation": "The old-host TOC lists rule titles only ('Rule 7. Appeal from Trial Court Decision on the Merits.'); WebFetch returned no hrefs. The current page is under https://www.courts.nh.gov/rules-supreme-court-state-new-hampshire (its /note subpage was read; the main page was not probed).",
+        "navigation": "Link-only: the old-host TOC (https://www.courts.state.nh.us/rules/scr/index.htm) lists rule titles ('Rule 7. Appeal from Trial Court Decision on the Merits.') but WebFetch returns no hrefs, so no rule body is reachable. The current page sits under https://www.courts.nh.gov/rules-supreme-court-state-new-hampshire; only its /note subpage was read.",
         "format": "html"
       },
       "text": "link-only",
@@ -498,14 +565,21 @@
         "where": "note page",
         "observed": "subject to revisions promulgated from time to time"
       },
-      "hazards": ["TOC without links in WebFetch output", "body text not reached"],
-      "probe": { "citation": "N.H. Sup. Ct. R. 7", "url": "https://www.courts.state.nh.us/rules/scr/index.htm", "expect": "" },
+      "hazards": [
+        "TOC without links in WebFetch output",
+        "body text not reached"
+      ],
+      "probe": {
+        "citation": "N.H. Sup. Ct. R. 7",
+        "url": "https://www.courts.state.nh.us/rules/scr/index.htm",
+        "expect": ""
+      },
       "verification": {
         "status": "reported",
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: TOC only, Rule 7 body NOT PRESENT; /note subpage holds only the revision note."
+        "evidence": "WebFetch: TOC only, Rule 7 body NOT PRESENT; /note subpage holds only the revision note. | Independent check 2026-10-17: WebFetch TOC only, no hrefs (confirmed)"
       },
       "notes": ""
     },
@@ -531,15 +605,26 @@
         "robots_txt": "courts.nh.gov answers robots.txt with a bot check",
         "notes": "WebFetch: 'There was an error while fetching.' The page is probably very long."
       },
-      "currency": { "where": "unknown", "observed": "" },
-      "hazards": ["WebFetch error", "script blocked"],
-      "probe": { "citation": "N.H. Super. Ct. R. 12", "url": "https://courts.nh.gov/rules-superior-court-state-new-hampshire", "expect": "" },
+      "currency": {
+        "where": "unknown",
+        "observed": ""
+      },
+      "hazards": [
+        "WebFetch error",
+        "script blocked",
+        "independent check 2026-10-17: WebFetch CLIENT_ERROR again; no readable route to the rule text"
+      ],
+      "probe": {
+        "citation": "N.H. Super. Ct. R. 12",
+        "url": "https://courts.nh.gov/rules-superior-court-state-new-hampshire",
+        "expect": ""
+      },
       "verification": {
         "status": "reported",
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch CLIENT_ERROR 'There was an error while fetching.'"
+        "evidence": "WebFetch CLIENT_ERROR 'There was an error while fetching.' | Independent check 2026-10-17: WebFetch CLIENT_ERROR 'There was an error while fetching.' (failed)"
       },
       "notes": ""
     },
@@ -554,10 +639,10 @@
       "coverage": "Rules by agency, one HTML file per chapter; online text may lag amendments or include expired rules.",
       "access": {
         "mode": "index-anchored",
-        "url_pattern": "https://gc.nh.gov/rules/state_agencies/{prefix_lower}{chapter}.html",
-        "pattern_rules": "Agency TOC: /rules/state_agencies/{prefix}.html with the prefix lower-cased and its hyphen kept (env-dw.html, ban.html). Some file names are mixed case (Ec-Wst.html, Saf-Mec.html) and some agencies have no link. Chapter file: {prefix}{chapter hundred}.html (Ban 101.01 → ban100.html). Only Ban was observed; confirm the chapter file through the agency TOC.",
+        "url_pattern": "https://gc.nh.gov/rules/State_Agencies/{prefix_lower}{chapter}.html",
+        "pattern_rules": "Agency TOC: /rules/state_agencies/{prefix}.html (prefix lower-cased, hyphen kept: env-dw.html, ban.html; some file names mixed case, e.g. Ec-Wst.html, Saf-Mec.html; some agencies have no link). Chapter file: {prefix}{chapter hundred}.html (Ban 101.01 → ban100.html; Env-Dw 702.01 → env-dw700.html). Chapter links on agency TOCs often point to http://gencourt.state.nh.us/rules/State_Agencies/{file}, which 302-redirects to gc.nh.gov with 'State_Agencies' in mixed case. Treat the path as case-sensitive: use the redirect target exactly as given and re-issue WebFetch on it. Confirm the chapter file through the agency TOC.",
         "index_url": "https://gc.nh.gov/rules/about_rules/listagencies.aspx",
-        "navigation": "listagencies.aspx → agency TOC (chapters, parts, section titles; no text) → chapter file holds the section text",
+        "navigation": "listagencies.aspx → agency TOC (chapters, parts, section titles; no text) → chapter link (old gencourt host, 302 to gc.nh.gov/rules/State_Agencies/…) → chapter file holds the section text",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -571,7 +656,13 @@
         "where": "none on chapter pages; check with /rules/about_rules/checkrule.aspx",
         "observed": ""
       },
-      "hazards": ["not official", "online text may lag or include expired rules", "file-name case is inconsistent"],
+      "hazards": [
+        "not official",
+        "online text may lag or include expired rules",
+        "file-name case is inconsistent",
+        "chapter links go through a 302 from gencourt.state.nh.us to a mixed-case State_Agencies path; re-issue WebFetch on the redirect",
+        "large chapter files pass the 100K WebFetch window (env-dw700.html 103,496 chars)"
+      ],
       "probe": {
         "citation": "N.H. Admin. Code Ban 101.01",
         "url": "https://gc.nh.gov/rules/state_agencies/ban100.html",
@@ -580,9 +671,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES Ban 101.01 'The purpose of these rules is to describe the New Hampshire'; source note '#1596, eff 6-30-80'. ban.html is a TOC with chapter links ban100/500/700.html."
+        "evidence": "WebFetch YES Ban 101.01 'The purpose of these rules is to describe the New Hampshire'; source note '#1596, eff 6-30-80'. ban.html is a TOC with chapter links ban100/500/700.html. | Independent check 2026-10-17: WebFetch YES 'The purpose of these rules is to describe the New Hampshire banking'; second citation N.H. Code Admin. R. Env-Dw 702.01 (env-dw700.html) ok"
       },
       "notes": ""
     },
@@ -614,7 +705,10 @@
         "where": "HTTP Last-Modified only; the page has no currency line",
         "observed": "last-modified Mon, 04 Aug 2025"
       },
-      "hazards": ["possibly a year behind (Last-Modified Aug. 2025)", "expired chapters still listed"],
+      "hazards": [
+        "stale: LII's Ban 101.01 history ends '#10258, eff 1-24-13' while gc.nh.gov shows 'ss by #14096, eff 10-3-24' (Last-Modified Aug. 2025)",
+        "expired chapters still listed"
+      ],
       "probe": {
         "citation": "N.H. Admin. Code Ban 101.01",
         "url": "https://www.law.cornell.edu/regulations/new-hampshire/N-H-Admin-Code-SS-Ban-101.01",
@@ -623,9 +717,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 2,825 chars, 'The purpose of these rules is to describe the New Hampshire banking department'. Second: N-H-Admin-Code-SS-Env-Dw-702.01, 2,755 chars, '#9699, eff 5-1-10'."
+        "evidence": "fetch_doc.py grep: 2,825 chars, 'The purpose of these rules is to describe the New Hampshire banking department'. Second: N-H-Admin-Code-SS-Env-Dw-702.01, 2,755 chars, '#9699, eff 5-1-10'. | Independent check 2026-10-17: fetch_doc.py grep 2,825 chars 'describe the New Hampshire banking department'; LM Aug 4 2025; second citation N.H. Admin. Code Saf-C 6001.01 ok"
       },
       "notes": ""
     },
@@ -637,11 +731,11 @@
       "tier": 1,
       "official_status": "official",
       "official_status_evidence": "Published by the Office of Legislative Services; electronic-only since July 14, 2018 (availability.aspx).",
-      "coverage": "Weekly issues from 2000 to date, PDF.",
+      "coverage": "Weekly issues since 2000, PDF. Through WebFetch only the latest issue is linkable.",
       "access": {
         "mode": "index-anchored",
         "index_url": "https://www.gc.nh.gov/rules/register/default.aspx",
-        "navigation": "default.aspx lists issues by year → viewer.aspx?fileName=F:\\Websites\\GCNHWeb\\Rules\\register\\{year}\\No {n} {Month} {d} {year}.PDF. The query string holds a server file path; copy it from the listing, never build it. Some recent issues are listed without a link.",
+        "navigation": "default.aspx → viewer link for the LATEST issue only (viewer.aspx?fileName=F:\\Websites\\GCNHWeb\\Rules\\register\\{year}\\No {n} {Month} {d} {year}.PDF; copy it from the listing, never build it). In WebFetch output earlier 2026 issues and all earlier years are plain text and the year list has no hrefs. Back issues are link-only: cite them by number and date, or get them from adminrules@gc.nh.gov.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -655,7 +749,11 @@
         "where": "register listing page",
         "observed": "published weekly each Thursday (or earlier if Thursday is a holiday)"
       },
-      "hazards": ["viewer URL embeds a Windows file path with spaces", "issue No 33 (Aug. 20, 2026) listed without a link"],
+      "hazards": [
+        "viewer URL embeds a Windows file path with spaces",
+        "issue No 33 (Aug. 20, 2026) listed without a link",
+        "only the latest issue is reachable; back issues (e.g. 2025 No. 10) failed in the independent check 2026-10-17"
+      ],
       "probe": {
         "citation": "N.H. Rulemaking Register No. 34 (Aug. 27, 2026)",
         "url": "https://www.gc.nh.gov/rules/register/viewer.aspx?fileName=F:\\Websites\\GCNHWeb\\Rules\\register\\2026\\No 34 August 27 2026.PDF",
@@ -664,9 +762,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch YES 'NEW HAMPSHIRE RULEMAKING REGISTER OFFICE OF LEGISLATIVE SERVICES ROOM 234,'; not truncated. Listing: earliest year 2000; latest No 34, Aug. 27, 2026."
+        "evidence": "WebFetch YES 'NEW HAMPSHIRE RULEMAKING REGISTER OFFICE OF LEGISLATIVE SERVICES ROOM 234,'; not truncated. Listing: earliest year 2000; latest No 34, Aug. 27, 2026. | Independent check 2026-10-17: WebFetch YES 'NEW HAMPSHIRE RULEMAKING REGISTER OFFICE OF LEGISLATIVE SERVICES ROOM 234,'; 'Number 34, August 27, 2026'"
       },
       "notes": ""
     },
@@ -692,7 +790,10 @@
         "robots_txt": "courts.nh.gov, www.courts.nh.gov and www.courts.state.nh.us answer robots.txt with a bot check",
         "notes": "WebFetch reads pages whose URL came from a search result (news release, taxonomy/term/1856, search?page=28) but returns no hrefs from them. The built listing URL and an opinion PDF taken from the search page were gated (PROVENANCE_REQUIRED)."
       },
-      "currency": { "where": "listing page (not read)", "observed": "" },
+      "currency": {
+        "where": "listing page (not read)",
+        "observed": ""
+      },
       "hazards": [
         "listing not read; the opinions page on the old host shows only the notice",
         "script route blocked by bot check",
@@ -734,9 +835,19 @@
         "robots_txt": "bot check on robots.txt",
         "notes": ""
       },
-      "currency": { "where": "none stated", "observed": "" },
-      "hazards": ["no dates or links in WebFetch output", "orders are not precedent"],
-      "probe": { "citation": "State v. Ruel, No. 2023-0175", "url": "https://www.courts.nh.gov/taxonomy/term/1856?page=0", "expect": "2023-0175, State of New Hampshire v. Kevin M. Ruel" },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "no dates or links in WebFetch output",
+        "orders are not precedent"
+      ],
+      "probe": {
+        "citation": "State v. Ruel, No. 2023-0175",
+        "url": "https://www.courts.nh.gov/taxonomy/term/1856?page=0",
+        "expect": "2023-0175, State of New Hampshire v. Kevin M. Ruel"
+      },
       "verification": {
         "status": "reported",
         "date": "2026-10-17",
@@ -758,7 +869,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/new-hampshire/supreme-court/{year}/{docket}.html",
-        "pattern_rules": "year = decision year; docket = NH Supreme Court case number as printed (2022-0629). Year listing: /cases/new-hampshire/supreme-court/{year}/. PDF link on the page: https://cases.justia.com/new-hampshire/supreme-court/{year}-{docket}.pdf?ts=…",
+        "pattern_rules": "year = DECISION year, taken from the year listing; it is not the docket prefix (State v. Sleeper, No. 2024-0035, decided Dec. 5, 2025 → /2025/2024-0035.html). docket = NH Supreme Court case number as printed. Year listing: /cases/new-hampshire/supreme-court/{year}/. Pages for 2024 on show the neutral citation ('Citation: State v. Sleeper, 2025 N.H. 52') and ¶ numbers. PDF link on the page: https://cases.justia.com/new-hampshire/supreme-court/{year}-{docket}.pdf?ts=…",
         "index_url": "https://law.justia.com/cases/new-hampshire/supreme-court/",
         "navigation": "year listing (case name, docket, date) → case page",
         "format": "html"
@@ -770,8 +881,16 @@
         "robots_txt": "unreadable (challenge)",
         "notes": "Long opinions pass 100K characters (Brown v. Secretary of State: 122,410); use offset=100000."
       },
-      "currency": { "where": "none stated", "observed": "" },
-      "hazards": ["truncation of long opinions", "no N.H. Reports citation shown for recent opinions", "slip text, not the revised N.H. Reports text"],
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "truncation of long opinions",
+        "no N.H. Reports citation shown for recent opinions",
+        "slip text, not the revised N.H. Reports text",
+        "decision year ≠ docket year; never take {year} from the docket prefix"
+      ],
       "probe": {
         "citation": "Brown v. Sec'y of State, No. 2022-0629 (N.H. Nov. 29, 2023)",
         "url": "https://law.justia.com/cases/new-hampshire/supreme-court/2023/2022-0629.html",
@@ -780,9 +899,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'DONOVAN, J. This case presents a question of first impression'; 122,410 chars, cut off in the dissent; PDF href cases.justia.com/.../2023-2022-0629.pdf. 2023 listing: 61 cases with docket and date."
+        "evidence": "WebFetch: 'DONOVAN, J. This case presents a question of first impression'; 122,410 chars, cut off in the dissent; PDF href cases.justia.com/.../2023-2022-0629.pdf. 2023 listing: 61 cases with docket and date. | Independent check 2026-10-17: WebFetch YES 'DONOVAN, J. This case presents a question of first impression'; 122,410 chars truncated; second citation State v. Sleeper, 2025 N.H. 52 (No. 2024-0035) ok"
       },
       "notes": ""
     },
@@ -810,8 +929,13 @@
         "robots_txt": "docket path allowed (fetch_doc.py ok)",
         "notes": ""
       },
-      "currency": { "where": "dated docket entries", "observed": "Oct 05 2026 Petition DENIED." },
-      "hazards": ["no link from the NH docket to the SCOTUS docket"],
+      "currency": {
+        "where": "dated docket entries",
+        "observed": "Oct 05 2026 Petition DENIED."
+      },
+      "hazards": [
+        "no link from the NH docket to the SCOTUS docket"
+      ],
       "probe": {
         "citation": "Richard v. New Hampshire, No. 25-1390 (from N.H. No. 2025-0297)",
         "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1390.html",
@@ -820,9 +944,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py grep: 4,941 chars; 'Lower Ct: Supreme Court of New Hampshire'; 'Case Numbers: (2025-0297)'; 'Oct 05 2026 Petition DENIED.' Also 24A1016 (2024-0491), 25A908 (2025-0454) show NH lower court."
+        "evidence": "fetch_doc.py grep: 4,941 chars; 'Lower Ct: Supreme Court of New Hampshire'; 'Case Numbers: (2025-0297)'; 'Oct 05 2026 Petition DENIED.' Also 24A1016 (2024-0491), 25A908 (2025-0454) show NH lower court. | Independent check 2026-10-17: fetch_doc.py grep 4,941 chars 'Oct 05 2026 Petition DENIED.'; second citation G. M. v. New Hampshire, No. 24A1016 (N.H. No. 2024-0491) ok"
       },
       "notes": "Respondent name on 25-1390 not checked (title 'Daniel Richard, Petitioner'). The citation string is a probe label only."
     }
@@ -894,6 +1018,8 @@
     "Session laws (chaptered laws) on gc.nh.gov not probed.",
     "Justia regulations (regulations.justia.com) for NH admin rules and new-hampshire.public.law (proxy 502 on robots.txt) not checked.",
     "CourtListener ids 'nh' and 'nhsuperct' unverified.",
-    "Lettered RSA sections (e.g. 507:7-d): case of the suffix in the gc.nh.gov file name not confirmed."
+    "Superior Court Rules: two WebFetch errors (research and independent). Look for per-rule pages on courts.nh.gov or ingest as a corpus once a route exists.",
+    "Session laws: find a readable chaptered-laws page linked from gc.nh.gov; bill_Status/ fails in WebFetch and the script cannot connect.",
+    "Rulemaking Register back issues: find a per-year archive URL linked from gc.nh.gov."
   ]
 }

@@ -2496,17 +2496,17 @@
     "nh": {
       "name": "New Hampshire",
       "file": "jurisdictions/nh.md",
-      "sha256": "387cb14ab0f5d5b4c66b0b9f39c37264481efd9eea540795f50fae03402bae8c",
+      "sha256": "f5cbf57737d789d090e823276df4ddf2c7284e368246f466b6ba6c4c0155fca4",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 10,
+        "verified_independent": 10,
         "reported": 5,
         "blocked": 1
       },
       "citation_patterns": [
         {
           "label": "New Hampshire Revised Statutes Annotated (RSA)",
-          "regex": "(?:\\bRSA|N\\.\\s*H\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|New\\s+Hampshire\\s+Revised\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?:(?P<chapter>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section>\\d{1,3}(?:-[a-z]{1,2})?)(?![\\d:])|(?:ch(?:apter|\\.)\\s*)(?P<chapter2>\\d{1,3}(?:-[A-Za-z]{1,2})?)\\b)",
+          "regex": "(?:\\bRSA|N\\.\\s*H\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|New\\s+Hampshire\\s+Revised\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?:(?P<chapter>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section>\\d{1,3}(?:-[a-z]{1,2})?)(?![\\d:])|(?:ch(?:apter|\\.)\\s*)(?P<chapter2>\\d{1,3}(?:-[A-Za-z]{1,2})?)\\b)|sec(?:tion|\\.)\\s*(?P<chapter3>\\d{1,3}(?:-[A-Za-z]{1,2})?):(?P<section3>\\d{1,3}(?:-[a-z]{1,2})?)(?:,\\s*[IVXL]+)?\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Revised\\s+Statutes(?:\\s+Annotated)?",
           "context_required": false
         },
         {
@@ -2516,7 +2516,7 @@
         },
         {
           "label": "New Hampshire Constitution",
-          "regex": "N\\.\\s*H\\.\\s*Const\\.\\s*pt\\.\\s*(?P<part>I{1,2}|1|2),?\\s*art\\.\\s*(?P<article>\\d{1,3}(?:-[a-z])?)|Part\\s+(?P<part2>I{1,2}|First|Second|1|2),?\\s+Art(?:icle|\\.)\\s*(?P<article2>\\d{1,3}(?:-[a-z])?)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution",
+          "regex": "N\\.\\s*H\\.\\s*Const\\.\\s*pt\\.\\s*(?P<part>I{1,2}|1|2),?\\s*art\\.\\s*(?P<article>\\d{1,3}(?:-[a-z])?)|Part\\s+(?P<part2>I{1,2}|First|Second|1|2),?\\s+Art(?:icle|\\.)\\s*(?P<article2>\\d{1,3}(?:-[a-z])?)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution|Art(?:icle|\\.)\\s*(?P<article3>\\d{1,3}(?:-[a-z])?)\\s+of\\s+Part\\s+(?P<part3>I{1,2}|First|Second|1|2)\\s+of\\s+the\\s+(?:New\\s+Hampshire|N\\.\\s*H\\.)\\s+Constitution",
           "context_required": false
         },
         {
@@ -2536,7 +2536,7 @@
         },
         {
           "label": "New Hampshire administrative rules (bare agency prefix)",
-          "regex": "\\b(?P<prefix>[A-Z][a-z]{1,3}(?:-[A-Z][a-z]{0,3})?)\\s+(?P<section>\\d{3,4}(?:\\.\\d{2,3})?)\\b",
+          "regex": "(?-i:\\b(?!(?:Rule|Rules|Laws?|Part|Art|Title|Vol|Page|Sec|Supp|Chap|Ch|Act|Acts|Note|Form|Pub|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|No)\\b)(?P<prefix>[A-Z][a-z]{1,3}(?:-[A-Z][a-z]{0,3})?)\\s+(?P<section>\\d{3,4}(?:\\.\\d{2,3})?)\\b)",
           "context_required": true
         },
         {
