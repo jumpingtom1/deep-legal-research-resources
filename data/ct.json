@@ -116,9 +116,10 @@
           "article first, § 7, of the Connecticut constitution",
           "Conn. Const. amend. XVII",
           "article fifth, § 2, of the constitution of Connecticut",
-          "Article I, Section 7 of the Connecticut Constitution"
+          "Article I, Section 7 of the Connecticut Constitution",
+          "article XVIII of the amendments to the Connecticut constitution"
         ],
-        "regex": "Conn\\.\\s*Const\\.,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+|[a-z]+(?:-[a-z]+)?),?\\s*§\\s*(?P<section>\\d+)|amend\\.\\s*(?P<amend>[IVXL]+))|article\\s+(?P<article2>[IVXL]+|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth),?\\s*(?:§|section)\\s*(?P<section2>\\d+),?\\s+of\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)",
+        "regex": "Conn\\.\\s*Const\\.,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+|[a-z]+(?:-[a-z]+)?),?\\s*§\\s*(?P<section>\\d+)|amend\\.\\s*(?P<amend>[IVXL]+))|article\\s+(?P<article2>[IVXL]+|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth),?\\s*(?:§|section)\\s*(?P<section2>\\d+),?\\s+of\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)|article\\s+(?P<amend2>[IVXL]+|[a-z]+(?:-[a-z]+)?)\\s+of\\s+the\\s+amendments\\s+to\\s+the\\s+(?:Connecticut\\s+constitution|constitution\\s+of\\s+Connecticut)",
         "routes_to": [
           "ct-constitution-sots",
           "ct-constitution-justia",
@@ -162,9 +163,10 @@
         "family": "court_rules",
         "label": "Code of Evidence (bare, no state marker)",
         "examples": [
-          "Code of Evidence § 7-2"
+          "Code of Evidence § 7-2",
+          "§ 4-6 of the Code of Evidence"
         ],
-        "regex": "Code\\s+of\\s+Evidence\\s*§\\s*(?P<section>\\d{1,2}-\\d{1,2})",
+        "regex": "Code\\s+of\\s+Evidence\\s*§\\s*(?P<section>\\d{1,2}-\\d{1,2})|(?:sec(?:tion|\\.)|§)\\s*(?P<section2>\\d{1,2}-\\d{1,2})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Evidence",
         "routes_to": [
           "ct-rules-evidence"
         ],
@@ -307,7 +309,7 @@
       "Conn. Agencies Regs.": "RCSA",
       "RCSA": "RCSA"
     },
-    "notes": "Connecticut has no public-domain/vendor-neutral case citation. Connecticut courts cite statutes as 'General Statutes § 52-577' (no 'Conn.'), regulations as 'Regs., Conn. State Agencies § X', rules as 'Practice Book § 10-30' and 'Conn. Code Evid. § 7-2'; Bluebook forms are 'Conn. Gen. Stat. § 52-577' and 'Conn. Agencies Regs. § X'. Bare 'General Statutes § N' routes here because the NN[a]-NNN[a] section shape plus 'General Statutes' is Connecticut usage; if another state's record uses bare 'General Statutes', resolve by context. Statute sections are title-section (52-577, 53a-54a, 22a-174); the chapter is NOT derivable from the section: use Justia's title page (shows chapter section ranges) or cga.ct.gov titles index. A '§§ 52-577 and 52-584' list or '§§ a to b' range is several sections: the regex takes the first. Practice Book sections are chapter-section (10-30, 61-10) and Code of Evidence sections are article-section (7-2); bare 'Code of Evidence § N-N' and bare 'P.A. NN-NN' are context_required (Illinois also uses 'P.A.'). Docket numbers 'SC 20748' / 'AC 46166' are context_required. Official reports pagination: Connecticut Law Journal / Conn. Reports and Conn. App. PDFs carry official page numbers; Justia and advance-release slip opinions do not (Justia shows '0 Conn. App. 1' placeholder). Cert dispositions: CT style is 'cert. denied, 352 Conn. 911 (2025)'; the Conn. volume makes it distinctive; a cert cite with only A.3d is context_required. CourtListener ids from memory, unverified."
+    "notes": "Connecticut has no public-domain/vendor-neutral case citation. Connecticut courts cite statutes as 'General Statutes § 52-577' (no 'Conn.'), regulations as 'Regs., Conn. State Agencies § X', rules as 'Practice Book § 10-30' and 'Conn. Code Evid. § 7-2'; Bluebook forms are 'Conn. Gen. Stat. § 52-577' and 'Conn. Agencies Regs. § X'. Bare 'General Statutes § N' routes here because the NN[a]-NNN[a] section shape plus 'General Statutes' is Connecticut usage; if another state's record uses bare 'General Statutes', resolve by context. Statute sections are title-section (52-577, 53a-54a, 22a-174); the chapter is NOT derivable from the section: use Justia's title page (shows chapter section ranges) or cga.ct.gov titles index. A '§§ 52-577 and 52-584' list or '§§ a to b' range is several sections: the regex takes the first. Practice Book sections are chapter-section (10-30, 61-10) and Code of Evidence sections are article-section (7-2); bare 'Code of Evidence § N-N' and bare 'P.A. NN-NN' are context_required (Illinois also uses 'P.A.'). Docket numbers 'SC 20748' / 'AC 46166' are context_required. Official reports pagination: Connecticut Law Journal / Conn. Reports and Conn. App. PDFs carry official page numbers; Justia and advance-release slip opinions do not (Justia shows '0 Conn. App. 1' placeholder). Cert dispositions: CT style is 'cert. denied, 352 Conn. 911 (2025)'; the Conn. volume makes it distinctive; a cert cite with only A.3d is context_required. CourtListener ids from memory, unverified. Amendment articles are also cited in prose as 'article XVIII of the amendments to the Connecticut constitution' (matched). '§ 4-6 of the Code of Evidence' without 'Connecticut' is context_required."
   },
   "sources": [
     {
@@ -332,7 +334,7 @@
         "webfetch": "blocked",
         "shell": "tls-error",
         "robots_txt": "robots.txt (as served by the same site at prdext3.cga.ct.gov, headed 'robots.txt for https://www.cga.ct.gov') disallows only /cgi-bin/, /asp/menu/, /html/, /images/, /js/ and similar; no rule covers /Current/pub/.",
-        "notes": "Script: 'TLS certificate chain does not verify' on both www.cga.ct.gov and cga.ct.gov. Fetch tool: ROBOTS_DISALLOWED on www.cga.ct.gov/Current/Pub/titles.htm, /Current/pub/title_12.htm, /2025/pub/chap_883.htm, robots.txt itself, and on cga.ct.gov/Current/pub/title_01.htm and title_52.htm; only cga.ct.gov/Current/pub/titles.htm returned content (twice). Built chap_926.htm was permission-gated. Server-node hostnames prdext2/prdext3.cga.ct.gov serve the same site and pass TLS, but no CGA page was found linking to them: not used (alternate-host rule)."
+        "notes": "Script: 'TLS certificate chain does not verify' on both www.cga.ct.gov and cga.ct.gov. Fetch tool: ROBOTS_DISALLOWED on www.cga.ct.gov/Current/Pub/titles.htm, /Current/pub/title_12.htm, /2025/pub/chap_883.htm, robots.txt itself, and on cga.ct.gov/Current/pub/title_01.htm and title_52.htm; only cga.ct.gov/Current/pub/titles.htm returned content (twice). Built chap_926.htm was permission-gated. Server-node hostnames prdext2/prdext3.cga.ct.gov serve the same site and pass TLS, but no CGA page was found linking to them: not used (alternate-host rule). Policy-table row: the fetch tool's own ROBOTS_DISALLOWED is treated as a robots disallow (blocked for every route); the script separately fails TLS (never disable verification). Re-check route: fetch_doc.py --research check (fails at TLS before a robots verdict) and, only if it clears, one WebFetch."
       },
       "currency": {
         "where": "titles.htm header",
@@ -354,7 +356,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Script: TLS certificate chain does not verify (www and bare host). WebFetch: ROBOTS_DISALLOWED on 6 cga.ct.gov URLs; chap_926.htm gated. Only titles.htm read: 'Revised to January 1, 2025'."
+        "evidence": "Script: TLS certificate chain does not verify (www and bare host). WebFetch: ROBOTS_DISALLOWED on 6 cga.ct.gov URLs; chap_926.htm gated. Only titles.htm read: 'Revised to January 1, 2025'. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check: 'TLS certificate chain does not verify' (exit 4)"
       },
       "notes": "The fetch tool's robots refusal does not match the robots.txt text read via prdext3 (no Disallow for /Current/pub/); recorded as blocked because no permitted route returns text. Re-test when the TLS chain or the fetch tool's robots reading changes."
     },
@@ -399,9 +401,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: body present, 'No action founded upon a tort shall be brought but'; '2025 Connecticut General Statutes'. Second: /title-42/chapter-735a/section-42-110b/ 'No person shall engage in unfair methods of competition and'. Title-52 page shows '(Secs. 52-573 to 52-598a)' for ch. 926."
+        "evidence": "WebFetch: body present, 'No action founded upon a tort shall be brought but'; '2025 Connecticut General Statutes'. Second: /title-42/chapter-735a/section-42-110b/ 'No person shall engage in unfair methods of competition and'. Title-52 page shows '(Secs. 52-573 to 52-598a)' for ch. 926. | Independent check 2026-10-17: YES 'No action founded upon a tort shall be brought but'; '2025 Connecticut General Statutes'; second citation General Statutes § 53a-54a ok"
       },
       "notes": "Only route that returns statute text in this environment. public.law and Cornell LII do not host the Connecticut statutes (not found)."
     },
@@ -436,7 +438,8 @@
       "hazards": [
         "amendments printed separately from the articles they amend",
         "page exceeds fetch-tool window",
-        "may not show amendments approved after 2022"
+        "may not show amendments approved after 2022",
+        "amended sections appear twice (original article text and the amendment article, e.g. art. I § 8 at offsets ~6031 and ~78528): quote the amendment-article version"
       ],
       "probe": {
         "citation": "Conn. Const. art. I, § 7",
@@ -446,9 +449,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py verify: VERIFIED exact at offset 5219 (113,252 chars). Second: art. I § 8 'In all criminal prosecutions, the accused shall have a right'. WebFetch: § 7 present, truncated at 100,000 of 114,066 chars."
+        "evidence": "fetch_doc.py verify: VERIFIED exact at offset 5219 (113,252 chars). Second: art. I § 8 'In all criminal prosecutions, the accused shall have a right'. WebFetch: § 7 present, truncated at 100,000 of 114,066 chars. | Independent check 2026-10-17: script grep 'The people shall be secure in their persons' offset 5219; last 'Adopted November 30, 2022.'; second citation Conn. Const. art. I, § 8 ok"
       },
       "notes": "Whether the November 2024 ballot amendment (no-excuse absentee voting) is missing is unverified: no 2024 date found on the page."
     },
@@ -471,7 +474,7 @@
         "webfetch": "blocked",
         "shell": "tls-error",
         "robots_txt": "no Disallow for /asp/Content/ seen",
-        "notes": "Same host refusals as ct-statutes-cga; not probed separately."
+        "notes": "Same host refusals as ct-statutes-cga; not probed separately. Policy-table row: the fetch tool's own ROBOTS_DISALLOWED is treated as a robots disallow (blocked for every route); the script separately fails TLS (never disable verification). Re-check route: fetch_doc.py --research check (fails at TLS before a robots verdict) and, only if it clears, one WebFetch."
       },
       "currency": {
         "where": "unknown",
@@ -481,8 +484,8 @@
         "host unreadable from this sandbox"
       ],
       "probe": {
-        "citation": "",
-        "url": "",
+        "citation": "Conn. Const. (1818) — index",
+        "url": "https://www.cga.ct.gov/asp/content/constitutions/1818Constitution.htm",
         "expect": ""
       },
       "verification": {
@@ -490,7 +493,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Host-level: script TLS failure; fetch tool ROBOTS_DISALLOWED on www.cga.ct.gov."
+        "evidence": "Host-level: script TLS failure; fetch tool ROBOTS_DISALLOWED on www.cga.ct.gov. | Re-confirmed blocked 2026-10-17: fetch_doc.py --research check: 'TLS certificate chain does not verify' (exit 4)"
       },
       "notes": ""
     },
@@ -533,9 +536,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: art. I § 7 present, 'The people shall be secure in their persons, houses, papers'; one page, 112,710 chars."
+        "evidence": "WebFetch: art. I § 7 present, 'The people shall be secure in their persons, houses, papers'; one page, 112,710 chars. | Independent check 2026-10-17: YES 'The people shall be secure in their persons, houses, papers'; 112,710 chars, truncated at 100K"
       },
       "notes": ""
     },
@@ -557,10 +560,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "blocked",
         "shell": "tls-error",
         "robots_txt": "unreadable: SSLV3_ALERT_HANDSHAKE_FAILURE fetching robots.txt",
-        "notes": "www.jud.ct.gov and jud.ct.gov fail the TLS handshake for the script; the built PB.pdf URL was permission-gated for the fetch tool and not answered."
+        "notes": "Fetch tool: ROBOTS_DISALLOWED on https://www.jud.ct.gov/Publications/PracticeBook/PB.pdf (independent check 2026-10-17; earlier the same URL was permission-gated). Under the policy table this is a robots disallow: blocked for every route. Other www.jud.ct.gov /lawjournal/ PDFs read fine. Script: TLS handshake failure on jud.ct.gov."
       },
       "currency": {
         "where": "unknown",
@@ -568,7 +571,8 @@
       },
       "hazards": [
         "single PDF of several hundred pages will truncate in the fetch tool",
-        "PDF URL unconfirmed"
+        "PDF URL unconfirmed",
+        "PB.pdf path refused by the fetch tool as robots-disallowed"
       ],
       "probe": {
         "citation": "Practice Book § 10-30",
@@ -576,11 +580,11 @@
         "expect": ""
       },
       "verification": {
-        "status": "reported",
+        "status": "blocked",
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "pub.htm lists 'Connecticut Practice Book' (no edition year shown); PB.pdf fetch gated; script TLS handshake failure."
+        "evidence": "WebFetch PB.pdf: ROBOTS_DISALLOWED (independent check); script: SSLV3_ALERT_HANDSHAKE_FAILURE; pub.htm lists 'Connecticut Practice Book' with no year."
       },
       "notes": "No tier-2 host (Justia, LII, public.law) carries the Practice Book."
     },
@@ -726,7 +730,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.law.cornell.edu/regulations/connecticut/Regs-Conn-State-Agencies-SS-{section}",
-        "pattern_rules": "section verbatim incl. both hyphens (22a-174-1, 17b-262-1). Title index: /regulations/connecticut/title-{title}; part index /title-{title}/{part} (e.g. title-22a/174).",
+        "pattern_rules": "section verbatim incl. both hyphens (22a-174-1, 17b-262-1). Title index: /regulations/connecticut/title-{title}; part index /title-{title}/{part} (e.g. title-22a/174). Letter-bearing section suffixes work as-is (Regs-Conn-State-Agencies-SS-19a-36-A2).",
         "index_url": "https://www.law.cornell.edu/regulations/connecticut/title-{title}",
         "format": "html"
       },
@@ -752,9 +756,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py verify: VERIFIED exact (37,231 chars). Second: Regs-Conn-State-Agencies-SS-17b-262-1 'Effective June 4, 1996'. WebFetch on title-22a index OK."
+        "evidence": "fetch_doc.py verify: VERIFIED exact (37,231 chars). Second: Regs-Conn-State-Agencies-SS-17b-262-1 'Effective June 4, 1996'. WebFetch on title-22a index OK. | Independent check 2026-10-17: script grep 'Except as may otherwise be provided' offset 1629; 'State regulations are updated quarterly'; second citation Regs., Conn. State Agencies § 19a-36-A2 ok"
       },
       "notes": "Section URL learned from the part page's link (fetch_doc.py links)."
     },
@@ -772,9 +776,9 @@
         "url_pattern": "https://jud.ct.gov/external/supapp/archiveAROsup{yy}.htm",
         "pattern_rules": "yy = two-digit year (archiveAROsup04.htm, archiveAROap05.htm, from search results); current: /external/supapp/aro.htm.",
         "index_url": "https://jud.ct.gov/external/supapp/archiveAROsup.htm",
-        "navigation": "archive index (years 2000-2026) → year page: entries 'SC16446 - State v. Colon' grouped under 'Published in Connecticut Law Journal - 12/28/04' → PDF link. The fetch tool strips the hrefs, so the PDF cannot be followed: read the opinion on ct-cases-justia (same docket in its URL).",
+        "navigation": "archive index (years 2000-2026) → year page: entries 'SC16446 - State v. Colon' grouped under 'Published in Connecticut Law Journal - 12/28/04' → PDF link. The fetch tool strips the hrefs, so the PDF cannot be followed: read the opinion on ct-cases-justia: same docket in its URL only for recent years; older years via Justia's year listing.",
         "format": "pdf",
-        "read_via": "ct-cases-justia (docket-keyed URL); jud.ct.gov PDFs unreachable: script TLS failure, hrefs invisible to the fetch tool"
+        "read_via": "ct-cases-justia: docket-slug URL only for recent years (confirmed 2016, 2023-2025); for older years find the case on Justia's year listing (/cases/connecticut/{court}/{year}/), whose slugs are volume-based (2004/272cr131.html, 2005/92ap28.html). jud.ct.gov PDFs unreachable: script TLS failure, hrefs invisible to the fetch tool."
       },
       "text": "link-only",
       "automation": {
@@ -790,7 +794,8 @@
       "hazards": [
         "hrefs not visible to the fetch tool",
         "slip pagination, not official",
-        "fetch tool may serve a stale copy (Jan 2026 page in Oct 2026)"
+        "fetch tool may serve a stale copy (Jan 2026 page in Oct 2026)",
+        "handoff to Justia by docket fails for older cases (AC25704 of 2005 is Justia 2005/92ap28.html)"
       ],
       "probe": {
         "citation": "State v. Colon (SC16446, released 12/28/04)",
@@ -800,9 +805,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'SC16446 - State v. Colon' under 'Published in Connecticut Law Journal - 12/28/04'; index covers July 2000 to 2026; no hrefs."
+        "evidence": "WebFetch: 'SC16446 - State v. Colon' under 'Published in Connecticut Law Journal - 12/28/04'; index covers July 2000 to 2026; no hrefs. | Independent check 2026-10-17: YES 'SC16446 - State v. Colon' under 'Published in Connecticut Law Journal - 12/28/04'; no hrefs; archiveAROap05.htm lists AC25704 (listing ok; Justia docket handoff failed)"
       },
       "notes": "Listing locates (court, docket, release date); no plain-GET search found."
     },
@@ -816,11 +821,11 @@
       "official_status_evidence": "AP108.pdf title page: 'Official Connecticut Appellate Reports, Volume 108'; Law Journal PDFs carry Conn./Conn. App. running heads with official page numbers.",
       "coverage": "Law Journals published after June 13, 2017 (FAQ); Conn. Reports from vol. 320 in release segments ('Connecticut Reports Vol.353 Pages 564 - 665'); full Conn. App. volumes as single PDFs (AP108 = 2008).",
       "access": {
-        "mode": "index-anchored",
+        "mode": "search-only",
         "url_pattern": "https://www.jud.ct.gov/lawjournal/Docs/{Appellate|CTReports}/{year}/{issue}/{prefix}{volume}_{serial}.pdf",
         "pattern_rules": "From search results: Appellate/2025/27/md233_8701.pdf (memorandum decisions, 233 Conn. App.), CTReports/2025/27/ord352_8701.pdf (orders, 352 Conn.), Appellate/FullVolume/AP108.pdf. {serial} is shared by documents of the same Law Journal issue (8701 = July 1, 2025 issue 27); not derivable from a citation.",
         "index_url": "https://jud.ct.gov/LawJournal/CR/ConnecticutReports.aspx",
-        "navigation": "ConnecticutReports.aspx or AppellateReports.aspx lists release segments by date and page range ('10/07/2025 Connecticut Reports Vol.353 Pages 564 - 665'); hrefs are not exposed to the fetch tool, so the PDF URL must come from elsewhere (search result).",
+        "navigation": "Works ONLY when a PDF URL is already in hand (e.g. from a web-search result such as 'jud.ct.gov/lawjournal/Docs ... md233'). The listing pages (ConnecticutReports.aspx, AppellateReports.aspx) show no links to the fetch tool and served a stale copy (newest entry 01/20/2026, Vol. 354), so a Conn. cite cannot be turned into a PDF from the listing. Otherwise fall back to ct-cases-justia (slip pagination).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -837,7 +842,8 @@
       "hazards": [
         "URLs not derivable; listing hrefs invisible",
         "full-volume PDFs truncate",
-        "listing page showed only the newest volume"
+        "listing page showed only the newest volume",
+        "listing pages expose no hrefs and serve a stale copy (newest 01/20/2026 in Oct 2026)"
       ],
       "probe": {
         "citation": "108 Conn. App. 1 (Cabral v. Commissioner of Correction)",
@@ -847,9 +853,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch AP108.pdf: 'Official Connecticut Appellate Reports, Volume 108'; first case Cabral at page 1; truncated at 100K. md233_8701.pdf: '233 Conn. App. MEMORANDUM DECISIONS 903'."
+        "evidence": "WebFetch AP108.pdf: 'Official Connecticut Appellate Reports, Volume 108'; first case Cabral at page 1; truncated at 100K. md233_8701.pdf: '233 Conn. App. MEMORANDUM DECISIONS 903'. | Independent check 2026-10-17: AP108.pdf 'OFFICIAL CONNECTICUT APPELLATE REPORTS Volume 108'; Cabral at p. 1; truncated at 100K; second citation 233 Conn. App. 903 (md233_8701.pdf) ok"
       },
       "notes": "Only free source with official Conn./Conn. App. pagination for recent volumes."
     },
@@ -861,13 +867,14 @@
       "tier": 2,
       "official_status": "unofficial",
       "official_status_evidence": "Third-party copy of slip opinions; appellate page notes the advance release version may be modified.",
-      "coverage": "Supreme Court 1846-2026; Appellate Court 1983-2026.",
+      "coverage": "Supreme Court 1846-2026; Appellate Court 1983-2026. Docket-slug URLs confirmed only for 2016 and 2023-2025; older years use volume-based slugs.",
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/cases/connecticut/{court}/{year}/{docket}.html",
-        "pattern_rules": "court = supreme-court | court-of-appeals (Appellate Court); docket lower-case, no space (sc20748, ac46166); year = decision year. Year listing: /cases/connecticut/{court}/{year}/. PDF: https://cases.justia.com/connecticut/{court}/{year}-{docket}.pdf (linked from the case page).",
+        "pattern_rules": "Docket-slug era only (confirmed 2016, 2023, 2024, 2025): court = supreme-court | court-of-appeals (Appellate Court); docket lower-case, no space (sc20748, ac46166, ac47975); year = decision year. OLDER years use volume-based slugs ({vol}cr{n}.html for Supreme, e.g. 2004/272cr131.html State v. Colon; {vol}ap{n}.html for Appellate, e.g. 2005/92ap28.html Dickinson v. Mullaney) that cannot be built: take the URL from the year listing /cases/connecticut/{court}/{year}/. The cutover year between slug styles is unconfirmed: if a built docket URL errors, fall back to the year listing. PDF: https://cases.justia.com/connecticut/{court}/{year}-{docket}.pdf (linked from the case page).",
         "index_url": "https://law.justia.com/cases/connecticut/supreme-court/",
-        "format": "html"
+        "format": "html",
+        "navigation": "Recent years: build the docket URL. Older years (or any built URL that errors): year listing /cases/connecticut/{court}/{year}/ → find case by name/docket → follow its link."
       },
       "text": "fetch-and-quote",
       "automation": {
@@ -882,7 +889,8 @@
       },
       "hazards": [
         "slip pagination only; no Conn. cite ('0 Conn. App. 1' placeholder)",
-        "shell blocked"
+        "shell blocked",
+        "docket-based URL fails for older years (built 2004/sc16446.html errored; real slug 2004/272cr131.html): use the year listing"
       ],
       "probe": {
         "citation": "Alico, LLC v. Somers (SC20748, Dec. 19, 2023)",
@@ -892,9 +900,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: full opinion, starts 'General Statutes § 12-71 (f) (1)1 authorizes Connecticut towns to'; not truncated. Second: court-of-appeals/2024/ac46166.html 'MOLL, J. The plaintiff, Unifoods, S.A. de C.V., appeals from'."
+        "evidence": "WebFetch: full opinion, starts 'General Statutes § 12-71 (f) (1)1 authorizes Connecticut towns to'; not truncated. Second: court-of-appeals/2024/ac46166.html 'MOLL, J. The plaintiff, Unifoods, S.A. de C.V., appeals from'. | Independent check 2026-10-17: YES body starts 'General Statutes § 12-71 (f) (1)1 authorizes Connecticut towns'; not truncated; second citation AC47975 (2025) ok, but State v. Colon SC16446 (2004) docket URL failed (volume slug 272cr131.html)"
       },
       "notes": ""
     },
@@ -908,11 +916,11 @@
       "official_status_evidence": "Orders are paginated in the Connecticut Reports ('ORDERS 910 352 Conn.').",
       "coverage": "Supreme Court orders granting/denying certification to appeal from the Appellate Court, by Law Journal issue (from vol. 320 / mid-2017).",
       "access": {
-        "mode": "index-anchored",
+        "mode": "search-only",
         "url_pattern": "https://www.jud.ct.gov/lawjournal/Docs/CTReports/{year}/{issue}/ord{volume}_{serial}.pdf",
         "pattern_rules": "Not derivable from the decision below; ConnecticutReports.aspx lists 'Orders Vol.354 Pages 901 - 901' by release date.",
         "index_url": "https://jud.ct.gov/LawJournal/CR/ConnecticutReports.aspx",
-        "navigation": "From the Appellate Court decision (Conn. App. cite / AC docket), scan Orders releases after its date; each entry names the case, the Conn. App. cite and AC docket. No docket search found: in practice found by party name or Conn. App. cite in a search engine.",
+        "navigation": "Works ONLY with a PDF URL already in hand (web search for the case name or Conn. App. cite plus 'jud.ct.gov lawjournal ord' found ord352_8701.pdf and others). The listing page shows no links to the fetch tool and served a stale copy (newest 01/20/2026). No docket lookup; in practice found by party name or Conn. App. cite.",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -923,12 +931,13 @@
         "notes": "hrefs on the listing page are invisible to the fetch tool."
       },
       "currency": {
-        "where": "PDF header",
-        "observed": "Connecticut Law Journal Orders: Certification Petition Denials, June 17, 2025"
+        "where": "order entry",
+        "observed": "Decided June 17, 2025"
       },
       "hazards": [
         "no lookup by docket",
-        "listing hrefs invisible"
+        "listing hrefs invisible",
+        "listing page stale (newest 01/20/2026) and without visible hrefs"
       ],
       "probe": {
         "citation": "State v. Overstreet, 232 Conn. App. 273, cert. denied (352 Conn.)",
@@ -938,9 +947,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'Certification Petition Denials, June 17, 2025'; State v. Overstreet, 232 Conn. App. 273 (AC 46253) denied; running heads 'ORDERS 910 352 Conn.'."
+        "evidence": "WebFetch: 'Certification Petition Denials, June 17, 2025'; State v. Overstreet, 232 Conn. App. 273 (AC 46253) denied; running heads 'ORDERS 910 352 Conn.'. | Independent check 2026-10-17: YES 'petition for certification to appeal'; Overstreet 232 Conn. App. 273 denied; 'ORDERS 910 352 Conn.'"
       },
       "notes": "Justia does not carry cert orders."
     }
@@ -975,7 +984,7 @@
     {
       "source_id": "ct-rules-practicebook",
       "url": "https://www.jud.ct.gov/Publications/PracticeBook/PB.pdf",
-      "why": "Single annual PDF of all court rules; far beyond the fetch tool's 100K window; URL from memory, not opened (gated / TLS).",
+      "why": "Single annual PDF of all court rules, far beyond the fetch tool's window; currently blocked (fetch tool ROBOTS_DISALLOWED, script TLS failure) — ingest only if the block clears.",
       "split_hint": "'Sec. N-N. Title' headings",
       "bulk": ""
     },
@@ -1007,6 +1016,8 @@
     "Advance-release opinion PDF URL pattern (believed /external/supapp/Cases/AROcr/CR{vol}/{vol}CR{n}.pdf) not confirmed.",
     "Superior Court decisions: whether jud.ct.gov publishes a searchable memorandum-of-decision database (not probed).",
     "Official bulk download of the General Statutes: none found.",
-    "Constitution page: does it include the 2024 amendment?"
+    "Constitution page: does it include the 2024 amendment?",
+    "Justia CT cases: the year in which slugs switch from volume-based ({vol}cr{n}/{vol}ap{n}) to docket-based is unconfirmed (docket slugs seen 2016, 2023-2025).",
+    "jud.ct.gov Practice Book PDF: fetch tool now ROBOTS_DISALLOWED; confirm against jud.ct.gov robots.txt once the TLS handshake works."
   ]
 }
