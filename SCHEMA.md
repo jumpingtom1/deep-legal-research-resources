@@ -33,6 +33,11 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
 | HTTP 429 | retry later, not a refusal | — |
 | TLS chain fails to verify | error; verification never disabled | — |
 
+Robots path rules are matched **case-insensitively**, which is stricter than
+RFC 9309. Many publisher sites run on IIS, where `/pdf/` and `/PDF/` are the
+same directory, so a `Disallow: /PDF/` is taken to cover `/pdf/…`
+(www.akleg.gov session-law PDFs, 2026-10-17).
+
 Never use a mirror, alternate host or cache to get around a refusal
 (e.g. witnessslips.ilga.gov was left out for Illinois). An alternate path
 on the **same** host is fine when robots.txt permits it and the publisher's
