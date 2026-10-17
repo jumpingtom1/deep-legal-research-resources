@@ -35,7 +35,7 @@ CACHE = Path(os.environ.get("LEGAL_SOURCES_CACHE",
                             Path.home() / ".cache" / "us-legal-sources"))
 MIN_GAP = 1.1
 TIMEOUT = 60
-REFUSE_CODES = {401, 403, 429, 451}
+REFUSE_CODES = {401, 403, 451}          # 429 is 'slow down', handled separately
 
 
 class RefusedError(Exception):
@@ -175,6 +175,19 @@ def _rule_matches(pattern, target):
     return re.match(rx, target, re.I) is not None   # case-insensitive on purpose
 
 
+def _is_storage_no_file(hl, body):
+    server = hl.get("server", "")
+    if "Windows-Azure-Blob" in server and hl.get("x-ms-error-code") in (
+            "NoAuthenticationInformation", "ResourceNotFound", "BlobNotFound",
+            "PublicAccessNotPermitted", "AuthorizationFailure"):
+        return True
+    if server in ("AmazonS3",) and b"<Code>AccessDenied</Code>" in body[:600]:
+        return True
+    if "UploadServer" in server and b"<Code>AccessDenied</Code>" in body[:600]:   # GCS
+        return True
+    return False
+
+
 def robots_check(url):
     """Raise RefusedError if robots.txt disallows url. Returns crawl delay."""
     parts = urllib.parse.urlsplit(url)
@@ -202,9 +215,14 @@ def robots_check(url):
         hl = {k.lower(): v for k, v in headers.items()}
         if hl.get("cf-mitigated", "").lower() == "challenge":
             data = {"status": "challenge", "rules": [], "delay": None}
+        elif code in (401, 403) and _is_storage_no_file(hl, body):
+            # RFC 9309: a 4xx on robots.txt means "no rules". Cloud object stores
+            # (Azure Blob, S3, GCS) answer 401/403 with an XML error when a public
+            # container simply has no robots.txt — that is not a bot wall.
+            data = {"status": "none", "rules": [], "delay": None,
+                    "note": f"no robots.txt (storage service, HTTP {code})"}
         elif code in (401, 403):
-            # RFC 9309: 4xx means "no restrictions", but a 403 on robots.txt is
-            # in practice a bot wall; treat it as a refusal.
+            # Any other 401/403 on robots.txt is in practice a bot wall; refuse.
             data = {"status": "refused", "rules": [], "delay": None}
         elif 400 <= code < 500:
             data = {"status": "none", "rules": [], "delay": None}
@@ -295,7 +313,13 @@ def get(url, *, expect=None, max_age=86400, hosts=None, allow_unlisted=False):
         # and its robots.txt permits the path — otherwise refused.
         if not allow_unlisted:
             check_allowlist(final, hosts)
+        check_not_refused(final_host)
         robots_check(final)
+    if code == 429:
+        ra = {k.lower(): v for k, v in headers.items()}.get("retry-after", "")
+        raise FetchError(f"{host} is rate-limiting (HTTP 429"
+                         + (f", Retry-After {ra}s" if ra else "") + "). Not a refusal: "
+                         "wait and try again later, or use the next route.")
     if code in REFUSE_CODES:
         reason = f"HTTP {code}"
         hl = {k.lower(): v for k, v in headers.items()}
