@@ -46,9 +46,10 @@
           "Minnesota Statutes 2024, section 609.185",
           "section 541.05 of the Minnesota Statutes",
           "Minn. Stat. ch. 541",
+          "Minnesota Statutes, chapter 363A",
           "M.S.A. § 541.05"
         ],
-        "regex": "(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?|M\\.\\s*S\\.\\s*A\\.?)\\s*(?:(?:19|20)\\d\\d,?\\s*)?(?:§§?|sec(?:tion|s?\\.)|,\\s*sections?)\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)|(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?)\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)(?:,\\s*subd(?:ivision|\\.)\\s*\\d+[a-z]?)?(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?Minnesota\\s+Statutes",
+        "regex": "(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?|M\\.\\s*S\\.\\s*A\\.?)\\s*(?:(?:19|20)\\d\\d,?\\s*)?(?:§§?|sec(?:tion|s?\\.)|,\\s*sections?)\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)|(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?)\\s*(?:(?:19|20)\\d\\d)?,?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)(?:,\\s*subd(?:ivision|\\.)\\s*\\d+[a-z]?)?(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?Minnesota\\s+Statutes",
         "routes_to": [
           "mn-statutes-revisor",
           "mn-statutes-justia"
@@ -75,9 +76,10 @@
           "Minn. Const. art. I, § 8",
           "Minn. Const. art. XIII, § 4",
           "Article I, Section 8 of the Minnesota Constitution",
-          "Minnesota Constitution, article I, section 7"
+          "Minnesota Constitution, article I, section 7",
+          "Minn. Const. art. 1, § 7"
         ],
-        "regex": "Minn\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*§\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Minnesota\\s+Constitution|Minnesota\\s+Constitution,?\\s+article\\s+(?P<article3>[IVXL]+),?\\s+section\\s+(?P<section3>\\d+[a-z]?)",
+        "regex": "Minn\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*§\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Minnesota\\s+Constitution|Minnesota\\s+Constitution,?\\s+article\\s+(?P<article3>[IVXL]+|\\d{1,2}),?\\s+section\\s+(?P<section3>\\d+[a-z]?)",
         "routes_to": [
           "mn-constitution-revisor",
           "mn-constitution-justia"
@@ -146,9 +148,9 @@
         "examples": [
           "Minn. Gen. R. Prac. 115.03",
           "Minn. Gen. R. Prac. 302.01",
-          "Rule 115 of the General Rules of Practice"
+          "Rule 115 of the Minnesota General Rules of Practice"
         ],
-        "regex": "Minn\\.\\s*Gen\\.\\s*R\\.\\s*Prac\\.\\s*(?P<rule>\\d{1,3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?\\s+of\\s+the\\s+(?:Minnesota\\s+)?General\\s+Rules\\s+of\\s+Practice",
+        "regex": "Minn\\.\\s*Gen\\.\\s*R\\.\\s*Prac\\.\\s*(?P<rule>\\d{1,3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+General\\s+Rules\\s+of\\s+Practice",
         "routes_to": [
           "mn-courtrules-revisor",
           "mn-courtrules-revisor-pdf"
@@ -260,7 +262,7 @@
       "Minn. Spec. R. Prac. (Ct. App.)": "ap/subtype/spec",
       "Minn. R. Civ. App. P. (family)": "ap/subtype/flam"
     },
-    "notes": "No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified)."
+    "notes": "No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports ended at vol. 312, 1977, from memory). Minn. R. Civ. App. P. 136.01, subd. 1(c) (effective Aug. 1, 2020): nonprecedential opinions are not binding but may be cited as persuasive; older 'unpublished' opinions are governed by Minn. Stat. § 480A.08, subd. 3. Minnesota style uses 'Minn. App.' where Bluebook uses 'Minn. Ct. App.'; both are matched. The same appellate docket number (A##-####) is used in the Court of Appeals and, on review, in the Supreme Court (Thigpen, A23-1544, verified on Justia), so a docket finds the later Supreme Court decision. Pre-2000s dockets look like C3-96-1234. Route bare docket numbers (A25-1783) and WL cites here only with Minnesota context: 'A##-####' collides with other courts' docket styles. Bare 'Rule 12' or 'R. Civ. P.' without 'Minn.' must not route here. The prose form of the General Rules of Practice requires 'Minnesota' ('Rule 115 of the Minnesota General Rules of Practice'): the bare 'General Rules of Practice' also names North Carolina's 'General Rules of Practice for the Superior and District Courts' (build.py --cross). Constitution articles are matched in Roman or Arabic numerals ('art. 1, § 7'). 'Minn. R.' followed immediately by NNNN.NNNN is an administrative rule part (Minn. R. 7050.0222); 'Minn. R. Civ. P.', 'Minn. R. Evid.' etc. are court rules — the admin regex requires digits right after 'Minn. R.'. Statute sections are CHAPTER.SECTION (541.05, 260C.007, 3E.04); UCC sections carry a hyphen (336.2-725). A range 'Minn. Stat. §§ 609.185-.19' or '§§ 541.05-541.07' is a span: the regex keeps the first section and does not read the hyphen as part of the number (only '-digits' not followed by '.digit' is kept, as in 336.2-725). Revisor history notes use '2015 c 5 art 15 s 18' (session law) and '9 SR 2276' (State Register). 'SR' and 'Minn. Reg.' should only route here with Minnesota context. law_aliases map court-rule citation prefixes to the Revisor's court_rules path key used in mn-courtrules-revisor's url_pattern. CourtListener ids 'minn' and 'minnctapp' are from memory, unverified. Examples marked (form only) illustrate citation shape, not real cases; the WL branch of the docket pattern has no example (no real WL number was verified)."
   },
   "sources": [
     {
@@ -282,10 +284,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed",
-        "notes": "Section pages are 8-11K chars of text (nav menu ~5.4K chars precedes the body), so WebFetch reads them whole. WebFetch on the bare built URL /statutes/cite/541.05 hit PROVENANCE_REQUIRED (permission prompt) — the search-surfaced form /statutes/2025/cite/609.185 and /statutes/?id=… went through. Repealed sections return a stub '[Repealed, …]', not body text."
+        "notes": "Script is the primary route. Section pages are 8-11K chars of text (nav menu ~5.4K chars precedes the body), so WebFetch reads them whole. WebFetch on the bare built URL /statutes/cite/541.05 hit PROVENANCE_REQUIRED (permission prompt) — the search-surfaced form /statutes/2025/cite/609.185 and /statutes/?id=… went through. Repealed sections return a stub '[Repealed, …]', not body text."
       },
       "currency": {
         "where": "page heading above the section and in the right-hand resource box",
@@ -304,10 +306,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 200 html 8,731 chars; '541.05 VARIOUS CASES, SIX YEARS.' then 'Except where the Uniform Commercial Code otherwise prescribes'; heading '2025 Minnesota Statutes'. Also 609.185 (10,681 chars, 'Whoever does any of the following is guilty of murder in the first degree'), 336.2-725 ('An action for breach of any contract for sale must be commenced'). WebFetch /statutes/2025/cite/609.185: YES, complete, '2025 Minnesota Statutes'. /statutes/2024/cite/541.05: '2024 Minnesota Statutes'. /statutes/cite/541.05/pdf: PDF 1 p."
+        "evidence": "Script: 200 html 8,731 chars; '541.05 VARIOUS CASES, SIX YEARS.' then 'Except where the Uniform Commercial Code otherwise prescribes'; heading '2025 Minnesota Statutes'. Also 609.185 (10,681 chars, 'Whoever does any of the following is guilty of murder in the first degree'), 336.2-725 ('An action for breach of any contract for sale must be commenced'). WebFetch /statutes/2025/cite/609.185: YES, complete, '2025 Minnesota Statutes'. /statutes/2024/cite/541.05: '2024 Minnesota Statutes'. /statutes/cite/541.05/pdf: PDF 1 p. | Independent check 2026-10-17: Script: 'Except where the Uniform Commercial Code otherwise prescribes, the following actions'. WebFetch: PROVENANCE_REQUIRED; second citation Minn. Stat. § 504B.161 ok"
       },
       "notes": "Index pages are unnecessary: the chapter is the part of the section number before the dot."
     },
@@ -351,10 +353,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, Subds. 1-2 and History complete; 'MN Stat § 541.05 (2025)'. Second citation /chapters-324-342/chapter-336/section-336-2-725/: YES '(1) An action for breach of any contract for sale'; 'MN Stat § 336.2-725 (2025)'."
+        "evidence": "WebFetch: YES, Subds. 1-2 and History complete; 'MN Stat § 541.05 (2025)'. Second citation /chapters-324-342/chapter-336/section-336-2-725/: YES '(1) An action for breach of any contract for sale'; 'MN Stat § 336.2-725 (2025)'. | Independent check 2026-10-17: WebFetch YES; '2025 Minnesota Statutes'; 'MN Stat § 541.05 (2025)'; second citation Minn. Stat. § 504B.161 ok"
       },
       "notes": ""
     },
@@ -370,7 +372,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.revisor.mn.gov/laws/{year}/{special_session}/{chapter}/",
-        "pattern_rules": "special_session = 0 for the regular session, 1, 2 … for special sessions (from the revisor's own links, e.g. /laws/2015/0/5/laws.15.18.0 for '2015 c 5 art 15 s 18'). chapter unpadded. Section anchor form seen in history links: /laws/{year}/0/{chapter}/laws.{article}.{section}.0.",
+        "pattern_rules": "special_session = 0 for the regular session, 1, 2 … for special sessions (2021 Minn. Laws 1st Spec. Sess. ch. 11 → /laws/2021/1/11/, verified) (from the revisor's own links, e.g. /laws/2015/0/5/laws.15.18.0 for '2015 c 5 art 15 s 18'). chapter unpadded. Section anchor form seen in history links: /laws/{year}/0/{chapter}/laws.{article}.{section}.0.",
         "index_url": "https://www.revisor.mn.gov/laws/",
         "navigation": "",
         "format": "html"
@@ -396,10 +398,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 200 html 4,174,473 chars; heading 'Laws 93rd Legislature (2023 - 2024) 2024 Regular Session Chapter 127'. /laws/2015/0/5/: 389,733 chars."
+        "evidence": "Script: 200 html 4,174,473 chars; heading 'Laws 93rd Legislature (2023 - 2024) 2024 Regular Session Chapter 127'. /laws/2015/0/5/: 389,733 chars. | Independent check 2026-10-17: Script: 4,174,473 chars; 'Minnesota Session Laws - 2024 Regular Session' (cached from research run); second citation 2021 Minn. Laws 1st Spec. Sess. ch. 11 ok"
       },
       "notes": ""
     },
@@ -415,7 +417,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://www.revisor.mn.gov/constitution/#section_{article_arabic}_{section}",
-        "pattern_rules": "Single page; anchors id=\"article_{n}\" and id=\"section_{n}_{s}\" with the article in Arabic numerals (Art. I § 8 → #section_1_8). The anchor does not change what WebFetch reads; the whole page (~80K chars) fits in one window.",
+        "pattern_rules": "Article may be cited in Roman or Arabic numerals (art. I = art. 1). Single page; anchors id=\"article_{n}\" and id=\"section_{n}_{s}\" with the article in Arabic numerals (Art. I § 8 → #section_1_8). The anchor does not change what WebFetch reads; the whole page (~80K chars) fits in one window.",
         "index_url": "https://www.revisor.mn.gov/constitution/",
         "navigation": "",
         "format": "html"
@@ -428,8 +430,8 @@
         "notes": "79,554 chars; complete in one WebFetch window."
       },
       "currency": {
-        "where": "top of the constitution text",
-        "observed": "Generally Revised November 5, 1974 (PDF version dated 2025-01-09)"
+        "where": "top of the text gives adoption/revision dates; the 2025-01-09 version date appears only in the Version List / PDF link (/constitution/pdf/version/2025-01-09…)",
+        "observed": "Generally Revised November 5, 1974; PDF version 2025-01-09"
       },
       "hazards": [
         "no explicit 'current through' statement; check the Version List and LRL constitutional amendments page"
@@ -441,10 +443,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: Art. I § 8 YES 'Every person is entitled to a certain remedy in the'; last section Art. XIV § 13; not truncated. Script: 79,554 chars, 'Sec. 8. Redress of injuries or wrongs.' found."
+        "evidence": "WebFetch: Art. I § 8 YES 'Every person is entitled to a certain remedy in the'; last section Art. XIV § 13; not truncated. Script: 79,554 chars, 'Sec. 8. Redress of injuries or wrongs.' found. | Independent check 2026-10-17: WebFetch YES 'Every person is entitled to a certain remedy in the laws'; ends Art. XIV § 13"
       },
       "notes": ""
     },
@@ -487,10 +489,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; no currency statement."
+        "evidence": "WebFetch: YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; no currency statement. | Independent check 2026-10-17: WebFetch YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; second citation Minn. Const. art. IV, § 17 ok"
       },
       "notes": ""
     },
@@ -513,10 +515,10 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed",
-        "notes": "Per-rule pages are 10-35K chars including comments; whole rule in one WebFetch window."
+        "notes": "Script is the primary route. Per-rule pages are mostly 10-35K chars including comments, but some reach ~75K (cr/id/26); WebFetch read a search-surfaced URL, while built Revisor URLs may hit PROVENANCE_REQUIRED."
       },
       "currency": {
         "where": "amendment note after each rule (no site-wide date on the per-rule page); full-set PDFs carry 'With amendments effective through …'",
@@ -533,10 +535,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch ev/id/702: YES, complete, '(Amended effective September 1, 2006.)'; /court_rules/rule/ev-702/ also YES. Script: cp/id/12 ('Defendant shall serve an answer within 21 days'), cr/id/15 ('Before the judge accepts a guilty plea'), gp/id/115, ap/subtype/rcap/id/103 ('103.03 Appealable Judgments and Orders'), ap/subtype/rcap/id/136 (136.01 subd. 1(c) present), pr/subtype/cond/id/1.7 ('a lawyer shall not represent a client if the representation involves')."
+        "evidence": "WebFetch ev/id/702: YES, complete, '(Amended effective September 1, 2006.)'; /court_rules/rule/ev-702/ also YES. Script: cp/id/12 ('Defendant shall serve an answer within 21 days'), cr/id/15 ('Before the judge accepts a guilty plea'), gp/id/115, ap/subtype/rcap/id/103 ('103.03 Appealable Judgments and Orders'), ap/subtype/rcap/id/136 (136.01 subd. 1(c) present), pr/subtype/cond/id/1.7 ('a lawyer shall not represent a client if the representation involves'). | Independent check 2026-10-17: WebFetch YES; '(Amended effective September 1, 2006.)'; not truncated; second citation Minn. R. Prof. Conduct 8.4; Minn. R. Crim. P. 26.01 ok"
       },
       "notes": "Rule 136.01, subd. 1(c) (nonprecedential opinions citable as persuasive) verified at /court_rules/ap/subtype/rcap/id/136/."
     },
@@ -579,10 +581,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch ev/pdf: truncated, last rule seen 609, Rule 1101 NOT PRESENT; 'With amendments received through July 1, 2019'. Script: cp 174 pp/562,992 chars; ev 70 pp/259,893; cr 259 pp/772,403; ap 142 pp/435,502; gp 341 pp/1,192,256."
+        "evidence": "WebFetch ev/pdf: truncated, last rule seen 609, Rule 1101 NOT PRESENT; 'With amendments received through July 1, 2019'. Script: cp 174 pp/562,992 chars; ev 70 pp/259,893; cr 259 pp/772,403; ap 142 pp/435,502; gp 341 pp/1,192,256. | Independent check 2026-10-17: Script: ev/pdf 70 pp; 'With amendments received through July 1, 2019' (cached); second citation Minn. R. Crim. P. (full set) ok"
       },
       "notes": ""
     },
@@ -605,16 +607,17 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "ok (truncated)",
+        "webfetch": "gated",
         "shell": "ok",
         "robots_txt": "revisor.mn.gov: User-agent * — Disallow /alpha/, /beta/, /search/doc_result.php, /bills/status_results.php, /rules/status/result; /statutes, /laws, /rules, /court_rules, /constitution, /state_register allowed",
-        "notes": "Long parts exceed WebFetch: 7050.0222 page is ~100,210 chars to WebFetch and was cut in subp. 3c item B; use offset=100000 or the script (139,178 chars)."
+        "notes": "Script is the primary route: WebFetch on built per-part URLs hits PROVENANCE_REQUIRED (independent check on 4410.4300 and 1400.5100); a search-surfaced URL went through. Long parts exceed WebFetch: 7050.0222 page is ~100,210 chars to WebFetch and was cut in subp. 3c item B; use offset=100000 or the script (139,178 chars)."
       },
       "currency": {
         "where": "bottom of each part, after History",
         "observed": "Published Electronically: August 6, 2013 (1400.5100)"
       },
       "hazards": [
+        "built URLs may need WebFetch approval; script route is reliable",
         "WebFetch truncation on long parts (water-quality tables)",
         "'Published Electronically' is the date that part last changed, not a site-wide currency date"
       ],
@@ -625,10 +628,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script 1400.5100: 8,458 chars, 'Subpart 1. Administrative law judge or judge.'; 'Published Electronically: August 6, 2013'; History '9 SR 2276; 15 SR 1595; 26 SR 391'. 7050.0222: WebFetch YES subp. 1 'The numeric and narrative water quality standards in this part', truncated in subp. 3c."
+        "evidence": "Script 1400.5100: 8,458 chars, 'Subpart 1. Administrative law judge or judge.'; 'Published Electronically: August 6, 2013'; History '9 SR 2276; 15 SR 1595; 26 SR 391'. 7050.0222: WebFetch YES subp. 1 'The numeric and narrative water quality standards in this part', truncated in subp. 3c. | Independent check 2026-10-17: Script: '\"Administrative law judge\" or \"judge\" means the person or persons as…'. WebFetch: PROVENANCE_REQUIRED; second citation Minn. R. 4410.4300 ok"
       },
       "notes": ""
     },
@@ -670,10 +673,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: 4,069 chars, subp. 1 text present, notes '9 SR 2276; 15 SR 1595; 26 SR 391'. Second citation Minn-R-7050-0222: 99,488 chars, heading present. WebFetch of index: agency list ('Agency 101 - Abstracters Board')."
+        "evidence": "Script: 4,069 chars, subp. 1 text present, notes '9 SR 2276; 15 SR 1595; 26 SR 391'. Second citation Minn-R-7050-0222: 99,488 chars, heading present. WebFetch of index: agency list ('Agency 101 - Abstracters Board'). | Independent check 2026-10-17: Script: subp. 1 'Administrative law judge or judge.'; last-modified Sun, 03 Aug 2025; second citation Minn. R. 4410.4300 ok"
       },
       "notes": ""
     },
@@ -717,10 +720,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: redirected to mn.gov/admin/assets/SR50_01_tcm36-696254.pdf, 24 pp; masthead 'Volume 50, Number 1'. WebFetch index: 'Vol. 51 … Jul, 2026 to Oct, 2026'."
+        "evidence": "Script: redirected to mn.gov/admin/assets/SR50_01_tcm36-696254.pdf, 24 pp; masthead 'Volume 50, Number 1'. WebFetch index: 'Vol. 51 … Jul, 2026 to Oct, 2026'. | Independent check 2026-10-17: Script: redirect to SR50_01 PDF, 24 pp; 'Judicial Notice Shall Be Taken of Material Published'; second citation 49 SR 1 (July 1, 2024) ok"
       },
       "notes": ""
     },
@@ -767,7 +770,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch listing: 9 nonprecedential opinions filed Oct. 12, 2026 with PDF links. WebFetch PDF: ROBOTS_DISALLOWED (also Supreme Court ORA251802-100626.pdf). Script: 'mncourts.gov answers robots.txt with a bot check (challenge)'."
+        "evidence": "WebFetch listing: 9 nonprecedential opinions filed Oct. 12, 2026 with PDF links. WebFetch PDF: ROBOTS_DISALLOWED (also Supreme Court ORA251802-100626.pdf). Script: 'mncourts.gov answers robots.txt with a bot check (challenge)'. | Re-confirmed blocked 2026-10-17: WebFetch: ROBOTS_DISALLOWED on OPa260557-101226.pdf"
       },
       "notes": "Use the listing only to learn case name, docket and date; read the text on Justia (mn-cases-justia)."
     },
@@ -784,8 +787,8 @@
         "mode": "index-anchored",
         "url_pattern": "https://mn.gov/web/prod/static/lawlib/live/archive/{court}{yy}q{quarter}.html",
         "pattern_rules": "Quarterly listing pages: court = sct (Supreme Court) | cau (Court of Appeals unpublished/order) | cap? (published, unverified); yy = 2-digit year; quarter 1-4 (sct16q1, sct15q1, cau13q4 verified). PDFs: /archive/supct/{yyyy}/OPA{docket6}-{mmddyy}.pdf (2016 form) or /archive/ctapun/{yymm}/opa{docket6}-{mmddyy}.pdf; docket6 = 2-digit year + 4-digit zero-padded number (A12-1997 → a121997). Take PDF links from the quarterly page; do not build them. Links on the archive home page are relative and resolve wrongly (/archive/sctdate.html on mn.gov root).",
-        "index_url": "https://www.mn.gov/web/prod/static/lawlib/live/archive/index.html",
-        "navigation": "quarterly page for the decision date (sct{yy}q{n}.html / cau{yy}q{n}.html) → PDF link",
+        "index_url": "https://mn.gov/web/prod/static/lawlib/live/archive/sctdate.html",
+        "navigation": "date index (Supreme Court: https://mn.gov/web/prod/static/lawlib/live/archive/sctdate.html; Court of Appeals: https://mn.gov/web/prod/static/lawlib/live/archive/capdate.html) → quarterly page for the decision date (sct{yy}q{n}.html / cau{yy}q{n}.html) → PDF link. Do not start from archive/index.html: its index links point to the wrong root (www.mn.gov/archive/sctdate.html).",
         "format": "pdf"
       },
       "text": "fetch-and-quote",
@@ -793,14 +796,15 @@
         "webfetch": "ok",
         "shell": "blocked-challenge",
         "robots_txt": "mn.gov: User-agent * — Disallow /cgi-bin, /cgi-sys, /cd_upload/Search, /law-library-stat/archive/, /law-library-stat/briefs/; Visit-time: 0000-1200 (GMT); Request-rate: 10. /web/prod/static/lawlib/ and /admin/assets/ are not disallowed",
-        "notes": "The same archive is also addressed as /law-library-stat/archive/ (disallowed by robots.txt — never use that path). The /web/prod/static/lawlib/ path is permitted and is the one the archive's own pages link to. The script read the index, sctdate.html and two PDFs, but other requests were redirected to a ShieldSquare CAPTCHA (validate.perfdrive.com) — treat as a bot check; prefer WebFetch."
+        "notes": "Route legitimacy (independent check 2026-10-17): fetch_doc check says robots.txt permits /web/prod/static/lawlib/live/archive/ and REFUSES /law-library-stat/archive/; the library's own quarterly pages (cau13q4.html, sct15q1.html) link with absolute hrefs to the static path. The same archive is also addressed as /law-library-stat/archive/ (disallowed by robots.txt — never use that path). The /web/prod/static/lawlib/ path is permitted and is the one the archive's own pages link to. The script read the index, sctdate.html and two PDFs, but other requests were redirected to a ShieldSquare CAPTCHA (validate.perfdrive.com) — treat as a bot check; prefer WebFetch."
       },
       "currency": {
         "where": "archive home page",
         "observed": "Supreme Court opinions and orders (May 2, 1996 - March 27, 2013)"
       },
       "hazards": [
-        "ShieldSquare CAPTCHA intermittently for the shell",
+        "ShieldSquare CAPTCHA intermittently for the shell (capdate.html redirected to validate.perfdrive.com; never worked around; fetch_doc.py now reports it as REFUSED, exit 3)",
+        "archive/index.html links to the wrong root (www.mn.gov/archive/…); start from sctdate.html / capdate.html",
         "robots-disallowed alias path /law-library-stat/archive/",
         "stale coverage statement; ends early 2016",
         "slip pagination only"
@@ -812,10 +816,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch cau13q4.html: 'October - December 2013 Unpublished and Order Opinions', links to ctapun/1312/…pdf. WebFetch sct16q1.html: latest Feb. 3, 2016. Script PDF: 23 pp, 41,143 chars, caption 'IN COURT OF APPEALS A12-1997'. Script capdate.html: ShieldSquare CAPTCHA."
+        "evidence": "WebFetch cau13q4.html: 'October - December 2013 Unpublished and Order Opinions', links to ctapun/1312/…pdf. WebFetch sct16q1.html: latest Feb. 3, 2016. Script PDF: 23 pp, 41,143 chars, caption 'IN COURT OF APPEALS A12-1997'. Script capdate.html: ShieldSquare CAPTCHA. | Independent check 2026-10-17: WebFetch YES 'This opinion will be unpublished…'; A12-1997, filed Dec. 30, 2013, complete; second citation RDNT, LLC v. City of Bloomington, No. A13-0310 (Minn. Mar. 18, 2015) ok"
       },
       "notes": ""
     },
@@ -862,7 +866,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Script: CAPTCHA page (193 chars) for every query. WebFetch: landing page with coverage statement; no results."
+        "evidence": "Script: CAPTCHA page (193 chars) for every query. WebFetch: landing page with coverage statement; no results. | Re-confirmed blocked 2026-10-17: WebFetch: form only, no results; no CAPTCHA shown; '(May 2, 1996 - present)'"
       },
       "notes": "The only free official route to 2016-present opinion text, but not machine-usable. Give the user the link for manual search."
     },
@@ -895,6 +899,8 @@
         "observed": ""
       },
       "hazards": [
+        "consolidated appeals use only the first docket in the slug (A24-1341/A24-1489 → a24-1341.html)",
+        "posting lag of about a week behind mncourts.gov releases",
         "slip pagination only (bare page numerals in the text, dissents D-1…)",
         "no N.W.3d cite for the case itself",
         "shell blocked"
@@ -906,10 +912,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, syllabus, majority and two dissents, ends at D-1, not truncated; no N.W.3d cite for the case. Second citation court-of-appeals/2026/a25-1783.html: YES 'In this direct appeal from the judgment of conviction for'; nonprecedential notice present. Also court-of-appeals/2024/a23-1544.html (July 29, 2024)."
+        "evidence": "WebFetch: YES, syllabus, majority and two dissents, ends at D-1, not truncated; no N.W.3d cite for the case. Second citation court-of-appeals/2026/a25-1783.html: YES 'In this direct appeal from the judgment of conviction for'; nonprecedential notice present. Also court-of-appeals/2024/a23-1544.html (July 29, 2024). | Independent check 2026-10-17: WebFetch YES 'The penalty under Minnesota law for obtaining unemployment benefit overpayments'; ends D-1; no N.W.3d; second citation In re Marriage of Agnew, No. A25-1318 (Minn. App. Oct. 5, 2026) ok"
       },
       "notes": "Primary readable route for opinions after Feb. 2016, because mncourts.gov PDFs are robots-disallowed and the law-library search is CAPTCHA-protected."
     },
@@ -943,6 +949,7 @@
       },
       "hazards": [
         "no history: older dispositions are not on the page",
+        "page can lag by weeks (still Sept. 30, 2026 on Oct. 17)",
         "shell blocked"
       ],
       "probe": {
@@ -952,10 +959,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: 'FILED WEDNESDAY, SEPTEMBER 30, 2026'; Granted items 1-5, Denied items 8-38, plus 'Denied – Filed September 25, 2026'; entries are unlinked text with dockets."
+        "evidence": "WebFetch: 'FILED WEDNESDAY, SEPTEMBER 30, 2026'; Granted items 1-5, Denied items 8-38, plus 'Denied – Filed September 25, 2026'; entries are unlinked text with dockets. | Independent check 2026-10-17: WebFetch YES Honcik – A25-1985 under Granted; 'FILED WEDNESDAY, SEPTEMBER 30, 2026'"
       },
       "notes": ""
     },
@@ -989,6 +996,7 @@
       },
       "hazards": [
         "no docket index — date scanning required",
+        "a list can be posted under a later release date (list filed Mar. 17, 2015 sits under the Mar. 25 release): scan both dates",
         "ends early 2016",
         "CAPTCHA for the shell"
       ],
@@ -999,10 +1007,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "Script: PDF 1 p, 'ORDERS ON PETITIONS FOR FURTHER REVIEW Filed – January 27, 2016'; '…Benjamin Paul Adams – A14-1891 – Denied'. WebFetch sct16q1.html links the PFR lists."
+        "evidence": "Script: PDF 1 p, 'ORDERS ON PETITIONS FOR FURTHER REVIEW Filed – January 27, 2016'; '…Benjamin Paul Adams – A14-1891 – Denied'. WebFetch sct16q1.html links the PFR lists. | Independent check 2026-10-17: WebFetch YES 'Benjamin Paul Adams – A14-1891 – Denied'; 'Filed – January 27, 2016'; second citation PFR list filed Mar. 17, 2015 (State v. Menzie, A13-2092 – Denied) ok"
       },
       "notes": ""
     },
@@ -1045,10 +1053,10 @@
       },
       "verification": {
         "status": "verified",
-        "date": "2026-10-16",
-        "by": "research",
+        "date": "2026-10-17",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: COA /court-of-appeals/2024/a23-1544.html (July 29, 2024, nonprecedential) and Supreme Court /supreme-court/2025/a23-1544.html (Dec. 24, 2025) both exist under the same docket."
+        "evidence": "WebFetch: COA /court-of-appeals/2024/a23-1544.html (July 29, 2024, nonprecedential) and Supreme Court /supreme-court/2025/a23-1544.html (Dec. 24, 2025) both exist under the same docket. | Independent check 2026-10-17: WebFetch YES 'Appellant Christopher Thigpen received unemployment benefits from the Department of'; second citation Wredberg v. Canvas Health, Inc., No. A24-1897 (Minn. App. June 23, 2025), aff'd (Minn. Aug. 12, 2026) ok"
       },
       "notes": ""
     },
@@ -1094,7 +1102,7 @@
         "date": "2026-10-16",
         "by": "research",
         "result": "FAIL",
-        "evidence": "Script info: kind=html chars=0; page body is a JS challenge (volt-adc)."
+        "evidence": "Script info: kind=html chars=0; page body is a JS challenge (volt-adc). | Re-confirmed blocked 2026-10-17: WebFetch: PROVENANCE_REQUIRED (not retried)"
       },
       "notes": "Give the user this link for review dispositions after Feb. 2016 that are not on the current PFR list."
     }
@@ -1181,10 +1189,10 @@
   "open_questions": [
     "GET parameter names for the State Law Library opinion search (mn.gov/law-library/search) — and whether its result PDFs sit under the robots-disallowed /law-library-stat/archive/ path.",
     "Whether mncourts.gov has any dated archive of past releases (only the current week was found).",
-    "Court of Appeals published-opinion quarterly page name in the static archive (cap{yy}q{n}.html assumed, unverified).",
     "Session-law WebFetch behaviour not tested (pages are multi-megabyte; script verified).",
     "Whether the Revisor flags 2026 amendments on 2025-edition section pages beyond 'Recent History'.",
     "CourtListener ids minn / minnctapp unverified; Minnesota Tax Court and Workers' Compensation Court of Appeals not covered.",
-    "Minn. R. Evid. full-set PDF cover says 'received through July 1, 2019' — confirm whether later amendments exist."
+    "Minn. R. Evid. full-set PDF cover says 'received through July 1, 2019' — confirm whether later amendments exist.",
+    "Court of Appeals published-opinion quarterly page names in the static archive: take them from capdate.html (not yet listed in this record)."
   ]
 }

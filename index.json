@@ -847,10 +847,10 @@
     "mn": {
       "name": "Minnesota",
       "file": "jurisdictions/mn.md",
-      "sha256": "b6a2e9e80bbf1b93c89aff6e1b2f24bd884693c96be2df36bf4be4451f25633b",
+      "sha256": "dfeb6cdc4417c5a09fea12ae8ba18a599e8166ff770eaffed51831f44ee66a1f",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 15,
+        "verified_independent": 15,
         "blocked": 3
       },
       "citation_patterns": [

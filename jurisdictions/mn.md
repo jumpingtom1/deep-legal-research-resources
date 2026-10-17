@@ -61,7 +61,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 
 ### `mn-laws-revisor` — Minnesota Session Laws (Revisor of Statutes)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** Session laws by year and chapter; regular and special sessions.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -74,11 +74,11 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Official status:** Pages carry an 'Authenticate' link (UELMA authenticated PDF, Minn. Stat. ch. 3E) and the footer 'Official Publication of the State of Minnesota'.
 - **Hazard:** very large omnibus chapters exceed WebFetch window
 - **Probe:** 2024 Minn. Laws ch. 127 → `https://www.revisor.mn.gov/laws/2024/0/127/` — expect: "Minnesota Session Laws - 2024 Regular Session"
-- **Evidence (2026-10-16):** Script: 200 html 4,174,473 chars; heading 'Laws 93rd Legislature (2023 - 2024) 2024 Regular Session Chapter 127'. /laws/2015/0/5/: 389,733 chars.
+- **Evidence (2026-10-17):** Script: 200 html 4,174,473 chars; heading 'Laws 93rd Legislature (2023 - 2024) 2024 Regular Session Chapter 127'. /laws/2015/0/5/: 389,733 chars. | Independent check 2026-10-17: Script: 4,174,473 chars; 'Minnesota Session Laws - 2024 Regular Session' (cached from research run); second citation 2021 Minn. Laws 1st Spec. Sess. ch. 11 ok
 
 ### `mn-statutes-revisor` — Minnesota Statutes (Revisor of Statutes)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** Current edition (2025 Minnesota Statutes) per section; prior editions by year from the 1940s/1905 compilations onward (/statutes/{year}/cite/{section}); version lists per section; full chapter text at /statutes/cite/{chapter}/full.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -94,12 +94,12 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** full-chapter pages are huge (ch. 609 ≈ 1.06M chars) — use per-section pages
 - **Hazard:** built URLs may need WebFetch approval; the script route is reliable
 - **Probe:** Minn. Stat. § 541.05 → `https://www.revisor.mn.gov/statutes/cite/541.05` — expect: "Except where the Uniform Commercial Code otherwise prescribes, the following actions"
-- **Evidence (2026-10-16):** Script: 200 html 8,731 chars; '541.05 VARIOUS CASES, SIX YEARS.' then 'Except where the Uniform Commercial Code otherwise prescribes'; heading '2025 Minnesota Statutes'. Also 609.185 (10,681 chars, 'Whoever does any of the following is guilty of murder in the first degree'), 336.2-725 ('An action for breach of any contract for sale must be commenced'). WebFetch /statutes/2025/cite/609.185: YES, complete, '2025 Minnesota Statutes'. /statutes/2024/cite/541.05: '2024 Minnesota Statutes'. /statutes/cite/541.05/pdf: PDF 1 p.
+- **Evidence (2026-10-17):** Script: 200 html 8,731 chars; '541.05 VARIOUS CASES, SIX YEARS.' then 'Except where the Uniform Commercial Code otherwise prescribes'; heading '2025 Minnesota Statutes'. Also 609.185 (10,681 chars, 'Whoever does any of the following is guilty of murder in the first degree'), 336.2-725 ('An action for breach of any contract for sale must be commenced'). WebFetch /statutes/2025/cite/609.185: YES, complete, '2025 Minnesota Statutes'. /statutes/2024/cite/541.05: '2024 Minnesota Statutes'. /statutes/cite/541.05/pdf: PDF 1 p. | Independent check 2026-10-17: Script: 'Except where the Uniform Commercial Code otherwise prescribes, the following actions'. WebFetch: PROVENANCE_REQUIRED; second citation Minn. Stat. § 504B.161 ok
 - **Notes:** Index pages are unnecessary: the chapter is the part of the section number before the dot.
 
 ### `mn-statutes-justia` — Justia — Minnesota Statutes (2025)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Minnesota Statutes editions 1997-2025 (29 editions listed); unversioned URLs serve 2025.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format html
@@ -115,13 +115,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** shell blocked by Cloudflare
 - **Hazard:** group slug needs the index hop
 - **Probe:** Minn. Stat. § 541.05 → `https://law.justia.com/codes/minnesota/chapters-540-552/chapter-541/section-541-05/` — expect: "Except where the Uniform Commercial Code otherwise prescribes, the following"
-- **Evidence (2026-10-16):** WebFetch: YES, Subds. 1-2 and History complete; 'MN Stat § 541.05 (2025)'. Second citation /chapters-324-342/chapter-336/section-336-2-725/: YES '(1) An action for breach of any contract for sale'; 'MN Stat § 336.2-725 (2025)'.
+- **Evidence (2026-10-17):** WebFetch: YES, Subds. 1-2 and History complete; 'MN Stat § 541.05 (2025)'. Second citation /chapters-324-342/chapter-336/section-336-2-725/: YES '(1) An action for breach of any contract for sale'; 'MN Stat § 336.2-725 (2025)'. | Independent check 2026-10-17: WebFetch YES; '2025 Minnesota Statutes'; 'MN Stat § 541.05 (2025)'; second citation Minn. Stat. § 504B.161 ok
 
 ## B. Constitution
 
 ### `mn-constitution-revisor` — Minnesota Constitution (Revisor of Statutes)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Whole constitution (Arts. I-XIV) on one page; version list.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -134,11 +134,11 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Official status:** Revisor page; footer 'Official Publication of the State of Minnesota'; a dated PDF version is linked (/constitution/pdf/version/2025-01-09…). No UELMA statement seen for the constitution specifically.
 - **Hazard:** no explicit 'current through' statement; check the Version List and LRL constitutional amendments page
 - **Probe:** Minn. Const. art. I, § 8 → `https://www.revisor.mn.gov/constitution/` — expect: "Every person is entitled to a certain remedy in the laws"
-- **Evidence (2026-10-16):** WebFetch: Art. I § 8 YES 'Every person is entitled to a certain remedy in the'; last section Art. XIV § 13; not truncated. Script: 79,554 chars, 'Sec. 8. Redress of injuries or wrongs.' found.
+- **Evidence (2026-10-17):** WebFetch: Art. I § 8 YES 'Every person is entitled to a certain remedy in the'; last section Art. XIV § 13; not truncated. Script: 79,554 chars, 'Sec. 8. Redress of injuries or wrongs.' found. | Independent check 2026-10-17: WebFetch YES 'Every person is entitled to a certain remedy in the laws'; ends Art. XIV § 13
 
 ### `mn-constitution-justia` — Justia — Minnesota Constitution
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** One page per article (Article1.html … Article14.html).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -152,13 +152,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** no currency date
 - **Hazard:** shell blocked
 - **Probe:** Minn. Const. art. I, § 8 → `https://law.justia.com/constitution/minnesota/Article1.html` — expect: "Every person is entitled to a certain remedy in the"
-- **Evidence (2026-10-16):** WebFetch: YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; no currency statement.
+- **Evidence (2026-10-17):** WebFetch: YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; no currency statement. | Independent check 2026-10-17: WebFetch YES 'Every person is entitled to a certain remedy in the'; Article I ends Sec. 17; second citation Minn. Const. art. IV, § 17 ok
 
 ## C. Court rules
 
 ### `mn-courtrules-revisor` — Minnesota Court Rules (Revisor of Statutes, per rule)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes (rules promulgated by the Minnesota Supreme Court) · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes (rules promulgated by the Minnesota Supreme Court) · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Civil Procedure (cp), Evidence (ev), Criminal Procedure (cr), General Rules of Practice (gp), Appellate Procedure (ap: subtypes rcap = Civil Appellate Procedure, spec = Special Rules of Practice for the Court of Appeals, flam = family/other), Juvenile (ju), District Court Special Rules (dc), Professional Rules (pr: cond = Rules of Professional Conduct, prof = Lawyers Professional Responsibility, judi, admi, boar …), Record Access (ra), Sentencing Guidelines (sg), Miscellaneous (ms).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -172,12 +172,12 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** online text disclaimed as not official
 - **Hazard:** per-rule pages give only the rule's amendment history, not a site currency date — compare the full-set PDF cover date
 - **Probe:** Minn. R. Evid. 702 → `https://www.revisor.mn.gov/court_rules/ev/id/702` — expect: "If scientific, technical, or other specialized knowledge will assist the trier"
-- **Evidence (2026-10-16):** WebFetch ev/id/702: YES, complete, '(Amended effective September 1, 2006.)'; /court_rules/rule/ev-702/ also YES. Script: cp/id/12 ('Defendant shall serve an answer within 21 days'), cr/id/15 ('Before the judge accepts a guilty plea'), gp/id/115, ap/subtype/rcap/id/103 ('103.03 Appealable Judgments and Orders'), ap/subtype/rcap/id/136 (136.01 subd. 1(c) present), pr/subtype/cond/id/1.7 ('a lawyer shall not represent a client if the representation involves').
+- **Evidence (2026-10-17):** WebFetch ev/id/702: YES, complete, '(Amended effective September 1, 2006.)'; /court_rules/rule/ev-702/ also YES. Script: cp/id/12 ('Defendant shall serve an answer within 21 days'), cr/id/15 ('Before the judge accepts a guilty plea'), gp/id/115, ap/subtype/rcap/id/103 ('103.03 Appealable Judgments and Orders'), ap/subtype/rcap/id/136 (136.01 subd. 1(c) present), pr/subtype/cond/id/1.7 ('a lawyer shall not represent a client if the representation involves'). | Independent check 2026-10-17: WebFetch YES; '(Amended effective September 1, 2006.)'; not truncated; second citation Minn. R. Prof. Conduct 8.4; Minn. R. Crim. P. 26.01 ok
 - **Notes:** Rule 136.01, subd. 1(c) (nonprecedential opinions citable as persuasive) verified at /court_rules/ap/subtype/rcap/id/136/.
 
 ### `mn-courtrules-revisor-pdf` — Minnesota Court Rules — full-set PDFs (Revisor of Statutes)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** One PDF per rule set: cp 174 pp, ev 70 pp, cr 259 pp, ap 142 pp, gp 341 pp (plus ju, dc, pr, ra, sg, ms).
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format pdf
@@ -191,13 +191,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** WebFetch truncation (~100K chars)
 - **Hazard:** Evidence PDF cover reads 'amendments received through July 1, 2019' — may lag later amendments; check per-rule notes
 - **Probe:** Minn. R. Evid. (full set) → `https://www.revisor.mn.gov/court_rules/ev/pdf` — expect: "With amendments received through July 1, 2019"
-- **Evidence (2026-10-16):** WebFetch ev/pdf: truncated, last rule seen 609, Rule 1101 NOT PRESENT; 'With amendments received through July 1, 2019'. Script: cp 174 pp/562,992 chars; ev 70 pp/259,893; cr 259 pp/772,403; ap 142 pp/435,502; gp 341 pp/1,192,256.
+- **Evidence (2026-10-17):** WebFetch ev/pdf: truncated, last rule seen 609, Rule 1101 NOT PRESENT; 'With amendments received through July 1, 2019'. Script: cp 174 pp/562,992 chars; ev 70 pp/259,893; cr 259 pp/772,403; ap 142 pp/435,502; gp 341 pp/1,192,256. | Independent check 2026-10-17: Script: ev/pdf 70 pp; 'With amendments received through July 1, 2019' (cached); second citation Minn. R. Crim. P. (full set) ok
 
 ## D. Administrative code
 
 ### `mn-rules-revisor` — Minnesota Rules (Revisor of Statutes)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Office of the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** All agency rules by part (NNNN.NNNN); version lists back to ~2014 snapshots; chapter full text.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -212,11 +212,11 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** WebFetch truncation on long parts (water-quality tables)
 - **Hazard:** 'Published Electronically' is the date that part last changed, not a site-wide currency date
 - **Probe:** Minn. R. 1400.5100 → `https://www.revisor.mn.gov/rules/1400.5100/` — expect: ""Administrative law judge" or "judge" means the person or persons assigned"
-- **Evidence (2026-10-16):** Script 1400.5100: 8,458 chars, 'Subpart 1. Administrative law judge or judge.'; 'Published Electronically: August 6, 2013'; History '9 SR 2276; 15 SR 1595; 26 SR 391'. 7050.0222: WebFetch YES subp. 1 'The numeric and narrative water quality standards in this part', truncated in subp. 3c.
+- **Evidence (2026-10-17):** Script 1400.5100: 8,458 chars, 'Subpart 1. Administrative law judge or judge.'; 'Published Electronically: August 6, 2013'; History '9 SR 2276; 15 SR 1595; 26 SR 391'. 7050.0222: WebFetch YES subp. 1 'The numeric and narrative water quality standards in this part', truncated in subp. 3c. | Independent check 2026-10-17: Script: '"Administrative law judge" or "judge" means the person or persons as…'. WebFetch: PROVENANCE_REQUIRED; second citation Minn. R. 4410.4300 ok
 
 ### `mn-rules-lii` — Cornell LII — Minnesota Administrative Rules
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Legal Information Institute, Cornell Law School · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Minnesota Rules organised by agency; per-part pages.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -229,13 +229,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Official status:** Third-party mirror; no currency statement on the index.
 - **Hazard:** mirror may lag the Revisor by months (Aug. 2025 snapshot)
 - **Probe:** Minn. R. 1400.5100 → `https://www.law.cornell.edu/regulations/minnesota/Minn-R-1400-5100` — expect: ""Administrative law judge" or "judge" means the person or persons assigned"
-- **Evidence (2026-10-16):** Script: 4,069 chars, subp. 1 text present, notes '9 SR 2276; 15 SR 1595; 26 SR 391'. Second citation Minn-R-7050-0222: 99,488 chars, heading present. WebFetch of index: agency list ('Agency 101 - Abstracters Board').
+- **Evidence (2026-10-17):** Script: 4,069 chars, subp. 1 text present, notes '9 SR 2276; 15 SR 1595; 26 SR 391'. Second citation Minn-R-7050-0222: 99,488 chars, heading present. WebFetch of index: agency list ('Agency 101 - Abstracters Board'). | Independent check 2026-10-17: Script: subp. 1 'Administrative law judge or judge.'; last-modified Sun, 03 Aug 2025; second citation Minn. R. 4410.4300 ok
 
 ## D. Administrative register
 
 ### `mn-register-revisor` — Minnesota State Register (Revisor index; issues published by the Department of Administration)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Department of Administration (Minnesota's Bookstore); index by the Revisor of Statutes · text: **fetch-and-quote** · official: official
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Department of Administration (Minnesota's Bookstore); index by the Revisor of Statutes · text: **fetch-and-quote** · official: official
 - **Coverage:** Vol. 1 to current (Vol. 51, Jul.-Oct. 2026, nos. 1-15); vols. 1-40 as searchable PDFs with indexes on revisor.mn.gov, vol. 41 onward as per-issue PDFs on mn.gov/admin/assets.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -251,13 +251,13 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** page cite → issue requires the volume page hop
 - **Hazard:** mn.gov robots.txt asks for Visit-time 0000-1200 GMT
 - **Probe:** 50 SR 1 (July 7, 2025) → `https://www.revisor.mn.gov/state_register/50/1/` — expect: "Judicial Notice Shall Be Taken of Material Published in the Minnesota State Register"
-- **Evidence (2026-10-16):** Script: redirected to mn.gov/admin/assets/SR50_01_tcm36-696254.pdf, 24 pp; masthead 'Volume 50, Number 1'. WebFetch index: 'Vol. 51 … Jul, 2026 to Oct, 2026'.
+- **Evidence (2026-10-17):** Script: redirected to mn.gov/admin/assets/SR50_01_tcm36-696254.pdf, 24 pp; masthead 'Volume 50, Number 1'. WebFetch index: 'Vol. 51 … Jul, 2026 to Oct, 2026'. | Independent check 2026-10-17: Script: redirect to SR50_01 PDF, 24 pp; 'Judicial Notice Shall Be Taken of Material Published'; second citation 49 SR 1 (July 1, 2024) ok
 
 ## E. Case law
 
 ### `mn-opinions-lawlib-archive` — Minnesota State Law Library — appellate opinion archive (static pages, 1996-Feb. 2016)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota State Law Library · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota State Law Library · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court opinions and orders (incl. orders on petitions for further review) and Court of Appeals published and unpublished opinions, May 1996 to early 2016 (Supreme Court quarterly index ends Jan.-Mar. 2016, last entry Feb. 3, 2016). The archive home page still says 'May 2, 1996 - March 27, 2013'.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format pdf
@@ -275,7 +275,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** stale coverage statement; ends early 2016
 - **Hazard:** slip pagination only
 - **Probe:** State v. Bridges, No. A12-1997 (Minn. App. Dec. 30, 2013) → `https://mn.gov/web/prod/static/lawlib/live/archive/ctapun/1312/opa121997-123013.pdf` — expect: "This opinion will be unpublished and may not be cited except as provided by"
-- **Evidence (2026-10-16):** WebFetch cau13q4.html: 'October - December 2013 Unpublished and Order Opinions', links to ctapun/1312/…pdf. WebFetch sct16q1.html: latest Feb. 3, 2016. Script PDF: 23 pp, 41,143 chars, caption 'IN COURT OF APPEALS A12-1997'. Script capdate.html: ShieldSquare CAPTCHA.
+- **Evidence (2026-10-17):** WebFetch cau13q4.html: 'October - December 2013 Unpublished and Order Opinions', links to ctapun/1312/…pdf. WebFetch sct16q1.html: latest Feb. 3, 2016. Script PDF: 23 pp, 41,143 chars, caption 'IN COURT OF APPEALS A12-1997'. Script capdate.html: ShieldSquare CAPTCHA. | Independent check 2026-10-17: WebFetch YES 'This opinion will be unpublished…'; A12-1997, filed Dec. 30, 2013, complete; second citation RDNT, LLC v. City of Bloomington, No. A13-0310 (Minn. Mar. 18, 2015) ok
 
 ### `mn-opinions-lawlib-search` — Minnesota State Law Library — opinion archive search (1996-present)
 
@@ -293,7 +293,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** search requires the form; GET parameters unknown
 - **Hazard:** result PDFs may live under the robots-disallowed /law-library-stat/archive/ path (unverified)
 - **Probe:** docket A23-1544 → `https://mn.gov/law-library/search/?v:sources=mn-law-library-opinions&query=A23-1544`
-- **Evidence (2026-10-16):** Script: CAPTCHA page (193 chars) for every query. WebFetch: landing page with coverage statement; no results.
+- **Evidence (2026-10-16):** Script: CAPTCHA page (193 chars) for every query. WebFetch: landing page with coverage statement; no results. | Re-confirmed blocked 2026-10-17: WebFetch: form only, no results; no CAPTCHA shown; '(May 2, 1996 - present)'
 - **Notes:** The only free official route to 2016-present opinion text, but not machine-usable. Give the user the link for manual search.
 
 ### `mn-opinions-mncourts` — Minnesota Judicial Branch — recent appellate opinions (mncourts.gov)
@@ -313,12 +313,12 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** Cloudflare challenge for the shell
 - **Hazard:** listing shows only the latest release
 - **Probe:** Villanueva v. GEICO Cas. Co., No. A26-0557 (Minn. App. Oct. 12, 2026) → `https://mncourts.gov/_media/migration/appellate/court-of-appeals/standard-opinions/12oct26/OPa260557-101226.pdf`
-- **Evidence (2026-10-16):** WebFetch listing: 9 nonprecedential opinions filed Oct. 12, 2026 with PDF links. WebFetch PDF: ROBOTS_DISALLOWED (also Supreme Court ORA251802-100626.pdf). Script: 'mncourts.gov answers robots.txt with a bot check (challenge)'.
+- **Evidence (2026-10-16):** WebFetch listing: 9 nonprecedential opinions filed Oct. 12, 2026 with PDF links. WebFetch PDF: ROBOTS_DISALLOWED (also Supreme Court ORA251802-100626.pdf). Script: 'mncourts.gov answers robots.txt with a bot check (challenge)'. | Re-confirmed blocked 2026-10-17: WebFetch: ROBOTS_DISALLOWED on OPa260557-101226.pdf
 - **Notes:** Use the listing only to learn case name, docket and date; read the text on Justia (mn-cases-justia).
 
 ### `mn-cases-justia` — Justia — Minnesota Supreme Court and Court of Appeals
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court and Court of Appeals by year, including nonprecedential opinions (A25-1783, Oct. 5, 2026) through the current month; early years not checked.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -336,14 +336,14 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** no N.W.3d cite for the case itself
 - **Hazard:** shell blocked
 - **Probe:** Thigpen v. Best Home Care LLC, No. A23-1544 (Minn. Dec. 24, 2025) → `https://law.justia.com/cases/minnesota/supreme-court/2025/a23-1544.html` — expect: "The penalty under Minnesota law for obtaining unemployment benefit overpayments"
-- **Evidence (2026-10-16):** WebFetch: YES, syllabus, majority and two dissents, ends at D-1, not truncated; no N.W.3d cite for the case. Second citation court-of-appeals/2026/a25-1783.html: YES 'In this direct appeal from the judgment of conviction for'; nonprecedential notice present. Also court-of-appeals/2024/a23-1544.html (July 29, 2024).
+- **Evidence (2026-10-17):** WebFetch: YES, syllabus, majority and two dissents, ends at D-1, not truncated; no N.W.3d cite for the case. Second citation court-of-appeals/2026/a25-1783.html: YES 'In this direct appeal from the judgment of conviction for'; nonprecedential notice present. Also court-of-appeals/2024/a23-1544.html (July 29, 2024). | Independent check 2026-10-17: WebFetch YES 'The penalty under Minnesota law for obtaining unemployment benefit overpayments'; ends D-1; no N.W.3d; second citation In re Marriage of Agnew, No. A25-1318 (Minn. App. Oct. 5, 2026) ok
 - **Notes:** Primary readable route for opinions after Feb. 2016, because mncourts.gov PDFs are robots-disallowed and the law-library search is CAPTCHA-protected.
 
 ## F. Subsequent history
 
 ### `mn-pfr-archive-lawlib` — State Law Library archive — Orders on Petitions for Further Review (1996-Feb. 2016)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota State Law Library · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota State Law Library · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Weekly PFR lists linked from each Supreme Court quarterly archive page through early 2016.
 - **Read via (in order):** **fetch tool**
 - **Access:** `index-anchored` · format pdf
@@ -360,11 +360,11 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** ends early 2016
 - **Hazard:** CAPTCHA for the shell
 - **Probe:** State v. Adams, No. A14-1891, review denied (Minn. Jan. 27, 2016) → `https://mn.gov/web/prod/static/lawlib/live/archive/supct/2016/pfr01-27-2016.pdf` — expect: "State of Minnesota vs. Benjamin Paul Adams – A14-1891 – Denied"
-- **Evidence (2026-10-16):** Script: PDF 1 p, 'ORDERS ON PETITIONS FOR FURTHER REVIEW Filed – January 27, 2016'; '…Benjamin Paul Adams – A14-1891 – Denied'. WebFetch sct16q1.html links the PFR lists.
+- **Evidence (2026-10-17):** Script: PDF 1 p, 'ORDERS ON PETITIONS FOR FURTHER REVIEW Filed – January 27, 2016'; '…Benjamin Paul Adams – A14-1891 – Denied'. WebFetch sct16q1.html links the PFR lists. | Independent check 2026-10-17: WebFetch YES 'Benjamin Paul Adams – A14-1891 – Denied'; 'Filed – January 27, 2016'; second citation PFR list filed Mar. 17, 2015 (State v. Menzie, A13-2092 – Denied) ok
 
 ### `mn-pfr-orders-mncourts` — Minnesota Supreme Court — Orders on Petitions for Further Review (current list)
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 1** · Minnesota Judicial Branch · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Minnesota Judicial Branch · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Only the latest filing date(s): granted, granted/stayed, denied, with case name and Court of Appeals docket (A##-####). No archive on the page.
 - **Read via (in order):** **fetch tool**
 - **Access:** `link-only` · format html
@@ -379,7 +379,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** page can lag by weeks (still Sept. 30, 2026 on Oct. 17)
 - **Hazard:** shell blocked
 - **Probe:** Honcik v. American Family Mut. Ins. Co., No. A25-1985 (review granted) → `https://mncourts.gov/supremecourt/recentopinions/orders-on-petitions-for-further-review` — expect: "James W. Honcik vs. American Family Mutual Insurance Company, S.I. – A25-1985"
-- **Evidence (2026-10-16):** WebFetch: 'FILED WEDNESDAY, SEPTEMBER 30, 2026'; Granted items 1-5, Denied items 8-38, plus 'Denied – Filed September 25, 2026'; entries are unlinked text with dockets.
+- **Evidence (2026-10-17):** WebFetch: 'FILED WEDNESDAY, SEPTEMBER 30, 2026'; Granted items 1-5, Denied items 8-38, plus 'Denied – Filed September 25, 2026'; entries are unlinked text with dockets. | Independent check 2026-10-17: WebFetch YES Honcik – A25-1985 under Granted; 'FILED WEDNESDAY, SEPTEMBER 30, 2026'
 
 ### `mn-pmacs` — P-MACS — Minnesota Appellate Courts Case Management System (public)
 
@@ -396,12 +396,12 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** JavaScript bot challenge
 - **Hazard:** interactive only
 - **Probe:** docket lookup → `https://macsnc.courts.state.mn.us/ctrack/publicLogin.jsp`
-- **Evidence (2026-10-16):** Script info: kind=html chars=0; page body is a JS challenge (volt-adc).
+- **Evidence (2026-10-16):** Script info: kind=html chars=0; page body is a JS challenge (volt-adc). | Re-confirmed blocked 2026-10-17: WebFetch: PROVENANCE_REQUIRED (not retried)
 - **Notes:** Give the user this link for review dispositions after Feb. 2016 that are not on the current PFR list.
 
 ### `mn-subsequent-justia` — Justia — Supreme Court decision on review, found by the Court of Appeals docket
 
-- **Status:** VERIFIED 2026-10-16 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court decisions after a grant of review (not denials).
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -415,7 +415,7 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 - **Hazard:** denials of review are not on Justia
 - **Hazard:** year must be guessed or found in the listing
 - **Probe:** Thigpen v. Best Home Care LLC, No. A23-1544 (Minn. App. July 29, 2024), rev'd (Minn. Dec. 24, 2025) → `https://law.justia.com/cases/minnesota/supreme-court/2025/a23-1544.html` — expect: "Appellant Christopher Thigpen received unemployment benefits from the Department of"
-- **Evidence (2026-10-16):** WebFetch: COA /court-of-appeals/2024/a23-1544.html (July 29, 2024, nonprecedential) and Supreme Court /supreme-court/2025/a23-1544.html (Dec. 24, 2025) both exist under the same docket.
+- **Evidence (2026-10-17):** WebFetch: COA /court-of-appeals/2024/a23-1544.html (July 29, 2024, nonprecedential) and Supreme Court /supreme-court/2025/a23-1544.html (Dec. 24, 2025) both exist under the same docket. | Independent check 2026-10-17: WebFetch YES 'Appellant Christopher Thigpen received unemployment benefits from the Department of'; second citation Wredberg v. Canvas Health, Inc., No. A24-1897 (Minn. App. June 23, 2025), aff'd (Minn. Aug. 12, 2026) ok
 
 ## Not available (do not look for these again)
 
@@ -437,8 +437,8 @@ No public-domain citation format: Minnesota cites N.W.2d / N.W.3d (Minn. reports
 
 - GET parameter names for the State Law Library opinion search (mn.gov/law-library/search) — and whether its result PDFs sit under the robots-disallowed /law-library-stat/archive/ path.
 - Whether mncourts.gov has any dated archive of past releases (only the current week was found).
-- Court of Appeals published-opinion quarterly page name in the static archive (cap{yy}q{n}.html assumed, unverified).
 - Session-law WebFetch behaviour not tested (pages are multi-megabyte; script verified).
 - Whether the Revisor flags 2026 amendments on 2025-edition section pages beyond 'Recent History'.
 - CourtListener ids minn / minnctapp unverified; Minnesota Tax Court and Workers' Compensation Court of Appeals not covered.
 - Minn. R. Evid. full-set PDF cover says 'received through July 1, 2019' — confirm whether later amendments exist.
+- Court of Appeals published-opinion quarterly page names in the static archive: take them from capdate.html (not yet listed in this record).
