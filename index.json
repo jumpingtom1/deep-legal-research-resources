@@ -1271,10 +1271,10 @@
     "ky": {
       "name": "Kentucky",
       "file": "jurisdictions/ky.md",
-      "sha256": "087b98c2d180c3d3d061f02fe7334b877a0f32b3b42e653ffe5d3f8bb472ff51",
+      "sha256": "1cc40a35cc27e5085f6c68892fa005343aa421fc5db78c530cba1691dc914464",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 11,
+        "verified_independent": 11,
         "reported": 3,
         "blocked": 1
       },
@@ -1291,7 +1291,7 @@
         },
         {
           "label": "Kentucky Constitution",
-          "regex": "Ky\\.\\s*Const\\.\\s*\u00a7+\\s*(?P<section>\\d+[A-Za-z]?)|Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Kentucky\\s+Constitution|Kentucky\\s+Constitution,?\\s+(?:Section|\u00a7)\\s*(?P<section3>\\d+[A-Za-z]?)",
+          "regex": "Ky\\.\\s*Const\\.\\s*(?:\u00a7+|sec(?:tion|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?)|Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Kentucky\\s+Constitution|Constitution\\s+of\\s+Kentucky)|Kentucky\\s+Constitution,?\\s+(?:Section|\u00a7)\\s*(?P<section3>\\d+[A-Za-z]?)",
           "context_required": false
         },
         {
@@ -1356,7 +1356,7 @@
         },
         {
           "label": "Kentucky appellate docket numbers",
-          "regex": "(?P<year>(?:19|20)\\d{2})-(?P<court>SC|CA)-(?P<number>\\d{3,6})-(?P<type>MR|DGE|DG|WC|ME|OA|KB|TG|CL|KP|NA)\\b",
+          "regex": "(?P<year>(?:19|20)\\d{2})-(?P<court>SC|CA)-(?P<number>\\d{3,6})-(?P<type>MR|DGE|DG|DE|D|WC|ME|OA|KB|TG|CL|KP|NA)\\b",
           "context_required": false
         },
         {
