@@ -1256,6 +1256,78 @@
         }
       ]
     },
+    "mo": {
+      "name": "Missouri",
+      "file": "jurisdictions/mo.md",
+      "sha256": "03baafda6c66d7624d5197be865cb4cc2c80b0de3b15ddf403894ed47a656d66",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 12,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Revised Statutes of Missouri (RSMo)",
+          "regex": "Mo\\.\\s*(?:Rev|Ann)\\.\\s*Stat\\.\\s*(?:\\(\\d{4}\\)\\s*)?(?:\u00a7+\\s*)?(?P<section>\\d{1,3}\\.\\d{3,4})(?!\\d)|RSMo\\.?\\s*(?:\\(\\d{4}\\)\\s*)?\u00a7+\\s*(?P<section2>\\d{1,3}\\.\\d{3,4})(?!\\d)|(?:\u00a7+|sec(?:tion)?s?\\.?)\\s*(?P<section3>\\d{1,3}\\.\\d{3,4})(?!\\d)(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*(?:(?:,\\s*|\\s+(?:and|or|to|through)\\s+)\\d{1,3}\\.\\d{3,4}(?:\\.\\d+)*(?:\\([0-9a-z]+\\))*)*,?\\s+RSMo\\b|(?<![\\d.\u00a7])(?P<section4>\\d{1,3}\\.\\d{3,4})(?:\\.\\d+)*,?\\s+RSMo\\b",
+          "context_required": false
+        },
+        {
+          "label": "RSMo bare section (no RSMo / Mo. marker)",
+          "regex": "(?:\u00a7+|sec(?:tion)?\\.?)\\s*(?P<section>\\d{1,3}\\.\\d{3,4})(?!\\d)(?:\\.\\d+)*",
+          "context_required": true
+        },
+        {
+          "label": "Missouri Constitution",
+          "regex": "Mo\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.?|section)\\s*(?P<section>\\d+(?:\\([a-z]\\))?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+(?:\\([a-z]\\))?)\\s+of\\s+the\\s+Missouri\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Missouri Supreme Court Rules (marked)",
+          "regex": "(?:Mo\\.\\s*Sup\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Mo\\.\\s*R\\.\\s*(?:Civ|Crim|App)\\.\\s*P\\.|Mo\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Missouri\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}-\\d\\.\\d{1,2}|\\d{1,3}(?:\\.\\d{1,3})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,3})?)(?:\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Missouri\\s+(?:Supreme\\s+Court\\s+)?Rules",
+          "context_required": false
+        },
+        {
+          "label": "Missouri Supreme Court Rules (bare \"Rule 55.27\", \"Rule 4-1.7\")",
+          "regex": "Rules?\\s+(?P<rule>\\d{1,3}-\\d\\.\\d{1,2}|\\d{1,3}\\.\\d{2,3})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Missouri Code of State Regulations",
+          "regex": "(?P<title>\\d{1,2})\\s+CSR\\s+(?P<division>\\d{1,4})-(?P<chapter>\\d{1,3})(?:\\.(?P<rule>\\d{3,4}))?|Mo\\.\\s*Code\\s+(?:of\\s+State\\s+)?Regs?\\.\\s*(?:Ann\\.\\s*)?tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*\u00a7\\s*(?P<division2>\\d{1,4})-(?P<chapter2>\\d{1,3})(?:\\.(?P<rule2>\\d{3,4}))?",
+          "context_required": false
+        },
+        {
+          "label": "Missouri Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Mo\\.\\s*Reg\\.\\s*(?P<page>\\d{1,5})",
+          "context_required": false
+        },
+        {
+          "label": "Reported Missouri cases (South Western Reporter)",
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s*W\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Mo\\.(?:\\s*banc|\\s*(?:Ct\\.\\s*)?App\\.(?:\\s*[ESW]\\.\\s*D\\.)?)?)\\s*(?:[A-Z][a-z]{2,3}\\.?\\s+\\d{1,2},\\s*)?(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Old official Missouri reporters (Mo., Mo. App.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Mo\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Missouri appellate docket numbers (SC / ED / WD / SD)",
+          "regex": "(?<![A-Z])(?P<court>SC|ED|WD|SD)\\s?(?P<number>\\d{5,6})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Westlaw unreported cites (Missouri parenthetical)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Mo\\.",
+          "context_required": false
+        },
+        {
+          "label": "Transfer to Supreme Court of Missouri (history phrases)",
+          "regex": "(?:application\\s+for\\s+)?transfer\\s+(?:denied|sustained|granted)|ordered\\s+transferred",
+          "context_required": true
+        }
+      ]
+    },
     "mt": {
       "name": "Montana",
       "file": "jurisdictions/mt.md",
@@ -1827,7 +1899,7 @@
     "pa": {
       "name": "Pennsylvania",
       "file": "jurisdictions/pa.md",
-      "sha256": "61b26b76951372b75810085392380bcb8bd0eaa56fe9ab8813ce1f1f2ddab545",
+      "sha256": "034087973d1fbc88dd1f355076511022b569473d0301c57a69eb5dc84e60bb02",
       "compiled": "2026-10-16",
       "counts": {
         "verified_independent": 10,
@@ -1846,8 +1918,13 @@
         },
         {
           "label": "Pennsylvania session laws / act citations",
-          "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)|Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})",
+          "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)",
           "context_required": false
+        },
+        {
+          "label": "Pennsylvania session laws (\"Act N of YYYY\", generic)",
+          "regex": "Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})",
+          "context_required": true
         },
         {
           "label": "Pennsylvania Constitution",
@@ -1898,6 +1975,104 @@
           "label": "Allocatur (petition for allowance of appeal) history",
           "regex": "(?:appeal|allocatur)\\s+(?P<disp>denied|granted)\\s*,\\s*(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})|(?P<number>\\d{1,4})\\s+(?P<code>[EMW]AL)\\s+(?P<year>(?:19|20)\\d\\d)",
           "context_required": false
+        }
+      ]
+    },
+    "sc": {
+      "name": "South Carolina",
+      "file": "jurisdictions/sc.md",
+      "sha256": "8d316279486752d18b32af046c7273493dc152b7178b6ab5d58f2728aa696c3b",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 8,
+        "reported": 2,
+        "blocked": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "SC Appellate Court Rules (SCACR) incl. Rule 407 RPC",
+          "regex": "(?:Rule\\s+(?P<rpc>\\d+\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*,\\s*RPC,\\s*)?Rule\\s+(?P<rule>\\d+)(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCACR|Rule\\s+(?P<rule2>\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Appellate\\s+Court\\s+Rules",
+          "context_required": false
+        },
+        {
+          "label": "SC Rules of Civil Procedure (SCRCP)",
+          "regex": "Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCRCP|S\\.\\s*C\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "SC Rules of Evidence (SCRE)",
+          "regex": "Rule\\s+(?P<rule>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCRE\\b|S\\.\\s*C\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
+        },
+        {
+          "label": "SC Rules of Criminal Procedure, Family Court, Magistrates Court, ADR",
+          "regex": "Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*,?\\s+(?P<set>SCRCrimP|SCRFC|SCRMC|SCADR)\\b",
+          "context_required": false
+        },
+        {
+          "label": "SC Code of Regulations",
+          "regex": "S\\.\\s*C\\.\\s*Code(?:\\s+Ann\\.)?\\s+Regs?\\.\\s*(?:\u00a7\\s*)?(?P<chapter>\\d{1,3})-(?P<reg>\\d+(?:\\.\\d+)*[A-Z]?)|Regulation\\s+(?P<chapter2>\\d{1,3})-(?P<reg2>\\d+(?:\\.\\d+)*)\\s+of\\s+the\\s+South\\s+Carolina\\s+Code\\s+of\\s+(?:State\\s+)?Regulations",
+          "context_required": false
+        },
+        {
+          "label": "SC Code of Laws",
+          "regex": "S\\.\\s*C\\.\\s*Code(?:\\s+(?:Ann\\.|of\\s+Laws))?\\s*\u00a7\u00a7?\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:South\\s+Carolina|S\\.\\s*C\\.)\\s+Code",
+          "context_required": false
+        },
+        {
+          "label": "SC Code bare section (generic)",
+          "regex": "(?:\u00a7|sec(?:tion|\\.))\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,5}(?:\\.\\d+)?)\\b",
+          "context_required": true
+        },
+        {
+          "label": "SC Acts (session laws)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+S\\.\\s*C\\.\\s*Acts\\s+(?:No\\.\\s*)?(?P<number>\\d+)|Act\\s+No\\.\\s*(?P<number2>\\d+)\\s+of\\s+(?P<year2>(?:19|20)\\d\\d)\\s+\\(S\\.\\s*C\\.\\)",
+          "context_required": false
+        },
+        {
+          "label": "SC Acts, Code-history form (generic)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+Act\\s+No\\.\\s*(?P<number>\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "SC Constitution",
+          "regex": "S\\.\\s*C\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-A)?),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+(?:-A)?),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:South\\s+Carolina|S\\.\\s*C\\.)\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "SC State Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+S\\.\\s*C\\.\\s*(?:State\\s+)?Reg\\.\\s+(?P<page>\\d+)|(?:S\\.\\s*C\\.|South\\s+Carolina)\\s+State\\s+Register,?\\s+Vol(?:ume|\\.)\\s*(?P<volume2>\\d+),?\\s+Issue\\s*(?:No\\.\\s*)?(?P<issue>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Reported SC cases (S.C. Reports; S.E.2d with S.C. parenthetical)",
+          "regex": "(?<![\\w.])(?P<volume>\\d{1,3})\\s+S\\.\\s*C\\.\\s+(?P<page>\\d{1,4})\\b|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>S\\.\\s*C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "SC opinion numbers, unpublished and memorandum opinions, advance sheets",
+          "regex": "\\b(?P<year>(?:19|20)\\d\\d)-(?P<kind>UP|MO)-(?P<number>\\d{1,4})\\b|Op\\.\\s*No\\.\\s*(?P<opno>\\d{4,5})\\s*\\(S\\.\\s*C\\.|(?P<sheet>Howard|Shearouse|Davis)\\s+Adv\\.\\s*Sh\\.\\s*No\\.\\s*(?P<advsh>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "SC Westlaw / Lexis cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(S\\.\\s*C\\.|S\\.\\s*C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
+        },
+        {
+          "label": "SC Appellate Case No. (generic)",
+          "regex": "(?:Appellate\\s+Case\\s+No\\.\\s*)?\\b(?P<year>(?:19|20)\\d\\d)-(?P<number>\\d{6})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Regional reporter without court (generic)",
+          "regex": "(?P<volume>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,4})",
+          "context_required": true
+        },
+        {
+          "label": "Subsequent history phrases (generic)",
+          "regex": "\\bcert\\.\\s*(?:denied|granted|dismissed)|\\breh'?g\\s+denied",
+          "context_required": true
         }
       ]
     },

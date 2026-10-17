@@ -234,6 +234,20 @@
    ],
    "blocked_sources": []
   },
+  "ctrack.sccourts.org": {
+   "status": "allowed",
+   "sources": [
+    "sc-ctrack-appellate-dockets"
+   ],
+   "blocked_sources": []
+  },
+  "dc.statelibrary.sc.gov": {
+   "status": "allowed",
+   "sources": [
+    "sc-advance-sheets-statelibrary"
+   ],
+   "blocked_sources": []
+  },
   "dccourts.gov": {
    "status": "allowed",
    "sources": [
@@ -457,6 +471,9 @@
     "mn-constitution-justia",
     "mn-cases-justia",
     "mn-subsequent-justia",
+    "mo-rsmo-justia",
+    "mo-constitution-justia",
+    "mo-cases-justia",
     "mt-mca-justia",
     "mt-constitution-justia",
     "mt-cases-justia",
@@ -482,6 +499,9 @@
     "pa-cons-statutes-justia",
     "pa-constitution-justia",
     "pa-cases-justia",
+    "sc-code-justia",
+    "sc-constitution-justia",
+    "sc-cases-justia",
     "tn-code-justia",
     "tn-constitution-justia",
     "tn-cases-justia",
@@ -877,6 +897,14 @@
    ],
    "blocked_sources": []
   },
+  "revisor.mo.gov": {
+   "status": "allowed",
+   "sources": [
+    "mo-rsmo-revisor",
+    "mo-constitution-revisor"
+   ],
+   "blocked_sources": []
+  },
   "rules.incourts.gov": {
    "status": "allowed",
    "sources": [
@@ -1137,6 +1165,18 @@
    ],
    "blocked_sources": []
   },
+  "www.courts.mo.gov": {
+   "status": "allowed",
+   "sources": [
+    "mo-rules-courts",
+    "mo-rules-clerkhandbook",
+    "mo-sc-minutes",
+    "mo-coa-minutes"
+   ],
+   "blocked_sources": [
+    "mo-opinions-courts"
+   ]
+  },
   "www.courts.state.hi.us": {
    "status": "allowed",
    "sources": [
@@ -1274,6 +1314,7 @@
     "md-comar-lii",
     "mi-admincode-lii",
     "mn-rules-lii",
+    "mo-csr-lii",
     "mt-arm-lii",
     "nc-ncac-lii",
     "nj-admincode-lii",
@@ -1518,10 +1559,37 @@
    ],
    "blocked_sources": []
   },
+  "www.sccourts.org": {
+   "status": "blocked",
+   "sources": [
+    "sc-rules-sccourts",
+    "sc-opinions-sccourts"
+   ],
+   "blocked_sources": []
+  },
+  "www.scstatehouse.gov": {
+   "status": "allowed",
+   "sources": [
+    "sc-code-scstatehouse",
+    "sc-acts-scstatehouse",
+    "sc-constitution-scstatehouse",
+    "sc-regs-scstatehouse",
+    "sc-register-scstatehouse"
+   ],
+   "blocked_sources": []
+  },
   "www.sec.state.ma.us": {
    "status": "allowed",
    "sources": [
     "ma-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.sos.mo.gov": {
+   "status": "allowed",
+   "sources": [
+    "mo-csr-sos",
+    "mo-register-sos"
    ],
    "blocked_sources": []
   },

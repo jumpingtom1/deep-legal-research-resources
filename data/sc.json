@@ -1,0 +1,938 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "sc",
+  "name": "South Carolina",
+  "compiled": "2026-10-17",
+  "summary": "Statutes, constitution, regulations and the State Register all come from scstatehouse.gov (unofficial, robots-permitted, script and fetch tool both work): the Code is one HTML page per chapter (t{TT}c{CCC}.php, no section anchors, long chapters truncate in the fetch tool) current through the 2025 Session; the Constitution is per-article PDFs; regulations are chapter PDFs (some 1.5M chars). The judiciary site www.sccourts.org disallows all robots, so official opinions and ALL court rules (SCRCP, SCRE, SCACR/RPC) are link-only with no tier-2 copy of the rules. Case text comes from Justia (constructible by Opinion No., incl. unpublished YYYY-UP-NNN; fetch tool only, script refused); subsequent history from the robots-free C-Track docket portal by a plain GET search.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of South Carolina",
+        "courtlistener_id": "sc",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "S.C.",
+        "reporters": [
+          "S.C.",
+          "S.E.2d",
+          "S.E.",
+          "S.E.3d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "South Carolina Court of Appeals",
+        "courtlistener_id": "scctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "S.C. Ct. App.",
+        "reporters": [
+          "S.C.",
+          "S.E.2d",
+          "S.E.3d"
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "court_rules",
+        "label": "SC Appellate Court Rules (SCACR) incl. Rule 407 RPC",
+        "examples": [
+          "Rule 407, SCACR",
+          "Rule 268(d)(2), SCACR",
+          "Rule 208(b)(1)(B), SCACR",
+          "Rule 8.4(e), RPC, Rule 407, SCACR",
+          "Rule 242 of the South Carolina Appellate Court Rules"
+        ],
+        "regex": "(?:Rule\\s+(?P<rpc>\\d+\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*,\\s*RPC,\\s*)?Rule\\s+(?P<rule>\\d+)(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCACR|Rule\\s+(?P<rule2>\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Appellate\\s+Court\\s+Rules",
+        "routes_to": [
+          "sc-rules-sccourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "SC Rules of Civil Procedure (SCRCP)",
+        "examples": [
+          "Rule 12(b)(6), SCRCP",
+          "Rule 56(c), SCRCP",
+          "S.C. R. Civ. P. 12(b)(6)",
+          "Rule 12(b)(6) of the South Carolina Rules of Civil Procedure"
+        ],
+        "regex": "Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCRCP|S\\.\\s*C\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+        "routes_to": [
+          "sc-rules-sccourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "SC Rules of Evidence (SCRE)",
+        "examples": [
+          "Rule 702, SCRE",
+          "Rule 404(b), SCRE",
+          "S.C. R. Evid. 403",
+          "Rule 702 of the South Carolina Rules of Evidence"
+        ],
+        "regex": "Rule\\s+(?P<rule>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*,?\\s+SCRE\\b|S\\.\\s*C\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Carolina\\s+Rules\\s+of\\s+Evidence",
+        "routes_to": [
+          "sc-rules-sccourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "SC Rules of Criminal Procedure, Family Court, Magistrates Court, ADR",
+        "examples": [
+          "Rule 5, SCRCrimP",
+          "Rule 7(b)(1), SCRCrimP",
+          "Rule 2, SCRFC",
+          "Rule 3, SCADR",
+          "Rule 4, SCRMC"
+        ],
+        "regex": "Rule\\s+(?P<rule>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*,?\\s+(?P<set>SCRCrimP|SCRFC|SCRMC|SCADR)\\b",
+        "routes_to": [
+          "sc-rules-sccourts"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "SC Code of Regulations",
+        "examples": [
+          "S.C. Code Ann. Regs. 61-62.5",
+          "S.C. Code Regs. 61-62",
+          "24A S.C. Code Ann. Regs. 61-62.1",
+          "S.C. Code Ann. Regs. 10-1",
+          "Regulation 61-62.5 of the South Carolina Code of Regulations"
+        ],
+        "regex": "S\\.\\s*C\\.\\s*Code(?:\\s+Ann\\.)?\\s+Regs?\\.\\s*(?:§\\s*)?(?P<chapter>\\d{1,3})-(?P<reg>\\d+(?:\\.\\d+)*[A-Z]?)|Regulation\\s+(?P<chapter2>\\d{1,3})-(?P<reg2>\\d+(?:\\.\\d+)*)\\s+of\\s+the\\s+South\\s+Carolina\\s+Code\\s+of\\s+(?:State\\s+)?Regulations",
+        "routes_to": [
+          "sc-regs-scstatehouse"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "SC Code of Laws",
+        "examples": [
+          "S.C. Code Ann. § 15-3-530",
+          "S.C. Code Ann. § 15-3-530(5) (Supp. 2025)",
+          "S.C. Code § 16-3-20",
+          "S.C. Code Ann. §§ 15-3-530 to -535",
+          "S.C. Code Ann. § 36-2A-103",
+          "S.C. Code Ann. § 12-6-510 (2014)",
+          "section 15-3-530 of the South Carolina Code",
+          "Section 1-23-380 of the South Carolina Code of Laws",
+          "Section 39-5-20 of the S.C. Code"
+        ],
+        "regex": "S\\.\\s*C\\.\\s*Code(?:\\s+(?:Ann\\.|of\\s+Laws))?\\s*§§?\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:South\\s+Carolina|S\\.\\s*C\\.)\\s+Code",
+        "routes_to": [
+          "sc-code-scstatehouse",
+          "sc-code-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "SC Code bare section (generic)",
+        "examples": [
+          "§ 15-3-530",
+          "Section 15-3-535",
+          "section 16-3-20(C)"
+        ],
+        "regex": "(?:§|sec(?:tion|\\.))\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,5}(?:\\.\\d+)?)\\b",
+        "routes_to": [
+          "sc-code-scstatehouse",
+          "sc-code-justia"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "statutes",
+        "label": "SC Acts (session laws)",
+        "examples": [
+          "1988 S.C. Acts 494",
+          "2016 S.C. Acts No. 133",
+          "Act No. 133 of 2016 (S.C.)"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+S\\.\\s*C\\.\\s*Acts\\s+(?:No\\.\\s*)?(?P<number>\\d+)|Act\\s+No\\.\\s*(?P<number2>\\d+)\\s+of\\s+(?P<year2>(?:19|20)\\d\\d)\\s+\\(S\\.\\s*C\\.\\)",
+        "routes_to": [
+          "sc-acts-scstatehouse"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "SC Acts, Code-history form (generic)",
+        "examples": [
+          "1988 Act No. 494",
+          "2016 Act No. 133 (H.3145)"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+Act\\s+No\\.\\s*(?P<number>\\d+)",
+        "routes_to": [
+          "sc-acts-scstatehouse"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "constitution",
+        "label": "SC Constitution",
+        "examples": [
+          "S.C. Const. art. I, § 10",
+          "S.C. Const. art. V, § 5",
+          "S.C. Const. art. VIII-A, § 1",
+          "Article I, Section 10 of the South Carolina Constitution"
+        ],
+        "regex": "S\\.\\s*C\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-A)?),?\\s*§\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+(?:-A)?),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:South\\s+Carolina|S\\.\\s*C\\.)\\s+Constitution",
+        "routes_to": [
+          "sc-constitution-scstatehouse",
+          "sc-constitution-justia"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "SC State Register",
+        "examples": [
+          "50 S.C. Reg. 123",
+          "S.C. State Register Vol. 50, Issue 9",
+          "South Carolina State Register, Volume 50, Issue No. 3"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+S\\.\\s*C\\.\\s*(?:State\\s+)?Reg\\.\\s+(?P<page>\\d+)|(?:S\\.\\s*C\\.|South\\s+Carolina)\\s+State\\s+Register,?\\s+Vol(?:ume|\\.)\\s*(?P<volume2>\\d+),?\\s+Issue\\s*(?:No\\.\\s*)?(?P<issue>\\d+)",
+        "routes_to": [
+          "sc-register-scstatehouse"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Reported SC cases (S.C. Reports; S.E.2d with S.C. parenthetical)",
+        "examples": [
+          "Huskins v. Mungo Homes, LLC, 439 S.C. 356, 887 S.E.2d 534 (Ct. App. 2023)",
+          "887 S.E.2d 534 (S.C. Ct. App. 2023)",
+          "Bodman v. State, 403 S.C. 60, 742 S.E.2d 363 (2013)",
+          "742 S.E.2d 363 (S.C. 2013)"
+        ],
+        "regex": "(?<![\\w.])(?P<volume>\\d{1,3})\\s+S\\.\\s*C\\.\\s+(?P<page>\\d{1,4})\\b|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>S\\.\\s*C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "sc-cases-justia",
+          "sc-opinions-sccourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "SC opinion numbers, unpublished and memorandum opinions, advance sheets",
+        "examples": [
+          "Op. No. 28245 (S.C. Sup. Ct. filed Dec. 11, 2024)",
+          "Op. No. 2024-UP-425 (S.C. Ct. App. filed Dec. 30, 2024)",
+          "2024-UP-425",
+          "Mem. Op. No. 2024-MO-012",
+          "(S.C. Sup. Ct. filed Dec. 11, 2024) (Howard Adv. Sh. No. 49 at 12)",
+          "(Shearouse Adv. Sh. No. 12 at 20)"
+        ],
+        "regex": "\\b(?P<year>(?:19|20)\\d\\d)-(?P<kind>UP|MO)-(?P<number>\\d{1,4})\\b|Op\\.\\s*No\\.\\s*(?P<opno>\\d{4,5})\\s*\\(S\\.\\s*C\\.|(?P<sheet>Howard|Shearouse|Davis)\\s+Adv\\.\\s*Sh\\.\\s*No\\.\\s*(?P<advsh>\\d+)",
+        "routes_to": [
+          "sc-cases-justia",
+          "sc-ctrack-appellate-dockets",
+          "sc-opinions-sccourts"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "SC Westlaw / Lexis cites",
+        "examples": [
+          "2024 WL 4567890 (S.C. Ct. App. Jan. 3, 2024)",
+          "2023 S.C. App. LEXIS 12",
+          "2022 S.C. LEXIS 45"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(S\\.\\s*C\\.|S\\.\\s*C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))",
+        "routes_to": [
+          "sc-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "SC Appellate Case No. (generic)",
+        "examples": [
+          "Appellate Case No. 2023-000452",
+          "2018-000889"
+        ],
+        "regex": "(?:Appellate\\s+Case\\s+No\\.\\s*)?\\b(?P<year>(?:19|20)\\d\\d)-(?P<number>\\d{6})\\b",
+        "routes_to": [
+          "sc-ctrack-appellate-dockets"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "case_law",
+        "label": "Regional reporter without court (generic)",
+        "examples": [
+          "887 S.E.2d 534",
+          "742 S.E.2d 363, 365"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,4})",
+        "routes_to": [
+          "sc-cases-justia"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Subsequent history phrases (generic)",
+        "examples": [
+          "cert. denied",
+          "cert. granted",
+          "cert. dismissed as improvidently granted",
+          "reh'g denied"
+        ],
+        "regex": "\\bcert\\.\\s*(?:denied|granted|dismissed)|\\breh'?g\\s+denied",
+        "routes_to": [
+          "sc-ctrack-appellate-dockets"
+        ],
+        "context_required": true
+      }
+    ],
+    "law_aliases": {
+      "SCUTPA": "39-5",
+      "South Carolina Unfair Trade Practices Act": "39-5",
+      "Unfair Trade Practices Act": "39-5",
+      "SCTCA": "15-78",
+      "Tort Claims Act": "15-78",
+      "South Carolina Tort Claims Act": "15-78",
+      "SCAPA": "1-23",
+      "Administrative Procedures Act": "1-23",
+      "SCFOIA": "30-4",
+      "Freedom of Information Act": "30-4",
+      "Probate Code": "62",
+      "South Carolina Probate Code": "62",
+      "Children's Code": "63",
+      "South Carolina Children's Code": "63",
+      "Workers' Compensation Act": "42",
+      "Uniform Commercial Code": "36",
+      "Payment of Wages Act": "41-10",
+      "Frivolous Civil Proceedings Sanctions Act": "15-36"
+    },
+    "notes": "The statute URL needs no code key: title and chapter come straight from 'T-C-S' (pad title to 2, chapter to 3 digits). law_aliases map act names to their title or title-chapter so a named act can be routed to the chapter page. Bare '§ 15-3-530' / 'Section 15-3-530' is shared in form with other three-part codes (Tennessee, Georgia, Indiana, etc.) and is context_required. SC rule cites put the rule set AFTER the number ('Rule 12(b)(6), SCRCP'; RPC as 'Rule 8.4(e), RPC, Rule 407, SCACR'); bare 'Rule 12(b)(6)' or 'Rules of Civil Procedure' route here only with S.C. context. The '(?<![\\w.])' guard keeps '42 U.S.C. 1983' from reading as an S.C. Reports cite. S.C. has no public-domain citation; the court's Opinion No. (5-digit Supreme Court, 4-digit published COA) and 'YYYY-UP-NNN' (unpublished COA) / 'YYYY-MO-NNN' (Supreme Court memorandum) numbers are the opinion keys and also the Justia URL key. Unpublished opinions have no precedential value (Rule 268(d)(2), SCACR). Advance-sheet cites ('Howard Adv. Sh.', earlier 'Shearouse'/'Davis') are pre-reporter cites. The Appellate Case No. 'YYYY-NNNNNN' is the docket key for C-Track. Cert dispositions (S.C. Supreme Court cert to the COA, and U.S. Supreme Court notices) are found on the C-Track docket; from a COA decision search the Supreme Court by party name. CourtListener ids from memory, unverified."
+  },
+  "sources": [
+    {
+      "id": "sc-code-scstatehouse",
+      "family": "statutes",
+      "title": "South Carolina Code of Laws, unannotated (scstatehouse.gov)",
+      "publisher": "South Carolina Legislative Council / Legislative Services Agency",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "https://www.scstatehouse.gov/code/statmast.php DISCLAIMER: this version 'is not official'; only the published volumes of the S.C. Code of Laws Annotated and the acts are official.",
+      "coverage": "All 63 titles, one HTML page per chapter (text, numbering, history, editor's notes); per-chapter Word downloads. Historical snapshots under /Archives/CodeofLaws{YYYY}/ (seen in search results for 2000-2013, not fetched).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.scstatehouse.gov/code/t{title}c{chapter}.php",
+        "pattern_rules": "Citation S.C. Code Ann. § {T}-{C}-{S}: title = T zero-padded to 2 digits; chapter = C zero-padded to 3 digits with any letter suffix kept upper-case (15-3-530 -> t15c003.php; 1-23-380 -> t01c023.php; 36-2A-103 -> t36c002A.php). The page holds the WHOLE chapter; there are no section anchors (no id/name attributes), so locate the section by the literal text 'SECTION {T}-{C}-{S}.' (script: fetch_doc.py grep/section). Chapters ending 'R' (t40c021R.php) are RESERVED stubs. Word file of a chapter: /getfile.php?TYPE=CODEOFLAWS&TITLE={T}&CHAPTER={C} (unpadded). Title index /code/title{T}.php (unpadded) lists chapter names only, no section ranges; not needed because the chapter is in the citation.",
+        "index_url": "https://www.scstatehouse.gov/code/statmast.php",
+        "navigation": "statmast.php -> title{T}.php -> t{TT}c{CCC}.php (HTML) or getfile.php (Word)",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed",
+        "notes": "WebFetch read built URLs on this host without an approval prompt. Long chapters exceed the WebFetch window: t16c003.php is 124,663 chars of text and WebFetch stopped inside § 16-3-740 (continue with offset 100000). Script sizes (raw text incl. whitespace): t15c003 45,604; t01c023 140,304; t16c003 333,507; t63c007 314,879; t12c006 508,386 chars. Prefer fetch_doc.py grep/section on long chapters. Full-text search (query.php) needs a JavaScript auto-submit; a hand-built GET returned 'found 0 times'/'Submitting...' - not usable."
+      },
+      "currency": {
+        "where": "https://www.scstatehouse.gov/code/statmast.php DISCLAIMER paragraph (not on chapter pages)",
+        "observed": "now current through the 2025 Session of the General Assembly"
+      },
+      "hazards": [
+        "one page per chapter, no section anchors: search the text for 'SECTION T-C-S.'",
+        "long chapters truncate in WebFetch at 100K chars (use offset or the script)",
+        "currency is the 2025 Session as of 2026-10-17: 2026 acts may not be in the text yet; check Ratifications & Acts",
+        "no currency line on chapter pages",
+        "Word/HTML only; no PDF of the Code"
+      ],
+      "probe": {
+        "citation": "S.C. Code Ann. § 15-3-530",
+        "url": "https://www.scstatehouse.gov/code/t15c003.php",
+        "expect": "SECTION 15-3-530. Three years. Within three years:"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: t15c003.php 45,604 chars; grep 'SECTION 15-3-530. Three years. Within three years: (1) an action upon a contract'. Second title: t16c003.php 'SECTION 16-3-20. Punishment for murder'; t01c023.php 'SECTION 1-23-380. Judicial review upon exhaustion'; t12c006.php 'SECTION 12-6-510. Tax rates'; t36c002A.php 'SECTION 36-2A-103.'. WebFetch t15c003: YES 'Within three years: (1) an action upon a contract', ends § 15-3-700, not truncated; WebFetch t16c003: truncated at 100,000 of 124,663 chars."
+      },
+      "notes": "1,371 chapter links enumerated from title1-63.php: all fit t{2 digits}c{3 digits}[A|R].php; only 36-2A, 36-4A carry a letter (plus reserved 40-21R, 40-73R)."
+    },
+    {
+      "id": "sc-code-justia",
+      "family": "statutes",
+      "title": "South Carolina Code of Laws (Justia, 2025 edition)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'These codes may not be the most recent version' and refers users to official sources.",
+      "coverage": "Per-section pages of the S.C. Code; edition '2025 South Carolina Code of Laws'.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/south-carolina/title-{title}/chapter-{chapter}/section-{title}-{chapter}-{section}/",
+        "pattern_rules": "No zero-padding (title-15/chapter-3/section-15-3-530). Letter-suffix chapters (36-2A) untested: likely lower-case 'chapter-2a', verify before use.",
+        "index_url": "https://law.justia.com/codes/south-carolina/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com/robots.txt answered with a Cloudflare challenge; fetch_doc.py REFUSED the host for the day (robots.txt challenge, 2026-10-17T09:44)",
+        "notes": "WebFetch read built Justia URLs. Per-section pages, so no truncation."
+      },
+      "currency": {
+        "where": "page heading",
+        "observed": "2025 South Carolina Code of Laws"
+      },
+      "hazards": [
+        "one edition behind the print code possible; disclose currency",
+        "script route refused (challenge)"
+      ],
+      "probe": {
+        "citation": "S.C. Code Ann. § 15-3-530",
+        "url": "https://law.justia.com/codes/south-carolina/title-15/chapter-3/section-15-3-530/",
+        "expect": "Within three years: (1) an action upon a contract, obligation,"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: YES 'Within three years: (1) an action upon a contract, obligation,'; '2025 South Carolina Code of Laws'. Second: title-16/chapter-3/section-16-3-20/ YES 'A person who is convicted of or pleads guilty to'. Script: REFUSED (law.justia.com challenge)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-acts-scstatehouse",
+      "family": "statutes",
+      "title": "Ratifications and Acts (session laws)",
+      "publisher": "South Carolina Legislative Services Agency",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "General site disclaimer; acts are cited by the Code disclaimer as part of the official law but the web copies are not stated to be official.",
+      "coverage": "Current-session ratification sheets, ratifications/acts log and act lists; earlier sessions moved to the Archives.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.scstatehouse.gov/newlaws.php",
+        "navigation": "newlaws.php -> '2025-2026 Ratifications/Acts Log' or 'Act Lists' -> bill page (act text). Earlier sessions: /archives.php.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed",
+        "notes": "Only the index page was read (script 200). Act text pages not probed."
+      },
+      "currency": {
+        "where": "page heading",
+        "observed": "2025-2026 Legislative Session"
+      },
+      "hazards": [
+        "needed because the online Code is only current through the 2025 Session"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://www.scstatehouse.gov/newlaws.php",
+        "expect": "Ratification Sheets & Act Lists"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: newlaws.php 200, 'Ratification Sheets & Act Lists', '2025-2026 Legislative Session'. No act text fetched."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-constitution-scstatehouse",
+      "family": "constitution",
+      "title": "South Carolina Constitution, unannotated (per-article PDFs)",
+      "publisher": "South Carolina Legislative Council / Legislative Services Agency",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "https://www.scstatehouse.gov/scconstitution/scconst.php DISCLAIMER: the unannotated Constitution online 'is not official'.",
+      "coverage": "Preamble, Articles I-XVII (incl. VIII-A), amendments list; whole text SCConstitution.pdf (99 pp).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.scstatehouse.gov/scconstitution/A{article}.pdf",
+        "pattern_rules": "article = Arabic number of the Roman article, zero-padded to 2 digits (art. I -> A01.pdf, art. V -> A05.pdf); Article VIII-A -> A08A.pdf. Locate the section by 'SECTION {n}.' inside the PDF. Whole document: /scconstitution/SCConstitution.pdf.",
+        "index_url": "https://www.scstatehouse.gov/scconstitution/scconst.php",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed",
+        "notes": "Article PDFs are small (A01 7 pp, 20,313 chars). SCConstitution.pdf is 99 pp / 244,257 chars - too long for WebFetch."
+      },
+      "currency": {
+        "where": "scconst.php page body",
+        "observed": "updated through the 2025 Session of the General Assembly is now available"
+      },
+      "hazards": [
+        "no currency line inside the PDFs (Last-Modified 14 Oct 2025)",
+        "whole-text PDF exceeds the WebFetch window"
+      ],
+      "probe": {
+        "citation": "S.C. Const. art. I, § 10",
+        "url": "https://www.scstatehouse.gov/scconstitution/A01.pdf",
+        "expect": "The right of the people to be secure in their persons"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: A01.pdf 7 pp, grep 'SECTION 10. Searches and seizures; invasions of privacy.'; A05.pdf 'SECTION 5. Jurisdiction of Supreme Court.' WebFetch A01.pdf: YES 'The right of the people to be secure in their', last § 25, not truncated."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-constitution-justia",
+      "family": "constitution",
+      "title": "South Carolina Constitution (Justia)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page states 'This Constitution may not be the most recent version.'",
+      "coverage": "Per-article pages (introduction, preamble, a01 ...). Out of date: Article I page ends at § 24 (the official text has § 25).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/south-carolina/a{article}.html",
+        "pattern_rules": "article = 2-digit Arabic number (a01.html). Article VIII-A untested.",
+        "index_url": "https://law.justia.com/constitution/south-carolina/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com/robots.txt answered with a Cloudflare challenge; fetch_doc.py REFUSED the host for the day (robots.txt challenge, 2026-10-17T09:44)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "stale: lacks Art. I § 25 (hunting and fishing) present on scstatehouse.gov",
+        "no edition date"
+      ],
+      "probe": {
+        "citation": "S.C. Const. art. I, § 10",
+        "url": "https://law.justia.com/constitution/south-carolina/a01.html",
+        "expect": "The right of the people to be secure in their"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch a01.html: YES 'The right of the people to be secure in their'; last section 24. Index lists introduction.html, preamble.html, a01.html."
+      },
+      "notes": "Use only when scstatehouse.gov fails, and check the section exists in the current text."
+    },
+    {
+      "id": "sc-rules-sccourts",
+      "family": "court_rules",
+      "title": "South Carolina Court Rules (SCACR incl. Rule 407 RPC, SCRCP, SCRE, SCRCrimP, SCRFC, SCRMC, SCADR)",
+      "publisher": "South Carolina Judicial Branch",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Not readable: host refuses all crawlers in robots.txt.",
+      "coverage": "All court rules issued by the Supreme Court of South Carolina (per-rule pages on the court site).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.sccourts.org/court-rules/",
+        "navigation": "Not navigated (robots). Link the court-rules page in reports; do not fetch.",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "blocked",
+        "shell": "blocked-robots",
+        "robots_txt": "www.sccourts.org: 'User-agent: *' 'Disallow: /' 'Crawl-delay: 120000' (named Google/Bing bots get path rules only)",
+        "notes": "fetch_doc.py check: REFUSED 'robots.txt on www.sccourts.org disallows /court-rules/ (rule: Disallow: /)'. WebFetch not used (policy). The lead host 'sccourts.gov' does not serve the court: WebFetch ROBOTS_DISALLOWED on https://www.sccourts.gov/ and /robots.txt; proxy CONNECT 502; http DNS does not resolve."
+      },
+      "currency": {
+        "where": "n/a",
+        "observed": ""
+      },
+      "hazards": [
+        "robots Disallow: / for every agent",
+        "no tier-2 copy of S.C. court rules on Justia, LII or public.law"
+      ],
+      "probe": {
+        "citation": "Rule 12(b)(6), SCRCP",
+        "url": "https://www.sccourts.org/court-rules/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED for /court-rules/ and /opinions/."
+      },
+      "notes": "index_url path is a guess from the site structure and was never fetched; treat as the court site's home www.sccourts.org when linking."
+    },
+    {
+      "id": "sc-regs-scstatehouse",
+      "family": "admin_code",
+      "title": "South Carolina Code of State Regulations, unannotated (chapter PDFs)",
+      "publisher": "South Carolina Legislative Council / Legislative Services Agency",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "https://www.scstatehouse.gov/coderegs/statmast.php DISCLAIMER: the online Code of Regulations 'is not official'; the print volumes are.",
+      "coverage": "All agency chapters as PDF (and Word); Chapter 61 (Dept. of Environmental Services / DHEC) split into per-regulation PDFs.",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://www.scstatehouse.gov/coderegs/Chapter%20{chapter}.pdf",
+        "pattern_rules": "Regulation {C}-{N}: chapter PDF is 'Chapter {C}.pdf' (space encoded %20; the script rejects a raw space). Chapter 61 is NOT one file: use the Chapter61.php page, which links 'Chapter 61-1 through 61-17.pdf', 'Chapter 61-18 through 61-58.17.pdf', 'Chapter 61-62.pdf', 'Chapter 61-63.pdf' ... (ranges shown in the link text). Word: /getfile.php?TYPE=CODEOFREGS&CHAPTER={C}. Inside PDFs numbers use EN DASHES ('10–1.', '61–62.1') and also hyphens in cross-references; grep both.",
+        "index_url": "https://www.scstatehouse.gov/coderegs/statmast.php",
+        "navigation": "statmast.php -> chapter 'PDF' link (or, for chapter 61, Chapter61.php -> per-regulation PDF) -> search the PDF for the regulation number",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed",
+        "notes": "Chapter 61-62.pdf (air pollution control) is 397 pp / 1,570,629 chars; WebFetch stopped inside Reg. 61-62.1 § II.L. Chapter 10.pdf 23 pp / 82,785 chars."
+      },
+      "currency": {
+        "where": "coderegs/statmast.php, top of page and DISCLAIMER",
+        "observed": "Files are current through State Register Volume 50, Issue 3, effective March 27, 2026."
+      },
+      "hazards": [
+        "en-dash numbering in PDFs",
+        "very large chapter PDFs truncate in WebFetch",
+        "space in file names",
+        "HTML version not offered; tables best in PDF per the site"
+      ],
+      "probe": {
+        "citation": "S.C. Code Ann. Regs. 61-62.1",
+        "url": "https://www.scstatehouse.gov/coderegs/Chapter%2061-62.pdf",
+        "expect": "Department approved malfunction plan"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: Chapter%2061-62.pdf 397 pp, 1,570,629 chars, Last-Modified 23 Feb 2026; grep '61-62.1' found at p. 60. Chapter%2010.pdf 23 pp, starts 'CHAPTER 10 Department of Labor, Licensing and Regulation'. WebFetch 61-62.pdf: 61-62.5 NOT PRESENT; truncated in 61-62.1."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-register-scstatehouse",
+      "family": "admin_register",
+      "title": "South Carolina State Register (monthly issue PDFs)",
+      "publisher": "South Carolina Legislative Council",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Each issue's first page: 'the printed version of the State Register, not the online version, is the official version.'",
+      "coverage": "Volume 29 (2005) to current; annual index PDFs.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.scstatehouse.gov/state_register.php?first=FILE&pdf=1&file=Sr{volume}-{issue}.pdf",
+        "pattern_rules": "volume = calendar year - 1976 (2026 -> 50); issue = month number 1-12 (Sept. 25, 2026 -> Sr50-9.pdf). Annual index: file=index{YYYY}.pdf. The listing page groups issues by fiscal year (July-June), but the file names follow the calendar volume.",
+        "index_url": "https://www.scstatehouse.gov/state_register.php",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /images/, /jpeg/, /gif/, /dashboard/, /sys/ (AhrefsBot, Riddler: Disallow /); /code/, /coderegs/, /scconstitution/, /state_register.php allowed",
+        "notes": "Issue PDFs 20-60 pp (Sr50-9 153,818 chars)."
+      },
+      "currency": {
+        "where": "state_register.php list; issue cover page",
+        "observed": "Published September 25, 2026 Volume 50 Issue No. 9"
+      },
+      "hazards": [
+        "issues >100K chars truncate in WebFetch",
+        "page numbers continue through the volume"
+      ],
+      "probe": {
+        "citation": "50 S.C. Reg. (Sept. 25, 2026)",
+        "url": "https://www.scstatehouse.gov/state_register.php?first=FILE&pdf=1&file=Sr50-9.pdf",
+        "expect": "Published September 25, 2026 Volume 50 Issue No. 9"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: Sr50-9.pdf 53 pp, 153,818 chars; 'SOUTH CAROLINA STATE REGISTER DISCLAIMER'; 'Published September 25, 2026 Volume 50 Issue No. 9'. Sr50-3.pdf 22 pp."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-opinions-sccourts",
+      "family": "case_law",
+      "title": "Supreme Court and Court of Appeals opinions (www.sccourts.org)",
+      "publisher": "South Carolina Judicial Branch",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Slip opinions and advance sheets; official reports are the South Carolina Reports (print).",
+      "coverage": "Published and unpublished opinions, advance sheets, orders (not inspected).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "",
+        "pattern_rules": "",
+        "index_url": "https://www.sccourts.org/opinions/",
+        "navigation": "Not navigated (robots).",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "blocked",
+        "shell": "blocked-robots",
+        "robots_txt": "www.sccourts.org: 'User-agent: *' 'Disallow: /' 'Crawl-delay: 120000' (named Google/Bing bots get path rules only)",
+        "notes": "fetch_doc.py check REFUSED '/opinions/ (rule: Disallow: /)'. WebFetch not used. www.sccourts.gov (the lead's host) is not the court site: WebFetch ROBOTS_DISALLOWED, proxy 502."
+      },
+      "currency": {
+        "where": "n/a",
+        "observed": ""
+      },
+      "hazards": [
+        "robots Disallow: / for every agent"
+      ],
+      "probe": {
+        "citation": "Op. No. 28245",
+        "url": "https://www.sccourts.org/opinions/",
+        "expect": ""
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "robots.txt 'User-agent: *' 'Disallow: /'; fetch_doc.py REFUSED."
+      },
+      "notes": "Read opinion text from sc-cases-justia; link the court site."
+    },
+    {
+      "id": "sc-advance-sheets-statelibrary",
+      "family": "case_law",
+      "title": "Advance Sheets: Opinions of the Supreme Court and Court of Appeals (State Library depository)",
+      "publisher": "South Carolina State Library (State Documents Depository, Judicial Department)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Depository copies of the courts' advance sheets; no statement seen.",
+      "coverage": "Advance sheets deposited by the Judicial Department (range not checked).",
+      "access": {
+        "mode": "link-only",
+        "url_pattern": "https://dc.statelibrary.sc.gov/entities/publication/{uuid}",
+        "pattern_rules": "uuid only from search results; Discovery search (/search) and /browse are robots-disallowed.",
+        "index_url": "https://dc.statelibrary.sc.gov/",
+        "navigation": "Found only through web search results; item page -> bitstream (not followed).",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent * - Disallow /search, /browse, /entities/*?f, /entities/*/full, /items/*/full, login/admin paths; Crawl-delay 10",
+        "notes": "Script read one item page (Angular DSpace; 1,751 chars, title 'advance sheet no. 26'). PDFs not fetched: whether a depository copy of a robots-blocked court publication is an acceptable source is an open question."
+      },
+      "currency": {
+        "where": "n/a",
+        "observed": ""
+      },
+      "hazards": [
+        "policy question: possible alternate host for robots-blocked court documents",
+        "no search route (robots)"
+      ],
+      "probe": {
+        "citation": "",
+        "url": "https://dc.statelibrary.sc.gov/entities/publication/518f38c4-71bd-403f-920d-600dc17e2ae5",
+        "expect": "advance sheet no. 26"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script: item page 200, 'Opinions of the Supreme Court and Court of Appeals of South Carolina advance sheet no. 26'. Not read further."
+      },
+      "notes": "Do not quote from it until the alternate-host question is settled."
+    },
+    {
+      "id": "sc-cases-justia",
+      "family": "case_law",
+      "title": "South Carolina Supreme Court and Court of Appeals opinions (Justia)",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party copy of slip opinions; no official reporter pagination.",
+      "coverage": "Supreme Court 1883-2026 (some years skipped); Court of Appeals incl. unpublished (YYYY-UP-NNN) opinions. Latest Supreme Court item seen: Aug. 12, 2026 (about two months behind on 2026-10-17).",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/south-carolina/{court}/{year}/{opinion}.html",
+        "pattern_rules": "court = supreme-court | court-of-appeals; year = filing year; opinion = the court's Opinion No. (Supreme Court 28245; published COA 6093) or lower-case unpublished number (2024-up-425). Not the Appellate Case No. (2023-000452). Year listing: /cases/south-carolina/{court}/{year}/ gives name, number, date. PDF: cases.justia.com/south-carolina/{court}/{year}-{opinion}.pdf?ts=... (from the page's Download PDF link).",
+        "index_url": "https://law.justia.com/cases/south-carolina/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com/robots.txt answered with a Cloudflare challenge; fetch_doc.py REFUSED the host for the day (robots.txt challenge, 2026-10-17T09:44)",
+        "notes": "WebFetch read listing and case pages built from the pattern. Script route refused for the day."
+      },
+      "currency": {
+        "where": "year listing",
+        "observed": "latest Supreme Court entry Aug. 12, 2026 (No. 28348)"
+      },
+      "hazards": [
+        "slip pagination only; S.C./S.E.2d pages not shown",
+        "lags the court by weeks",
+        "Supreme Court memorandum opinions (YYYY-MO-NNN) coverage untested"
+      ],
+      "probe": {
+        "citation": "Huskins v. Mungo Homes, LLC, Op. No. 28245 (S.C. Dec. 11, 2024)",
+        "url": "https://law.justia.com/cases/south-carolina/supreme-court/2024/28245.html",
+        "expect": "When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch 2024/28245.html: YES full text 'When Petitioners Amanda Leigh Huskins and Jay R. Huskins decided to buy', ends 'REVERSED AND REMANDED'; Opinion No. 28245, Appellate Case No. 2023-000452. COA 2024 listing: 2024-UP-425 (Dec. 30, 2024) -> 2024-up-425.html; published No. 6093. Supreme Court index: years 1883-2026."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sc-ctrack-appellate-dockets",
+      "family": "subsequent_history",
+      "title": "South Carolina Appellate Case Management System (C-Track public portal)",
+      "publisher": "South Carolina Judicial Branch (Clerks of the Supreme Court and Court of Appeals)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page banner: information 'should not be relied upon as an official record of action.'",
+      "coverage": "Supreme Court and Court of Appeals dockets, cases filed from about 2012 (csIID 1043 = 2012-206608): classification (e.g. 'Certiorari - COA'), lower court and its number, disposition date/type, remittitur, event list incl. rehearing and U.S. Supreme Court cert notices.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://ctrack.sccourts.org/public/caseSearch.do?courtID={court}&csNumber={appellate_case_no}&shortTitle={title}&submitValue=Search&action=Search&startRow=1&displayRows=50&orderBy=FileDt&orderDir=DESC&href=/public/caseView.do",
+        "pattern_rules": "court = 10001 (Supreme Court) | 10002 (Court of Appeals); csNumber = Appellate Case No. 'YYYY-NNNNNN'; or shortTitle = a party name. Omit 'exclude=on' (that excludes closed cases and returned 'No records were found.'). A single hit redirects straight to caseView.do?csIID={id}. From the decision below to cert: search courtID=10001 by party name (shortTitle) and match 'Lower Court or Tribunal' (same trial-court number on both records) - there is no search by lower-court number.",
+        "index_url": "https://ctrack.sccourts.org/public/caseSearch.do",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "none (404)",
+        "notes": "Form is method=post but GET works. WebFetch on a built caseView URL: PROVENANCE_REQUIRED (approval not answered) - not a site refusal. Linked from the court site as sccourts.org/ACMS (seen in search results; the court site itself is robots-blocked so the link was not fetched)."
+      },
+      "currency": {
+        "where": "live docket",
+        "observed": "events through 10/14/2025 on 2023-000452"
+      },
+      "hazards": [
+        "cert-to-COA linkage by party name only",
+        "documents column: links not exposed to the script",
+        "pre-2012 cases absent"
+      ],
+      "probe": {
+        "citation": "Appellate Case No. 2023-000452 (Huskins v. Mungo Homes)",
+        "url": "https://ctrack.sccourts.org/public/caseSearch.do?courtID=10001&csNumber=2023-000452&submitValue=Search&action=Search&startRow=1&displayRows=50&orderBy=FileDt&orderDir=DESC&href=/public/caseView.do",
+        "expect": "Supreme Court of the United States - Notice that Certiorari Denied"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "Script GET -> caseView.do?csIID=78122: 'Case Information: 2023-000452', 'Certiorari - COA', disposition 12/11/2024 Opinion; events '01/16/2025 Rehearing - Denied', '10/14/2025 Supreme Court of the United States - Notice that Certiorari Denied'. COA search shortTitle=Huskins -> 2018-000889, same lower court 2017CP4003697."
+      },
+      "notes": "Script candidate: deterministic subsequent-history lookup."
+    }
+  ],
+  "absent": [
+    {
+      "family": "court_rules",
+      "what": "Tier-2 (Justia, Cornell LII, public.law) text of S.C. court rules (SCRCP, SCRE, SCACR)",
+      "evidence": "Web search for SCRCP Rule 12 text returned only non-vetted third parties (courtrules.net, rulesofcivilprocedure.com, vlex); Justia/LII do not list S.C. rules; public.law has no S.C. edition (DE/NC records).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Official bulk download / API of the S.C. Code",
+      "evidence": "None on code/statmast.php; per-chapter Word files via getfile.php are the closest substitute.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain / vendor-neutral citation format",
+      "evidence": "S.C. uses Opinion Nos. and S.C./S.E.2d only; none seen on Justia pages or C-Track.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "Court site at sccourts.gov (the host named in the leads)",
+      "evidence": "WebFetch ROBOTS_DISALLOWED on https://www.sccourts.gov/ and /robots.txt; proxy CONNECT 502; plain http DNS failure. The court's site is www.sccourts.org.",
+      "date": "2026-10-17"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "sc-ctrack-appellate-dockets",
+      "why": "Plain-GET search by Appellate Case No. or party redirects to a structured docket (classification, lower court + number, disposition, rehearing, U.S. cert notices): deterministic cert/rehearing lookup."
+    },
+    {
+      "source_id": "sc-code-scstatehouse",
+      "why": "Fully constructible chapter URLs (1,371 chapters enumerated); per-chapter Word via getfile.php could serve as quasi-bulk."
+    },
+    {
+      "source_id": "sc-register-scstatehouse",
+      "why": "Issue PDFs constructible from (year, month): Sr{year-1976}-{month}.pdf."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "sc-regs-scstatehouse",
+      "url": "https://www.scstatehouse.gov/coderegs/Chapter%2061-62.pdf",
+      "why": "397 pp / 1.57M chars; WebFetch stops inside Reg. 61-62.1 (61-62.5 NOT PRESENT).",
+      "split_hint": "'61–62.N' regulation headings with en dash; 'SECTION' headings inside",
+      "bulk": ""
+    },
+    {
+      "source_id": "sc-code-scstatehouse",
+      "url": "https://www.scstatehouse.gov/code/t16c003.php",
+      "why": "Chapter pages up to 508K chars (t12c006); WebFetch stops at 100K (t16c003 inside § 16-3-740). Script reads in full, so ingest is optional.",
+      "split_hint": "'SECTION T-C-S. Title.' lines",
+      "bulk": "https://www.scstatehouse.gov/getfile.php?TYPE=CODEOFLAWS&TITLE={T}&CHAPTER={C}"
+    },
+    {
+      "source_id": "sc-constitution-scstatehouse",
+      "url": "https://www.scstatehouse.gov/scconstitution/SCConstitution.pdf",
+      "why": "Whole text 99 pp / 244K chars exceeds WebFetch; per-article PDFs are the read route.",
+      "split_hint": "'ARTICLE N' then 'SECTION n.' headings",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "Is the State Library depository copy of the courts' advance sheets (dc.statelibrary.sc.gov) an acceptable source while www.sccourts.org disallows all robots, or is it an alternate host that the policy excludes? Not fetched beyond one item page.",
+    "S.C. court rules have no reachable official or tier-2 text: needs a policy decision (e.g. ask the court, or a manual capture route).",
+    "C-Track is linked from the court site as sccourts.org/ACMS only per search results; the link could not be read on the robots-blocked court site.",
+    "Justia letter-suffix chapters (36-2A) and Article VIII-A URL forms untested; Justia coverage of Supreme Court memorandum opinions (YYYY-MO-NNN) untested.",
+    "The online Code is 'current through the 2025 Session' on 2026-10-17; recheck for the 2026 update.",
+    "Act text pages (session laws) not probed; sc-acts-scstatehouse is reported only."
+  ]
+}

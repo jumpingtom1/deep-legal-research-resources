@@ -88,14 +88,25 @@
         "label": "Pennsylvania session laws / act citations",
         "examples": [
           "Act of Dec. 17, 1968, P.L. 1224, No. 387",
-          "Act of December 17, 1968, P.L.1224, No.387",
-          "Act 36 of 2026",
-          "Act No. 387 of 1968"
+          "Act of December 17, 1968, P.L.1224, No.387"
         ],
-        "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)|Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})",
+        "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)",
         "routes_to": [
           "pa-uncons-statutes-palegis"
         ]
+      },
+      {
+        "family": "statutes",
+        "label": "Pennsylvania session laws (\"Act N of YYYY\", generic)",
+        "examples": [
+          "Act 36 of 2026",
+          "Act No. 387 of 1968"
+        ],
+        "regex": "Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})",
+        "routes_to": [
+          "pa-uncons-statutes-palegis"
+        ],
+        "context_required": true
       },
       {
         "family": "constitution",
@@ -281,7 +292,7 @@
       "Unfair Trade Practices and Consumer Protection Law": "sessYr=1968&actNum=387",
       "73 P.S. § 201-": "sessYr=1968&actNum=387"
     },
-    "notes": "Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn=24; 102 → chpt=1, sctn=2; 62A01 → chpt=62A, sctn=1); a decimal goes in subsctn (5524.1 → sctn=24&subsctn=1). Title 13 (UCC) needs div = the leading digit of the section (13 § 2725 → div=2; § 9102 → div=9); other titles take div=00. (verified for 15, 18, 20, 23, 42, 75). Title 0 = Constitution (chpt = article, sctn = section). P.S. (Purdon's) is West's unofficial compilation of unconsolidated acts: a P.S. title/section does NOT map to a free URL; palegis.us files unconsolidated law by act year + act number (UTPCPL = Act 387 of 1968 = 73 P.S. § 201-1 et seq.), and the act text carries no P.S. numbers. Resolve the act from the citing text (courts usually give 'Act of Dec. 17, 1968, P.L. 1224, No. 387') or from law_aliases; P.S. section hyphens (201-2) are part of the section, not a range. '§§ 2501-2502' in a Pa.C.S. cite is a range: the regex takes 2501. Bare 'Vehicle Code', 'Judicial Code', 'Crimes Code' are shared with other jurisdictions (and the federal Judicial Code) — the prose pattern requires 'Pennsylvania'; bare 'Rule 1925(b)' or 'Rule 600' must not route here without Pa.R.*. Court rules are Pa. Code titles: Pa.R.C.P. = 231, Pa.R.A.P. = 210, Pa.R.Crim.P. = 234, Pa.R.E. = 225, Pa.R.J.C.P. = 237 (see law_aliases). Citability: Pa.R.A.P. 126(b) — non-precedential Superior Court memoranda filed after May 1, 2019 may be cited for persuasive value (verified on LII). Commonwealth Court unreported opinions filed after Jan. 15, 2008 are citable for persuasive value under its IOP § 414 (from memory, unverified). Docket codes: Superior EDA/MDA/WDA (pre-~2003 'PGH', 'PHL', 'HBG' and 2-digit years); Supreme EAP/MAP/WAP (appeals), EAL/MAL/WAL (allocatur petitions), EM/MM/WM (misc.); Commonwealth C.D./M.D. 'PA Super N' numbers appear on precedential Superior slip opinions only; the pacourts API cannot be searched by it — search by caption/docket. Official reporters Pa. Super. and Pa. Cmwlth. ceased in the late 1990s (from memory); modern cites are to A.3d. CourtListener ids pa / pasuperct / pacommwct are from memory, unverified. Bluebook 21st ed. uses 'Pa. Stat. and Cons. Stat. Ann.' for BOTH Pa.C.S. and P.S.: a hyphenated section (201-2) routes to P.S. only; an unhyphenated one matches both patterns — try the Pa.C.S. URL first ('could not be found' means it is a P.S. cite) and then the P.S. act route. (Side effect: a Pa.C.S. range written in the Bluebook form, '§§ 2501-2502', is also sent to P.S.; the Pa.C.S. abbreviations are unaffected.)"
+    "notes": "Pa.C.S. URL mapping: section number = chapter*100 + sctn (5524 → chpt=55, sctn=24; 102 → chpt=1, sctn=2; 62A01 → chpt=62A, sctn=1); a decimal goes in subsctn (5524.1 → sctn=24&subsctn=1). Title 13 (UCC) needs div = the leading digit of the section (13 § 2725 → div=2; § 9102 → div=9); other titles take div=00. (verified for 15, 18, 20, 23, 42, 75). Title 0 = Constitution (chpt = article, sctn = section). P.S. (Purdon's) is West's unofficial compilation of unconsolidated acts: a P.S. title/section does NOT map to a free URL; palegis.us files unconsolidated law by act year + act number (UTPCPL = Act 387 of 1968 = 73 P.S. § 201-1 et seq.), and the act text carries no P.S. numbers. Resolve the act from the citing text (courts usually give 'Act of Dec. 17, 1968, P.L. 1224, No. 387') or from law_aliases; P.S. section hyphens (201-2) are part of the section, not a range. '§§ 2501-2502' in a Pa.C.S. cite is a range: the regex takes 2501. Bare 'Vehicle Code', 'Judicial Code', 'Crimes Code' are shared with other jurisdictions (and the federal Judicial Code) — the prose pattern requires 'Pennsylvania'; bare 'Rule 1925(b)' or 'Rule 600' must not route here without Pa.R.*. Court rules are Pa. Code titles: Pa.R.C.P. = 231, Pa.R.A.P. = 210, Pa.R.Crim.P. = 234, Pa.R.E. = 225, Pa.R.J.C.P. = 237 (see law_aliases). Citability: Pa.R.A.P. 126(b) — non-precedential Superior Court memoranda filed after May 1, 2019 may be cited for persuasive value (verified on LII). Commonwealth Court unreported opinions filed after Jan. 15, 2008 are citable for persuasive value under its IOP § 414 (from memory, unverified). Docket codes: Superior EDA/MDA/WDA (pre-~2003 'PGH', 'PHL', 'HBG' and 2-digit years); Supreme EAP/MAP/WAP (appeals), EAL/MAL/WAL (allocatur petitions), EM/MM/WM (misc.); Commonwealth C.D./M.D. 'PA Super N' numbers appear on precedential Superior slip opinions only; the pacourts API cannot be searched by it — search by caption/docket. Official reporters Pa. Super. and Pa. Cmwlth. ceased in the late 1990s (from memory); modern cites are to A.3d. CourtListener ids pa / pasuperct / pacommwct are from memory, unverified. Bluebook 21st ed. uses 'Pa. Stat. and Cons. Stat. Ann.' for BOTH Pa.C.S. and P.S.: a hyphenated section (201-2) routes to P.S. only; an unhyphenated one matches both patterns — try the Pa.C.S. URL first ('could not be found' means it is a P.S. cite) and then the P.S. act route. (Side effect: a Pa.C.S. range written in the Bluebook form, '§§ 2501-2502', is also sent to P.S.; the Pa.C.S. abbreviations are unaffected.) 'Act N of YYYY' is used by several states (e.g. South Carolina), so it routes here only once Pennsylvania is established; the 'Act of <date>, P.L. N, No. N' form is distinctively Pennsylvanian."
   },
   "sources": [
     {
