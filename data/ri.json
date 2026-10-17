@@ -175,10 +175,22 @@
      "R.I. Sup. Ct. R. art. I, R. 12A",
      "R.I. Sup. Ct. R. art. V, R. 1.7"
     ],
-    "regex": "Article\\s+(?P<article>[IVX]+),?\\s+Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?[A-Z]?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?Supreme\\s+Court\\s+Rules|R\\.\\s*I\\.\\s*Sup(?:r|reme)?\\.?\\s*Ct\\.\\s*R(?:ules?|\\.)?,?\\s*art\\.\\s*(?P<article2>[IVX]+),?\\s*R(?:ule|\\.)\\s*(?P<rule2>\\d{1,2}(?:\\.\\d+)?[A-Z]?)",
+    "regex": "Article\\s+(?P<article>[IVX]+),?\\s+Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?[A-Z]?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?Supreme\\s+Court\\s+Rules|R\\.\\s*I\\.\\s*Sup(?:r|reme)?\\.?\\s*Ct\\.\\s*R(?:ules?|\\.)?,?\\s*art\\.\\s*(?P<article2>[IVX]+),?\\s*R(?:ule|\\.)\\s*(?P<rule2>\\d{1,2}(?:\\.\\d+)?[A-Z]?)|(?:Article\\s+V,?\\s+)?Rule\\s+(?P<rule3>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+of\\s+Professional\\s+Conduct",
     "routes_to": [
      "ri-rules-supreme"
     ]
+   },
+   {
+    "family": "court_rules",
+    "label": "Rules of Professional Conduct (prose, no state marker)",
+    "examples": [
+     "Article V, Rule 1.7 of the Rules of Professional Conduct"
+    ],
+    "regex": "(?:Article\\s+V,?\\s+)?Rule\\s+(?P<rule>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+of\\s+Professional\\s+Conduct",
+    "routes_to": [
+     "ri-rules-supreme"
+    ],
+    "context_required": true
    },
    {
     "family": "court_rules",
@@ -186,9 +198,10 @@
     "examples": [
      "R.I. R. Evid. 803(6)",
      "Rule 701 of the Rhode Island Rules of Evidence",
-     "R.I. R. Evid. 403"
+     "R.I. R. Evid. 403",
+     "Rhode Island Rules of Evidence 803"
     ],
-    "regex": "R\\.\\s*I\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Rules\\s+of\\s+Evidence",
+    "regex": "R\\.\\s*I\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Rules\\s+of\\s+Evidence|Rhode\\s+Island\\s+Rules?\\s+of\\s+Evidence\\s*,?\\s*(?:Rule\\s*)?(?P<rule3>\\d{3,4})",
     "routes_to": [
      "ri-rules-evidence"
     ]
@@ -281,9 +294,22 @@
      "ri-cases-justia"
     ],
     "context_required": true
+   },
+   {
+    "family": "case_law",
+    "label": "District Court administrative appeal number",
+    "examples": [
+     "6AA-2026-00008",
+     "A.A. No. 2026 - 48"
+    ],
+    "regex": "(?P<div>\\d)AA-(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{1,5})|A\\.\\s*A\\.\\s*No\\.\\s*(?P<year2>(?:19|20)\\d\\d)\\s*-\\s*(?P<seq2>\\d{1,5})",
+    "routes_to": [
+     "ri-decisions-trial"
+    ],
+    "context_required": true
    }
   ],
-  "notes": "Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(1997 Reenactment)'); Bluebook 'R.I. Gen. Laws § 9-1-14'. Section numbers are title-chapter-section with optional decimals and letter titles (6A), so the URL needs no alias table. Bare '§ 9-1-14' is shared in shape with Tennessee, Arkansas, Idaho and others: it routes here only with Rhode Island context (context_required). 'P.L. 2019, ch. 82' is RI's session-law form; NJ writes 'P.L.2019, c.82', so the bare P.L. pattern is context_required. A '§§ a to b' range is two sections: take the first. Rules: 'Super. R. Civ. P. 56' (the prose 'Rule N of the Superior Court Rules of Civil/Criminal Procedure' is also D.C.'s title, so without 'Rhode Island' it is context_required), 'Super. R. Crim. P. 32(f)', 'Article I, Rule 12A of the Supreme Court Rules of Appellate Procedure', 'R.I. R. Evid. 803(6)'; Rules of Professional Conduct are Article V of the Supreme Court Rules. Cases: Atlantic Reporter with '(R.I. yyyy)' or '(R.I. Super. Ct. ...)'; Rhode Island Reports (R.I.) ended in 1980 and is the old official reporter; there is no public-domain citation. Supreme Court dockets 'No. 2023-43-C.A.' / '-Appeal' / '-M.P.' carry the docket year (not decision year). Superior civil actions 'PC-2025-03316' (county prefix P/K/N/W + C or M; PB = business calendar) route only with Rhode Island context. Westlaw cites need party-name search (no free WL resolver). CourtListener ids are from memory and unverified."
+  "notes": "Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(1997 Reenactment)'); Bluebook 'R.I. Gen. Laws § 9-1-14'. Section numbers are title-chapter-section with optional decimals and letter titles (6A), so the URL needs no alias table. Bare '§ 9-1-14' is shared in shape with Tennessee, Arkansas, Idaho and others: it routes here only with Rhode Island context (context_required). 'P.L. 2019, ch. 82' is RI's session-law form; NJ writes 'P.L.2019, c.82', so the bare P.L. pattern is context_required. A '§§ a to b' range is two sections: take the first. Rules: 'Super. R. Civ. P. 56' (the prose 'Rule N of the Superior Court Rules of Civil/Criminal Procedure' is also D.C.'s title, so without 'Rhode Island' it is context_required), 'Super. R. Crim. P. 32(f)', 'Article I, Rule 12A of the Supreme Court Rules of Appellate Procedure', 'R.I. R. Evid. 803(6)'; Rules of Professional Conduct are Article V of the Supreme Court Rules. Cases: Atlantic Reporter with '(R.I. yyyy)' or '(R.I. Super. Ct. ...)'; Rhode Island Reports (R.I.) ended in 1980 and is the old official reporter; there is no public-domain citation. Supreme Court dockets 'No. 2023-43-C.A.' / '-Appeal' / '-M.P.' carry the docket year (not decision year). Superior civil actions 'PC-2025-03316' (county prefix P/K/N/W + C or M; PB = business calendar) route only with Rhode Island context. Westlaw cites need party-name search (no free WL resolver). CourtListener ids are from memory and unverified. 'Article V, Rule 1.7 of the Rules of Professional Conduct' without 'Rhode Island' is the ABA Model Rules numbering used in every state, so that prose form is context_required. District Court administrative appeals ('6AA-2026-00008', 'A.A. No. 2026 - 48') are context_required. Bluebook page-form Public Laws cites match but have no URL route."
  },
  "sources": [
   {
@@ -311,7 +337,7 @@
     "notes": "WebFetch read Statutes.html (search-result URL) but built section and title-index URLs timed out on the permission prompt (PROVENANCE_REQUIRED): use fetch_doc.py. Section pages are small (1.5-11K chars), no truncation. Title index links on Statutes.html are http:// with a doubled slash (//Statutes/...)."
    },
    "currency": {
-    "where": "Statutes.html home page only; section pages carry no currency line (HTTP last-modified 2025-11-06 on sampled sections)",
+    "where": "Statutes.html home page only; section pages carry no currency line (HTTP last-modified 2025-11-06 on sampled sections); per-page last-modified varies (some 2021)",
     "observed": "Search the 2026 General Laws"
    },
    "hazards": [
@@ -328,9 +354,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py read: HTML 1,729 chars, heading 'R.I. Gen. Laws § 9-1-14', body '(a) Actions for words spoken shall be commenced and sued within one year' plus History of Section. Also verified by pattern: § 11-41-1 (1,559 chars), § 6A-2-725 ('An action for breach of any contract for sale must be commenced within four (4) years'), § 42-35-15 ('Judicial review of contested cases'), § 28-14-19.1 ('Misclassification of employees'). WebFetch of Statutes.html OK (disclaimer); WebFetch of built section URL: PROVENANCE_REQUIRED timeout."
+    "evidence": "fetch_doc.py read: HTML 1,729 chars, heading 'R.I. Gen. Laws § 9-1-14', body '(a) Actions for words spoken shall be commenced and sued within one year' plus History of Section. Also verified by pattern: § 11-41-1 (1,559 chars), § 6A-2-725 ('An action for breach of any contract for sale must be commenced within four (4) years'), § 42-35-15 ('Judicial review of contested cases'), § 28-14-19.1 ('Misclassification of employees'). WebFetch of Statutes.html OK (disclaimer); WebFetch of built section URL: PROVENANCE_REQUIRED timeout. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'Actions for words spoken shall be commenced...' 1,729 chars; Statutes.html 'Search the 2026 General Laws'; second citation R.I. Gen. Laws § 21-28-4.01; § 34-18-15 ok"
    },
    "notes": "Bulk download: none found on rilegislature.gov (not exhaustively searched; see open_questions)."
   },
@@ -346,7 +372,7 @@
    "access": {
     "mode": "constructible",
     "url_pattern": "https://law.justia.com/codes/rhode-island/title-{title}/chapter-{chapter}/section-{section}/",
-    "pattern_rules": "Lower-case title (title-6a); chapter = '{title}-{chapter}' with dots replaced by hyphens (9-1.1 -> chapter-9-1-1); section = full number with dots -> hyphens (28-14-19.1 -> section-28-14-19-1). UCC title 6A has 'part-N' segments (title-6a/chapter-6a-2/part-7/section-6a-2-725/) - take Article/Part from the title page if unsure.",
+    "pattern_rules": "Lower-case title (title-6a); chapter = '{title}-{chapter}' with dots replaced by hyphens (9-1.1 -> chapter-9-1-1); section = full number with dots -> hyphens (28-14-19.1 -> section-28-14-19-1). UCC title 6A has 'part-N' segments (title-6a/chapter-6a-2/part-7/section-6a-2-725/) - take Article/Part from the title page if unsure. ARTICLE LEVEL: chapters divided into articles take an extra lower-case Roman segment, e.g. R.I. Gen. Laws § 21-28-4.01 (Art. IV of ch. 21-28) -> /codes/rhode-island/title-21/chapter-21-28/article-iv/section-21-28-4-01/ (chapter page lists section-21-28-1, article-i, article-ii ...). The un-yeared URL is the current (2025) edition only when the path exists in that edition; a flat URL that skips the article level silently opens the last edition that had that path (2021 for 21-28). Year-specific editions live under /codes/rhode-island/{year}/... (2025 index: https://law.justia.com/codes/rhode-island/2025/). Always check the page's edition label equals the current edition; if not, open the chapter page /codes/rhode-island/title-{t}/chapter-{t}-{c}/ and follow the article link.",
     "index_url": "https://law.justia.com/codes/rhode-island/title-9/",
     "format": "html"
    },
@@ -364,7 +390,9 @@
    "hazards": [
     "annual snapshot lags the legislature",
     "dot-to-hyphen slug conversion",
-    "UCC part segment"
+    "UCC part segment",
+    "stale edition: a URL missing the article-N (or UCC part-N) segment silently serves an older edition (21-28-4.01 flat URL -> '2021 Rhode Island General Laws'); detect by comparing the edition label to the current one and re-navigate from the chapter page",
+    "article-divided chapters (21-28 article-i..article-vi) need an extra segment"
    ],
    "probe": {
     "citation": "R.I. Gen. Laws § 9-1-14",
@@ -374,9 +402,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch: YES, body 'Actions for words spoken shall be commenced and sued within'; label '2025 Rhode Island General Laws'. Second: /title-28/chapter-28-14/section-28-14-19-1/ YES 'The misclassification of a worker whether performing work as a'. Title page /codes/rhode-island/title-9/ lists chapter-9-1, chapter-9-1-1, chapter-9-2. fetch_doc.py: REFUSED (robots.txt challenge)."
+    "evidence": "WebFetch: YES, body 'Actions for words spoken shall be commenced and sued within'; label '2025 Rhode Island General Laws'. Second: /title-28/chapter-28-14/section-28-14-19-1/ YES 'The misclassification of a worker whether performing work as a'. Title page /codes/rhode-island/title-9/ lists chapter-9-1, chapter-9-1-1, chapter-9-2. fetch_doc.py: REFUSED (robots.txt challenge). | Independent check 2026-10-17: WebFetch YES 'Actions for words spoken shall be commenced and sued within'; '2025 Rhode Island General Laws' | second citation R.I. Gen. Laws § 21-28-4.01 FAILED on the flat URL (2021 edition served); chapter page WebFetch 2026-10-17: '2025 Rhode Island General Laws', links article-i, article-ii."
    },
    "notes": ""
   },
@@ -409,7 +437,8 @@
    },
    "hazards": [
     "two-digit year folders",
-    "pre-2000 year indexes missing (laws1995.htm 404)"
+    "pre-2000 year indexes missing (laws1995.htm 404)",
+    "page-form session-law cites have no URL route (chapter needed)"
    ],
    "probe": {
     "citation": "P.L. 2024, ch. 1",
@@ -419,11 +448,11 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: law24001.htm 1,056 chars 'Chapter 001 / 2024 -- H 7068 / Enacted 02/02/2024'; law25123.htm 9,692 chars 'Chapter 123 / 2025 -- S 0509 SUBSTITUTE A'; law95001.htm 928 chars. pl2024nu.htm lists 472 links to law24NNN.htm."
+    "evidence": "fetch_doc.py: law24001.htm 1,056 chars 'Chapter 001 / 2024 -- H 7068 / Enacted 02/02/2024'; law25123.htm 9,692 chars 'Chapter 123 / 2025 -- S 0509 SUBSTITUTE A'; law95001.htm 928 chars. pl2024nu.htm lists 472 links to law24NNN.htm. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'It is enacted by the General Assembly as follows' (law24001.htm); second citation P.L. 2023, ch. 100 ok"
    },
-   "notes": ""
+   "notes": "Page-form Bluebook cites ('2023 R.I. Pub. Laws 1520') cannot be linked: the site is organised by chapter, not page. Find the chapter from the act's subject/bill index (/Lawrevision/plshort/pl{yyyy}sub.htm, pl{yyyy}bil.htm) or the 'History of Section' line of the amended General Laws section, then build law{yy}{nnn}.htm."
   },
   {
    "id": "ri-constitution-legislature",
@@ -463,9 +492,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py verify on C01.aspx: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.' (12,862 chars); C10.aspx VERIFIED 'The judicial power of this state shall be vested in one supreme court'. WebFetch ConstFull.aspx: Art. X § 1 present, page complete through Article XV."
+    "evidence": "fetch_doc.py verify on C01.aspx: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.' (12,862 chars); C10.aspx VERIFIED 'The judicial power of this state shall be vested in one supreme court'. WebFetch ConstFull.aspx: Art. X § 1 present, page complete through Article XV. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.'; second citation R.I. Const. art. VI, § 1 ok"
    },
    "notes": ""
   },
@@ -507,9 +536,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch C01.html: YES, 'All free governments are instituted for the protection, safety, and'; Section 2 heading includes 'No right to abortion granted.' Index page lists constintro.html, C01.html, C02.html."
+    "evidence": "WebFetch C01.html: YES, 'All free governments are instituted for the protection, safety, and'; Section 2 heading includes 'No right to abortion granted.' Index page lists constintro.html, C01.html, C02.html. | Independent check 2026-10-17: WebFetch YES 'All free governments are instituted...'; 'This Constitution may not be the most recent version.'; second citation R.I. Const. art. VI, § 1 ok"
    },
    "notes": ""
   },
@@ -552,9 +581,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: PDF 101 pages, 274,066 chars; grep '56. Summary Judgment' hit at offset 217036 page 80 ('A party seeking to recover upon a claim, counterclaim, or cross-claim'). WebFetch: NOT PRESENT for Rule 56, text stops in Rule 26."
+    "evidence": "fetch_doc.py: PDF 101 pages, 274,066 chars; grep '56. Summary Judgment' hit at offset 217036 page 80 ('A party seeking to recover upon a claim, counterclaim, or cross-claim'). WebFetch: NOT PRESENT for Rule 56, text stops in Rule 26. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'A party seeking to recover upon a claim...' p.80; second citation Super. R. Civ. P. 12(b)(6) ok"
    },
    "notes": ""
   },
@@ -595,9 +624,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: PDF 47 pages, 135,035 chars; opens 'SUPERIOR COURT RULES OF CRIMINAL PROCEDURE / I. SCOPE, PURPOSE, AND CONSTRUCTION'."
+    "evidence": "fetch_doc.py: PDF 47 pages, 135,035 chars; opens 'SUPERIOR COURT RULES OF CRIMINAL PROCEDURE / I. SCOPE, PURPOSE, AND CONSTRUCTION'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'In all criminal proceedings in the Superior Court' p.1; second citation Super. R. Crim. P. 32(a) ok"
    },
    "notes": ""
   },
@@ -641,9 +670,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: Article1.pdf 40 pages, 110,459 chars, 'Article I. Appellate Procedure / Rule 1. Scope of rules'; Article5.pdf 160 pages, 449,497 chars, 'ARTICLE V. RULES OF PROFESSIONAL CONDUCT'. Index lists Article1..Article10 plus Article4-2."
+    "evidence": "fetch_doc.py: Article1.pdf 40 pages, 110,459 chars, 'Article I. Appellate Procedure / Rule 1. Scope of rules'; Article5.pdf 160 pages, 449,497 chars, 'ARTICLE V. RULES OF PROFESSIONAL CONDUCT'. Index lists Article1..Article10 plus Article4-2. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'These rules govern procedure in appeals to the Supreme Court' p.1; second citation Article V, Rule 1.7 of the Supreme Court Rules of Professional Conduct ok"
    },
    "notes": ""
   },
@@ -682,9 +711,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' page 1; 26 pages, 70,330 chars."
+    "evidence": "fetch_doc.py verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' page 1; 26 pages, 70,330 chars. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' p.1; second citation R.I. R. Evid. 803(6) ok"
    },
    "notes": ""
   },
@@ -725,9 +754,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: RulesOfDomesticRelationsProcedure.pdf 81 pages, 218,250 chars ('FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE'); District_Civil_Rules.pdf 76 pages, 205,067 chars ('DISTRICT COURT CIVIL RULES'); SuperiorCourtRulesOfPractice.pdf 9 pages."
+    "evidence": "fetch_doc.py: RulesOfDomesticRelationsProcedure.pdf 81 pages, 218,250 chars ('FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE'); District_Civil_Rules.pdf 76 pages, 205,067 chars ('DISTRICT COURT CIVIL RULES'); SuperiorCourtRulesOfPractice.pdf 9 pages. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE' p.1; second citation R.I. Dist. Ct. R. Civ. P. 12(b)(6) ok"
    },
    "notes": ""
   },
@@ -761,7 +790,8 @@
    },
    "hazards": [
     "HTML rendering vs official PDF",
-    "root page is a login screen"
+    "root page is a login screen",
+    "large parts exceed the WebFetch window (250-RICR-140-05-1 ~135K chars)"
    ],
    "probe": {
     "citation": "230-RICR-20-25-13",
@@ -771,9 +801,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py read: 13,559 chars, 'Senior Specifications (230-RICR-20-25-13) ACTIVE RULE', sections 13.1-13.6 present. Second: /regulations/part/216-40-05-1 VERIFIED 'Licensure and Discipline of Physicians'; 250-150-05-3 also resolves. S3 PDF REG_12051_20211217110227.pdf read OK."
+    "evidence": "fetch_doc.py read: 13,559 chars, 'Senior Specifications (230-RICR-20-25-13) ACTIVE RULE', sections 13.1-13.6 present. Second: /regulations/part/216-40-05-1 VERIFIED 'Licensure and Discipline of Physicians'; 250-150-05-3 also resolves. S3 PDF REG_12051_20211217110227.pdf read OK. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation, sale or purchase of'; second citation 250-RICR-140-05-1.1 ok"
    },
    "notes": ""
   },
@@ -816,9 +846,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py verify: VERIFIED on 230-RICR-20-25-13.2 (2,410 chars, '230 R.I. Code R. 230-RICR-20-25-13.2 - Scope'); 216-RICR-40-05-1.1 VERIFIED 'Authority'."
+    "evidence": "fetch_doc.py verify: VERIFIED on 230-RICR-20-25-13.2 (2,410 chars, '230 R.I. Code R. 230-RICR-20-25-13.2 - Scope'); 216-RICR-40-05-1.1 VERIFIED 'Authority'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation...' on 230-RICR-20-25-13.2; second citation 250-RICR-140-05-1.1 ok"
    },
    "notes": ""
   },
@@ -842,7 +872,7 @@
     "webfetch": "untested",
     "shell": "ok",
     "robots_txt": "none (404)",
-    "notes": "Index page 365,775 chars: beyond the WebFetch window; use fetch_doc.py links/grep."
+    "notes": "Index page 365,775 chars: beyond the WebFetch window; use fetch_doc.py links/grep. Link count drifts as notices are adopted (296 on 2026-10-17 research run; 182 at independent check)."
    },
    "currency": {
     "where": "none stated",
@@ -860,9 +890,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: Index/Proposed 365,775 chars, 296 links; /Promulgations/part/100-50-00-2 'Electronic Records Management 100-RICR-50-00-2 PROPOSED RULE', type of filing Amendment."
+    "evidence": "fetch_doc.py: Index/Proposed 365,775 chars, 296 links; /Promulgations/part/100-50-00-2 'Electronic Records Management 100-RICR-50-00-2 PROPOSED RULE', type of filing Amendment. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'PROPOSED RULE' on /Promulgations/part/100-50-00-2; second citation 100-RICR-50-00-1 (proposed) ok"
    },
    "notes": ""
   },
@@ -907,9 +937,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: Supreme-23-43.pdf 28 pages, 44,310 chars, 'No. 2023-43-C.A. ... State v. Lydia Alicea ... Justice Goldberg, for the Court'. Supreme-21-34.pdf 78 pages ('No. 2021-34-C.A.'). Old /Courts/SupremeCourt/OpinionsOrders/pdf-files/08-37.pdf 404."
+    "evidence": "fetch_doc.py: Supreme-23-43.pdf 28 pages, 44,310 chars, 'No. 2023-43-C.A. ... State v. Lydia Alicea ... Justice Goldberg, for the Court'. Supreme-21-34.pdf 78 pages ('No. 2021-34-C.A.'). Old /Courts/SupremeCourt/OpinionsOrders/pdf-files/08-37.pdf 404. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This case came before the Supreme Court on February 28, 2024' p.2; second citation Galindez v. R.I. Public Transit Authority, No. 2024-219-Appeal ok"
    },
    "notes": ""
   },
@@ -925,7 +955,7 @@
    "access": {
     "mode": "constructible",
     "url_pattern": "https://www.courts.ri.gov/Decisions/Superior-{county}-{year}-{seq:04d}.pdf",
-    "pattern_rules": "Superior: county prefix (PC, KC, NC, WC, PM, KM, NM, WM, PB) + 4-digit year + sequence zero-padded to 4 digits: 'C.A. No. PC-2025-03316' -> Superior-PC-2025-3316.pdf; NC-2025-0187 -> Superior-NC-2025-0187.pdf (NC-2025-187 = 404). District: 'A.A. No. 2026 - 48' -> District-AA26-48.pdf. Recent list: /Pages/ood.aspx (10 items).",
+    "pattern_rules": "Superior: county prefix (PC, KC, NC, WC, PM, KM, NM, WM, PB) + 4-digit year + sequence zero-padded to 4 digits: 'C.A. No. PC-2025-03316' -> Superior-PC-2025-3316.pdf; NC-2025-0187 -> Superior-NC-2025-0187.pdf (NC-2025-187 = 404). District: 'A.A. No. 2026 - 48' -> District-AA26-48.pdf. Recent list: /Pages/ood.aspx (10 items). District Court administrative appeals: the order prints '6AA-2026-00008' (division 6, AA, year, 5-digit seq) or 'A.A. No. 2026 - 48'; the file is District-AA{yy}-{seq} with yy = last 2 digits of the year and seq stripped of leading zeros then padded to at least 2 digits: 6AA-2026-00008 -> District-AA26-08.pdf (AA26-8 = 404); A.A. No. 2026 - 48 -> District-AA26-48.pdf. ood.aspx also links /Administrative%20Orders/{Court}-{yyyy}-{nn}.pdf and Ethics Advisory Panel opinions /Opinions/EAP-{yyyy}-{n}.pdf.",
     "index_url": "https://www.courts.ri.gov/Pages/ood.aspx",
     "format": "pdf"
    },
@@ -942,7 +972,8 @@
    },
    "hazards": [
     "5-digit printed docket vs 4-digit file name",
-    "no index beyond 10 recent items"
+    "no index beyond 10 recent items",
+    "District file numbers padded to 2 digits (AA26-08), printed docket 6AA-2026-00008 has 5"
    ],
    "probe": {
     "citation": "C.A. No. PC-2025-03316",
@@ -952,9 +983,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: Superior-PC-2025-3316.pdf 9 pages '(FILED: October 6, 2026) ... C.A. No. PC-2025-03316 ... DECISION CARNES, J.'; Superior-NC-2025-0187.pdf 9 pages; District-AA26-48.pdf 12 pages 'A.A. No. 2026 - 48'."
+    "evidence": "fetch_doc.py: Superior-PC-2025-3316.pdf 9 pages '(FILED: October 6, 2026) ... C.A. No. PC-2025-03316 ... DECISION CARNES, J.'; Superior-NC-2025-0187.pdf 9 pages; District-AA26-48.pdf 12 pages 'A.A. No. 2026 - 48'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'Before this Court is an administrative' (Superior-PC-2025-3316.pdf); second citation Peña v. NCAA, C.A. No. WC-2026-0552 ok"
    },
    "notes": ""
   },
@@ -997,9 +1028,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "WebFetch: YES, 'The defendants, Brenda and Ernest Ricci (Mrs. Ricci and Mr. Ricci, respectively)', decided July 30, 2026, No. 2023-251-Appeal; superior-court/2026/25-187.html YES ('Before the Court is Michael W. Miller and Karen A. Miller's'), NC-2025-0187. 2015 listing: 14-199.html, 15-53.html, 14-145.html. fetch_doc.py REFUSED (robots challenge)."
+    "evidence": "WebFetch: YES, 'The defendants, Brenda and Ernest Ricci (Mrs. Ricci and Mr. Ricci, respectively)', decided July 30, 2026, No. 2023-251-Appeal; superior-court/2026/25-187.html YES ('Before the Court is Michael W. Miller and Karen A. Miller's'), NC-2025-0187. 2015 listing: 14-199.html, 15-53.html, 14-145.html. fetch_doc.py REFUSED (robots challenge). | Independent check 2026-10-17: WebFetch YES 'The defendants, Brenda and Ernest Ricci'; July 30, 2026; second citation No. 2024-219-Appeal; WC-2026-0552 ok"
    },
    "notes": ""
   },
@@ -1043,9 +1074,9 @@
    "verification": {
     "status": "verified",
     "date": "2026-10-17",
-    "by": "research",
+    "by": "independent",
     "result": "OK",
-    "evidence": "fetch_doc.py: Supreme-26-268.pdf 3 pages, 3,419 chars, 'Supreme Court No. 2026-268-M.P. In the Matter of Brian T. Dougan. ORDER'."
+    "evidence": "fetch_doc.py: Supreme-26-268.pdf 3 pages, 3,419 chars, 'Supreme Court No. 2026-268-M.P. In the Matter of Brian T. Dougan. ORDER'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'In the Matter of Brian T. Dougan' p.1"
    },
    "notes": ""
   },

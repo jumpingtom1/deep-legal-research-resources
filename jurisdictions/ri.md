@@ -30,13 +30,15 @@ Statutes: the legislature's per-section HTML (webserver.rilegislature.gov) is co
 | Superior Court Rules of Criminal Procedure | `Super. R. Crim. P. 32(f)`; `R.I. Super. R. Crim. P. 35` | `ri-rules-superior-criminal` |
 | Superior Court Rules of Civil / Criminal Procedure (prose, no state marker) *(only once this jurisdiction is known)* | `Rule 56 of the Superior Court Rules of Civil Procedure`; `Rule 32(f) of the Superior Court Rules of Criminal Procedure` | `ri-rules-superior-civil` → `ri-rules-superior-criminal` |
 | Supreme Court Rules (Articles I-X: appellate procedure, discipline, professional conduct, judicial conduct) | `Article I, Rule 12A of the Supreme Court Rules of Appellate Procedure`; `Article III, Rule 13 of the Supreme Court Rules of Disciplinary Procedure for Attorneys`; `Article V, Rule 1.7 of the Supreme Court Rules of Professional Conduct`; `R.I. Sup. Ct. R. art. I, R. 12A`; `R.I. Sup. Ct. R. art. V, R. 1.7` | `ri-rules-supreme` |
-| Rhode Island Rules of Evidence | `R.I. R. Evid. 803(6)`; `Rule 701 of the Rhode Island Rules of Evidence`; `R.I. R. Evid. 403` | `ri-rules-evidence` |
+| Rules of Professional Conduct (prose, no state marker) *(only once this jurisdiction is known)* | `Article V, Rule 1.7 of the Rules of Professional Conduct` | `ri-rules-supreme` |
+| Rhode Island Rules of Evidence | `R.I. R. Evid. 803(6)`; `Rule 701 of the Rhode Island Rules of Evidence`; `R.I. R. Evid. 403`; `Rhode Island Rules of Evidence 803` | `ri-rules-evidence` |
 | Family Court and District Court rules | `Fam. Ct. R. Dom. Rel. P. 60(b)`; `Rule 60(b) of the Family Court Rules of Domestic Relations Procedure`; `Rule 12 of the District Court Civil Rules`; `R.I. Dist. Ct. R. Civ. P. 12` | `ri-rules-other-courts` |
 | Rhode Island Code of Regulations (RICR) | `230-RICR-20-25-13`; `230 R.I. Code R. 230-RICR-20-25-13.2`; `216-RICR-40-05-1`; `250-RICR-150-05-3` | `ri-ricr-sos` → `ri-ricr-lii` |
 | Reported Rhode Island cases (Atlantic Reporter) | `Finch v. Centennial Insurance Company, 650 A.2d 495 (R.I. 1994)`; `State v. Regan, 273 A.3d 116, 119 (R.I. 2022)`; `State v. LaRoche, 883 A.2d 1151, 1154 (R.I. 2005)`; `Wilkinson v. Vesey, 110 R.I. 606, 295 A.2d 676 (1972)` | `ri-opinions-supreme` → `ri-cases-justia` |
 | Rhode Island Reports (official, to 1980) | `110 R.I. 606`; `122 R.I. 1` | `ri-cases-justia` |
 | Rhode Island Supreme Court docket number | `No. 2023-43-C.A.`; `No. 2025-247-Appeal`; `No. 2026-268-M.P.`; `No. 2023-251-Appeal`; `No. 2021-34-C.A. (P2/18-488AG)` | `ri-opinions-supreme` → `ri-orders-supreme` → `ri-cases-justia` |
 | Superior Court civil action number (county prefix) *(only once this jurisdiction is known)* | `C.A. No. PC-2025-03316`; `NC-2025-0187`; `PC-2026-4935`; `WC-2026-0552` | `ri-decisions-trial` → `ri-cases-justia` |
+| District Court administrative appeal number *(only once this jurisdiction is known)* | `6AA-2026-00008`; `A.A. No. 2026 - 48` | `ri-decisions-trial` |
 
 Regexes (case-insensitive):
 
@@ -48,22 +50,24 @@ Regexes (case-insensitive):
 - Superior Court Rules of Civil Procedure: `(?:R\.\s*I\.\s*)?Super\.\s*(?:Ct\.\s*)?R\.\s*Civ\.\s*P\.\s*(?P<rule>\d{1,2}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rhode\s+Island\s+Superior\s+Court\s+Rules\s+of\s+Civil\s+Procedure`
 - Superior Court Rules of Criminal Procedure: `(?:R\.\s*I\.\s*)?Super\.\s*(?:Ct\.\s*)?R\.\s*Crim\.\s*P\.\s*(?P<rule>\d{1,2}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rhode\s+Island\s+Superior\s+Court\s+Rules\s+of\s+Criminal\s+Procedure`
 - Superior Court Rules of Civil / Criminal Procedure (prose, no state marker): `Rule\s+(?P<rule>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Superior\s+Court\s+Rules\s+of\s+(?P<kind>Civil|Criminal)\s+Procedure`
-- Supreme Court Rules (Articles I-X: appellate procedure, discipline, professional conduct, judicial conduct): `Article\s+(?P<article>[IVX]+),?\s+Rule\s+(?P<rule>\d{1,2}(?:\.\d+)?[A-Z]?)\s+of\s+the\s+(?:Rhode\s+Island\s+)?Supreme\s+Court\s+Rules|R\.\s*I\.\s*Sup(?:r|reme)?\.?\s*Ct\.\s*R(?:ules?|\.)?,?\s*art\.\s*(?P<article2>[IVX]+),?\s*R(?:ule|\.)\s*(?P<rule2>\d{1,2}(?:\.\d+)?[A-Z]?)`
-- Rhode Island Rules of Evidence: `R\.\s*I\.\s*R\.\s*Evid\.\s*(?P<rule>\d{3,4})|Rule\s+(?P<rule2>\d{3,4})(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rhode\s+Island\s+Rules\s+of\s+Evidence`
+- Supreme Court Rules (Articles I-X: appellate procedure, discipline, professional conduct, judicial conduct): `Article\s+(?P<article>[IVX]+),?\s+Rule\s+(?P<rule>\d{1,2}(?:\.\d+)?[A-Z]?)\s+of\s+the\s+(?:Rhode\s+Island\s+)?Supreme\s+Court\s+Rules|R\.\s*I\.\s*Sup(?:r|reme)?\.?\s*Ct\.\s*R(?:ules?|\.)?,?\s*art\.\s*(?P<article2>[IVX]+),?\s*R(?:ule|\.)\s*(?P<rule2>\d{1,2}(?:\.\d+)?[A-Z]?)|(?:Article\s+V,?\s+)?Rule\s+(?P<rule3>\d\.\d+[A-Z]?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rhode\s+Island\s+(?:Supreme\s+Court\s+)?Rules\s+of\s+Professional\s+Conduct`
+- Rules of Professional Conduct (prose, no state marker): `(?:Article\s+V,?\s+)?Rule\s+(?P<rule>\d\.\d+[A-Z]?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Supreme\s+Court\s+)?Rules\s+of\s+Professional\s+Conduct`
+- Rhode Island Rules of Evidence: `R\.\s*I\.\s*R\.\s*Evid\.\s*(?P<rule>\d{3,4})|Rule\s+(?P<rule2>\d{3,4})(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+Rhode\s+Island\s+Rules\s+of\s+Evidence|Rhode\s+Island\s+Rules?\s+of\s+Evidence\s*,?\s*(?:Rule\s*)?(?P<rule3>\d{3,4})`
 - Family Court and District Court rules: `Fam\.\s*Ct\.\s*R\.\s*Dom\.\s*Rel\.\s*P\.\s*(?P<rule>\d{1,2}(?:\.\d+)?)|Rule\s+(?P<rule2>\d{1,2}(?:\.\d+)?)(?:\s*\([a-z0-9]+\))*\s+of\s+the\s+(?:Rhode\s+Island\s+)?(?:Family\s+Court\s+Rules\s+of\s+Domestic\s+Relations\s+Procedure|District\s+Court\s+Civil\s+Rules)|R\.\s*I\.\s*Dist\.\s*Ct\.\s*R\.\s*Civ\.\s*P\.\s*(?P<rule3>\d{1,2}(?:\.\d+)?)`
 - Rhode Island Code of Regulations (RICR): `(?:\d{3}\s+R\.\s*I\.\s*Code\s+R\.\s*)?(?P<title>\d{3})-RICR-(?P<chapter>\d{2,3})-(?P<subchapter>\d{2})-(?P<part>\d{1,3})(?:\.(?P<section>\d+(?:\.\d+)*))?`
 - Reported Rhode Island cases (Atlantic Reporter): `(?P<volume>\d{1,4})\s+A\.(?:\s*(?P<series>[23])d)?\s+(?P<page>\d{1,5})(?:,\s*\d+(?:[-–]\d+)?)?\s*\((?P<court>R\.\s*I\.(?:\s*Super\.(?:\s*Ct\.)?)?)\s*(?:[A-Z][a-z]{2,4}\.?\s+\d{1,2},\s*)?(?P<year>\d{4})\)|(?P<rivol>\d{1,3})\s+R\.\s*I\.\s+(?P<ripage>\d{1,4}),\s*(?P<volume2>\d{1,4})\s+A\.(?:\s*(?P<series2>2)d)?\s+(?P<page2>\d{1,5})`
 - Rhode Island Reports (official, to 1980): `(?P<volume>\d{1,3})\s+R\.\s*I\.\s+(?P<page>\d{1,4})(?![\d])`
 - Rhode Island Supreme Court docket number: `No\.\s*(?P<year>(?:19|20)?\d\d)-(?P<seq>\d{1,4})-(?P<type>Appeal|C\.\s*A\.|M\.\s*P\.|M\.\s*R\.|C\.\s*P\.)`
 - Superior Court civil action number (county prefix): `(?:C\.\s*A\.\s*No\.\s*)?(?P<county>[PKNW][CM]|PB)-(?P<year>(?:19|20)\d\d)-(?P<seq>\d{3,5})(?![\d])`
+- District Court administrative appeal number: `(?P<div>\d)AA-(?P<year>(?:19|20)\d\d)-(?P<seq>\d{1,5})|A\.\s*A\.\s*No\.\s*(?P<year2>(?:19|20)\d\d)\s*-\s*(?P<seq2>\d{1,5})`
 
-Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(1997 Reenactment)'); Bluebook 'R.I. Gen. Laws § 9-1-14'. Section numbers are title-chapter-section with optional decimals and letter titles (6A), so the URL needs no alias table. Bare '§ 9-1-14' is shared in shape with Tennessee, Arkansas, Idaho and others: it routes here only with Rhode Island context (context_required). 'P.L. 2019, ch. 82' is RI's session-law form; NJ writes 'P.L.2019, c.82', so the bare P.L. pattern is context_required. A '§§ a to b' range is two sections: take the first. Rules: 'Super. R. Civ. P. 56' (the prose 'Rule N of the Superior Court Rules of Civil/Criminal Procedure' is also D.C.'s title, so without 'Rhode Island' it is context_required), 'Super. R. Crim. P. 32(f)', 'Article I, Rule 12A of the Supreme Court Rules of Appellate Procedure', 'R.I. R. Evid. 803(6)'; Rules of Professional Conduct are Article V of the Supreme Court Rules. Cases: Atlantic Reporter with '(R.I. yyyy)' or '(R.I. Super. Ct. ...)'; Rhode Island Reports (R.I.) ended in 1980 and is the old official reporter; there is no public-domain citation. Supreme Court dockets 'No. 2023-43-C.A.' / '-Appeal' / '-M.P.' carry the docket year (not decision year). Superior civil actions 'PC-2025-03316' (county prefix P/K/N/W + C or M; PB = business calendar) route only with Rhode Island context. Westlaw cites need party-name search (no free WL resolver). CourtListener ids are from memory and unverified.
+Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(1997 Reenactment)'); Bluebook 'R.I. Gen. Laws § 9-1-14'. Section numbers are title-chapter-section with optional decimals and letter titles (6A), so the URL needs no alias table. Bare '§ 9-1-14' is shared in shape with Tennessee, Arkansas, Idaho and others: it routes here only with Rhode Island context (context_required). 'P.L. 2019, ch. 82' is RI's session-law form; NJ writes 'P.L.2019, c.82', so the bare P.L. pattern is context_required. A '§§ a to b' range is two sections: take the first. Rules: 'Super. R. Civ. P. 56' (the prose 'Rule N of the Superior Court Rules of Civil/Criminal Procedure' is also D.C.'s title, so without 'Rhode Island' it is context_required), 'Super. R. Crim. P. 32(f)', 'Article I, Rule 12A of the Supreme Court Rules of Appellate Procedure', 'R.I. R. Evid. 803(6)'; Rules of Professional Conduct are Article V of the Supreme Court Rules. Cases: Atlantic Reporter with '(R.I. yyyy)' or '(R.I. Super. Ct. ...)'; Rhode Island Reports (R.I.) ended in 1980 and is the old official reporter; there is no public-domain citation. Supreme Court dockets 'No. 2023-43-C.A.' / '-Appeal' / '-M.P.' carry the docket year (not decision year). Superior civil actions 'PC-2025-03316' (county prefix P/K/N/W + C or M; PB = business calendar) route only with Rhode Island context. Westlaw cites need party-name search (no free WL resolver). CourtListener ids are from memory and unverified. 'Article V, Rule 1.7 of the Rules of Professional Conduct' without 'Rhode Island' is the ABA Model Rules numbering used in every state, so that prose form is context_required. District Court administrative appeals ('6AA-2026-00008', 'A.A. No. 2026 - 48') are context_required. Bluebook page-form Public Laws cites match but have no URL route.
 
 ## A. Statutes / code
 
 ### `ri-gl-legislature` — State of Rhode Island General Laws (legislature web edition)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island General Assembly / Law Revision Office · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island General Assembly / Law Revision Office · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All titles of the General Laws of 1956 as amended, one HTML page per section, with 'History of Section' lines (P.L. citations).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -73,19 +77,19 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
   - Navigation: Statutes.html -> TITLE{t}/INDEX.HTM (chapters) -> {t}-{c}/INDEX.htm (all sections listed) -> section page.
 - **Automation:** WebFetch gated · shell ok · robots: none (webserver.rilegislature.gov/robots.txt 404)
   - WebFetch read Statutes.html (search-result URL) but built section and title-index URLs timed out on the permission prompt (PROVENANCE_REQUIRED): use fetch_doc.py. Section pages are small (1.5-11K chars), no truncation. Title index links on Statutes.html are http:// with a doubled slash (//Statutes/...).
-- **Currency:** Statutes.html home page only; section pages carry no currency line (HTTP last-modified 2025-11-06 on sampled sections) — observed: "Search the 2026 General Laws"
+- **Currency:** Statutes.html home page only; section pages carry no currency line (HTTP last-modified 2025-11-06 on sampled sections); per-page last-modified varies (some 2021) — observed: "Search the 2026 General Laws"
 - **Official status:** rilegislature.gov Disclaimer page (https://rilegislature.gov/Pages/Disclaimer.aspx) and the Statutes.html home: informational service only, 'should not be relied upon as an official record'; 'This information is provisional'; refer to the printed official publication.
 - **Hazard:** no currency statement on section pages
 - **Hazard:** unofficial / provisional per disclaimer
 - **Hazard:** built URLs gated for WebFetch
 - **Hazard:** title letter suffix (6A) must stay upper case in folder name
 - **Probe:** R.I. Gen. Laws § 9-1-14 → `https://webserver.rilegislature.gov/Statutes/TITLE9/9-1/9-1-14.htm` — expect: "Actions for words spoken shall be commenced and sued within one year"
-- **Evidence (2026-10-17):** fetch_doc.py read: HTML 1,729 chars, heading 'R.I. Gen. Laws § 9-1-14', body '(a) Actions for words spoken shall be commenced and sued within one year' plus History of Section. Also verified by pattern: § 11-41-1 (1,559 chars), § 6A-2-725 ('An action for breach of any contract for sale must be commenced within four (4) years'), § 42-35-15 ('Judicial review of contested cases'), § 28-14-19.1 ('Misclassification of employees'). WebFetch of Statutes.html OK (disclaimer); WebFetch of built section URL: PROVENANCE_REQUIRED timeout.
+- **Evidence (2026-10-17):** fetch_doc.py read: HTML 1,729 chars, heading 'R.I. Gen. Laws § 9-1-14', body '(a) Actions for words spoken shall be commenced and sued within one year' plus History of Section. Also verified by pattern: § 11-41-1 (1,559 chars), § 6A-2-725 ('An action for breach of any contract for sale must be commenced within four (4) years'), § 42-35-15 ('Judicial review of contested cases'), § 28-14-19.1 ('Misclassification of employees'). WebFetch of Statutes.html OK (disclaimer); WebFetch of built section URL: PROVENANCE_REQUIRED timeout. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'Actions for words spoken shall be commenced...' 1,729 chars; Statutes.html 'Search the 2026 General Laws'; second citation R.I. Gen. Laws § 21-28-4.01; § 34-18-15 ok
 - **Notes:** Bulk download: none found on rilegislature.gov (not exhaustively searched; see open_questions).
 
 ### `ri-public-laws` — Rhode Island Public Laws (session laws, by chapter)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island General Assembly / Law Revision Office · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island General Assembly / Law Revision Office · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Public Laws by year and chapter; law95 (1995) through 2026 seen.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -98,17 +102,19 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Official status:** Same rilegislature.gov disclaimer (informational, provisional). Index page titled 'THE OFFICIAL 2024 PUBLIC LAWS LIST' refers to the list, not the text.
 - **Hazard:** two-digit year folders
 - **Hazard:** pre-2000 year indexes missing (laws1995.htm 404)
+- **Hazard:** page-form session-law cites have no URL route (chapter needed)
 - **Probe:** P.L. 2024, ch. 1 → `https://webserver.rilegislature.gov/PublicLaws/law24/law24001.htm` — expect: "It is enacted by the General Assembly as follows"
-- **Evidence (2026-10-17):** fetch_doc.py: law24001.htm 1,056 chars 'Chapter 001 / 2024 -- H 7068 / Enacted 02/02/2024'; law25123.htm 9,692 chars 'Chapter 123 / 2025 -- S 0509 SUBSTITUTE A'; law95001.htm 928 chars. pl2024nu.htm lists 472 links to law24NNN.htm.
+- **Evidence (2026-10-17):** fetch_doc.py: law24001.htm 1,056 chars 'Chapter 001 / 2024 -- H 7068 / Enacted 02/02/2024'; law25123.htm 9,692 chars 'Chapter 123 / 2025 -- S 0509 SUBSTITUTE A'; law95001.htm 928 chars. pl2024nu.htm lists 472 links to law24NNN.htm. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'It is enacted by the General Assembly as follows' (law24001.htm); second citation P.L. 2023, ch. 100 ok
+- **Notes:** Page-form Bluebook cites ('2023 R.I. Pub. Laws 1520') cannot be linked: the site is organised by chapter, not page. Find the chapter from the act's subject/bill index (/Lawrevision/plshort/pl{yyyy}sub.htm, pl{yyyy}bil.htm) or the 'History of Section' line of the amended General Laws section, then build law{yy}{nnn}.htm.
 
 ### `ri-gl-justia` — Justia: Rhode Island General Laws
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Annual editions (2012-2025 seen in search results); current = 2025.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
   - Pattern: `https://law.justia.com/codes/rhode-island/title-{title}/chapter-{chapter}/section-{section}/`
-  - Placeholders: Lower-case title (title-6a); chapter = '{title}-{chapter}' with dots replaced by hyphens (9-1.1 -> chapter-9-1-1); section = full number with dots -> hyphens (28-14-19.1 -> section-28-14-19-1). UCC title 6A has 'part-N' segments (title-6a/chapter-6a-2/part-7/section-6a-2-725/) - take Article/Part from the title page if unsure.
+  - Placeholders: Lower-case title (title-6a); chapter = '{title}-{chapter}' with dots replaced by hyphens (9-1.1 -> chapter-9-1-1); section = full number with dots -> hyphens (28-14-19.1 -> section-28-14-19-1). UCC title 6A has 'part-N' segments (title-6a/chapter-6a-2/part-7/section-6a-2-725/) - take Article/Part from the title page if unsure. ARTICLE LEVEL: chapters divided into articles take an extra lower-case Roman segment, e.g. R.I. Gen. Laws § 21-28-4.01 (Art. IV of ch. 21-28) -> /codes/rhode-island/title-21/chapter-21-28/article-iv/section-21-28-4-01/ (chapter page lists section-21-28-1, article-i, article-ii ...). The un-yeared URL is the current (2025) edition only when the path exists in that edition; a flat URL that skips the article level silently opens the last edition that had that path (2021 for 21-28). Year-specific editions live under /codes/rhode-island/{year}/... (2025 index: https://law.justia.com/codes/rhode-island/2025/). Always check the page's edition label equals the current edition; if not, open the chapter page /codes/rhode-island/title-{t}/chapter-{t}-{c}/ and follow the article link.
   - Index: `https://law.justia.com/codes/rhode-island/title-9/`
 - **Automation:** WebFetch ok · shell blocked-challenge · robots: law.justia.com robots.txt answered fetch_doc.py with a bot challenge (REFUSED, host off for the day)
   - Built section URLs were NOT gated for WebFetch.
@@ -117,14 +123,16 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** annual snapshot lags the legislature
 - **Hazard:** dot-to-hyphen slug conversion
 - **Hazard:** UCC part segment
+- **Hazard:** stale edition: a URL missing the article-N (or UCC part-N) segment silently serves an older edition (21-28-4.01 flat URL -> '2021 Rhode Island General Laws'); detect by comparing the edition label to the current one and re-navigate from the chapter page
+- **Hazard:** article-divided chapters (21-28 article-i..article-vi) need an extra segment
 - **Probe:** R.I. Gen. Laws § 9-1-14 → `https://law.justia.com/codes/rhode-island/title-9/chapter-9-1/section-9-1-14/` — expect: "Actions for words spoken shall be commenced and sued within"
-- **Evidence (2026-10-17):** WebFetch: YES, body 'Actions for words spoken shall be commenced and sued within'; label '2025 Rhode Island General Laws'. Second: /title-28/chapter-28-14/section-28-14-19-1/ YES 'The misclassification of a worker whether performing work as a'. Title page /codes/rhode-island/title-9/ lists chapter-9-1, chapter-9-1-1, chapter-9-2. fetch_doc.py: REFUSED (robots.txt challenge).
+- **Evidence (2026-10-17):** WebFetch: YES, body 'Actions for words spoken shall be commenced and sued within'; label '2025 Rhode Island General Laws'. Second: /title-28/chapter-28-14/section-28-14-19-1/ YES 'The misclassification of a worker whether performing work as a'. Title page /codes/rhode-island/title-9/ lists chapter-9-1, chapter-9-1-1, chapter-9-2. fetch_doc.py: REFUSED (robots.txt challenge). | Independent check 2026-10-17: WebFetch YES 'Actions for words spoken shall be commenced and sued within'; '2025 Rhode Island General Laws' | second citation R.I. Gen. Laws § 21-28-4.01 FAILED on the flat URL (2021 edition served); chapter page WebFetch 2026-10-17: '2025 Rhode Island General Laws', links article-i, article-ii.
 
 ## B. Constitution
 
 ### `ri-constitution-legislature` — Constitution of the State of Rhode Island
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island General Assembly · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island General Assembly · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Full text, Articles I-XV, with amendment-history notes; per-article pages and one full-text page.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `constructible` · format html
@@ -137,11 +145,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Official status:** No disclaimer on the constitution pages (WebFetch of ConstFull.aspx: none); the site-wide rilegislature.gov disclaimer calls online information provisional, not an official record.
 - **Hazard:** SharePoint site; per-article built URLs gated for WebFetch
 - **Probe:** R.I. Const. art. I, § 2 → `https://www.rilegislature.gov/riconstitution/Constitution/C01.aspx` — expect: "All free governments are instituted for the protection, safety, and happiness of the people."
-- **Evidence (2026-10-17):** fetch_doc.py verify on C01.aspx: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.' (12,862 chars); C10.aspx VERIFIED 'The judicial power of this state shall be vested in one supreme court'. WebFetch ConstFull.aspx: Art. X § 1 present, page complete through Article XV.
+- **Evidence (2026-10-17):** fetch_doc.py verify on C01.aspx: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.' (12,862 chars); C10.aspx VERIFIED 'The judicial power of this state shall be vested in one supreme court'. WebFetch ConstFull.aspx: Art. X § 1 present, page complete through Article XV. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.'; second citation R.I. Const. art. VI, § 1 ok
 
 ### `ri-constitution-justia` — Justia: Rhode Island Constitution
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Per-article pages mirroring the legislature's C01..C15 layout.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -153,13 +161,13 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Official status:** Justia notes 'This Constitution may not be the most recent version.'
 - **Hazard:** may lag amendments
 - **Probe:** R.I. Const. art. I, § 2 → `https://law.justia.com/constitution/rhode-island/C01.html` — expect: "All free governments are instituted for the protection, safety, and"
-- **Evidence (2026-10-17):** WebFetch C01.html: YES, 'All free governments are instituted for the protection, safety, and'; Section 2 heading includes 'No right to abortion granted.' Index page lists constintro.html, C01.html, C02.html.
+- **Evidence (2026-10-17):** WebFetch C01.html: YES, 'All free governments are instituted for the protection, safety, and'; Section 2 heading includes 'No right to abortion granted.' Index page lists constintro.html, C01.html, C02.html. | Independent check 2026-10-17: WebFetch YES 'All free governments are instituted...'; 'This Constitution may not be the most recent version.'; second citation R.I. Const. art. VI, § 1 ok
 
 ## C. Court rules
 
 ### `ri-rules-evidence` — Rhode Island Rules of Evidence
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Rules 100-1101 in one 26-page PDF.
 - **Read via (in order):** **script**
 - **Access:** `link-only` · format pdf
@@ -169,11 +177,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
   - 70,330 chars: should fit the WebFetch window (untested).
 - **Currency:** page footer — observed: "Page 2 of 26    February 2024"
 - **Probe:** R.I. R. Evid. 100 → `https://www.courts.ri.gov/Legal-Resources/Documents/RulesOfEvidence.pdf` — expect: "These rules may be known and cited as the Rhode Island Rules of Evidence"
-- **Evidence (2026-10-17):** fetch_doc.py verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' page 1; 26 pages, 70,330 chars.
+- **Evidence (2026-10-17):** fetch_doc.py verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' page 1; 26 pages, 70,330 chars. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' p.1; second citation R.I. R. Evid. 803(6) ok
 
 ### `ri-rules-other-courts` — Family, District, Workers' Compensation and Traffic Tribunal rules
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Family Court: Domestic Relations Procedure, Criminal Procedure, Practice, Juvenile Proceedings. District Court: Civil, Criminal, Small Claims. Also Superior Court Rules of Practice and Arbitration rules.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -184,11 +192,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Currency:** page footer (not checked on every PDF)
 - **Hazard:** long PDFs beyond WebFetch window
 - **Probe:** Fam. Ct. R. Dom. Rel. P. 1 → `https://www.courts.ri.gov/Courts/familycourt/Documents/RulesOfDomesticRelationsProcedure.pdf` — expect: "FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE"
-- **Evidence (2026-10-17):** fetch_doc.py: RulesOfDomesticRelationsProcedure.pdf 81 pages, 218,250 chars ('FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE'); District_Civil_Rules.pdf 76 pages, 205,067 chars ('DISTRICT COURT CIVIL RULES'); SuperiorCourtRulesOfPractice.pdf 9 pages.
+- **Evidence (2026-10-17):** fetch_doc.py: RulesOfDomesticRelationsProcedure.pdf 81 pages, 218,250 chars ('FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE'); District_Civil_Rules.pdf 76 pages, 205,067 chars ('DISTRICT COURT CIVIL RULES'); SuperiorCourtRulesOfPractice.pdf 9 pages. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE' p.1; second citation R.I. Dist. Ct. R. Civ. P. 12(b)(6) ok
 
 ### `ri-rules-superior-civil` — Superior Court Rules of Civil Procedure
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Judiciary (Superior Court) · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Judiciary (Superior Court) · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Rules 1-86 and appendix forms; single 101-page PDF.
 - **Read via (in order):** **script** → **fetch tool**
 - **Access:** `link-only` · format pdf
@@ -202,11 +210,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** WebFetch truncation at Rule 26 of 86
 - **Hazard:** rule headings are 'N. Title. —' without the word Rule
 - **Probe:** Super. R. Civ. P. 56 → `https://www.courts.ri.gov/Courts/superiorcourt/Documents/SuperiorCourtRulesOfCivilProcedure.pdf` — expect: "A party seeking to recover upon a claim, counterclaim, or cross-claim"
-- **Evidence (2026-10-17):** fetch_doc.py: PDF 101 pages, 274,066 chars; grep '56. Summary Judgment' hit at offset 217036 page 80 ('A party seeking to recover upon a claim, counterclaim, or cross-claim'). WebFetch: NOT PRESENT for Rule 56, text stops in Rule 26.
+- **Evidence (2026-10-17):** fetch_doc.py: PDF 101 pages, 274,066 chars; grep '56. Summary Judgment' hit at offset 217036 page 80 ('A party seeking to recover upon a claim, counterclaim, or cross-claim'). WebFetch: NOT PRESENT for Rule 56, text stops in Rule 26. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'A party seeking to recover upon a claim...' p.80; second citation Super. R. Civ. P. 12(b)(6) ok
 
 ### `ri-rules-superior-criminal` — Superior Court Rules of Criminal Procedure
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Judiciary (Superior Court) · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Judiciary (Superior Court) · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Single 47-page PDF.
 - **Read via (in order):** **script**
 - **Access:** `link-only` · format pdf
@@ -217,11 +225,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Currency:** page footer — observed: "February 2024"
 - **Hazard:** long PDF beyond WebFetch window
 - **Probe:** Super. R. Crim. P. 1 → `https://www.courts.ri.gov/Courts/superiorcourt/Documents/SuperiorCourtRulesOfCriminalProcedure.pdf` — expect: "In all criminal proceedings in the Superior Court"
-- **Evidence (2026-10-17):** fetch_doc.py: PDF 47 pages, 135,035 chars; opens 'SUPERIOR COURT RULES OF CRIMINAL PROCEDURE / I. SCOPE, PURPOSE, AND CONSTRUCTION'.
+- **Evidence (2026-10-17):** fetch_doc.py: PDF 47 pages, 135,035 chars; opens 'SUPERIOR COURT RULES OF CRIMINAL PROCEDURE / I. SCOPE, PURPOSE, AND CONSTRUCTION'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'In all criminal proceedings in the Superior Court' p.1; second citation Super. R. Crim. P. 32(a) ok
 
 ### `ri-rules-supreme` — Supreme Court Rules (Articles I-X)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Art. I Appellate Procedure; II Admission; III Disciplinary Procedure; IV Registration; V Rules of Professional Conduct; VI Judicial Conduct; VII Media; VIII Judicial Conference; IX Magistrate review; X E-filing; plus Disciplinary Board, Ethics Advisory Panel and Public Access rules.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format pdf
@@ -235,13 +243,13 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** irregular file name for Article IV
 - **Hazard:** Article V far beyond WebFetch window
 - **Probe:** Article I, Rule 1 of the Supreme Court Rules of Appellate Procedure → `https://www.courts.ri.gov/Courts/SupremeCourt/Documents/Supreme-Rules-Article1.pdf` — expect: "These rules govern procedure in appeals to the Supreme Court"
-- **Evidence (2026-10-17):** fetch_doc.py: Article1.pdf 40 pages, 110,459 chars, 'Article I. Appellate Procedure / Rule 1. Scope of rules'; Article5.pdf 160 pages, 449,497 chars, 'ARTICLE V. RULES OF PROFESSIONAL CONDUCT'. Index lists Article1..Article10 plus Article4-2.
+- **Evidence (2026-10-17):** fetch_doc.py: Article1.pdf 40 pages, 110,459 chars, 'Article I. Appellate Procedure / Rule 1. Scope of rules'; Article5.pdf 160 pages, 449,497 chars, 'ARTICLE V. RULES OF PROFESSIONAL CONDUCT'. Index lists Article1..Article10 plus Article4-2. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'These rules govern procedure in appeals to the Supreme Court' p.1; second citation Article V, Rule 1.7 of the Supreme Court Rules of Professional Conduct ok
 
 ## D. Administrative code
 
 ### `ri-ricr-sos` — Rhode Island Code of Regulations (RICR)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Department of State · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Department of State · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** All active, emergency, proposed and inactive parts filed under the APA, by title-chapter-subchapter-part.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -255,12 +263,13 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Official status:** The part page says the 'official Final Regulation' is the PDF behind 'Download Regulation' (S3 link); the HTML text is a rendering.
 - **Hazard:** HTML rendering vs official PDF
 - **Hazard:** root page is a login screen
+- **Hazard:** large parts exceed the WebFetch window (250-RICR-140-05-1 ~135K chars)
 - **Probe:** 230-RICR-20-25-13 → `https://rules.sos.ri.gov/regulations/part/230-20-25-13` — expect: "This Part shall apply to any solicitation, sale or purchase of"
-- **Evidence (2026-10-17):** fetch_doc.py read: 13,559 chars, 'Senior Specifications (230-RICR-20-25-13) ACTIVE RULE', sections 13.1-13.6 present. Second: /regulations/part/216-40-05-1 VERIFIED 'Licensure and Discipline of Physicians'; 250-150-05-3 also resolves. S3 PDF REG_12051_20211217110227.pdf read OK.
+- **Evidence (2026-10-17):** fetch_doc.py read: 13,559 chars, 'Senior Specifications (230-RICR-20-25-13) ACTIVE RULE', sections 13.1-13.6 present. Second: /regulations/part/216-40-05-1 VERIFIED 'Licensure and Discipline of Physicians'; 250-150-05-3 also resolves. S3 PDF REG_12051_20211217110227.pdf read OK. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation, sale or purchase of'; second citation 250-RICR-140-05-1.1 ok
 
 ### `ri-ricr-lii` — Cornell LII: Rhode Island Administrative Code (RICR)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Cornell Legal Information Institute · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** RICR by title/chapter/subchapter/part, one page per section.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format html
@@ -274,48 +283,49 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** part-level URL silently falls back to an index page
 - **Hazard:** may lag SOS filings
 - **Probe:** 230-RICR-20-25-13.2 → `https://www.law.cornell.edu/regulations/rhode-island/230-RICR-20-25-13.2` — expect: "This Part shall apply to any solicitation, sale or purchase of"
-- **Evidence (2026-10-17):** fetch_doc.py verify: VERIFIED on 230-RICR-20-25-13.2 (2,410 chars, '230 R.I. Code R. 230-RICR-20-25-13.2 - Scope'); 216-RICR-40-05-1.1 VERIFIED 'Authority'.
+- **Evidence (2026-10-17):** fetch_doc.py verify: VERIFIED on 230-RICR-20-25-13.2 (2,410 chars, '230 R.I. Code R. 230-RICR-20-25-13.2 - Scope'); 216-RICR-40-05-1.1 VERIFIED 'Authority'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation...' on 230-RICR-20-25-13.2; second citation 250-RICR-140-05-1.1 ok
 
 ## D. Administrative register
 
 ### `ri-ricr-proposed` — RICR proposed-rule notices (Department of State)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Department of State · text: **fetch-and-quote** · official: unknown
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Department of State · text: **fetch-and-quote** · official: unknown
 - **Coverage:** Proposed rules currently open, each linking to a /Promulgations/part/{t}-{c}-{s}-{p} page (overview, regulation, history, rulemaking documents, comments). Rhode Island has no separate periodical register on this site.
 - **Read via (in order):** **script**
 - **Access:** `index-anchored` · format html
   - Index: `https://rules.sos.ri.gov/regulations/Index/Proposed`
   - Navigation: Index/Proposed (365K chars, list by title) -> /Promulgations/part/{title}-{chapter}-{subchapter}-{part}. Filing history of an adopted part: the 'History' tab on /regulations/part/... .
 - **Automation:** WebFetch untested · shell ok · robots: none (404)
-  - Index page 365,775 chars: beyond the WebFetch window; use fetch_doc.py links/grep.
+  - Index page 365,775 chars: beyond the WebFetch window; use fetch_doc.py links/grep. Link count drifts as notices are adopted (296 on 2026-10-17 research run; 182 at independent check).
 - **Currency:** none stated
 - **Hazard:** very long index page
 - **Hazard:** not a dated register: notices disappear from the index once adopted
 - **Probe:** 100-RICR-50-00-2 (proposed) → `https://rules.sos.ri.gov/Promulgations/part/100-50-00-2` — expect: "PROPOSED RULE"
-- **Evidence (2026-10-17):** fetch_doc.py: Index/Proposed 365,775 chars, 296 links; /Promulgations/part/100-50-00-2 'Electronic Records Management 100-RICR-50-00-2 PROPOSED RULE', type of filing Amendment.
+- **Evidence (2026-10-17):** fetch_doc.py: Index/Proposed 365,775 chars, 296 links; /Promulgations/part/100-50-00-2 'Electronic Records Management 100-RICR-50-00-2 PROPOSED RULE', type of filing Amendment. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'PROPOSED RULE' on /Promulgations/part/100-50-00-2; second citation 100-RICR-50-00-1 (proposed) ok
 
 ## E. Case law
 
 ### `ri-decisions-trial` — Superior and District Court decisions (courts.ri.gov PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Judiciary · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Superior Court written decisions (/Decisions/Superior-{docket}.pdf) and District Court administrative-appeal decisions (/Decisions/District-AA{yy}-{n}.pdf); seen 2025-2026.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
   - Pattern: `https://www.courts.ri.gov/Decisions/Superior-{county}-{year}-{seq:04d}.pdf`
-  - Placeholders: Superior: county prefix (PC, KC, NC, WC, PM, KM, NM, WM, PB) + 4-digit year + sequence zero-padded to 4 digits: 'C.A. No. PC-2025-03316' -> Superior-PC-2025-3316.pdf; NC-2025-0187 -> Superior-NC-2025-0187.pdf (NC-2025-187 = 404). District: 'A.A. No. 2026 - 48' -> District-AA26-48.pdf. Recent list: /Pages/ood.aspx (10 items).
+  - Placeholders: Superior: county prefix (PC, KC, NC, WC, PM, KM, NM, WM, PB) + 4-digit year + sequence zero-padded to 4 digits: 'C.A. No. PC-2025-03316' -> Superior-PC-2025-3316.pdf; NC-2025-0187 -> Superior-NC-2025-0187.pdf (NC-2025-187 = 404). District: 'A.A. No. 2026 - 48' -> District-AA26-48.pdf. Recent list: /Pages/ood.aspx (10 items). District Court administrative appeals: the order prints '6AA-2026-00008' (division 6, AA, year, 5-digit seq) or 'A.A. No. 2026 - 48'; the file is District-AA{yy}-{seq} with yy = last 2 digits of the year and seq stripped of leading zeros then padded to at least 2 digits: 6AA-2026-00008 -> District-AA26-08.pdf (AA26-8 = 404); A.A. No. 2026 - 48 -> District-AA26-48.pdf. ood.aspx also links /Administrative%20Orders/{Court}-{yyyy}-{nn}.pdf and Ethics Advisory Panel opinions /Opinions/EAP-{yyyy}-{n}.pdf.
   - Index: `https://www.courts.ri.gov/Pages/ood.aspx`
 - **Automation:** WebFetch untested · shell ok · robots: permits
 - **Currency:** decision caption — observed: "(FILED: October 6, 2026)"
 - **Official status:** Trial-court decisions; unreported unless later printed in A.3d.
 - **Hazard:** 5-digit printed docket vs 4-digit file name
 - **Hazard:** no index beyond 10 recent items
+- **Hazard:** District file numbers padded to 2 digits (AA26-08), printed docket 6AA-2026-00008 has 5
 - **Probe:** C.A. No. PC-2025-03316 → `https://www.courts.ri.gov/Decisions/Superior-PC-2025-3316.pdf` — expect: "Before this Court is an administrative"
-- **Evidence (2026-10-17):** fetch_doc.py: Superior-PC-2025-3316.pdf 9 pages '(FILED: October 6, 2026) ... C.A. No. PC-2025-03316 ... DECISION CARNES, J.'; Superior-NC-2025-0187.pdf 9 pages; District-AA26-48.pdf 12 pages 'A.A. No. 2026 - 48'.
+- **Evidence (2026-10-17):** fetch_doc.py: Superior-PC-2025-3316.pdf 9 pages '(FILED: October 6, 2026) ... C.A. No. PC-2025-03316 ... DECISION CARNES, J.'; Superior-NC-2025-0187.pdf 9 pages; District-AA26-48.pdf 12 pages 'A.A. No. 2026 - 48'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'Before this Court is an administrative' (Superior-PC-2025-3316.pdf); second citation Peña v. NCAA, C.A. No. WC-2026-0552 ok
 
 ### `ri-opinions-supreme` — Rhode Island Supreme Court opinions (courts.ri.gov PDFs)
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Slip opinions as PDF, slip pagination only (no A.3d page numbers). Files seen for dockets 2021-2026 (Supreme-21-34 ... Supreme-25-247); dockets 2014-2020 tried (e.g. Supreme-14-199, Supreme-14-145, 17-20 samples) all 404 since the 2025 site redesign. Use ri-cases-justia for older opinions.
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -331,11 +341,11 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** pre-2021 files not found after redesign
 - **Hazard:** long opinions beyond WebFetch window
 - **Probe:** State v. Alicea, No. 2023-43-C.A. → `https://www.courts.ri.gov/Opinions/Supreme-23-43.pdf` — expect: "This case came before the Supreme Court on February 28, 2024"
-- **Evidence (2026-10-17):** fetch_doc.py: Supreme-23-43.pdf 28 pages, 44,310 chars, 'No. 2023-43-C.A. ... State v. Lydia Alicea ... Justice Goldberg, for the Court'. Supreme-21-34.pdf 78 pages ('No. 2021-34-C.A.'). Old /Courts/SupremeCourt/OpinionsOrders/pdf-files/08-37.pdf 404.
+- **Evidence (2026-10-17):** fetch_doc.py: Supreme-23-43.pdf 28 pages, 44,310 chars, 'No. 2023-43-C.A. ... State v. Lydia Alicea ... Justice Goldberg, for the Court'. Supreme-21-34.pdf 78 pages ('No. 2021-34-C.A.'). Old /Courts/SupremeCourt/OpinionsOrders/pdf-files/08-37.pdf 404. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'This case came before the Supreme Court on February 28, 2024' p.2; second citation Galindez v. R.I. Public Transit Authority, No. 2024-219-Appeal ok
 
 ### `ri-cases-justia` — Justia: Rhode Island Supreme Court and Superior Court decisions
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 2** · Justia · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Supreme Court 1844-2026; Superior Court 2000-2026. HTML text, slip pagination; no A.3d cite shown on new opinions.
 - **Read via (in order):** **fetch tool**
 - **Access:** `constructible` · format html
@@ -349,7 +359,7 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** superior-court slug omits county prefix
 - **Hazard:** decision year in path differs from docket year
 - **Probe:** Rhode Island Joint Reinsurance Ass'n v. Ricci, No. 2023-251-Appeal → `https://law.justia.com/cases/rhode-island/supreme-court/2026/23-251.html` — expect: "The defendants, Brenda and Ernest Ricci"
-- **Evidence (2026-10-17):** WebFetch: YES, 'The defendants, Brenda and Ernest Ricci (Mrs. Ricci and Mr. Ricci, respectively)', decided July 30, 2026, No. 2023-251-Appeal; superior-court/2026/25-187.html YES ('Before the Court is Michael W. Miller and Karen A. Miller's'), NC-2025-0187. 2015 listing: 14-199.html, 15-53.html, 14-145.html. fetch_doc.py REFUSED (robots challenge).
+- **Evidence (2026-10-17):** WebFetch: YES, 'The defendants, Brenda and Ernest Ricci (Mrs. Ricci and Mr. Ricci, respectively)', decided July 30, 2026, No. 2023-251-Appeal; superior-court/2026/25-187.html YES ('Before the Court is Michael W. Miller and Karen A. Miller's'), NC-2025-0187. 2015 listing: 14-199.html, 15-53.html, 14-145.html. fetch_doc.py REFUSED (robots challenge). | Independent check 2026-10-17: WebFetch YES 'The defendants, Brenda and Ernest Ricci'; July 30, 2026; second citation No. 2024-219-Appeal; WC-2026-0552 ok
 
 ## F. Subsequent history
 
@@ -371,7 +381,7 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 
 ### `ri-orders-supreme` — Rhode Island Supreme Court published orders
 
-- **Status:** VERIFIED 2026-10-17 (research) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unofficial
+- **Status:** VERIFIED 2026-10-17 (independent) · **Tier 1** · Rhode Island Supreme Court · text: **fetch-and-quote** · official: unofficial
 - **Coverage:** Published orders (e.g. M.P. matters, disciplinary orders, dispositions by order); seen 2026. The Supreme Court is Rhode Island's only appellate court: there is no intermediate court, so subsequent history inside the state is the Supreme Court's own appeal or certiorari (writ to District, Family, WCC, agencies) disposition; U.S. Supreme Court cert is on supremecourt.gov (not recorded here).
 - **Read via (in order):** **script**
 - **Access:** `constructible` · format pdf
@@ -385,7 +395,7 @@ Rhode Island courts cite statutes as 'G.L. 1956 § 9-1-14' (sometimes with '(199
 - **Hazard:** unpublished orders not online
 - **Hazard:** history findable only via the Supreme Court docket number or party name
 - **Probe:** In re Dougan, No. 2026-268-M.P. → `https://www.courts.ri.gov/Published%20Orders/Supreme-26-268.pdf` — expect: "In the Matter of Brian T. Dougan"
-- **Evidence (2026-10-17):** fetch_doc.py: Supreme-26-268.pdf 3 pages, 3,419 chars, 'Supreme Court No. 2026-268-M.P. In the Matter of Brian T. Dougan. ORDER'.
+- **Evidence (2026-10-17):** fetch_doc.py: Supreme-26-268.pdf 3 pages, 3,419 chars, 'Supreme Court No. 2026-268-M.P. In the Matter of Brian T. Dougan. ORDER'. | Independent check 2026-10-17: fetch_doc.py --research verify: VERIFIED 'In the Matter of Brian T. Dougan' p.1
 
 ## Not available (do not look for these again)
 

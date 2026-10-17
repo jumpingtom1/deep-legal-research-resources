@@ -71,5 +71,6 @@ check's findings are fixed, and the wave is committed.
 | Maine | 2026-10-17 | 2026-10-17 | 15 | 2 | — |
 | New Hampshire | 2026-10-17 | 2026-10-17 | 10 | 1 | — |
 | Vermont | 2026-10-17 | 2026-10-17 | 11 | 0 | — |
+| Rhode Island | 2026-10-17 | 2026-10-17 | 17 | 0 | — |
 
-In progress (2026-10-17): Rhode Island, West Virginia, South Dakota, North Dakota, Wyoming.
+In progress (2026-10-17): West Virginia, South Dakota, North Dakota, Wyoming.

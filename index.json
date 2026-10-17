@@ -3152,10 +3152,10 @@
     "ri": {
       "name": "Rhode Island",
       "file": "jurisdictions/ri.md",
-      "sha256": "7c34de4af3345aa94a6b247076a2fea96ce7aef15e789ae74c803f8a52264392",
+      "sha256": "ace7ebcc04c11b640fb17a74aab2d7519b2ee2349ec24a47eae2595a2a0f67f8",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 17,
+        "verified_independent": 17,
         "reported": 1
       },
       "citation_patterns": [
@@ -3201,12 +3201,17 @@
         },
         {
           "label": "Supreme Court Rules (Articles I-X: appellate procedure, discipline, professional conduct, judicial conduct)",
-          "regex": "Article\\s+(?P<article>[IVX]+),?\\s+Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?[A-Z]?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?Supreme\\s+Court\\s+Rules|R\\.\\s*I\\.\\s*Sup(?:r|reme)?\\.?\\s*Ct\\.\\s*R(?:ules?|\\.)?,?\\s*art\\.\\s*(?P<article2>[IVX]+),?\\s*R(?:ule|\\.)\\s*(?P<rule2>\\d{1,2}(?:\\.\\d+)?[A-Z]?)",
+          "regex": "Article\\s+(?P<article>[IVX]+),?\\s+Rule\\s+(?P<rule>\\d{1,2}(?:\\.\\d+)?[A-Z]?)\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?Supreme\\s+Court\\s+Rules|R\\.\\s*I\\.\\s*Sup(?:r|reme)?\\.?\\s*Ct\\.\\s*R(?:ules?|\\.)?,?\\s*art\\.\\s*(?P<article2>[IVX]+),?\\s*R(?:ule|\\.)\\s*(?P<rule2>\\d{1,2}(?:\\.\\d+)?[A-Z]?)|(?:Article\\s+V,?\\s+)?Rule\\s+(?P<rule3>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+of\\s+Professional\\s+Conduct",
           "context_required": false
         },
         {
+          "label": "Rules of Professional Conduct (prose, no state marker)",
+          "regex": "(?:Article\\s+V,?\\s+)?Rule\\s+(?P<rule>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": true
+        },
+        {
           "label": "Rhode Island Rules of Evidence",
-          "regex": "R\\.\\s*I\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Rules\\s+of\\s+Evidence",
+          "regex": "R\\.\\s*I\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rhode\\s+Island\\s+Rules\\s+of\\s+Evidence|Rhode\\s+Island\\s+Rules?\\s+of\\s+Evidence\\s*,?\\s*(?:Rule\\s*)?(?P<rule3>\\d{3,4})",
           "context_required": false
         },
         {
@@ -3237,6 +3242,11 @@
         {
           "label": "Superior Court civil action number (county prefix)",
           "regex": "(?:C\\.\\s*A\\.\\s*No\\.\\s*)?(?P<county>[PKNW][CM]|PB)-(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{3,5})(?![\\d])",
+          "context_required": true
+        },
+        {
+          "label": "District Court administrative appeal number",
+          "regex": "(?P<div>\\d)AA-(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{1,5})|A\\.\\s*A\\.\\s*No\\.\\s*(?P<year2>(?:19|20)\\d\\d)\\s*-\\s*(?P<seq2>\\d{1,5})",
           "context_required": true
         }
       ]
