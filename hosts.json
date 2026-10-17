@@ -121,6 +121,15 @@
    ],
    "blocked_sources": []
   },
+  "code.dccouncil.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-code-council",
+    "dc-laws-council",
+    "dc-homerule-council"
+   ],
+   "blocked_sources": []
+  },
   "colorado.public.law": {
    "status": "allowed",
    "sources": [
@@ -161,6 +170,20 @@
    ],
    "blocked_sources": []
   },
+  "dccourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-rules-dcca"
+   ],
+   "blocked_sources": []
+  },
+  "dcregs.dc.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-dcmr-dcregs"
+   ],
+   "blocked_sources": []
+  },
   "delcode.delaware.gov": {
    "status": "allowed",
    "sources": [
@@ -181,6 +204,13 @@
    "status": "allowed",
    "sources": [
     "md-register-dsd"
+   ],
+   "blocked_sources": []
+  },
+  "eapps.courts.state.va.us": {
+   "status": "allowed",
+   "sources": [
+    "va-subsequent-history-acms"
    ],
    "blocked_sources": []
   },
@@ -281,6 +311,8 @@
     "co-crs-justia",
     "co-constitution-justia",
     "co-cases-justia",
+    "dc-code-justia",
+    "dc-cases-justia",
     "de-code-justia",
     "de-constitution-justia",
     "de-cases-justia",
@@ -321,7 +353,20 @@
     "pa-cases-justia",
     "tx-statutes-justia",
     "tx-constitution-justia",
-    "tx-cases-justia"
+    "tx-cases-justia",
+    "va-code-justia",
+    "va-constitution-justia",
+    "va-cases-justia"
+   ],
+   "blocked_sources": []
+  },
+  "law.lis.virginia.gov": {
+   "status": "allowed",
+   "sources": [
+    "va-code-lis",
+    "va-code-api",
+    "va-constitution-lis",
+    "va-admincode-lis"
    ],
    "blocked_sources": []
   },
@@ -508,6 +553,20 @@
    ],
    "blocked_sources": []
   },
+  "raw.githubusercontent.com": {
+   "status": "allowed",
+   "sources": [
+    "dc-code-github-xml"
+   ],
+   "blocked_sources": []
+  },
+  "register.dls.virginia.gov": {
+   "status": "allowed",
+   "sources": [
+    "va-register-dls"
+   ],
+   "blocked_sources": []
+  },
   "regs.maryland.gov": {
    "status": "allowed",
    "sources": [
@@ -619,6 +678,17 @@
    ],
    "blocked_sources": []
   },
+  "vacourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "va-rules-scv",
+    "va-opinions-scv",
+    "va-opinions-cav",
+    "va-scv-unpublished-orders",
+    "va-subsequent-history-cav-list"
+   ],
+   "blocked_sources": []
+  },
   "www-media.floridabar.org": {
    "status": "allowed",
    "sources": [
@@ -658,6 +728,7 @@
    "sources": [
     "co-rules-changes",
     "co-opinions-judicial",
+    "co-opinions-sc-listing",
     "co-subsequent-history-sc"
    ],
    "blocked_sources": []
@@ -677,6 +748,25 @@
    "blocked_sources": [
     "ca-opinions-courts"
    ]
+  },
+  "www.dccourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-rules-dcca",
+    "dc-rules-superior",
+    "dc-rules-superior-compiled",
+    "dc-opinions-dcca",
+    "dc-enbanc-dcca"
+   ],
+   "blocked_sources": []
+  },
+  "www.dcregs.dc.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-dcmr-dcregs",
+    "dc-register-dcregs"
+   ],
+   "blocked_sources": []
   },
   "www.floridabar.org": {
    "status": "allowed",
@@ -778,7 +868,8 @@
     "ny-nycrr-cornell",
     "pa-rules-lii",
     "pa-admincode-lii",
-    "tx-tac-lii"
+    "tx-tac-lii",
+    "va-admincode-lii"
    ],
    "blocked_sources": []
   },
@@ -988,6 +1079,13 @@
    ],
    "blocked_sources": []
   },
+  "www.supremecourt.gov": {
+   "status": "allowed",
+   "sources": [
+    "dc-scotus-docket"
+   ],
+   "blocked_sources": []
+  },
   "www.txcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -1000,6 +1098,16 @@
     "tx-business-court-opinions",
     "tx-subsequent-scotx-orders",
     "tx-subsequent-cca-pdr-granted"
+   ],
+   "blocked_sources": []
+  },
+  "www.vacourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "va-rules-scv",
+    "va-opinions-scv",
+    "va-opinions-cav",
+    "va-subsequent-history-cav-list"
    ],
    "blocked_sources": []
   }

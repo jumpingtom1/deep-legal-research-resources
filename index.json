@@ -108,17 +108,18 @@
     "co": {
       "name": "Colorado",
       "file": "jurisdictions/co.md",
-      "sha256": "bbd18f5235844aa2dad1c87e566190b0cb2c1d9e8c6fab3425e61fba7ead14fc",
+      "sha256": "6c16283f3bccb94202b8319fbd1fb4ea08371576c045533eb29631a6875ba621",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 10,
+        "verified_independent": 10,
         "reported": 5,
-        "blocked": 1
+        "blocked": 1,
+        "verified": 1
       },
       "citation_patterns": [
         {
           "label": "Colorado Revised Statutes",
-          "regex": "(?:(?:C\\.\\s*R\\.\\s*S\\.|Colo\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])|(?:\u00a7+|sec(?:tion|\\.)s?)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<article2>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])(?:\\s*\\([0-9a-zA-Z.]+\\))*\\s*,\\s*(?:C\\.\\s*R\\.\\s*S\\.|Colo\\.\\s*Rev\\.\\s*Stat\\.))"
+          "regex": "(?:(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS|Colo\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|Colorado\\s+Revised\\s+Statutes)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])|(?:\u00a7+|sec(?:tion|\\.)s?)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<article2>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])(?:\\s*\\([0-9a-zA-Z.]+\\))*\\s*(?:,\\s*(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS\\b|Colo\\.\\s*Rev\\.\\s*Stat\\.)|\\s+of\\s+the\\s+Colorado\\s+Revised\\s+Statutes))"
         },
         {
           "label": "Colorado Constitution",
@@ -154,7 +155,7 @@
         },
         {
           "label": "Public-domain citations (since 2012)",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?P<court>COA|CO)\\s+(?P<number>\\d{1,3})(?P<modified>M)?(?!\\d)(?:\\s*,\\s*\u00b6+\\s*(?P<para>\\d+))?"
+          "regex": "(?:(?P<year>(?:19|20)\\d\\d)\\s+(?P<court>COA|CO)\\s+(?P<number>\\d{1,3})(?P<modified>M)?|\\b(?P<yy>\\d\\d)(?P<court2>COA|CO)(?P<number2>\\d{1,3})(?P<modified2>M)?)(?!\\d)(?:\\s*,\\s*\u00b6+\\s*(?P<para>\\d+))?"
         },
         {
           "label": "Pacific Reporter and old Colorado Reports",
@@ -163,6 +164,58 @@
         {
           "label": "Colorado docket numbers (unpublished COA opinions, SC dockets, cert petitions)",
           "regex": "(?:No\\.\\s*)?(?P<yy>\\d{2})(?P<type>CA|SC|SA|PDJ|UPL)(?P<num>\\d{1,4})\\b"
+        }
+      ]
+    },
+    "dc": {
+      "name": "District of Columbia",
+      "file": "jurisdictions/dc.md",
+      "sha256": "6b3f4523242e89e01ebec6426845d6df8971c00ff4405bb7c15b5f00152047d1",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 11,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "D.C. Code (Official Code)",
+          "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?\u00a7+\\s*(?P<section>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code"
+        },
+        {
+          "label": "D.C. Laws and Acts (session laws)",
+          "regex": "D\\.\\s*C\\.\\s*Law\\s+(?P<period>\\d{1,2})-(?P<number>\\d{1,3})(?!\\d)|D\\.\\s*C\\.\\s*Act\\s+(?P<aperiod>\\d{1,2})-(?P<anumber>\\d{1,3})(?!\\d)"
+        },
+        {
+          "label": "Home Rule Act / District Charter",
+          "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*\u00a7\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*\u00a7+\\s*(?P<section>1-20[1-7]\\.\\d{2,3})(?!\\d)"
+        },
+        {
+          "label": "D.C. Superior Court Rules",
+          "regex": "(?:D\\.\\s*C\\.\\s*)?Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Super(?:ior)?\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+)?Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)"
+        },
+        {
+          "label": "D.C. Court of Appeals Rules",
+          "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|(?:D\\.\\s*C\\.\\s*)?Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?=\\D|$)(?![^.]{0,40}Circuit)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?"
+        },
+        {
+          "label": "D.C. Municipal Regulations (DCMR)",
+          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+D\\.?\\s*C\\.?\\s*M\\.?\\s*R\\.?\\s*(?:\u00a7+\\s*)?(?P<section>\\d{1,5}(?:\\.\\d{1,3})?)|D\\.\\s*C\\.\\s*Mun\\.\\s*Regs\\.\\s*(?:tit\\.\\s*)?(?P<title2>\\d{1,2}[A-Z]?),?\\s*\u00a7+\\s*(?P<section2>\\d{1,5}(?:\\.\\d{1,3})?)"
+        },
+        {
+          "label": "D.C. Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:DCR|D\\.\\s*C\\.\\s*Reg\\.)\\s+(?P<page>\\d{1,6})"
+        },
+        {
+          "label": "D.C. Court of Appeals (Atlantic Reporter / date parenthetical)",
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>D\\.\\s*C\\.)\\s*(?:(?:en\\s+banc)\\s*)?(?P<year>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*)?(?P<year2>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*Mun\\.\\s*App\\.\\s*(?P<year3>\\d{4})\\)"
+        },
+        {
+          "label": "D.C. Court of Appeals docket numbers (opinions and MOJs)",
+          "regex": "(?:No(?:s)?\\.\\s*)?(?P<yy>\\d{2})-(?P<type>CV|CF|CM|CO|CT|FS|FM|FD|AA|BG|BS|OA|PR|SP|TX|DA|DV|CP)-(?P<num>\\d{2,4})(?!\\d)"
+        },
+        {
+          "label": "U.S. Supreme Court docket (certiorari from the D.C. Court of Appeals)",
+          "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))"
         }
       ]
     },
@@ -988,6 +1041,54 @@
         {
           "label": "Westlaw / Lexis cites to Texas courts",
           "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Tex\\.|Tex\\.\\s*(?:(?P<lexcourt>App\\.|Crim\\.\\s*App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        }
+      ]
+    },
+    "va": {
+      "name": "Virginia",
+      "file": "jurisdictions/va.md",
+      "sha256": "b733c9400365971ad54137fabc3374b8e46845c59c2d10646ef989676d0fcfd4",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 14,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Code of Virginia",
+          "regex": "Va\\.\\s*Code(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:Code\\s+of\\s+Virginia|Virginia\\s+Code)\\s*\u00a7+\\s*(?P<section2>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Virginia|\\bCode\\s*\u00a7+\\s*(?P<section4>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])"
+        },
+        {
+          "label": "Constitution of Virginia",
+          "regex": "Va\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s*(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Constitution\\s+of\\s+Virginia|Virginia\\s+Constitution)"
+        },
+        {
+          "label": "Rules of the Supreme Court of Virginia (all Parts)",
+          "regex": "(?:Va\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Rules?\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia,?\\s*(?:Rule\\s*)?|\\bRule)\\s*(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)"
+        },
+        {
+          "label": "Virginia Rules of Evidence (Part Two of the Rules)",
+          "regex": "(?:Va\\.\\s*R\\.\\s*Evid\\.|Virginia\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>2:\\d{3}[A-Z]?)|\\bRule\\s+(?P<rule2>2:\\d{3}[A-Z]?)"
+        },
+        {
+          "label": "Virginia Administrative Code",
+          "regex": "(?P<title>\\d{1,2})\\s*VAC\\s*(?P<agency>\\d{1,3})-(?P<chapter>\\d{1,4})(?:-(?P<section>\\d{1,4}))?|(?P<title2>\\d{1,2})\\s+Va\\.\\s*Admin\\.\\s*Code\\s*\u00a7*\\s*(?P<agency2>\\d{1,3})-(?P<chapter2>\\d{1,4})(?:-(?P<section2>\\d{1,4}))?"
+        },
+        {
+          "label": "Virginia Register of Regulations",
+          "regex": "(?P<volume>\\d{1,2}):(?P<issue>\\d{1,2})\\s+(?:VA\\.\\s*R\\.|Va\\.\\s*Reg\\.\\s*Regs\\.)\\s*(?P<page>\\d+)|Virginia\\s+Register\\s+Volume\\s+(?P<volume2>\\d{1,2}),\\s*Issue\\s+(?P<issue2>\\d{1,2})"
+        },
+        {
+          "label": "Reported Virginia cases (Va., Va. App., S.E.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+(?P<reporter>Va\\.\\s*App\\.|Va\\.)\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?:Va\\.)"
+        },
+        {
+          "label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D)",
+          "regex": "Record\\s+No\\.\\s*(?P<scv>\\d{6})(?![\\d-])|(?:Record\\s+)?No\\.\\s*(?P<cav>\\d{4}-\\d{2}-\\d)(?!\\d)"
+        },
+        {
+          "label": "Westlaw / Lexis unreported cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)"
         }
       ]
     }
