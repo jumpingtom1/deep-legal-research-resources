@@ -1,0 +1,269 @@
+{
+ "jurisdiction": "wv",
+ "date": "2026-10-17",
+ "rows": [
+  {
+   "id": "wv-acts",
+   "outcome": "discrepancy",
+   "probe_evidence": "fetch_doc p.37: 'ACTS SECOND REGULAR SESSION, 2025 CHAPTER 1 (H. B. 3272 - By Delegates Akers'",
+   "generalised_citation": "2019 W. Va. Acts ch. 5 (S.B. 324)",
+   "generalised_url": "https://www.wvlegislature.gov/legisdocs/publications/acts/Acts_2019_Vol_1.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Coverage says split volumes are '2023 onward' and 'older years are a single Acts_{year}.pdf'; the index shows Vol_1/Vol_2 splits for 1990-2025 (except 1992), biennial files (Acts_1967-1968.pdf), extra-session files (Acts_2003_2ES.pdf, Acts_1916_3ES.pdf). Grep 'CHAPTER 5' hits budget text; 'CHAPTER 5 (' needed.",
+   "suggested_fix": "Coverage: splits since 1990; also biennial and extra-session files. Navigation: grep 'CHAPTER N (' (with the parenthesis); try each volume of the year."
+  },
+  {
+   "id": "wv-code-chapter-pdf",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc 436 pp: '§55-1-1. When writing required. No action shall be brought'; footer 'October 17, 2026 Page 1 of 436'",
+   "generalised_citation": "W. Va. Code § 46A-6-102",
+   "generalised_url": "https://code.wvlegislature.gov/pdf/46A/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-code-legacy-wvcode",
+   "outcome": "still-blocked",
+   "probe_evidence": "fetch_doc check: REFUSED robots.txt disallows /WVCODE/WV_CON.cfm (Disallow: /WVCODE/), exit 3",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-code-legislature",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES '(a) In addition to the causes of action which survive at'; (a)-(f) complete; 'updated regularly' footer",
+   "generalised_citation": "W. Va. Code § 46A-6-102",
+   "generalised_url": "https://code.wvlegislature.gov/46A-6-102/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Minor: a heading grep also hits the chapter menu (e.g. 'Advertisement' first hits CHAPTER 59 in the menu); body starts ~offset 6.7-7K as stated.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-code-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Murder by poison, lying in wait, imprisonment, starving, or by'; '2025 West Virginia Code'",
+   "generalised_citation": "W. Va. Code § 46A-6-102",
+   "generalised_url": "https://law.justia.com/codes/west-virginia/chapter-46a/article-6/section-46a-6-102/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-constitution-code",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES Art. III §10 'No person shall be deprived of life, liberty, or property'; truncated Art. VII §14",
+   "generalised_citation": "W. Va. Const. art. X, § 1",
+   "generalised_url": "https://code.wvlegislature.gov/west-virginia-constitution",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Placeholders say article headings read 'ARTICLE VIII.' (with period); body headings are 'ARTICLE X Taxation and Finance §1.' (no period), so grepping 'ARTICLE X\\.' hits only the table of contents. WebFetch reported text length 134,778 so offset=100000 reaches the end.",
+   "suggested_fix": "Say: locate 'ARTICLE {roman} ' (no period; first hit is the contents list) then '§N.'."
+  },
+  {
+   "id": "wv-constitution-home",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 84,621: 'ARTICLE VIII 8-1. Judicial power. The judicial power of the state shall be vested solely'",
+   "generalised_citation": "W. Va. Const. art. III, § 17",
+   "generalised_url": "https://home.wvlegislature.gov/constitution-of-west-virginia/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES §3-10 'No person shall be deprived of life, liberty, or property'; truncated in §8-13",
+   "generalised_citation": "W. Va. Const. art. X, § 1",
+   "generalised_url": "https://law.justia.com/constitution/west-virginia/ (offset=100000)",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-rules-appellate",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 104,807: '(e) Citation of memorandum decisions. Memorandum decisions may be cited in any court'",
+   "generalised_citation": "W. Va. R. App. P. 10",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/rules-appellate-procedure",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-rules-civil",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'Every defense to a claim for relief in any pleading'; truncated in Rule 23(g)(2) (record: 23(f)(2))",
+   "generalised_citation": "W. Va. R. Civ. P. 56",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/rules-civil-procedure-contents",
+   "generalised_outcome": "ok",
+   "instruction_problems": "'Second grep hit is the rule itself' fails for Rule 56: grep 'Rule 56\\. ' hits contents, then a cross-reference 'under Rule 56. All parties' in Rule 12, and only the third hit is the rule. WebFetch reports 127,744 chars total (not 269K), so offset=100000 may reach later rules.",
+   "suggested_fix": "Grep 'Rule N\\. {heading}' (number plus heading text) or take the hit followed by '(a)'."
+  },
+  {
+   "id": "wv-rules-criminal",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 110,791: '(a) Correction of sentence. - The court may correct an illegal sentence at any time'",
+   "generalised_citation": "W. Va. R. Crim. P. 11",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/rules-criminal-procedure-contents",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-rules-evidence",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 59,211: 'Rule 702. Testimony by Expert Witnesses (a) If scientific, technical'",
+   "generalised_citation": "W. Va. R. Evid. 404",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/rules-evidence-contents",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-rules-professional-conduct",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 82,147: '(a) Except as provided in paragraph (b), a lawyer shall not represent a client'",
+   "generalised_citation": "W. Va. R. Prof'l Conduct 1.6",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/west-virginia-rules-professional-conduct",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Rule headings have no period after the number ('Rule 1.6 Confidentiality'), so the generic 'Rule 12\\. ' grep example does not fit; comments cite 'Rule 1.6' too (10 hits). Contents line uses 'Conflict of Interest: Current Clients' vs body ';'.",
+   "suggested_fix": "For this set grep 'Rule N.N {Heading}' without a period."
+  },
+  {
+   "id": "wv-rules-trial-court",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc offset 142,121: 'Rule 24.01. Generally. (a) Unless otherwise directed by the presiding judicial officer'",
+   "generalised_citation": "W. Va. Tr. Ct. R. 22.01",
+   "generalised_url": "https://www.courtswv.gov/legal-community/court-rules/wv-trial-court-rules-contents",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-csr-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc DocId=58902 PDF 11 pp: 'NOTICE OF FINAL FILING AND ADOPTION OF A LEGISLATIVE RULE'",
+   "generalised_citation": "W. Va. Code R. § 45-13-1",
+   "generalised_url": "https://apps.sos.wv.gov/adlaw/csr/rule.aspx?rule=45-13 -> ruleview.aspx?document=10183 -> readfile.aspx?DocId=49358&Format=WORD",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Navigation worked, but the active 2017 Final File PDF (DocId=49358, 26 pp) extracts only 25 chars (scan) - not just 'older rules'. The Word link for the same DocId (Format=WORD&KeyWord=) gave full text '§45-13-1. General. 1.1. Scope.'. ruleview lists several PDFs; only the date column shows which is 'Final File'.",
+   "suggested_fix": "Hazard: even recent final-file PDFs can be scans; try readfile.aspx?DocId={id}&Format=WORD from the same row before LII."
+  },
+  {
+   "id": "wv-csr-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc: '1.1. Scope. -- This legislative rule establishes the procedure for the classification'; 'updated quarterly'",
+   "generalised_citation": "W. Va. Code R. § 45-13-1",
+   "generalised_url": "https://www.law.cornell.edu/regulations/west-virginia/W-Va-C-S-R-SS-45-13-1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "wv-register-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch listing: newest 'Friday, October 16, 2026 XLIII (43) 41', View links; did=40275 74 pp, 73 chars",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Coverage says 2003-2026; the year selector runs 2026 back to the 1980s (1983 per WebFetch). did=40275 is now the Oct 16, 2026 issue (filename 2026-10-16), not the Aug 21 issue the currency line implies.",
+   "suggested_fix": "Coverage: year selector back to ~1983; drop the implied issue for did=40275."
+  },
+  {
+   "id": "wv-ica-opinions",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc 22-ICA-208 Opinion.pdf 29 pp: 'No. 18-C-182 REVERSED AND REMANDED'",
+   "generalised_citation": "Dan Ryan Builders, Inc. v. Evanston Ins. Co., No. 24-ICA-481 (W. Va. Ct. App. Nov. 13, 2025)",
+   "generalised_url": "https://www.courtswv.gov/sites/default/pubfilesmnt/2025-11/24-ICA-481%20Opinion.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Official status says reported ICA opinions appear in S.E.2d only; they are also reported in West Virginia Reports, e.g. '250 W. Va. 378, 903 S.E.2d 247 (Ct. App. 2024)' (cited in SCA No. 24-347).",
+   "suggested_fix": "Say ICA opinions are reported in W. Va. and S.E.2d with '(Ct. App. YYYY)'; add that form to the citation map."
+  },
+  {
+   "id": "wv-sca-opinions",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc 22-765-bunn-p.pdf 46 pp: 'AFFIRMED IN PART, REVERSED IN PART, AND REMANDED'",
+   "generalised_citation": "St. Joseph's Hosp. of Buckhannon, Inc. v. Stonewall Jackson Mem'l Hosp. Co., No. 24-347 (W. Va. Nov. 13, 2025)",
+   "generalised_url": "https://www.courtswv.gov/sites/default/pubfilesmnt/2025-11/24-347-wooton-p.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Listing is paginated (10 rows per page with year+type filter), not mentioned. Slip pagination and no reporter cite confirmed (22 pp, caption 'September 2025 Term ... No. 24-347').",
+   "suggested_fix": "Note listing pages of ~10 rows (&page=N)."
+  },
+  {
+   "id": "wv-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'SCARR, Judge: Petitioner, Mr. Jay Folse, appeals the October 13'; complete",
+   "generalised_citation": "No. 24-347 (W. Va. Nov. 13, 2025)",
+   "generalised_url": "https://law.justia.com/cases/west-virginia/supreme-court/2025/24-347.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Year listing (501 entries) is truncated by WebFetch near May 2025; earlier-in-year entries need offset or page 2.",
+   "suggested_fix": "Add: year listings exceed the WebFetch window; use offset=100000 for earlier months."
+  },
+  {
+   "id": "wv-order-lists",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc OrderListJune262025.pdf: 'No. 24-120 (Ohio CC-35-2022-C-26) Affirmed (5-0)'",
+   "generalised_citation": "ICA Order and Decision List, Oct. 5, 2026",
+   "generalised_url": "https://www.courtswv.gov/sites/default/pubfilesmnt/2026-10/2026-10-5%20Order%20and%20Decision%20List.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "SCA order-lists index (default view) shows 06/26/2025 as newest, though the year filter offers 2026; a fresh run may wrongly conclude no later lists exist. Not resolved.",
+   "suggested_fix": "Note the SCA index's newest entry date and whether newer lists exist under the 2026 filter."
+  },
+  {
+   "id": "wv-subsequent-history-sca",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc combine=Gasvoda -> 25-884 MD PDF: 'No. 25-884 (JCN: 2019025668) (ICA No. 25-ICA-78)'",
+   "generalised_citation": "Folse v. Rollyson, No. 22-ICA-87 -> No. 23-325 (W. Va. 2025)",
+   "generalised_url": "https://www.courtswv.gov/sites/default/pubfilesmnt/2025-04/23-325-armstead-p.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Signed opinions do not use the '(ICA No. …)' caption form; 23-325 shows 'Intermediate Court of Appeals of West Virginia No. 22-ICA-87'. combine=Folse returned 10+ rows of unrelated Folse cases.",
+   "suggested_fix": "Confirm by grepping the PDF for the ICA docket (either '(ICA No. X)' or 'Intermediate Court of Appeals ... No. X')."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "W. Va. Code § 46A-6-102(7)",
+   "matched_label": "West Virginia Code",
+   "expected_label": "West Virginia Code"
+  },
+  {
+   "citation": "section 1, article 2, chapter 61 of the Code of West Virginia",
+   "matched_label": "West Virginia Code",
+   "expected_label": "West Virginia Code"
+  },
+  {
+   "citation": "W. Va. Code, 23-4-1c",
+   "matched_label": null,
+   "expected_label": "West Virginia Code (older WV court style without §: miss)"
+  },
+  {
+   "citation": "250 W. Va. 378, 385, 903 S.E.2d 247, 254 (Ct. App. 2024)",
+   "matched_label": "West Virginia Reports (official reporter) with parallel S.E./S.E.2d",
+   "expected_label": "ICA reported opinion -> wv-ica-opinions (false route: goes to wv-sca-opinions, which never lists ICA cases)"
+  },
+  {
+   "citation": "W. Va. Code R. § 45-13-1",
+   "matched_label": "West Virginia Code of State Rules (also bare-§ Code label)",
+   "expected_label": "West Virginia Code of State Rules (bare-§ regex also fires: possible false route to code.wvlegislature.gov/45-13-1/)"
+  },
+  {
+   "citation": "45CSR13",
+   "matched_label": "West Virginia Code of State Rules",
+   "expected_label": "West Virginia Code of State Rules"
+  },
+  {
+   "citation": "W. Va. Const. art. X, § 1",
+   "matched_label": "West Virginia Constitution",
+   "expected_label": "West Virginia Constitution"
+  },
+  {
+   "citation": "Syllabus Point 2, Doran v. Whyte",
+   "matched_label": "Syllabus point (West Virginia-specific pinpoint form)",
+   "expected_label": "Syllabus point"
+  }
+ ],
+ "overall": "All 20 VERIFIED rows reached body text (Acts marked as a discrepancy for wrong coverage); the REPORTED register row is confirmed; the robots block on /WVCODE/ still holds. Problems a fresh run would hit: Acts coverage is wrong (split volumes since 1990, plus biennial and extra-session files); CSR final-file PDFs can be scans even in 2017, and the Word link gives the text; the 'second grep hit' rule-locating advice fails (Rule 56 cross-reference; RPC headings have no period); constitution headings have no period; the citation map omits ICA opinions reported in W. Va. Reports '(Ct. App. YYYY)' and misroutes them to the SCA; 'W. Va. Code, 23-4-1c' (no §) is missed; the bare-§ regex fires inside CSR cites."
+}
