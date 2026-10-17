@@ -1,0 +1,294 @@
+{
+ "jurisdiction": "ms",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "ms-code-lexis",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: 302 to advance.lexis.com container; script: html chars=0",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-legislature-session-laws",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch PROVENANCE_REQUIRED; script: TLS certificate chain does not verify",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-code-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "YES 'All actions for which no other period of limitation is'; '2025 Mississippi Code 1972'",
+   "generalised_citation": "Miss. Code Ann. § 11-46-11; § 11-9-143 (article-level)",
+   "generalised_url": "https://law.justia.com/codes/mississippi/title-11/chapter-9/article-3/section-11-9-143/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "None for title/chapter sections. Article-level URL (open question) now verified: title index shows 'Arts. 1 - 3', chapter index gives 'Article 3 - Justice Courts (§§ 11-9-101 - 11-9-147)', built URL returns '§ 11-9-143. Trial by jury'.",
+   "suggested_fix": "Drop the 'inferred, not fetched' caveat for article URLs."
+  },
+  {
+   "id": "ms-constitution-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "script verify fresh: VERIFIED p.16; cover 'ANNOTATED UPDATED MAY, 2022'",
+   "generalised_citation": "Miss. Const. art. 3, § 14",
+   "generalised_url": "https://www.sos.ms.gov/sites/default/files/publications/Mississippi_Constitution.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Grep 'SECTION 14.' first hit is the article's section list (p.9), body at p.12, as the record says. WebFetch still PROVENANCE-gated for sos.ms.gov.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-constitution-justia",
+   "outcome": "discrepancy",
+   "probe_evidence": "Window 1: YES § 24 'All courts shall be open; and every person for an'; cut in § 157",
+   "generalised_citation": "Miss. Const. § 273",
+   "generalised_url": "https://law.justia.com/constitution/mississippi/ (offset 100000)",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Record says whole constitution on one page and 'offset=100000 for the rest'. Offset window ends mid-§ 183 (Article 7 index lists to § 200); §§ 184-285 (incl. § 273) are not on the page.",
+   "suggested_fix": "Coverage: §§ 1-183 only on this page; route sections > 183 to ms-constitution-sos; check Justia for per-article pages."
+  },
+  {
+   "id": "ms-rules-appellate",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.57; last-modified 23 Jun 2026",
+   "generalised_citation": "M.R.A.P. 28",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index link text still matches; grep 'RULE 28. ' hit heading p.92 'RULE 28. BRIEFS'. WebFetch on courts.ms.gov still PROVENANCE-gated.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-rules-chancery",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.9; last-modified 1 Jul 2026",
+   "generalised_citation": "UCCR 8.05",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "grep 'RULE 8.05' -> p.27 'RULE 8.05 FINANCIAL STATEMENT REQUIRED'.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-rules-civil",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.43; file name '2026-07-01 Rules of Civil Procedure'",
+   "generalised_citation": "M.R.C.P. 4",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "grep 'RULE 4. ' -> p.13 'RULE 4. SUMMONS' (first hit); later hits are cross-references.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-rules-criminal",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.39; index text 'effective July 1, 2023'",
+   "generalised_citation": "MRCrP 26.5",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "grep 'Rule 26.5' first hit is a comment cross-reference (p.148); heading 'Rule 26.5 Pronouncement of Judgment and Sentence.' is the 2nd hit. Grep the full heading with title, as the hazard implies.",
+   "suggested_fix": "Say: grep 'Rule N.N <Title>.' not bare 'Rule N.N'."
+  },
+  {
+   "id": "ms-rules-evidence",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.86; file '2025-04-07 Restyled Rules of Evidence'",
+   "generalised_citation": "Miss. R. Evid. 803",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "grep 'Rule 803. ' first hit is the table of contents (p.3); body heading at p.99.",
+   "suggested_fix": "Note TOC hit precedes body."
+  },
+  {
+   "id": "ms-rules-local",
+   "outcome": "failed",
+   "probe_evidence": "WebFetch PROVENANCE_REQUIRED; script: page 5,196 chars, district names as text, 0 district PDF links",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Page text lists 'Local Rules of the First Circuit Court District…' but fetch_doc links finds no district PDF links (only site-wide PDFs); a fresh run cannot reach a district rule from this index.",
+   "suggested_fix": "Record actual district PDF URLs or mark link-only."
+  },
+  {
+   "id": "ms-rules-prof-conduct",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.29; last-modified 6 Jul 2026",
+   "generalised_citation": "Miss. R. Prof'l Conduct 8.4",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "grep 'RULE 8.4' is case-insensitive: 10 hits, first 3 are cross-references; full heading 'RULE 8.4 MISCONDUCT' finds p.139.",
+   "suggested_fix": "Grep the full caps heading 'RULE N.N TITLE'."
+  },
+  {
+   "id": "ms-rules-ucrccc",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.20; last-modified 21 May 2026",
+   "generalised_citation": "UCRCCC 5.03",
+   "generalised_url": "",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Current UCRCCC has only Rules 1.01-5.10 (no chapters 6+). Citation-map examples 'URCCC 9.04' and 'Unif. R. Cir. & Cnty. Ct. Prac. 9.04' are old criminal URCCC rules (discovery, now MRCrP) and route to a PDF without that rule.",
+   "suggested_fix": "Replace 9.04 examples; note pre-2017 URCCC criminal rules (chs. 6-12) live in MRCrP, not this PDF."
+  },
+  {
+   "id": "ms-admincode-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch PROVENANCE_REQUIRED; script: html chars=0",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-admincode-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED; 'updated quarterly; we currently have two versions available'",
+   "generalised_citation": "Miss. Admin. Code 30-201:1.1",
+   "generalised_url": "https://www.law.cornell.edu/regulations/mississippi/30-Miss-Code-R-SS-201-1-1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Built URL gives '30 Miss. Code. R. 201-1.1 - Applications for Examination'. Page offers two versions ('Compare'); currency must state which version was read.",
+   "suggested_fix": "Add hazard: LII shows multiple versions per rule."
+  },
+  {
+   "id": "ms-admin-bulletin",
+   "outcome": "confirmed",
+   "probe_evidence": "script: html chars=0 (WebFetch PROVENANCE-gated, not sent)",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-appellate-docket",
+   "outcome": "still-blocked",
+   "probe_evidence": "script check: REFUSED robots Disallow: /appellatecourts/docket/sendPDF.php",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-coa-handdown",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED 'Wiley Bryant Harrison v. Ellen Trainor Harrison'",
+   "generalised_citation": "McCoy v. Graham, No. 2024-CA-00286-COA (Miss. Ct. App. Mar. 11, 2025)",
+   "generalised_url": "https://courts.ms.gov/Images/HDList/COA03-11-2025.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Built list resolved; link ..%5COpinions%5CCO182196.pdf -> PDF with ¶1 and docket. WebFetch untested (gated on host).",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-opinion-pdfs",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED p.1 'Glenda Mayze’s knee was injured…'",
+   "generalised_citation": "Promenade D'Iberville v. JEA, No. 2023-CA-01273-SCT",
+   "generalised_url": "https://courts.ms.gov/Images/Opinions/CO184597.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "PDF caption shows the consolidated docket 2017-IA-00167-SCT first; ¶ numbering present. Slip pagination only.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-sct-handdown",
+   "outcome": "confirmed",
+   "probe_evidence": "fresh script verify: VERIFIED 'Park Wind Apartments, LLC v. Glenda Mayze'; WebFetch PROVENANCE_REQUIRED",
+   "generalised_citation": "Promenade D'Iberville v. JEA, No. 2023-CA-01273-SCT (Miss. June 12, 2025)",
+   "generalised_url": "https://courts.ms.gov/Images/HDList/SCT06-12-2025.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Works. Lists also carry type 'DP' (1998-DP-00901-SCT) not in the docket-type list in the citation notes. WebFetch remains untested (approval-gated).",
+   "suggested_fix": "Add DP to docket types."
+  },
+  {
+   "id": "ms-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "YES 'A Jones County jury returned a $4 million verdict in favor'; Dec. 16, 2021; ¶81",
+   "generalised_citation": "McCoy v. Graham, No. 2024-CA-00286-COA (2025)",
+   "generalised_url": "https://law.justia.com/cases/mississippi/court-of-appeals/2025/2024-ca-00286-coa.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Script route REFUSED (justia host off for the day after bot check) as recorded.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ms-cert-handdown",
+   "outcome": "confirmed",
+   "probe_evidence": "script verify: VERIFIED Breland denial (first fresh fetch: connection reset; retry ok)",
+   "generalised_citation": "Knight v. Glover, No. 2024-CT-01157-SCT (cert. granted, order 9/30/26)",
+   "generalised_url": "https://courts.ms.gov/Images/HDList/SCT10-08-2026.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Same-number COA->CT mapping still unconfirmed: Justia /court-of-appeals/2025/2024-ca-01157-coa.html gave fetch error. Locating a cert ruling still needs date-scanning Thursday lists.",
+   "suggested_fix": "Confirm mapping on a known pair before relying on it."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "section 93-5-23 of the Mississippi Code of 1972",
+   "matched_label": "Mississippi Code of 1972",
+   "expected_label": "Mississippi Code of 1972"
+  },
+  {
+   "citation": "Section 8 of Article 3 of the Mississippi Constitution",
+   "matched_label": null,
+   "expected_label": "Mississippi Constitution of 1890"
+  },
+  {
+   "citation": "M.R.C.P. 60(b)(6)",
+   "matched_label": "Mississippi Rules of Civil Procedure",
+   "expected_label": "Mississippi Rules of Civil Procedure"
+  },
+  {
+   "citation": "Miss. R. Evid. 404(b)",
+   "matched_label": "Mississippi Rules of Evidence",
+   "expected_label": "Mississippi Rules of Evidence"
+  },
+  {
+   "citation": "Jones v. State, No. 2023-KA-00512-COA (Miss. Ct. App. 2024)",
+   "matched_label": "Mississippi appellate docket numbers (-SCT / -COA)",
+   "expected_label": "Mississippi appellate docket numbers (-SCT / -COA)"
+  },
+  {
+   "citation": "123 So. 3d 456, 460 (¶12) (Miss. Ct. App. 2013)",
+   "matched_label": "Southern Reporter with a Mississippi parenthetical",
+   "expected_label": "Southern Reporter with a Mississippi parenthetical"
+  },
+  {
+   "citation": "Miss. Code Ann. § 99-19-81 (Rev. 2020)",
+   "matched_label": "Mississippi Code of 1972",
+   "expected_label": "Mississippi Code of 1972"
+  },
+  {
+   "citation": "Miss. Admin. Code R. 30-201:1.1",
+   "matched_label": "Mississippi Administrative Code",
+   "expected_label": "Mississippi Administrative Code"
+  },
+  {
+   "citation": "Rule 4.03 of the Uniform Rules of Circuit and County Court",
+   "matched_label": "Uniform Civil Rules of Circuit and County Court Practice",
+   "expected_label": "Uniform Civil Rules of Circuit and County Court Practice"
+  },
+  {
+   "citation": "Miss. Const. art. 3, § 17A",
+   "matched_label": "Mississippi Constitution of 1890",
+   "expected_label": "Mississippi Constitution of 1890"
+  },
+  {
+   "citation": "Mont. R. Civ. P. 12(b)(6)",
+   "matched_label": null,
+   "expected_label": "none (Montana)"
+  },
+  {
+   "citation": "Section 11-46-11 of the Miss. Code",
+   "matched_label": "Mississippi Code of 1972 (bare \"Section N-N-N\", generic)",
+   "expected_label": "Mississippi Code of 1972"
+  },
+  {
+   "citation": "Miss. R. Civ. P. 81(d)(2)",
+   "matched_label": "Mississippi Rules of Civil Procedure",
+   "expected_label": "Mississippi Rules of Civil Procedure"
+  }
+ ],
+ "overall": "22 rows: 19 confirmed, 1 discrepancy, 1 failed, 1 still-blocked. All courts.ms.gov/sos.ms.gov script probes re-verified fresh; WebFetch on those hosts is still approval-gated, so script is the only route. Justia code article-level URLs now verified. Problems: Justia constitution page ends at § 183, so sections 184-285 are unreachable there; local-rules index yields no district PDF links; UCRCCC 9.04 examples point to rules not in the current PDF; bare 'Rule N.N' greps hit cross-references/TOC before headings. Regex misses: 'Section 8 of Article 3 of the Mississippi Constitution' and 'Section 11-46-11 of the Miss. Code' (generic only). COA->CT same-number mapping unconfirmed."
+}
