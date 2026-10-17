@@ -10,6 +10,10 @@ exactly the reviewed content.
 
 1. **Phase 1 — pick jurisdictions.** Fetch `index.json` and match the query and
    any cited authorities against each jurisdiction's `citation_patterns`.
+   Only patterns with `context_required: false` can **pick** a jurisdiction.
+   Generic forms (`context_required: true`: bare rule numbers, docket
+   numbers, regional reporters, "cert. denied") are used only inside a
+   jurisdiction the query or a distinctive citation has already established.
    Fetch `jurisdictions/<xx>.md` for each hit and check its sha256 against
    `index.json`. A failed fetch or a mismatch means that jurisdiction has no
    approved source this run: cite by number only, and say so in the banner.

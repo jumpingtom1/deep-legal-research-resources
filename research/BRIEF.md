@@ -19,7 +19,12 @@ Read these first:
    used, the date, and what came back (HTTP code, first words, refusal
    message). Keep quoted page text to 15 words or fewer per entry.
 3. Run `python3 scripts/build.py --check`. It must print **no ERROR and no
-   WARN lines for `<xx>.json`**. Use `--check` only: other agents are
+   WARN lines for `<xx>.json`**. Then run `python3 scripts/build.py --cross`:
+   it must print **no CROSS line that starts with `<xx>:` or names `<xx>` as
+   the matching state**. Fix it one of two ways: give distinctive patterns
+   this state's marker ("Tex.", "of the Ohio Rules …"), or mark a genuinely
+   generic form (bare "Rule 1:1", bare docket number, regional reporter,
+   "cert. denied") with `"context_required": true`. Use `--check` only: other agents are
    building in parallel, so never run `build.py` without it.
 
 ## What the skill needs from each source

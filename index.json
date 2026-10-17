@@ -16,59 +16,73 @@
       "citation_patterns": [
         {
           "label": "Arizona Revised Statutes",
-          "regex": "(?:A\\.\\s?R\\.\\s?S\\.|\\bARS|Ariz(?:ona)?\\.?\\s+Rev(?:ised)?\\.?\\s+Stat(?:utes)?\\.?(?:\\s+Ann\\.?)?)\\s*(?:(?:\u00a7+|sec(?:tion|\\.)?)\\s*)?(?P<title>\\d{1,2})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Revised\\s+Statutes"
+          "regex": "(?:A\\.\\s?R\\.\\s?S\\.|\\bARS|Ariz(?:ona)?\\.?\\s+Rev(?:ised)?\\.?\\s+Stat(?:utes)?\\.?(?:\\s+Ann\\.?)?)\\s*(?:(?:\u00a7+|sec(?:tion|\\.)?)\\s*)?(?P<title>\\d{1,2})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Revised\\s+Statutes",
+          "context_required": false
         },
         {
           "label": "Arizona Constitution",
-          "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:(?:pt\\.|part)\\s*(?P<part>\\d|[IV]+),?\\s*)?(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+(?:Part\\s+(?P<part2>\\d|[IV]+),?\\s+)?Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution"
+          "regex": "Ariz(?:ona)?\\.?\\s*Const(?:itution)?\\.?\\s*art(?:icle)?\\.?\\s*(?P<article>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s*(?:(?:pt\\.|part)\\s*(?P<part>\\d|[IV]+),?\\s*)?(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,2}(?:\\.\\d)?)|Article\\s+(?P<article2>[IVXL]+|\\d{1,2}(?:\\.\\d)?),?\\s+(?:Part\\s+(?P<part2>\\d|[IV]+),?\\s+)?Section\\s+(?P<section2>\\d{1,2}(?:\\.\\d)?)\\s+of\\s+the\\s+Arizona\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Arizona Rules of Civil Procedure",
-          "regex": "Ariz\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "Ariz\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Arizona Rules of Evidence",
-          "regex": "Ariz\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Evidence"
+          "regex": "Ariz\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Arizona Rules of Civil Appellate Procedure (ARCAP)",
-          "regex": "(?:ARCAP|Ariz\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure"
+          "regex": "(?:ARCAP|Ariz\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Arizona Rules of Criminal Procedure",
-          "regex": "Ariz\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "Ariz\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Rules of the Supreme Court of Arizona (incl. Rule 42 ERs, Rule 111)",
-          "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court"
+          "regex": "Ariz\\.\\s*(?:R\\.\\s*Sup\\.\\s*Ct\\.|Sup\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*(?:,?\\s*ER\\s*(?P<er>\\d\\.\\d{1,2}))?|Rule\\s+(?P<rule2>\\d+)(?:,\\s*ER\\s*(?P<er2>\\d\\.\\d{1,2}))?\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Arizona\\s+)?Supreme\\s+Court",
+          "context_required": false
         },
         {
           "label": "Arizona Rules of Family Law Procedure",
-          "regex": "(?:Ariz\\.\\s*R\\.\\s*Fam\\.\\s*Law\\s*P\\.|ARFLP)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Family\\s+Law\\s+Procedure"
+          "regex": "(?:Ariz\\.\\s*R\\.\\s*Fam\\.\\s*Law\\s*P\\.|ARFLP)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Arizona\\s+Rules\\s+of\\s+Family\\s+Law\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Arizona Administrative Code",
-          "regex": "(?:A\\.\\s?A\\.\\s?C\\.|Ariz(?:ona)?\\.?\\s*Admin(?:istrative)?\\.?\\s*Code)\\s*(?:\u00a7\\s*)?R(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)"
+          "regex": "(?:A\\.\\s?A\\.\\s?C\\.|Ariz(?:ona)?\\.?\\s*Admin(?:istrative)?\\.?\\s*Code)\\s*(?:\u00a7\\s*)?R(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3})-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)",
+          "context_required": false
         },
         {
           "label": "Arizona Administrative Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+(?:A\\.\\s?A\\.\\s?R\\.|Ariz\\.\\s*Admin\\.\\s*Reg\\.)\\s*(?P<page>\\d{1,5})"
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:A\\.\\s?A\\.\\s?R\\.|Ariz\\.\\s*Admin\\.\\s*Reg\\.)\\s*(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Arizona Reports (Ariz.) and old Arizona Appeals Reports (Ariz. App.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Ariz\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?:,\\s*(?:\u00b6+\\s*\\d+|\\d+))*(?:,\\s*\\d{1,4}\\s+P\\.(?:\\s*[23]d)?\\s+\\d{1,5})?(?:\\s*\\((?P<appct>App\\.\\s*)?(?P<year>\\d{4})\\))?"
+          "regex": "(?P<volume>\\d{1,3})\\s+Ariz\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?:,\\s*(?:\u00b6+\\s*\\d+|\\d+))*(?:,\\s*\\d{1,4}\\s+P\\.(?:\\s*[23]d)?\\s+\\d{1,5})?(?:\\s*\\((?P<appct>App\\.\\s*)?(?P<year>\\d{4})\\))?",
+          "context_required": false
         },
         {
           "label": "Pacific Reporter with an Arizona parenthetical",
-          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ariz\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ariz\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Appellate docket numbers (Supreme Court and Court of Appeals)",
-          "regex": "\\b(?P<type>CV|CR|SB|JC|WC|TX)-(?P<yy>\\d{2})-(?P<num>\\d{4})-(?P<sub>[A-Z]{1,4}(?:/[A-Z]{1,2})?)\\b|\\b(?P<div>[12])\\s*CA-(?P<ctype>CV|CR|SA|JV|MH|IC|UB|TX|CC)\\s+(?P<cyear>\\d{4}|\\d{2})-(?P<cnum>\\d{4})(?:\\s+(?P<suffix>[A-Z]{2,4}))?"
+          "regex": "\\b(?P<type>CV|CR|SB|JC|WC|TX)-(?P<yy>\\d{2})-(?P<num>\\d{4})-(?P<sub>[A-Z]{1,4}(?:/[A-Z]{1,2})?)\\b|\\b(?P<div>[12])\\s*CA-(?P<ctype>CV|CR|SA|JV|MH|IC|UB|TX|CC)\\s+(?P<cyear>\\d{4}|\\d{2})-(?P<cnum>\\d{4})(?:\\s+(?P<suffix>[A-Z]{2,4}))?",
+          "context_required": false
         },
         {
           "label": "Memorandum decisions / Westlaw cites with Arizona parenthetical",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?(?:,\\s*\u00b6+\\s*\\d+)?\\s*\\(Ariz\\.|Ariz\\.\\s*(?:App\\.\\s*(?:Unpub\\.\\s*)?)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?(?:,\\s*\u00b6+\\s*\\d+)?\\s*\\(Ariz\\.|Ariz\\.\\s*(?:App\\.\\s*(?:Unpub\\.\\s*)?)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -85,23 +99,28 @@
       "citation_patterns": [
         {
           "label": "California codes (Bluebook, California Style Manual, prose)",
-          "regex": "(?<!Tex\\.\\s)(?<!Texas\\s)(?<!Tex\\s)(?<!La\\.\\s)(?<!V\\.T\\.C\\.A\\.\\s)(?:Cal(?:ifornia)?\\.?\\s+)?(?P<code>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s*Code)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|\\.)s?)\\s*(?P<section>\\d+(?:\\.\\d+)*[a-z]?)|(?:sec(?:tion|\\.)s?|\u00a7\u00a7?)\\s*(?P<section_p>\\d+(?:\\.\\d+)*[a-z]?)(?:,?\\s*subd(?:ivision|\\.)\\s*\\([a-z0-9]+\\))?\\s+of\\s+the\\s+(?:California\\s+)?(?P<code_p>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s+Code)?(?!\\s+of\\s+(?!Civil)(?:Texas|Louisiana))"
+          "regex": "(?<!Tex\\.\\s)(?<!Texas\\s)(?<!Tex\\s)(?<!La\\.\\s)(?<!V\\.T\\.C\\.A\\.\\s)(?:Cal(?:ifornia)?\\.?\\s+)?(?P<code>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s*Code)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|\\.)s?)\\s*(?P<section>\\d+(?:\\.\\d+)*[a-z]?)|(?:sec(?:tion|\\.)s?|\u00a7\u00a7?)\\s*(?P<section_p>\\d+(?:\\.\\d+)*[a-z]?)(?:,?\\s*subd(?:ivision|\\.)\\s*\\([a-z0-9]+\\))?\\s+of\\s+the\\s+(?:California\\s+)?(?P<code_p>Civ(?:il)?\\.?\\s+Proc(?:\\.|edure)?(?:\\s+Code)?|Code\\s+(?:of\\s+)?Civ(?:il|\\.)?\\s+Proc(?:\\.|edure)?|Civ(?:il|\\.)|Pen(?:al|\\.)|Evid(?:ence|\\.)|Bus(?:iness|\\.)\\s*(?:&|and)\\s*Prof(?:essions|\\.)|Gov(?:ernment|\\.|'t)|Lab(?:or|\\.)|Veh(?:icle|\\.)|Fam(?:ily|\\.)|Prob(?:ate|\\.)|Corp(?:orations|\\.)|Com(?:mercial|\\.)|Health\\s*(?:&|and)\\s*Saf(?:ety|\\.)|Ins(?:urance|\\.)|Welf(?:are|\\.)\\s*(?:&|and)\\s*Inst(?:itutions|\\.)|Educ?(?:ation|\\.)|Elec(?:tions|\\.)|Fin(?:ancial|\\.)|Fish\\s*(?:&|and)\\s*G(?:ame|\\.)|Food\\s*(?:&|and)\\s*Agric?(?:ultural|\\.)|Harb(?:ors|\\.)\\s*(?:&|and)\\s*Nav(?:igation|\\.)|Mil(?:itary|\\.)\\s*(?:&|and)\\s*Vet(?:erans|\\.)|Pub(?:lic|\\.)\\s*Cont(?:ract|\\.)|Pub(?:lic|\\.)\\s*Res(?:ources|\\.)|Pub(?:lic|\\.)\\s*Util(?:ities|\\.)|Rev(?:enue|\\.)\\s*(?:&|and)\\s*Tax(?:ation|\\.)|Sts?(?:reets|\\.)\\s*(?:&|and)\\s*High(?:ways|\\.)|Unemp(?:loyment|\\.)\\s*Ins(?:urance|\\.)|Water|Wat\\.)(?:\\s+Code)?(?!\\s+of\\s+(?!Civil)(?:Texas|Louisiana))",
+          "context_required": false
         },
         {
           "label": "California Constitution",
-          "regex": "Cal(?:ifornia)?\\.?\\s+Const(?:itution|\\.)?,?\\s+art(?:icle|\\.)?\\s+(?P<article>[IVXL]+(?:\\s?[A-D])?),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+(?:\\.\\d+)?)|art(?:icle|\\.)?\\s+(?P<article2>[IVXL]+(?:\\s?[A-D])?),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Cal(?:ifornia)?\\.?\\s+Const(?:itution)?"
+          "regex": "Cal(?:ifornia)?\\.?\\s+Const(?:itution|\\.)?,?\\s+art(?:icle|\\.)?\\s+(?P<article>[IVXL]+(?:\\s?[A-D])?),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section>\\d+(?:\\.\\d+)?)|art(?:icle|\\.)?\\s+(?P<article2>[IVXL]+(?:\\s?[A-D])?),?\\s*(?:\u00a7|sec(?:tion|\\.)?)\\s*(?P<section2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Cal(?:ifornia)?\\.?\\s+Const(?:itution)?",
+          "context_required": false
         },
         {
           "label": "California Rules of Court",
-          "regex": "(?:Cal(?:ifornia)?\\.?\\s+R(?:ules|\\.)\\s+(?:of\\s+)?C(?:our)?t\\.?,?\\s*(?:rule\\s*)?|rule\\s+)(?P<title>[1-9]|10)\\.(?P<rule>\\d+(?:\\.\\d+)?)(?!\\d)(?!\\s+of\\s+the\\s+(?:Federal|Fed\\.))(?!\\s*(?:of\\s+the\\s+)?(?:Fed|FRCP|FRE|FRAP))"
+          "regex": "(?:Cal(?:ifornia)?\\.?\\s+R(?:ules|\\.)\\s+(?:of\\s+)?C(?:our)?t\\.?,?\\s*(?:rule\\s*)?|rule\\s+)(?P<title>[1-9]|10)\\.(?P<rule>\\d+(?:\\.\\d+)?)(?!\\d)(?!\\s+of\\s+the\\s+(?:Federal|Fed\\.))(?!\\s*(?:of\\s+the\\s+)?(?:Fed|FRCP|FRE|FRAP))",
+          "context_required": false
         },
         {
           "label": "California Code of Regulations",
-          "regex": "(?:Cal(?:ifornia)?\\.?\\s+Code\\s+(?:of\\s+)?Regs?(?:ulations|\\.)?,?\\s*tit(?:le|\\.)\\s*(?P<title>\\d+),?\\s*\u00a7\\s*(?P<section>[\\d.]+[A-Za-z]?)|(?P<title2>\\d+)\\s+C\\.?C\\.?R\\.?\\s*\u00a7?\\s*(?P<section2>[\\d.]+[A-Za-z]?))"
+          "regex": "(?:Cal(?:ifornia)?\\.?\\s+Code\\s+(?:of\\s+)?Regs?(?:ulations|\\.)?,?\\s*tit(?:le|\\.)\\s*(?P<title>\\d+),?\\s*\u00a7\\s*(?P<section>[\\d.]+[A-Za-z]?)|(?P<title2>\\d+)\\s+C\\.?C\\.?R\\.?\\s*\u00a7?\\s*(?P<section2>[\\d.]+[A-Za-z]?))",
+          "context_required": false
         },
         {
           "label": "California reporters",
-          "regex": "(?P<volume>\\d+)\\s+(?P<reporter>Cal\\.\\s?(?:App\\.\\s?)?(?:[2-5](?:d|th)\\s?)?(?:Supp\\.\\s?)?|Cal\\.\\s?Rptr\\.\\s?(?:[23]d)?)\\s*(?P<page>\\d+)"
+          "regex": "(?P<volume>\\d+)\\s+(?P<reporter>Cal\\.\\s?(?:App\\.\\s?)?(?:[2-5](?:d|th)\\s?)?(?:Supp\\.\\s?)?|Cal\\.\\s?Rptr\\.\\s?(?:[23]d)?)\\s*(?P<page>\\d+)",
+          "context_required": false
         }
       ]
     },
@@ -119,51 +138,63 @@
       "citation_patterns": [
         {
           "label": "Colorado Revised Statutes",
-          "regex": "(?:(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS|Colo\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|Colorado\\s+Revised\\s+Statutes)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])|(?:\u00a7+|sec(?:tion|\\.)s?)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<article2>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])(?:\\s*\\([0-9a-zA-Z.]+\\))*\\s*(?:,\\s*(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS\\b|Colo\\.\\s*Rev\\.\\s*Stat\\.)|\\s+of\\s+the\\s+Colorado\\s+Revised\\s+Statutes))"
+          "regex": "(?:(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS|Colo\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|Colorado\\s+Revised\\s+Statutes)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}(?:\\.\\d)?)-(?P<article>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])|(?:\u00a7+|sec(?:tion|\\.)s?)\\s*(?P<title2>\\d{1,2}(?:\\.\\d)?)-(?P<article2>\\d{1,3}(?:\\.\\d{1,2})?)-(?P<section2>\\d{3,4}(?:\\.\\d{1,2})?)(?![\\d-])(?:\\s*\\([0-9a-zA-Z.]+\\))*\\s*(?:,\\s*(?:C\\.\\s*R\\.\\s*S\\.|\\bCRS\\b|Colo\\.\\s*Rev\\.\\s*Stat\\.)|\\s+of\\s+the\\s+Colorado\\s+Revised\\s+Statutes))",
+          "context_required": false
         },
         {
           "label": "Colorado Constitution",
-          "regex": "Colo\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+[a-z]?),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+[a-z]?),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Colorado\\s+Constitution"
+          "regex": "Colo\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+[a-z]?),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+[a-z]?),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Colorado\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Colorado Rules of Civil Procedure",
-          "regex": "(?:C\\.\\s*R\\.\\s*C\\.\\s*P\\.|Colo\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "(?:C\\.\\s*R\\.\\s*C\\.\\s*P\\.|Colo\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Colorado Appellate Rules",
-          "regex": "C\\.\\s*A\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Colo\\.\\s*App\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Appellate\\s+Rules"
+          "regex": "C\\.\\s*A\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Colo\\.\\s*App\\.\\s*R\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Appellate\\s+Rules",
+          "context_required": false
         },
         {
           "label": "Colorado Rules of Evidence",
-          "regex": "(?:C\\.\\s*R\\.\\s*E\\.|\\bCRE|Colo\\.\\s*R\\.\\s*Evid\\.)\\s*(?P<rule>\\d{3,4})|Colorado\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Evidence"
+          "regex": "(?:C\\.\\s*R\\.\\s*E\\.|\\bCRE|Colo\\.\\s*R\\.\\s*Evid\\.)\\s*(?P<rule>\\d{3,4})|Colorado\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Colorado Rules of Criminal Procedure",
-          "regex": "(?:Colo\\.\\s*R\\.\\s*Crim\\.\\s*P\\.|(?<!R\\.\\s)(?<!R\\.)Crim\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "(?:Colo\\.\\s*R\\.\\s*Crim\\.\\s*P\\.|(?<!R\\.\\s)(?<!R\\.)Crim\\.\\s*P\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d)?)(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Colorado Rules of Professional Conduct",
-          "regex": "(?:Colo\\.\\s*RPC|Colo\\.\\s*R\\.\\s*P\\.\\s*C\\.|Colo\\.\\s*R\\.\\s*Prof(?:'|\u2019)?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "(?:Colo\\.\\s*RPC|Colo\\.\\s*R\\.\\s*P\\.\\s*C\\.|Colo\\.\\s*R\\.\\s*Prof(?:'|\u2019)?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\s*\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Colorado\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "Code of Colorado Regulations",
-          "regex": "(?P<title>\\d{1,2})\\s+(?:CCR|Colo\\.\\s*Code\\s*Regs\\.)\\s*(?:\u00a7\\s*)?(?P<agency>\\d{3,4})-(?P<series>\\d{1,3}(?:\\.\\d+)?)(?:(?:,\\s*(?:Rule|\u00a7|sec\\.)\\s*|:)(?P<rule>\\d+(?:\\.\\d+)*))?"
+          "regex": "(?P<title>\\d{1,2})\\s+(?:CCR|Colo\\.\\s*Code\\s*Regs\\.)\\s*(?:\u00a7\\s*)?(?P<agency>\\d{3,4})-(?P<series>\\d{1,3}(?:\\.\\d+)?)(?:(?:,\\s*(?:Rule|\u00a7|sec\\.)\\s*|:)(?P<rule>\\d+(?:\\.\\d+)*))?",
+          "context_required": false
         },
         {
           "label": "Colorado Register",
-          "regex": "(?P<volume>\\d{2})\\s+(?:CR|Colo\\.\\s*Reg\\.)\\s+(?P<issue>\\d{1,2})\\s*,\\s*(?P<date>[A-Z][a-z]+\\.?\\s+\\d{1,2},\\s*\\d{4})"
+          "regex": "(?P<volume>\\d{2})\\s+(?:CR|Colo\\.\\s*Reg\\.)\\s+(?P<issue>\\d{1,2})\\s*,\\s*(?P<date>[A-Z][a-z]+\\.?\\s+\\d{1,2},\\s*\\d{4})",
+          "context_required": false
         },
         {
           "label": "Public-domain citations (since 2012)",
-          "regex": "(?:(?P<year>(?:19|20)\\d\\d)\\s+(?P<court>COA|CO)\\s+(?P<number>\\d{1,3})(?P<modified>M)?|\\b(?P<yy>\\d\\d)(?P<court2>COA|CO)(?P<number2>\\d{1,3})(?P<modified2>M)?)(?!\\d)(?:\\s*,\\s*\u00b6+\\s*(?P<para>\\d+))?"
+          "regex": "(?:(?P<year>(?:19|20)\\d\\d)\\s+(?P<court>COA|CO)\\s+(?P<number>\\d{1,3})(?P<modified>M)?|\\b(?P<yy>\\d\\d)(?P<court2>COA|CO)(?P<number2>\\d{1,3})(?P<modified2>M)?)(?!\\d)(?:\\s*,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
         },
         {
           "label": "Pacific Reporter and old Colorado Reports",
-          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})(?:\\s*,\\s*\\d+)?\\s*\\((?P<court>Colo\\.(?:\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<volume2>\\d{1,3})\\s+Colo\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page2>\\d{1,4})\\b"
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})(?:\\s*,\\s*\\d+)?\\s*\\((?P<court>Colo\\.(?:\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<volume2>\\d{1,3})\\s+Colo\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page2>\\d{1,4})\\b",
+          "context_required": false
         },
         {
           "label": "Colorado docket numbers (unpublished COA opinions, SC dockets, cert petitions)",
-          "regex": "(?:No\\.\\s*)?(?P<yy>\\d{2})(?P<type>CA|SC|SA|PDJ|UPL)(?P<num>\\d{1,4})\\b"
+          "regex": "(?:No\\.\\s*)?(?P<yy>\\d{2})(?P<type>CA|SC|SA|PDJ|UPL)(?P<num>\\d{1,4})\\b",
+          "context_required": false
         }
       ]
     },
@@ -179,43 +210,53 @@
       "citation_patterns": [
         {
           "label": "D.C. Code (Official Code)",
-          "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?\u00a7+\\s*(?P<section>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code"
+          "regex": "(?:D\\.\\s*C\\.\\s*(?:Official\\s+)?Code(?:\\s+Ann\\.)?|D\\.C\\.\\s*Code\\s+Ann\\.|D\\.C\\.\\s*Official\\s+Code)\\s*(?:\\(\\d{4}(?:\\s+Repl\\.)?\\)\\s*)?\u00a7+\\s*(?P<section>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,2}A?-\\d{1,4}(?:\\.\\d{1,3}[a-z]?)?[a-z]?(?:\\.\\d{1,3})?(?:\\((?:Perm|Temp)\\))?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+(?:Official\\s+)?Code",
+          "context_required": false
         },
         {
           "label": "D.C. Laws and Acts (session laws)",
-          "regex": "D\\.\\s*C\\.\\s*Law\\s+(?P<period>\\d{1,2})-(?P<number>\\d{1,3})(?!\\d)|D\\.\\s*C\\.\\s*Act\\s+(?P<aperiod>\\d{1,2})-(?P<anumber>\\d{1,3})(?!\\d)"
+          "regex": "D\\.\\s*C\\.\\s*Law\\s+(?P<period>\\d{1,2})-(?P<number>\\d{1,3})(?!\\d)|D\\.\\s*C\\.\\s*Act\\s+(?P<aperiod>\\d{1,2})-(?P<anumber>\\d{1,3})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Home Rule Act / District Charter",
-          "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*\u00a7\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*\u00a7+\\s*(?P<section>1-20[1-7]\\.\\d{2,3})(?!\\d)"
+          "regex": "(?:(?:D\\.\\s*C\\.\\s*)?Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|District\\s+Charter)\\s*\u00a7\\s*(?P<hra>\\d{3}(?:\\([a-z0-9]+\\))*)|[Ss]ection\\s+(?P<hra2>\\d{3})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+|District\\s+of\\s+Columbia\\s+)?(?:Home\\s+Rule\\s+Act|Home\\s+Rule\\s+Charter|Charter)|D\\.\\s*C\\.\\s*Code\\s*\u00a7+\\s*(?P<section>1-20[1-7]\\.\\d{2,3})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "D.C. Superior Court Rules",
-          "regex": "(?:D\\.\\s*C\\.\\s*)?Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Super(?:ior)?\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+)?Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)"
+          "regex": "(?:D\\.\\s*C\\.\\s*)?Super\\.\\s*Ct\\.\\s*(?P<division>Civ|Crim|Dom\\.\\s*Rel|Fam|Juv|Neglect|L\\s*&\\s*T|Sm\\.\\s*Cl|Prob|Tax|Agency\\s+Rev|Gen\\.\\s*Fam|Intrafam|R\\.\\s*Civ\\.\\s*P|R\\.\\s*Crim\\.\\s*P)\\.?\\s*(?:Proc\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,3}(?:-[IVX]+)?(?:\\.\\d+)?)|Super(?:ior)?\\s+Court\\s+(?:Civil|Criminal|Domestic\\s+Relations|Family|Landlord\\s+and\\s+Tenant|Probate)\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:-[IVX]+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:-[IVX]+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:D\\.\\s*C\\.\\s+)?Superior\\s+Court\\s+(?:Rules\\s+of\\s+(?:Civil|Criminal)\\s+Procedure|(?:Civil|Criminal|Family|Probate)\\s+Rules)",
+          "context_required": false
         },
         {
           "label": "D.C. Court of Appeals Rules",
-          "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|(?:D\\.\\s*C\\.\\s*)?Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?=\\D|$)(?![^.]{0,40}Circuit)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?"
+          "regex": "D\\.\\s*C\\.\\s*(?:Ct\\.\\s*)?App\\.\\s*R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|(?:D\\.\\s*C\\.\\s*)?Court\\s+of\\s+Appeals\\s+Rule\\s+(?P<rule2>\\d{1,2})(?=\\D|$)(?![^.]{0,40}Circuit)|Rule\\s+(?P<rule3>\\d{1,2})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?(?:D\\.\\s*C\\.|District\\s+of\\s+Columbia)\\s+Court\\s+of\\s+Appeals(?:\\s+Rules)?",
+          "context_required": false
         },
         {
           "label": "D.C. Municipal Regulations (DCMR)",
-          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+D\\.?\\s*C\\.?\\s*M\\.?\\s*R\\.?\\s*(?:\u00a7+\\s*)?(?P<section>\\d{1,5}(?:\\.\\d{1,3})?)|D\\.\\s*C\\.\\s*Mun\\.\\s*Regs\\.\\s*(?:tit\\.\\s*)?(?P<title2>\\d{1,2}[A-Z]?),?\\s*\u00a7+\\s*(?P<section2>\\d{1,5}(?:\\.\\d{1,3})?)"
+          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+D\\.?\\s*C\\.?\\s*M\\.?\\s*R\\.?\\s*(?:\u00a7+\\s*)?(?P<section>\\d{1,5}(?:\\.\\d{1,3})?)|D\\.\\s*C\\.\\s*Mun\\.\\s*Regs\\.\\s*(?:tit\\.\\s*)?(?P<title2>\\d{1,2}[A-Z]?),?\\s*\u00a7+\\s*(?P<section2>\\d{1,5}(?:\\.\\d{1,3})?)",
+          "context_required": false
         },
         {
           "label": "D.C. Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+(?:DCR|D\\.\\s*C\\.\\s*Reg\\.)\\s+(?P<page>\\d{1,6})"
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:DCR|D\\.\\s*C\\.\\s*Reg\\.)\\s+(?P<page>\\d{1,6})",
+          "context_required": false
         },
         {
           "label": "D.C. Court of Appeals (Atlantic Reporter / date parenthetical)",
-          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>D\\.\\s*C\\.)\\s*(?:(?:en\\s+banc)\\s*)?(?P<year>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*)?(?P<year2>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*Mun\\.\\s*App\\.\\s*(?P<year3>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>D\\.\\s*C\\.)\\s*(?:(?:en\\s+banc)\\s*)?(?P<year>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*)?(?P<year2>\\d{4})\\)|\\(D\\.\\s*C\\.\\s*Mun\\.\\s*App\\.\\s*(?P<year3>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "D.C. Court of Appeals docket numbers (opinions and MOJs)",
-          "regex": "(?:No(?:s)?\\.\\s*)?(?P<yy>\\d{2})-(?P<type>CV|CF|CM|CO|CT|FS|FM|FD|AA|BG|BS|OA|PR|SP|TX|DA|DV|CP)-(?P<num>\\d{2,4})(?!\\d)"
+          "regex": "(?:No(?:s)?\\.\\s*)?(?P<yy>\\d{2})-(?P<type>CV|CF|CM|CO|CT|FS|FM|FD|AA|BG|BS|OA|PR|SP|TX|DA|DV|CP)-(?P<num>\\d{2,4})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "U.S. Supreme Court docket (certiorari from the D.C. Court of Appeals)",
-          "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))"
+          "regex": "(?:No\\.\\s*)?(?P<term>\\d{2})-(?P<number>\\d{1,5})\\b(?=[^\\n]{0,60}(?:U\\.\\s*S\\.|cert|Supreme\\s+Court))",
+          "context_required": false
         }
       ]
     },
@@ -231,67 +272,83 @@
       "citation_patterns": [
         {
           "label": "Delaware Code",
-          "regex": "(?:(?:(?P<title>\\d{1,2})\\s+Del\\.\\s*C(?:ode)?\\.?(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d)|Del\\.\\s*Code\\s+Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*\u00a7+\\s*(?P<section2>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d))|Title\\s+(?P<title3>\\d{1,2}),?\\s+(?:Section|\u00a7)\\s*(?P<section3>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)\\s+of\\s+the\\s+Delaware\\s+Code)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section4>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Delaware\\s+General\\s+Corporation\\s+Law|DGCL)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section5>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title5>\\d{1,2})(?:\\s+of\\s+the\\s+Delaware\\s+Code)?"
+          "regex": "(?:(?:(?P<title>\\d{1,2})\\s+Del\\.\\s*C(?:ode)?\\.?(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d)|Del\\.\\s*Code\\s+Ann\\.\\s*tit\\.\\s*(?P<title2>\\d{1,2}),?\\s*\u00a7+\\s*(?P<section2>\\d{1,3}[A-Za-z]?-\\d+[A-Za-z]?|\\d+[A-Za-z]?)(?!\\d))|Title\\s+(?P<title3>\\d{1,2}),?\\s+(?:Section|\u00a7)\\s*(?P<section3>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)\\s+of\\s+the\\s+Delaware\\s+Code)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section4>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Delaware\\s+General\\s+Corporation\\s+Law|DGCL)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section5>\\d+[A-Za-z]?(?:-\\d+[A-Za-z]?)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title5>\\d{1,2})(?:\\s+of\\s+the\\s+Delaware\\s+Code)?",
+          "context_required": false
         },
         {
           "label": "Laws of Delaware (session laws)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Del\\.\\s*Laws,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Del\\.\\s*Laws,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)",
+          "context_required": false
         },
         {
           "label": "Delaware Constitution",
-          "regex": "Del\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Delaware\\s+Constitution"
+          "regex": "Del\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Delaware\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Court of Chancery Rules",
-          "regex": "(?:Ct\\.\\s*Ch\\.\\s*R\\.|Del\\.\\s*Ch\\.\\s*Ct\\.\\s*R\\.|Ch(?:ancery)?\\.?\\s*(?:Court\\s+)?R(?:ule)?\\.?|Court of Chancery Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?[A-Za-z-]*)"
+          "regex": "(?:Ct\\.\\s*Ch\\.\\s*R\\.|Del\\.\\s*Ch\\.\\s*Ct\\.\\s*R\\.|Ch(?:ancery)?\\.?\\s*(?:Court\\s+)?R(?:ule)?\\.?|Court of Chancery Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?[A-Za-z-]*)",
+          "context_required": false
         },
         {
           "label": "Superior Court Civil Rules",
-          "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Civ(?:il)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Civil\\s+Rules"
+          "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Civ(?:il)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Civil\\s+Rules",
+          "context_required": false
         },
         {
           "label": "Superior Court Criminal Rules",
-          "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Criminal\\s+Rules"
+          "regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Criminal\\s+Rules",
+          "context_required": false
         },
         {
           "label": "Supreme Court Rules",
-          "regex": "(?:Del\\.\\s*)?Supr(?:eme)?\\.?\\s*C(?:our)?t\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+)"
+          "regex": "(?:Del\\.\\s*)?Supr(?:eme)?\\.?\\s*C(?:our)?t\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+)",
+          "context_required": false
         },
         {
           "label": "Delaware Rules of Evidence",
-          "regex": "(?:D\\.\\s*R\\.\\s*E\\.|Del\\.\\s*R\\.\\s*Evid\\.|Delaware (?:Uniform )?Rules? of Evidence)\\s*(?P<rule>\\d{3,4})"
+          "regex": "(?:D\\.\\s*R\\.\\s*E\\.|Del\\.\\s*R\\.\\s*Evid\\.|Delaware (?:Uniform )?Rules? of Evidence)\\s*(?P<rule>\\d{3,4})",
+          "context_required": false
         },
         {
           "label": "Delaware Lawyers' Rules of Professional Conduct",
-          "regex": "(?:Del\\.\\s*Lawyers'?\\s*R\\.\\s*Prof'?l\\s*Conduct|DLRPC|Delaware Lawyers'? Rules? of Professional Conduct)\\s*(?P<rule>\\d\\.\\d+)"
+          "regex": "(?:Del\\.\\s*Lawyers'?\\s*R\\.\\s*Prof'?l\\s*Conduct|DLRPC|Delaware Lawyers'? Rules? of Professional Conduct)\\s*(?P<rule>\\d\\.\\d+)",
+          "context_required": false
         },
         {
           "label": "Delaware Administrative Code",
-          "regex": "(?P<title>\\d{1,2})\\s+(?:Del\\.|DE)\\s*Admin\\.?\\s*Code\\s*(?:\u00a7+\\s*)?(?P<regulation>\\d+[A-Z]?)(?:-(?P<section>\\d+\\.\\d+))?"
+          "regex": "(?P<title>\\d{1,2})\\s+(?:Del\\.|DE)\\s*Admin\\.?\\s*Code\\s*(?:\u00a7+\\s*)?(?P<regulation>\\d+[A-Z]?)(?:-(?P<section>\\d+\\.\\d+))?",
+          "context_required": false
         },
         {
           "label": "Delaware Register of Regulations",
-          "regex": "(?P<volume>\\d{1,2})\\s+(?:DE|Del\\.)\\s*Reg\\.\\s*(?P<page>\\d+)"
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:DE|Del\\.)\\s*Reg\\.\\s*(?P<page>\\d+)",
+          "context_required": false
         },
         {
           "label": "Reported Delaware cases (Atlantic Reporter)",
-          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>Del\\.(?:\\s*(?:Ch|Super\\.\\s*Ct|Fam\\.\\s*Ct|Com\\.\\s*Pl)\\.?)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>Del\\.(?:\\s*(?:Ch|Super\\.\\s*Ct|Fam\\.\\s*Ct|Com\\.\\s*Pl)\\.?)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Old official state reporters",
-          "regex": "(?P<volume>\\d{1,3})\\s+Del\\.(?:\\s*(?P<ch>Ch)\\.)?\\s+(?P<page>\\d{1,4})"
+          "regex": "(?P<volume>\\d{1,3})\\s+Del\\.(?:\\s*(?P<ch>Ch)\\.)?\\s+(?P<page>\\d{1,4})",
+          "context_required": false
         },
         {
           "label": "Unreported Chancery / Superior decisions by civil action number",
-          "regex": "(?:C\\.A\\.\\s*No\\.\\s*)?(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})-(?P<judge>[A-Z]{2,4})|(?P<superior>[NKS]\\d{2}[A-Z]-\\d{2}-\\d{3,4}\\s+[A-Z]{2,4}(?:\\s+CCLD)?)"
+          "regex": "(?:C\\.A\\.\\s*No\\.\\s*)?(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})-(?P<judge>[A-Z]{2,4})|(?P<superior>[NKS]\\d{2}[A-Z]-\\d{2}-\\d{3,4}\\s+[A-Z]{2,4}(?:\\s+CCLD)?)",
+          "context_required": false
         },
         {
           "label": "Supreme Court docket / Delaware unreported form (Supr. Ct. R. 14(g)(ii))",
-          "regex": "No\\.\\s*(?P<number>\\d{1,4}),\\s*(?P<year>(?:19|20)\\d\\d)"
+          "regex": "No\\.\\s*(?P<number>\\d{1,4}),\\s*(?P<year>(?:19|20)\\d\\d)",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Del\\.|Del\\.\\s*(?:(?P<lexch>Ch\\.|Super\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Del\\.|Del\\.\\s*(?:(?P<lexch>Ch\\.|Super\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -308,59 +365,73 @@
       "citation_patterns": [
         {
           "label": "Florida Statutes",
-          "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*(?:\u00a7+|sec(?:tion|\\.)|s\\.)\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:\u00a7+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-\u2013]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)"
+          "regex": "Fla\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?\\s*(?:\u00a7+|sec(?:tion|\\.)|s\\.)\\s*(?P<section>\\d{1,4}\\.\\d{2,5})(?!\\d)|(?:\u00a7+|sec(?:tion|s|\\.)?|ss?\\.)\\s*(?P<section2>\\d{1,4}\\.\\d{2,5})(?!\\d)(?:\\([0-9a-zA-Z]+\\))*(?:\\s*[-\u2013]\\s*\\d{1,4}\\.\\d{2,5}(?:\\([0-9a-zA-Z]+\\))*)?,?\\s+(?:of\\s+the\\s+)?(?:Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.)",
+          "context_required": false
         },
         {
           "label": "Florida Evidence Code (Fla. Stat. ch. 90)",
-          "regex": "(?:Fla\\.\\s*Stat\\.?\\s*\u00a7+\\s*(?P<section>90\\.\\d{3,4})|(?:\u00a7+|sec(?:tion|\\.)?|s\\.)\\s*(?P<section2>90\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:Florida\\s+Evidence\\s+Code|Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.))"
+          "regex": "(?:Fla\\.\\s*Stat\\.?\\s*\u00a7+\\s*(?P<section>90\\.\\d{3,4})|(?:\u00a7+|sec(?:tion|\\.)?|s\\.)\\s*(?P<section2>90\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s+(?:of\\s+the\\s+)?(?:Florida\\s+Evidence\\s+Code|Fla\\.\\s*Stat\\.|Florida\\s+Statutes|F\\.\\s*S\\.))",
+          "context_required": false
         },
         {
           "label": "Laws of Florida (session laws)",
-          "regex": "ch(?:apter|\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)-(?P<chapter>\\d{1,4}),?(?:\\s*\u00a7+\\s*\\d+,?)?\\s+Laws\\s+of\\s+(?:Fla\\.|Florida)"
+          "regex": "ch(?:apter|\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)-(?P<chapter>\\d{1,4}),?(?:\\s*\u00a7+\\s*\\d+,?)?\\s+Laws\\s+of\\s+(?:Fla\\.|Florida)",
+          "context_required": false
         },
         {
           "label": "Florida Constitution",
-          "regex": "Fla\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|art(?:icle|\\.)\\s*(?P<article2>[IVX]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section2>\\d+[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:Fla\\.\\s*Const\\.|of\\s+the\\s+(?:Florida|Fla\\.)\\s+Constitution)"
+          "regex": "Fla\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|art(?:icle|\\.)\\s*(?P<article2>[IVX]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section2>\\d+[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:Fla\\.\\s*Const\\.|of\\s+the\\s+(?:Florida|Fla\\.)\\s+Constitution)",
+          "context_required": false
         },
         {
           "label": "Florida Rules of Civil Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure|rule\\s+(?P<rule4>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>1\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Civil\\s+Procedure\\s+(?P<rule2>1\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure|rule\\s+(?P<rule4>1\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Florida Rules of Criminal Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure|rule\\s+(?P<rule4>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>3\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Criminal\\s+Procedure\\s+(?P<rule2>3\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure|rule\\s+(?P<rule4>3\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Florida Rules of Appellate Procedure",
-          "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure|rule\\s+(?P<rule4>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "Fla\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>9\\.\\d{3}[a-z]?)|Florida\\s+Rules?\\s+of\\s+Appellate\\s+Procedure\\s+(?P<rule2>9\\.\\d{3}[a-z]?)|rule\\s+(?P<rule3>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*,\\s*Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure|rule\\s+(?P<rule4>9\\.\\d{3}[a-z]?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Florida Rules of General Practice and Judicial Administration",
-          "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})|rule\\s+(?P<rule3>2\\.\\d{3})(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration"
+          "regex": "Fla\\.\\s*R\\.\\s*(?:Gen\\.\\s*Prac\\.\\s*(?:&|and)\\s*)?Jud\\.\\s*Admin\\.\\s*(?P<rule>2\\.\\d{3})|Florida\\s+Rules?\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration\\s+(?P<rule2>2\\.\\d{3})|rule\\s+(?P<rule3>2\\.\\d{3})(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Florida\\s+Rules\\s+of\\s+(?:General\\s+Practice\\s+and\\s+)?Judicial\\s+Administration",
+          "context_required": false
         },
         {
           "label": "Florida Administrative Code",
-          "regex": "Fla\\.\\s*Admin\\.\\s*Code\\s*(?:Ann\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})|r(?:ule)?\\.?\\s*(?P<rule2>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:F\\.\\s*A\\.\\s*C\\.|Florida\\s+Administrative\\s+Code)"
+          "regex": "Fla\\.\\s*Admin\\.\\s*Code\\s*(?:Ann\\.\\s*)?R\\.?\\s*(?P<rule>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})|r(?:ule)?\\.?\\s*(?P<rule2>\\d{1,2}[A-Z]{0,2}\\d{0,2}-\\d{1,4}\\.\\d{3,4})(?:\\([0-9a-zA-Z]+\\))*,?\\s*(?:F\\.\\s*A\\.\\s*C\\.|Florida\\s+Administrative\\s+Code)",
+          "context_required": false
         },
         {
           "label": "Florida Administrative Register",
-          "regex": "(?P<volume>\\d{2})\\s+Fla\\.\\s*Admin\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?:Florida\\s+Administrative\\s+Register|FAR),?\\s*Vol(?:ume|\\.)\\s*(?P<volume2>\\d{2}),?\\s*(?:No\\.|Number)\\s*(?P<number>\\d{1,3})"
+          "regex": "(?P<volume>\\d{2})\\s+Fla\\.\\s*Admin\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?:Florida\\s+Administrative\\s+Register|FAR),?\\s*Vol(?:ume|\\.)\\s*(?P<volume2>\\d{2}),?\\s*(?:No\\.|Number)\\s*(?P<number>\\d{1,3})",
+          "context_required": false
         },
         {
           "label": "Reported Florida cases (Southern Reporter)",
-          "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Fla\\.(?:\\s*(?P<dca>[1-6](?:st|nd|d|rd|th))\\s*DCA|\\s*Dist\\.\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+So\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Fla\\.(?:\\s*(?P<dca>[1-6](?:st|nd|d|rd|th))\\s*DCA|\\s*Dist\\.\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Florida Law Weekly (slip-opinion cites)",
-          "regex": "(?P<volume>\\d{1,2})\\s+Fla\\.\\s*L\\.\\s*Weekly\\s+(?:Supp\\.\\s+)?(?P<series>[SDC])?(?P<page>\\d{1,5})"
+          "regex": "(?P<volume>\\d{1,2})\\s+Fla\\.\\s*L\\.\\s*Weekly\\s+(?:Supp\\.\\s+)?(?P<series>[SDC])?(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Florida appellate docket numbers (pre- and post-2023 ACIS forms)",
-          "regex": "\\b(?P<court>SC|[1-6]D)(?P<year>\\d{4}|\\d{2})-(?P<seq>\\d{1,4})\\b"
+          "regex": "\\b(?P<court>SC|[1-6]D)(?P<year>\\d{4}|\\d{2})-(?P<seq>\\d{1,4})\\b",
+          "context_required": false
         },
         {
           "label": "Westlaw unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Fla\\."
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Fla\\.",
+          "context_required": false
         }
       ]
     },
@@ -377,59 +448,73 @@
       "citation_patterns": [
         {
           "label": "Official Code of Georgia Annotated",
-          "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?|Code\\s+Section)\\s*\u00a7*\\s*|(?:sec(?:tion|\\.)|\u00a7)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])"
+          "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?|Code\\s+Section)\\s*\u00a7*\\s*|(?:sec(?:tion|\\.)|\u00a7)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+          "context_required": false
         },
         {
           "label": "Georgia Laws (session laws)",
-          "regex": "Ga\\.\\s*L\\.\\s*(?P<year>(?:18|19|20)\\d\\d),\\s*p\\.\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Ga\\.\\s*Laws\\s+(?P<page2>\\d+)"
+          "regex": "Ga\\.\\s*L\\.\\s*(?P<year>(?:18|19|20)\\d\\d),\\s*p\\.\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Ga\\.\\s*Laws\\s+(?P<page2>\\d+)",
+          "context_required": false
         },
         {
           "label": "Georgia Constitution of 1983",
-          "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|\u00b6)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)|Paragraph\\s+(?P<paragraph3>[IVXL]+(?:-[A-Z])?)\\s+of\\s+Section\\s+(?P<section3>[IVXL]+)\\s+of\\s+Article\\s+(?P<article3>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)"
+          "regex": "Ga\\.\\s*Const\\.(?:\\s*of\\s*1983)?,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec\\.?)\\s*(?P<section>[IVXL]+),?\\s*(?:para\\.?|Par\\.?|\u00b6)\\s*(?P<paragraph>[IVXL]+(?:-[A-Z])?)|Article\\s+(?P<article2>[IVXL]+),\\s*Section\\s+(?P<section2>[IVXL]+),\\s*Paragraph\\s+(?P<paragraph2>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)|Paragraph\\s+(?P<paragraph3>[IVXL]+(?:-[A-Z])?)\\s+of\\s+Section\\s+(?P<section3>[IVXL]+)\\s+of\\s+Article\\s+(?P<article3>[IVXL]+)\\s+of\\s+the\\s+(?:Georgia\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia)",
+          "context_required": false
         },
         {
           "label": "Uniform Superior Court Rules",
-          "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|(?:Ga\\.\\s*)?Unif(?:orm|\\.)\\s*Super(?:ior|\\.)\\s*C(?:our)?t\\.?\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules"
+          "regex": "(?:Uniform\\s+Superior\\s+Court\\s+Rule|USCR|(?:Ga\\.\\s*)?Unif(?:orm|\\.)\\s*Super(?:ior|\\.)\\s*C(?:our)?t\\.?\\s*R\\.)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)*)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)*)(?:\\s*\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Uniform\\s+Superior\\s+Court\\s+Rules",
+          "context_required": false
         },
         {
           "label": "Rules of the Supreme Court of Georgia",
-          "regex": "(?:Ga\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|(?:Georgia\\s+)?Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+Supreme\\s+Court\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia"
+          "regex": "(?:Ga\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|(?:Georgia\\s+)?Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+Supreme\\s+Court\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Georgia",
+          "context_required": false
         },
         {
           "label": "Rules of the Court of Appeals of Georgia",
-          "regex": "(?:Ga\\.\\s*Ct\\.\\s*App\\.\\s*R\\.|(?:Court\\s+of\\s+Appeals|COA)\\s+Rule)\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Court\\s+of\\s+Appeals\\s+of\\s+Georgia"
+          "regex": "(?:Ga\\.\\s*Ct\\.\\s*App\\.\\s*R\\.|(?:Court\\s+of\\s+Appeals|COA)\\s+Rule)\\s*(?P<rule>\\d{1,2}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Court\\s+of\\s+Appeals\\s+of\\s+Georgia",
+          "context_required": false
         },
         {
           "label": "Georgia Rules of Professional Conduct (State Bar Rule 4-102(d))",
-          "regex": "(?:Ga\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|GRPC)\\s*(?P<rule>\\d\\.\\d+)|Rule\\s+(?P<rule2>\\d\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Georgia\\s+Rules\\s+of\\s+Professional\\s+Conduct|Bar\\s+Rule\\s+(?P<barrule>\\d-\\d{3}(?:\\.\\d+)?)"
+          "regex": "(?:Ga\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|GRPC)\\s*(?P<rule>\\d\\.\\d+)|Rule\\s+(?P<rule2>\\d\\.\\d+)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Georgia\\s+Rules\\s+of\\s+Professional\\s+Conduct|Bar\\s+Rule\\s+(?P<barrule>\\d-\\d{3}(?:\\.\\d+)?)",
+          "context_required": false
         },
         {
           "label": "Rules and Regulations of the State of Georgia",
-          "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))"
+          "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
+          "context_required": false
         },
         {
           "label": "Georgia Rules and Regulations Monthly Bulletin",
-          "regex": "(?:Georgia\\s+Monthly\\s+Bulletin\\s+for|Ga\\.\\s*Admin\\.\\s*Bulletin\\s*\\()\\s*(?P<month>[A-Z][a-z]+)\\s+(?P<year>(?:19|20)\\d\\d)"
+          "regex": "(?:Georgia\\s+Monthly\\s+Bulletin\\s+for|Ga\\.\\s*Admin\\.\\s*Bulletin\\s*\\()\\s*(?P<month>[A-Z][a-z]+)\\s+(?P<year>(?:19|20)\\d\\d)",
+          "context_required": false
         },
         {
           "label": "Georgia Reports / Georgia Appeals Reports (Ga., Ga. App.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Ga\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Ga\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "South Eastern Reporter with a Georgia parenthetical",
-          "regex": "(?P<volume>\\d{1,4})\\s+S\\.?\\s*E\\.?\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ga\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.?\\s*E\\.?\\s*(?P<series>[23]d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Ga\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Georgia appellate docket numbers (Supreme Court S..., Court of Appeals A...)",
-          "regex": "\\b(?P<docket>(?P<court>[SA])(?P<yy>\\d{2})(?P<kind>[A-Z])(?P<number>\\d{4}))\\b"
+          "regex": "\\b(?P<docket>(?P<court>[SA])(?P<yy>\\d{2})(?P<kind>[A-Z])(?P<number>\\d{4}))\\b",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis cites for Georgia decisions",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ga\\.|Ga\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ga\\.|Ga\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         },
         {
           "label": "Georgia certiorari history",
-          "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)|(?P<physical>physical\\s+precedent\\s+only)"
+          "regex": "cert\\.\\s*(?P<disposition>denied|granted|dismissed)|(?P<physical>physical\\s+precedent\\s+only)",
+          "context_required": false
         }
       ]
     },
@@ -445,39 +530,48 @@
       "citation_patterns": [
         {
           "label": "Idaho Code",
-          "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code|chapter\\s+(?P<chapter4>\\d{1,3}[A-Z]?),\\s*title\\s+(?P<title4>\\d{1,2}),\\s*Idaho\\s+Code"
+          "regex": "(?:Idaho\\s+Code(?:\\s+Ann\\.)?|I\\.\\s?C\\.)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)?)?\\s*(?P<title>\\d{1,2})-(?:(?P<chapter3>\\d{1,2})-(?P<section3>\\d{3,4}[A-Z]{0,2})|(?P<section>\\d{3,4}[A-Z]{0,2}))(?!\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?:(?P<chapter3b>\\d{1,2})-(?P<section3b>\\d{3,4}[A-Z]{0,2})|(?P<section2>\\d{3,4}[A-Z]{0,2}))(?!\\d)(?:\\([0-9a-z]+\\))*,?\\s+(?:of\\s+the\\s+)?Idaho\\s+Code|chapter\\s+(?P<chapter4>\\d{1,3}[A-Z]?),\\s*title\\s+(?P<title4>\\d{1,2}),\\s*Idaho\\s+Code",
+          "context_required": false
         },
         {
           "label": "Idaho Session Laws",
-          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Idaho\\s+Sess\\.\\s*Laws(?:\\s+ch\\.\\s*(?P<chapter>\\d+)|\\s+(?P<page>\\d+))|am\\.\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter2>\\d+)"
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Idaho\\s+Sess\\.\\s*Laws(?:\\s+ch\\.\\s*(?P<chapter>\\d+)|\\s+(?P<page>\\d+))|am\\.\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter2>\\d+)",
+          "context_required": false
         },
         {
           "label": "Idaho Constitution",
-          "regex": "Idaho\\s+Const\\.?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.?)\\s*(?P<section>\\d+[A-Za-z]?)|Art(?:icle|\\.)\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|sec\\.?|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?),?\\s+(?:of\\s+the\\s+)?Idaho\\s+Constitution"
+          "regex": "Idaho\\s+Const\\.?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.?)\\s*(?P<section>\\d+[A-Za-z]?)|Art(?:icle|\\.)\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|sec\\.?|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?),?\\s+(?:of\\s+the\\s+)?Idaho\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Idaho court rules (I.R.C.P., I.A.R., I.R.E., I.C.R., I.C.A.R., I.R.F.L.P., I.M.C.R., I.J.R., I.I.R., I.R.E.F.S.)",
-          "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule|Idaho\\s+Rules?\\s+of\\s+(?:Evidence|Civil\\s+Procedure|Criminal\\s+Procedure|Appellate\\s+Procedure)(?:\\s+Rule)?)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)"
+          "regex": "(?P<set>I\\.?\\s?R\\.?\\s?C\\.?\\s?P\\.?|I\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?(?!F)|I\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?C\\.?\\s?A\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?F\\.?\\s?L\\.?\\s?P\\.?|I\\.?\\s?M\\.?\\s?C\\.?\\s?R\\.?|I\\.?\\s?J\\.?\\s?R\\.?|I\\.?\\s?I\\.?\\s?R\\.?|I\\.?\\s?R\\.?\\s?E\\.?\\s?F\\.?\\s?S\\.?|Idaho\\s+R\\.\\s*(?:Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P)\\.|Idaho\\s+Crim\\.\\s*R\\.|Idaho\\s+(?:Appellate|Criminal|Evidence|Civil\\s+Procedure)\\s+Rule|Idaho\\s+Rules?\\s+of\\s+(?:Evidence|Civil\\s+Procedure|Criminal\\s+Procedure|Appellate\\s+Procedure)(?:\\s+Rule)?)\\s*(?P<rule>\\d{1,4}(?:\\.\\d+)?)(?![\\d.]\\d)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d+)?)(?:\\([0-9a-zA-Z]+\\))*\\s+of\\s+the\\s+Idaho\\s+(?P<setname>Rules\\s+of\\s+Civil\\s+Procedure|Appellate\\s+Rules|Rules\\s+of\\s+Evidence|Criminal\\s+Rules|Court\\s+Administrative\\s+Rules|Rules\\s+of\\s+Family\\s+Law\\s+Procedure)",
+          "context_required": false
         },
         {
           "label": "Idaho Rules of Professional Conduct",
-          "regex": "(?:I\\.?\\s?R\\.?\\s?P\\.?\\s?C\\.?|Idaho\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Idaho\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "(?:I\\.?\\s?R\\.?\\s?P\\.?\\s?C\\.?|Idaho\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?:Rule\\s+)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Idaho\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "IDAPA (Idaho Administrative Code)",
-          "regex": "(?:IDAPA|Idaho\\s+Admin\\.\\s*Code\\s+r\\.)\\s*(?P<agency>\\d{2})\\.(?P<title>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<section>\\d{3}))?(?:\\.(?P<subsection>\\d{2}))?"
+          "regex": "(?:IDAPA|Idaho\\s+Admin\\.\\s*Code\\s+r\\.)\\s*(?P<agency>\\d{2})\\.(?P<title>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<section>\\d{3}))?(?:\\.(?P<subsection>\\d{2}))?",
+          "context_required": false
         },
         {
           "label": "Idaho Administrative Bulletin",
-          "regex": "(?:Idaho\\s+Admin(?:\\.|istrative)\\s*Bull(?:\\.|etin),?\\s*Vol\\.\\s*(?P<yy>\\d{2})-(?P<issue>\\d{1,2})|Vol\\.\\s*(?P<yy2>\\d{2})-(?P<issue2>\\d{1,2}),?\\s+Idaho\\s+Admin\\.\\s*Bull\\.)(?:,?\\s*p\\.\\s*(?P<page>\\d+))?"
+          "regex": "(?:Idaho\\s+Admin(?:\\.|istrative)\\s*Bull(?:\\.|etin),?\\s*Vol\\.\\s*(?P<yy>\\d{2})-(?P<issue>\\d{1,2})|Vol\\.\\s*(?P<yy2>\\d{2})-(?P<issue2>\\d{1,2}),?\\s+Idaho\\s+Admin\\.\\s*Bull\\.)(?:,?\\s*p\\.\\s*(?P<page>\\d+))?",
+          "context_required": false
         },
         {
           "label": "Reported Idaho cases (Idaho Reports / Pacific Reporter)",
-          "regex": "(?P<idvol>\\d{1,3})\\s+Idaho\\s+(?P<idpage>\\d{1,4})(?:,\\s*\\d+)?(?:,\\s*(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage>\\d{1,5}))?|(?P<pvol2>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage2>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Idaho(?:\\s+Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<idvol>\\d{1,3})\\s+Idaho\\s+(?P<idpage>\\d{1,4})(?:,\\s*\\d+)?(?:,\\s*(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage>\\d{1,5}))?|(?P<pvol2>\\d{1,4})\\s+P\\.(?:\\s*[23]d)?\\s+(?P<ppage2>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Idaho(?:\\s+Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Unpublished / slip opinions by docket number",
-          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?:-(?P<year>(?:19|20)\\d\\d))?|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)[^()]{0,30}\\(Idaho"
+          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?:-(?P<year>(?:19|20)\\d\\d))?|(?P<wlyear>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)[^()]{0,30}\\(Idaho",
+          "context_required": false
         }
       ]
     },
@@ -494,47 +588,58 @@
       "citation_patterns": [
         {
           "label": "Illinois Compiled Statutes (ILCS)",
-          "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act|Wrongful\\s+Death\\s+Act|Survival\\s+Act|(?:Local\\s+Governmental\\s+and\\s+Governmental\\s+Employees\\s+)?Tort\\s+Immunity\\s+Act|Joint\\s+Tortfeasor\\s+Contribution\\s+Act|Illinois\\s+Wage\\s+Payment\\s+and\\s+Collection\\s+Act|Juvenile\\s+Court\\s+Act\\s+of\\s+1987|Condominium\\s+Property\\s+Act|Eviction\\s+Act|Illinois\\s+Insurance\\s+Code|Business\\s+Corporation\\s+Act\\s+of\\s+1983|Limited\\s+Liability\\s+Company\\s+Act|Open\\s+Meetings\\s+Act|Mental\\s+Health\\s+and\\s+Developmental\\s+Disabilities\\s+Code)"
+          "regex": "(?P<chapter>\\d{1,3})\\s+(?:ILCS|Ill\\.\\s*Comp\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?P<act>\\d{1,4})\\s*/\\s*(?P<section>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?[A-Za-z]?(?:-\\d+(?:\\.\\d+)?[A-Za-z]?)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?P<act_name>Code\\s+of\\s+Civil\\s+Procedure|Code\\s+of\\s+Criminal\\s+Procedure\\s+of\\s+1963|Criminal\\s+Code\\s+of\\s+2012|Consumer\\s+Fraud\\s+and\\s+Deceptive\\s+Business\\s+Practices\\s+Act|Consumer\\s+Fraud\\s+Act|Illinois\\s+Marriage\\s+and\\s+Dissolution\\s+of\\s+Marriage\\s+Act|Illinois\\s+Vehicle\\s+Code|Illinois\\s+Human\\s+Rights\\s+Act|Biometric\\s+Information\\s+Privacy\\s+Act|Workers'\\s+Compensation\\s+Act|Illinois\\s+Pension\\s+Code|Probate\\s+Act\\s+of\\s+1975|Unified\\s+Code\\s+of\\s+Corrections|Freedom\\s+of\\s+Information\\s+Act|Wrongful\\s+Death\\s+Act|Survival\\s+Act|(?:Local\\s+Governmental\\s+and\\s+Governmental\\s+Employees\\s+)?Tort\\s+Immunity\\s+Act|Joint\\s+Tortfeasor\\s+Contribution\\s+Act|Illinois\\s+Wage\\s+Payment\\s+and\\s+Collection\\s+Act|Juvenile\\s+Court\\s+Act\\s+of\\s+1987|Condominium\\s+Property\\s+Act|Eviction\\s+Act|Illinois\\s+Insurance\\s+Code|Business\\s+Corporation\\s+Act\\s+of\\s+1983|Limited\\s+Liability\\s+Company\\s+Act|Open\\s+Meetings\\s+Act|Mental\\s+Health\\s+and\\s+Developmental\\s+Disabilities\\s+Code)",
+          "context_required": false
         },
         {
           "label": "Illinois Constitution of 1970",
-          "regex": "Ill\\.\\s*Const\\.\\s*(?:\\(?1970\\)?,?\\s*)?art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+(?:\\.\\d+)?)|article\\s+(?P<article2>[IVX]+),\\s+section\\s+(?P<section2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Illinois\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Illinois)"
+          "regex": "Ill\\.\\s*Const\\.\\s*(?:\\(?1970\\)?,?\\s*)?art\\.\\s*(?P<article>[IVX]+),?\\s*\u00a7\\s*(?P<section>\\d+(?:\\.\\d+)?)|article\\s+(?P<article2>[IVX]+),\\s+section\\s+(?P<section2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Illinois\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Illinois)",
+          "context_required": false
         },
         {
           "label": "Illinois Supreme Court Rules",
-          "regex": "Ill\\.\\s*S(?:up)?\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Illinois\\s+Supreme\\s+Court\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Supreme\\s+Court\\s+Rules"
+          "regex": "Ill\\.\\s*S(?:up)?\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Illinois\\s+Supreme\\s+Court\\s+Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Supreme\\s+Court\\s+Rules",
+          "context_required": false
         },
         {
           "label": "Illinois Rules of Professional Conduct of 2010",
-          "regex": "Ill\\.\\s*R\\.\\s*Prof(?:'|\u2019)?l\\.?\\s*Conduct\\s*(?:\\(2010\\)\\s*)?R\\.\\s*(?P<rule>\\d\\.\\d+[a-z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[a-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "Ill\\.\\s*R\\.\\s*Prof(?:'|\u2019)?l\\.?\\s*Conduct\\s*(?:\\(2010\\)\\s*)?R\\.\\s*(?P<rule>\\d\\.\\d+[a-z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[a-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "Illinois Rules of Evidence",
-          "regex": "Ill\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Illinois\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Evidence"
+          "regex": "Ill\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Illinois\\s+Rules?\\s+of\\s+Evidence\\s+(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Illinois\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Illinois Administrative Code",
-          "regex": "(?P<title>\\d{1,2})\\s+Ill\\.\\s*Adm(?:in)?\\.\\s*Code\\s*(?:\u00a7+\\s*)?(?P<section>\\d{3,4}\\.\\d+[a-z]?)|Ill\\.\\s*Admin\\.\\s*Code\\s+tit\\.\\s*(?P<title2>\\d{1,2}),\\s*\u00a7+\\s*(?P<section2>\\d{3,4}\\.\\d+[a-z]?)"
+          "regex": "(?P<title>\\d{1,2})\\s+Ill\\.\\s*Adm(?:in)?\\.\\s*Code\\s*(?:\u00a7+\\s*)?(?P<section>\\d{3,4}\\.\\d+[a-z]?)|Ill\\.\\s*Admin\\.\\s*Code\\s+tit\\.\\s*(?P<title2>\\d{1,2}),\\s*\u00a7+\\s*(?P<section2>\\d{3,4}\\.\\d+[a-z]?)",
+          "context_required": false
         },
         {
           "label": "Illinois Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+Ill\\.\\s*Reg\\.\\s*(?P<page>\\d{1,3},\\d{3}|\\d+)"
+          "regex": "(?P<volume>\\d{1,2})\\s+Ill\\.\\s*Reg\\.\\s*(?P<page>\\d{1,3},\\d{3}|\\d+)",
+          "context_required": false
         },
         {
           "label": "Public-domain citations (Ill. S. Ct. R. 6, from July 1, 2011)",
-          "regex": "(?P<year>(?:20)\\d\\d)\\s+IL\\s+(?:App\\s+\\((?P<district>1st|2d|3d|4th|5th)\\)\\s+)?(?P<number>\\d{6})(?P<wc>WC)?(?:-(?P<suffix>U[BC]?|B|C))?(?:,\\s*\u00b6\u00b6?\\s*(?P<para>\\d+))?"
+          "regex": "(?P<year>(?:20)\\d\\d)\\s+IL\\s+(?:App\\s+\\((?P<district>1st|2d|3d|4th|5th)\\)\\s+)?(?P<number>\\d{6})(?P<wc>WC)?(?:-(?P<suffix>U[BC]?|B|C))?(?:,\\s*\u00b6\u00b6?\\s*(?P<para>\\d+))?",
+          "context_required": false
         },
         {
           "label": "Reporter citations (Ill. 2d, Ill. App. 3d, Ill. Dec., N.E. with Illinois parenthetical)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Ill\\.\\s*(?:(?P<app>App\\.)\\s*)?(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,4})(?![\\d.])|(?P<decvol>\\d{1,3})\\s+Ill\\.\\s*Dec\\.\\s*(?P<decpage>\\d{1,4})|(?P<nevol>\\d{1,4})\\s+N\\.E\\.\\s*(?:[23]d\\s+)?(?P<nepage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?:Ill\\.(?:\\s*App\\.(?:\\s*Ct\\.)?)?)\\s*(?:\\d\\w*\\s*Dist\\.\\s*)?(?P<neyear>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Ill\\.\\s*(?:(?P<app>App\\.)\\s*)?(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,4})(?![\\d.])|(?P<decvol>\\d{1,3})\\s+Ill\\.\\s*Dec\\.\\s*(?P<decpage>\\d{1,4})|(?P<nevol>\\d{1,4})\\s+N\\.E\\.\\s*(?:[23]d\\s+)?(?P<nepage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?:Ill\\.(?:\\s*App\\.(?:\\s*Ct\\.)?)?)\\s*(?:\\d\\w*\\s*Dist\\.\\s*)?(?P<neyear>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Appellate Court docket numbers",
-          "regex": "\\bNos?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<suffix>WC|[A-Z])?\\b"
+          "regex": "\\bNos?\\.\\s*(?P<district>[1-5])-(?P<yy>\\d{2})-(?P<seq>\\d{4})(?P<suffix>WC|[A-Z])?\\b",
+          "context_required": false
         },
         {
           "label": "Westlaw cites with Illinois parenthetical",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ill\\."
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Ill\\.",
+          "context_required": false
         }
       ]
     },
@@ -551,63 +656,78 @@
       "citation_patterns": [
         {
           "label": "Massachusetts General Laws",
-          "regex": "(?:(?:M\\.\\s?G\\.\\s?L\\.?|MGL|G\\.\\s?L\\.|ALM\\s+GL|Mass\\.\\s*Gen\\.\\s*Laws(?:\\s+Ann\\.)?|Mass\\.\\s*Ann\\.\\s*Laws)\\s*(?:c|ch|chapter)\\.?\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\s*,?\\s*(?:\u00a7\u00a7?|s\\.|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,3}[A-Z]{0,3}(?:\u00bd|1/2)?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,3}[A-Z]{0,3})(?:\\([a-z0-9]+\\))*\\s+of\\s+chapter\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2}),?\\s+(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,3}[A-Z]{0,3})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws)"
+          "regex": "(?:(?:M\\.\\s?G\\.\\s?L\\.?|MGL|G\\.\\s?L\\.|ALM\\s+GL|Mass\\.\\s*Gen\\.\\s*Laws(?:\\s+Ann\\.)?|Mass\\.\\s*Ann\\.\\s*Laws)\\s*(?:c|ch|chapter)\\.?\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\s*,?\\s*(?:\u00a7\u00a7?|s\\.|sec(?:tion|\\.)?)\\s*(?P<section>\\d{1,3}[A-Z]{0,3}(?:\u00bd|1/2)?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,3}[A-Z]{0,3})(?:\\([a-z0-9]+\\))*\\s+of\\s+chapter\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2}),?\\s+(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,3}[A-Z]{0,3})\\s+of\\s+the\\s+(?:Massachusetts\\s+)?General\\s+Laws)",
+          "context_required": false
         },
         {
           "label": "Massachusetts Session Laws (Acts / St.)",
-          "regex": "(?:\\bSt\\.|\\bStat\\.|\\bActs\\s+(?:of\\s+)?)\\s*(?P<year>1[6-9]\\d{2}|20\\d{2}),?\\s*(?:c\\.|ch\\.|chapter)\\s*(?P<chapter>\\d+)"
+          "regex": "(?:\\bSt\\.|\\bStat\\.|\\bActs\\s+(?:of\\s+)?)\\s*(?P<year>1[6-9]\\d{2}|20\\d{2}),?\\s*(?:c\\.|ch\\.|chapter)\\s*(?P<chapter>\\d+)",
+          "context_required": false
         },
         {
           "label": "Massachusetts Constitution",
-          "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:\u00a7\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution|art(?:icle|\\.)?\\s*(?P<article5>[0-9IVXLC]+)\\s+of\\s+the\\s+Declaration\\s+of\\s+Rights\\s+of\\s+the\\s+(?:Massachusetts\\s+Constitution|Constitution\\s+of\\s+the\\s+Commonwealth)"
+          "regex": "Mass\\.\\s*Const\\.\\s*(?:pt\\.\\s*(?P<part>1|2|I{1,2}),?\\s*)?(?:(?:c\\.|ch\\.)\\s*(?P<chapter>[0-9IVX]+),?\\s*(?:\u00a7\\s*(?P<csection>[0-9IVX]+),?\\s*)?)?(?:amend\\.\\s*)?art\\.\\s*(?P<article>[0-9IVXLC]+)|art(?:icle|\\.)?\\s*(?P<article2>[0-9IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Declaration\\s+of\\s+Rights|art(?:icle|\\.)?\\s*(?P<article3>[0-9IVXLC]+)\\s+of\\s+the\\s+Amendments\\s+to\\s+the\\s+Massachusetts\\s+Constitution|Part\\s+the\\s+First,?\\s+Article\\s+(?P<article4>[IVXLC]+)\\s+of\\s+the\\s+Massachusetts\\s+Constitution|art(?:icle|\\.)?\\s*(?P<article5>[0-9IVXLC]+)\\s+of\\s+the\\s+Declaration\\s+of\\s+Rights\\s+of\\s+the\\s+(?:Massachusetts\\s+Constitution|Constitution\\s+of\\s+the\\s+Commonwealth)",
+          "context_required": false
         },
         {
           "label": "Massachusetts Rules of Civil Procedure",
-          "regex": "Mass\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "Mass\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Massachusetts Rules of Criminal Procedure",
-          "regex": "Mass\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "Mass\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Massachusetts Rules of Appellate Procedure",
-          "regex": "Mass\\.\\s*R\\.\\s*A(?:pp)?\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "Mass\\.\\s*R\\.\\s*A(?:pp)?\\.\\s*P\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Rules of the Supreme Judicial Court (incl. Rules of Professional Conduct, SJC Rule 3:07)",
-          "regex": "(?:S\\.\\s?J\\.\\s?C\\.|SJC|Supreme\\s+Judicial\\s+Court)\\s+Rule\\s+(?P<rule>\\d:\\d{2}[A-Z]?)|Mass\\.\\s*R\\.\\s*Prof\\.\\s*C(?:onduct)?\\.\\s*(?P<rpc>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d:\\d{2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Supreme\\s+Judicial\\s+Court"
+          "regex": "(?:S\\.\\s?J\\.\\s?C\\.|SJC|Supreme\\s+Judicial\\s+Court)\\s+Rule\\s+(?P<rule>\\d:\\d{2}[A-Z]?)|Mass\\.\\s*R\\.\\s*Prof\\.\\s*C(?:onduct)?\\.\\s*(?P<rpc>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d:\\d{2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Supreme\\s+Judicial\\s+Court",
+          "context_required": false
         },
         {
           "label": "Appeals Court Rules (incl. Rule 23.0, formerly 1:28)",
-          "regex": "(?:Mass\\.\\s*App\\.\\s*Ct\\.\\s*R\\.|Appeals\\s+Court\\s+Rule|M\\.A\\.C\\.\\s+Rule)\\s*(?P<rule>\\d{1,2}\\.\\d|1:\\d{2})|(?:rule|Rule)\\s+(?P<rule2>1:28|23\\.0)\\b"
+          "regex": "(?:Mass\\.\\s*App\\.\\s*Ct\\.\\s*R\\.|Appeals\\s+Court\\s+Rule|M\\.A\\.C\\.\\s+Rule)\\s*(?P<rule>\\d{1,2}\\.\\d|1:\\d{2})|(?:rule|Rule)\\s+(?P<rule2>1:28|23\\.0)\\b",
+          "context_required": false
         },
         {
           "label": "Superior Court Rules",
-          "regex": "(?:Super(?:ior)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Superior\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,2}[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Superior\\s+Court(?:\\s+Rules)?"
+          "regex": "(?:Super(?:ior)?\\.?\\s*Ct\\.?\\s*R(?:ule)?\\.?|Superior\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,2}[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}[A-Z]?)\\s+of\\s+the\\s+(?:Rules\\s+of\\s+the\\s+)?Superior\\s+Court(?:\\s+Rules)?",
+          "context_required": false
         },
         {
           "label": "Massachusetts Guide to Evidence",
-          "regex": "Mass\\.\\s*G(?:uide|\\.)\\s*Evid\\.\\s*\u00a7\\s*(?P<section>\\d{3,4})|(?:Section|\u00a7)\\s*(?P<section2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Guide\\s+to\\s+Evidence"
+          "regex": "Mass\\.\\s*G(?:uide|\\.)\\s*Evid\\.\\s*\u00a7\\s*(?P<section>\\d{3,4})|(?:Section|\u00a7)\\s*(?P<section2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Massachusetts\\s+Guide\\s+to\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Code of Massachusetts Regulations",
-          "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|(?:Mass\\.\\s+)?Code\\s+Mass\\.\\s+Regs\\.|Mass\\.\\s+Code\\s+Regs\\.)\\s*(?:\u00a7\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})"
+          "regex": "(?P<title>\\d{3})\\s*(?:CMR|C\\.M\\.R\\.|(?:Mass\\.\\s+)?Code\\s+Mass\\.\\s+Regs\\.|Mass\\.\\s+Code\\s+Regs\\.)\\s*(?:\u00a7\\s*)?(?P<part>\\d{1,3})\\.(?P<section>\\d{2,3})",
+          "context_required": false
         },
         {
           "label": "Massachusetts Register",
-          "regex": "(?:Mass\\.|Massachusetts)\\s*Reg(?:ister|\\.)\\s*(?:#|No\\.\\s*|Issue\\s*)\\s*(?P<issue>\\d{3,4})"
+          "regex": "(?:Mass\\.|Massachusetts)\\s*Reg(?:ister|\\.)\\s*(?:#|No\\.\\s*|Issue\\s*)\\s*(?P<issue>\\d{3,4})",
+          "context_required": false
         },
         {
           "label": "Massachusetts Reports / Appeals Court Reports / N.E. with Mass. parenthetical",
-          "regex": "(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?!App\\.\\s*D)(?P<app>App\\.\\s+Ct\\.\\s+)?(?P<page>\\d{1,4})\\b|(?P<nevol>\\d{1,3})\\s+N\\.E\\.(?:2d|3d)?\\s+(?P<nepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<ct>Mass\\.(?:\\s+App\\.(?:\\s+Ct\\.)?)?)\\s*\\d{4}\\)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?!App\\.\\s*D)(?P<app>App\\.\\s+Ct\\.\\s+)?(?P<page>\\d{1,4})\\b|(?P<nevol>\\d{1,3})\\s+N\\.E\\.(?:2d|3d)?\\s+(?P<nepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<ct>Mass\\.(?:\\s+App\\.(?:\\s+Ct\\.)?)?)\\s*\\d{4}\\)",
+          "context_required": false
         },
         {
           "label": "Massachusetts appellate docket numbers (SJC-, FAR-, YY-P-, YY-J-)",
-          "regex": "\\b(?P<sjc>SJC-\\d{4,5})\\b|\\b(?P<far>FAR-\\d{4,5})\\b|\\b(?P<ac>(?:19|20)?\\d{2}-[PJ]-\\d{1,4})\\b"
+          "regex": "\\b(?P<sjc>SJC-\\d{4,5})\\b|\\b(?P<far>FAR-\\d{4,5})\\b|\\b(?P<ac>(?:19|20)?\\d{2}-[PJ]-\\d{1,4})\\b",
+          "context_required": false
         },
         {
           "label": "Further appellate review dispositions",
-          "regex": "further\\s+appellate\\s+review\\s+(?P<disp>denied|granted|allowed)(?:,\\s*(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?P<page>\\d{1,4}))?"
+          "regex": "further\\s+appellate\\s+review\\s+(?P<disp>denied|granted|allowed)(?:,\\s*(?P<volume>\\d{1,3})\\s+Mass\\.\\s+(?P<page>\\d{1,4}))?",
+          "context_required": false
         }
       ]
     },
@@ -624,43 +744,53 @@
       "citation_patterns": [
         {
           "label": "Annotated Code of Maryland (articles)",
-          "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Crim\\.\\s*Proc\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Utils\\.|Pub\\.\\s*Safety|Local\\s*Gov['\u2019]t|Hum\\.\\s*Servs\\.|Local\\s*Gov['\u2019]t|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*Occ\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Util\\.|Econ\\.\\s*Dev\\.|Real\\s*Prop\\.|Gen\\.\\s*Prov\\.|Fin\\.\\s*Inst\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Alc\\.\\s*Bev\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Nat\\.\\s*Res\\.|Elec\\.\\s*Law|Crim\\.\\s*Law|Bus\\.\\s*Reg\\.|Land\\s*Use|Tax\\s*[-\u2013]\\s*Gen\\.|Fam\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Com\\.\\s*Law|Transp\\.|Envir\\.|Agric\\.|Educ\\.|Env['\u2019]t|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|SFP|HCD|CJP|BOP|PUA|CL|CS|CA|EC|AG|FI|BR|ET|CP|CR|SF|HS|PU|FL|CJ|LU|AB|IN|LG|NR|HG|TP|RP|ED|GP|HO|SG|EN|TG|SP|PS|HU|EL|TR|LE|BO)\\b))\\s*\u00a7+\\s*(?P<section2>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:\u00a7+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))\\s+Article"
+          "regex": "(?:Md\\.\\s*Code(?:\\s*Ann\\.)?,?\\s*(?:\\([^)]*\\),?\\s*)?)?(?P<article>(?:Alc\\.\\s*Bev\\.\\s*(?:&|and)\\s*Cannabis|State\\s*Pers\\.\\s*(?:&|and)\\s*Pens\\.|State\\s*Fin\\.\\s*(?:&|and)\\s*Proc\\.|Hous\\.\\s*(?:&|and)\\s*Cmty\\.\\s*Dev\\.|Bus\\.\\s*Occ\\.\\s*(?:&|and)\\s*Prof\\.|Cts\\.\\s*(?:&|and)\\s*Jud\\.\\s*Proc\\.|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Corps\\.\\s*(?:&|and)\\s*Ass['\u2019]ns|Est\\.\\s*(?:&|and)\\s*Trusts|Gen\\.\\s*Provis\\.|Lab\\.\\s*(?:&|and)\\s*Empl\\.|Corr\\.\\s*Servs\\.|Crim\\.\\s*Proc\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Utils\\.|Pub\\.\\s*Safety|Local\\s*Gov['\u2019]t|Hum\\.\\s*Servs\\.|Local\\s*Gov['\u2019]t|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*[-\u2013]\\s*Gen\\.|Health\\s*Occ\\.|State\\s*Gov['\u2019]t|Pub\\.\\s*Util\\.|Econ\\.\\s*Dev\\.|Real\\s*Prop\\.|Gen\\.\\s*Prov\\.|Fin\\.\\s*Inst\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Alc\\.\\s*Bev\\.|Tax\\s*[-\u2013]\\s*Prop\\.|Nat\\.\\s*Res\\.|Elec\\.\\s*Law|Crim\\.\\s*Law|Bus\\.\\s*Reg\\.|Land\\s*Use|Tax\\s*[-\u2013]\\s*Gen\\.|Fam\\.\\s*Law|Tax\\s*[-\u2013]\\s*Gen\\.|Com\\.\\s*Law|Transp\\.|Envir\\.|Agric\\.|Educ\\.|Env['\u2019]t|Ins\\.)|(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))(?:\\s+Article)?,?\\s*(?:\\(\\W*[A-Z]{2,3}\\W*\\)\\s*)?\u00a7+\\s*(?P<section>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?P<article2>(?-i:\\b(?:SPP|SFP|HCD|CJP|BOP|PUA|CL|CS|CA|EC|AG|FI|BR|ET|CP|CR|SF|HS|PU|FL|CJ|LU|AB|IN|LG|NR|HG|TP|RP|ED|GP|HO|SG|EN|TG|SP|PS|HU|EL|TR|LE|BO)\\b))\\s*\u00a7+\\s*(?P<section2>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)|(?:\u00a7+|[Ss]ec(?:tion|\\.))\\s*(?P<section3>\\d+[A-Z]?[-\u2013](?:\\d+[A-Z][-\u2013])?\\d+(?:\\.\\d+)?[A-Z]?)(?:\\([A-Za-z0-9]+\\))*(?:\\s*et\\s+seq\\.)?\\s+of\\s+the\\s+(?:Maryland\\s+Code,?\\s+)?(?P<article3>(?:Business\\s*Occupations\\s*(?:&|and)\\s*Professions|Housing\\s*(?:&|and)\\s*Community\\s*Development|Alcoholic\\s*Beverages\\s*(?:&|and)\\s*Cannabis|Courts\\s*(?:&|and)\\s*Judicial\\s*Proceedings|State\\s*Finance\\s*(?:&|and)\\s*Procurement|Corporations\\s*(?:&|and)\\s*Associations|State\\s*Personnel\\s*(?:&|and)\\s*Pensions|Financial\\s*Institutions|Correctional\\s*Services|Labor\\s*(?:&|and)\\s*Employment|Economic\\s*Development|Alcoholic\\s*Beverages|Business\\s*Regulation|Criminal\\s*Procedure|Estates\\s*(?:&|and)\\s*Trusts|Health\\s*Occupations|General\\s*Provisions|Natural\\s*Resources|State\\s*Government|Public\\s*Utilities|Health\\s*\\s*[-\u2013]\\s*\\s*General|Local\\s*Government|Commercial\\s*Law|Human\\s*Services|Health\\s*General|Tax\\s*\\s*[-\u2013]\\s*\\s*Property|Health\\s*[-\u2013]\\s*General|Transportation|Public\\s*Safety|Tax\\s*\\s*[-\u2013]\\s*\\s*General|Real\\s*Property|Criminal\\s*Law|Tax\\s*[-\u2013]\\s*Property|Election\\s*Law|Tax\\s*Property|Tax\\s*[-\u2013]\\s*General|Agriculture|Environment|Tax\\s*General|Family\\s*Law|Education|Insurance|Land\\s*Use))\\s+Article",
+          "context_required": false
         },
         {
           "label": "Maryland Constitution and Declaration of Rights",
-          "regex": "Md\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-[A-I])?),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Md\\.\\s*(?:Const\\.\\s*)?Decl(?:\\.|aration)\\s*of\\s*R(?:ts|ights)\\.?,?\\s*art\\.\\s*(?P<dr>\\d+)|Article\\s+(?P<dr2>\\d+)\\s+of\\s+the\\s+(?:Maryland\\s+)?Declaration\\s+of\\s+Rights|Article\\s+(?P<article2>[IVXL]+(?:-[A-I])?),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Maryland\\s+Constitution"
+          "regex": "Md\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+(?:-[A-I])?),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Md\\.\\s*(?:Const\\.\\s*)?Decl(?:\\.|aration)\\s*of\\s*R(?:ts|ights)\\.?,?\\s*art\\.\\s*(?P<dr>\\d+)|Article\\s+(?P<dr2>\\d+)\\s+of\\s+the\\s+(?:Maryland\\s+)?Declaration\\s+of\\s+Rights|Article\\s+(?P<article2>[IVXL]+(?:-[A-I])?),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Maryland\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Maryland Rules",
-          "regex": "(?:Md\\.\\s*Rules?|Maryland\\s+Rules?(?:\\s+of\\s+Procedure)?)\\s*(?P<rule>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Maryland\\s+Rules|MARPC\\s*(?:Rule\\s*)?(?P<marpc>\\d\\.\\d+)|Md\\.\\s*Rule\\s*(?P<marpc2>19-30\\d\\.\\d+)"
+          "regex": "(?:Md\\.\\s*Rules?|Maryland\\s+Rules?(?:\\s+of\\s+Procedure)?)\\s*(?P<rule>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d{1,2}-\\s?\\d{3}(?:\\.\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Maryland\\s+Rules|MARPC\\s*(?:Rule\\s*)?(?P<marpc>\\d\\.\\d+)|Md\\.\\s*Rule\\s*(?P<marpc2>19-30\\d\\.\\d+)",
+          "context_required": false
         },
         {
           "label": "Code of Maryland Regulations (COMAR)",
-          "regex": "(?:COMAR|Md\\.\\s*Code\\s*Regs\\.)\\s*(?P<title>\\d{2}[A-Z]?)\\.(?P<subtitle>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<regulation>\\d{2}(?:-\\d+[A-Z]?)?))?"
+          "regex": "(?:COMAR|Md\\.\\s*Code\\s*Regs\\.)\\s*(?P<title>\\d{2}[A-Z]?)\\.(?P<subtitle>\\d{2})\\.(?P<chapter>\\d{2})(?:\\.(?P<regulation>\\d{2}(?:-\\d+[A-Z]?)?))?",
+          "context_required": false
         },
         {
           "label": "Maryland Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+Md\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?P<volume2>\\d{1,2}):(?P<issue>\\d{1,2})\\s+Md\\.\\s*R\\.\\s*(?P<page2>\\d+)"
+          "regex": "(?P<volume>\\d{1,2})\\s+Md\\.\\s*Reg\\.\\s*(?P<page>\\d+)|(?P<volume2>\\d{1,2}):(?P<issue>\\d{1,2})\\s+Md\\.\\s*R\\.\\s*(?P<page2>\\d+)",
+          "context_required": false
         },
         {
           "label": "Reported Maryland cases (Md. / Md. App.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Md\\.(?:\\s*(?P<app>App\\.))?\\s+(?P<page>\\d{1,4})(?!\\d)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Md\\.(?:\\s*(?P<app>App\\.))?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Atlantic Reporter with Maryland parenthetical",
-          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Maryland appellate docket form (No. N, September Term, YYYY) - reported and unreported",
-          "regex": "(?:(?:Misc\\.|AG|Pet\\.)\\s*)?Nos?\\.\\s*(?P<number>\\d{1,4})(?:\\s*(?:,|and|&)\\s*\\d{1,4})*,?\\s*Sept(?:ember|\\.)?\\s*Term,?\\s*(?P<term>(?:19|20)\\d\\d)"
+          "regex": "(?:(?:Misc\\.|AG|Pet\\.)\\s*)?Nos?\\.\\s*(?P<number>\\d{1,4})(?:\\s*(?:,|and|&)\\s*\\d{1,4})*,?\\s*Sept(?:ember|\\.)?\\s*Term,?\\s*(?P<term>(?:19|20)\\d\\d)",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)|Md\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\((?P<court>Md\\.(?:\\s*(?:Ct\\.\\s*Spec\\.\\s*)?App\\.)?)|Md\\.\\s*(?:(?P<lexapp>App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         },
         {
           "label": "Certiorari dispositions",
-          "regex": "cert\\.\\s*(?P<disp>denied|granted|dismissed)(?:\\s+as\\s+improvidently\\s+granted)?,?\\s*(?:(?P<volume>\\d{1,3}|_+)\\s+Md\\.\\s+(?P<page>\\d{1,4}|_+)|No\\.\\s*(?P<number>\\d+))"
+          "regex": "cert\\.\\s*(?P<disp>denied|granted|dismissed)(?:\\s+as\\s+improvidently\\s+granted)?,?\\s*(?:(?P<volume>\\d{1,3}|_+)\\s+Md\\.\\s+(?P<page>\\d{1,4}|_+)|No\\.\\s*(?P<number>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -676,59 +806,73 @@
       "citation_patterns": [
         {
           "label": "Minnesota Statutes",
-          "regex": "(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?|M\\.\\s*S\\.\\s*A\\.?)\\s*(?:(?:19|20)\\d\\d,?\\s*)?(?:\u00a7\u00a7?|sec(?:tion|s?\\.)|,\\s*sections?)\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)|(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?)\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)(?:,\\s*subd(?:ivision|\\.)\\s*\\d+[a-z]?)?(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?Minnesota\\s+Statutes"
+          "regex": "(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?|M\\.\\s*S\\.\\s*A\\.?)\\s*(?:(?:19|20)\\d\\d,?\\s*)?(?:\u00a7\u00a7?|sec(?:tion|s?\\.)|,\\s*sections?)\\s*(?P<section>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)|(?:Minn(?:esota)?\\.?\\s*Stat(?:utes)?\\.?(?:\\s+Ann\\.)?)\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s*(?P<section2>\\d{1,3}[A-Z]{0,2}\\.\\d+[A-Za-z]?(?:-\\d+(?!\\d)(?!\\.\\d))?)(?:,\\s*subd(?:ivision|\\.)\\s*\\d+[a-z]?)?(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?Minnesota\\s+Statutes",
+          "context_required": false
         },
         {
           "label": "Minnesota Session Laws",
-          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Minn\\.\\s*Laws\\s+(?:\\d(?:st|nd|rd|th)\\s+Spec\\.\\s*Sess\\.\\s+)?ch\\.\\s*(?P<chapter>\\d+)|Laws\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:First\\s+Special\\s+Session\\s+)?chapter\\s+(?P<chapter2>\\d+)|\\b(?P<year3>(?:18|19|20)\\d\\d)\\s+c\\s+(?P<chapter3>\\d+)(?:\\s+art\\s+\\d+)?\\s+s\\s+\\d+"
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Minn\\.\\s*Laws\\s+(?:\\d(?:st|nd|rd|th)\\s+Spec\\.\\s*Sess\\.\\s+)?ch\\.\\s*(?P<chapter>\\d+)|Laws\\s+(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:First\\s+Special\\s+Session\\s+)?chapter\\s+(?P<chapter2>\\d+)|\\b(?P<year3>(?:18|19|20)\\d\\d)\\s+c\\s+(?P<chapter3>\\d+)(?:\\s+art\\s+\\d+)?\\s+s\\s+\\d+",
+          "context_required": false
         },
         {
           "label": "Minnesota Constitution",
-          "regex": "Minn\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Minnesota\\s+Constitution|Minnesota\\s+Constitution,?\\s+article\\s+(?P<article3>[IVXL]+),?\\s+section\\s+(?P<section3>\\d+[a-z]?)"
+          "regex": "Minn\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Minnesota\\s+Constitution|Minnesota\\s+Constitution,?\\s+article\\s+(?P<article3>[IVXL]+),?\\s+section\\s+(?P<section3>\\d+[a-z]?)",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules of Civil Procedure",
-          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,3})(?:\\.(?P<sub>\\d+))?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d{1,3})(?:\\.(?P<sub>\\d+))?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules of Evidence",
-          "regex": "Minn\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Evidence"
+          "regex": "Minn\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules of Civil Appellate Procedure",
-          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{3})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure"
+          "regex": "Minn\\.\\s*R\\.\\s*Civ\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d{3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{3})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Civil\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules of Criminal Procedure",
-          "regex": "Minn\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,2})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "Minn\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule>\\d{1,2})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,2})(?:\\.\\d+)?\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "General Rules of Practice for the District Courts",
-          "regex": "Minn\\.\\s*Gen\\.\\s*R\\.\\s*Prac\\.\\s*(?P<rule>\\d{1,3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?\\s+of\\s+the\\s+(?:Minnesota\\s+)?General\\s+Rules\\s+of\\s+Practice"
+          "regex": "Minn\\.\\s*Gen\\.\\s*R\\.\\s*Prac\\.\\s*(?P<rule>\\d{1,3})(?:\\.\\d+)?|Rule\\s+(?P<rule2>\\d{1,3})(?:\\.\\d+)?\\s+of\\s+the\\s+(?:Minnesota\\s+)?General\\s+Rules\\s+of\\s+Practice",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules of Professional Conduct",
-          "regex": "(?:Minn\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct|MRPC)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "(?:Minn\\.\\s*R\\.\\s*Prof(?:'l|\\.)?\\s*Conduct|MRPC)\\s*(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Minnesota\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "Minnesota Rules (administrative)",
-          "regex": "Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:pt\\.|part)?\\s*(?P<part>\\d{4}\\.\\d{4})|Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{4})"
+          "regex": "Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:pt\\.|part)?\\s*(?P<part>\\d{4}\\.\\d{4})|Minn(?:esota)?\\.?\\s*R(?:ules)?\\.?,?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d{4})",
+          "context_required": false
         },
         {
           "label": "Minnesota State Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+(?:Minn\\.\\s*Reg\\.|S\\.?R\\.?)\\s+(?P<page>\\d{1,5})"
+          "regex": "(?P<volume>\\d{1,2})\\s+(?:Minn\\.\\s*Reg\\.|S\\.?R\\.?)\\s+(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Reported Minnesota cases (N.W. / Minn.)",
-          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:-\\d+)?)?\\s*\\((?P<court>Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<mvol>\\d{1,3})\\s+Minn\\.\\s+(?P<mpage>\\d{1,4})\\b"
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:-\\d+)?)?\\s*\\((?P<court>Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)|(?P<mvol>\\d{1,3})\\s+Minn\\.\\s+(?P<mpage>\\d{1,4})\\b",
+          "context_required": false
         },
         {
           "label": "Unpublished / nonprecedential Court of Appeals opinions and appellate docket numbers",
-          "regex": "\\b(?P<docket>A(?P<yy>\\d{2})-(?P<num>\\d{1,4}))\\b|\\b(?P<olddocket>C[0-9]-\\d{2}-\\d{1,4})\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?"
+          "regex": "\\b(?P<docket>A(?P<yy>\\d{2})-(?P<num>\\d{1,4}))\\b|\\b(?P<olddocket>C[0-9]-\\d{2}-\\d{1,4})\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Minn\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?",
+          "context_required": false
         },
         {
           "label": "Minnesota Supreme Court review dispositions",
-          "regex": "review\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Minn\\.\\s*(?P<date>[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*(?P<year>\\d{4}))\\)"
+          "regex": "review\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Minn\\.\\s*(?P<date>[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*(?P<year>\\d{4}))\\)",
+          "context_required": false
         }
       ]
     },
@@ -745,67 +889,83 @@
       "citation_patterns": [
         {
           "label": "N.C. Rules of Civil Procedure (G.S. 1A-1)",
-          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?1A-1,?\\s*Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?1A-1,?\\s*Rule\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "N.C. Rules of Evidence (G.S. 8C-1)",
-          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?8C-1,?\\s*Rule\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Evidence"
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule>\\d{3,4})|(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\\s*)?8C-1,?\\s*Rule\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "North Carolina General Statutes",
-          "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina\\s+)?General\\s+Statutes"
+          "regex": "(?:N\\.\\s*C\\.\\s*Gen\\.\\s*Stat\\.(?:\\s*Ann\\.)?|N\\.C\\.G\\.S\\.|\\bG\\.S\\.)\\s*(?:\u00a7\u00a7?\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})-(?P<section>\\d+(?:\\.\\d+)*[A-Za-z]?)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]{0,2})-(?P<section2>\\d+(?:\\.\\d+)*[A-Za-z]?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina\\s+)?General\\s+Statutes",
+          "context_required": false
         },
         {
           "label": "North Carolina Session Laws",
-          "regex": "(?:S\\.L\\.|Session\\s+Law|N\\.C\\.\\s*Sess\\.\\s*Law)\\s*(?P<year>(?:19|20)\\d\\d)-(?P<number>\\d+)|(?P<year2>(?:19|20)\\d\\d)\\s+N\\.C\\.\\s*Sess\\.\\s*Laws\\s*(?:ch\\.\\s*)?(?P<number2>\\d+)"
+          "regex": "(?:S\\.L\\.|Session\\s+Law|N\\.C\\.\\s*Sess\\.\\s*Law)\\s*(?P<year>(?:19|20)\\d\\d)-(?P<number>\\d+)|(?P<year2>(?:19|20)\\d\\d)\\s+N\\.C\\.\\s*Sess\\.\\s*Laws\\s*(?:ch\\.\\s*)?(?P<number2>\\d+)",
+          "context_required": false
         },
         {
           "label": "North Carolina Constitution",
-          "regex": "N\\.\\s*C\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Constitution"
+          "regex": "N\\.\\s*C\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "N.C. Rules of Appellate Procedure",
-          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "N\\.\\s*C\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:North\\s+Carolina|N\\.C\\.)\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "General Rules of Practice for the Superior and District Courts",
-          "regex": "Gen\\.\\s*R\\.\\s*Pract\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|N\\.\\s*C\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Rules\\s+of\\s+Practice"
+          "regex": "Gen\\.\\s*R\\.\\s*Pract\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|N\\.\\s*C\\.\\s*Super\\.\\s*(?:&|and)\\s*Dist\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+General\\s+Rules\\s+of\\s+Practice",
+          "context_required": false
         },
         {
           "label": "North Carolina Business Court Rules",
-          "regex": "N\\.\\s*C\\.\\s*Bus\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|\\bBCR\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Business\\s+Court\\s+Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)"
+          "regex": "N\\.\\s*C\\.\\s*Bus\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|\\bBCR\\s*(?P<rule2>\\d+(?:\\.\\d+)?)|Business\\s+Court\\s+Rule\\s+(?P<rule3>\\d+(?:\\.\\d+)?)",
+          "context_required": false
         },
         {
           "label": "North Carolina Administrative Code",
-          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+(?:NCAC|N\\.\\s*C\\.\\s*A\\.\\s*C\\.|N\\.\\s*C\\.\\s*Admin\\.\\s*Code)\\s*(?P<chapter>\\d{1,2})(?P<subchapter>[A-Z]{1,2})?\\s*\\.(?P<rule>\\d{4})"
+          "regex": "(?P<title>\\d{1,2}[A-Z]?)\\s+(?:NCAC|N\\.\\s*C\\.\\s*A\\.\\s*C\\.|N\\.\\s*C\\.\\s*Admin\\.\\s*Code)\\s*(?P<chapter>\\d{1,2})(?P<subchapter>[A-Z]{1,2})?\\s*\\.(?P<rule>\\d{4})",
+          "context_required": false
         },
         {
           "label": "North Carolina Register",
-          "regex": "(?P<volume>\\d{1,2})(?::(?P<issue>\\d{1,2}))?\\s+(?:NCR|N\\.C\\.R\\.|N\\.C\\.\\s*Reg\\.)\\s*(?P<page>\\d+)"
+          "regex": "(?P<volume>\\d{1,2})(?::(?P<issue>\\d{1,2}))?\\s+(?:NCR|N\\.C\\.R\\.|N\\.C\\.\\s*Reg\\.)\\s*(?P<page>\\d+)",
+          "context_required": false
         },
         {
           "label": "Reported N.C. cases (N.C., N.C. App., S.E.2d)",
-          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*C\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,3})\\s+N\\.\\s*C\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4})|(?P<sevol>\\d{1,3})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<sepage>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.C\\.(?:\\s*Ct\\.\\s*App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "N.C. universal citations 2021-2022 (NCSC / NCCOA)",
-          "regex": "(?P<year>(?:19|20)\\d\\d)-(?P<court>NCSC|NCCOA)-(?P<number>\\d+)"
+          "regex": "(?P<year>(?:19|20)\\d\\d)-(?P<court>NCSC|NCCOA)-(?P<number>\\d+)",
+          "context_required": false
         },
         {
           "label": "Business Court public-domain citations",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+NCBC\\s+(?P<number>\\d+)"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+NCBC\\s+(?P<number>\\d+)",
+          "context_required": false
         },
         {
           "label": "Appellate docket numbers and unpublished COA opinions",
-          "regex": "(?:No\\.\\s*)?\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})"
+          "regex": "(?:No\\.\\s*)?\\b(?P<sc>\\d{1,4}(?:PA|AP|A|P)\\d{2}(?:-\\d)?)\\b|(?:No\\.\\s*)?\\bCOA\\s?(?P<coa>\\d{2}-\\d{1,4})",
+          "context_required": false
         },
         {
           "label": "Business Court Westlaw / Lexis cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.\\s*Super\\.|NCBC\\s*LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.\\s*Super\\.|NCBC\\s*LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.(?!\\s*Super)|N\\.C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.C\\.(?!\\s*Super)|N\\.C\\.(?:\\s*App\\.)?\\s*LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -822,47 +982,58 @@
       "citation_patterns": [
         {
           "label": "New Jersey Statutes (N.J.S.A.)",
-          "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])R\\.\\s*S\\.|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)"
+          "regex": "(?:N\\.?\\s*J\\.?\\s*S\\.?\\s*A\\.?|N\\.\\s*J\\.\\s*S\\.|N\\.\\s*J\\.\\s*Stat\\.?(?:\\s*Ann\\.?)?|(?<![A-Za-z.])R\\.\\s*S\\.|N\\.?\\s*J\\.?\\s*Rev\\.?\\s*Stat\\.?|New\\s+Jersey\\s+Statutes(?:\\s+Annotated)?)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)-(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2}[A-Z]?):(?P<chapter2>\\d+[A-Z]*)-(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\s+of\\s+the\\s+(?:New\\s+Jersey\\s+Statutes|N\\.\\s*J\\.\\s*S\\.\\s*A\\.|Revised\\s+Statutes)|\\(C\\.\\s*(?P<title3>\\d{1,2}[A-Z]?):(?P<chapter3>\\d+[A-Z]*)-(?P<section3>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)*)\\)",
+          "context_required": false
         },
         {
           "label": "Pamphlet Laws (session laws)",
-          "regex": "(?:P\\.\\s*L\\.|\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)"
+          "regex": "(?:P\\.\\s*L\\.|\\bL\\.)\\s*(?P<year>(?:18|19|20)\\d\\d)(?:\\s*\\([^)]*\\))?,?\\s*c(?:h)?\\.\\s*(?P<chapter>\\d+)",
+          "context_required": false
         },
         {
           "label": "New Jersey Constitution",
-          "regex": "N\\.\\s*J\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7\\s*(?P<section>\\d+|[IVXL]+),?\\s*)?(?:\u00b6|para\\.?)\\s*(?P<paragraph>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section\\s+(?P<section2>[IVXL]+|\\d+),?\\s+)?Paragraph\\s+(?P<paragraph2>\\d+)\\s+of\\s+the\\s+New\\s+Jersey\\s+Constitution"
+          "regex": "N\\.\\s*J\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7\\s*(?P<section>\\d+|[IVXL]+),?\\s*)?(?:\u00b6|para\\.?)\\s*(?P<paragraph>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section\\s+(?P<section2>[IVXL]+|\\d+),?\\s+)?Paragraph\\s+(?P<paragraph2>\\d+)\\s+of\\s+the\\s+New\\s+Jersey\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Rules Governing the Courts of the State of New Jersey",
-          "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?"
+          "regex": "(?:\\bR\\.|\\bRules?|N\\.\\s*J\\.\\s*Ct\\.\\s*R\\.)\\s*(?P<part>[1-8]):(?P<rule>\\d+[A-Z]?)(?:-(?P<sub>\\d+[A-Z]?(?:\\.\\d+)?))?",
+          "context_required": false
         },
         {
           "label": "New Jersey Rules of Evidence",
-          "regex": "(?:N\\.\\s*J\\.\\s*R\\.\\s*E\\.|New\\s+Jersey\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3})"
+          "regex": "(?:N\\.\\s*J\\.\\s*R\\.\\s*E\\.|New\\s+Jersey\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3})",
+          "context_required": false
         },
         {
           "label": "New Jersey Administrative Code",
-          "regex": "(?:N\\.\\s*J\\.\\s*A\\.\\s*C\\.|N\\.\\s*J\\.\\s*Admin\\.?\\s*Code)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)(?:-(?P<subchapter>\\d+[A-Z]?)(?:\\.(?P<section>\\d+[A-Z]?))?)?"
+          "regex": "(?:N\\.\\s*J\\.\\s*A\\.\\s*C\\.|N\\.\\s*J\\.\\s*Admin\\.?\\s*Code)\\s*(?:\u00a7+\\s*)?(?P<title>\\d{1,2}[A-Z]?):(?P<chapter>\\d+[A-Z]*)(?:-(?P<subchapter>\\d+[A-Z]?)(?:\\.(?P<section>\\d+[A-Z]?))?)?",
+          "context_required": false
         },
         {
           "label": "New Jersey Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+N\\.\\s*J\\.\\s*R\\.\\s+(?P<page>\\d+)(?:\\((?P<item>[a-z])\\))?"
+          "regex": "(?P<volume>\\d{1,2})\\s+N\\.\\s*J\\.\\s*R\\.\\s+(?P<page>\\d+)(?:\\((?P<item>[a-z])\\))?",
+          "context_required": false
         },
         {
           "label": "Certification history (certif. denied / granted)",
-          "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)"
+          "regex": "certif\\.\\s*(?P<disposition>denied|granted|dismissed),?\\s*(?:(?P<volume>\\d{1,3})|_+)\\s+N\\.\\s*J\\.\\s+(?:(?P<page>\\d{1,4})|_+)",
+          "context_required": false
         },
         {
           "label": "Reported New Jersey cases (N.J., N.J. Super., N.J. Tax, old N.J.L./N.J. Eq.)",
-          "regex": "(?<!\\d)(?<!denied, )(?<!granted, )(?<!dismissed, )(?<!denied,)(?<!granted,)(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?<!\\d)(?<!denied, )(?<!granted, )(?<!dismissed, )(?<!denied,)(?<!granted,)(?P<volume>\\d{1,3})\\s+N\\.\\s*J\\.(?:\\s*(?:(?P<series>Super|Eq|L|Misc)\\.|(?P<tax>Tax)))?\\s+(?P<page>\\d{1,4})|(?P<avolume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<apage>\\d{1,5})\\s*(?:,\\s*\\d+)?\\s*\\((?P<court>N\\.\\s*J\\.[^)]*?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Docket-number citations (Supreme A-N-YY; Appellate Division A-NNNN-YY, incl. unpublished)",
-          "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})(?:T(?P<team>\\d))?\\b"
+          "regex": "(?:No\\.\\s*)?\\bA-(?P<seq>\\d{1,4})(?:/(?:A-)?\\d{1,4})*-(?P<yy>\\d{2})(?:T(?P<team>\\d))?\\b",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis unreported NJ cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.\\s*J\\.|N\\.\\s*J\\.\\s*(?:(?P<lexcourt>Super\\.(?:\\s*Unpub\\.)?|Tax)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(N\\.\\s*J\\.|N\\.\\s*J\\.\\s*(?:(?P<lexcourt>Super\\.(?:\\s*Unpub\\.)?|Tax)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -878,55 +1049,68 @@
       "citation_patterns": [
         {
           "label": "Nevada Revised Statutes",
-          "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2})\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)\\b|\\bNRS\\s+(?:ch\\.|chapter)\\s*(?P<chapter4>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)"
+          "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2})\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)\\b|\\bNRS\\s+(?:ch\\.|chapter)\\s*(?P<chapter4>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)",
+          "context_required": false
         },
         {
           "label": "Statutes of Nevada (session laws)",
-          "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:at\\s+)?(?:p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)"
+          "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:at\\s+)?(?:p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)",
+          "context_required": false
         },
         {
           "label": "Nevada Constitution",
-          "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec\\.|section)\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)"
+          "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec\\.|section)\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)",
+          "context_required": false
         },
         {
           "label": "Nevada Rules of Civil Procedure",
-          "regex": "(?:\\bNRCP|Nev\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "(?:\\bNRCP|Nev\\.\\s*R\\.\\s*Civ\\.\\s*P\\.)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Nevada Rules of Appellate Procedure",
-          "regex": "(?:\\bNRAP|Nev\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "(?:\\bNRAP|Nev\\.\\s*R\\.\\s*App\\.\\s*P\\.)\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Nevada Supreme Court Rules",
-          "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)"
+          "regex": "(?:\\bSCR|Nev\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": false
         },
         {
           "label": "Nevada Rules of Professional Conduct",
-          "regex": "(?:\\bN?RPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "(?:\\bN?RPC|Nev\\.\\s*R\\.\\s*Prof'?l\\s*Conduct)\\s*(?P<rule>\\d\\.\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d\\.\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nevada\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "District court and justice court rules (DCR, EDCR, WDCR, JCRCP, NSTR, NRCrP)",
-          "regex": "\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)"
+          "regex": "\\b(?P<set>DCR|EDCR|WDCR|FJDCR|JCRCP|NSTR|NATR|NRCrP|NEFCR)\\s*(?P<rule>\\d+(?:\\.\\d+)?)",
+          "context_required": false
         },
         {
           "label": "Nevada Administrative Code",
-          "regex": "(?:\\bNAC|Nev\\.\\s*Admin\\.\\s*Code)\\s*(?:\u00a7+\\s*)?(?:ch\\.\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)"
+          "regex": "(?:\\bNAC|Nev\\.\\s*Admin\\.\\s*Code)\\s*(?:\u00a7+\\s*)?(?:ch\\.\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Register of Administrative Regulations (LCB File No.)",
-          "regex": "(?:LCB\\s+File\\s+No\\.\\s*)?\\bR(?P<number>\\d{3})-(?P<yy>\\d{2})(?P<stage>CAP|CA|RP2|RP|AP|NI|NW|NH|A|I|P|W)?\\b"
+          "regex": "(?:LCB\\s+File\\s+No\\.\\s*)?\\bR(?P<number>\\d{3})-(?P<yy>\\d{2})(?P<stage>CAP|CA|RP2|RP|AP|NI|NW|NH|A|I|P|W)?\\b",
+          "context_required": false
         },
         {
           "label": "Nevada advance opinions (Nev., Adv. Op.)",
-          "regex": "(?P<volume>1[2-9]\\d)\\s+Nev\\.,?\\s*Adv\\.\\s*Op(?:n)?\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,3})"
+          "regex": "(?P<volume>1[2-9]\\d)\\s+Nev\\.,?\\s*Adv\\.\\s*Op(?:n)?\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,3})",
+          "context_required": false
         },
         {
           "label": "Nevada Reports / Pacific Reporter",
-          "regex": "(?P<volume>\\d{1,3})\\s+Nev\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<ppage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Nev\\.\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<pvol>\\d{1,4})\\s+P\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<ppage>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Docket numbers and unpublished dispositions (NRAP 36(c)(3))",
-          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)"
+          "regex": "(?:Docket\\s+)?No\\.\\s*(?P<docket>\\d{5})(?P<coa>-COA)?\\b|(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)\\s*\\((?P<court>Nev\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)",
+          "context_required": false
         }
       ]
     },
@@ -943,39 +1127,48 @@
       "citation_patterns": [
         {
           "label": "Consolidated Laws (Bluebook and NY Official style)",
-          "regex": "(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\s+(?:\u00a7+|sections?)\\s*(?P<section>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)s?|\u00a7\u00a7?)\\s*(?P<section_p>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:New\\s+York\\s+)?(?P<law_p>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\b"
+          "regex": "(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\s+(?:\u00a7+|sections?)\\s*(?P<section>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)|(?:sec(?:tion|\\.)s?|\u00a7\u00a7?)\\s*(?P<section_p>\\d+[A-Za-z]?(?:[-.]\\d+[A-Za-z]?)*)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:New\\s+York\\s+)?(?P<law_p>[A-Z][A-Za-z.&,' ]+?)\\s+Law\\b",
+          "context_required": false
         },
         {
           "label": "CPLR (statute; law ID CVP)",
-          "regex": "(?:N\\.Y\\.\\s+)?C\\.?P\\.?L\\.?R\\.?\\s+(?:R(?:ule)?\\.?\\s+|\u00a7\\s*)?(?P<section>\\d{3,4}(?:-[a-z])?)"
+          "regex": "(?:N\\.Y\\.\\s+)?C\\.?P\\.?L\\.?R\\.?\\s+(?:R(?:ule)?\\.?\\s+|\u00a7\\s*)?(?P<section>\\d{3,4}(?:-[a-z])?)",
+          "context_required": false
         },
         {
           "label": "Court acts and short-form law names (CPL, RPAPL, EPTL, BCL, GOL, VTL, DRL, Fam. Ct. Act, SCPA \u2026)",
-          "regex": "(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>CPL|RPAPL|EPTL|BCL|GOL|VTL|DRL|RPTL|N-PCL|LLCL|Fam\\.?\\s+Ct\\.?\\s+Act|Crim\\.?\\s+Proc\\.?\\s+Law|Family\\s+C(?:our)?t\\.?\\s+Act|SCPA|Surr\\.?\\s+Ct\\.?\\s+Proc\\.?\\s+Act|(?:N\\.Y\\.C\\.\\s+)?Civ\\.?\\s+Ct\\.?\\s+Act)\\s+\u00a7?\\s*(?P<section>\\d+(?:[-.]\\d+)*)"
+          "regex": "(?:N\\.?\\s?Y\\.?\\s+)?(?P<law>CPL|RPAPL|EPTL|BCL|GOL|VTL|DRL|RPTL|N-PCL|LLCL|Fam\\.?\\s+Ct\\.?\\s+Act|Crim\\.?\\s+Proc\\.?\\s+Law|Family\\s+C(?:our)?t\\.?\\s+Act|SCPA|Surr\\.?\\s+Ct\\.?\\s+Proc\\.?\\s+Act|(?:N\\.Y\\.C\\.\\s+)?Civ\\.?\\s+Ct\\.?\\s+Act)\\s+\u00a7?\\s*(?P<section>\\d+(?:[-.]\\d+)*)",
+          "context_required": false
         },
         {
           "label": "New York Constitution",
-          "regex": "N\\.?\\s?Y\\.?\\s+Const\\.?,?\\s+art\\.?\\s+(?P<article>[IVXL]+|\\d+),?\\s+\u00a7\\s*(?P<section>\\d+(?:-[a-z])?)"
+          "regex": "N\\.?\\s?Y\\.?\\s+Const\\.?,?\\s+art\\.?\\s+(?P<article>[IVXL]+|\\d+),?\\s+\u00a7\\s*(?P<section>\\d+(?:-[a-z])?)",
+          "context_required": false
         },
         {
           "label": "Court rules in 22 NYCRR (Uniform Rules, Court of Appeals, Appellate Division, Rules of Professional Conduct)",
-          "regex": "22\\s+N\\.?\\s?Y\\.?\\s?C\\.?\\s?R\\.?\\s?R\\.?\\s+(?:\u00a7\\s*)?(?P<part>\\d+)\\.(?P<section>\\d+(?:-[a-z])?)"
+          "regex": "22\\s+N\\.?\\s?Y\\.?\\s?C\\.?\\s?R\\.?\\s?R\\.?\\s+(?:\u00a7\\s*)?(?P<part>\\d+)\\.(?P<section>\\d+(?:-[a-z])?)",
+          "context_required": false
         },
         {
           "label": "NYCRR (agency regulations)",
-          "regex": "(?<!\\d)(?P<title>(?!22\\b)\\d{1,2})\\s+N\\.?\\s?Y\\.?\\s?C\\.?\\s?R\\.?\\s?R\\.?\\s+(?:\u00a7\\s*)?(?P<section>[\\d.\\-a-z]+)"
+          "regex": "(?<!\\d)(?P<title>(?!22\\b)\\d{1,2})\\s+N\\.?\\s?Y\\.?\\s?C\\.?\\s?R\\.?\\s?R\\.?\\s+(?:\u00a7\\s*)?(?P<section>[\\d.\\-a-z]+)",
+          "context_required": false
         },
         {
           "label": "Public-domain slip opinion citation",
-          "regex": "(?P<year>(?:19|20)\\d{2})\\s+N\\.?\\s?Y\\.?\\s+Slip\\s+Op\\.?\\s+(?P<num>\\d{5})(?P<u>\\(U\\))?"
+          "regex": "(?P<year>(?:19|20)\\d{2})\\s+N\\.?\\s?Y\\.?\\s+Slip\\s+Op\\.?\\s+(?P<num>\\d{5})(?P<u>\\(U\\))?",
+          "context_required": false
         },
         {
           "label": "Official Reports (NY Official style and Bluebook)",
-          "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.?Y\\.?(?:2d|3d)?|A\\.?D\\.?(?:2d|3d)?|Misc\\.?\\s?(?:2d|3d)?)\\s+(?P<page>\\d{1,4})(?P<table>\\(A\\))?"
+          "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.?Y\\.?(?:2d|3d)?|A\\.?D\\.?(?:2d|3d)?|Misc\\.?\\s?(?:2d|3d)?)\\s+(?P<page>\\d{1,4})(?P<table>\\(A\\))?",
+          "context_required": false
         },
         {
           "label": "Regional / West reporters",
-          "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?|N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})"
+          "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?|N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})",
+          "context_required": false
         }
       ]
     },
@@ -992,71 +1185,88 @@
       "citation_patterns": [
         {
           "label": "Ohio Revised Code",
-          "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:\u00a7+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:\u00a7\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code|\\bR\\.\\s?C\\.\\s+Chapter\\s+(?P<chapter>\\d{1,4})\\b|\\bChapter\\s+(?P<chapter2>\\d{1,4})\\.?\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code"
+          "regex": "(?:\\bR\\.\\s?C\\.\\s*|\\bOhio\\s+Rev(?:ised)?\\.?\\s+Code(?:\\s+Ann(?:otated)?\\.?)?\\s*(?:\u00a7+\\s*)?|\\bO\\.?R\\.?C\\.?\\s+(?:\u00a7\\s*)?)(?P<section>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?![\\d.])|\\bsec(?:tion|\\.)\\s+(?P<section2>\\d{1,4}\\.\\d{1,4}[A-Za-z]?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code|\\bR\\.\\s?C\\.\\s+Chapter\\s+(?P<chapter>\\d{1,4})\\b|\\bChapter\\s+(?P<chapter2>\\d{1,4})\\.?\\s+of\\s+the\\s+(?:Ohio\\s+)?Revised\\s+Code",
+          "context_required": false
         },
         {
           "label": "Ohio session laws / General Assembly bills",
-          "regex": "(?P<prefix>(?:Am\\.\\s*)?(?:Sub\\.\\s*)?)(?P<chamber>[HS])\\.\\s*B\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,4}),?\\s*(?:\\(\\s*)?(?P<ga>\\d{2,3})(?:st|nd|rd|th)\\s+(?:General\\s+Assembly|G\\.\\s?A\\.)|(?P<volume>\\d{2,3})\\s+Ohio\\s+Laws,?\\s*(?:Part\\s+[IVX]+,?\\s*)?(?P<page>\\d{1,5})"
+          "regex": "(?P<prefix>(?:Am\\.\\s*)?(?:Sub\\.\\s*)?)(?P<chamber>[HS])\\.\\s*B\\.\\s*(?:No\\.\\s*)?(?P<number>\\d{1,4}),?\\s*(?:\\(\\s*)?(?P<ga>\\d{2,3})(?:st|nd|rd|th)\\s+(?:General\\s+Assembly|G\\.\\s?A\\.)|(?P<volume>\\d{2,3})\\s+Ohio\\s+Laws,?\\s*(?:Part\\s+[IVX]+,?\\s*)?(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Ohio Constitution",
-          "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)"
+          "regex": "Ohio\\s+Const\\.\\s*,?\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|Sec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?)|Article\\s+(?P<article2>[IVXL]+),\\s+Section\\s+(?P<section2>\\d+[a-z]?)\\s+of\\s+the\\s+Ohio\\s+Constitution|Section\\s+(?P<section3>\\d+[a-z]?),\\s+Article\\s+(?P<article3>[IVXL]+),?\\s+(?:of\\s+the\\s+)?Ohio\\s+Constitution|Ohio\\s+Constitution,\\s+Article\\s+(?P<article4>[IVXL]+),\\s+Section\\s+(?P<section4>\\d+[a-z]?)",
+          "context_required": false
         },
         {
           "label": "Ohio Rules of Civil Procedure",
-          "regex": "\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "\\bCiv\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Ohio Rules of Evidence",
-          "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})|Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence"
+          "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})|Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Ohio Rules of Appellate Procedure",
-          "regex": "\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "\\bApp\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Ohio Rules of Criminal Procedure",
-          "regex": "\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure"
+          "regex": "\\bCrim\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}(?:\\.\\d)?)|Ohio\\s+R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d)?)|Rule\\s+(?P<rule3>\\d{1,2}(?:\\.\\d)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Criminal\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Rules for the Government of the Bar",
-          "regex": "\\bGov\\.\\s?Bar\\s+R\\.\\s*(?P<rule>[IVXL]+)|Rule\\s+(?P<rule2>[IVXL]+)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+for\\s+the\\s+Government\\s+of\\s+the\\s+Bar"
+          "regex": "\\bGov\\.\\s?Bar\\s+R\\.\\s*(?P<rule>[IVXL]+)|Rule\\s+(?P<rule2>[IVXL]+)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Supreme\\s+Court\\s+)?Rules\\s+for\\s+the\\s+Government\\s+of\\s+the\\s+Bar",
+          "context_required": false
         },
         {
           "label": "Ohio Rules of Professional Conduct",
-          "regex": "\\bProf\\.\\s?Cond\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})|Ohio\\s+Rules?\\s+of\\s+Prof(?:essional|')l?\\s+Conduct\\s+(?:R(?:ule)?\\.?\\s*)?(?P<rule2>\\d\\.\\d{1,2})|Rule\\s+(?P<rule3>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "\\bProf\\.\\s?Cond\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})|Ohio\\s+Rules?\\s+of\\s+Prof(?:essional|')l?\\s+Conduct\\s+(?:R(?:ule)?\\.?\\s*)?(?P<rule2>\\d\\.\\d{1,2})|Rule\\s+(?P<rule3>\\d\\.\\d{1,2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "Rules of Superintendence for the Courts of Ohio",
-          "regex": "\\bSup\\.\\s?R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+Superintendence"
+          "regex": "\\bSup\\.\\s?R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+Superintendence",
+          "context_required": false
         },
         {
           "label": "Supreme Court Rules of Practice",
-          "regex": "\\bS\\.\\s?Ct\\.\\s?Prac\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Supreme\\s+Court\\s+Rules?\\s+of\\s+Practice\\s+(?P<rule2>\\d{1,2}\\.\\d{2})"
+          "regex": "\\bS\\.\\s?Ct\\.\\s?Prac\\.\\s?R\\.\\s*(?P<rule>\\d{1,2}\\.\\d{2})|Supreme\\s+Court\\s+Rules?\\s+of\\s+Practice\\s+(?P<rule2>\\d{1,2}\\.\\d{2})",
+          "context_required": false
         },
         {
           "label": "Rules for the Reporting of Opinions",
-          "regex": "\\bRep\\.\\s?Op\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})"
+          "regex": "\\bRep\\.\\s?Op\\.\\s?R\\.\\s*(?P<rule>\\d\\.\\d{1,2})",
+          "context_required": false
         },
         {
           "label": "Ohio Administrative Code",
-          "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:\u00a7\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code"
+          "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:\u00a7\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code",
+          "context_required": false
         },
         {
           "label": "Ohio public-domain webcite (YYYY-Ohio-N)",
-          "regex": "\\b(?P<year>(?:199[2-9]|20\\d\\d))-Ohio-(?P<number>\\d{1,5})\\b(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?(?:[^()]{0,40}\\((?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.)?"
+          "regex": "\\b(?P<year>(?:199[2-9]|20\\d\\d))-Ohio-(?P<number>\\d{1,5})\\b(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?(?:[^()]{0,40}\\((?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.)?",
+          "context_required": false
         },
         {
           "label": "Ohio official and regional reporters",
-          "regex": "(?P<volume>\\d{1,3})\\s+Ohio\\s+(?P<reporter>St\\.(?:\\s?[23]d)?|App\\.(?:\\s?[23]d)?|Misc\\.(?:\\s?2d)?)\\s+(?P<page>\\d{1,4})|(?P<nevolume>\\d{1,3})\\s+N\\.E\\.(?:\\s?[23]d)?\\s+(?P<nepage>\\d{1,4})\\s*\\((?:Ohio|Ohio\\s+Ct\\.\\s+App\\.|Ohio\\s+App\\.)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Ohio\\s+(?P<reporter>St\\.(?:\\s?[23]d)?|App\\.(?:\\s?[23]d)?|Misc\\.(?:\\s?2d)?)\\s+(?P<page>\\d{1,4})|(?P<nevolume>\\d{1,3})\\s+N\\.E\\.(?:\\s?[23]d)?\\s+(?P<nepage>\\d{1,4})\\s*\\((?:Ohio|Ohio\\s+Ct\\.\\s+App\\.|Ohio\\s+App\\.)",
+          "context_required": false
         },
         {
           "label": "Ohio appellate docket / unreported forms (district, county, case no.)",
-          "regex": "(?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.\\s+(?P<county>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+No(?:s)?\\.\\s*(?P<caseno>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s*\\(|$)|(?P<county2>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+App\\.\\s+No(?:s)?\\.\\s*(?P<caseno2>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s+and|\\.|$)"
+          "regex": "(?P<district>\\d{1,2})(?:st|nd|rd|th)\\s+Dist\\.\\s+(?P<county>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+No(?:s)?\\.\\s*(?P<caseno>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s*\\(|$)|(?P<county2>[A-Z][a-z]+(?:\\s[A-Z][a-z]+)?)\\s+App\\.\\s+No(?:s)?\\.\\s*(?P<caseno2>[A-Z0-9][A-Z0-9 -]{1,14}?)(?=,|\\s+and|\\.|$)",
+          "context_required": false
         },
         {
           "label": "Supreme Court of Ohio case number",
-          "regex": "(?:Case\\s+)?No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})\\b"
+          "regex": "(?:Case\\s+)?No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})\\b",
+          "context_required": false
         }
       ]
     },
@@ -1072,55 +1282,68 @@
       "citation_patterns": [
         {
           "label": "Pennsylvania Consolidated Statutes (Pa.C.S.)",
-          "regex": "(?P<title>\\d{1,2})\\s+Pa\\.?\\s*(?:C\\.\\s*S\\.(?:\\s*A\\.)?|Cons\\.?\\s+Stat\\.?(?:\\s+Ann\\.?)?|(?P<bb>Stat\\.\\s+and\\s+Cons\\.\\s+Stat\\.(?:\\s+Ann\\.?)?))\\s*\u00a7+\\s*(?P<section>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?![\\d.]*\\d)(?(bb)(?!-\\d))|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Pennsylvania\\s+Consolidated\\s+Statutes|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+(?P<codename>Judicial\\s+Code|Crimes\\s+Code|Vehicle\\s+Code|Domestic\\s+Relations\\s+Code|Probate,\\s+Estates\\s+and\\s+Fiduciaries\\s+Code|Uniform\\s+Commercial\\s+Code)"
+          "regex": "(?P<title>\\d{1,2})\\s+Pa\\.?\\s*(?:C\\.\\s*S\\.(?:\\s*A\\.)?|Cons\\.?\\s+Stat\\.?(?:\\s+Ann\\.?)?|(?P<bb>Stat\\.\\s+and\\s+Cons\\.\\s+Stat\\.(?:\\s+Ann\\.?)?))\\s*\u00a7+\\s*(?P<section>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?![\\d.]*\\d)(?(bb)(?!-\\d))|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Pennsylvania\\s+Consolidated\\s+Statutes|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d+[A-Z]?\\d*(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+(?P<codename>Judicial\\s+Code|Crimes\\s+Code|Vehicle\\s+Code|Domestic\\s+Relations\\s+Code|Probate,\\s+Estates\\s+and\\s+Fiduciaries\\s+Code|Uniform\\s+Commercial\\s+Code)",
+          "context_required": false
         },
         {
           "label": "Purdon's unconsolidated statutes (P.S.)",
-          "regex": "(?P<title>\\d{1,2})\\s+(?:P\\.\\s*S\\.(?:\\s*A\\.)?|Pa\\.\\s*Stat\\.(?:\\s+and\\s+Cons\\.\\s+Stat\\.)?(?:\\s*Ann\\.)?)\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?(?:-\\d+(?:\\.\\d+)?)?[A-Za-z]?)"
+          "regex": "(?P<title>\\d{1,2})\\s+(?:P\\.\\s*S\\.(?:\\s*A\\.)?|Pa\\.\\s*Stat\\.(?:\\s+and\\s+Cons\\.\\s+Stat\\.)?(?:\\s*Ann\\.)?)\\s*\u00a7+\\s*(?P<section>\\d+(?:\\.\\d+)?(?:-\\d+(?:\\.\\d+)?)?[A-Za-z]?)",
+          "context_required": false
         },
         {
           "label": "Pennsylvania session laws / act citations",
-          "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)|Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})"
+          "regex": "Act\\s+of\\s+(?P<date>[A-Z][a-z]{2,8}\\.?\\s+\\d{1,2},\\s+(?P<year>\\d{4})),\\s*P\\.\\s*L\\.\\s*(?P<page>\\d+),\\s*No\\.\\s*(?P<act>\\d+)|Act\\s+(?:No\\.\\s*)?(?P<act2>\\d{1,4})\\s+of\\s+(?P<year2>\\d{4})",
+          "context_required": false
         },
         {
           "label": "Pennsylvania Constitution",
-          "regex": "Pa\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Constitution"
+          "regex": "Pa\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec(?:tion|\\.))\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Pennsylvania statewide procedural rules (Pa.R.C.P., Pa.R.A.P., Pa.R.Crim.P., Pa.R.E., Pa.R.J.C.P.)",
-          "regex": "(?P<set>Pa\\.\\s*R\\.\\s*(?:C\\.\\s*P\\.|Civ\\.\\s*P\\.|A\\.\\s*P\\.|App\\.\\s*P\\.|Crim\\.\\s*P\\.|E\\.|Evid\\.|J\\.\\s*C\\.\\s*P\\.))\\s*(?:No\\.\\s*)?(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Rules\\s+of\\s+(?P<setname>Civil\\s+Procedure|Appellate\\s+Procedure|Criminal\\s+Procedure|Evidence|Juvenile\\s+Court\\s+Procedure)|(?P<title>2\\d\\d)\\s+Pa\\.\\s*Code\\s+r(?:ule)?\\.\\s*(?P<rule3>\\d+(?:\\.\\d+)?)"
+          "regex": "(?P<set>Pa\\.\\s*R\\.\\s*(?:C\\.\\s*P\\.|Civ\\.\\s*P\\.|A\\.\\s*P\\.|App\\.\\s*P\\.|Crim\\.\\s*P\\.|E\\.|Evid\\.|J\\.\\s*C\\.\\s*P\\.))\\s*(?:No\\.\\s*)?(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Pennsylvania\\s+Rules\\s+of\\s+(?P<setname>Civil\\s+Procedure|Appellate\\s+Procedure|Criminal\\s+Procedure|Evidence|Juvenile\\s+Court\\s+Procedure)|(?P<title>2\\d\\d)\\s+Pa\\.\\s*Code\\s+r(?:ule)?\\.\\s*(?P<rule3>\\d+(?:\\.\\d+)?)",
+          "context_required": false
         },
         {
           "label": "Pennsylvania Code (agency regulations)",
-          "regex": "(?P<title>\\d{1,3})\\s+Pa\\.\\s*Code\\s*\u00a7+\\s*(?P<section>\\d+\\.\\d+[a-z]?)|Title\\s+(?P<title2>\\d{1,3}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+\\.\\d+[a-z]?)\\s+of\\s+the\\s+Pennsylvania\\s+Code"
+          "regex": "(?P<title>\\d{1,3})\\s+Pa\\.\\s*Code\\s*\u00a7+\\s*(?P<section>\\d+\\.\\d+[a-z]?)|Title\\s+(?P<title2>\\d{1,3}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d+\\.\\d+[a-z]?)\\s+of\\s+the\\s+Pennsylvania\\s+Code",
+          "context_required": false
         },
         {
           "label": "Pennsylvania Bulletin",
-          "regex": "(?P<volume>\\d{1,2})\\s+Pa\\.\\s*B\\.\\s*(?P<page>\\d{1,5})"
+          "regex": "(?P<volume>\\d{1,2})\\s+Pa\\.\\s*B\\.\\s*(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Reported Pennsylvania cases (Atlantic Reporter)",
-          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Pa\\.(?:\\s*(?:Super(?:\\.\\s*Ct)?|Cmwlth|Commw\\.\\s*Ct)\\.?)?)\\s*(?P<year>\\d{4})\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Pa\\.(?:\\s*(?:Super(?:\\.\\s*Ct)?|Cmwlth|Commw\\.\\s*Ct)\\.?)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
         },
         {
           "label": "Official state reporters (Pa., Pa. Super., Pa. Cmwlth.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+Pa\\.\\s+(?:(?P<court>Super|Cmwlth|Commw)\\.\\s+)?(?P<page>\\d{1,4})(?!\\d)"
+          "regex": "(?P<volume>\\d{1,3})\\s+Pa\\.\\s+(?:(?P<court>Super|Cmwlth|Commw)\\.\\s+)?(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Superior Court 'PA Super' slip number",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+PA\\s+Super\\s+(?P<number>\\d{1,4})"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+PA\\s+Super\\s+(?P<number>\\d{1,4})",
+          "context_required": false
         },
         {
           "label": "Appellate docket numbers (incl. unpublished memoranda / unreported opinions)",
-          "regex": "(?P<number>\\d{1,4})\\s+(?P<code>[EMW]DA|[EMW]AP|[EMW]AL|[EMW]M|[EMW]DM|C\\.\\s?D\\.|M\\.\\s?D\\.|PGH|PHL|HBG)\\s+(?P<year>(?:19|20)?\\d\\d)(?!\\d)"
+          "regex": "(?P<number>\\d{1,4})\\s+(?P<code>[EMW]DA|[EMW]AP|[EMW]AL|[EMW]M|[EMW]DM|C\\.\\s?D\\.|M\\.\\s?D\\.|PGH|PHL|HBG)\\s+(?P<year>(?:19|20)?\\d\\d)(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Pa\\.|Pa\\.\\s*(?:(?P<lexcourt>Super\\.|Commw\\.)\\s*)?(?:Unpub\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Pa\\.|Pa\\.\\s*(?:(?P<lexcourt>Super\\.|Commw\\.)\\s*)?(?:Unpub\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         },
         {
           "label": "Allocatur (petition for allowance of appeal) history",
-          "regex": "(?:appeal|allocatur)\\s+(?P<disp>denied|granted)\\s*,\\s*(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})|(?P<number>\\d{1,4})\\s+(?P<code>[EMW]AL)\\s+(?P<year>(?:19|20)\\d\\d)"
+          "regex": "(?:appeal|allocatur)\\s+(?P<disp>denied|granted)\\s*,\\s*(?P<volume>\\d{1,4})\\s+A\\.(?:\\s*[23]d)?\\s+(?P<page>\\d{1,5})|(?P<number>\\d{1,4})\\s+(?P<code>[EMW]AL)\\s+(?P<year>(?:19|20)\\d\\d)",
+          "context_required": false
         }
       ]
     },
@@ -1137,59 +1360,73 @@
       "citation_patterns": [
         {
           "label": "Texas codes",
-          "regex": "Tex(?:as|\\.)\\s+(?!Admin(?:istrative|\\.)\\s*Code)(?P<code>(?:(?:[A-Z&][\\w.'\u2019&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'\u2019&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*\u00a7+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)"
+          "regex": "Tex(?:as|\\.)\\s+(?!Admin(?:istrative|\\.)\\s*Code)(?P<code>(?:(?:[A-Z&][\\w.'\u2019&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'\u2019&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*\u00a7+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)",
+          "context_required": false
         },
         {
           "label": "Vernon's Texas Civil Statutes (uncodified articles)",
-          "regex": "Tex\\.\\s*Rev\\.\\s*Civ\\.\\s*Stat\\.(?:\\s*Ann\\.)?\\s*art\\.\\s*(?P<article>\\d+[a-z]?(?:\\(\\d+\\))?(?:[-.]\\d+)?)"
+          "regex": "Tex\\.\\s*Rev\\.\\s*Civ\\.\\s*Stat\\.(?:\\s*Ann\\.)?\\s*art\\.\\s*(?P<article>\\d+[a-z]?(?:\\(\\d+\\))?(?:[-.]\\d+)?)",
+          "context_required": false
         },
         {
           "label": "Texas Constitution",
-          "regex": "Tex(?:as|\\.)\\s*Const(?:itution|\\.)\\s*,?\\s*art(?:icle|\\.)?\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|[Ss]ec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?(?:-[a-z])?)|[Aa]rticle\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+[Ss]ection\\s+(?P<section2>\\d+[a-z]?(?:-[a-z])?)\\s+of\\s+the\\s+Texas\\s+Constitution"
+          "regex": "Tex(?:as|\\.)\\s*Const(?:itution|\\.)\\s*,?\\s*art(?:icle|\\.)?\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|[Ss]ec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?(?:-[a-z])?)|[Aa]rticle\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+[Ss]ection\\s+(?P<section2>\\d+[a-z]?(?:-[a-z])?)\\s+of\\s+the\\s+Texas\\s+Constitution",
+          "context_required": false
         },
         {
           "label": "Texas Rules of Civil Procedure",
-          "regex": "(?:Tex\\.\\s*R\\.\\s*Civ\\.\\s*P(?:roc)?\\.|T\\.?R\\.?C\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Civil\\s+Procedure)\\s*(?P<rule>\\d+[a-z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[a-z]?(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+          "regex": "(?:Tex\\.\\s*R\\.\\s*Civ\\.\\s*P(?:roc)?\\.|T\\.?R\\.?C\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Civil\\s+Procedure)\\s*(?P<rule>\\d+[a-z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[a-z]?(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Civil\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Texas Rules of Appellate Procedure",
-          "regex": "(?:Tex\\.\\s*R\\.\\s*App\\.\\s*P(?:roc)?\\.|T\\.?R\\.?A\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Appellate\\s+Procedure)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+          "regex": "(?:Tex\\.\\s*R\\.\\s*App\\.\\s*P(?:roc)?\\.|T\\.?R\\.?A\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Appellate\\s+Procedure)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
         },
         {
           "label": "Texas Rules of Evidence",
-          "regex": "(?:Tex\\.\\s*R\\.\\s*Evid\\.|T\\.?R\\.?E\\.?(?=\\s*\\d{3})|Texas\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Evidence"
+          "regex": "(?:Tex\\.\\s*R\\.\\s*Evid\\.|T\\.?R\\.?E\\.?(?=\\s*\\d{3})|Texas\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Evidence",
+          "context_required": false
         },
         {
           "label": "Texas Disciplinary Rules of Professional Conduct",
-          "regex": "(?:Tex\\.\\s*Disciplinary\\s*R(?:ules|\\.)\\s*Prof'?l\\s*Conduct\\s*(?:R\\.)?|TDRPC|Texas\\s+Disciplinary\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<rule>\\d\\.\\d{2})|Rule\\s+(?P<rule2>\\d\\.\\d{2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Disciplinary\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+          "regex": "(?:Tex\\.\\s*Disciplinary\\s*R(?:ules|\\.)\\s*Prof'?l\\s*Conduct\\s*(?:R\\.)?|TDRPC|Texas\\s+Disciplinary\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<rule>\\d\\.\\d{2})|Rule\\s+(?P<rule2>\\d\\.\\d{2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Disciplinary\\s+Rules\\s+of\\s+Professional\\s+Conduct",
+          "context_required": false
         },
         {
           "label": "Texas Rules of Judicial Administration",
-          "regex": "Tex\\.\\s*R\\.\\s*Jud\\.\\s*Admin\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Judicial\\s+Administration"
+          "regex": "Tex\\.\\s*R\\.\\s*Jud\\.\\s*Admin\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Judicial\\s+Administration",
+          "context_required": false
         },
         {
           "label": "Texas Administrative Code",
-          "regex": "(?P<title>\\d{1,2})\\s+(?:Tex\\.\\s*Admin\\.\\s*Code|T\\.?A\\.?C\\.?)\\s*(?:\u00a7+|[Ss]ec(?:tion|\\.)?|R(?:ule|\\.))?\\s*(?P<chapter>\\d+[A-Z]?)\\.(?P<section>\\d+[a-z]?)"
+          "regex": "(?P<title>\\d{1,2})\\s+(?:Tex\\.\\s*Admin\\.\\s*Code|T\\.?A\\.?C\\.?)\\s*(?:\u00a7+|[Ss]ec(?:tion|\\.)?|R(?:ule|\\.))?\\s*(?P<chapter>\\d+[A-Z]?)\\.(?P<section>\\d+[a-z]?)",
+          "context_required": false
         },
         {
           "label": "Texas Register",
-          "regex": "(?P<volume>\\d{1,2})\\s+Tex\\.?\\s*Reg\\.?\\s+(?P<page>\\d{1,5})"
+          "regex": "(?P<volume>\\d{1,2})\\s+Tex\\.?\\s*Reg\\.?\\s+(?P<page>\\d{1,5})",
+          "context_required": false
         },
         {
           "label": "Reported Texas cases (South Western Reporter) with Texas court and subsequent-history parenthetical",
-          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)*\\s*\\((?P<court>Tex\\.(?:\\s*Crim\\.\\s*App\\.|\\s*App\\.\\s*(?:[\u2014\u2013]|-{1,2})?\\s*(?P<coa>[A-Z][A-Za-z .\u2013-]*?(?:\\s*\\[\\d+(?:st|nd|rd|th)\\s+Dist\\.\\])?|\\d+(?:st|nd|rd|th)\\s+Dist\\.)|\\s*Bus\\.\\s*Ct\\.|\\s*Comm'n\\s*App\\.)?)\\s*(?P<date>(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s+)?(?P<year>\\d{4}))(?:,\\s*(?P<history>[^)]+))?\\)"
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)*\\s*\\((?P<court>Tex\\.(?:\\s*Crim\\.\\s*App\\.|\\s*App\\.\\s*(?:[\u2014\u2013]|-{1,2})?\\s*(?P<coa>[A-Z][A-Za-z .\u2013-]*?(?:\\s*\\[\\d+(?:st|nd|rd|th)\\s+Dist\\.\\])?|\\d+(?:st|nd|rd|th)\\s+Dist\\.)|\\s*Bus\\.\\s*Ct\\.|\\s*Comm'n\\s*App\\.)?)\\s*(?P<date>(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s+)?(?P<year>\\d{4}))(?:,\\s*(?P<history>[^)]+))?\\)",
+          "context_required": false
         },
         {
           "label": "Texas memorandum / unpublished opinions by docket number (courts of appeals, CCA, Supreme Court)",
-          "regex": "(?P<coa_docket>(?P<district>0[1-9]|1[0-5])-(?P<yy>\\d{2})-(?P<seq>\\d{5})-(?P<kind>CV|CR))|(?P<cca_docket>(?P<cca_type>PD|WR|AP)-\\d{1,2},?\\d{3}(?:-\\d{2})?)|No\\.\\s*(?P<sc_docket>\\d{2}-\\d{4})(?=[^)]{0,40}\\(Tex\\.\\s+[A-Z])"
+          "regex": "(?P<coa_docket>(?P<district>0[1-9]|1[0-5])-(?P<yy>\\d{2})-(?P<seq>\\d{5})-(?P<kind>CV|CR))|(?P<cca_docket>(?P<cca_type>PD|WR|AP)-\\d{1,2},?\\d{3}(?:-\\d{2})?)|No\\.\\s*(?P<sc_docket>\\d{2}-\\d{4})(?=[^)]{0,40}\\(Tex\\.\\s+[A-Z])",
+          "context_required": false
         },
         {
           "label": "Business Court of Texas public-domain citation and cause number",
-          "regex": "(?P<year>20\\d{2})\\s+Tex\\.\\s*Bus\\.\\s+(?P<number>\\d{1,4})|(?P<cause>\\d{2}-BC\\d{2}[A-Z]-\\d{4})"
+          "regex": "(?P<year>20\\d{2})\\s+Tex\\.\\s*Bus\\.\\s+(?P<number>\\d{1,4})|(?P<cause>\\d{2}-BC\\d{2}[A-Z]-\\d{4})",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis cites to Texas courts",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Tex\\.|Tex\\.\\s*(?:(?P<lexcourt>App\\.|Crim\\.\\s*App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Tex\\.|Tex\\.\\s*(?:(?P<lexcourt>App\\.|Crim\\.\\s*App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
         }
       ]
     },
@@ -1205,39 +1442,48 @@
       "citation_patterns": [
         {
           "label": "Code of Virginia",
-          "regex": "Va\\.\\s*Code(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:Code\\s+of\\s+Virginia|Virginia\\s+Code)\\s*\u00a7+\\s*(?P<section2>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Virginia|\\bCode\\s*\u00a7+\\s*(?P<section4>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])"
+          "regex": "Va\\.\\s*Code(?:\\s+Ann\\.)?\\s*\u00a7+\\s*(?P<section>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:Code\\s+of\\s+Virginia|Virginia\\s+Code)\\s*\u00a7+\\s*(?P<section2>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section3>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Code\\s+of\\s+Virginia|\\bCode\\s*\u00a7+\\s*(?P<section4>\\d{1,2}(?:\\.\\d{1,2})?[A-Z]?-\\d+(?:\\.\\d+)*(?::\\d+)?)(?![\\d])",
+          "context_required": false
         },
         {
           "label": "Constitution of Virginia",
-          "regex": "Va\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s*(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Constitution\\s+of\\s+Virginia|Virginia\\s+Constitution)"
+          "regex": "Va\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Za-z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s*(?:Section|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+(?:Constitution\\s+of\\s+Virginia|Virginia\\s+Constitution)",
+          "context_required": false
         },
         {
           "label": "Rules of the Supreme Court of Virginia (all Parts)",
-          "regex": "(?:Va\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Rules?\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia,?\\s*(?:Rule\\s*)?|\\bRule)\\s*(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)"
+          "regex": "(?:Va\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Rules?\\s+of\\s+(?:the\\s+)?Supreme\\s+Court\\s+of\\s+Virginia,?\\s*(?:Rule\\s*)?|\\bRule)\\s*(?P<rule>\\d{1,2}[A-D]?:\\d+[A-Z]?)",
+          "context_required": false
         },
         {
           "label": "Virginia Rules of Evidence (Part Two of the Rules)",
-          "regex": "(?:Va\\.\\s*R\\.\\s*Evid\\.|Virginia\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>2:\\d{3}[A-Z]?)|\\bRule\\s+(?P<rule2>2:\\d{3}[A-Z]?)"
+          "regex": "(?:Va\\.\\s*R\\.\\s*Evid\\.|Virginia\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>2:\\d{3}[A-Z]?)|\\bRule\\s+(?P<rule2>2:\\d{3}[A-Z]?)",
+          "context_required": false
         },
         {
           "label": "Virginia Administrative Code",
-          "regex": "(?P<title>\\d{1,2})\\s*VAC\\s*(?P<agency>\\d{1,3})-(?P<chapter>\\d{1,4})(?:-(?P<section>\\d{1,4}))?|(?P<title2>\\d{1,2})\\s+Va\\.\\s*Admin\\.\\s*Code\\s*\u00a7*\\s*(?P<agency2>\\d{1,3})-(?P<chapter2>\\d{1,4})(?:-(?P<section2>\\d{1,4}))?"
+          "regex": "(?P<title>\\d{1,2})\\s*VAC\\s*(?P<agency>\\d{1,3})-(?P<chapter>\\d{1,4})(?:-(?P<section>\\d{1,4}))?|(?P<title2>\\d{1,2})\\s+Va\\.\\s*Admin\\.\\s*Code\\s*\u00a7*\\s*(?P<agency2>\\d{1,3})-(?P<chapter2>\\d{1,4})(?:-(?P<section2>\\d{1,4}))?",
+          "context_required": false
         },
         {
           "label": "Virginia Register of Regulations",
-          "regex": "(?P<volume>\\d{1,2}):(?P<issue>\\d{1,2})\\s+(?:VA\\.\\s*R\\.|Va\\.\\s*Reg\\.\\s*Regs\\.)\\s*(?P<page>\\d+)|Virginia\\s+Register\\s+Volume\\s+(?P<volume2>\\d{1,2}),\\s*Issue\\s+(?P<issue2>\\d{1,2})"
+          "regex": "(?P<volume>\\d{1,2}):(?P<issue>\\d{1,2})\\s+(?:VA\\.\\s*R\\.|Va\\.\\s*Reg\\.\\s*Regs\\.)\\s*(?P<page>\\d+)|Virginia\\s+Register\\s+Volume\\s+(?P<volume2>\\d{1,2}),\\s*Issue\\s+(?P<issue2>\\d{1,2})",
+          "context_required": false
         },
         {
           "label": "Reported Virginia cases (Va., Va. App., S.E.)",
-          "regex": "(?P<volume>\\d{1,3})\\s+(?P<reporter>Va\\.\\s*App\\.|Va\\.)\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?:Va\\.)"
+          "regex": "(?P<volume>\\d{1,3})\\s+(?P<reporter>Va\\.\\s*App\\.|Va\\.)\\s+(?P<page>\\d{1,4})(?!\\d)|(?P<volume2>\\d{1,4})\\s+S\\.E\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page2>\\d{1,4})(?:,\\s*\\d+)?\\s*\\((?:Va\\.)",
+          "context_required": false
         },
         {
           "label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D)",
-          "regex": "Record\\s+No\\.\\s*(?P<scv>\\d{6})(?![\\d-])|(?:Record\\s+)?No\\.\\s*(?P<cav>\\d{4}-\\d{2}-\\d)(?!\\d)"
+          "regex": "Record\\s+No\\.\\s*(?P<scv>\\d{6})(?![\\d-])|(?:Record\\s+)?No\\.\\s*(?P<cav>\\d{4}-\\d{2}-\\d)(?!\\d)",
+          "context_required": false
         },
         {
           "label": "Westlaw / Lexis unreported cites",
-          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)"
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:Va\\.\\s*(?P<app>App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+)|WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Va\\.)",
+          "context_required": false
         }
       ]
     }

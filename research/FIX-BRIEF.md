@@ -40,7 +40,10 @@ For every `regex_tests` entry where `matched_label` is not the expected label:
   `citation_map.notes`.
 
 Then run `python3 scripts/build.py --check`. It must print **no ERROR and no
-WARN lines for `<xx>.json`**. Use `--check` only, never a full build.
+WARN lines for `<xx>.json`**. Also run `python3 scripts/build.py --cross`.
+It must print **no CROSS line involving `<xx>`**: either tighten the pattern
+with this state's marker, or mark a genuinely generic form
+`"context_required": true` (see SCHEMA.md). Use `--check` only, never a full build.
 
 ## Finish
 

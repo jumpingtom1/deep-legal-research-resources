@@ -56,7 +56,11 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
         "label": "California codes",
         "examples": ["Cal. Civ. Code § 1714", "Civil Code section 1714", "Cal. Code Civ. Proc. § 437c"],
         "regex": "python regex, named groups where useful (?P<code>…) (?P<section>…)",
-        "routes_to": ["ca-codes-leginfo", "ca-codes-publiclaw"] }   // source ids, in preference order
+        "routes_to": ["ca-codes-leginfo", "ca-codes-publiclaw"],   // source ids, in preference order
+        "context_required": false }   // true for GENERIC forms (bare "Rule 1:1", bare docket "No. 12345",
+                                      // regional reporters, "cert. denied") that cannot identify the state
+                                      // by themselves: they route only once the jurisdiction is known from
+                                      // the query or another, distinctive citation
     ],
     "law_aliases": {                     // optional: citation short forms → the URL key the statute pattern needs
       "Gen. Oblig. Law": "GOB", "GOL": "GOB" },
@@ -126,6 +130,14 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
   "open_questions": []
 }
 ```
+
+## Citation routing across jurisdictions
+
+`python3 scripts/build.py --cross` tests every jurisdiction's examples
+against every **other** jurisdiction's patterns (skipping
+`context_required` ones). It must report **0** matches. A distinctive
+pattern must carry the state's own marker ("Cal.", "Tex.", "N.J.S.A.",
+"of the Ohio Rules …") or be marked `context_required`.
 
 ## Verification vocabulary
 

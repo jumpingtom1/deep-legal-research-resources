@@ -207,7 +207,8 @@ def render(rec):
         L += ["| Recognise | Examples | Route to (in order) |", "|---|---|---|"]
         for p in cm["citation_patterns"]:
             ex = "; ".join(f"`{e}`" for e in p.get("examples", []))
-            L.append(f"| {p.get('label','')} | {ex} | "
+            ctx = " *(only once this jurisdiction is known)*" if p.get("context_required") else ""
+            L.append(f"| {p.get('label','')}{ctx} | {ex} | "
                      f"{' → '.join(f'`{r}`' for r in p.get('routes_to', []))} |")
         L.append("")
         L.append("Regexes (case-insensitive):")
@@ -332,8 +333,41 @@ def write_hosts():
     (ROOT / "hosts.json").write_text(json.dumps(out, indent=1) + "\n")
 
 
+def cross_check():
+    """Every jurisdiction's citation examples against every OTHER jurisdiction's
+    regexes. A hit means a citation would be routed to the wrong state."""
+    recs = {}
+    for f in sorted(DATA.glob("*.json")):
+        try:
+            recs[f.stem] = json.loads(f.read_text())
+        except Exception:
+            pass
+    hits = []
+    for j, r in recs.items():
+        for p in r.get("citation_map", {}).get("citation_patterns", []):
+            for ex in p.get("examples", []):
+                for k, r2 in recs.items():
+                    if k == j:
+                        continue
+                    for p2 in r2.get("citation_map", {}).get("citation_patterns", []):
+                        if p2.get("context_required"):
+                            continue      # generic form: routes only once the state is known
+                        try:
+                            if re.search(p2.get("regex", ""), ex, re.I):
+                                hits.append((j, ex, k, p2.get("label", "")))
+                        except re.error:
+                            pass
+    return hits
+
+
 def main():
     global CORPORA, CORPUS_INDEX
+    if "--cross" in sys.argv:
+        hits = cross_check()
+        for j, ex, k, lab in hits:
+            print(f"CROSS {j}: {ex!r} also matches {k} / {lab}")
+        print(f"{len(hits)} cross-jurisdiction match(es)")
+        sys.exit(1 if hits else 0)
     CORPORA, CORPUS_INDEX = load_corpora()
     check_only = "--check" in sys.argv
     OUT.mkdir(exist_ok=True)
@@ -365,7 +399,8 @@ def main():
             "compiled": rec["compiled"],
             "counts": counts,
             "citation_patterns": [
-                {"label": p.get("label"), "regex": p.get("regex")}
+                {"label": p.get("label"), "regex": p.get("regex"),
+                 "context_required": bool(p.get("context_required"))}
                 for p in rec.get("citation_map", {}).get("citation_patterns", [])
             ],
         }

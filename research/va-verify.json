@@ -1,0 +1,214 @@
+{
+  "jurisdiction": "va",
+  "date": "2026-10-16",
+  "rows": [
+    {
+      "id": "va-code-api",
+      "outcome": "confirmed",
+      "probe_evidence": "fetch_doc.py: 5,094 chars; Body 'A. Unless otherwise provided in this section or by other statute, every action'",
+      "generalised_citation": "Va. Code Ann. § 46.2-852",
+      "generalised_url": "https://law.lis.virginia.gov/api/CoVSectionsGetSectionDetailsJson/46.2-852/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "WebFetch still untested (built URLs are gated); script-only route works as written.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-code-lis",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'Unless otherwise provided in this section or by other statute, every action'; A-E, page date 10/17/2026",
+      "generalised_citation": "Va. Code Ann. § 55.1-1245 (also § 18.2-308.2:2)",
+      "generalised_url": "https://law.lis.virginia.gov/vacode/55.1-1245/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Undocumented hazard: multi-version sections. /vacode/55.1-1245/ (44,997 chars) says 'This section has more than one version with varying effective dates'; the breadcrumb heading shows the FUTURE version (eff. later of July 1, 2028...), the current version '(Effective until July 1, 2027)' follows. A fresh run could quote the wrong version. Colon URL 18.2-308.2:2 works; title index section ranges confirmed (title46.2 'Chapter 8 ... §§ 46.2-800 through 46.2-946').",
+      "suggested_fix": "Add hazard: some section pages hold several versions with effective-date parentheticals; pick the version in force on the relevant date and state its effective-date line."
+    },
+    {
+      "id": "va-code-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'Unless otherwise provided in this section or by other statute'; '2025 Code of Virginia'",
+      "generalised_citation": "Va. Code Ann. § 46.2-852",
+      "generalised_url": "https://law.justia.com/codes/virginia/title-46-2/chapter-8/section-46-2-852/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "None; built URL was NOT gated for WebFetch here. Chapter taken from LIS title index as instructed.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-constitution-lis",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'That the people have a right to uniform government; and,'; complete",
+      "generalised_citation": "Va. Const. art. II, § 1",
+      "generalised_url": "https://law.lis.virginia.gov/constitution/article2/section1/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Page date differs between pages (10/13/2026 on art1/section14, 10/17/2026 elsewhere); consistent with render-date hazard. Currency PDF title page not rechecked.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-constitution-justia",
+      "outcome": "discrepancy",
+      "probe_evidence": "WebFetch: Art. I § 11 present; 138,774 chars, window 1 truncated at Art. VIII § 5(c)",
+      "generalised_citation": "Va. Const. art. XI, § 1",
+      "generalised_url": "https://law.justia.com/constitution/virginia/constitution.html (offset=100000)",
+      "generalised_outcome": "failed",
+      "instruction_problems": "Following the row's 'use offset=100000 for later articles', the second window reportedly stopped mid Art. X § 10; Art. XI § 1 not returned. Arts. XI-XII may be unreachable by WebFetch (or the summariser misreported).",
+      "suggested_fix": "Re-test offset windows (e.g. offset=120000); add hazard that Arts. X-XII may need a further offset, and prefer va-constitution-lis per-section pages."
+    },
+    {
+      "id": "va-rules-scv",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: Rule 1:1 present, 3:20 NOT PRESENT, cut in Rule 1A:1 ('For pu'); script p.203 Rule 3:20 found",
+      "generalised_citation": "Va. Sup. Ct. R. 5A:12; Va. R. Evid. 2:803",
+      "generalised_url": "https://www.vacourts.gov/static/courts/scv/rulesofcourt.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Heading-style note is inconsistent: record says evidence headings have no period ('Rule 2:702 TESTIMONY'), but Rule 2:803 appears as 'Rule 2:803. HEARSAY EXCEPTIONS...' (with period). Grep 'Rule 2:803' (no punctuation) works for both. Rule 5A:12 found p.488.",
+      "suggested_fix": "Say: grep 'Rule {part}:{n}' without trailing punctuation; evidence headings vary (with/without period, capitals)."
+    },
+    {
+      "id": "va-admincode-lis",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'The following words and terms when used in this chapter'; 'Volume 42, Issue 23, eff. August 13, 2026'",
+      "generalised_citation": "9VAC25-210-10",
+      "generalised_url": "https://law.lis.virginia.gov/admincode/title9/agency25/chapter210/section10/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-admincode-lii",
+      "outcome": "confirmed",
+      "probe_evidence": "fetch_doc.py: 14,923 chars; 'The following words and terms when used in this chapter shall'; last note 38:04",
+      "generalised_citation": "9VAC25-210-10",
+      "generalised_url": "https://www.law.cornell.edu/regulations/virginia/9VAC25-210-10",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Staleness confirmed (Last-Modified 7 Aug 2025; notes stop at Volume 38, Issue 04). WebFetch still untested.",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-register-dls",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'Vol. 36 Iss. 23 - July 06, 2020'; 12VAC5-371 text present, not truncated",
+      "generalised_citation": "43:04 Va. Reg. Regs. (Oct. 5, 2026) actions; 42:23 issue PDF",
+      "generalised_url": "https://register.dls.virginia.gov/toc.aspx?voliss=43:04 -> details.aspx?id=12505; https://register.dls.virginia.gov/vol42/iss23/v42i23.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "TOC->details navigation works and v42i23.pdf is constructible (40 pp, masthead 'VOL. 42 ISS. 23'), but details.aspx?id=12500 (18VAC5-22, linked from 43:04 TOC) returned a 3,522-char shell with navigation only and no action text; ids 12505/12507 returned 23-25K chars.",
+      "suggested_fix": "Add hazard: some details.aspx pages return an empty shell; fall back to the issue PDF and its printed page numbers."
+    },
+    {
+      "id": "va-opinions-cav",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch gated (permission timeout); fetch_doc.py confirmed: 48 pp, 'Record No. 0476-25-1', 'Appealing the revocation of his suspended sentence'",
+      "generalised_citation": "Recycled Properties, LLC v. City Council of Chesapeake, Record No. 0657-25-1 (Va. Ct. App. Oct. 13, 2026) (unpublished)",
+      "generalised_url": "https://www.vacourts.gov/opinions/opncavwp/0657251.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Probe URL is gated for WebFetch (record says 'WebFetch ok'); use script. Found via fetch_doc.py grep of /wpcau listing as described; caption Record No. 0657-25-1 matches.",
+      "suggested_fix": "Mark WebFetch 'gated' for built opncavwp URLs."
+    },
+    {
+      "id": "va-opinions-scv",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch gated; fetch_doc.py confirmed: 14 pp, 'Record No. 250701', 'Samuel Marvin Kuykendall committed aggravated sexual battery'",
+      "generalised_citation": "Pinnacle Flooring Solutions, LLC v. Premier Homes Group, Record No. 250618 (Va. July 30, 2026)",
+      "generalised_url": "https://www.vacourts.gov/opinions/opnscvwp/1250618.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Probe URL gated for WebFetch. scndex top row still '250701 Commonwealth v. Kuykendall 09/03/2026' (no newer entries). Slip PDFs carry no Va./S.E. cite, as stated.",
+      "suggested_fix": "Mark WebFetch 'gated' for built opnscvwp URLs."
+    },
+    {
+      "id": "va-scv-unpublished-orders",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch not sent (gated); fetch_doc.py: 15 pp, 'Three years ago, this Court decided Horn v. Webb, 302 Va. 70'",
+      "generalised_citation": "Cunningham v. Commonwealth, Record No. 250327 (unpublished order)",
+      "generalised_url": "https://vacourts.gov/static/courts/scv/orders_unpublished/250327.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "va-cases-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'Under Wild Skies, Inc. (“UWS”) appeals the judgment'; Record No. 240683, May 29, 2025",
+      "generalised_citation": "Fennell v. Commonwealth, No. 0476-25-1 (Va. Ct. App. Oct. 13, 2026)",
+      "generalised_url": "https://law.justia.com/cases/virginia/court-of-appeals-published/2026/0476-25-1.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Long opinions exceed one WebFetch window (112,588 chars; dissent cut at 100K) - not listed as a hazard. 2026 'published' listing: 4 of first 5 links point to court-of-appeals-unpublished, confirming the slug-mixing hazard.",
+      "suggested_fix": "Add hazard: long opinions need a second WebFetch at offset=100000."
+    },
+    {
+      "id": "va-subsequent-history-cav-list",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch YES: 'DATE: October 6, 2026'; Kuykendall 0577-24-3 '...final judgment entered by opinion'",
+      "generalised_citation": "n/a (single fixed list)",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Source inconsistency: the list says the Kuykendall opinion was 'rendered on September 23, 2026 (250701)' but the SCV opinion and scndex say September 3, 2026. A run taking dates from this list would cite the wrong date.",
+      "suggested_fix": "Add hazard: take decision dates from the Supreme Court opinion/scndex, not from this list."
+    },
+    {
+      "id": "va-subsequent-history-acms",
+      "outcome": "confirmed",
+      "probe_evidence": "WebFetch: permission timeout (gated). Script now returns 8,918-char 'Terms and Conditions of Use' EULA page, not HTTP 500",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Link-only status still correct (no case data reachable), but evidence is stale: /acms-public now serves an ACMS EULA page rather than HTTP 500.",
+      "suggested_fix": "Update evidence: ACMS gated behind a terms-of-use (EULA) acceptance page; keep link-only."
+    }
+  ],
+  "regex_tests": [
+    {
+      "citation": "section 55.1-1245 of the Code of Virginia",
+      "matched_label": "Code of Virginia",
+      "expected_label": "Code of Virginia"
+    },
+    {
+      "citation": "Code §§ 8.01-228 through 8.01-256",
+      "matched_label": "Code of Virginia",
+      "expected_label": "Code of Virginia"
+    },
+    {
+      "citation": "Code of Va. § 8.01-243",
+      "matched_label": null,
+      "expected_label": "Code of Virginia"
+    },
+    {
+      "citation": "Article XI, Section 1 of the Constitution of Virginia",
+      "matched_label": "Constitution of Virginia",
+      "expected_label": "Constitution of Virginia"
+    },
+    {
+      "citation": "Rule 5A:20(e)",
+      "matched_label": "Rules of the Supreme Court of Virginia (all Parts)",
+      "expected_label": "Rules of the Supreme Court of Virginia (all Parts)"
+    },
+    {
+      "citation": "8 Va. Admin. Code 20-22-10",
+      "matched_label": "Virginia Administrative Code",
+      "expected_label": "Virginia Administrative Code"
+    },
+    {
+      "citation": "Commonwealth v. Mahoney, 919 S.E.2d 100 (Va. 2026)",
+      "matched_label": "Reported Virginia cases (Va., Va. App., S.E.)",
+      "expected_label": "Reported Virginia cases (Va., Va. App., S.E.)"
+    },
+    {
+      "citation": "Hopkins v. Commonwealth, No. 1566-24-3 (Va. Ct. App. Oct. 13, 2026)",
+      "matched_label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D)",
+      "expected_label": "Virginia record numbers (Supreme Court 6 digits; Court of Appeals NNNN-YY-D)"
+    },
+    {
+      "citation": "42:23 Va. Reg. Regs. 3105",
+      "matched_label": "Virginia Register of Regulations",
+      "expected_label": "Virginia Register of Regulations"
+    },
+    {
+      "citation": "W. Va. Code § 55-2-12",
+      "matched_label": "Code of Virginia",
+      "expected_label": "null (West Virginia) - FALSE ROUTE"
+    },
+    {
+      "citation": "Rule 2:803(6)",
+      "matched_label": "Rules of the Supreme Court of Virginia (all Parts) + Virginia Rules of Evidence",
+      "expected_label": "Virginia Rules of Evidence (both route to va-rules-scv; harmless)"
+    }
+  ],
+  "overall": "15 rows: 14 VERIFIED, 1 REPORTED. 15 probes reached the expected text or state (3 case-law PDFs only via fetch_doc.py because WebFetch was gated). Generalisation succeeded for 12 rows and failed for 1: Justia's constitution page, where offset=100000 stopped at Art. X § 10. Instruction gaps: LIS multi-version Code pages (the first heading is the future version); some Register details.aspx pages are empty shells; the CAV appeals list misdates Kuykendall (Sept 23 vs Sept 3); evidence-rule headings are inconsistent; long Justia opinions exceed one WebFetch window; ACMS now serves a EULA page, not HTTP 500. Regex: 'W. Va. Code §' wrongly routes to Virginia, and 'Code of Va. §' is missed."
+}
