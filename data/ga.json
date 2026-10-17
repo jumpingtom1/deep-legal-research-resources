@@ -181,14 +181,26 @@
         "examples": [
           "Ga. Comp. R. & Regs. 160-1-3-.04",
           "Ga. Comp. R. & Regs. r. 391-3-6-.03",
-          "Ga. Comp. R. & Regs. R. 345-2-.01",
-          "Rule 160-1-3-.04"
+          "Ga. Comp. R. & Regs. R. 345-2-.01"
         ],
-        "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
+        "regex": "Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
         "routes_to": [
           "ga-admincode-sos",
           "ga-admincode-lii"
         ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Rules and Regulations of the State of Georgia (bare \"Rule NNN-N-N-.NN\", shared with Alabama)",
+        "examples": [
+          "Rule 160-1-3-.04"
+        ],
+        "regex": "\\bRule\\s+(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
+        "routes_to": [
+          "ga-admincode-sos",
+          "ga-admincode-lii"
+        ],
+        "context_required": true
       },
       {
         "family": "admin_register",
@@ -307,7 +319,7 @@
       "GRPC": "grpc",
       "Ga. R. Prof'l Conduct": "grpc"
     },
-    "notes": "Georgia's own court style omits periods in the regional reporter and puts it in parentheses after the official cite: 'Young v. Johnson, 359 Ga. App. 769, 770 (860 SE2d 82) (2021)', and writes subsections with spaces: 'OCGA § 9-11-12 (b) (6)'. There is no public-domain citation format. O.C.G.A. sections are always title-chapter-section (with optional decimals, e.g. 16-13-30.1); 'Code Section' in Georgia acts means O.C.G.A. A '§§ 9-11-12 to 9-11-16' or '§§ 9-11-12 - 9-11-16' range is two sections: the regex takes the first and refuses a following hyphen-digit. Bare 'Rule 33.2' or 'Rule 22' must not route here without 'Court of Appeals' / 'Supreme Court' / 'Georgia' context; 'Code Section' also needs Georgia context. 'Rule NNN-N-N-.NN' with the '-.' separator is distinctive of the Georgia administrative code. Georgia's Civil Practice Act (O.C.G.A. § 9-11-1 et seq.) and Evidence Code (Title 24) are statutes, not court rules, so 'Rule 12(b)(6)' arguments in Georgia cite O.C.G.A. § 9-11-12 (b) (6). Docket prefixes: Supreme Court S{yy}A appeal, S{yy}C certiorari petition, S{yy}G certiorari granted, S{yy}D discretionary application, S{yy}I interlocutory application, S{yy}Q certified question, S{yy}Y bar discipline, S{yy}Z judicial discipline; Court of Appeals A{yy}A appeal, A{yy}D discretionary, A{yy}I interlocutory, A{yy}E emergency (from listing observation and memory). Court of Appeals Rule 33.2: opinions decided before Aug. 1, 2020 with special concurrences or concurrences in judgment only are 'physical precedent only' and must be marked so when cited; unreported decisions (Rule 34) and Rule 36 affirmances have no precedential value. 'cert. denied' entries route here only with Georgia context. CourtListener ids ga / gactapp are from memory, unverified. Docket-number regex must be used only with Georgia context: S/A + 2-digit year + letter + 4 digits can collide with other courts' styles. 'Unif. Super. Ct. R.' without a 'Ga.' prefix routes here: no other state uses 'Uniform Superior Court Rules', but route only with Georgia context if another state's 'Unif. Super. Ct. R.' turns up. Georgia's own style 'Code Section 51-1-6' is generic (other states also write 'Code section N-N-N'), so it routes here only once Georgia is established."
+    "notes": "Georgia's own court style omits periods in the regional reporter and puts it in parentheses after the official cite: 'Young v. Johnson, 359 Ga. App. 769, 770 (860 SE2d 82) (2021)', and writes subsections with spaces: 'OCGA § 9-11-12 (b) (6)'. There is no public-domain citation format. O.C.G.A. sections are always title-chapter-section (with optional decimals, e.g. 16-13-30.1); 'Code Section' in Georgia acts means O.C.G.A. A '§§ 9-11-12 to 9-11-16' or '§§ 9-11-12 - 9-11-16' range is two sections: the regex takes the first and refuses a following hyphen-digit. Bare 'Rule 33.2' or 'Rule 22' must not route here without 'Court of Appeals' / 'Supreme Court' / 'Georgia' context; 'Code Section' also needs Georgia context. 'Rule NNN-N-N-.NN' with the '-.' separator is distinctive of the Georgia administrative code. Georgia's Civil Practice Act (O.C.G.A. § 9-11-1 et seq.) and Evidence Code (Title 24) are statutes, not court rules, so 'Rule 12(b)(6)' arguments in Georgia cite O.C.G.A. § 9-11-12 (b) (6). Docket prefixes: Supreme Court S{yy}A appeal, S{yy}C certiorari petition, S{yy}G certiorari granted, S{yy}D discretionary application, S{yy}I interlocutory application, S{yy}Q certified question, S{yy}Y bar discipline, S{yy}Z judicial discipline; Court of Appeals A{yy}A appeal, A{yy}D discretionary, A{yy}I interlocutory, A{yy}E emergency (from listing observation and memory). Court of Appeals Rule 33.2: opinions decided before Aug. 1, 2020 with special concurrences or concurrences in judgment only are 'physical precedent only' and must be marked so when cited; unreported decisions (Rule 34) and Rule 36 affirmances have no precedential value. 'cert. denied' entries route here only with Georgia context. CourtListener ids ga / gactapp are from memory, unverified. Docket-number regex must be used only with Georgia context: S/A + 2-digit year + letter + 4 digits can collide with other courts' styles. 'Unif. Super. Ct. R.' without a 'Ga.' prefix routes here: no other state uses 'Uniform Superior Court Rules', but route only with Georgia context if another state's 'Unif. Super. Ct. R.' turns up. Georgia's own style 'Code Section 51-1-6' is generic (other states also write 'Code section N-N-N'), so it routes here only once Georgia is established. Alabama's administrative rules use the same 'NNN-N-N-.NN' numbering, so a bare 'Rule …-.NN' routes here only once Georgia is established."
   },
   "sources": [
     {

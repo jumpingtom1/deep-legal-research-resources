@@ -84,6 +84,87 @@
         }
       ]
     },
+    "al": {
+      "name": "Alabama",
+      "file": "jurisdictions/al.md",
+      "sha256": "19b0ca6e83a040d541f9c951392602cb336dc483bbf39bf231dd63cd44b944e0",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 13
+      },
+      "citation_patterns": [
+        {
+          "label": "Code of Alabama 1975",
+          "regex": "Ala\\.\\s*Code(?:\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2}[A-Z]?)-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|Code\\s+of\\s+Ala(?:bama|\\.)(?:,?\\s*(?:19)?75)?,?\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title2>\\d{1,2}[A-Z]?)-(?P<chapter2>\\d{1,3}[A-Z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?![\\d])|(?:\u00a7\u00a7?|[Ss]ection)\\s*(?P<title3>\\d{1,2}[A-Z]?)-(?P<chapter3>\\d{1,3}[A-Z]?)-(?P<section3>\\d{1,4}(?:\\.\\d+)?)(?![\\d])(?:\\s*\\([a-zA-Z0-9]+\\))*,?\\s*(?:Ala\\.\\s*Code|Code\\s+of\\s+Ala(?:bama|\\.))",
+          "context_required": false
+        },
+        {
+          "label": "Alabama Acts (session laws)",
+          "regex": "Ala\\.\\s*Acts?\\s*(?:(?P<year>(?:18|19|20)\\d\\d),?\\s*)?(?:Act\\s+)?No\\.\\s*(?P<act>(?:19|20)\\d\\d-\\d{1,4})|Act\\s+No\\.\\s*(?P<act2>(?:19|20)\\d\\d-\\d{1,4}),\\s*Ala\\.\\s*Acts",
+          "context_required": false
+        },
+        {
+          "label": "Alabama act numbers (bare)",
+          "regex": "\\bAct\\s+(?:No\\.\\s*)?(?P<act>(?:19|20)\\d\\d-\\d{1,4})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Constitution of Alabama (2022 recompilation; 1901 numbering)",
+          "regex": "Ala\\.\\s*Const\\.(?:\\s*(?:of\\s*)?(?:1901|2022))?,?\\s*(?:art\\.\\s*(?P<article>[IVXL]+),?\\s*)?(?:\u00a7|sec\\.|section)\\s*(?P<section>\\d{1,3}(?:\\.\\d{1,2})?)|(?:\u00a7|[Ss]ection)\\s*(?P<section2>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-z0-9]+\\))*,?\\s*(?:of\\s+the\\s+)?(?:Ala\\.\\s*Const\\.|Alabama\\s+Constitution|Constitution\\s+of\\s+Alabama)|(?:Art\\.|Article)\\s*(?P<article3>[IVXL]+),?\\s*(?:\u00a7|[Ss]ec\\.|[Ss]ection)\\s*(?P<section3>\\d{1,3}(?:\\.\\d{1,2})?),?\\s*(?:of\\s+the\\s+)?(?:Ala\\.\\s*Const\\.|Alabama\\s+Constitution|Constitution\\s+of\\s+Alabama)",
+          "context_required": false
+        },
+        {
+          "label": "Alabama Rules of Civil, Criminal, Appellate, Juvenile Procedure, Evidence, Professional Conduct",
+          "regex": "Ala\\.\\s*R\\.\\s*(?P<set>Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P|Juv\\.\\s*P|Prof(?:'l|\\.)\\s*Cond(?:uct|\\.)?|Jud\\.\\s*Admin|Small\\s*Claims)\\.?\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,2})?)(?:\\s*\\([a-zA-Z0-9]+\\))*,\\s*Ala\\.\\s*R\\.\\s*(?P<set2>Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P|Juv\\.\\s*P|Prof(?:'l|\\.)\\s*Cond(?:uct|\\.)?|Jud\\.\\s*Admin|Small\\s*Claims)|Alabama\\s+Rules?\\s+of\\s+(?P<set3>Civil\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure|Juvenile\\s+Procedure|Professional\\s+Conduct)\\s*(?P<rule3>\\d{1,4}(?:\\.\\d{1,2})?)|Rule\\s+(?P<rule4>\\d{1,4}(?:\\.\\d{1,2})?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Alabama\\s+Rules\\s+of\\s+(?P<set4>Civil\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure|Juvenile\\s+Procedure|Professional\\s+Conduct)",
+          "context_required": false
+        },
+        {
+          "label": "Alabama court rules (bare forms)",
+          "regex": "\\bRule\\s+32\\s+petition|\\bRule\\s+(?P<rule>\\d{1,3}(?:\\.\\d{1,2})?)(?:\\s*\\([a-zA-Z0-9]+\\))+",
+          "context_required": true
+        },
+        {
+          "label": "Alabama Administrative Code",
+          "regex": "Ala\\.\\s*Admin\\.\\s*Code\\s*(?:\\([^)]{1,40}\\)\\s*)?(?:r\\.|ch\\.|rule|chapter)?\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?)|(?:Rule|Chapter)\\s+(?P<rule2>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}(?:-\\.\\d{2}[A-Z]?)?),\\s*Ala\\.\\s*Admin\\.\\s*Code",
+          "context_required": false
+        },
+        {
+          "label": "Alabama Administrative Code rule numbers (bare)",
+          "regex": "\\b(?:Rule|r\\.)\\s*(?P<rule>\\d{2,3}-[0-9X]{1,3}-[0-9A-Z]{1,3}-\\.\\d{2}[A-Z]?)",
+          "context_required": true
+        },
+        {
+          "label": "Alabama Administrative Monthly",
+          "regex": "(?:Ala\\.\\s*Admin\\.\\s*Monthly|Alabama\\s+Administrative\\s+Monthly),?\\s*(?:Vol\\.|Volume)\\s*(?P<vol>[IVXL]+),?\\s*(?:No\\.|Issue\\s+No\\.)\\s*(?P<issue>\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Alabama appellate docket numbers (2023- portal format)",
+          "regex": "\\b(?P<docket>(?P<court>SC|CL|CR)-(?P<year>20\\d\\d)-(?P<num>\\d{4}))\\b",
+          "context_required": false
+        },
+        {
+          "label": "Alabama legacy docket numbers",
+          "regex": "\\b(?:No\\.\\s*)?(?P<docket>[12]\\d{6}|CR-\\d{2}-\\d{3,4})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Alabama court parentheticals and Alabama Reports",
+          "regex": "(?<!denied )(?<!quashed )(?<!granted )\\((?P<court>Ala\\.(?:\\s*(?:Civ\\.\\s*App|Crim\\.\\s*App)\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Ala\\.(?:\\s*App\\.)?\\s+(?P<page>\\d{1,4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Southern Reporter (regional, generic)",
+          "regex": "\\b(?P<vol>\\d{1,3})\\s+So\\.\\s*(?:2d|3d)?\\s+(?P<page>\\d{1,4})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Alabama certiorari history",
+          "regex": "(?P<disp>cert\\.\\s*(?:denied|quashed|granted|dismissed)|writ\\s+(?:denied|quashed)),?\\s*(?:(?P<vol>\\d{1,3})\\s+So\\.\\s*(?:2d|3d)\\s+(?P<page>\\d{1,4}|_{2,5})\\s*)?\\(Ala\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:19|20)\\d\\d)\\)",
+          "context_required": false
+        }
+      ]
+    },
     "az": {
       "name": "Arizona",
       "file": "jurisdictions/az.md",
@@ -643,7 +724,7 @@
     "ga": {
       "name": "Georgia",
       "file": "jurisdictions/ga.md",
-      "sha256": "1eaae887c3440d71dbc4518d241c9f2d3f41f7ffa27fe3f0cab1a13db32f4e99",
+      "sha256": "d253dfcddfa9f96761d05abf9238fe7892d755890c928c0cc95490978b21fd96",
       "compiled": "2026-10-16",
       "counts": {
         "reported": 4,
@@ -703,8 +784,13 @@
         },
         {
           "label": "Rules and Regulations of the State of Georgia",
-          "regex": "(?:Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?|Rule\\s+)(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
+          "regex": "Ga\\.\\s*Comp\\.\\s*R\\.\\s*&\\s*Regs\\.\\s*(?:[rR]\\.\\s*)?(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
           "context_required": false
+        },
+        {
+          "label": "Rules and Regulations of the State of Georgia (bare \"Rule NNN-N-N-.NN\", shared with Alabama)",
+          "regex": "\\bRule\\s+(?P<rule>(?P<subject>\\d{2,3}-\\d{1,3}(?:-\\d{1,3})?)-\\.(?P<number>\\d{2,3}))",
+          "context_required": true
         },
         {
           "label": "Georgia Rules and Regulations Monthly Bulletin",
@@ -1036,10 +1122,10 @@
     "la": {
       "name": "Louisiana",
       "file": "jurisdictions/la.md",
-      "sha256": "110c59ff528c6a654d3c675fb2672f96974f9dbee31f6fa16f9a01e68857a79f",
+      "sha256": "b268b2793a4c2a0dec73fcecbea607c5502738fc5cf2d1226bd93706cd9f1901",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 14,
+        "verified_independent": 14,
         "reported": 7
       },
       "citation_patterns": [
@@ -1050,7 +1136,7 @@
         },
         {
           "label": "Louisiana Revised Statutes (bare \"R.S. 9:2800\")",
-          "regex": "(?<![\\w.])R\\.\\s*S\\.\\s*(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)",
+          "regex": "(?<![\\w.])R\\.\\s*S\\.\\s*(?P<title>\\d{1,2}):(?P<section>\\d+(?:\\.\\d+)?)(?!\\d)|(?:Section|\u00a7)\\s*(?P<section2>\\d+(?:\\.\\d+)?)\\s+of\\s+Title\\s+(?P<title2>\\d{1,2})\\s+of\\s+the\\s+Revised\\s+Statutes",
           "context_required": true
         },
         {

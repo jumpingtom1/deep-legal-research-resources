@@ -23,6 +23,13 @@
    ],
    "blocked_sources": []
   },
+  "acis.alabama.gov": {
+   "status": "allowed",
+   "sources": [
+    "al-releases-legacy"
+   ],
+   "blocked_sources": []
+  },
   "acis.flcourts.gov": {
    "status": "allowed",
    "sources": [
@@ -34,6 +41,14 @@
    "status": "allowed",
    "sources": [
     "nv-opinions-acis"
+   ],
+   "blocked_sources": []
+  },
+  "admincode.legislature.state.al.us": {
+   "status": "allowed",
+   "sources": [
+    "al-admincode-lsa",
+    "al-aam-lsa"
    ],
    "blocked_sources": []
   },
@@ -58,6 +73,15 @@
     "co-crs-lexis",
     "ga-code-lexis",
     "nj-admincode-lexis"
+   ],
+   "blocked_sources": []
+  },
+  "alison.legislature.state.al.us": {
+   "status": "allowed",
+   "sources": [
+    "al-code-alison",
+    "al-acts-alison",
+    "al-constitution-alison"
    ],
    "blocked_sources": []
   },
@@ -445,6 +469,14 @@
    ],
    "blocked_sources": []
   },
+  "judicial.alabama.gov": {
+   "status": "allowed",
+   "sources": [
+    "al-rules-judicial",
+    "al-releases-legacy"
+   ],
+   "blocked_sources": []
+  },
   "lafcca.hosted2.civiclive.com": {
    "status": "allowed",
    "sources": [
@@ -457,6 +489,9 @@
    "sources": [
     "ak-statutes-justia",
     "ak-cases-justia",
+    "al-code-justia",
+    "al-constitution-justia",
+    "al-cases-justia",
     "az-ars-justia",
     "az-cases-justia",
     "ca-codes-justia",
@@ -905,6 +940,22 @@
     "tn-public-acts-sos",
     "tn-admincode-sos",
     "tn-admin-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "publicportal-api.alappeals.gov": {
+   "status": "allowed",
+   "sources": [
+    "al-opinions-portal",
+    "al-cert-portal"
+   ],
+   "blocked_sources": []
+  },
+  "publicportal.alappeals.gov": {
+   "status": "allowed",
+   "sources": [
+    "al-opinions-portal",
+    "al-cert-portal"
    ],
    "blocked_sources": []
   },
@@ -1434,6 +1485,7 @@
    "status": "allowed",
    "sources": [
     "ak-aac-lii",
+    "al-admincode-lii",
     "az-aac-lii",
     "ca-ccr-lii",
     "co-ccr-lii",
