@@ -686,24 +686,24 @@
     "nv": {
       "name": "Nevada",
       "file": "jurisdictions/nv.md",
-      "sha256": "03a1cad670ab7a0e1f072b71c86b415e7bb84a9620324076ddf08aa8dc4410e7",
+      "sha256": "da9ac2efe512b6d62165ba2caee02a9266269e84aa3b9bc6ce2e63e69797d4ed",
       "compiled": "2026-10-16",
       "counts": {
-        "verified": 16,
+        "verified_independent": 16,
         "reported": 3
       },
       "citation_patterns": [
         {
           "label": "Nevada Revised Statutes",
-          "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)"
+          "regex": "(?:\\bNRS|\\bN\\.\\s*R\\.\\s*S\\.|Nev\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]{0,2})\\.(?P<section>\\d{3,5})(?!\\d)|chapter\\s+(?P<chapter3>\\d{1,3}[A-Z]{0,2})\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)\\b|\\bNRS\\s+(?:ch\\.|chapter)\\s*(?P<chapter4>\\d{1,3}[A-Z]{0,2})\\b|sec(?:tion|\\.)\\s+(?P<chapter2>\\d{1,3}[A-Z]{0,2})\\.(?P<section2>\\d{3,5})(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?(?:Nevada\\s+Revised\\s+Statutes|NRS)"
         },
         {
           "label": "Statutes of Nevada (session laws)",
-          "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:p\\.|at\\s+p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)"
+          "regex": "Statutes\\s+of\\s+Nevada\\s+(?P<year>(?:18|19|20)\\d\\d),?\\s*(?:at\\s+)?(?:p\\.|page)\\s*(?P<page>\\d+)|(?P<year2>(?:18|19|20)\\d\\d)\\s+Nev\\.\\s*Stat\\.\\s*(?P<page2>\\d+)|Stats\\.\\s*(?P<year3>(?:18|19|20)\\d\\d),\\s*ch\\.\\s*(?P<chapter>\\d+)"
         },
         {
           "label": "Nevada Constitution",
-          "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)"
+          "regex": "Nev\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>\\d{1,2}|[IVXL]+),?\\s*(?:\u00a7|sec\\.|section)\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>\\d{1,2}|[IVXL]+),?\\s+Section\\s+(?P<section2>\\d+[A-Z]?)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)|Section\\s+(?P<section3>\\d+[A-Z]?)\\s+of\\s+Article\\s+(?P<article3>\\d{1,2}|[IVXL]+)\\s+of\\s+the\\s+(?:Nevada\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nevada)"
         },
         {
           "label": "Nevada Rules of Civil Procedure",
