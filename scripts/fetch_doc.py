@@ -111,7 +111,10 @@ def cmd_read(a):
 def cmd_grep(a):
     r = load(a.url, a.max_age)
     print(header(r))
-    rx = re.compile(a.pattern if a.regex else re.escape(a.pattern), re.I)
+    if a.regex:
+        rx = re.compile(a.pattern, re.I)
+    else:   # plain text: any run of whitespace in the pattern matches any run in the page
+        rx = re.compile(r"\s+".join(re.escape(w) for w in a.pattern.split()), re.I)
     hits = list(rx.finditer(r["text"]))
     print(f"\n{len(hits)} match(es)" + (f"; showing {a.max}" if len(hits) > a.max else ""))
     for m in hits[:a.max]:
