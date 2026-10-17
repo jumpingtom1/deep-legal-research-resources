@@ -151,7 +151,10 @@
     "ma-constitution-justia",
     "ma-cases-justia",
     "ny-laws-justia",
-    "ny-cases-justia"
+    "ny-cases-justia",
+    "tx-statutes-justia",
+    "tx-constitution-justia",
+    "tx-cases-justia"
    ],
    "blocked_sources": []
   },
@@ -188,6 +191,13 @@
    "status": "allowed",
    "sources": [
     "fl-sc-fsu-archive"
+   ],
+   "blocked_sources": []
+  },
+  "lrl.texas.gov": {
+   "status": "blocked",
+   "sources": [
+    "tx-session-laws-lrl"
    ],
    "blocked_sources": []
   },
@@ -237,6 +247,22 @@
    ],
    "blocked_sources": []
   },
+  "search.txcourts.gov": {
+   "status": "blocked",
+   "sources": [
+    "tx-cases-tames",
+    "tx-subsequent-tames"
+   ],
+   "blocked_sources": []
+  },
+  "statutes.capitol.texas.gov": {
+   "status": "allowed",
+   "sources": [
+    "tx-statutes-tcss",
+    "tx-statutes-capitol-app"
+   ],
+   "blocked_sources": []
+  },
   "supreme.courts.ca.gov": {
    "status": "allowed",
    "sources": [
@@ -249,6 +275,35 @@
    "sources": [
     "fl-rules-flcourts",
     "fl-opinions-flcourts"
+   ],
+   "blocked_sources": []
+  },
+  "tcss.legis.texas.gov": {
+   "status": "allowed",
+   "sources": [
+    "tx-statutes-tcss",
+    "tx-constitution-tcss"
+   ],
+   "blocked_sources": []
+  },
+  "texas-sos.appianportalsgov.com": {
+   "status": "allowed",
+   "sources": [
+    "tx-tac-sos"
+   ],
+   "blocked_sources": []
+  },
+  "texas.public.law": {
+   "status": "allowed",
+   "sources": [
+    "tx-statutes-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "texreg.sos.state.tx.us": {
+   "status": "allowed",
+   "sources": [
+    "tx-tac-sos"
    ],
    "blocked_sources": []
   },
@@ -331,7 +386,8 @@
     "fl-fac-lii",
     "il-admincode-lii",
     "ma-cmr-lii",
-    "ny-nycrr-cornell"
+    "ny-nycrr-cornell",
+    "tx-tac-lii"
    ],
    "blocked_sources": []
   },
@@ -402,6 +458,28 @@
    "status": "allowed",
    "sources": [
     "ma-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.sos.state.tx.us": {
+   "status": "allowed",
+   "sources": [
+    "tx-register-sos"
+   ],
+   "blocked_sources": []
+  },
+  "www.txcourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "tx-rules-civil",
+    "tx-rules-appellate",
+    "tx-rules-evidence",
+    "tx-rules-disciplinary",
+    "tx-rules-judicial-admin",
+    "tx-scotx-orders-opinions",
+    "tx-business-court-opinions",
+    "tx-subsequent-scotx-orders",
+    "tx-subsequent-cca-pdr-granted"
    ],
    "blocked_sources": []
   }

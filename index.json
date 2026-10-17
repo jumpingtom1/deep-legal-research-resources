@@ -358,6 +358,75 @@
           "regex": "(?P<vol>\\d{1,3})\\s+(?P<rep>N\\.E\\.(?:2d|3d)?|N\\.Y\\.S\\.(?:2d|3d)?)\\s+(?P<page>\\d{1,4})"
         }
       ]
+    },
+    "tx": {
+      "name": "Texas",
+      "file": "jurisdictions/tx.md",
+      "sha256": "bd43e60919ab1ac4056784bb805d0cb0c49549fbe3babea113d684fc00480b90",
+      "compiled": "2026-10-16",
+      "counts": {
+        "verified": 16,
+        "blocked": 3,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Texas codes",
+          "regex": "Tex(?:as|\\.)\\s+(?P<code>(?:(?:[A-Z&][\\w.'\u2019&]*|and|of)\\s+){0,5}?Code|Code\\s+(?:of\\s+)?Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?|Crim(?:inal|\\.)\\s*Proc(?:edure|\\.)?\\s+Code)(?:\\s+Ann(?:otated|\\.))?(?:\\s*\\([^)]*\\))?,?\\s*(?:\u00a7\u00a7?|[Ss]ec(?:tions?|s?\\.)|[Aa]rt(?:icles?|s?\\.))\\s*(?P<section>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)|(?:[Ss]ection|[Aa]rticle|\u00a7)\\s*(?P<section2>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)(?:\\([a-zA-Z0-9]+\\))*,?\\s+of\\s+(?:the\\s+)?(?:Texas\\s+(?P<code2>(?:(?:[A-Z&][\\w.'\u2019&]*|and)\\s+){1,5}Code|Code\\s+of\\s+Criminal\\s+Procedure)|(?P<code3>Civil\\s+Practice\\s+(?:and|&)\\s+Remedies\\s+Code|Code\\s+of\\s+Criminal\\s+Procedure|Business\\s+Organizations\\s+Code|Parks\\s+(?:and|&)\\s+Wildlife\\s+Code|Special\\s+District\\s+Local\\s+Laws\\s+Code|Alcoholic\\s+Beverage\\s+Code|Occupations\\s+Code|Human\\s+Resources\\s+Code|Business\\s+(?:and|&)\\s+Commerce\\s+Code|Estates\\s+Code))|(?P<code4>T?CPRC)\\s*\u00a7+\\s*(?P<section4>\\d+[A-Za-z]?(?:\\.\\d+[A-Za-z]?)+)"
+        },
+        {
+          "label": "Vernon's Texas Civil Statutes (uncodified articles)",
+          "regex": "Tex\\.\\s*Rev\\.\\s*Civ\\.\\s*Stat\\.(?:\\s*Ann\\.)?\\s*art\\.\\s*(?P<article>\\d+[a-z]?(?:\\(\\d+\\))?(?:[-.]\\d+)?)"
+        },
+        {
+          "label": "Texas Constitution",
+          "regex": "Tex(?:as|\\.)\\s*Const(?:itution|\\.)\\s*,?\\s*art(?:icle|\\.)?\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|[Ss]ec(?:tion|\\.)?)\\s*(?P<section>\\d+[a-z]?(?:-[a-z])?)|[Aa]rticle\\s+(?P<article2>[IVXL]+|\\d{1,2}),?\\s+[Ss]ection\\s+(?P<section2>\\d+[a-z]?(?:-[a-z])?)\\s+of\\s+the\\s+Texas\\s+Constitution"
+        },
+        {
+          "label": "Texas Rules of Civil Procedure",
+          "regex": "(?:Tex\\.\\s*R\\.\\s*Civ\\.\\s*P(?:roc)?\\.|T\\.?R\\.?C\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Civil\\s+Procedure)\\s*(?P<rule>\\d+[a-z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[a-z]?(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Civil\\s+Procedure"
+        },
+        {
+          "label": "Texas Rules of Appellate Procedure",
+          "regex": "(?:Tex\\.\\s*R\\.\\s*App\\.\\s*P(?:roc)?\\.|T\\.?R\\.?A\\.?P\\.?|Texas\\s+Rules?\\s+of\\s+Appellate\\s+Procedure)\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Appellate\\s+Procedure"
+        },
+        {
+          "label": "Texas Rules of Evidence",
+          "regex": "(?:Tex\\.\\s*R\\.\\s*Evid\\.|T\\.?R\\.?E\\.?(?=\\s*\\d{3})|Texas\\s+Rules?\\s+of\\s+Evidence)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Evidence"
+        },
+        {
+          "label": "Texas Disciplinary Rules of Professional Conduct",
+          "regex": "(?:Tex\\.\\s*Disciplinary\\s*R(?:ules|\\.)\\s*Prof'?l\\s*Conduct\\s*(?:R\\.)?|TDRPC|Texas\\s+Disciplinary\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<rule>\\d\\.\\d{2})|Rule\\s+(?P<rule2>\\d\\.\\d{2})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Texas\\s+Disciplinary\\s+Rules\\s+of\\s+Professional\\s+Conduct"
+        },
+        {
+          "label": "Texas Rules of Judicial Administration",
+          "regex": "Tex\\.\\s*R\\.\\s*Jud\\.\\s*Admin\\.\\s*(?P<rule>\\d+(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+(?:\\.\\d+)?)\\s+of\\s+the\\s+Texas\\s+Rules\\s+of\\s+Judicial\\s+Administration"
+        },
+        {
+          "label": "Texas Administrative Code",
+          "regex": "(?P<title>\\d{1,2})\\s+(?:Tex\\.\\s*Admin\\.\\s*Code|T\\.?A\\.?C\\.?)\\s*(?:\u00a7+|[Ss]ec(?:tion|\\.)?|R(?:ule|\\.))?\\s*(?P<chapter>\\d+[A-Z]?)\\.(?P<section>\\d+[a-z]?)"
+        },
+        {
+          "label": "Texas Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Tex\\.?\\s*Reg\\.?\\s+(?P<page>\\d{1,5})"
+        },
+        {
+          "label": "Reported Texas cases (South Western Reporter) with Texas court and subsequent-history parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)*\\s*\\((?P<court>Tex\\.(?:\\s*Crim\\.\\s*App\\.|\\s*App\\.\\s*(?:[\u2014\u2013]|-{1,2})?\\s*(?P<coa>[A-Z][A-Za-z .\u2013-]*?(?:\\s*\\[\\d+(?:st|nd|rd|th)\\s+Dist\\.\\])?|\\d+(?:st|nd|rd|th)\\s+Dist\\.)|\\s*Bus\\.\\s*Ct\\.|\\s*Comm'n\\s*App\\.)?)\\s*(?P<date>(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s+)?(?P<year>\\d{4}))(?:,\\s*(?P<history>[^)]+))?\\)"
+        },
+        {
+          "label": "Texas memorandum / unpublished opinions by docket number (courts of appeals, CCA, Supreme Court)",
+          "regex": "(?P<coa_docket>(?P<district>0[1-9]|1[0-5])-(?P<yy>\\d{2})-(?P<seq>\\d{5})-(?P<kind>CV|CR))|(?P<cca_docket>(?P<cca_type>PD|WR|AP)-\\d{1,2},?\\d{3}(?:-\\d{2})?)|No\\.\\s*(?P<sc_docket>\\d{2}-\\d{4})(?=[^)]{0,40}\\(Tex\\.\\s+[A-Z])"
+        },
+        {
+          "label": "Business Court of Texas public-domain citation and cause number",
+          "regex": "(?P<year>20\\d{2})\\s+Tex\\.\\s*Bus\\.\\s+(?P<number>\\d{1,4})|(?P<cause>\\d{2}-BC\\d{2}[A-Z]-\\d{4})"
+        },
+        {
+          "label": "Westlaw / Lexis cites to Texas courts",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Tex\\.|Tex\\.\\s*(?:(?P<lexcourt>App\\.|Crim\\.\\s*App\\.)\\s*)?LEXIS\\s+(?P<lexis>\\d+))"
+        }
+      ]
     }
   }
 }
