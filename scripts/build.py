@@ -112,16 +112,18 @@ def flag(s):
     return st.upper() + (f" {v.get('date')}" if v.get("date") else "")
 
 
-def _pattern_regex(j, label):
-    """The corpus resolves citations with the jurisdiction record's own regex
-    (looked up by label prefix), so the two can never drift apart."""
+def _pattern_regexes(j, label):
+    """The corpus resolves citations with the jurisdiction record's own regexes
+    (every pattern whose label starts with `label`, including generic
+    context_required variants), so the two can never drift apart."""
     if not label:
-        return None
+        return []
     rec = json.loads((DATA / f"{j}.json").read_text())
-    for p in rec["citation_map"]["citation_patterns"]:
-        if p["label"].startswith(label):
-            return p["regex"]
-    raise SystemExit(f"corpus {j}: no citation pattern labelled {label!r} in data/{j}.json")
+    out = [{"regex": p["regex"], "context_required": bool(p.get("context_required"))}
+           for p in rec["citation_map"]["citation_patterns"] if p["label"].startswith(label)]
+    if not out:
+        raise SystemExit(f"corpus {j}: no citation pattern labelled {label!r} in data/{j}.json")
+    return out
 
 
 def load_corpora():
@@ -135,7 +137,7 @@ def load_corpora():
                  "source_id": m.get("source_id"), "captured": m["captured"],
                  "units": len(m["units"]), "stale_days": m.get("stale_days"),
                  "expire_days": m.get("expire_days"),
-                 "cite_regex": _pattern_regex(m["jurisdiction"], m.get("cite_pattern")),
+                 "cite_regexes": _pattern_regexes(m["jurisdiction"], m.get("cite_pattern")),
                  "cite_template": m.get("cite_template"),
                  "manifest_sha256": hashlib.sha256(raw).hexdigest()}
         idx[cid] = entry

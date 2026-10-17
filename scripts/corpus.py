@@ -7,7 +7,8 @@ Stdlib only. Works against a local checkout or the published repo:
     (default: the checkout this script lives in)
 
     corpus.py list [--jurisdiction de]
-    corpus.py resolve "Super. Ct. Crim. R. 61(i)(1)"        citation → collection + unit, then get
+    corpus.py resolve "Del. Super. Ct. Crim. R. 61(i)(1)"    citation → collection + unit, then get
+    corpus.py resolve "Super. Ct. Crim. R. 61" --jurisdiction de   generic form, state already known
     corpus.py get de/super-ct-crim-r 61
     corpus.py search de/super-ct-crim-r "postconviction" ["more terms"] [--any] [-n 10]
     corpus.py verify de/super-ct-crim-r 61 "exact quote"
@@ -140,22 +141,26 @@ def cmd_list(a):
         print(f"{cid:28} {c['units']:4} units · captured {c['captured']} · {c['title']}")
 
 
-def _resolve(cite):
+def _resolve(cite, jurisdiction=None):
+    """Distinctive patterns resolve anywhere; generic (context_required)
+    patterns only inside the jurisdiction the caller has already established."""
     for cid, c in index()["collections"].items():
-        rx = c.get("cite_regex")
-        if not rx:
-            continue
-        m = re.search(rx, cite, re.I)
-        if m:
-            gd = {k: v for k, v in m.groupdict().items() if v}
-            uid = next((gd[k] for k in ("rule", "rule2", "section", "id") if k in gd), None)
-            if uid:
-                return cid, uid
+        pats = c.get("cite_regexes") or ([{"regex": c["cite_regex"]}] if c.get("cite_regex") else [])
+        for p in pats:
+            if p.get("context_required") and c.get("jurisdiction") != jurisdiction:
+                continue
+            m = re.search(p["regex"], cite, re.I)
+            if m:
+                gd = {k: v for k, v in m.groupdict().items() if v}
+                uid = next((v for k, v in gd.items()
+                            if re.match(r"(rule|section|id)\d*$", k)), None)
+                if uid:
+                    return cid, uid
     return None, None
 
 
 def cmd_resolve(a):
-    cid, uid = _resolve(a.citation)
+    cid, uid = _resolve(a.citation, a.jurisdiction)
     if not cid:
         print(f"NOT IN CORPUS: no collection's citation pattern matches {a.citation!r}")
         sys.exit(2)
@@ -278,6 +283,8 @@ def main():
     s.add_argument("--jurisdiction")
     s = sub.add_parser("resolve")
     s.add_argument("citation")
+    s.add_argument("--jurisdiction", help="state already established for this query "
+                   "(enables generic forms such as a bare 'Super. Ct. Crim. R. 61')")
     s = sub.add_parser("get")
     s.add_argument("collection")
     s.add_argument("unit")
