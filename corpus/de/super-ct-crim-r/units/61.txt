@@ -1,0 +1,264 @@
+Rule 61. Postconviction remedy.
+(a) Scope of rule.
+(1) Nature of proceeding. This rule governs the procedure on an application by a person in custody
+under a sentence of this court seeking to set aside the judgment of conviction or a sentence of death
+on the ground that the court lacked jurisdiction or on any other ground that is a sufficient factual and
+legal basis for a collateral attack upon a criminal conviction or a capital sentence. A proceeding under
+this rule shall be known as a postconviction proceeding.
+(2) Exclusiveness of remedy. The remedy afforded by this rule may not be sought by a petition for a
+writ of habeas corpus or in any manner other than as provided herein.
+(b) Motion for postconviction relief.
+(1) Form of motion. An application under this rule shall be made by a motion for postconviction
+relief. The movant must use the prescribed form which shall be made available without charge by the
+[PDF page 49]
+prothonotary. The motion shall be typewritten or legibly handwritten and shall be signed under
+penalty of perjury by the movant.
+(2) Content of motion. The motion shall specify all the grounds for relief which are available to the
+movant and of which the movant has or, by the exercise of reasonable diligence, should have
+knowledge, and shall set forth in summary form the facts supporting each of the grounds thus
+specified.
+(3) Multiple convictions. A motion shall be limited to the assertion of a claim for relief against one
+judgment of conviction or, if judgments of conviction were entered on more than one offense at the
+same time because of a plea agreement or joinder of offenses at trial, against multiple judgments
+entered at the same time. Judgments entered at different times shall not be challenged in one motion
+but only by separate motions.
+(4) Time of filing. A motion may not be filed until the judgment of conviction is final.
+(5) Place of filing. A motion shall be filed in the office of the prothonotary in the county in which the
+judgment of conviction was entered.
+(6) Amendment of motion. A motion may be amended as a matter of course at any time before a
+response is filed or thereafter by leave of court, which shall be freely given when justice so requires.
+(c) Duties of prothonotary.
+(1) Noncomplying motion. If a motion does not substantially comply with the requirements of
+subdivision (b) of this rule, the prothonotary shall return it to the movant, if a judge of the court so
+directs, together with a statement of the reason for its return, and shall retain a copy of the motion and
+of the statement of the reason for its return.
+(2) Entry on docket. Upon receipt of a motion that appears on its face to comply with subdivision (b)
+of this rule, the prothonotary shall accept the motion and enter it on the docket in the proceeding in
+which the judgment under attack was entered. If the motion attacks judgments entered in separate
+criminal action files, the prothonotary shall place copies of the motion in each file and make the
+appropriate docket entries.
+(3) Assignment of number. The prothonotary shall assign each motion for postconviction relief a
+separate criminal action number, which must appear on all filings in the postconviction proceeding.
+(4) Service of motion. The prothonotary shall thereupon deliver or serve a copy of the motion together
+with a notice of its filing on the attorney general. The filing of the motion shall not require the
+attorney general to respond to the motion unless ordered by the court.
+(d) Preliminary consideration.
+(1) First postconviction motion. A first postconviction motion shall be presented promptly to the
+judge who accepted a plea of guilty or nolo contendere or presided at trial in the proceedings leading
+to the judgment under attack. If the appropriate judge is unavailable to consider the motion, it shall be
+presented to another judge in accordance with the procedure of the court for assignment of its work.
+The judge shall promptly examine the motion and contents of the files relating to the judgment under
+attack.
+(2) Second or subsequent postconviction motions. A second or subsequent motion under this rule
+shall be summarily dismissed, unless the movant was convicted after a trial and the motion either:
+(i) pleads with particularity that new evidence exists that creates a strong inference that the
+movant is actually innocent in fact of the acts underlying the charges of which he was convicted;
+or
+(ii) pleads with particularity a claim that a new rule of constitutional law, made retroactive to
+cases on collateral review by the United States Supreme Court or the Delaware Supreme Court,
+applies to the movant’s case and renders the conviction or death sentence invalid.
+[PDF page 50]
+(3) Stay of proceedings. If any part of the record of prior proceedings in the case has been removed in
+connection with an appeal or federal habeas corpus proceeding, the judge may stay proceedings in
+this court until it has been returned.
+(4) Preparation of transcript. The judge may order the preparation of a transcript of any part of the
+prior proceedings in the case needed to determine whether the movant may be entitled to relief.
+(5) Summary dismissal. If it plainly appears from the motion for postconviction relief and the record
+of prior proceedings in the case that the movant is not entitled to relief, the judge may enter an order
+for its summary dismissal and cause the movant to be notified.
+(e) Appointment of counsel and withdrawal of counsel.
+(1) Timing of request for appointment of counsel. Any indigent movant’s request for appointment of
+counsel shall be filed contemporaneously with the movant’s postconviction motion. Failure to file a
+contemporaneous request for appointment of counsel with the movant’s postconviction motion may
+be deemed a waiver of counsel.
+(2) First postconviction motions in specific cases. The judge shall appoint counsel for an indigent
+movant’s first timely postconviction motion and request for appointment of counsel if the motion
+seeks to set aside: (i) a judgment of conviction after a trial that has been affirmed by final order upon
+direct appellate review and is for a crime designated as a class A, B, or C felony under 11 Del. C. §
+4205(b); (ii) a judgment of conviction after a trial that has been affirmed by final order upon direct
+appellate review and resulted in the imposition of a life sentence under 11 Del. C. § 4214; or (iii) a
+sentence of death.
+(3) First postconviction motions in guilty plea cases. The judge may appoint counsel for an indigent
+movant’s first timely postconviction motion and request for appointment of counsel if the motion
+seeks to set aside a judgment of conviction that resulted from a plea of guilty or nolo contendere only
+if the judge determines that: (i) the conviction has been affirmed by final order upon direct appellate
+review or direct appellate review is unavailable; (ii) the motion sets forth a substantial claim that the
+movant received ineffective assistance of counsel in relation to the plea of guilty or nolo contendere;
+(iii) granting the motion would result in vacatur of the judgment of conviction for which the movant
+is in custody; and (iv) specific exceptional circumstances warrant the appointment of counsel.
+(4) Other first postconviction motions. The judge may appoint counsel for any other first
+postconviction motion only if the judge determines that: (i) the motion is an indigent movant’s first
+timely postconviction motion and request for appointment of counsel; (ii) the motion seeks to set
+aside a judgment of conviction after a trial that has been affirmed by final order upon direct appellate
+review; (iii) the motion sets forth a substantial claim that the movant received ineffective assistance of
+trial or appellate counsel; (iv) the motion sets forth a substantial claim that the movant is in custody in
+violation of the United States Constitution or the Delaware Constitution; (v) granting the motion
+would result in vacatur of the judgment of conviction for which the movant is in custody; and (vi)
+specific exceptional circumstances warrant the appointment of counsel.
+(5) Second or subsequent motions. For an indigent movant’s second or subsequent postconviction
+motion, the judge may appoint counsel for an indigent movant only if the judge determines that the
+second or subsequent motion satisfies the pleading requirements of subparagraphs (2)(i) or (2)(ii) of
+subdivision (d) of this rule.
+(6) Continuing duty of counsel. Unless the judge appoints counsel for a limited purpose, it shall be the
+duty of counsel to assist the movant in presenting any substantial ground for relief available to the
+movant. Upon entry of a final order in a postconviction proceeding, counsel’s continuing duty shall
+be as provided in Supreme Court Rule 26, unless counsel has been permitted to withdraw under
+subparagraph (6) of this subdivision.
+(7) Motion to withdraw. If counsel considers the movant’s claim to be so lacking in merit that counsel
+cannot ethically advocate it, and counsel is not aware of any other substantial ground for relief
+available to the movant, counsel may move to withdraw. The motion shall explain the factual and
+legal basis for counsel’s opinion and shall give notice that the movant may file a response to the
+[PDF page 51]
+motion within 30 days of service of the motion upon the movant. If counsel’s motion to withdraw is
+granted:
+(i) before final disposition of the the movant’s motion for postconviction relief — counsel’s
+continuing duty is limited to: (A) notifying the movant in writing of the court’s ruling on the
+motion to withdraw; (B) advising the movant in writing that it is the movant’s burden to proceed
+on the motion for postconviction relief without counsel; and (C) advising the movant in writing of
+the right to appeal the final disposition of the motion for postconviction relief, the rules for filing
+a timely notice of appeal, and that it is the movant’s burden to file a notice of appeal of the final
+disposition if desired.
+(ii) simultaneously with a denial of the movant’s motion for postconviction relief — counsel’s
+continuing duty is limited to: (A) notifying the movant in writing of the court’s ruling; and (B)
+advising the movant in writing of the right to appeal, the rules for filing a timely notice of appeal,
+and that it is the movant’s burden to file a notice of appeal if desired.
+(f) State’s response.
+(1) Order to respond. If the motion is not summarily dismissed, the judge shall order the attorney
+general to file a response to the motion or to take such other action as the judge deems appropriate.
+Unless otherwise ordered, the response shall be filed within 30 days of service of the order to respond
+upon the state.
+(2) Content of response. The response shall explain the factual and legal basis for the state’s position
+on each ground for relief alleged in the motion in sufficient detail to enable the court to determine
+whether an evidentiary hearing is desirable or summary disposition of the motion is appropriate. If the
+motion contains inaccurate or incomplete information about prior proceedings, the response shall
+supply the correct information.
+(3) Movant’s reply. The movant may file a reply to the state’s response within 30 days of service of
+the state’s response upon the movant.
+(g) Expansion of record.
+(1) Direction for expansion. The judge may direct that the record be expanded by the parties by the
+inclusion of additional materials relevant to the determination of the merits of the motion.
+(2) Materials to be added. The expanded record may include, without limitation, letters predating the
+filing of the motion, documents, exhibits, and contents of the file of an appeal or federal habeas
+corpus proceeding. If the motion alleges ineffective assistance of counsel, the judge may direct the
+lawyer who represented the movant to respond to the allegations. Affidavits may be submitted and
+considered as a part of the record.
+(3) Submission to opponent. In any case in which an expanded record is directed, copies of the letters,
+documents, exhibits, and affidavits proposed to be included shall be submitted to the opposing party,
+who shall be afforded an opportunity to admit or deny their correctness.
+(4) Authentication. The judge may require the authentication of any material filed under this
+subdivision.
+(h) Evidentiary hearing.
+(1) Determination by court. After considering the motion for postconviction relief, the state’s
+response, the movant’s reply, if any, the record of prior proceedings in the case, and any added
+materials, the judge shall determine whether an evidentiary hearing is desirable.
+(2) Time for hearing. If an evidentiary hearing is ordered, it shall be conducted as promptly as
+practicable, having regard for the need of both parties for adequate time for investigation and
+preparation.
+(3) Summary disposition. If it appears that an evidentiary hearing is not desirable, the judge shall
+make such disposition of the motion as justice dictates.
+[PDF page 52]
+(i) Bars to relief.
+(1) Time limitation. A motion for postconviction relief may not be filed more than one year after the
+judgment of conviction is final or, if it asserts a retroactively applicable right that is newly recognized
+after the judgment of conviction is final, more than one year after the right is first recognized by the
+Supreme Court of Delaware or by the United States Supreme Court.
+(2) Successive motions.
+(i) No second or subsequent motion is permitted under this Rule unless that second or subsequent
+motion satisfies the pleading requirements of subparagraphs (2)(i) or (2)(ii) of subdivision (d) of
+this rule.
+(ii) Under paragraph (2) of subdivision (b) of this Rule, any first motion for relief under this rule
+and that first motion’s amendments shall be deemed to have set forth all grounds for relief
+available to the movant. That a court of any other sovereign has stayed proceedings in that court
+for purpose of allowing a movant the opportunity to file a second or subsequent motion under this
+rule shall not provide a basis to avoid summary dismissal under this rule unless that second or
+subsequent motion satisfies the pleading requirements of subparagraphs (2)(i) or (2)(ii) of
+subdivision (d) of this rule.
+(3) Procedural default. Any ground for relief that was not asserted in the proceedings leading to the
+judgment of conviction, as required by the rules of this court, is thereafter barred, unless the movant
+shows
+(A) Cause for relief from the procedural default and
+(B) Prejudice from violation of the movant’s rights.
+(4) Former adjudication. Any ground for relief that was formerly adjudicated, whether in the
+proceedings leading to the judgment of conviction, in an appeal, in a postconviction proceeding, or in
+a federal habeas corpus proceeding, is thereafter barred.
+(5) Bars inapplicable. The bars to relief in paragraphs (1), (2), (3), and (4) of this subdivision shall
+not apply either to a claim that the court lacked jurisdiction or to a claim that satisfies the pleading
+requirements of subparagraphs (2)(i) or (2)(ii) of subdivision (d) of this rule.
+(6) Movant’s response. If ordered to do so, the movant shall explain on the form prescribed by the
+court why the motion for postconviction relief should not be dismissed or grounds alleged therein
+should not be barred.
+(j) Reimbursement of expenses. If a motion is denied, the state may move for an order requiring the
+movant to reimburse the state for costs and expenses paid for the movant from public funds. The judge
+may grant the motion if the movant’s claim is so completely lacking in factual support or legal basis as to
+be insubstantial or the movant has otherwise abused this rule. The judge may require reimbursement of
+costs and expenses only to the extent reasonable in light of the movant’s present and probable future
+financial resources.
+(k) Time for appeal. The time for appeal from an order entered on a motion for relief under this rule is as
+provided in Supreme Court Rule 6. Nothing in these rules shall be construed as extending the time for
+appeal from the original judgment of conviction.
+(l) Capital cases.
+(1) Scope of subdivision. This subdivision applies when a defendant seeks to set aside a sentence of
+death. The defendant shall have a right to one postconviction proceeding under this subdivision. The
+other subdivisions of this rule shall apply except insofar as they are inconsistent with the special
+provisions of this subdivision.
+(2) Waiver of rights. The defendant may waive the right to a postconviction proceeding or to appeal
+an adverse ruling. The court shall not accept a waiver without addressing the defendant personally in
+open court and determining that the defendant understands the legal consequences of the waiver.
+[PDF page 53]
+(3) Status of representation. When the time for seeking certiorari to review the Supreme Court’s order
+affirming a sentence of death expires or, if the defendant seeks certiorari, when the United States
+Supreme Court issues a mandate or order finally disposing of the case, the court shall promptly
+schedule a session with the defendant and defense counsel to determine the status of representation.
+Counsel who represented the defendant at trial or on appeal may not represent the defendant in the
+postconviction proceeding permitted by this subdivision unless the defendant and counsel request
+continued representation. The court may not grant the request without addressing the defendant
+personally in open court and determining that the defendant understands that the request for continued
+representation constitutes a waiver of the right to claim that counsel’s representation at trial or on
+appeal was ineffective. If the defendant requests the appointment of new counsel, the court shall
+promptly rule on that request.
+(4) Schedule of proceeding. When the status of representation has been determined, the court shall
+enter an order setting the schedule of the postconviction proceeding within the following time limits.
+The motion for postconviction relief shall be filed within 60 days of the date of the scheduling order
+and shall be submitted for decision within 270 days of the date of the scheduling order. The court for
+compelling cause may grant an enlargement of not more than an additional 60 days for filing or
+submission or both, provided that a request for enlargement is made before the expiration of the
+prescribed time period. If enlargement is granted, the court shall state its finding of compelling cause
+with specificity. The court shall enter a final order within 60 days of the date of submission.
+(5) Sanction for delay. Upon a party’s failure to comply with the scheduling order, the court shall
+immediately issue a rule directing the party to show cause why sanctions should not be imposed for
+the failure to comply. Unless a defendant shows compelling cause for failing to comply, the court
+shall enter an order barring the defendant from filing a motion for postconviction relief or dismissing
+the defendant’s motion for postconviction relief with prejudice.
+(6) Date of execution. Following the completion of direct review, the court shall not set a date of
+execution until the defendant has an opportunity for one postconviction proceeding and review by the
+Supreme Court. If the defendant waives the right to a postconviction proceeding or to appeal, or the
+Supreme Court dismisses the defendant’s appeal or affirms a ruling adverse to the defendant, the
+court shall promptly set a date for execution no less than 90 days, unless waived, nor more than 120
+days from the date that the waiver was accepted or the Supreme Court’s mandate issued.
+(7) Stay for further proceedings. The court shall not entertain an application to stay an execution date
+set pursuant to paragraph (6) of this subdivision for the purpose of further postconviction
+proceedings. An application to stay execution for federal certiorari or habeas corpus proceedings shall
+be made to the appropriate federal court. An application to stay execution for any other purpose shall
+be made in accordance with Supreme Court Rule 35(e).
+(m) Miscellaneous provisions.
+(1) A judgment of conviction is final for the purpose of this rule as follows:
+(i) If the defendant does not file a direct appeal, 30 days after the Superior Court imposes
+sentence;
+(ii) If the defendant files a direct appeal or there is an automatic statutory review of a death
+penalty, when the Supreme Court issues a mandate or order finally determining the case on direct
+review; or
+(iii) If the defendant files a petition for certiorari seeking review of the Supreme Court’s mandate
+or order, when the United States Supreme Court issues a mandate or order finally disposing of the
+case on direct review.
+(2) When a petition is properly filed under this rule while the defendant is in custody under a sentence
+of this court, and that petition seeks to set aside the specific judgment of conviction for which the
+defendant is then in custody, the defendant’s satisfaction of all terms of that sentence during the
+pendency of the petition shall not render the petition moot if the defendant pleads that there are
+continuing collateral consequences arising from the specific judgment of conviction. The court shall
+[PDF page 54]
+decide or otherwise dispose of that pending petition in accordance with the applicable provisions of
+this rule.
+History.
+Added, effective Jan. 1, 1988; revised, effective Jan. 1, 1992; amended, effective Nov. 9, 1993; May 1,
+1996; July 1, 2005; May 6, 2013; Feb. 1, 2014; June 4, 2014; May 29, 2015, effective June 1, 2015; Mar.
+23, 2017, effective Apr. 6, 2017; Dec. 15, 2023, effective Jan. 1, 2024.

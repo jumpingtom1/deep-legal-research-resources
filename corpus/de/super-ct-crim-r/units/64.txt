@@ -1,0 +1,19 @@
+Rule 64. Electronic filing.
+(a) The electronic filing of documents in the Superior Court of the State of Delaware shall be referred to
+as “eFile” or “eFiling”.
+(b) When the President Judge of the Superior Court determines that it is appropriate for any criminal case,
+or category of cases, to follow the procedures for eFiling, the President Judge shall designate it as an eFile
+case or category of cases.
+(c) The President Judge shall establish administrative procedures for the eFiling of documents.
+(d) No Delaware lawyer shall authorize anyone to eFile on that lawyer’s behalf, other than an employee
+of his/her law firm or service provider retained to assist in eFiling.
+(e) No person shall utilize, or allow another person to utilize, the password of another in connection with
+any eFiling.
+(f) The eFiling of a document by a lawyer, or by another under the authorization of a lawyer, shall
+constitute a signature of that lawyer.
+(g) All eFilings must be signed by a member of the Delaware Bar or party not represented by an attorney
+in accordance with the eFile administrative procedures.
+(h) Unless otherwise ordered, the electronic service of a document, in accordance with the eFile
+administrative procedures, shall be considered service under Superior Court Criminal Rule 49.
+History.
+Added effective Sept. 1, 2003.

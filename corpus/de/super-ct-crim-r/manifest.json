@@ -1,0 +1,1150 @@
+{
+ "schema": 1,
+ "ingest_version": 1,
+ "jurisdiction": "de",
+ "collection": "super-ct-crim-r",
+ "title": "Superior Court Rules of Criminal Procedure (Delaware)",
+ "source_id": "de-rules-superior-criminal",
+ "unit_label": "Rule",
+ "cite_template": "Del. Super. Ct. Crim. R. {id}",
+ "captured": "2026-10-16",
+ "stale_days": 180,
+ "expire_days": 365,
+ "source": {
+  "url": "https://courts.delaware.gov/forms/download.aspx?id=304498",
+  "final_url": "https://courts.delaware.gov/forms/download.aspx?id=304498",
+  "index_url": "https://courts.delaware.gov/rules/",
+  "sha256": "953877ac94ae7b00b440c209c39ebe3f917df952694baf0edb3d8ff7bdfb90e7",
+  "bytes": 619227,
+  "filename": "del_super_ct_crim_02052026.pdf",
+  "pdf_creation": "D:20260323102301-04'00'",
+  "pdf_modified": "D:20260323102315-04'00'",
+  "edition_note": null,
+  "fetched_at": "2026-10-16T13:37:35-0700"
+ },
+ "currency": {
+  "url": "https://courts.delaware.gov/rules/",
+  "regex": "Rules of Criminal Procedure, Superior Court of Delaware\\*? \\d{4} Edition[^.]*\\.?\\s*(?:Currently, there are no amendments\\.|[^.]{0,200}\\.)",
+  "observed": "Rules of Criminal Procedure, Superior Court of Delaware* 2026 Edition Currently, there are no amendments.",
+  "checked": "2026-10-16"
+ },
+ "quality": {
+  "units": 85,
+  "coverage": 0.9982,
+  "two_extractor_check": "pass",
+  "pages": 68
+ },
+ "warnings": [
+  "unit 37.1 follows 37A (out of numeric order — check the source; e.g. relocated rules)",
+  "unit 5.2 follows appendix-special-rule-2017-1 (out of numeric order — check the source; e.g. relocated rules)"
+ ],
+ "notes": "Rules 5.2-5.4 are printed after Rule 64 (a placeholder heading 'Rule 5.2. to 5.4.' sits in numeric position). No Rule 36 in this edition. Amendments after the edition are posted on the rules index — the currency probe records whether any exist.",
+ "units": [
+  {
+   "id": "1",
+   "title": "Scope.",
+   "part": "I. Scope, Purpose, and Construction",
+   "file": "units/1.txt",
+   "pages": [
+    1,
+    1
+   ],
+   "check": "whole-unit",
+   "chars": 301,
+   "sha256": "880d5492d327715cd70d747c4e3426fc83003fe158d15b294f59fb10b5ddea5a"
+  },
+  {
+   "id": "2",
+   "title": "Purpose and construction.",
+   "part": "I. Scope, Purpose, and Construction",
+   "file": "units/2.txt",
+   "pages": [
+    1,
+    1
+   ],
+   "check": "whole-unit",
+   "chars": 345,
+   "sha256": "82da5f537e6ed59bffd831097c4b1905cd9543ec513a12ceeff0946398ead23c"
+  },
+  {
+   "id": "3",
+   "title": "Commencement and complaint.",
+   "part": "II. Preliminary Proceedings",
+   "file": "units/3.txt",
+   "pages": [
+    1,
+    1
+   ],
+   "check": "whole-unit",
+   "chars": 595,
+   "sha256": "0b636961db494f8f04fe15d297302c9d60e50585e911a3d7cd08014c9d68847f"
+  },
+  {
+   "id": "4",
+   "title": "Arrest warrant or summons; capias.",
+   "part": "II. Preliminary Proceedings",
+   "file": "units/4.txt",
+   "pages": [
+    1,
+    3
+   ],
+   "check": "whole-unit",
+   "chars": 5131,
+   "sha256": "70d9cb92029ae164cc02348788dda16c07b3847106696e8da2125d7729dd0357"
+  },
+  {
+   "id": "5",
+   "title": "Initial appearance before the committing magistrate.",
+   "part": "II. Preliminary Proceedings",
+   "file": "units/5.txt",
+   "pages": [
+    3,
+    4
+   ],
+   "check": "whole-unit",
+   "chars": 4343,
+   "sha256": "0496bb08b9164f895a7817193873c2620e2f964a7149df070ce735474c16f573"
+  },
+  {
+   "id": "5.1",
+   "title": "Preliminary examination.",
+   "part": "II. Preliminary Proceedings",
+   "file": "units/5.1.txt",
+   "pages": [
+    4,
+    4
+   ],
+   "check": "whole-unit",
+   "chars": 1706,
+   "sha256": "8425c63843154a4b05af744e34b1db3e951a67e8757a309924cb6e59f959ea67"
+  },
+  {
+   "id": "5.2-5.4",
+   "title": "(placeholder) to 5.4.",
+   "part": "II. Preliminary Proceedings",
+   "file": "units/5.2-5.4.txt",
+   "pages": [
+    4,
+    4
+   ],
+   "check": "whole-unit",
+   "chars": 18,
+   "sha256": "32586431781eb30cc5f41d938a596c6bc70e207bebef8624596c5c14d635dc0d"
+  },
+  {
+   "id": "6",
+   "title": "The grand jury.",
+   "part": "III. Indictment and Information",
+   "file": "units/6.txt",
+   "pages": [
+    4,
+    6
+   ],
+   "check": "whole-unit",
+   "chars": 7168,
+   "sha256": "38bc9a1feb38c8c4d3724f3bbcf233e547613e54e5bf826b43582a5bce4280cb"
+  },
+  {
+   "id": "7",
+   "title": "The indictment and the information.",
+   "part": "III. Indictment and Information",
+   "file": "units/7.txt",
+   "pages": [
+    6,
+    7
+   ],
+   "check": "whole-unit",
+   "chars": 3002,
+   "sha256": "29f1b61dfbcfad712d155e35d328d269a12b9b0bcb6e22720cd707c8f90ffe3b"
+  },
+  {
+   "id": "8",
+   "title": "Joinder of offenses and of defendants.",
+   "part": "III. Indictment and Information",
+   "file": "units/8.txt",
+   "pages": [
+    7,
+    7
+   ],
+   "check": "whole-unit",
+   "chars": 867,
+   "sha256": "cd2babaca63724892c437b0cd50d452764277770b505776f002ce3cc231907f0"
+  },
+  {
+   "id": "9",
+   "title": "Warrant or summons upon indictment or information.",
+   "part": "III. Indictment and Information",
+   "file": "units/9.txt",
+   "pages": [
+    7,
+    8
+   ],
+   "check": "whole-unit",
+   "chars": 4138,
+   "sha256": "0be7a47f49f75ab40e8cb82d32be19757fd8e1d0a81895b8908ae1a76b1f522e"
+  },
+  {
+   "id": "10",
+   "title": "Arraignment.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/10.txt",
+   "pages": [
+    8,
+    9
+   ],
+   "check": "whole-unit",
+   "chars": 2656,
+   "sha256": "b8fe89825992a7051f9f5f1d5e3acfb1ed66b827df5963bb1a58aada7704cc3b"
+  },
+  {
+   "id": "11",
+   "title": "Pleas.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/11.txt",
+   "pages": [
+    9,
+    11
+   ],
+   "check": "whole-unit",
+   "chars": 7308,
+   "sha256": "b197c3a3cf6331363fc94306ff65a86ca23a97e44de47808089c4c5a7b1c95c4"
+  },
+  {
+   "id": "12",
+   "title": "Pleadings and motions before trial; defenses and objections.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/12.txt",
+   "pages": [
+    11,
+    12
+   ],
+   "check": "whole-unit",
+   "chars": 3325,
+   "sha256": "3cdb395da2b5fc94c903cfdb3f84b0284fbee1fe9a8adcbecb183ec0dfabe605"
+  },
+  {
+   "id": "12.1",
+   "title": "Notice of alibi.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/12.1.txt",
+   "pages": [
+    12,
+    12
+   ],
+   "check": "whole-unit",
+   "chars": 39,
+   "sha256": "13ed3d2b04080cea0a70c1d7df928529446de50dfaa1350406a9783b9e59cc03"
+  },
+  {
+   "id": "12.2",
+   "title": "Notice of insanity defense or expert testimony of defendant’s mental condition.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/12.2.txt",
+   "pages": [
+    12,
+    13
+   ],
+   "check": "whole-unit",
+   "chars": 2631,
+   "sha256": "a95dbb62690267bb1d244dc1bc01a4db8122d4dd11943bc1e40c09902f3bc249"
+  },
+  {
+   "id": "12.3",
+   "title": "Notice of defense based upon public authority.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/12.3.txt",
+   "pages": [
+    13,
+    14
+   ],
+   "check": "whole-unit",
+   "chars": 3573,
+   "sha256": "2ebf7f05affd53f2c9d03b46d338850f8b0091e68d9cd2db520f023ce386e2f9"
+  },
+  {
+   "id": "13",
+   "title": "Trial together of indictments or informations.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/13.txt",
+   "pages": [
+    14,
+    14
+   ],
+   "check": "whole-unit",
+   "chars": 450,
+   "sha256": "543602f154e7aa65bcf9ed6f7c688027280af52c526ea5ac6ebf2d2d47eefdd1"
+  },
+  {
+   "id": "14",
+   "title": "Relief from prejudicial joinder.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/14.txt",
+   "pages": [
+    14,
+    14
+   ],
+   "check": "whole-unit",
+   "chars": 724,
+   "sha256": "6a9d455413e9beee4a4d950ce2868c414cf54acea68741ae79e02c759298150f"
+  },
+  {
+   "id": "15",
+   "title": "Depositions.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/15.txt",
+   "pages": [
+    14,
+    15
+   ],
+   "check": "whole-unit",
+   "chars": 4461,
+   "sha256": "27fc997410c397d15421cd7de64264cbbef78da1a33667cf484691ded61384d1"
+  },
+  {
+   "id": "16",
+   "title": "Discovery and inspection.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/16.txt",
+   "pages": [
+    15,
+    20
+   ],
+   "check": "whole-unit",
+   "chars": 22132,
+   "sha256": "16a61cc0462f125e5857b5fdc7b058dd80d1d285ff645cb5a89d4c1e9f8c35f5"
+  },
+  {
+   "id": "17",
+   "title": "Subpoena.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/17.txt",
+   "pages": [
+    20,
+    21
+   ],
+   "check": "whole-unit",
+   "chars": 3987,
+   "sha256": "ee4b33389375a584ba65ff1bb2ee026f742b44e894dfc9289ec7149819774ff8"
+  },
+  {
+   "id": "17.1",
+   "title": "Pretrial conference.",
+   "part": "IV. Arraignment, and Preparation for Trial",
+   "file": "units/17.1.txt",
+   "pages": [
+    21,
+    22
+   ],
+   "check": "whole-unit",
+   "chars": 766,
+   "sha256": "5b25be71ca7b2db1dfa0d76b1e365c12388d37b3b85c8f0c7a2ab1db0dd4bc7e"
+  },
+  {
+   "id": "18",
+   "title": "Place of prosecution and trial.",
+   "part": "V. Venue and Transfer",
+   "file": "units/18.txt",
+   "pages": [
+    22,
+    22
+   ],
+   "check": "whole-unit",
+   "chars": 554,
+   "sha256": "e17c26704cb961f2326e251115db072dad0804f7d9da0b9ce84f862dbf62724b"
+  },
+  {
+   "id": "19",
+   "title": "Reverse amenability proceedings.",
+   "part": "V. Venue and Transfer",
+   "file": "units/19.txt",
+   "pages": [
+    22,
+    22
+   ],
+   "check": "whole-unit",
+   "chars": 1564,
+   "sha256": "2675592b9661ae8b0464151a33643f5fcec002455a4345f2088da5b3a1b43b30"
+  },
+  {
+   "id": "20",
+   "title": "Transfer from the county for plea and sentence.",
+   "part": "V. Venue and Transfer",
+   "file": "units/20.txt",
+   "pages": [
+    22,
+    23
+   ],
+   "check": "whole-unit",
+   "chars": 2787,
+   "sha256": "fdc8f7b61b7404bb1ea87765ece80c842107e0e50a67d7ce6871afdb27d2112e"
+  },
+  {
+   "id": "21",
+   "title": "Transfer from the county for trial.",
+   "part": "V. Venue and Transfer",
+   "file": "units/21.txt",
+   "pages": [
+    23,
+    23
+   ],
+   "check": "whole-unit",
+   "chars": 1115,
+   "sha256": "604e8002887ab2eebf7e1f6f3d5220808f9313e9b9741015c443c7016e7d5048"
+  },
+  {
+   "id": "22",
+   "title": "Time of motion to transfer.",
+   "part": "V. Venue and Transfer",
+   "file": "units/22.txt",
+   "pages": [
+    23,
+    23
+   ],
+   "check": "whole-unit",
+   "chars": 254,
+   "sha256": "9e48b2e6556729df7fb9bc9b58d1f9285bfd17580840fb4dd0ffaaed65b6f8ed"
+  },
+  {
+   "id": "23",
+   "title": "Trial by jury or by the court.",
+   "part": "VI. Trial",
+   "file": "units/23.txt",
+   "pages": [
+    24,
+    24
+   ],
+   "check": "whole-unit",
+   "chars": 1040,
+   "sha256": "5e499bfc5f943793067587b4288aacb27c276afd58bf505eac0cc5f838d60326"
+  },
+  {
+   "id": "24",
+   "title": "Trial jurors.",
+   "part": "VI. Trial",
+   "file": "units/24.txt",
+   "pages": [
+    24,
+    25
+   ],
+   "check": "whole-unit",
+   "chars": 5052,
+   "sha256": "d89457284d7376d6b97bd2a3842013f8c115fb1bc17082543805d447d54aa89d"
+  },
+  {
+   "id": "25",
+   "title": "Judge; disability.",
+   "part": "VI. Trial",
+   "file": "units/25.txt",
+   "pages": [
+    25,
+    25
+   ],
+   "check": "whole-unit",
+   "chars": 977,
+   "sha256": "e5ca58794a772aa695f48953e0d9100e55f337c422f861cafe30d0b7b6db6077"
+  },
+  {
+   "id": "26",
+   "title": "Taking of testimony.",
+   "part": "VI. Trial",
+   "file": "units/26.txt",
+   "pages": [
+    25,
+    26
+   ],
+   "check": "whole-unit",
+   "chars": 289,
+   "sha256": "95552b35bd21def7ce4180a015bce776885b0045b07ce85db1067e8e89594811"
+  },
+  {
+   "id": "26.1",
+   "title": "Conferences during trial.",
+   "part": "VI. Trial",
+   "file": "units/26.1.txt",
+   "pages": [
+    26,
+    26
+   ],
+   "check": "whole-unit",
+   "chars": 266,
+   "sha256": "2e79179088e1331570930abdfd4a4bc17836ed075e56f0657f1164fd142413dc"
+  },
+  {
+   "id": "26.2",
+   "title": "Production of statements of witnesses.",
+   "part": "VI. Trial",
+   "file": "units/26.2.txt",
+   "pages": [
+    26,
+    27
+   ],
+   "check": "whole-unit",
+   "chars": 3337,
+   "sha256": "f486d64b549d1f0fc3f7b3966842dd43688bb7ebdc1c5eccddb246f7d767039f"
+  },
+  {
+   "id": "26.3",
+   "title": "Mistrial.",
+   "part": "VI. Trial",
+   "file": "units/26.3.txt",
+   "pages": [
+    27,
+    27
+   ],
+   "check": "whole-unit",
+   "chars": 304,
+   "sha256": "192a6c1964428d14b2ddeb0951b1d8f229e77d7afdd8b72904fe2087b4552264"
+  },
+  {
+   "id": "27",
+   "title": "Proof of official record.",
+   "part": "VI. Trial",
+   "file": "units/27.txt",
+   "pages": [
+    27,
+    27
+   ],
+   "check": "whole-unit",
+   "chars": 242,
+   "sha256": "1c603253c33b0bbf3874b7f8fa22a2de4f937b3aca0ac3410d2a252b17afc67d"
+  },
+  {
+   "id": "28",
+   "title": "Interpreters.",
+   "part": "VI. Trial",
+   "file": "units/28.txt",
+   "pages": [
+    27,
+    27
+   ],
+   "check": "whole-unit",
+   "chars": 354,
+   "sha256": "82d74f41b00e504853834079cf3644f0349cdad6fc3bd966d5bc9a028b40d8e7"
+  },
+  {
+   "id": "29",
+   "title": "Motion for judgment of acquittal.",
+   "part": "VI. Trial",
+   "file": "units/29.txt",
+   "pages": [
+    27,
+    28
+   ],
+   "check": "whole-unit",
+   "chars": 1831,
+   "sha256": "9db1985d62c5c4fb799894da424fa2ec815af70bf930226eb0985a3a11ad331f"
+  },
+  {
+   "id": "29.1",
+   "title": "Closing argument.",
+   "part": "VI. Trial",
+   "file": "units/29.1.txt",
+   "pages": [
+    28,
+    28
+   ],
+   "check": "whole-unit",
+   "chars": 243,
+   "sha256": "b6ef3570a2ae3057b999a8a9793b2af003e30f4c04d933f66b9e92ac9cb664e6"
+  },
+  {
+   "id": "30",
+   "title": "Instructions.",
+   "part": "VI. Trial",
+   "file": "units/30.txt",
+   "pages": [
+    28,
+    28
+   ],
+   "check": "whole-unit",
+   "chars": 1260,
+   "sha256": "9e969eb06e34d9fcaea0dfebcb25bb430c32b00c467da73748996f616a402bdc"
+  },
+  {
+   "id": "31",
+   "title": "Verdict.",
+   "part": "VI. Trial",
+   "file": "units/31.txt",
+   "pages": [
+    28,
+    29
+   ],
+   "check": "whole-unit",
+   "chars": 1140,
+   "sha256": "f945b350204576d6efc3fb79b4ba5696e48225ad8b798038db76978a7a52a293"
+  },
+  {
+   "id": "32",
+   "title": "Sentence and judgment.",
+   "part": "VII. Judgment",
+   "file": "units/32.txt",
+   "pages": [
+    29,
+    31
+   ],
+   "check": "whole-unit",
+   "chars": 11157,
+   "sha256": "a98c98630c51e951317641d7a7f7f60874408b0f9c8eb70cb5c98399e2f8a96c"
+  },
+  {
+   "id": "32.1",
+   "title": "Revocation or modification of partial confinement or probation.",
+   "part": "VII. Judgment",
+   "file": "units/32.1.txt",
+   "pages": [
+    32,
+    32
+   ],
+   "check": "whole-unit",
+   "chars": 2137,
+   "sha256": "be89f4f2b5b94b7152d69c94dc601344df6544c6ae156b16a125ca206204e57c"
+  },
+  {
+   "id": "33",
+   "title": "New trial.",
+   "part": "VII. Judgment",
+   "file": "units/33.txt",
+   "pages": [
+    32,
+    32
+   ],
+   "check": "whole-unit",
+   "chars": 869,
+   "sha256": "7a8adf5744f479c2aafe05d44c83be69404331ca7ada9dbe795c8f5055cba1d6"
+  },
+  {
+   "id": "34",
+   "title": "Arrest of judgment.",
+   "part": "VII. Judgment",
+   "file": "units/34.txt",
+   "pages": [
+    32,
+    33
+   ],
+   "check": "whole-unit",
+   "chars": 549,
+   "sha256": "ef65af48fcfe2af57d2447a04c0e668eb488b627eb40174e1c95b9beecde88ad"
+  },
+  {
+   "id": "35",
+   "title": "Correction or reduction of sentence [For application of this rule regarding modification of",
+   "part": "VII. Judgment",
+   "file": "units/35.txt",
+   "pages": [
+    33,
+    33
+   ],
+   "check": "whole-unit",
+   "chars": 2595,
+   "sha256": "b85876c0c8dc952acb08a0afeed06d68cd460e504041db9d149cae0ea3b7934f"
+  },
+  {
+   "id": "35A",
+   "title": "Modification of sentence for an offense committed as a juvenile.",
+   "part": "VII. Judgment",
+   "file": "units/35A.txt",
+   "pages": [
+    33,
+    34
+   ],
+   "check": "whole-unit",
+   "chars": 4894,
+   "sha256": "af479b00a83fe4089d4d53df5ddb6d1ef29f2359b1614ee8786515c1b270f448"
+  },
+  {
+   "id": "36",
+   "title": "Clerical mistakes.",
+   "part": "VII. Judgment",
+   "file": "units/36.txt",
+   "pages": [
+    35,
+    35
+   ],
+   "check": "whole-unit",
+   "chars": 326,
+   "sha256": "4b3bd8552dcc34cb8352d701a361745266747a5bc2cd503ee78a22129174cf81"
+  },
+  {
+   "id": "37",
+   "title": "Appeal and certification to Supreme Court.",
+   "part": "VIII. Appeal",
+   "file": "units/37.txt",
+   "pages": [
+    35,
+    35
+   ],
+   "check": "whole-unit",
+   "chars": 739,
+   "sha256": "75adfd76ff30ab57bca5100b88b25d7b937d8a3e107fa14dab6441bd6fc60dd9"
+  },
+  {
+   "id": "37A",
+   "title": "Notice to attorney general; filing information.",
+   "part": "VIII. Appeal",
+   "file": "units/37A.txt",
+   "pages": [
+    35,
+    35
+   ],
+   "check": "whole-unit",
+   "chars": 71,
+   "sha256": "65e80ee105239bc85d1bb710852ed8633a491a8332ff45e47a7794a5d209485f"
+  },
+  {
+   "id": "37.1",
+   "title": "Notice to attorney general; appeals de novo; appeals on the record.",
+   "part": "VIII. Appeal",
+   "file": "units/37.1.txt",
+   "pages": [
+    35,
+    35
+   ],
+   "check": "whole-unit",
+   "chars": 88,
+   "sha256": "ad438dc054bb185211ac8316f89434a5fd1ae733b8173845d95fb021b5ff797e"
+  },
+  {
+   "id": "38",
+   "title": "Stay of execution.",
+   "part": "VIII. Appeal",
+   "file": "units/38.txt",
+   "pages": [
+    35,
+    36
+   ],
+   "check": "whole-unit",
+   "chars": 2220,
+   "sha256": "dd4b2faf57abad6004c95280739ca982e766bc044137b493cba0e322f0ea3582"
+  },
+  {
+   "id": "39",
+   "title": "Appeal to Superior Court.",
+   "part": "VIII. Appeal",
+   "file": "units/39.txt",
+   "pages": [
+    36,
+    37
+   ],
+   "check": "whole-unit",
+   "chars": 2748,
+   "sha256": "7b9312aca007a99d80411d271fb0a03c320178f9f4c7d26af97b6f9d09291a1b"
+  },
+  {
+   "id": "39.1",
+   "title": "Dismissal of appeals.",
+   "part": "VIII. Appeal",
+   "file": "units/39.1.txt",
+   "pages": [
+    37,
+    37
+   ],
+   "check": "whole-unit",
+   "chars": 42,
+   "sha256": "f533ffd7667a5536b9582673712967809c79c1d5ee6c0e8fcf4dd3c0bc24c4b9"
+  },
+  {
+   "id": "40",
+   "title": "Criminal forfeiture.",
+   "part": "IX. Supplementary and Special Proceedings",
+   "file": "units/40.txt",
+   "pages": [
+    37,
+    37
+   ],
+   "check": "whole-unit",
+   "chars": 2583,
+   "sha256": "40f4d9709f99986bab03db65e9b0262e5a4c4bd3fb1a57d48d401e2810a7996a"
+  },
+  {
+   "id": "41",
+   "title": "Search and seizure.",
+   "part": "IX. Supplementary and Special Proceedings",
+   "file": "units/41.txt",
+   "pages": [
+    38,
+    38
+   ],
+   "check": "whole-unit",
+   "chars": 2515,
+   "sha256": "415ba4cbca40ae2e81b11cee8be568d64740b346a1fa51641d5b2883567fb918"
+  },
+  {
+   "id": "42",
+   "title": "Criminal contempt.",
+   "part": "IX. Supplementary and Special Proceedings",
+   "file": "units/42.txt",
+   "pages": [
+    38,
+    39
+   ],
+   "check": "whole-unit",
+   "chars": 1505,
+   "sha256": "15a404d1ba089fb02e44d288fb186a7b41f47e965ac607dcab0b2b13d4290140"
+  },
+  {
+   "id": "42.1",
+   "title": "Protection of victims and witnesses.",
+   "part": "IX. Supplementary and Special Proceedings",
+   "file": "units/42.1.txt",
+   "pages": [
+    39,
+    39
+   ],
+   "check": "whole-unit",
+   "chars": 203,
+   "sha256": "a97058fdc2be169b5cb6d63f53c74fc3e47b3c18610b3cea6d1138f25e83e996"
+  },
+  {
+   "id": "42.2",
+   "title": "Expungement of criminal records.",
+   "part": "IX. Supplementary and Special Proceedings",
+   "file": "units/42.2.txt",
+   "pages": [
+    39,
+    39
+   ],
+   "check": "whole-unit",
+   "chars": 204,
+   "sha256": "ebdf491413b0f6f3048ebe6e0117cf9ccc3d8b185e4d74414d02db2530f14b26"
+  },
+  {
+   "id": "43",
+   "title": "Presence of the defendant.",
+   "part": "X. General Provisions",
+   "file": "units/43.txt",
+   "pages": [
+    39,
+    40
+   ],
+   "check": "whole-unit",
+   "chars": 1645,
+   "sha256": "a35fbe76170740dad0e5ca409d409d0573f0f2cdd36c0ede25f46cad6169e4da"
+  },
+  {
+   "id": "44",
+   "title": "Right to and assignment of counsel.",
+   "part": "X. General Provisions",
+   "file": "units/44.txt",
+   "pages": [
+    40,
+    41
+   ],
+   "check": "whole-unit",
+   "chars": 5534,
+   "sha256": "1e4841d06735ea5af6b60100708ef470df5791dbf0625856f618df9dc5ae3d83"
+  },
+  {
+   "id": "45",
+   "title": "Time.",
+   "part": "X. General Provisions",
+   "file": "units/45.txt",
+   "pages": [
+    41,
+    42
+   ],
+   "check": "whole-unit",
+   "chars": 2579,
+   "sha256": "c7b285f9fd651dea1c134908dd33012c7c5f8211906e352d0050cebe51093bf6"
+  },
+  {
+   "id": "46",
+   "title": "Release from custody.",
+   "part": "X. General Provisions",
+   "file": "units/46.txt",
+   "pages": [
+    42,
+    43
+   ],
+   "check": "whole-unit",
+   "chars": 4636,
+   "sha256": "c273834757b592fe81cd4085820154241f33e897cb15f0099a593422d16d008a"
+  },
+  {
+   "id": "47",
+   "title": "Motions; pro se applications.",
+   "part": "X. General Provisions",
+   "file": "units/47.txt",
+   "pages": [
+    43,
+    43
+   ],
+   "check": "whole-unit",
+   "chars": 615,
+   "sha256": "21110a638d384728ea4a50e186c2bfc4e397815764a857e138f77e9d5609f493"
+  },
+  {
+   "id": "48",
+   "title": "Dismissal.",
+   "part": "X. General Provisions",
+   "file": "units/48.txt",
+   "pages": [
+    43,
+    43
+   ],
+   "check": "whole-unit",
+   "chars": 727,
+   "sha256": "3e33f549a17116bd702731c646e01fb5a182e250c30d66dd1aab7b7fa51e43ac"
+  },
+  {
+   "id": "49",
+   "title": "Service and filing of papers.",
+   "part": "X. General Provisions",
+   "file": "units/49.txt",
+   "pages": [
+    43,
+    44
+   ],
+   "check": "whole-unit",
+   "chars": 1339,
+   "sha256": "73ff0eb52afcb8fe62396c62edecf6fdb0b3cecbc7d0ed8b2d30a2b04d960120"
+  },
+  {
+   "id": "50",
+   "title": "Calendars; plans for prompt disposition.",
+   "part": "X. General Provisions",
+   "file": "units/50.txt",
+   "pages": [
+    44,
+    44
+   ],
+   "check": "whole-unit",
+   "chars": 644,
+   "sha256": "0d3cf53e9b246abc018a44195511c8260f972562e50183833da49d5ef446e12d"
+  },
+  {
+   "id": "51",
+   "title": "Exceptions unnecessary.",
+   "part": "X. General Provisions",
+   "file": "units/51.txt",
+   "pages": [
+    44,
+    44
+   ],
+   "check": "whole-unit",
+   "chars": 633,
+   "sha256": "c5cb1b0f3a850cb30cc29e73436f9b4d92aec4ca2c85f013815b0d18362d9f14"
+  },
+  {
+   "id": "52",
+   "title": "Harmless error and plain error.",
+   "part": "X. General Provisions",
+   "file": "units/52.txt",
+   "pages": [
+    44,
+    44
+   ],
+   "check": "whole-unit",
+   "chars": 391,
+   "sha256": "8bdade3f8b248b91cfb41cb9ae4d694fb20c4b102c3eeb0e364eabdb1fbb75c1"
+  },
+  {
+   "id": "53",
+   "title": "Regulation of conduct in the courtroom.",
+   "part": "X. General Provisions",
+   "file": "units/53.txt",
+   "pages": [
+    44,
+    45
+   ],
+   "check": "whole-unit",
+   "chars": 420,
+   "sha256": "28876367fc1f93b0393fd825e8deb2553b2d5a5f24d514633e8263067d5da228"
+  },
+  {
+   "id": "54",
+   "title": "Application and exception.",
+   "part": "X. General Provisions",
+   "file": "units/54.txt",
+   "pages": [
+    45,
+    45
+   ],
+   "check": "whole-unit",
+   "chars": 2164,
+   "sha256": "8ebda026140a3675e6254fb4cf55787e670a2108d828e43e9e0dd1e4c05dde50"
+  },
+  {
+   "id": "55",
+   "title": "Records and exhibits.",
+   "part": "X. General Provisions",
+   "file": "units/55.txt",
+   "pages": [
+    45,
+    46
+   ],
+   "check": "whole-unit",
+   "chars": 2787,
+   "sha256": "31412007b2f8a9c4df5a8e7e8bde1b987f979c90d758c1e6521f928496aebd06"
+  },
+  {
+   "id": "56",
+   "title": "Court and proceedings.",
+   "part": "X. General Provisions",
+   "file": "units/56.txt",
+   "pages": [
+    46,
+    46
+   ],
+   "check": "whole-unit",
+   "chars": 896,
+   "sha256": "381885db071e28ebae608aea139c9e633ef18d70d3ff29151a4f5028ef308988"
+  },
+  {
+   "id": "57",
+   "title": "Rules; procedure not provided.",
+   "part": "X. General Provisions",
+   "file": "units/57.txt",
+   "pages": [
+    46,
+    47
+   ],
+   "check": "whole-unit",
+   "chars": 1462,
+   "sha256": "e078fc16a4cf8845bdf09c284d4c77d174ae704dc33b3f5ca8be04b356f61ad0"
+  },
+  {
+   "id": "58",
+   "title": "Fees and costs; bank accounts.",
+   "part": "X. General Provisions",
+   "file": "units/58.txt",
+   "pages": [
+    47,
+    48
+   ],
+   "check": "whole-unit",
+   "chars": 1558,
+   "sha256": "832e749a1740adeefafd66dffe79835f318bc7924237003143aa96155affe8d1"
+  },
+  {
+   "id": "59",
+   "title": "Effective date.",
+   "part": "X. General Provisions",
+   "file": "units/59.txt",
+   "pages": [
+    48,
+    48
+   ],
+   "check": "whole-unit",
+   "chars": 268,
+   "sha256": "2cbc051036cac1578ca05bee3e94d8af3f985c5be323e2b15ecf86c6e852f624"
+  },
+  {
+   "id": "60",
+   "title": "Title.",
+   "part": "X. General Provisions",
+   "file": "units/60.txt",
+   "pages": [
+    48,
+    48
+   ],
+   "check": "whole-unit",
+   "chars": 222,
+   "sha256": "0212ce2b9421b2ffdfb41861952f040956ea0715011333bed7bd5e7c003c9b70"
+  },
+  {
+   "id": "61",
+   "title": "Postconviction remedy.",
+   "part": "X. General Provisions",
+   "file": "units/61.txt",
+   "pages": [
+    48,
+    54
+   ],
+   "check": "whole-unit",
+   "chars": 21723,
+   "sha256": "a7b5cbcd7d5f001379d19e91bd05b76df2318f318ab5ca3e8a5fe1606804d36f"
+  },
+  {
+   "id": "62",
+   "title": "Commissioners.",
+   "part": "X. General Provisions",
+   "file": "units/62.txt",
+   "pages": [
+    54,
+    55
+   ],
+   "check": "whole-unit",
+   "chars": 5907,
+   "sha256": "fd56345041e1c1cd979cdefcdb361ca6bff1b774ab0379c6c937c0684a050456"
+  },
+  {
+   "id": "63",
+   "title": "Admission pro hac vice.",
+   "part": "X. General Provisions",
+   "file": "units/63.txt",
+   "pages": [
+    55,
+    57
+   ],
+   "check": "whole-unit",
+   "chars": 5862,
+   "sha256": "be48abb50fdada3d78840c5f8b61e54706e02064af118f95d05ee8a0d342d81b"
+  },
+  {
+   "id": "64",
+   "title": "Electronic filing.",
+   "part": "X. General Provisions",
+   "file": "units/64.txt",
+   "pages": [
+    57,
+    57
+   ],
+   "check": "whole-unit",
+   "chars": 1327,
+   "sha256": "29246a9cefec765f0ef570f99aa8a309387c568876882bb9b7495ec4f6a2ac5d"
+  },
+  {
+   "id": "appendix-special-rule-2017-1",
+   "title": "Appendix: Special Rule of Procedure 2017-1 (habitual offender sentence modification)",
+   "part": "X. General Provisions",
+   "file": "units/appendix-special-rule-2017-1.txt",
+   "pages": [
+    57,
+    61
+   ],
+   "check": "whole-unit",
+   "chars": 14553,
+   "sha256": "9f0d7e78183e5fe1203ceffeb5d8f25abda143c85dd2e0b9578e2fb4b56a4edb"
+  },
+  {
+   "id": "5.2",
+   "title": "Pretrial release.",
+   "part": "X. General Provisions",
+   "file": "units/5.2.txt",
+   "pages": [
+    61,
+    66
+   ],
+   "check": "line-level",
+   "chars": 14105,
+   "sha256": "22c20bd2e6022f76c06c2771ff4303400de0ba2b854238b2495b6d68313eeb6f"
+  },
+  {
+   "id": "5.3",
+   "title": "Modification of conditions of release.",
+   "part": "X. General Provisions",
+   "file": "units/5.3.txt",
+   "pages": [
+    66,
+    67
+   ],
+   "check": "whole-unit",
+   "chars": 2955,
+   "sha256": "19d8218056192aa08931ec3c1ec9627553534f0274c3290cc24f716b43ae786b"
+  },
+  {
+   "id": "5.4",
+   "title": "Proceedings for violation of pretrial supervision.",
+   "part": "X. General Provisions",
+   "file": "units/5.4.txt",
+   "pages": [
+    67,
+    68
+   ],
+   "check": "whole-unit",
+   "chars": 3257,
+   "sha256": "18f0afe71662991b43c9380ba3b6c8ab60ffead39dcb4e26432b0df411242833"
+  }
+ ],
+ "cite_pattern": "Superior Court Criminal Rules"
+}

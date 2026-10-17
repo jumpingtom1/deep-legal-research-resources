@@ -1,0 +1,260 @@
+Rule 16. Discovery and inspection.
+(a) General provisions.
+(1) A party may satisfy the requirement to permit the opposing party to inspect, copy, or photograph
+any item designated herein by providing a duplicate, facsimile, or copy of the item in compliance
+with applicable time limits and redaction standards under this Rule.
+(2) Any material or evidence disclosed pursuant to this Rule and filed with the prothonotary,
+including any inventory of materials provided, shall be placed under seal until it is either admitted as
+an exhibit at trial or hearing or the court enters an order unsealing the specified material as evidence.
+(3) Notwithstanding any limitation or restriction on discovery under this Rule, the State shall disclose
+as soon as is practicable any and all evidence favorable to the defendant in the determination of either
+guilt or punishment, including, but not limited to, all facts of an exculpatory nature, disclosure of all
+promises or inducements made to witnesses that the State intends to present at trial, and the existence
+of criminal convictions of any witness that the State intends to present at trial, when such conviction
+could be used to impeach the witness.
+(b) Disclosure of evidence by the state.
+[PDF page 16]
+(1) Information subject to disclosure.
+(A) Statement of defendant. Upon request of a defendant, the state shall disclose to the defendant
+and make available for inspection, copying, or photographing: any relevant written, recorded or
+oral statements made by the defendant or a codefendant (whether or not charged as a principal,
+accomplice or accessory in the same or in a separate proceeding), or copies thereof, within the
+possession, custody, or control of the state, the existence of which is known, or by the exercise of
+due diligence may become known, to the state; that portion of any written record containing the
+substance of any relevant oral statement made by the defendant whether before or after arrest in
+response to interrogation by any person then known to the defendant to be a state agent; and
+recorded testimony of the defendant before a grand jury that relates to the offense charged. Where
+the defendant is a corporation, partnership, association or labor union, the court may grant the
+defendant, upon its motion, discovery of relevant recorded testimony of any witness before a
+grand jury who (1) was, at the time of that testimony, so situated as a director, officer, employee,
+or agent as to have been able legally to bind the defendant as to conduct constituting the offense,
+or (2) was, at the time of the offense, personally involved in the alleged conduct constituting the
+offense and so situated as a director, officer, employee, or agent as to have been able legally to
+bind the defendant in respect to that alleged conduct in which the witness was involved.
+(B) Investigative reports and search warrants. Upon request of a defendant, the state shall permit
+the defendant to inspect and review any relevant reports prepared by law enforcement officers
+and made in connection with the particular case, including any written witness statements or
+written summaries of oral statements contained within such reports, and search warrants that are
+known to be in the possession, custody or control of the state. This obligation to provide for
+inspection and review of these reports shall be subject to the provisions of paragraph (c) of this
+Rule regarding redaction and restrictions on dissemination of designated material.
+(C) Names and statements of witnesses. Upon request of the defendant and subject to the
+provisions of paragraphs (c), (f), and (i) of this Rule, the state shall disclose to the defendant the
+names of all persons other than law enforcement personnel whom the state knows to have
+evidence or information relevant to any offense charged. The state shall make available for
+inspection, copying, or photographing any relevant written or recorded statements of said
+witnesses, within the possession, custody, or control of the state, the existence of which is known
+or, by the exercise of due diligence, may become known, to the state. The term “statement” as
+used in this Rule includes a written statement made by the person and signed or otherwise
+adopted or approved by the person and any statement of any kind or manner made by the person
+and written or recorded or summarized by law enforcement or the state in any writing or
+recording. The term “statement” is specifically intended to include all police and investigative
+reports of any kind prepared for or in connection with the case but shall not include the notes
+from which those reports are compiled unless the substance of those notes is otherwise
+discoverable under this Rule or under any other statute, rule, or principles governing the
+proceeding.
+(D) Defendant’s prior record. Upon request of the defendant, the state shall furnish to the
+defendant such copy of the defendant’s prior criminal record, if any, as is within the possession,
+custody, or control of the state, the existence of which is known, or by the exercise of due
+diligence may become known, to the state.
+(E) Documents and tangible objects. Upon request of the defendant, the state shall permit the
+defendant to inspect and copy or photograph books, papers, documents, photographs, tangible
+objects, buildings or places, or copies or portions thereof, that are within the possession, custody
+or control of the state and that are material to the preparation of the defendant’s defense or are
+intended for use by the state as evidence in chief at the trial, or were obtained from or belong to
+the defendant.
+(F) Reports of examinations and tests. Upon request of a defendant, the state shall permit the
+defendant to inspect and copy or photograph any results or reports of physical or mental
+examinations, and of scientific tests or experiments, or copies thereof, which are within the
+possession, custody, or control of the state, the existence of which is known, or by the exercise of
+due diligence may become known, to the state that are material to the preparation of the defense
+or are intended for use by the state as evidence in chief at the trial.
+[PDF page 17]
+(G) Expert witnesses. Upon request of a defendant, the state shall disclose to the defendant any
+evidence which the state may present at trial under Rules 702, 703, or 705 of the Delaware
+Uniform Rules of Evidence. This disclosure shall be in the form of a written response that
+includes the identity of the witness and the substance of the opinions to be expressed.
+(2) Information not subject to disclosure.
+(A) Except as provided by subpart (b)(l)(B), this Rule does not authorize the discovery or
+inspection of reports, memoranda, or other internal state documents prepared by the state or its
+agents in connection with the investigation or prosecution of a case that may reasonably be
+considered confidential, privileged, or subject to the attorney work-product doctrine To the extent
+a witness is interviewed by the state in anticipation of trial and the witness reveals material items
+in addition to or different from the   substance of that witness’s previous interview(s), there
+remains a duty to disclose those material additions or inconsistencies to the defendant before trial,
+notwithstanding the provisions of this subpart.
+(B) Except as provided by subpart (b)(1)(C), or by order entered under this Rule, this Rule does
+not require the disclosure of any personal identifying information of any witness.
+(C) Grand jury transcripts. Except as provided in Rules 6 and 26.2, and subdivision (b)(l)(A) of
+this Rule, this Rule does not require the disclosure, discovery, or inspection of recorded
+proceedings of a grand jury.
+(c) Redaction and restricted dissemination material.
+(1) Redaction. As to any material or evidence provided under this Rule, the state may redact personal
+identifying information, including the name, date of birth, residential address, telephone number,
+email address and place of employment of any witness or victim, or any member of a witness’s or
+victim’s family. If the state redacts personal identifying information under this subparagraph of the
+Rule, the defendant may file a motion seeking disclosure of the redacted information. Should the
+court find good cause for disclosure, it shall order the state to provide the redacted information
+subject to any condition that it deems necessary to the orderly adjudication of the case or to the fair
+administration of justice. In its discretion, the court ordering the provision of redacted personal
+identifying information may order that the information be identified as “Restricted Dissemination
+Material” under subparagraph (c)(2) of this Rule.
+(2) Restricted dissemination material. The state may designate, and the court may order, evidence or
+material disclosed under this Rule as “Restricted Dissemination Material” by prominently stamping
+or otherwise marking such items as “Restricted Dissemination Material.”
+(A) Designation. The state may designate any evidence or material subject to disclosure pursuant
+to this Rule as “Restricted Dissemination Material,” without supporting certification, if the
+defendant agrees to the designation. In the absence of an agreement by the defendant, the state
+may designate any evidence or material as “Restricted Dissemination Material” by stamping or
+otherwise marking it as such and providing a   certification in writing, upon information and
+belief, that: (i) the designated material relates to the statement of a child victim or witness; or (ii)
+there is a reasonable probability that disclosure of the designated material will result in (a) danger
+to the safety or security of a witness or victim, (b) danger of a witness being intimidated or
+tampered with, or (c) compromising an ongoing criminal investigation or confidential law
+enforcement technique.
+(B) Except as otherwise provided by order of the court or these Rules, “Restricted Dissemination
+Material” may only be disclosed to the defendant’s attorney, the agents, or employees of the
+defendant’s attorney, or to an expert witness who shall be advised of the designation associated
+with the material. The defendant’s attorney may orally communicate the content of “Restricted
+Dissemination Material” to the defendant or allow the defendant to view the content of such
+material but shall not provide the defendant with copies of material so designated. If the
+defendant’s attorney chooses to communicate or show the content of “Restricted Dissemination
+Material” to the defendant, the defense attorney shall not communicate or show the name of any
+victim or witness, date of birth, the residential address, telephone number, email address and
+place of employment of any witness or victim, or any other identifying information pertaining to
+[PDF page 18]
+the witness or victim or member of a witness’s or victim’s family. “Restricted Dissemination
+Material” may not otherwise be reproduced, copied, or disseminated in any way.
+(C) Relief from restriction. If the state designates evidence or material as “Restricted
+Dissemination Material” under subpart (c)(2)(A) of this Rule, the defendant may at any time file a
+motion seeking to remove that designation from such evidence or material. Should the court find
+good cause to remove the designation, it shall order that the evidence or material no longer be
+designated as “Restricted Dissemination Material,” subject to any condition that it deems
+necessary to the orderly adjudication of the case or to the fair administration of justice.
+(D) Defendants not represented by counsel. In any case in which the defendant is not represented
+by counsel, the state may file a motion seeking to limit the scope of discovery under this Rule.
+For good cause shown, the court may order any limitation or restriction on the provision of
+discovery to a defendant who is unrepresented by an attorney as the court in its discretion deems
+appropriate.
+(d) Disclosure of evidence by the defendant.
+(1) Information subject to disclosure.
+(A) Documents and tangible objects. If the defendant requests disclosure under subparts (b)(1)(B)
+or (E) of this Rule, upon compliance with such request by the state, the defendant, on request of
+the state, shall permit the state to inspect and copy or photograph books, papers, documents,
+photographs, tangible objects, or copies or portions thereof, that are within the possession,
+custody, or control of the defendant and which the defendant intends to introduce as evidence in
+chief at the trial.
+(B) Reports of examination and tests. If the defendant requests disclosure under subparts (b)(1)(F)
+or (G) of this Rule, upon compliance with such request by the state, the defendant, on request of
+the state, shall permit the state to inspect and copy or photograph any results or reports of
+physical or mental examinations and of scientific tests or experiments made in connection with
+the particular case, or copies thereof, within the possession or control of the defendant, that the
+defendant intends to introduce as evidence in chief at the trial or that were prepared by a witness
+whom the defendant intends to call at the trial when the results or reports relate to that witness’s
+testimony.
+(C) Expert witnesses. If the defendant requests disclosure under subpart (b)(l)(G) of this Rule,
+upon compliance with the request by the state, the defendant, on request of the state, shall
+disclose to the state any evidence the defendant may present at trial under Rules 702, 703, or 705
+of the Delaware Uniform Rules of Evidence. This disclosure shall be in the form of a written
+response that includes the identity of the witness and the substance of the opinions to be
+expressed.
+(D) Witness list. If the defendant requests disclosure under subpart (b)(1)(C) of this Rule, upon
+compliance with such request by the state, the defendant, on request of the state, shall furnish to
+the state a written list of the names of all witnesses whom the defendant expects to call as
+witnesses at the trial or hearing.
+(E) Witness statements. When the state discloses the names of witnesses under subpart (b)(1)(C)
+of this Rule, upon request by the state the defendant shall furnish to the state the statement of any
+person listed. The term “statement” is defined in (b)(1)(C) of this Rule.
+(F) Notice of defenses. If the defendant requests disclosure under subparts (b)(l)(A), (B), (C), (D),
+(E), (F) or (G) of this Rule, upon compliance with such request by the state, the defendant, on
+request of the state, shall provide written notice to the state specifying the following defenses if
+the defendant intends to assert such at trial: alibi; insanity; any defense alleging mental illness,
+defect, psychiatric disorder or any other mental or emotional condition of the defendant bearing
+upon the issue of guilt or punishment; any defense based upon public authority; or, entrapment.
+(2) Information Not Subject to Disclosure. Except as to scientific or medical reports, this subdivision
+does not authorize the discovery or inspection of reports, memoranda, or other internal defense
+documents made by the defendant, or prepared by the defendant’s attorneys or its agents in
+[PDF page 19]
+connection with the investigation or defense of the case that may reasonably be considered
+confidential, privileged, or subject to the attorney work-product doctrine, or of statements made by
+the defendant.
+(e) Continuing duty to disclose. If, before or during trial, a party discovers additional evidence or material
+previously requested or ordered that is subject to discovery or inspection under this Rule or that an
+additional notice must be made, such party shall promptly notify the other party or that other party’s
+attorney or the court of the existence of the additional evidence or material and/or make such notice.
+(f) Protective and disclosure order.
+(1) Upon the motion of either party and for good cause, the court may enter a protective or disclosure
+order as to the discovery or inspection required by this Rule. The court in its discretion may order any
+condition that it deems necessary to the orderly adjudication of the case or to the fair administration
+of justice. These conditions may include:
+(A) a requirement that the parties not disclose the contents of any material or evidence disclosed
+or discovered under this Rule in any public forum, including any website;
+(B) a requirement that the parties not disclose the contents of any material or evidence disclosed
+or discovered pursuant to this Rule to any third-party who is not an agent or employee of the
+parties or an expert witness;
+(C) authorization to either party to withhold the residential address, telephone number, email
+address or place of employment of any witness not otherwise covered by the terms of paragraphs
+(b), (c), or (d) of this Rule;
+(D) a requirement that either party disclose specified personal identifying information, including
+the name, date of birth, residential address, telephone number, email address and place of
+employment of any witness; or
+(E) authorization for either party in appropriate circumstances to withhold from disclosure or
+place additional restrictions on dissemination of information otherwise discoverable but not
+exculpatory.
+(2) A party who believes in good faith that the terms of a protective order entered by the court have
+been violated may move the court to enforce the order and to impose any necessary and appropriate
+sanction authorized by Delaware law.
+(g) Witness interview as alternative. If the state withholds a witness’s name and/or contact information
+under paragraph (b) or (c) of this Rule, upon request of counsel for the defendant, it shall take reasonable
+steps to make that witness available to counsel for the defendant for a timely interview. In such case,
+disclosure of the witness’s name or contact information to the defendant shall not be required.
+(h) Failure to comply with a request. If at any time during the course of the proceedings the court
+determines that a party has failed to comply with this Rule, the court may order such party to permit the
+discovery or inspection, grant a continuance, or prohibit the party from introducing evidence not
+disclosed, or it may enter such other order as it deems just under the circumstances. In determining an
+appropriate remedy, the court shall consider whether the party seeking a remedy moved to compel
+compliance with this Rule.
+(i) Procedure.
+(1) Request. The defendant may serve a request under paragraph (b) of this Rule after preliminary
+hearing. The state may serve a request under paragraph (d) of this Rule after service on the attorney
+general of such request by the defendant or such other time as ordered by the court. The request of
+either party shall set forth the items sought with reasonable particularity and shall specify a
+reasonable time, place, and manner of compliance with the request.
+(2) Response.
+[PDF page 20]
+(A) Initial response by the state. Except in those cases where the court has entered an order
+setting dates for responses under this Rule, the state shall serve an initial response within 45 days
+of the request. An initial response shall include statements by the defendant and co-defendant,
+investigative reports, and search warrants.
+(B) Supplemental responses by the state. The state shall file a supplemental response, or specify
+any objection to any request, as soon as practicable. The response may specify a reasonable
+alternative time, place, and manner of compliance without undue delay. Any response shall
+address specifically and accurately each of the defendant’s discovery requests.
+(C) Responses by the defendant. The defendant shall serve an initial response within 60 days of
+the state’s request and any supplemental response shall be provided without undue delay. Any
+response shall address specifically and accurately each of the state’s discovery requests.
+(3) Motion to compel. If a party fails to comply with a request the opposing party may move for an
+order compelling compliance with the request. A motion to compel shall be filed within ten days after
+the time for response or at such other time as ordered by the court.
+(4) Service and filing.
+(A) All requests for discovery under this Rule and responses thereto shall be served on other
+counsel or parties but shall not be filed with the court. In lieu thereof, the party requesting
+discovery and the party responding shall file with the court a “Notice of Service” certifying that a
+request or response was served and the date and manner of service. The party responsible for
+service shall retain custody of the original. In cases involving out-of-state counsel, Delaware
+counsel shall be the custodian. When a party uses any part of a request or response at trial or in
+proceedings on a motion, that party shall file it with the court. When a discovery request or
+anything produced in response to such a request is needed for any reason, the court, on its own
+motion, on motion by any party, or by stipulation of counsel, shall order the custodian to deliver it
+to the court. When a party files discovery material with the court other than during trial, the party
+shall file a notice stating, in no more than one page, the reason for filing the material and setting
+forth an itemized list thereof.
+(B) Service of requests and responses upon the defendant and the state may, in addition to the
+manner authorized by these rules, be made by electronic mail delivered to counsel of record.
+(5) Disclosure of personal identifying information. Any disclosure of any personal identifying
+information of any victim or witness shall be minimized to include only that information consistent
+with the person’s specific contact with the particular criminal matter and shall be provided in a
+manner demonstrating respect for the victim or witness’s safety, dignity and privacy.
+History.
+Adopted, effective Feb. 12, 1953; amended, effective Jan. 1, 1965; Sept. 1, 1974; Feb. 1, 1979; July 21,
+1989; revised, effective Jan. 1, 1992; amended, May 17, 2023, effective Sept. 1, 2023.

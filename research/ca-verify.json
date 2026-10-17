@@ -1,0 +1,224 @@
+{
+  "jurisdiction": "ca",
+  "date": "2026-10-16",
+  "rows": [
+    {
+      "id": "ca-codes-leginfo",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch CLIENT_ERROR on codes_displaySection CIV 1714",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-codes-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: 'Everyone is responsible, not only for the result of his'; '2025 California Code'; not truncated",
+      "generalised_citation": "Pen. Code, § 187",
+      "generalised_url": "https://law.justia.com/codes/california/code-pen/part-1/title-8/chapter-1/section-187/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Navigation lists 'division-N -> part-N' but the Penal Code has no divisions (code-pen -> part-1 -> title-8 -> chapter-1 -> section-187), so 4 index hops plus the section. The '(title/chapter if present)' clause covers it but the division-first wording could mislead. Title pages list only chapters, never sections.",
+      "suggested_fix": "Say: from /code-{abbr}/ follow whichever child link's [range] contains the section (division, part, title, chapter as present) until a page lists section links; expect 3-5 hops."
+    },
+    {
+      "id": "ca-codes-publiclaw",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: 'Everyone is responsible, not only for the result of his'; 'Verified: Oct. 12, 2026'; full",
+      "generalised_citation": "Health & Saf. Code, § 11350",
+      "generalised_url": "https://california.public.law/codes/health_and_safety_code_section_11350",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Minor: the page also shows '(updated Jan. 1, 2012; accessed Oct. 5, 2026)', a third date beside the badge and title year, which a run might report as currency.",
+      "suggested_fix": "Name the 'Verified: <date>' badge as the currency string to disclose."
+    },
+    {
+      "id": "ca-const-leginfo",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch CLIENT_ERROR on lawCode=CONS article=I sectionNum=1.",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-const-justia",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: 'All people are by nature free and independent and have'; '(Sec. 1 added Nov. 5, 1974, by Proposition 7...)'",
+      "generalised_citation": "Cal. Const., art. IV, § 8",
+      "generalised_url": "https://law.justia.com/constitution/california/article-iv/section-8/",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Letter-suffixed articles (XIII A) remain untested; the citation regex also misses 'art. XIII A' written with a space, so such citations will not be routed here at all.",
+      "suggested_fix": "Test article-xiii-a slug from the index; allow optional space before the letter in the regex."
+    },
+    {
+      "id": "ca-local-rules",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: 'Alameda County (Eff. July 1, 2026)', then Alpine, Amador",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-rules-court",
+      "outcome": "discrepancy",
+      "probe_evidence": "Body present, 'California Rules of Court 2026', (a)-(g) full; expect string not contiguous",
+      "generalised_citation": "Cal. Rules of Court, rule 2.111",
+      "generalised_url": "https://courts.ca.gov/cms/rules/index/two/rule2_111",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Probe 'expect' joins the bold subdivision heading '(a) Right to file a petition, answer, or reply' with '(1) A party'; on the page these are separated (heading, break, '(1) A party may file...'), so a literal presence test reports NO even though the page is fine.",
+      "suggested_fix": "Change expect to 'A party may file a petition in the Supreme Court'."
+    },
+    {
+      "id": "ca-ccr-westlaw",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch SITE_BLOCKED",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-ccr-lii",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: '(a) Effective July 1, 1991, every employer shall establish, implement'; quarterly-version note",
+      "generalised_citation": "Cal. Code Regs., tit. 22, § 72527",
+      "generalised_url": "https://www.law.cornell.edu/regulations/california/22-CCR-72527",
+      "generalised_outcome": "ok",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-notice-register",
+      "outcome": "confirmed",
+      "probe_evidence": "YES: 32-Z Aug 7 PDF linked, plus 33-Z, 34-Z, 35-Z",
+      "generalised_citation": "Notice Register 2026, No. 29-Z (July 17, 2026)",
+      "generalised_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/07/2026-Notice-Register-No.-29-Z-July-17-2026.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "On the index, Jan-Apr and Sep-Oct 2026 month links are all ?page_id=...&preview=true URLs (not just 'the two most recent'), so the latest issues may be reachable only via preview links. 35-Z file name carries a '-1' suffix, confirming slugs vary. Issue PDF body was readable (not truncated), resolving the 'no PDF body fetched' hazard.",
+      "suggested_fix": "Update automation note: six of ten 2026 month links are preview URLs; follow them from the index, never construct; drop 'no PDF body was fetched' hazard."
+    },
+    {
+      "id": "ca-official-reports-lexis",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch ROBOTS_DISALLOWED",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-opinions-courts",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch ROBOTS_DISALLOWED on F089182.PDF; listing page fetched fine (Oct 15, 2026 entries)",
+      "generalised_citation": "McInerney v. Regents of the Univ. of California, B339467 (listing Oct. 13, 2026)",
+      "generalised_url": "https://www.courts.ca.gov/opinions/documents/B339467.PDF (located via listing; not fetched)",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "Listing note also says older opinions 'remain available via our Case Information Search tool' (the blocked docket host).",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-opinions-justia",
+      "outcome": "discrepancy",
+      "probe_evidence": "YES: 'Generally, the right to recover costs at the conclusion of'; date 'August 6, 2026'; no Cal.5th",
+      "generalised_citation": "McInerney v. Regents of the Univ. of California, B339467 (Cal. Ct. App. 2d Dist., Oct. 13, 2026)",
+      "generalised_url": "https://law.justia.com/cases/california/court-of-appeal/2026/b339467.html",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Currency 'observed' says 'decision date September 4, 2026' but the probe page shows August 6, 2026. For a case filed 9/18/26 and certified 10/13/26, Justia's 'Date Decided' was the certification date (Oct 13), so 'year is the filing year' is ambiguous near year boundaries. Format claims confirmed: slip pagination (plain sequential page numbers), no official cite or star paging, AI summary present.",
+      "suggested_fix": "Correct observed date to 'August 6, 2026'; note that Justia's decision date may be the publication-order date and to try both filing and certification years at a year boundary."
+    },
+    {
+      "id": "ca-appellate-dockets",
+      "outcome": "still-blocked",
+      "probe_evidence": "WebFetch ROBOTS_DISALLOWED",
+      "generalised_citation": "",
+      "generalised_url": "",
+      "generalised_outcome": "n/a",
+      "instruction_problems": "",
+      "suggested_fix": ""
+    },
+    {
+      "id": "ca-sc-conference-results",
+      "outcome": "discrepancy",
+      "probe_evidence": "Heading 'Results from the petition conference of 7/15/2026'; S296637 B331924 Petition for Review | Granted",
+      "generalised_citation": "People v. Hernandez, S298093 (B352278), conference of 9/30/2026",
+      "generalised_url": "https://supreme.courts.ca.gov/sites/default/files/supremecourt/default/documents/conference%20results%20-%20093026%20-%20R.pdf",
+      "generalised_outcome": "ok",
+      "instruction_problems": "Expect string 'Petition for Review: Granted' does not occur literally; Action Type and Result are separate columns, so a literal match fails. Results also include variants like 'Granted and Held'. Index still lists through Sept 30, 2026 (no Oct 7/14 yet).",
+      "suggested_fix": "Change expect to the S-number plus 'Granted' (e.g. 'S296637 B331924 Petition for Review Granted'), and note result variants."
+    }
+  ],
+  "regex_tests": [
+    {
+      "citation": "section 1714 of the Civil Code",
+      "matched_label": null,
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "section 17200 of the Business and Professions Code",
+      "matched_label": null,
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "Health & Saf. Code, § 11350, subd. (a)",
+      "matched_label": "California codes",
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "Cal. Lab. Code § 2802",
+      "matched_label": "California codes",
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "Evidence Code section 1101, subdivision (b)",
+      "matched_label": "California codes",
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "Code of Civil Procedure section 425.16",
+      "matched_label": "California codes",
+      "expected_label": "California codes"
+    },
+    {
+      "citation": "Cal. Const., art. XIII A, § 1",
+      "matched_label": null,
+      "expected_label": "California Constitution"
+    },
+    {
+      "citation": "Cal. Rules of Court, rule 2.111",
+      "matched_label": "California Rules of Court",
+      "expected_label": "California Rules of Court"
+    },
+    {
+      "citation": "Cal. Code Regs., tit. 22, § 72527",
+      "matched_label": "California Code of Regulations",
+      "expected_label": "California Code of Regulations"
+    },
+    {
+      "citation": "Sargon Enterprises, Inc. v. University of Southern California (2012) 55 Cal.4th 747",
+      "matched_label": "California reporters",
+      "expected_label": "California reporters"
+    },
+    {
+      "citation": "Tex. Penal Code § 19.02",
+      "matched_label": "California codes",
+      "expected_label": "null (false route)"
+    },
+    {
+      "citation": "Tex. Gov't Code § 552.001",
+      "matched_label": "California codes",
+      "expected_label": "null (false route)"
+    },
+    {
+      "citation": "rule 5.1 of the Federal Rules of Civil Procedure",
+      "matched_label": "California Rules of Court",
+      "expected_label": "null (false route)"
+    }
+  ],
+  "overall": "All six VERIFIED fetch routes work and generalise (public.law, Justia codes/constitution/cases, courts.ca.gov rules, LII CCR, OAL register incl. a PDF body, SC conference PDFs). All six BLOCKED rows are still refused. Three discrepancies are probe-string errors: the rule 8.500 and conference-results 'expect' strings are not literal page text, and the Justia-cases observed date is wrong (Aug 6, not Sep 4). Biggest instruction problem: the codes regex misses the prose form 'section 1714 of the Civil Code' (the style the brief itself names), and constitution regex misses 'XIII A'. False routes: the codes regex matches other states' 'Penal Code'/'Gov't Code' when the state prefix is non-Cal, and bare 'rule N.N' catches federal rules."
+}

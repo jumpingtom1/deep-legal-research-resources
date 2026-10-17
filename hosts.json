@@ -1,0 +1,201 @@
+{
+ "generated": "2026-10-16",
+ "hosts": {
+  "appellatecases.courtinfo.ca.gov": {
+   "status": "blocked",
+   "sources": [
+    "ca-appellate-dockets"
+   ],
+   "blocked_sources": []
+  },
+  "california.public.law": {
+   "status": "allowed",
+   "sources": [
+    "ca-codes-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "courts.ca.gov": {
+   "status": "allowed",
+   "sources": [
+    "ca-rules-court",
+    "ca-local-rules",
+    "ca-review-granted-lists"
+   ],
+   "blocked_sources": [
+    "ca-opinions-courts"
+   ]
+  },
+  "courts.delaware.gov": {
+   "status": "allowed",
+   "sources": [
+    "de-rules-chancery",
+    "de-rules-superior-civil",
+    "de-rules-superior-criminal",
+    "de-rules-supreme",
+    "de-rules-evidence",
+    "de-rules-professional-conduct",
+    "de-opinions-courts",
+    "de-subsequent-history-supreme"
+   ],
+   "blocked_sources": []
+  },
+  "delcode.delaware.gov": {
+   "status": "allowed",
+   "sources": [
+    "de-code-delcode",
+    "de-constitution-delcode"
+   ],
+   "blocked_sources": []
+  },
+  "dos.ny.gov": {
+   "status": "allowed",
+   "sources": [
+    "ny-const-dos",
+    "ny-register-dos"
+   ],
+   "blocked_sources": []
+  },
+  "govt.westlaw.com": {
+   "status": "blocked",
+   "sources": [
+    "ca-ccr-westlaw",
+    "ny-nycrr-westlaw",
+    "ny-cases-official-reports-westlaw"
+   ],
+   "blocked_sources": []
+  },
+  "iapps.courts.state.ny.us": {
+   "status": "blocked",
+   "sources": [
+    "ny-cases-lrb-search"
+   ],
+   "blocked_sources": []
+  },
+  "law.justia.com": {
+   "status": "allowed",
+   "sources": [
+    "ca-codes-justia",
+    "ca-const-justia",
+    "ca-opinions-justia",
+    "de-code-justia",
+    "de-constitution-justia",
+    "de-cases-justia",
+    "ny-laws-justia",
+    "ny-cases-justia"
+   ],
+   "blocked_sources": []
+  },
+  "leginfo.legislature.ca.gov": {
+   "status": "blocked",
+   "sources": [
+    "ca-codes-leginfo",
+    "ca-const-leginfo"
+   ],
+   "blocked_sources": []
+  },
+  "legis.delaware.gov": {
+   "status": "allowed",
+   "sources": [
+    "de-session-laws"
+   ],
+   "blocked_sources": []
+  },
+  "legislation.nysenate.gov": {
+   "status": "allowed",
+   "sources": [
+    "ny-laws-senate-api"
+   ],
+   "blocked_sources": []
+  },
+  "newyork.public.law": {
+   "status": "allowed",
+   "sources": [
+    "ny-laws-publiclaw"
+   ],
+   "blocked_sources": []
+  },
+  "nycourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ny-rules-coa-500"
+   ],
+   "blocked_sources": []
+  },
+  "oal.ca.gov": {
+   "status": "allowed",
+   "sources": [
+    "ca-notice-register"
+   ],
+   "blocked_sources": []
+  },
+  "public.leginfo.state.ny.us": {
+   "status": "blocked",
+   "sources": [
+    "ny-laws-assembly"
+   ],
+   "blocked_sources": []
+  },
+  "regulations.delaware.gov": {
+   "status": "allowed",
+   "sources": [
+    "de-admincode-api",
+    "de-register-api"
+   ],
+   "blocked_sources": []
+  },
+  "supreme.courts.ca.gov": {
+   "status": "allowed",
+   "sources": [
+    "ca-sc-conference-results"
+   ],
+   "blocked_sources": []
+  },
+  "www.courts.ca.gov": {
+   "status": "allowed",
+   "sources": [
+    "ca-rules-court"
+   ],
+   "blocked_sources": [
+    "ca-opinions-courts"
+   ]
+  },
+  "www.law.cornell.edu": {
+   "status": "allowed",
+   "sources": [
+    "ca-ccr-lii",
+    "de-admincode-lii",
+    "ny-nycrr-cornell"
+   ],
+   "blocked_sources": []
+  },
+  "www.lexisnexis.com": {
+   "status": "blocked",
+   "sources": [
+    "ca-official-reports-lexis"
+   ],
+   "blocked_sources": []
+  },
+  "www.nycourts.gov": {
+   "status": "allowed",
+   "sources": [
+    "ny-rules-ucr-nycourts",
+    "ny-rules-coa-500",
+    "ny-rules-rpc-1200",
+    "ny-cases-lrb",
+    "ny-cases-ctapps",
+    "ny-cases-bound-volumes",
+    "ny-history-lrb-motions"
+   ],
+   "blocked_sources": []
+  },
+  "www.nysenate.gov": {
+   "status": "allowed",
+   "sources": [
+    "ny-laws-senate",
+    "ny-const-senate"
+   ],
+   "blocked_sources": []
+  }
+ }
+}

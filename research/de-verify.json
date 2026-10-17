@@ -1,0 +1,259 @@
+{
+ "jurisdiction": "de",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "de-code-delcode",
+   "outcome": "confirmed",
+   "probe_evidence": "§ 18-101: 'As used in this chapter unless the context otherwise requires'; complete, no currency line",
+   "generalised_citation": "19 Del. C. § 710",
+   "generalised_url": "https://delcode.delaware.gov/title19/c007/sc02/index.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Title index lists chapter names only, no section ranges, so 'find the chapter whose range covers the section' cannot be done from the title index; the chapter index lists subchapter headings without section numbers either. A fresh run must guess (§ 710 -> ch. 7 by numbering convention) and open subchapters until it finds the anchor.",
+   "suggested_fix": "State that title/chapter indexes show no section ranges; infer chapter from the leading digits of the section (sections NNN usually sit in chapter N or NN), confirm by opening the chapter page, and try subchapters in order checking for id={section}."
+  },
+  {
+   "id": "de-session-laws",
+   "outcome": "confirmed",
+   "probe_evidence": "'AN ACT TO AMEND CHAPTER 27, TITLE 11 OF THE DELAWARE CODE'; approved July 9, 1987",
+   "generalised_citation": "84 Del. Laws c. 100",
+   "generalised_url": "https://legis.delaware.gov/SessionLaws/Chapter?id=41719",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Open question resolved: the SessionLaws index lists every volume as 'NN - NNNth GA - years' with its Chapters?volume= internal id (no formula: 84->165, 85->166, 83->48, 66->42). The Volume 84 listing page truncated in WebFetch at ch. 317, so chapters near the end of large volumes may be cut off.",
+   "suggested_fix": "Navigation: SessionLaws index -> row whose first number is the Del. Laws volume -> its Chapters?volume=<id> link -> chapter. Note WebFetch truncation on large volume listings (use offset)."
+  },
+  {
+   "id": "de-code-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "'(a) The business and affairs of every corporation organized under'; '2025 Delaware Code'",
+   "generalised_citation": "19 Del. C. § 710",
+   "generalised_url": "https://law.justia.com/codes/delaware/title-19/chapter-7/subchapter-ii/section-710/",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-constitution-delcode",
+   "outcome": "confirmed",
+   "probe_evidence": "Art. I § 9 'All courts shall be open; and every individual for an'",
+   "generalised_citation": "Del. Const. art. IV, § 11",
+   "generalised_url": "https://delcode.delaware.gov/constitution/constitution-05.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "'Although it is the duty of all men frequently to'; Art. XII 'NOT CURRENTLY AVAILABLE'; 133,919 chars",
+   "generalised_citation": "Del. Const. art. IV, § 11",
+   "generalised_url": "https://law.justia.com/constitution/delaware/#art04",
+   "generalised_outcome": "ok",
+   "instruction_problems": "The #artNN anchor does not change what WebFetch reads (always from char 0); later articles need offset=100000 as noted.",
+   "suggested_fix": "Say explicitly that the anchor is for the human link only."
+  },
+  {
+   "id": "de-rules-chancery",
+   "outcome": "confirmed",
+   "probe_evidence": "Rule 23.1 '(a) Pleading Requirements. The complaint in a derivative action must:'; truncated in 23.1(d)",
+   "generalised_citation": "Ct. Ch. R. 12(b)",
+   "generalised_url": "https://courts.delaware.gov/forms/download.aspx?id=160908",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index still links id=160908 with 'Current as of June 1, 2026'. Window 1 now ends inside Rule 23.1(d)(3) (record implied 23.1 fully in window 1) — later 23.1 subsections need offset.",
+   "suggested_fix": "Record window-1 end as 'mid Rule 23.1(d)'."
+  },
+  {
+   "id": "de-rules-evidence",
+   "outcome": "confirmed",
+   "probe_evidence": "Rule 401 'Evidence is relevant if: (a) it has any tendency to'; truncated at Rule 614",
+   "generalised_citation": "D.R.E. 501",
+   "generalised_url": "https://courts.delaware.gov/forms/download.aspx?id=39388",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-rules-professional-conduct",
+   "outcome": "failed",
+   "probe_evidence": "WebFetch reached PDF but body stops in Rule 1.5 notes; Rule 1.7 only in TOC",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Index link id=160568 and 'current through November 18, 2025' still match. WebFetch window 1 ends in Rule 1.5 Notes to Decisions; DLRPC 1.7 body NOT reachable in one fetch. Shell pdftotext route as recorded is needed.",
+   "suggested_fix": "Set webfetch: ok-but-truncated (window 1 ends Rule 1.5); keep shell pdftotext as the route for rules ≥1.6."
+  },
+  {
+   "id": "de-rules-superior-civil",
+   "outcome": "confirmed",
+   "probe_evidence": "Rule 12(b) 'Every defense, in law or fact, to a claim for relief'; truncated in 16.1(c)",
+   "generalised_citation": "Super. Ct. Civ. R. 8(a)",
+   "generalised_url": "https://courts.delaware.gov/forms/download.aspx?id=304488",
+   "generalised_outcome": "ok",
+   "instruction_problems": "'2026 Edition' appears only on the rules index, not in the PDF text (as recorded).",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-rules-superior-criminal",
+   "outcome": "failed",
+   "probe_evidence": "PDF reached; text ends mid Rule 29(a); Rule 61 and 35 NOT PRESENT",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Index link id=304498 '2026 Edition' still current. WebFetch window 1 ends in Rule 29(a), so the probe citation (Rule 61) and Rule 35 are unreachable without offsets/shell. Shell not tested by this verifier.",
+   "suggested_fix": "Record webfetch truncation point (Rule 29) and route Rule 30+ to shell pdftotext or offsets."
+  },
+  {
+   "id": "de-rules-supreme",
+   "outcome": "confirmed",
+   "probe_evidence": "14(g) 'The following shall be the form of citations: (i) Reported Opinions'; truncated Rule 26(j)",
+   "generalised_citation": "Supr. Ct. R. 6(a)",
+   "generalised_url": "https://courts.delaware.gov/forms/download.aspx?id=174928",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-admincode-api",
+   "outcome": "confirmed",
+   "probe_evidence": "1.1 'The purpose of this regulation is to outline the procedures,'; 9 pp not truncated",
+   "generalised_citation": "7 DE Admin. Code 1102",
+   "generalised_url": "https://regulations.delaware.gov/api/file/download/39d29c70-d8a9-495b-8456-45eea958c24d",
+   "generalised_outcome": "ok",
+   "instruction_problems": "POST {regulationUrl:'/AdminCode/title7/1102'} works; the Cornell-style browse path '/AdminCode/title7/1100/1102' returns all-null JSON (no error), which a fresh run could misread as 'not found'. Regulation numbers are flat under the title (title listing JSON gives publicSiteRegulationUniqueUrl).",
+   "suggested_fix": "Note that regulationUrl must be /AdminCode/title{T}/{reg} with no part segment; a null JSON body means wrong path, so check the title listing's publicSiteRegulationUniqueUrl."
+  },
+  {
+   "id": "de-admincode-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "'The purpose of this regulation is to outline the procedures,'; 'State regulations are updated quarterly'",
+   "generalised_citation": "7 Del. Admin. Code § 1102-1.0",
+   "generalised_url": "https://www.law.cornell.edu/regulations/delaware/7-Del-Admin-Code-SS-1102-1.0",
+   "generalised_outcome": "ok",
+   "instruction_problems": "On the 7-1102 page the only date was '06/11/2006' with 'No prior version found' and no register note, while the official PDF cites 26 DE Reg. 118 (08/01/22) — LII text/notes may be stale for some regulations; the currency string is not uniform across pages.",
+   "suggested_fix": "Warn that LII Notes can omit recent register amendments; compare the latest DE Reg. cite with the official PDF before quoting."
+  },
+  {
+   "id": "de-register-api",
+   "outcome": "confirmed",
+   "probe_evidence": "'DELAWARE REGISTER OF REGULATIONS, VOL. 30, ISSUE 4, THURSDAY, OCTOBER 1, 2026'; truncated ~p.209",
+   "generalised_citation": "28 DE Reg. 220 (9/1/2024)",
+   "generalised_url": "https://regulations.delaware.gov/api/file/download/986fcfe1-5e98-437b-80b0-182aa2c207ae",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Issue located correctly via monthlyRegister JSON (Vol 28 Issue 3, September2024). But WebFetch extracted only ~123K chars of this 78-page PDF: window 1 ended p.192, offset 100000 ended p.198, offset 200000 'nothing left' — p.220 (14 DE Admin. Code 101 final order) unreachable by WebFetch at any offset. Shell pdftotext found it. Also, issue PDFs start mid-volume (this one begins near p.150), so page→PDF-page mapping is non-trivial.",
+   "suggested_fix": "State that WebFetch's PDF extraction is capped (~123K chars) and offsets cannot reach later pages; for any page beyond the first ~40-50 pages of an issue use shell curl + pdftotext, or the issue's textFileId."
+  },
+  {
+   "id": "de-opinions-courts",
+   "outcome": "discrepancy",
+   "probe_evidence": "'TRAYNOR, Justice: In the Court of Chancery, a stockholder sought a declaratory judgment'; 45 pp, no A.3d",
+   "generalised_citation": "Techno-X USA Inc. v. Spartan Forge LLC, C.A. No. 2024-1313-LWW (Del. Ch. Oct. 15, 2026)",
+   "generalised_url": "https://courts.delaware.gov/opinions/download.aspx?id=402160",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Probe and format claims confirmed (slip pp. 1-53, no reporter cite; Supreme order Turner v. Lam Research id=402180 shows court below C.A. No.). DISCREPANCY: record says query-string GET parameters are ignored and search is POST-only. In fact GET index.aspx?ag=Court%20of%20Chancery&period=year&year=2024&results=25&ss=Moelis&page=1 returns the filtered rows (ids 360460, 360010) via WebFetch and curl. That makes search WebFetch-reachable without the shell; the page's own JS builds this URL. The record's '?ag=…' test likely omitted period/year/ss.",
+   "suggested_fix": "Replace the POST instructions with the GET form: https://courts.delaware.gov/opinions/index.aspx?ag={Court name URL-encoded}&period=year&year={YYYY}&results=25&ss={party or docket}&page=1; keep POST as fallback; change access mode to index-anchored (search URL constructible)."
+  },
+  {
+   "id": "de-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "'In the Court of Chancery, a stockholder sought a declaratory judgment that'; complete",
+   "generalised_citation": "Techno-X USA Inc. v. Spartan Forge LLC, C.A. No. 2024-1313-LWW (Del. Ch. 2026); also Turner v. Lam Research, No. 149, 2026",
+   "generalised_url": "https://law.justia.com/cases/delaware/court-of-chancery/2026/c-a-no-2024-1313-lww.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "First-guess slug forms worked for both Chancery (c-a-no-…) and Supreme (149-2026.html), including a decision only one day old.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "de-subsequent-history-supreme",
+   "outcome": "confirmed",
+   "probe_evidence": "Caption 'Upon appeal from the Court of Chancery. REVERSED.' present in id=390230",
+   "generalised_citation": "Turner v. Lam Research Corp., C.A. No. 2024-1308 (Del. Ch.) -> No. 149, 2026",
+   "generalised_url": "https://courts.delaware.gov/opinions/download.aspx?id=402180",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Supreme Court 2026 party search 'Lam Research' -> 1 row (149, 2026, '(Court of Chancery)', Order) and PDF states court below C.A. No. 2024-1308 and 'affirmed'. Chancery search 'Lam Research' in 2025/2026 found no trial decision (substring search returned other '…Research…' parties), so working backwards from the appeal to the trial decision needs the C.A. No. from the order. Same GET-search discrepancy as de-opinions-courts applies.",
+   "suggested_fix": "Mention that search is substring/word-fuzzy (returns 'Acacia Research', etc.) and that the Supreme order's caption is the reliable link to the C.A. No.; use the GET search URL."
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "section 102(b)(7) of the Delaware General Corporation Law",
+   "matched_label": null,
+   "expected_label": "Delaware Code"
+  },
+  {
+   "citation": "Section 141(k) of Title 8",
+   "matched_label": null,
+   "expected_label": "Delaware Code"
+  },
+  {
+   "citation": "19 Del. C. § 710",
+   "matched_label": "Delaware Code",
+   "expected_label": "Delaware Code"
+  },
+  {
+   "citation": "Del. Code Ann. tit. 11, § 4209(d)(1)",
+   "matched_label": "Delaware Code",
+   "expected_label": "Delaware Code"
+  },
+  {
+   "citation": "29 Del. C. §§ 10001-10007",
+   "matched_label": "Delaware Code (section captured as '10001-10007' — range misparsed as hyphenated section, would imply chapter 10001)",
+   "expected_label": "Delaware Code"
+  },
+  {
+   "citation": "Article I, Section 9 of the Delaware Constitution",
+   "matched_label": null,
+   "expected_label": "Delaware Constitution"
+  },
+  {
+   "citation": "Del. Const. art. IV, § 11(8)",
+   "matched_label": "Delaware Constitution",
+   "expected_label": "Delaware Constitution"
+  },
+  {
+   "citation": "In re Match Grp., Inc. Deriv. Litig., 315 A.3d 446 (Del. 2024)",
+   "matched_label": "Reported Delaware cases (Atlantic Reporter)",
+   "expected_label": "Reported Delaware cases (Atlantic Reporter)"
+  },
+  {
+   "citation": "Rule 61 of the Superior Court Criminal Rules",
+   "matched_label": null,
+   "expected_label": "Superior Court Criminal Rules"
+  },
+  {
+   "citation": "Superior Court Criminal Rule 61(i)(1)",
+   "matched_label": "Superior Court Criminal Rules",
+   "expected_label": "Superior Court Criminal Rules"
+  },
+  {
+   "citation": "Chancery Rule 23.1",
+   "matched_label": "Court of Chancery Rules",
+   "expected_label": "Court of Chancery Rules"
+  },
+  {
+   "citation": "7 DE Admin. Code 1102-1.0",
+   "matched_label": "Delaware Administrative Code",
+   "expected_label": "Delaware Administrative Code"
+  },
+  {
+   "citation": "Turner v. Lam Research Corp., No. 149, 2026 (Del. Oct. 15, 2026)",
+   "matched_label": "Supreme Court docket / Delaware unreported form (Supr. Ct. R. 14(g)(ii))",
+   "expected_label": "Supreme Court docket / Delaware unreported form (Supr. Ct. R. 14(g)(ii))"
+  },
+  {
+   "citation": "Techno-X USA Inc. v. Spartan Forge LLC, C.A. No. 2024-1313-LWW (Del. Ch. Oct. 15, 2026)",
+   "matched_label": "Unreported Chancery / Superior decisions by civil action number",
+   "expected_label": "Unreported Chancery / Superior decisions by civil action number"
+  },
+  {
+   "citation": "Jones v. UIAB, K26A-03-002 RLG (Del. Super. Oct. 14, 2026)",
+   "matched_label": "Unreported Chancery / Superior decisions by civil action number",
+   "expected_label": "Unreported Chancery / Superior decisions by civil action number"
+  },
+  {
+   "citation": "2024 WL 4249836, at *5 (Del. Super. Ct. Sept. 20, 2024)",
+   "matched_label": "Westlaw / Lexis unreported cites",
+   "expected_label": "Westlaw / Lexis unreported cites"
+  }
+ ],
+ "overall": "All 13 VERIFIED probes reproduced; generalisation worked across titles and courts. Main fixes: (1) opinions search is not POST-only — a GET index.aspx?ag=&period=year&year=&ss= URL returns filtered rows; (2) delcode title/chapter indexes show no section ranges, so the 'find chapter covering section' hop needs guidance; (3) Register PDFs cap at ~123K chars in WebFetch and offsets cannot reach later pages (28 DE Reg. 220 unreachable), so the shell is required; (4) both REPORTED rule PDFs truncate before the probe rule (DLRPC 1.7, Crim. R. 61). Regex misses: prose 'section N of the Delaware General Corporation Law', 'Section N of Title T', 'Article I, Section 9 of the Delaware Constitution', 'Rule N of the Superior Court Criminal Rules'; §§ ranges misparse."
+}

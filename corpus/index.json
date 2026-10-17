@@ -1,0 +1,17 @@
+{
+ "generated": "2026-10-16",
+ "collections": {
+  "de/super-ct-crim-r": {
+   "title": "Superior Court Rules of Criminal Procedure (Delaware)",
+   "jurisdiction": "de",
+   "source_id": "de-rules-superior-criminal",
+   "captured": "2026-10-16",
+   "units": 85,
+   "stale_days": 180,
+   "expire_days": 365,
+   "cite_regex": "(?:Del\\.\\s*)?Super(?:ior)?\\.?\\s*C(?:our)?t\\.?\\s*Crim(?:inal)?\\.?\\s*R(?:ule)?\\.?\\s*(?P<rule>\\d+[A-Z]?(?:\\.\\d+)?)|Rule\\s+(?P<rule2>\\d+[A-Z]?(?:\\.\\d+)?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Delaware\\s+)?Superior\\s+Court\\s+Criminal\\s+Rules",
+   "cite_template": "Del. Super. Ct. Crim. R. {id}",
+   "manifest_sha256": "7e3d645e385edab13bee8aec8b0da8da22bef9f54fdbf91b26e1868126271f74"
+  }
+ }
+}
