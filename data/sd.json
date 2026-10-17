@@ -1,0 +1,990 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "sd",
+  "name": "South Dakota",
+  "compiled": "2026-10-17",
+  "summary": "Statutes, codified court rules (SDCL 15-6, 15-26A, 19-19, Title 23A) and ARSD rules are constructible per section from the LRC's server-rendered API pages (sdlegislature.gov/api/Statutes/{section}.html, /api/Rules/Rule/{rule}.html); the human /Statutes/ URLs are a JavaScript shell. The constitution is per-section on the same host but the script extracts 0 characters, so WebFetch plus Justia carry it. Supreme Court opinions (2006–, public-domain 'YYYY S.D. N' with ¶ pinpoints) are found by a GET party-name search on ujs.sd.gov and read as PDFs by fetch_doc.py (WebFetch is gated on them); Justia covers older years. Further review is SCOTUS certiorari only, findable by party name.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of South Dakota",
+        "courtlistener_id": "sd",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "S.D.",
+        "reporters": [
+          "N.W.3d",
+          "N.W.2d",
+          "N.W.",
+          "S.D."
+        ],
+        "public_domain_citation": "2026 S.D. 48 (from Jan. 1, 1996; pinpoint by ¶)"
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "South Dakota Codified Laws",
+        "examples": [
+          "SDCL 22-18-1",
+          "SDCL § 53-1-1",
+          "S.D. Codified Laws § 32-23-1",
+          "SDCL ch. 22-18",
+          "SDCL 2-16-13.1",
+          "section 22-18-1 of the South Dakota Codified Laws",
+          "SDCL §§ 22-18-1 to -1.1",
+          "S.D.C.L. § 32-23-1"
+        ],
+        "regex": "(?:\\bSDCL|\\bS\\.\\s?D\\.\\s?C\\.\\s?L\\.|\\bS\\.\\s?D\\.\\s*Codified\\s+Laws(?:\\s+Ann\\.)?)\\s*(?:§§?\\s*|ch(?:apter|\\.)\\s*)?(?P<section>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?(?:-(?:\\d+(?:\\.\\d+)*|A))?)(?![\\d.]*\\d)(?P<sub>\\([a-z]\\))?|(?:section|§)\\s*(?P<section2>\\d{1,2}[A-Z]?-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)*)(?:\\([a-z0-9]+\\))*\\s+of\\s+(?:the\\s+)?South\\s+Dakota\\s+Codified\\s+Laws",
+        "routes_to": [
+          "sd-sdcl-lrc",
+          "sd-sdcl-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "South Dakota Session Laws",
+        "examples": [
+          "2021 S.D. Sess. Laws ch. 92",
+          "2021 S.D. Laws ch. 92"
+        ],
+        "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+S\\.\\s?D\\.\\s*(?:Sess\\.\\s*)?Laws,?\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "sd-session-laws-lrc"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "South Dakota Session Laws (bare SL source-note form)",
+        "examples": [
+          "SL 2021, ch 92",
+          "SL 1996, ch 312"
+        ],
+        "regex": "\\bSL\\s+(?P<year>(?:18|19|20)\\d\\d),\\s*ch\\.?\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "sd-session-laws-lrc"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "constitution",
+        "label": "South Dakota Constitution",
+        "examples": [
+          "S.D. Const. art. VI, § 2",
+          "S.D. Const. art. V, § 1",
+          "Article VI, § 2 of the South Dakota Constitution",
+          "Article V, Section 1 of the South Dakota Constitution"
+        ],
+        "regex": "S\\.\\s?D\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*§\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:Section|§)\\s*(?P<section2>\\d+)\\s+of\\s+the\\s+South\\s+Dakota\\s+Constitution",
+        "routes_to": [
+          "sd-constitution-lrc",
+          "sd-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "SDCL-codified court rules (civil, appellate, evidence, criminal procedure)",
+        "examples": [
+          "SDCL 15-6-56(c)",
+          "SDCL 15-6-12(b)(5)",
+          "SDCL 19-19-702",
+          "SDCL 15-26A-60",
+          "SDCL 23A-8-3"
+        ],
+        "regex": "\\bSDCL\\s*(?:§§?\\s*)?(?P<section>(?:15-6|15-26A|19-19|16-3|23A-\\d{1,2}[A-Z]?)-\\d+(?:\\.\\d+)*)(?P<sub>\\([a-z]\\))?",
+        "routes_to": [
+          "sd-rules-sdcl",
+          "sd-sdcl-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "South Dakota Rules of Professional Conduct",
+        "examples": [
+          "Rule 1.7 of the South Dakota Rules of Professional Conduct",
+          "SDCL ch. 16-18 App., Rule 1.7",
+          "S.D. Rules of Prof'l Conduct R. 8.4"
+        ],
+        "regex": "Rule\\s+(?P<rule>\\d\\.\\d+)(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+South\\s+Dakota\\s+Rules\\s+of\\s+Professional\\s+Conduct|SDCL\\s*(?:ch\\.\\s*)?16-18,?\\s*App(?:endix|\\.)?,?\\s*(?:Rule|R\\.)\\s*(?P<rule2>\\d\\.\\d+)|S\\.\\s?D\\.\\s*Rules\\s+of\\s+Prof(?:'l|essional)\\s+Conduct\\s*(?:R\\.|Rule)\\s*(?P<rule3>\\d\\.\\d+)",
+        "routes_to": [
+          "sd-rules-professional-conduct"
+        ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Administrative Rules of South Dakota",
+        "examples": [
+          "ARSD 67:16:01:01",
+          "S.D. Admin. R. 74:51:01:01",
+          "ARSD 20:10:01:01.01",
+          "A.R.S.D. 20:10:01"
+        ],
+        "regex": "(?:\\bARSD|\\bA\\.\\s?R\\.\\s?S\\.\\s?D\\.|S\\.\\s?D\\.\\s*Admin\\.\\s*R\\.)\\s*(?:§\\s*)?(?P<rule>\\d{1,2}:\\d{1,2}(?::\\d{1,2}(?::\\d{1,2}(?:\\.\\d+)?)?)?)",
+        "routes_to": [
+          "sd-arsd-lrc",
+          "sd-arsd-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "South Dakota Register",
+        "examples": [
+          "44 SDR 94",
+          "42 SDR 51, effective 10/13/2015"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+SDR\\s+(?P<page>\\d+)",
+        "routes_to": [
+          "sd-register-lrc"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "South Dakota public-domain citation (1996-)",
+        "examples": [
+          "State v. Lucero, 2026 S.D. 48",
+          "Bialota v. Lakota Lakes, LLC, 2026 S.D. 52, ¶ 14",
+          "Kraft v. Meade Co., 2006 SD 113",
+          "Kuper v. Lincoln-Union Elec. Co., 1996 SD 145, 557 N.W.2d 748",
+          "State v. Fierro, 2014 S.D. 62, 853 N.W.2d 235"
+        ],
+        "regex": "(?<!\\d)(?P<year>199[6-9]|20\\d\\d)\\s+S\\.?\\s?D\\.?\\s+(?P<number>\\d{1,3})(?!\\d)(?:,\\s*¶+\\s*(?P<para>\\d+))?",
+        "routes_to": [
+          "sd-opinions-ujs",
+          "sd-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Western Reporter with (S.D. YYYY)",
+        "examples": [
+          "Pickering v. Pickering, 434 N.W.2d 758 (S.D. 1989)",
+          "Wilson v. Great N. Ry. Co., 83 S.D. 207, 157 N.W.2d 19 (1968)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\(S\\.\\s?D\\.\\s*(?P<year>\\d{4})\\)|(?P<sdvol>\\d{1,2})\\s+S\\.\\s?D\\.\\s+(?P<sdpage>\\d{1,4}),\\s*(?P<nwvol>\\d{1,4})\\s+N\\.\\s?W\\.",
+        "routes_to": [
+          "sd-cases-justia",
+          "sd-opinions-ujs"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "North Western Reporter (generic, no court parenthetical)",
+        "examples": [
+          "557 N.W.2d 748",
+          "853 N.W.2d 235"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s?W\\.(?:\\s?(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})",
+        "routes_to": [
+          "sd-cases-justia"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "case_law",
+        "label": "South Dakota Reports (official reporter to 1976)",
+        "examples": [
+          "83 S.D. 207"
+        ],
+        "regex": "(?<![\\d.])(?P<volume>\\d{1,2})\\s+S\\.\\s?D\\.\\s+(?P<page>\\d{1,4})(?!\\d)",
+        "routes_to": [
+          "sd-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "South Dakota Supreme Court docket number",
+        "examples": [
+          "#31307-a-SPM",
+          "No. 31286",
+          "#25626"
+        ],
+        "regex": "(?:#|No\\.\\s*)(?P<docket>\\d{5})(?:-[a-z]-[A-Z]{2,4})?(?!\\d)",
+        "routes_to": [
+          "sd-opinions-ujs",
+          "sd-cases-justia"
+        ],
+        "context_required": true
+      }
+    ],
+    "law_aliases": {
+      "SDCL": "SDCL",
+      "S.D.C.L.": "SDCL",
+      "S.D. Codified Laws": "SDCL",
+      "S.D. Codified Laws Ann.": "SDCL",
+      "ARSD": "ARSD",
+      "A.R.S.D.": "ARSD",
+      "S.D. Admin. R.": "ARSD",
+      "SDR": "SDR",
+      "SL": "SessionLaws",
+      "S.D. Sess. Laws": "SessionLaws"
+    },
+    "notes": "SDCL 15-26A-69.1: opinions released on or after Jan. 1, 1996 are cited 'YYYY S.D. N' with pinpoints to clerk-assigned ¶ numbers; earlier opinions by S.D. Reports (ended 1976, vol. 90 per memory) or N.W./N.W.2d. Court style and practitioners write both 'S.D.' and 'SD' ('2006 SD 113' appears in UJS listing titles). SDCL numbers are title-chapter-section with letters allowed (15-26A, 23A) and decimals (2-16-13.1); a '§§ 22-18-1 to -1.1' range is a span — take the first section. Court rules are codified: civil procedure = SDCL 15-6 (rule subsections are separate sections, e.g. 15-6-56(c)), evidence = 19-19 (FRE numbers), appellate = 15-26A, criminal = Title 23A (federal rule number only in the catchline). Bare 'Rule 56(c)' or 'Rule 702' is generic: route only with South Dakota context, then map to 15-6-56(c) / 19-19-702. Routing guards: 'S.D.' is also the Southern District abbreviation in federal cites ('S.D.N.Y.', 'S.D. Ohio'); the public-domain regex requires a 1996+ year directly before 'S.D.' and a number after, and the N.W. pattern requires '(S.D. YYYY)' or a parallel S.D. Reports cite, so federal district parentheticals do not route here. Bare N.W.2d cites, 'SL YYYY, ch N' and 5-digit docket numbers are context_required (N.W. also covers IA, MI, MN, NE, ND, WI). ARSD numbers use colons (67:16:01:01) and route only with an ARSD / S.D. Admin. R. prefix; register cites are 'NN SDR NNN'. CourtListener id 'sd' is from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "sd-sdcl-lrc",
+      "family": "statutes",
+      "title": "South Dakota Codified Laws (LRC per-section HTML API)",
+      "publisher": "South Dakota Legislative Research Council (Code Commission)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "SDCL 2-16-13 (read at https://sdlegislature.gov/api/Statutes/2-16-13.html) defines the official code as the printed revised volumes and supplements; 2-16-13.1 excludes catchlines, notes and appendices. No statement found that the online text is official, and no UELMA authentication.",
+      "coverage": "All titles of the SDCL, including the court rules codified in it (15-6 civil procedure, 15-26A appellate, 19-19 evidence, Title 23A criminal procedure) and chapter appendices (e.g. 16-18-A Rules of Professional Conduct). Section pages carry the 'Source:' history note.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://sdlegislature.gov/api/Statutes/{section}.html",
+        "pattern_rules": "{section} is the SDCL number exactly as cited, hyphens kept, no padding: 22-18-1, 53-1-1, 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 2-16-13.1. Chapter keys (22-18) and title keys (22) return the chapter's or title's table of contents; append ?all=true to a chapter key to get every section's text on one page (22-18.html?all=true = 21,832 chars). Rule subsections that are separate SDCL sections keep their parenthetical: 15-6-56(c), 15-6-12(b) (literal parentheses in the URL). The bare parent 15-6-56.html returns HTTP 200 with 0 characters: if a page comes back empty, re-try with the citation's first parenthetical letter, never guess further. Constitution sections are NOT served here (see sd-constitution-lrc). The human-facing https://sdlegislature.gov/Statutes/{section} is a Vue app: both fetch routes get only 'Your browser is not supported'. JSON variant: https://sdlegislature.gov/api/Statutes/Statute/{section} (Html field plus Previous/Next/parents).",
+        "index_url": "https://sdlegislature.gov/api/Statutes/{title}.html",
+        "navigation": "Only if a section key fails: title page /api/Statutes/22.html (chapter list, no section ranges) → chapter page /api/Statutes/22-18.html lists every section number and catchline with links of the form https://sdlegislature.gov/Statutes?Statute=22-18-1 → take the number and use the url_pattern.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "The /api/Statutes/{section}.html pages are plain server-rendered HTML (no JS). WebFetch on the built URL /api/Statutes/53-1-1.html went through without an approval prompt. Sitemaps https://sdlegislature.gov/Statutes.1.xml and .2.xml (2.6M chars) list every section URL with a lastmod date."
+      },
+      "currency": {
+        "where": "None on section pages. The SPA reads https://sdlegislature.gov/api/Statutes/LastStatuesEffectiveDate (sic) for its 'Last Updated' label; the sitemap index shows the same date.",
+        "observed": "\"2026-09-03T00:00:00-05:00\""
+      },
+      "hazards": [
+        "the human /Statutes/{section} URL is a JavaScript shell for both fetch routes; always use /api/Statutes/{section}.html",
+        "rule-numbered sections in 15-6 need the parenthetical (15-6-56(c)); the bare number gives an empty 200 page, not a 404",
+        "unknown keys also give an empty 200 page, not a 404: treat 0 characters as not found",
+        "no currency line on the page itself"
+      ],
+      "probe": {
+        "citation": "SDCL 22-18-1",
+        "url": "https://sdlegislature.gov/api/Statutes/22-18-1.html",
+        "expect": "A person is guilty of simple assault, a Class 1 misdemeanor"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py read: 1,843 chars, '22-18-1. Simple assault--Violation as misdemeanor'; body 'A person is guilty of simple assault, a Class 1 misdemeanor'. Also 53-1-1 (191 chars, 'A contract is an agreement to do or not to do'; WebFetch YES, complete), 32-23-1, 19-19-702, 15-26A-60, 23A-8-3, 15-6-56(c), 15-6-12(b) all returned body text."
+      },
+      "notes": "Second-route check for statutes: sd-sdcl-justia (2025 edition)."
+    },
+    {
+      "id": "sd-sdcl-justia",
+      "family": "statutes",
+      "title": "Justia — South Dakota Codified Laws",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page disclaimer: 'These codes may not be the most recent version.'",
+      "coverage": "Editions 2011–2025 (index lists 2025, 2024, 2023, 2021 …); undated path serves the 2025 edition. Includes the codified court rules.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/south-dakota/title-{title}/chapter-{chapter:02d}/section-{section_slug}/",
+        "pattern_rules": "title as cited (22, 15); chapter zero-padded to two digits (15-6 → chapter-06; 22-18 → chapter-18). section_slug = the full SDCL number with a parenthetical turned into a hyphen suffix: 22-18-1 → section-22-18-1; 15-6-56(c) → section-15-6-56-c. Lettered titles/chapters (23A, 15-26A) were not tested: fetch the chapter index and copy the link. Year editions: /codes/south-dakota/2025/…",
+        "index_url": "https://law.justia.com/codes/south-dakota/",
+        "navigation": "title page (/codes/south-dakota/title-15/) lists chapters WITHOUT section ranges → chapter page (/title-15/chapter-06/) lists every section, each subsection rule as its own entry → section page.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "fetch_doc.py: law.justia.com robots.txt answered with a bot challenge (host refused for the day, 2026-10-17)",
+        "notes": "Two built URLs (title-15/chapter-6/section-15-6-56-c/ unpadded, and title-53/chapter-1/section-53-1-1/ unpadded) returned 'error while fetching'; the padded chapter form copied from the chapter index worked."
+      },
+      "currency": {
+        "where": "edition label at top of each section page",
+        "observed": "2025 South Dakota Codified Laws"
+      },
+      "hazards": [
+        "edition lags the LRC text by up to a year",
+        "chapter must be zero-padded (chapter-06)",
+        "script route refused (bot challenge)"
+      ],
+      "probe": {
+        "citation": "SDCL 15-6-56(c)",
+        "url": "https://law.justia.com/codes/south-dakota/title-15/chapter-06/section-15-6-56-c/",
+        "expect": "Unless different periods are fixed or permitted by order of"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES: 'Unless different periods are fixed or permitted by order of'; label '2025 South Dakota Codified Laws'. Also /title-22/chapter-18/section-22-18-1/ YES 'A person is guilty of simple assault, a Class 1'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-session-laws-lrc",
+      "family": "statutes",
+      "title": "South Dakota Session Laws (LRC API)",
+      "publisher": "South Dakota Legislative Research Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official-status statement seen on the API responses.",
+      "coverage": "Session laws by session; chapter text as HTML in JSON. SessionId 44 = 2021, 70 = 2025, 71 = 2026 (from /api/Sessions).",
+      "access": {
+        "mode": "index-anchored",
+        "url_pattern": "https://sdlegislature.gov/api/SessionLaws/SessionLaw/{session_law_id}",
+        "pattern_rules": "SL {year}, ch {n}: look up SessionId for {year} in https://sdlegislature.gov/api/Sessions (regular session, SpecialSession false) → GET https://sdlegislature.gov/api/SessionLaws/ChapterToId/{n}?SessionId={SessionId} returns the numeric SessionLawId → GET /api/SessionLaws/SessionLaw/{id} (JSON; Html field holds the act). Whole-session list: /api/SessionLaws/{SessionId}.",
+        "index_url": "https://sdlegislature.gov/api/Sessions",
+        "navigation": "Sessions list → ChapterToId → SessionLaw JSON. Verified: SL 2021, ch 92 → SessionId 44 → id 7285.",
+        "format": "json"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "JSON with embedded HTML; quote from the Html field."
+      },
+      "currency": {
+        "where": "none stated",
+        "observed": ""
+      },
+      "hazards": [
+        "needs two lookups (SessionId, SessionLawId)",
+        "HTML inside JSON strings"
+      ],
+      "probe": {
+        "citation": "SL 2021, ch 92",
+        "url": "https://sdlegislature.gov/api/SessionLaws/SessionLaw/7285",
+        "expect": "An Act to increase the enhanced penalty for the crime of simple assault."
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: ChapterToId/92?SessionId=44 → '7285'; SessionLaw/7285 2,496 chars, Catchline 'An Act to increase the enhanced penalty for the crime of simple assault.' (House Bill 1080); matches the 22-18-1 source note 'SL 2021, ch 92'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-constitution-lrc",
+      "family": "constitution",
+      "title": "South Dakota Constitution (LRC per-section HTML)",
+      "publisher": "South Dakota Legislative Research Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official-status statement on the pages.",
+      "coverage": "Preamble and Articles I–XXVI by section, with amendment history notes.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://sdlegislature.gov/api/Statutes/Constitution/0N-{article}-{section}.html",
+        "pattern_rules": "{article} = the Roman article converted to Arabic (art. VI → 6, art. V → 5); {section} = section number. '0N' is the LRC's title key for the Constitution. Article page: /api/Statutes/Constitution/0N-{article}.html (lists sections). Preamble key: 0N-Preamble. JSON form /api/Statutes/Constitution/{article}-{section} has an EMPTY Html field — do not use it for text.",
+        "index_url": "https://sdlegislature.gov/api/Statutes/Constitution",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "unreadable-format",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "fetch_doc.py downloads the page (HTTP 200, 1,788 bytes for 0N-6-2) but extracts 0 characters: the page opens with a doubled '<HTML><HEAD>' and the extractor drops the body. WebFetch reads it. Quote only under the two-fetch rule with sd-constitution-justia as the second fetch."
+      },
+      "currency": {
+        "where": "none stated; each section ends with its amendment history",
+        "observed": "Amendment proposed by SL 1945, ch 315, approved Nov., 1946."
+      },
+      "hazards": [
+        "script route extracts 0 characters (malformed HTML head)",
+        "JSON endpoint has empty Html",
+        "Roman → Arabic article conversion"
+      ],
+      "probe": {
+        "citation": "S.D. Const. art. VI, § 2",
+        "url": "https://sdlegislature.gov/api/Statutes/Constitution/0N-6-2.html",
+        "expect": "No person shall be deprived of life, liberty or property"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'; complete. Also 0N-5-1.html YES 'The judicial power of the state is vested in a'. fetch_doc.py: 200 but 0 chars extracted (raw bytes hold the text)."
+      },
+      "notes": "The Secretary of State's constitution PDFs found by search (sdsos.gov/2025 South Dakota Constitution 20250919.pdf, www.sdsos.gov/2023SouthDakotaConstitution20220124.pdf) returned HTTP 404 to fetch_doc.py."
+    },
+    {
+      "id": "sd-constitution-justia",
+      "family": "constitution",
+      "title": "Justia — South Dakota Constitution",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Disclaimer: 'This Constitution may not be the most recent version.'",
+      "coverage": "All articles, per-section pages.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/constitution/south-dakota/article-{article}/section-{section}/",
+        "pattern_rules": "{article} Arabic (VI → 6). Article page /article-6/ lists section headings only (no body text).",
+        "index_url": "https://law.justia.com/constitution/south-dakota/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "fetch_doc.py: law.justia.com robots.txt answered with a bot challenge (host refused for the day, 2026-10-17)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "Disclaimer block; no edition date",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "no edition date",
+        "article pages hold headings only"
+      ],
+      "probe": {
+        "citation": "S.D. Const. art. VI, § 2",
+        "url": "https://law.justia.com/constitution/south-dakota/article-6/section-2/",
+        "expect": "No person shall be deprived of life, liberty or property"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES: 'No person shall be deprived of life, liberty or property'. Article page /article-6/: section 2 body NOT PRESENT (headings only)."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-rules-sdcl",
+      "family": "court_rules",
+      "title": "Court rules codified in the SDCL (civil, appellate, evidence, criminal procedure)",
+      "publisher": "South Dakota Legislative Research Council (rules adopted by the Supreme Court)",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Supreme Court rules are enacted into the SDCL (source notes cite 'Supreme Court Rule NN-NN'); online text status as sd-sdcl-lrc.",
+      "coverage": "Rules of Civil Procedure = SDCL ch. 15-6 (15-6-1 … 15-6-86, subsections such as 15-6-12(b) are separate sections); Appellate Procedure = ch. 15-26A; Evidence = ch. 19-19 (19-19-101 … 19-19-1103, mirroring FRE numbers); Criminal Procedure = Title 23A (sections carry the federal rule number, e.g. 23A-8-3 '(Rule 12(b))'). Circuit-court rules in ch. 16-3.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://sdlegislature.gov/api/Statutes/{section}.html",
+        "pattern_rules": "Same as sd-sdcl-lrc. Civil rules: 'Rule 56(c)' ↔ SDCL 15-6-56(c) (URL keeps the parenthetical). Evidence: 'Rule 702' ↔ SDCL 19-19-702. Criminal: the federal-rule number is in the catchline, not the key (Rule 12(b) ↔ 23A-8-3): find it on the chapter page or Title 23A index.",
+        "index_url": "https://sdlegislature.gov/api/Statutes/15-6.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "Chapter 15-6 table of contents is 17,518 chars and lists every rule subsection."
+      },
+      "currency": {
+        "where": "as sd-sdcl-lrc",
+        "observed": "\"2026-09-03T00:00:00-05:00\""
+      },
+      "hazards": [
+        "15-6-NN without the subsection returns an empty page",
+        "criminal rules not keyed by federal rule number"
+      ],
+      "probe": {
+        "citation": "SDCL 15-6-56(c)",
+        "url": "https://sdlegislature.gov/api/Statutes/15-6-56(c).html",
+        "expect": "Unless different periods are fixed or permitted by order of the court"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: 15-6-56(c) 2,550 chars 'Motion for summary judgment and proceedings thereon'; 15-6-12(b) 1,804 chars; 19-19-702 'A witness who is qualified as an expert by knowledge'; 23A-8-3 '(Rule 12(b)) Defenses and objections raised by motion'; 15-26A-60 'Brief of appellant--Contents'."
+      },
+      "notes": "Tier-2 fallback: sd-sdcl-justia (chapter-06/section-15-6-56-c verified)."
+    },
+    {
+      "id": "sd-rules-professional-conduct",
+      "family": "court_rules",
+      "title": "South Dakota Rules of Professional Conduct (Appendix to SDCL ch. 16-18)",
+      "publisher": "South Dakota Legislative Research Council",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "SDCL 2-16-13.1(6) excludes 'The Rules of Professional Conduct appearing as an appendix to chapter 16-18' from the official code.",
+      "coverage": "Rules 1.0–8.5 with source notes, on one page.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://sdlegislature.gov/api/Statutes/16-18-A.html",
+        "pattern_rules": "One page for the whole appendix; find 'Rule {n}.' inside it. The chapter page 16-18 links it as Statute=16-18-A. Other appendices follow the same '-A' key (e.g. 16-2-A code of judicial conduct — untested).",
+        "index_url": "https://sdlegislature.gov/api/Statutes/16-18.html",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "WebFetch reads 100,000 of 118,646 chars: stops inside Rule 7.2(d); Rule 8.4 NOT PRESENT. fetch_doc.py reads all 119,723 chars."
+      },
+      "currency": {
+        "where": "per-rule source notes only",
+        "observed": "SL 2022, ch 250 (Supreme Court Rule 21-09), eff. Sep. 1, 2021"
+      },
+      "hazards": [
+        "WebFetch truncation after Rule 7.2",
+        "excluded from the official code"
+      ],
+      "probe": {
+        "citation": "S.D. Rules of Prof'l Conduct R. 1.7",
+        "url": "https://sdlegislature.gov/api/Statutes/16-18-A.html",
+        "expect": "Rule 1.7. Conflict of Interest: Current Clients"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py grep 'Rule 1.7': offset 28649 'Rule 1.7. Conflict of Interest: Current Clients (a) Except as provided'. WebFetch: truncated at 100,000 chars, Rule 8.4 NOT PRESENT."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-rules-orders-ujs",
+      "family": "court_rules",
+      "title": "Supreme Court Published Rules (rule-adoption orders)",
+      "publisher": "South Dakota Unified Judicial System",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Orders of the Supreme Court; page notes unarchived documents 'do not contain signatures but have been approved by the Court'.",
+      "coverage": "Rule orders 1991–2026 (year filter); pending proposals on /supreme-court/rules-hearings/.",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://ujs.sd.gov/supreme-court/published-rules/?keywords={words}&year={year}&archive=true",
+        "pattern_rules": "Plain GET. Without archive=true the current list can be empty ('0 of 0'). Titles name the SDCL section, e.g. 'ADOPTION OF NEW RULES AT SDCL 16-3-5.3'. PDFs at /media/{random}/{file}.pdf — not constructible; take from the listing.",
+        "index_url": "https://ujs.sd.gov/supreme-court/published-rules/",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "User-agent: * / Allow: / (ujs.sd.gov/robots.txt, 23 chars)",
+        "notes": "fetch_doc.py links works on the listing; the HTML table text itself is dropped by its extractor, use 'links'."
+      },
+      "currency": {
+        "where": "order dates in listing",
+        "observed": ""
+      },
+      "hazards": [
+        "random /media/ path segment",
+        "default view hides archived orders"
+      ],
+      "probe": {
+        "citation": "rule orders 2025",
+        "url": "https://ujs.sd.gov/supreme-court/published-rules/?year=2025&archive=true",
+        "expect": "IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py links: 10 PDF links, first '[Archive] IN THE MATTER OF THE ADOPTION OF NEW RULES AT SDCL 16-3-5.3' → /media/4rxprw2v/scrule_rsrc_20250305135006.pdf. Default view without archive: '0 of 0'."
+      },
+      "notes": "Use for effective dates of amendments; quote rule text from sd-rules-sdcl."
+    },
+    {
+      "id": "sd-arsd-lrc",
+      "family": "admin_code",
+      "title": "Administrative Rules of South Dakota (ARSD), LRC per-rule HTML",
+      "publisher": "South Dakota Legislative Research Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No official-status statement on the rule pages.",
+      "coverage": "All ARSD articles/chapters/rules with Source, General Authority and Law Implemented notes.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://sdlegislature.gov/api/Rules/Rule/{rule}.html",
+        "pattern_rules": "{rule} is the ARSD number with colons as cited: 67:16:01:01, 74:51:01:01, 20:10:01:01. A chapter key (20:10:01) returns the chapter's section list and text. JSON form: https://sdlegislature.gov/api/Rules/{rule} (Html field).",
+        "index_url": "https://sdlegislature.gov/api/Rules",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "ok",
+        "robots_txt": "User-agent: * — Disallow only /Edge-logo.svg, /Firefox-logo., /chrome-logo.svg, /Unsupported.js, /pdfviewer, /PDFViewer; /api/ paths allowed. Sitemaps: /Statutes.xml, /Rules.xml, /api/Documents/Index/Sitemap.xml",
+        "notes": "Human URL https://sdlegislature.gov/Rules/Administrative/{rule} is the JS app; use the /api/ form."
+      },
+      "currency": {
+        "where": "per-rule Source note (SDR volume/page and effective date)",
+        "observed": "44 SDR 94, effective December 4, 2017."
+      },
+      "hazards": [
+        "no global currency statement"
+      ],
+      "probe": {
+        "citation": "ARSD 67:16:01:01",
+        "url": "https://sdlegislature.gov/api/Rules/Rule/67:16:01:01.html",
+        "expect": "Terms used in this article mean"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES 'Terms used in this article mean: (1) \"Allowable costs,\" expenses'; complete. fetch_doc.py: 67:16:01:01 4,869 chars; 74:51:01:01 11,684 chars 'Terms defined in SDCL 34A-2-2, have the same meaning'; 20:10:01:01 'Sessions of commission'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-arsd-lii",
+      "family": "admin_code",
+      "title": "Cornell LII — South Dakota Administrative Rules",
+      "publisher": "Legal Information Institute, Cornell Law School",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party mirror.",
+      "coverage": "All ARSD titles, per-rule pages; can lag the LRC text by years.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/south-dakota/ARSD-{rule_dashed}",
+        "pattern_rules": "rule_dashed = ARSD number with colons replaced by hyphens: 67:16:01:01 → ARSD-67-16-01-01.",
+        "index_url": "https://www.law.cornell.edu/regulations/south-dakota",
+        "navigation": "title-67 → article-67-16 → chapter-67-16-01 → ARSD-67-16-01-01",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent: *, Crawl-delay: 10; /regulations/ not disallowed",
+        "notes": "Pages last-modified Aug 2025."
+      },
+      "currency": {
+        "where": "none stated; HTTP Last-Modified",
+        "observed": "Wed, 06 Aug 2025 21:52:38 GMT"
+      },
+      "hazards": [
+        "STALE: ARSD 74:51:01:01 on LII reads 'Words and phrases defined in SDCL 34A-2-2' while LRC reads 'Terms defined in SDCL 34A-2-2'; 67:16:01:01 wording also differs",
+        "no currency statement"
+      ],
+      "probe": {
+        "citation": "ARSD 67:16:01:01",
+        "url": "https://www.law.cornell.edu/regulations/south-dakota/ARSD-67-16-01-01",
+        "expect": "Terms used in this article mean"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py grep: 'Terms used in this article mean: (1) \"Allowable costs,\" those expenses' (6,176 chars); verify of LRC wording on ARSD-74-51-01-01 NOT VERIFIED (older text)."
+      },
+      "notes": "Use only to locate; quote from sd-arsd-lrc."
+    },
+    {
+      "id": "sd-register-lrc",
+      "family": "admin_register",
+      "title": "South Dakota Register (weekly)",
+      "publisher": "South Dakota Legislative Research Council",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Masthead: 'Published weekly by the Legislative Research Council'.",
+      "coverage": "Weekly issues as PDFs (Volume 53 in 2026); cited as '44 SDR 94'.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://sdlegislature.gov/api/Documents/DocumentTypesRSS?Type=50",
+        "navigation": "RSS (161K chars) lists every issue as https://mylrc.sdlegislature.gov/api/Documents/{id}.pdf, newest first; the item text does not carry volume/page, so match an SDR cite by opening issues of the right year. The SPA page https://sdlegislature.gov/Rules/Registers is a JS shell.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "mylrc.sdlegislature.gov: User-agent: * Disallow: (empty) — all allowed",
+        "notes": "An old id from the JS bundle (210727.pdf) failed pdftotext in fetch_doc.py; current ids read fine."
+      },
+      "currency": {
+        "where": "masthead date line",
+        "observed": "Volume 53 … Tuesday, 8:00 a.m., October 13, 2026"
+      },
+      "hazards": [
+        "no volume/page → PDF index; SDR page cite needs scanning issues"
+      ],
+      "probe": {
+        "citation": "S.D. Register, Oct. 13, 2026",
+        "url": "https://mylrc.sdlegislature.gov/api/Documents/308375.pdf",
+        "expect": "FILINGS WITH THE LEGISLATIVE RESEARCH COUNCIL"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: PDF 3 pages, 8,568 chars; 'SOUTH DAKOTA REGISTER Published weekly by the Legislative Research Council'; 'Volume 53'."
+      },
+      "notes": ""
+    },
+    {
+      "id": "sd-opinions-ujs",
+      "family": "case_law",
+      "title": "South Dakota Supreme Court opinions (UJS)",
+      "publisher": "South Dakota Unified Judicial System",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Slip opinions issued by the Court carrying the clerk-assigned public-domain citation ('2026 S.D. 48'), which SDCL 15-26A-69.1 makes the required citation form from 1996.",
+      "coverage": "Supreme Court opinions 2006–present on the site (year filter 2006–2026; year=1996 archive=true returns 0). South Dakota has no intermediate appellate court.",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://ujs.sd.gov/supreme-court/opinions/?keywords={party}&year={year}&archive=true",
+        "pattern_rules": "Plain GET. keywords matches the case TITLE only (party names): docket numbers (31307) and citation strings ('2010 S.D. 105') do not match. Always add archive=true — older opinions (and some 2026 ones) are 'archived' and hidden otherwise. Each row: date, 'STATE v. LUCERO, 2026 S.D. 48', sequence number; the PDF is https://ujs.sd.gov/media/{random}/{docket}.pdf — the random segment is not constructible, take the link from the listing (fetch_doc.py links … pdf). The docket number is the PDF file name.",
+        "index_url": "https://ujs.sd.gov/supreme-court/opinions/",
+        "navigation": "",
+        "format": "pdf",
+        "read_via": "PDFs on the same host; fetch_doc.py reads them in full. WebFetch on the PDFs is gated."
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "User-agent: * / Allow: / (ujs.sd.gov/robots.txt, 23 chars)",
+        "notes": "WebFetch read the listing at https://ujs.sd.gov/supreme-court/opinions (URL from a search result) but the built listing URL with a trailing slash and both opinion PDFs (31307.pdf, 31286.pdf) hit PROVENANCE_REQUIRED. fetch_doc.py's text extraction drops the listing table; use its 'links' command. The old URL /Supreme_Court/opinions.aspx redirects to /supreme-court/opinions/. RSS: /supreme-court/opinions/?rss=1."
+      },
+      "currency": {
+        "where": "listing 'Showing 1-10 of N' and filed dates",
+        "observed": "10/7/2026 BIALOTA v. LAKOTA LAKES, LLC, 2026 S.D. 52"
+      },
+      "hazards": [
+        "title-only keyword search",
+        "archived items hidden unless archive=true",
+        "PDF path has an unpredictable segment",
+        "slip opinions: paragraph numbers [¶N.] are the official pinpoint; no N.W.3d pages"
+      ],
+      "probe": {
+        "citation": "State v. Lucero, 2026 S.D. 48",
+        "url": "https://ujs.sd.gov/media/xw4fesw2/31307.pdf",
+        "expect": "Jeremy Lucero pled guilty to possession of"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py: listing ?keywords=Lucero&year=2026 → 1 link 'STATE v. LUCERO, 2026 S.D. 48' /media/xw4fesw2/31307.pdf; PDF 8 pages, 13,176 chars, '#31307-a-SPM 2026 S.D. 48', '[¶1.] Jeremy Lucero pled guilty to possession of'. Also ?keywords=Reed&year=2010&archive=true → 25626.pdf (10 pp) '[¶1.] Stanley Reed (Reed) filed a petition'."
+      },
+      "notes": "Pinpoints: cite ¶ numbers (SDCL 15-26A-69.1(2)). Docket header form '#31307-a-SPM' = docket-disposition-author initials."
+    },
+    {
+      "id": "sd-summary-dispositions-ujs",
+      "family": "case_law",
+      "title": "Supreme Court Summary Dispositions (UJS)",
+      "publisher": "South Dakota Unified Judicial System",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Orders of the Court; page notes unarchived copies are unsigned but approved by the Court.",
+      "coverage": "Decisions without full opinion under SDCL 15-26A-87.1, 2022–present (year filter), with disposition and circuit judge; not citable as authority (15-26A-87.1(E)).",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://ujs.sd.gov/supreme-court/summary-dispositions/?keywords={party}&year={year}&archive=true",
+        "pattern_rules": "As sd-opinions-ujs; PDFs named {docket}oadacomp.pdf under /media/{random}/.",
+        "index_url": "https://ujs.sd.gov/supreme-court/summary-dispositions/",
+        "navigation": "",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "User-agent: * / Allow: / (ujs.sd.gov/robots.txt, 23 chars)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "listing",
+        "observed": "10/15/2026 Interest of E.L.W., H.L.W., H.L.W. Affirmed (Kelderman) 31521"
+      },
+      "hazards": [
+        "not precedential"
+      ],
+      "probe": {
+        "citation": "Interest of E.L.W., No. 31521",
+        "url": "https://ujs.sd.gov/supreme-court/summary-dispositions/",
+        "expect": "Interest of E.L.W., H.L.W., H.L.W."
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py links: 10 PDFs, first 'Interest of E.L.W., H.L.W., H.L.W.' → /media/hvflyt3r/31521oadacomp.pdf; listing 'Showing 1-10 of 33'."
+      },
+      "notes": "Lets a docket number with no S.D. citation be identified as a summary affirmance."
+    },
+    {
+      "id": "sd-cases-justia",
+      "family": "case_law",
+      "title": "Justia — South Dakota Supreme Court opinions",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party republication.",
+      "coverage": "Year listings 1894–2026 (1894: 1 opinion; early years sparse); full text with [¶] numbers for public-domain-era opinions.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/cases/south-dakota/supreme-court/{year}/{docket}.html",
+        "pattern_rules": "{year} = decision year; {docket} = 5-digit SD docket number (31307, 25626). Without the docket, open the year listing /cases/south-dakota/supreme-court/{year}/ and search by party name.",
+        "index_url": "https://law.justia.com/cases/south-dakota/supreme-court/",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "fetch_doc.py: law.justia.com robots.txt answered with a bot challenge (host refused for the day, 2026-10-17)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "year listing counts",
+        "observed": "2026 (46 opinions)"
+      },
+      "hazards": [
+        "needs docket number",
+        "script route refused"
+      ],
+      "probe": {
+        "citation": "State v. Lucero, 2026 S.D. 48",
+        "url": "https://law.justia.com/cases/south-dakota/supreme-court/2026/31307.html",
+        "expect": "Jeremy Lucero pled guilty to possession of a controlled substance,"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch YES: 'Jeremy Lucero pled guilty to possession of a controlled substance,'; full text through ¶15. Also /2010/25626.html (State v. Reed, 2010 S.D. 105) YES 'Stanley Reed (Reed) filed a petition for writ of habeas'."
+      },
+      "notes": "Fallback for 1996–2005 public-domain opinions and older N.W.2d-era opinions not on UJS."
+    },
+    {
+      "id": "sd-scotus-docket",
+      "family": "subsequent_history",
+      "title": "U.S. Supreme Court docket (certiorari from the South Dakota Supreme Court)",
+      "publisher": "Supreme Court of the United States",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "Docket kept by the Clerk of the Supreme Court.",
+      "coverage": "South Dakota has no intermediate appellate court, so further review of a Supreme Court decision is certiorari only (rehearing under SDCL 15-30-4 is decided by the same court and not listed online). Dockets show 'Lower Ct: Supreme Court of South Dakota' and the SD docket numbers.",
+      "access": {
+        "mode": "search-only",
+        "url_pattern": "https://www.supremecourt.gov/docket/docketfiles/html/public/{scotus_docket}.html",
+        "pattern_rules": "Constructible only once the SCOTUS docket number is known (25-7600, 24A614). From an SD decision alone there is no link: WebSearch '\"Supreme Court of South Dakota\" <party> supremecourt.gov' or the SD docket number, or search by party name.",
+        "index_url": "https://www.supremecourt.gov/docket/docket.aspx",
+        "navigation": "",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "docket path allowed (fetch_doc.py ok)",
+        "notes": ""
+      },
+      "currency": {
+        "where": "dated docket entries",
+        "observed": "Oct 05 2026 Petition DENIED."
+      },
+      "hazards": [
+        "no link from the SD opinion or listing to the SCOTUS docket; party-name search only"
+      ],
+      "probe": {
+        "citation": "No. 25-7600 (from S.D. Nos. 31006, 31007)",
+        "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-7600.html",
+        "expect": "Petition DENIED."
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py grep: 'Lower Ct: Supreme Court of South Dakota'; 'Case Numbers: (31006, 31007)'; 'Decision Date: March 11, 2026'; 'Oct 05 2026 Petition DENIED.' Also 24A614: 'Case Numbers: (30448-a-SRJ)'."
+      },
+      "notes": "The citation string is a probe label only; party names on 25-7600 not recorded."
+    }
+  ],
+  "absent": [
+    {
+      "family": "statutes",
+      "what": "public.law edition of the SDCL",
+      "evidence": "public.law home page (checked in the DE run, 2026-10-16) lists only CA, CO, FL, NV, NY, OR, TX.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Cornell LII South Dakota statutes / constitution / opinions",
+      "evidence": "https://www.law.cornell.edu/states/south_dakota links out to sdlegislature.gov and ujs.sd.gov; LII hosts only the SD administrative rules.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Official bulk download (XML/JSON/zip) of the SDCL",
+      "evidence": "None linked; the nearest is the per-section JSON API and the section sitemaps Statutes.1.xml / Statutes.2.xml (see script_candidates).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "UJS opinions before 2006",
+      "evidence": "Year filter runs 2006–2026; ?year=1996&archive=true returned 0 links. Use sd-cases-justia.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "Free N.W.2d / N.W.3d pagination",
+      "evidence": "UJS PDFs carry slip pages and ¶ numbers only; N.W. is a West reporter. SDCL 15-26A-69.1 makes ¶ numbers the official pinpoint from 1996.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "subsequent_history",
+      "what": "Public online list of rehearing dispositions / Supreme Court docket",
+      "evidence": "No rehearing list on the UJS Supreme Court pages; ecourts.sd.gov links to Account/Login.aspx (login required).",
+      "date": "2026-10-17"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "sd-sdcl-lrc",
+      "why": "GET /api/Statutes/Statute/{section} returns JSON (Html, CatchLine, Previous/Next, parents); /api/Statutes/{section}.html plain HTML; /api/Statutes/LastStatuesEffectiveDate gives currency; sitemaps /Statutes.1.xml and /Statutes.2.xml list every section and constitution URL with lastmod — a complete deterministic resolver and change detector."
+    },
+    {
+      "source_id": "sd-arsd-lrc",
+      "why": "GET /api/Rules/{rule} JSON and /api/Rules/Rule/{rule}.html; /Rules.xml sitemap."
+    },
+    {
+      "source_id": "sd-session-laws-lrc",
+      "why": "/api/Sessions → /api/SessionLaws/ChapterToId/{ch}?SessionId= → /api/SessionLaws/SessionLaw/{id} resolves 'SL YYYY, ch N' deterministically."
+    },
+    {
+      "source_id": "sd-opinions-ujs",
+      "why": "Plain-GET listing (?keywords=&year=&archive=true) plus RSS (?rss=1) give title, 'YYYY S.D. N', date and PDF link (docket = file name); a script can map YYYY S.D. N → PDF by paging a year's listing."
+    },
+    {
+      "source_id": "sd-constitution-lrc",
+      "why": "A script that tolerates the doubled <HTML><HEAD> could read /api/Statutes/Constitution/0N-{a}-{s}.html, which fetch_doc.py currently extracts as 0 characters."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "sd-rules-professional-conduct",
+      "url": "https://sdlegislature.gov/api/Statutes/16-18-A.html",
+      "why": "Single 118,646-char page; WebFetch stops inside Rule 7.2(d), Rule 8.4 not reached.",
+      "split_hint": "'Rule N.N. Title' run-in headings, each followed by a 'Source:' note",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "Justia statute URLs for lettered titles/chapters (23A, 15-26A) not tested: is it title-23a / chapter-26a?",
+    "Does ?all=true on large chapters exceed WebFetch's 100K limit (likely for 15-6)? Not tested.",
+    "Code of Judicial Conduct appendix key (16-2-A) not tested.",
+    "Where the UJS posts rehearing grants/denials, if anywhere, is unknown."
+  ]
+}
