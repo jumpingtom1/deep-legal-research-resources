@@ -38,10 +38,11 @@
         "examples": [
           "Utah Code Ann. § 78B-2-307",
           "Utah Code § 78B-2-307(1)(a)",
-          "Utah Code Ann. section 76-5-203",
+          "Utah Code section 76-5-203",
           "U.C.A. § 41-6a-502",
           "section 78B-2-307 of the Utah Code",
-          "Utah Code Ann. §§ 78B-2-301 to -307"
+          "Utah Code Ann. §§ 78B-2-301 to -307",
+          "Utah Code Ann. section 76-5-203"
         ],
         "regex": "(?:Utah\\s+Code(?:\\s+Ann(?:otated|\\.)?)?|U\\.\\s*C\\.\\s*A\\.)\\s*(?:§+|sec(?:tion|\\.)|)\\s*(?P<title>\\d{1,2}[A-Za-z]?)-(?P<chapter>\\d{1,3}[A-Za-z]?)-(?P<section>\\d{1,4}(?:\\.\\d+)?)(?![\\d-])|(?:sec(?:tion|\\.)|§)\\s*(?P<title2>\\d{1,2}[A-Za-z]?)-(?P<chapter2>\\d{1,3}[A-Za-z]?)-(?P<section2>\\d{1,4}(?:\\.\\d+)?)(?:\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Code",
         "routes_to": [
@@ -155,6 +156,55 @@
         ]
       },
       {
+        "family": "court_rules",
+        "label": "Utah Rules of Juvenile Procedure",
+        "examples": [
+          "Utah R. Juv. P. 9",
+          "Rule 9 of the Utah Rules of Juvenile Procedure"
+        ],
+        "regex": "Utah\\s+R\\.\\s*Juv\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Juvenile\\s+Procedure",
+        "routes_to": [
+          "ut-rules-utcourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Utah Rules of Small Claims Procedure",
+        "examples": [
+          "Utah R. Small Claims P. 4",
+          "Rule 4 of the Utah Rules of Small Claims Procedure"
+        ],
+        "regex": "Utah\\s+R\\.\\s*Small\\s+Claims\\s+P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Small\\s+Claims\\s+Procedure",
+        "routes_to": [
+          "ut-rules-utcourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Utah Rules of Business and Chancery Court Procedure",
+        "examples": [
+          "Utah R. Bus. & Chancery Ct. P. 1",
+          "Rule 1 of the Utah Rules of Business and Chancery Court Procedure"
+        ],
+        "regex": "Utah\\s+R\\.\\s*Bus\\.\\s*(?:&|and)\\s*Chancery\\s+Ct\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Business\\s+and\\s+Chancery\\s+Court\\s+Procedure",
+        "routes_to": [
+          "ut-rules-utcourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Utah rule-set short forms without 'Utah' (URJP, URBCP)",
+        "examples": [
+          "URJP 9",
+          "URBCP 1"
+        ],
+        "regex": "\\b(?P<set>URJP|URBCP)\\s*(?P<rule>\\d+[A-Z]?)",
+        "routes_to": [
+          "ut-rules-utcourts"
+        ],
+        "context_required": true
+      },
+      {
         "family": "admin_code",
         "label": "Utah Administrative Code",
         "examples": [
@@ -257,7 +307,7 @@
       "Utah R. Bus. & Chancery Ct. P.": "urbcp",
       "URBCP": "urbcp"
     },
-    "notes": "Utah adopted public-domain citations in 1999 (YYYY UT N for the Supreme Court, YYYY UT App N for the Court of Appeals). Pinpoints are paragraph cites (¶ N), and the P.2d/P.3d parallel cite follows. Court of Appeals memorandum decisions take UT App numbers too. Pre-2011 'unpublished decisions' are usually cited with a trailing U (e.g. 2008 UT App 400U); that form is from memory and unverified. Bare 'UT' is distinctive to Utah. Statute section numbers have three parts, TITLE-CHAPTER-SECTION, and title and chapter can carry a letter (78B-2-307, 41-6a-502, 26B-3-102). Other states (e.g. Colorado C.R.S. 13-80-102) use similar three-part numbers, so the statute regex requires 'Utah Code' or 'U.C.A.' first. A range like '§§ 78B-2-301 to -307' matches only the first section. 'Utah Code Jud. Admin.' and 'UCJA' are court rules, not statutes: the statute regex does not match them, because a section number must follow 'Utah Code' directly. Bare 'Rule 12' or 'Rule 702' must not route here without 'Utah' context. Rules of Professional Conduct are numbered N.N in citations, but the URL key is scrp rule 3-N.0N (Rule 1.7 → 3-1.07; Rule 1.10 → 3-1.10 unverified). Admin Code citations begin with an R number (R414-1-1). A bare 'R414-1-1' is not routed without 'Utah Admin. Code'. Docket numbers are 8 digits (filing year + sequence), sometimes with a -CA or -SC suffix; they are generic and context_required. CourtListener ids (utah, utahctapp) are from memory. Georgia's 'Code Section NN-N-NNN' pattern also matches the prose form 'Utah Code section 76-5-203' (case-insensitive), so an explicit 'Utah' marker must win in routing."
+    "notes": "Utah adopted public-domain citations in 1999 (YYYY UT N for the Supreme Court, YYYY UT App N for the Court of Appeals). Pinpoints are paragraph cites (¶ N), and the P.2d/P.3d parallel cite follows. Court of Appeals memorandum decisions take UT App numbers too. Pre-2011 'unpublished decisions' are usually cited with a trailing U (e.g. 2008 UT App 400U); that form is from memory and unverified. Bare 'UT' is distinctive to Utah. Statute section numbers have three parts, TITLE-CHAPTER-SECTION, and title and chapter can carry a letter (78B-2-307, 41-6a-502, 26B-3-102). Other states (e.g. Colorado C.R.S. 13-80-102) use similar three-part numbers, so the statute regex requires 'Utah Code' or 'U.C.A.' first. A range like '§§ 78B-2-301 to -307' matches only the first section. 'Utah Code Jud. Admin.' and 'UCJA' are court rules, not statutes: the statute regex does not match them, because a section number must follow 'Utah Code' directly. Bare 'Rule 12' or 'Rule 702' must not route here without 'Utah' context. Rules of Professional Conduct are numbered N.N in citations, but the URL key is scrp rule 3-N.0N (Rule 1.7 → 3-1.07; Rule 1.10 → 3-1.10 unverified). Admin Code citations begin with an R number (R414-1-1). A bare 'R414-1-1' is not routed without 'Utah Admin. Code'. Docket numbers are 8 digits (filing year + sequence), sometimes with a -CA or -SC suffix; they are generic and context_required. CourtListener ids (utah, utahctapp) are from memory. Georgia's 'Code Section NN-N-NNN' pattern also matches the prose form 'Utah Code section 76-5-203' (case-insensitive), so an explicit 'Utah' marker must win in routing. Juvenile (urjp), Small Claims (srpe) and Business & Chancery (urbcp) rules route with an explicit 'Utah' marker; the bare short forms URJP/URBCP are context_required."
   },
   "sources": [
     {
@@ -274,7 +324,7 @@
         "url_pattern": "https://le.utah.gov/xcode/Title{title}/Chapter{chapter_upper}/{title}-{chapter}-S{section}.html  (JS shell; text in https://le.utah.gov/xcode/Title{title}/Chapter{chapter_upper}/C{title}-{chapter}-S{section}_{version}.html)",
         "pattern_rules": "The shell URL is constructible. Title is written as cited (78B, 26B), chapter folder upper-case (Chapter6A), file name keeps the citation's case (41-6a-S102): e.g. 78B-2-307 → /xcode/Title78B/Chapter2/78B-2-S307.html; 41-6a-102 → /xcode/Title41/Chapter6A/41-6a-S102.html. The shell has NO text: its JavaScript sets versionDefault=\"C78B-2-S307_2023050320230503\", and the text lives in that file name + .html in the same folder. {version} is two 8-digit dates (YYYYMMDD twice; 1800010118000101 = unamended since recodification). It cannot be derived from the citation. fetch_doc.py strips scripts, so it cannot read versionDefault. Get the version id from the Part (or Chapter) index file's section link instead: '78B-2-S307.html?v=C78B-2-S307_2023050320230503'. Part number = the section's hundreds digit (307 → P3) in most chapters.",
         "index_url": "https://le.utah.gov/xcode/C_1800010118000101.html",
-        "navigation": "Code index file C_1800010118000101.html → Title link '?v=C78B_1800010118000101' → fetch /xcode/Title78B/C78B_1800010118000101.html → Chapter link '?v=C78B-2_…' → fetch /xcode/Title78B/Chapter2/C78B-2_1800010118000101.html (lists Parts, no section ranges) → Part link '?v=C78B-2-P3_…' → fetch C78B-2-P3_1800010118000101.html (lists every section with its ?v= id) → fetch C78B-2-S307_2023050320230503.html (body). Rule: take the ?v= value, append .html, and fetch it in the same folder. Chapters without parts list their sections directly.",
+        "navigation": "Code index file C_1800010118000101.html → Title link '?v=C78B_1800010118000101' → fetch /xcode/Title78B/C78B_1800010118000101.html → Chapter link '?v=C78B-2_…' → fetch /xcode/Title78B/Chapter2/C78B-2_1800010118000101.html (lists Parts, no section ranges) → Part link '?v=C78B-2-P3_…' → fetch C78B-2-P3_1800010118000101.html (lists every section with its ?v= id) → fetch C78B-2-S307_2023050320230503.html (body). Rule: take the ?v= value, append .html, and fetch it in the same folder. Chapters without parts list their sections directly. Version ids below the title level vary (e.g. C63G-20_2015051220150512, C63G-2-S201_2026050620260701): ALWAYS copy the ?v= value from the parent index; never assume _1800010118000101. Hop tool: `fetch_doc.py links <index-url> <filter>` (e.g. filter 'S307').",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -293,7 +343,8 @@
         "version id not derivable from the citation; needs the Part/Chapter index hop",
         "chapter folder upper-case vs. file name lower-case letters (Chapter6A / 41-6a-S102)",
         "no code-wide currency statement; only per-section effective dates",
-        "future-effective versions may exist beside the current one; check the 'Effective' date"
+        "future-effective versions may exist beside the current one; check the 'Effective' date",
+        "unamended version files (…_1800010118000101) may show no 'Effective' line; treat as unamended"
       ],
       "probe": {
         "citation": "Utah Code Ann. § 78B-2-307",
@@ -303,9 +354,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 2,222 chars, '78B-2-307. Within four years. An action may be brought within four years:', 'Effective 5/3/2023'. Second citation 76-5-203 at /xcode/Title76/Chapter5/C76-5-S203_2026050620260506.html: 'Effective 5/6/2026', body (1) present. Shell 78B-2-S307.html: 4,957 chars of navigation only. Part file C78B-2-P3_1800010118000101.html links Section 307 with ?v=C78B-2-S307_2023050320230503."
+        "evidence": "fetch_doc.py: 2,222 chars, '78B-2-307. Within four years. An action may be brought within four years:', 'Effective 5/3/2023'. Second citation 76-5-203 at /xcode/Title76/Chapter5/C76-5-S203_2026050620260506.html: 'Effective 5/6/2026', body (1) present. Shell 78B-2-S307.html: 4,957 chars of navigation only. Part file C78B-2-P3_1800010118000101.html links Section 307 with ?v=C78B-2-S307_2023050320230503. | Independent check 2026-10-17: script (live): 'Effective 5/3/2023 78B-2-307. Within four years. An action may be brought'; second citation Utah Code Ann. § 63G-2-201 ok"
       },
       "notes": "The code index lists Title 75E and Title 76 'Criminal Offenses'. Titles may have been reorganised recently, so always confirm the title from the index. legacy.utcourts.gov/statutes/?s={title}-{chapter} is only a redirect page that links to le.utah.gov."
     },
@@ -317,11 +368,11 @@
       "tier": 2,
       "official_status": "unofficial",
       "official_status_evidence": "Pages state 'These codes may not be the most recent version.'",
-      "coverage": "Utah Code editions incl. 2006, 2010, 2014, 2017, 2023, 2024, 2025; unversioned URL serves 2025.",
+      "coverage": "Utah Code editions incl. 2006, 2010, 2014, 2017, 2023, 2024, 2025; the unversioned URL serves the latest edition Justia holds FOR THAT SECTION (usually 2025, but § 30-3-10 served 2023).",
       "access": {
         "mode": "constructible",
         "url_pattern": "https://law.justia.com/codes/utah/title-{title_lower}/chapter-{chapter_lower}/part-{part}/section-{section}/",
-        "pattern_rules": "title and chapter in lower case (title-78b, chapter-2, chapter-6a). Part = the section's hundreds digit (307 → part-3, 203 → part-2). section = the last component only (78B-2-307 → section-307). Verified: 78B-2-307 → /title-78b/chapter-2/part-3/section-307/ and 76-5-203 → /title-76/chapter-5/part-2/section-203/. For chapters without parts, drop the part segment (unverified); if a URL fails, browse /codes/utah/title-{t}/chapter-{c}/. Year-specific: insert /{year}/ after /utah/. Title pages show NO section ranges.",
+        "pattern_rules": "title and chapter in lower case (title-78b, chapter-2, chapter-6a). Part = the section's hundreds digit (307 → part-3, 203 → part-2). section = the last component only (78B-2-307 → section-307). Verified: 78B-2-307 → /title-78b/chapter-2/part-3/section-307/ and 76-5-203 → /title-76/chapter-5/part-2/section-203/. For chapters without parts, drop the part segment (verified: 30-3-10 → /title-30/chapter-3/section-10/); if a URL fails, browse /codes/utah/title-{t}/chapter-{c}/. Year-specific: insert /{year}/ after /utah/. Title pages show NO section ranges.",
         "index_url": "https://law.justia.com/codes/utah/",
         "navigation": "title page → chapter page → part page → section",
         "format": "html"
@@ -340,7 +391,8 @@
       "hazards": [
         "edition lags the official text (2025 edition; 2026 session changes missing)",
         "part segment must be inferred",
-        "shell blocked by challenge"
+        "shell blocked by challenge",
+        "unversioned URL can serve an older edition (§ 30-3-10 → '(2023)'): read the edition year in the Universal Citation line on every page before quoting"
       ],
       "probe": {
         "citation": "Utah Code Ann. § 78B-2-307",
@@ -350,9 +402,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, 'An action may be brought within four years: (1) after'; 'UT Code § 78B-2-307 (2025)'; not truncated. Second citation 76-5-203 (/title-76/chapter-5/part-2/section-203/): YES, 'UT Code § 76-5-203 (2025)'."
+        "evidence": "WebFetch: YES, 'An action may be brought within four years: (1) after'; 'UT Code § 78B-2-307 (2025)'; not truncated. Second citation 76-5-203 (/title-76/chapter-5/part-2/section-203/): YES, 'UT Code § 76-5-203 (2025)'. | Independent check 2026-10-17: WebFetch YES 'An action may be brought within four years: (1) after the last'; 'UT Code § 78B-2-307 (2025)'; second citation Utah Code Ann. § 63G-2-201 (also § 30-3-10, no-part URL, served 2023 edition) ok"
       },
       "notes": ""
     },
@@ -368,9 +420,9 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://le.utah.gov/UtahCode/ChapterLookup.jsp?chap={chapter}&sess={year}GS",
-        "pattern_rules": "sess = year + session code (GS = General Session; special sessions use S1, S2 … — unverified). The lookup redirects to the bill page (2023 ch. 185 → /~2023/bills/static/HB0388.html), which links the enrolled PDF (/~{year}/bills/hbillenr/HB{nnnn}.pdf).",
+        "pattern_rules": "sess = year + session code (GS = General Session; special sessions S1, S2 … unverified). ChapterLookup redirects to the bill page /~{year}/bills/static/{HB|SB}{nnnn}.html (2023 ch. 185 → HB0388; 2025 ch. 299 → SB0074; 2025 ch. 1 → HB0001). Enrolled PDF: https://le.utah.gov/~{year}/bills/{h|s}billenr/{HB|SB}{nnnn}.pdf — 'h' for House bills, 's' for Senate bills, bill number copied from the redirect URL (verified: ~2025/bills/sbillenr/SB0074.pdf 20 pp; ~2025/bills/hbillenr/HB0001.pdf 70 pp; ~2023/bills/hbillenr/HB0030.pdf 214 pp).",
         "index_url": "https://le.utah.gov/documents/laws-recent.htm",
-        "navigation": "ChapterLookup → bill status page → enrolled PDF",
+        "navigation": "ChapterLookup → note bill number from the redirect URL → construct the enrolled PDF URL (recent bill pages are JS shells with no PDF link for the script)",
         "format": "html"
       },
       "text": "fetch-and-quote",
@@ -386,7 +438,9 @@
       },
       "hazards": [
         "redirect to bill page; the text is in the enrolled PDF",
-        "omnibus bills exceed the WebFetch window"
+        "omnibus bills exceed the WebFetch window",
+        "2025+ bill status pages are JS shells (~5.5K chars) with no enrolled-PDF link: construct the {h|s}billenr URL from the bill number",
+        "{h|s}billenr must match the chamber: HB→hbillenr, SB→sbillenr; a 404 usually means wrong chamber or a bill that did not pass"
       ],
       "probe": {
         "citation": "2023 Utah Laws ch. 185",
@@ -398,7 +452,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "OK",
-        "evidence": "fetch_doc.py: final URL https://le.utah.gov/~2023/bills/static/HB0388.html (9,166 chars). Enrolled PDF /~2023/bills/hbillenr/HB0030.pdf: 214 pp."
+        "evidence": "fetch_doc.py: final URL https://le.utah.gov/~2023/bills/static/HB0388.html (9,166 chars). Enrolled PDF /~2023/bills/hbillenr/HB0030.pdf: 214 pp. | Independent check 2026-10-17: discrepancy — 2025 ch. 299 → SB0074.html (JS shell, no PDF link); PDF at ~2025/bills/sbillenr/SB0074.pdf. Research re-check 2026-10-17: sbillenr/SB0074.pdf 20 pp and hbillenr/HB0001.pdf 70 pp both reached by script; pattern documented."
       },
       "notes": "Only one chapter was probed. HB0388 matches the 'Chapter 185, 2023 General Session' history note in § 78B-2-307, but the bill page's text was not inspected."
     },
@@ -427,11 +481,12 @@
         "notes": "WebFetch was not tried, because le.utah.gov URLs were gated in this session."
       },
       "currency": {
-        "where": "per-section version file",
+        "where": "per-section version file ('Effective' line); unamended (1800010118000101) sections show none — record as 'unamended'",
         "observed": "Effective 1/1/2021"
       },
       "hazards": [
-        "JS shell; version id from index hop"
+        "JS shell; version id from index hop",
+        "unamended sections show no Effective date"
       ],
       "probe": {
         "citation": "Utah Const. art. I, § 11",
@@ -441,9 +496,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 1,404 chars, '[Courts open -- Redress of injuries.]', 'Effective 1/1/2021', body present. Second citation art. VIII, § 3 (UC_AVIII_S3_1800010118000101.html): 'The Supreme Court shall have original jurisdiction to issue all extraordinary writs'."
+        "evidence": "fetch_doc.py: 1,404 chars, '[Courts open -- Redress of injuries.]', 'Effective 1/1/2021', body present. Second citation art. VIII, § 3 (UC_AVIII_S3_1800010118000101.html): 'The Supreme Court shall have original jurisdiction to issue all extraordinary writs'. | Independent check 2026-10-17: script 'All courts shall be open, and every person, for an injury'; Effective 1/1/2021; second citation Utah Const. art. X, § 1 ok"
       },
       "notes": ""
     },
@@ -459,7 +514,7 @@
       "access": {
         "mode": "index-anchored",
         "url_pattern": "",
-        "pattern_rules": "Article listing pages are named CO_{NN}.html, where NN = article number + 1 (Article I → CO_02.html). The listing shows only section headings that link to separate section pages; the section-page pattern was not observed.",
+        "pattern_rules": "Article listing pages are named CO_{NN}.html, where NN = article number + 1 (Article I → CO_02.html). The listing shows only section headings that link to separate section pages; the section-page pattern was not observed. Observed section link (lead, not fetched): https://law.justia.com/constitution/utah/htm/CO_02012.html for Art. I § 11 — form htm/CO_{NN}{SSS}.html with an apparent +1 offset on the section.",
         "index_url": "https://law.justia.com/constitution/utah/",
         "navigation": "index (TOC only) → CO_{NN}.html article listing → section link",
         "format": "html"
@@ -489,7 +544,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "WebFetch: index has TOC only; CO_02.html lists Section 11 heading 'Courts open -- Redress of injuries.' with a link; body NOT PRESENT. Section page not fetched (budget)."
+        "evidence": "WebFetch: index has TOC only; CO_02.html lists Section 11 heading 'Courts open -- Redress of injuries.' with a link; body NOT PRESENT. Section page not fetched (budget). | Independent check 2026-10-17: CO_02.html headings only; Section 11 links htm/CO_02012.html (not fetched)."
       },
       "notes": ""
     },
@@ -505,7 +560,7 @@
       "access": {
         "mode": "constructible",
         "url_pattern": "https://legacy.utcourts.gov/rules/view.php?type={type}&rule={rule}",
-        "pattern_rules": "type: urcp | urcrp | urap | urjp | srpe | adr | ure | urbcp | ucja | scrp (see law_aliases). rule as cited for urcp/urcrp/urap/ure (12, 702, 24, 11) and UCJA (4-202.02). Rules of Professional Conduct: scrp rule 3-1.0N with a two-digit decimal (Rule 1.7 → 3-1.07, Rule 1.0 → 3-1.0). Former UCJA ch. 11–15 now live in SCRP ch. 1–5 (the page says 'previously UCJA Rule 13-1.7'). Code of Judicial Conduct = scrp ch. 2 (pattern unverified). www.utcourts.gov/rules/view.php redirects here. Index per set: /rules/{type}.php; whole set on one page: /rules/viewall.php?type={type}.",
+        "pattern_rules": "type: urcp | urcrp | urap | urjp | srpe | adr | ure | urbcp | ucja | scrp (see law_aliases). rule as cited for urcp/urcrp/urap/ure (12, 702, 24, 11) and UCJA (4-202.02). Rules of Professional Conduct: scrp rule 3-{N}.{MM} with a two-digit decimal (Rule 1.7 → 3-1.07, Rule 1.10 → 3-1.10 verified, Rule 1.0 → 3-1.0). Former UCJA ch. 11–15 now live in SCRP ch. 1–5 (the page says 'previously UCJA Rule 13-1.7'). Code of Judicial Conduct = scrp ch. 2 (pattern unverified). www.utcourts.gov/rules/view.php redirects here. Index per set: /rules/{type}.php; whole set on one page: /rules/viewall.php?type={type}. Juvenile Procedure: type=urjp; Small Claims: type=srpe; Business and Chancery Court: type=urbcp (rule as cited; urbcp 1 verified).",
         "index_url": "https://legacy.utcourts.gov/rules/",
         "navigation": "",
         "format": "html"
@@ -535,9 +590,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 8,347 chars, 'Rule 12. Defenses and objections.', 'Effective: 5/1/2024', full (a)–(k). Also verified: ure 702 ('Rule 702. Testimony by Experts.', Effective 11/1/2007); urcrp 11 ('Rule 11. Pleas.'); urap 24 ('Principal briefs must contain under appropriate headings'); scrp 3-1.07 ('a lawyer shall not represent a client if the representation involves a concurrent conflict'); ucja 4-202.02 ('Records Classification', Effective 5/18/2026); urbcp 1."
+        "evidence": "fetch_doc.py: 8,347 chars, 'Rule 12. Defenses and objections.', 'Effective: 5/1/2024', full (a)–(k). Also verified: ure 702 ('Rule 702. Testimony by Experts.', Effective 11/1/2007); urcrp 11 ('Rule 11. Pleas.'); urap 24 ('Principal briefs must contain under appropriate headings'); scrp 3-1.07 ('a lawyer shall not represent a client if the representation involves a concurrent conflict'); ucja 4-202.02 ('Records Classification', Effective 5/18/2026); urbcp 1. | Independent check 2026-10-17: script '(b) How presented. Every defense, in law or fact'; 'Effective: 5/1/2024'; second citation Utah R. Prof'l Conduct 1.10 (scrp 3-1.10) and Utah R. Evid. 403 ok"
       },
       "notes": "No tier-2 host was found for Utah court rules: Justia, LII and public.law do not carry them (not exhaustively checked)."
     },
@@ -560,10 +615,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "none (robots.txt returns the app's 404 page)",
-        "notes": "fetch_doc.py downloads the page but gets an 873-char shell with no rule text. WebFetch on /Code returned PROVENANCE_REQUIRED."
+        "notes": "fetch_doc.py downloads the page but gets an 873-char shell with no rule text. WebFetch on /Code returned PROVENANCE_REQUIRED. Independent check 2026-10-17: WebFetch now reads /Code but gets no rule text."
       },
       "currency": {
         "where": "none observed",
@@ -583,7 +638,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py: 873 chars, 'Office of Administrative Rules … Current Rules … Agencies', no rule text; /public/rule/R414-1/Current%20Rules → HTTP 404."
+        "evidence": "fetch_doc.py: 873 chars, 'Office of Administrative Rules … Current Rules … Agencies', no rule text; /public/rule/R414-1/Current%20Rules → HTTP 404. | Independent check 2026-10-17: WebFetch 'An official website of the state of Utah.', no rule text."
       },
       "notes": "Use ut-admincode-lii for text, and the Utah State Bulletin for amendment history."
     },
@@ -606,7 +661,7 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "Crawl-delay: 10; /regulations allowed",
         "notes": ""
@@ -627,9 +682,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 2,715 chars, 'Utah Admin. Code R414-1-1 - Authority and Purpose', '(1)(a) Title XIX of the Social Security Act', note 'Bulletin Number 2025-05'. Second citation R307-101-2: 'Except where specified in individual rules, definitions in'."
+        "evidence": "fetch_doc.py: 2,715 chars, 'Utah Admin. Code R414-1-1 - Authority and Purpose', '(1)(a) Title XIX of the Social Security Act', note 'Bulletin Number 2025-05'. Second citation R307-101-2: 'Except where specified in individual rules, definitions in'. | Independent check 2026-10-17: WebFetch YES and script 'Title XIX of the Social Security Act and Sections 26B-1-213'; Bulletin 2025-05; second citation Utah Admin. Code R156-1-102 ok"
       },
       "notes": ""
     },
@@ -673,9 +728,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: application/pdf 311 pp, 1,304,012 chars; front matter text present. Per-filing HTML /publicat/bulletin/2017/20170301/41321.htm: 'DAR File No. 41321'."
+        "evidence": "fetch_doc.py: application/pdf 311 pp, 1,304,012 chars; front matter text present. Per-filing HTML /publicat/bulletin/2017/20170301/41321.htm: 'DAR File No. 41321'. | Independent check 2026-10-17: script 311 pp; 'is an official noticing publication of the executive branch'; second citation Utah State Bulletin Number 2025-05 (b20250301.pdf) ok"
       },
       "notes": ""
     },
@@ -699,10 +754,10 @@
       },
       "text": "link-only",
       "automation": {
-        "webfetch": "gated",
+        "webfetch": "blocked",
         "shell": "blocked-robots",
         "robots_txt": "legacy.utcourts.gov and www.utcourts.gov: User-agent * Disallow /opinions/*.pdf$, /opinions/supopin/, /opinions/appopin/, /opinions/mds/, /opinions/juv/, */search/*",
-        "notes": "fetch_doc.py REFUSED /opinions/supopin/ (rule Disallow: /opinions/supopin/) and view.html?…pdf (rule Disallow: /opinions/*.pdf$). WebFetch on the RSS-listed URL returned PROVENANCE_REQUIRED. The RSS feed https://legacy.utcourts.gov/rss/opinions/index.xml is allowed and lists recent opinions with file names (fetch_doc.py OK, 1,582 chars)."
+        "notes": "fetch_doc.py REFUSED /opinions/supopin/ (rule Disallow: /opinions/supopin/) and view.html?…pdf (rule Disallow: /opinions/*.pdf$). WebFetch on the RSS-listed URL returned PROVENANCE_REQUIRED. The RSS feed https://legacy.utcourts.gov/rss/opinions/index.xml is allowed and lists recent opinions with file names (fetch_doc.py OK, 1,582 chars). Independent check 2026-10-17: WebFetch ROBOTS_DISALLOWED."
       },
       "currency": {
         "where": "RSS last-modified",
@@ -722,7 +777,7 @@
         "date": "2026-10-17",
         "by": "research",
         "result": "FAIL",
-        "evidence": "fetch_doc.py exit 3: REFUSED robots.txt disallows … (rule: Disallow: /opinions/*.pdf$)."
+        "evidence": "fetch_doc.py exit 3: REFUSED robots.txt disallows … (rule: Disallow: /opinions/*.pdf$). | Re-confirmed blocked 2026-10-17: WebFetch ROBOTS_DISALLOWED on the view.html?…Conde…149.pdf URL."
       },
       "notes": "Appellate docket search: https://apps.utcourts.gov/CourtsPublicWEB/index.jsp (linked from the opinions page; not probed)."
     },
@@ -768,9 +823,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "WebFetch: YES, '2025 UT 59', ¶1–¶78, not truncated. Second: State v. Leatham, 2025 UT App 194 (/court-of-appeals-published/2025/20230824-ca.html): YES, 'A driver was stopped by officers and found to lack', ¶1–¶22."
+        "evidence": "WebFetch: YES, '2025 UT 59', ¶1–¶78, not truncated. Second: State v. Leatham, 2025 UT App 194 (/court-of-appeals-published/2025/20230824-ca.html): YES, 'A driver was stopped by officers and found to lack', ¶1–¶22. | Independent check 2026-10-17: WebFetch YES '2025 UT 59', ¶1–¶78, no P.3d cite, not truncated; second citation State v. Conde, 2026 UT App 149 (No. 20241010-CA) ok"
       },
       "notes": ""
     },
@@ -793,7 +848,7 @@
       },
       "text": "fetch-and-quote",
       "automation": {
-        "webfetch": "untested",
+        "webfetch": "ok",
         "shell": "ok",
         "robots_txt": "/content/dam/ not disallowed",
         "notes": "Small one- or two-page PDFs."
@@ -805,7 +860,8 @@
       "hazards": [
         "index page 404; listing by constructed period",
         "docket search by grep within each period PDF only",
-        "no party-independent search across periods"
+        "no party-independent search across periods",
+        "posting lags: as of 2026-10-17, 2026cert_05-06 and 07-08 return HTTP 404 while 03-04 exists. A 404 means NOT YET POSTED (or renamed), never 'no cert action'. Tell them apart: if any LATER period's PDF exists, the gap is a real anomaly (search by party/docket elsewhere); if no later period exists, treat everything after the newest posted period as unknown and say so; confirm on the Supreme Court's own Sup. Ct. docket or a later Supreme Court opinion"
       ],
       "probe": {
         "citation": "State v. Lucke, COA No. 20230428 → cert granted 09/19/2025",
@@ -815,9 +871,9 @@
       "verification": {
         "status": "verified",
         "date": "2026-10-17",
-        "by": "research",
+        "by": "independent",
         "result": "OK",
-        "evidence": "fetch_doc.py: 1 pp PDF, 'Petitions for Writ of Certiorari', 'Reporting period: 9/01/2025 - 10/31/2025', GRANTED/DENIED tables with COA case nos. Second: 2024cert_07-08.pdf, 'Reporting period: 07/01/2024 - 08/31/2024'."
+        "evidence": "fetch_doc.py: 1 pp PDF, 'Petitions for Writ of Certiorari', 'Reporting period: 9/01/2025 - 10/31/2025', GRANTED/DENIED tables with COA case nos. Second: 2024cert_07-08.pdf, 'Reporting period: 07/01/2024 - 08/31/2024'. | Independent check 2026-10-17: script and WebFetch 'State v. Lucke 20230428 20250519 09/19/2025 569 P.3d 238'; second citation cert dispositions 2026cert_01-02, 03-04, 2025cert_11-12 ok"
       },
       "notes": "Granted cases then show up as Supreme Court opinions (ut-cases-justia), with the Sup. Ct. number as the docket. The columns are spaced, so grep for the docket number, not for the whole row."
     }
@@ -885,6 +941,8 @@
     "Justia Constitution section-page URL pattern not observed.",
     "Index page for cert petition PDFs: the old certs.html link returns 404.",
     "Whether apps.utcourts.gov/CourtsPublicWEB docket search is robots-allowed and works by GET.",
-    "CourtListener ids (utah, utahctapp) unverified; trailing-U unpublished cite form from memory."
+    "CourtListener ids (utah, utahctapp) unverified; trailing-U unpublished cite form from memory.",
+    "ut-cert-petitions: 2026cert_05-06 and 07-08 return 404 (Oct 2026) — confirm whether postings are just delayed or the file naming changed.",
+    "ut-constitution-justia: verify section-page form htm/CO_{NN}{SSS}.html and its offset."
   ]
 }

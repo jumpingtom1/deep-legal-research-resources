@@ -550,7 +550,7 @@
     "ga": {
       "name": "Georgia",
       "file": "jurisdictions/ga.md",
-      "sha256": "0143fc31c889b89ec3f43ed8fc8c097ce904be5acefe9797fef994c5903b8bd7",
+      "sha256": "1eaae887c3440d71dbc4518d241c9f2d3f41f7ffa27fe3f0cab1a13db32f4e99",
       "compiled": "2026-10-16",
       "counts": {
         "reported": 4,
@@ -560,8 +560,13 @@
       "citation_patterns": [
         {
           "label": "Official Code of Georgia Annotated",
-          "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?|Code\\s+Section)\\s*\u00a7*\\s*|(?:sec(?:tion|\\.)|\u00a7)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+          "regex": "(?:(?:O\\.?\\s*C\\.?\\s*G\\.?\\s*A\\.?|Ga\\.\\s*Code\\s*Ann\\.?)\\s*\u00a7*\\s*|(?:sec(?:tion|\\.)|\u00a7)\\s*(?=\\d{1,2}-\\d{1,3}[A-Z]?-\\d+(?:\\.\\d+)?(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Official\\s+Code\\s+of\\s+Georgia|O\\.?C\\.?G\\.?A)))(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
           "context_required": false
+        },
+        {
+          "label": "Official Code of Georgia Annotated (\"Code Section N-N-N\", generic)",
+          "regex": "\\bCode\\s+Section\\s*\u00a7*\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3}[A-Z]?)-(?P<section>\\d+(?:\\.\\d+)?)(?![\\d-])",
+          "context_required": true
         },
         {
           "label": "Georgia Laws (session laws)",
@@ -1824,6 +1829,74 @@
         }
       ]
     },
+    "tn": {
+      "name": "Tennessee",
+      "file": "jurisdictions/tn.md",
+      "sha256": "396ca36fc5f212a61e855c235bf0d50565d7ec1e15eb0b50d268e74e6ee324f4",
+      "compiled": "2026-10-17",
+      "counts": {
+        "reported": 1,
+        "verified": 7,
+        "blocked": 5
+      },
+      "citation_patterns": [
+        {
+          "label": "Tennessee Code Annotated",
+          "regex": "(?:Tenn(?:essee|\\.)\\s*Code\\s*Ann(?:otated|\\.)?|\\bT\\.?\\s*C\\.?\\s*A\\.?)\\s*(?:\u00a7\u00a7?|sec(?:tion|s?\\.)s?)?\\s*(?P<title>\\d{1,2})-(?P<chapter>\\d{1,3})-(?P<section>\\d{3,4}(?:\\.\\d+)?)(?![\\d-])|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<title2>\\d{1,2})-(?P<chapter2>\\d{1,3})-(?P<section2>\\d{3,4}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+(?:Tennessee\\s+Code|T\\.?C\\.?A\\b)",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee Public Acts (public chapters)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Tenn\\.\\s*Pub\\.\\s*Acts,?\\s*(?:ch\\.|c\\.|chapter)\\s*(?P<chapter>\\d+)|Public\\s+Chapter\\s+(?:No\\.\\s*)?(?P<chapter2>\\d+)\\s+of\\s+(?:the\\s+Acts\\s+of\\s+)?(?P<year2>(?:19|20)\\d\\d)|Tenn\\.\\s*Pub\\.\\s*Ch\\.\\s*(?P<chapter3>\\d+)\\s*\\((?P<year3>(?:19|20)\\d\\d)\\)",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee Constitution",
+          "regex": "Tenn\\.\\s*Const\\.,?\\s*art\\.?\\s*(?P<article>[IVXL]+),?\\s*(?:\u00a7|sec\\.?|section)\\s*(?P<section>\\d+)|Article\\s+(?P<article2>[IVXL]+),?\\s*Section\\s+(?P<section2>\\d+)\\s+of\\s+the\\s+(?:Tennessee\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Tennessee)|Tennessee\\s+Constitution,?\\s*Article\\s+(?P<article3>[IVXL]+),?\\s*Section\\s+(?P<section3>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee Rules of Civil/Criminal/Appellate Procedure and Evidence",
+          "regex": "Tenn\\.\\s*R\\.\\s*(?P<set>Civ\\.\\s*P|Evid|App\\.\\s*P|Crim\\.\\s*P|Juv\\.\\s*(?:Prac\\.\\s*&\\s*)?P)\\.?\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)|Tennessee\\s+Rules?\\s+of\\s+(?P<set2>Civil\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure)\\s*(?P<rule2>\\d{1,3}(?:\\.\\d+)?)|Rule\\s+(?P<rule3>\\d{1,3}(?:\\.\\d+)?)(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Tennessee\\s+Rules\\s+of\\s+(?P<set3>Civil\\s+Procedure|Evidence|Appellate\\s+Procedure|Criminal\\s+Procedure)",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee Supreme Court Rules (incl. Rule 8 RPC) and Court of Appeals / Court of Criminal Appeals Rules",
+          "regex": "Tenn\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.\\s*(?P<rule>\\d{1,3}(?:\\.\\d+)?)(?:,\\s*RPC\\s*(?P<rpc>\\d\\.\\d+))?|Tennessee\\s+Supreme\\s+Court\\s+Rule\\s*(?P<rule2>\\d{1,3})|Rule\\s+(?P<rule3>\\d{1,3})(?:\\s*\\([a-zA-Z0-9]+\\))*\\s+of\\s+the\\s+Rules\\s+of\\s+the\\s+(?:Tennessee\\s+Supreme\\s+Court|Supreme\\s+Court\\s+of\\s+Tennessee)|Tenn\\.\\s*Ct\\.\\s*(?P<court>App|Crim\\.\\s*App)\\.\\s*R\\.\\s*(?P<rule4>\\d{1,2})|Tenn\\.\\s*R\\.\\s*Prof'?l\\s*Conduct\\s*(?P<rpc2>\\d\\.\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee court rules (bare forms)",
+          "regex": "\\bRule\\s+(?P<rule>\\d{1,2}\\.\\d{2})(?:\\s*\\([a-zA-Z0-9]+\\))*|\\bRPC\\s+(?P<rpc>\\d\\.\\d+)|\\bRule\\s+11\\s+application",
+          "context_required": true
+        },
+        {
+          "label": "Rules and Regulations of the State of Tennessee",
+          "regex": "Tenn\\.\\s*(?:Comp\\.\\s*)?R\\.\\s*&\\s*Regs\\.?\\s*(?:r\\.|ch\\.|rule)?\\s*(?P<rule>\\d{4}-\\d{2}(?:-\\d{2})?(?:-\\.\\d{2})?)|\\bRule\\s+(?P<rule2>\\d{4}-\\d{2}(?:-\\d{2})?-\\.\\d{2})",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee appellate docket numbers",
+          "regex": "\\b(?P<docket>[EMW](?P<year>(?:19|20)\\d\\d)-\\d{5}-(?P<court>SC|COA|CCA|WC)(?:-[A-Z0-9]{1,4}){1,3})\\b",
+          "context_required": false
+        },
+        {
+          "label": "Tennessee court parentheticals and reporters",
+          "regex": "\\((?P<court>Tenn\\.(?:\\s*(?:Ct\\.\\s*App|Crim\\.\\s*App|Workers'?\\s*Comp\\.\\s*Panel)\\.?)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:18|19|20)\\d\\d)\\)|\\b(?P<vol>\\d{1,3})\\s+Tenn\\.(?:\\s*(?:App|Crim\\.\\s*App)\\.)?\\s+(?P<page>\\d{1,4})\\b",
+          "context_required": false
+        },
+        {
+          "label": "South Western Reporter (regional, generic)",
+          "regex": "\\b(?P<vol>\\d{1,4})\\s+S\\.\\s*W\\.\\s*(?:2d|3d)?\\s+(?P<page>\\d{1,5})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Tennessee Rule 11 permission-to-appeal history",
+          "regex": "(?P<disp>(?:no\\s+)?perm\\.\\s*app\\.\\s*(?:denied|granted|dismissed|filed))(?:\\s*\\(Tenn\\.\\s*(?:[A-Z][a-z]{2,4}\\.?\\s*\\d{1,2},\\s*)?(?P<year>(?:19|20)\\d\\d)\\))?",
+          "context_required": false
+        }
+      ]
+    },
     "tx": {
       "name": "Texas",
       "file": "jurisdictions/tx.md",
@@ -1910,10 +1983,11 @@
     "ut": {
       "name": "Utah",
       "file": "jurisdictions/ut.md",
-      "sha256": "8bfad2183c46f1f9eaf6da7080780938468df2e1304ae650389d743fc17ca53b",
+      "sha256": "bbecf30f7be3ba1fd5e2613f68cb7e85520e5f531bdd792c1969ff696f691b6f",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 9,
+        "verified_independent": 8,
+        "verified": 1,
         "reported": 2,
         "blocked": 1
       },
@@ -1962,6 +2036,26 @@
           "label": "Utah Rules of Professional Conduct (Supreme Court Rules of Professional Practice ch. 3)",
           "regex": "Utah\\s+(?:R\\.\\s*Prof(?:'|\u2019)?l\\s*Conduct|Rules?\\s+of\\s+Prof(?:essional|'l)\\s+Conduct)\\s*(?:R(?:ule)?\\.?\\s*)?(?P<rule>\\d\\.\\d{1,2})|Rule\\s+(?P<rule2>\\d\\.\\d{1,2})(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Professional\\s+Conduct",
           "context_required": false
+        },
+        {
+          "label": "Utah Rules of Juvenile Procedure",
+          "regex": "Utah\\s+R\\.\\s*Juv\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Juvenile\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Small Claims Procedure",
+          "regex": "Utah\\s+R\\.\\s*Small\\s+Claims\\s+P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Small\\s+Claims\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah Rules of Business and Chancery Court Procedure",
+          "regex": "Utah\\s+R\\.\\s*Bus\\.\\s*(?:&|and)\\s*Chancery\\s+Ct\\.\\s*P\\.\\s*(?P<rule>\\d+[A-Z]?)|Rule\\s+(?P<rule2>\\d+[A-Z]?)(?:\\s*\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Utah\\s+Rules\\s+of\\s+Business\\s+and\\s+Chancery\\s+Court\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Utah rule-set short forms without 'Utah' (URJP, URBCP)",
+          "regex": "\\b(?P<set>URJP|URBCP)\\s*(?P<rule>\\d+[A-Z]?)",
+          "context_required": true
         },
         {
           "label": "Utah Administrative Code",
@@ -2065,17 +2159,22 @@
     "wi": {
       "name": "Wisconsin",
       "file": "jurisdictions/wi.md",
-      "sha256": "3b8402b40387c1d2133f86877fcd919eeb170351fa2308adea4d849275da5ece",
+      "sha256": "70f646516d655bc27c3b6c7d25fb3333243b8ac24b87dec8ff366cbf93d249b6",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 15,
+        "verified_independent": 15,
         "reported": 1
       },
       "citation_patterns": [
         {
           "label": "Wisconsin Statutes",
-          "regex": "(?:Wis(?:consin)?\\.?\\s*Stats?\\.?(?:\\s*Ann\\.)?\\s*(?:\u00a7+|ss?\\.)\\s*(?:\\(Rule\\)\\s*)?(?P<section>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?P<sub>(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?(?:\\s*[a-z]\\.)?)|(?:s|ss|sec(?:tion)?)\\.?\\s+(?P<section2>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?,?\\s+(?:Wis\\.\\s*)?Stats\\.|section\\s+(?P<section3>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Wisconsin\\s+Statutes)",
+          "regex": "(?:Wis(?:consin)?\\.?\\s*Stats?\\.?(?:\\s*Ann\\.)?\\s*(?:\u00a7+|ss?\\.)\\s*(?:\\(Rule\\)\\s*)?(?P<section>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?P<sub>(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?(?:\\s*[a-z]\\.)?)|(?:s|ss|sec(?:tion)?)\\.?\\s+(?P<section2>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*(?:\\s*\\d+\\.)?,?\\s+(?:Wis\\.\\s*)?Stats\\.|section\\s+(?P<section3>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Wisconsin\\s+Statutes|Wis(?:consin)?\\.?\\s*Stats?\\.?\\s*chs?\\.\\s*(?P<chapter>\\d{1,3})(?![\\d.]))",
           "context_required": false
+        },
+        {
+          "label": "Prose 'section 893.54 of the statutes' (generic, no state marker)",
+          "regex": "sec(?:tion|\\.)\\s+(?P<section>\\d{1,3}\\.\\d{2,4}[a-z]?)(?!\\d)(?:\\s*\\([0-9a-z]+\\))*\\s+of\\s+the\\s+statutes",
+          "context_required": true
         },
         {
           "label": "Wisconsin appellate procedure cited as a rule (ch. 809)",

@@ -472,6 +472,9 @@
     "pa-cons-statutes-justia",
     "pa-constitution-justia",
     "pa-cases-justia",
+    "tn-code-justia",
+    "tn-constitution-justia",
+    "tn-cases-justia",
     "tx-statutes-justia",
     "tx-constitution-justia",
     "tx-cases-justia",
@@ -803,6 +806,15 @@
    ],
    "blocked_sources": []
   },
+  "publications.tnsosfiles.com": {
+   "status": "allowed",
+   "sources": [
+    "tn-public-acts-sos",
+    "tn-admincode-sos",
+    "tn-admin-register-sos"
+   ],
+   "blocked_sources": []
+  },
   "raw.githubusercontent.com": {
    "status": "allowed",
    "sources": [
@@ -895,6 +907,15 @@
    "status": "allowed",
    "sources": [
     "ga-constitution-sos"
+   ],
+   "blocked_sources": []
+  },
+  "sos.tn.gov": {
+   "status": "allowed",
+   "sources": [
+    "tn-public-acts-sos",
+    "tn-admincode-sos",
+    "tn-admin-register-sos"
    ],
    "blocked_sources": []
   },
@@ -1038,6 +1059,14 @@
    "status": "blocked",
    "sources": [
     "hi-hrs-capitol-www"
+   ],
+   "blocked_sources": []
+  },
+  "www.capitol.tn.gov": {
+   "status": "blocked",
+   "sources": [
+    "tn-legislature-capitol",
+    "tn-constitution-capitol"
    ],
    "blocked_sources": []
   },
@@ -1217,6 +1246,7 @@
     "oh-oac-lii",
     "pa-rules-lii",
     "pa-admincode-lii",
+    "tn-admincode-lii",
     "tx-tac-lii",
     "ut-admincode-lii",
     "va-admincode-lii",
@@ -1274,7 +1304,8 @@
     "co-crs-lexis",
     "co-rules-lexis",
     "nj-admincode-lexis",
-    "nj-register-lexis"
+    "nj-register-lexis",
+    "tn-code-lexis"
    ],
    "blocked_sources": [
     "ca-official-reports-lexis",
@@ -1501,6 +1532,15 @@
     "oh-opinions-rod",
     "oh-subsequent-history-announcements",
     "oh-docket-clerk"
+   ],
+   "blocked_sources": []
+  },
+  "www.tncourts.gov": {
+   "status": "blocked",
+   "sources": [
+    "tn-rules-tncourts",
+    "tn-opinions-tncourts",
+    "tn-rule11-tncourts"
    ],
    "blocked_sources": []
   },
