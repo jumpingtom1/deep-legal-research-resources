@@ -131,8 +131,11 @@ def html_links(html_bytes, base_url, encoding=None):
     for href, text in p.links:
         if not href or href.startswith(("javascript:", "mailto:", "#")):
             continue
-        u = urllib.parse.urljoin(base_url, html.unescape(href).strip())
-        sp = urllib.parse.urlsplit(u)
+        try:
+            u = urllib.parse.urljoin(base_url, html.unescape(href).strip())
+            sp = urllib.parse.urlsplit(u)
+        except ValueError:      # malformed href (e.g. "http://[site:url-brief]") — skip it
+            continue
         u = urllib.parse.urlunsplit((sp.scheme, sp.netloc,
                                      urllib.parse.quote(sp.path, safe="/%:@!$&'()*+,;=-._~"),
                                      urllib.parse.quote(sp.query, safe="/%:@!$&'()*+,;=?-._~"),

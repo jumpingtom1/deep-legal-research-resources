@@ -597,6 +597,9 @@
     "nc-gs-justia",
     "nc-constitution-justia",
     "nc-cases-justia",
+    "ne-statutes-justia",
+    "ne-constitution-justia",
+    "ne-cases-justia",
     "nj-statutes-justia",
     "nj-constitution-justia",
     "nj-opinions-njcourts",
@@ -887,6 +890,23 @@
    ],
    "blocked_sources": []
   },
+  "nebraskajudicial.gov": {
+   "status": "allowed",
+   "sources": [
+    "ne-rules-judicial",
+    "ne-opinions-judicial"
+   ],
+   "blocked_sources": []
+  },
+  "nebraskalegislature.gov": {
+   "status": "allowed",
+   "sources": [
+    "ne-statutes-leg",
+    "ne-statutes-pdf-volumes",
+    "ne-constitution-leg"
+   ],
+   "blocked_sources": []
+  },
   "nevada.public.law": {
    "status": "allowed",
    "sources": [
@@ -1102,6 +1122,13 @@
    "sources": [
     "mt-arm-sos",
     "mt-mar-sos"
+   ],
+   "blocked_sources": []
+  },
+  "rules.nebraska.gov": {
+   "status": "allowed",
+   "sources": [
+    "ne-admincode-rules"
    ],
    "blocked_sources": []
   },
@@ -1647,6 +1674,7 @@
     "mo-csr-lii",
     "mt-arm-lii",
     "nc-ncac-lii",
+    "ne-admincode-lii",
     "nj-admincode-lii",
     "nm-nmac-lii",
     "nv-nac-lii",
@@ -1804,6 +1832,14 @@
     "nc-constitution-ncleg",
     "nc-rules-civil-ncleg",
     "nc-rules-evidence-ncleg"
+   ],
+   "blocked_sources": []
+  },
+  "www.nebraska.gov": {
+   "status": "allowed",
+   "sources": [
+    "ne-opinions-library",
+    "ne-pfr-lists"
    ],
    "blocked_sources": []
   },

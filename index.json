@@ -2092,6 +2092,78 @@
         }
       ]
     },
+    "ne": {
+      "name": "Nebraska",
+      "file": "jurisdictions/ne.md",
+      "sha256": "d893f0de8738dff6e7c72da220b3df7c3ee95b58eb09a5207ea75547a24d8c06",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 10,
+        "reported": 2
+      },
+      "citation_patterns": [
+        {
+          "label": "Nebraska Revised Statutes",
+          "regex": "(?:Neb\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?|R\\.\\s*R\\.\\s*S\\.\\s*Neb\\.|Neb\\.\\s*Rev\\.\\s*St\\.)\\s*(?:U\\.?C\\.?C\\.?\\s*)?\u00a7+\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)|(?:sec(?:tion|\\.)|\u00a7)\\s*(?P<section2>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?:\\([a-z0-9]+\\))*,?\\s+of\\s+the\\s+(?:Nebraska\\s+Revised\\s+Statutes|Revised\\s+Statutes\\s+of\\s+Nebraska)|Neb\\.\\s*U\\.\\s*C\\.\\s*C\\.\\s*\u00a7+\\s*(?P<ucc>\\d{1,2}[A-Z]?-\\d{3}(?:\\.\\d+)?)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska statutes (bare section, Nebraska context)",
+          "regex": "(?:sec(?:tion|\\.)s?|\u00a7+)\\s*(?P<section>\\d{1,3}[A-Z]?-\\d{1,4}(?:\\.\\d{1,3})?)(?![\\d.]*\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Nebraska Evidence Rules (codified at Neb. Rev. Stat. ch. 27)",
+          "regex": "Neb\\.\\s*(?:Evid\\.\\s*R\\.|R\\.\\s*Evid\\.)\\s*(?P<rule>\\d{3,4})|Rule\\s+(?P<rule2>\\d{3,4})(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+Nebraska\\s+(?:Evidence\\s+Rules|Rules\\s+of\\s+Evidence)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska Constitution",
+          "regex": "Neb\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+),?\\s*\u00a7\\s*(?P<section>\\d+[A-Z]?)|Article\\s+(?P<article2>[IVXL]+),?\\s+(?:section|\u00a7)\\s*(?P<section2>\\d+[A-Z]?),?\\s+of\\s+the\\s+(?:Nebraska\\s+Constitution|Constitution\\s+of\\s+(?:the\\s+State\\s+of\\s+)?Nebraska)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska Court Rules (Neb. Ct. R.)",
+          "regex": "Neb\\.\\s*Ct\\.\\s*R\\.(?:\\s+(?:of\\s+)?[A-Z][A-Za-z]*\\.?){0,4}\\s*\u00a7+\\s*(?P<rule>(?P<chapter>[1-6])-\\d{3,4}(?:\\.\\d{1,2})?)|\u00a7+\\s*(?P<rule2>[1-6]-\\d{3,4}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Nebraska\\s+(?:Court\\s+Rules|Rules\\s+of\\s+Professional\\s+Conduct|Supreme\\s+Court\\s+Rules)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska Administrative Code",
+          "regex": "(?P<title>\\d{1,3})\\s+Neb\\.\\s*Admin\\.\\s*Code,?\\s*(?:ch\\.|Chapter)\\s*(?P<chapter>\\d{1,3}[A-Z]?)(?:,?\\s*\u00a7+\\s*(?P<section>\\d{3}(?:\\.\\d+)*))?|Neb\\.\\s*Admin\\.\\s*Code\\s+tit\\.\\s*(?P<title2>\\d{1,3}),?\\s*ch\\.\\s*(?P<chapter2>\\d{1,3}[A-Z]?)(?:,?\\s*\u00a7+\\s*(?P<section2>\\d{3}(?:\\.\\d+)*))?|Title\\s+(?P<title3>\\d{1,3})\\s+(?:Neb\\.\\s*Admin\\.\\s*Code|NAC),?\\s*(?:ch\\.|Chapter)\\s*(?P<chapter3>\\d{1,3}[A-Z]?)|(?P<title4>\\d{1,3})\\s+NAC\\s+(?P<chapter4>\\d{1,3}[A-Z]?)-(?P<section4>\\d{3}(?:\\.\\d+)*)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska Reports / Nebraska Appellate Reports",
+          "regex": "(?P<volume>\\d{1,3}|_{2,})\\s+Neb\\.(?:\\s*(?P<app>App)\\.)?\\s+(?P<page>\\d{1,4}|_{2,})(?![\\d.])",
+          "context_required": false
+        },
+        {
+          "label": "North Western Reporter with a Nebraska parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+N\\.\\s*W\\.(?:\\s*(?P<series>[23])d)?\\s+(?P<page>\\d{1,5})(?:,\\s*\\d+)?\\s*\\((?P<court>Neb\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?)\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Nebraska appellate docket numbers (S- / A- dockets)",
+          "regex": "\\b(?P<court>[SA])-(?P<yy>\\d{2})-(?P<num>\\d{3,4})\\b",
+          "context_required": true
+        },
+        {
+          "label": "Westlaw / Lexis unreported Nebraska cites",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+(?:WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Neb\\.|Neb\\.\\s*(?:App\\.\\s*)?LEXIS\\s+(?P<lexis>\\d+))",
+          "context_required": false
+        },
+        {
+          "label": "Further review dispositions (Nebraska parenthetical)",
+          "regex": "(?:petition\\s+for\\s+)?further\\s+review\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Neb\\.\\s*(?P<date>[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*(?P<year>\\d{4}))\\)",
+          "context_required": false
+        },
+        {
+          "label": "Generic 'further review denied' history",
+          "regex": "(?:petition\\s+for\\s+)?further\\s+review\\s+(?P<disposition>denied|granted|dismissed)",
+          "context_required": true
+        }
+      ]
+    },
     "nj": {
       "name": "New Jersey",
       "file": "jurisdictions/nj.md",
@@ -2395,7 +2467,7 @@
     "oh": {
       "name": "Ohio",
       "file": "jurisdictions/oh.md",
-      "sha256": "617d36189b64213b0fc14dd6476fb66af56b95b51147834aec30af14cf231d43",
+      "sha256": "b61985c469ede3c96abe652ab724a7a41fdf6bb90f23b528694e2961468c212a",
       "compiled": "2026-10-17",
       "counts": {
         "blocked": 3,
@@ -2425,8 +2497,13 @@
         },
         {
           "label": "Ohio Rules of Evidence",
-          "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})|Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence",
+          "regex": "Ohio\\s+R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3,4})|Rule\\s+(?P<rule3>\\d{3,4})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Rules\\s+of\\s+Evidence",
           "context_required": false
+        },
+        {
+          "label": "Ohio Rules of Evidence (bare Evid.R.)",
+          "regex": "\\bEvid\\.\\s?R\\.\\s*(?P<rule>\\d{3,4})",
+          "context_required": true
         },
         {
           "label": "Ohio Rules of Appellate Procedure",
