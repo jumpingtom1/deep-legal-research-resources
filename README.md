@@ -26,4 +26,4 @@ lives here.
 
 ## Status
 
-See `PRIORITY.md` for the build order and per-jurisdiction status. Done so far (21): California, Delaware, New York, Texas, Florida, Illinois, Pennsylvania, New Jersey, Massachusetts, Nevada, Idaho, Arizona, Colorado, Georgia, North Carolina, Ohio, Virginia, Maryland, District of Columbia, Minnesota, Michigan.
+See `PRIORITY.md` for the build order and per-jurisdiction status. Done so far (27): California, Delaware, New York, Texas, Florida, Illinois, Pennsylvania, New Jersey, Massachusetts, Nevada, Idaho, Arizona, Colorado, Georgia, North Carolina, Ohio, Virginia, Maryland, District of Columbia, Minnesota, Michigan, Utah, Montana, Alaska, Hawaii, New Mexico, Wisconsin.
