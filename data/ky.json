@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "jurisdiction": "ky",
+  "name": "Kentucky",
+  "compiled": "2026-10-17",
+  "summary": "Statutes: apps.legislature.ky.gov serves each KRS section as a PDF at statute.aspx?id=N, where the numeric id comes from the chapter page (title page, then chapter, then section); fetch_doc.py reads them, built URLs are gated for WebFetch, and Justia 2025 is a constructible tier-2 fallback. The constitution and session laws (Ky. Acts) are on the same host, and KAR regulation pages have constructible URLs (3-digit padded) with engrossed PDFs; the Administrative Register is published as monthly PDFs. Consolidated court rules (CR, RCr, KRE, RAP, SCR) are only on govt.westlaw.com, which is blocked; kycourts.gov serves only the Supreme Court's adopting and amending orders as PDFs (RAP order 2022-49 is a corpus candidate). Case law: the official opinion hosts fail (opinions.kycourts.net has a TLS error; appellatepublic.kycourts.net is a JavaScript app). Supreme Court and Court of Appeals minutes PDFs on apps.kycourts.net list every opinion and discretionary-review order by docket. Justia supplies the opinion text, with cases.justia.com slip PDFs readable by the script.",
+  "citation_map": {
+    "courts": [
+      {
+        "name": "Supreme Court of Kentucky",
+        "courtlistener_id": "ky",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ky.",
+        "reporters": [
+          "S.W.3d",
+          "S.W.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Court of Appeals of Kentucky (intermediate court, 1976-)",
+        "courtlistener_id": "kyctapp",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ky. Ct. App.",
+        "reporters": [
+          "S.W.3d",
+          "S.W.2d"
+        ],
+        "public_domain_citation": null
+      },
+      {
+        "name": "Court of Appeals of Kentucky (highest court before 1976)",
+        "courtlistener_id": "kyctapphigh",
+        "courtlistener_id_unverified": true,
+        "bluebook_abbrev": "Ky.",
+        "reporters": [
+          "S.W.2d",
+          "S.W.",
+          "Ky."
+        ],
+        "public_domain_citation": null
+      }
+    ],
+    "citation_patterns": [
+      {
+        "family": "statutes",
+        "label": "Kentucky Revised Statutes (KRS)",
+        "examples": [
+          "KRS 413.140",
+          "KRS 413.140(1)(a)",
+          "Ky. Rev. Stat. Ann. § 413.140",
+          "Ky. Rev. Stat. § 186.010",
+          "KRS 342.0011(1)",
+          "KRS 304.20-450",
+          "KRS 311.530 to 311.620",
+          "KRS Chapter 413",
+          "section 413.140 of the Kentucky Revised Statutes"
+        ],
+        "regex": "(?:\\bKRS|Ky\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:§+\\s*)?(?P<chapter>\\d{1,3}[A-Z]?)\\.(?P<section>\\d{2,4}[A-Z]?(?:-\\d{2,4}(?![.\\d]))?)(?!\\d)|(?:\\bKRS|Ky\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s+[Cc]h(?:apter|\\.)\\s*(?P<chapter_only>\\d{1,3}[A-Z]?)\\b|(?:[Ss]ec(?:tion|\\.)|§)\\s*(?P<chapter2>\\d{1,3}[A-Z]?)\\.(?P<section2>\\d{2,4}[A-Z]?(?:-\\d{2,4}(?![.\\d]))?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Kentucky\\s+Revised\\s+Statutes",
+        "routes_to": [
+          "ky-krs-lrc",
+          "ky-krs-justia"
+        ]
+      },
+      {
+        "family": "statutes",
+        "label": "Kentucky Acts (session laws)",
+        "examples": [
+          "2019 Ky. Acts ch. 37",
+          "2024 Ky. Acts ch. 1, sec. 2",
+          "1942 Ky. Acts ch. 208"
+        ],
+        "regex": "(?P<year>\\d{4})\\s+Ky\\.\\s*Acts\\.?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d+)",
+        "routes_to": [
+          "ky-acts-lrc"
+        ]
+      },
+      {
+        "family": "constitution",
+        "label": "Kentucky Constitution",
+        "examples": [
+          "Ky. Const. § 115",
+          "Ky. Const. §§ 27-28",
+          "Section 115 of the Kentucky Constitution",
+          "Kentucky Constitution Section 116"
+        ],
+        "regex": "Ky\\.\\s*Const\\.\\s*§+\\s*(?P<section>\\d+[A-Za-z]?)|Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Kentucky\\s+Constitution|Kentucky\\s+Constitution,?\\s+(?:Section|§)\\s*(?P<section3>\\d+[A-Za-z]?)",
+        "routes_to": [
+          "ky-constitution-lrc",
+          "ky-constitution-justia"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Kentucky Rules of Civil Procedure (CR, dotted form)",
+        "examples": [
+          "CR 12.02(f)",
+          "CR 56.03",
+          "CR 60.02",
+          "CR 76.28(4)(c)",
+          "Ky. R. Civ. P. 12.02"
+        ],
+        "regex": "(?<![A-Za-z.])CR\\s+(?P<rule>\\d{1,2}\\.\\d{2,3})|Ky\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d{2,3})?)",
+        "routes_to": [
+          "ky-rules-westlaw",
+          "ky-rules-orders-kycourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Kentucky Rules of Criminal Procedure (RCr)",
+        "examples": [
+          "RCr 11.42",
+          "RCr 10.26",
+          "Ky. R. Crim. P. 11.42"
+        ],
+        "regex": "\\bRCr\\s+(?P<rule>\\d{1,2}\\.\\d{2,3})|Ky\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d{2,3})?)",
+        "routes_to": [
+          "ky-rules-westlaw",
+          "ky-rules-orders-kycourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Kentucky Rules of Evidence (KRE)",
+        "examples": [
+          "KRE 702",
+          "KRE 803(6)",
+          "Ky. R. Evid. 702"
+        ],
+        "regex": "\\bKRE\\s+(?P<rule>\\d{3}[A-Z]?)|Ky\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3}[A-Z]?)",
+        "routes_to": [
+          "ky-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Kentucky Rules of Appellate Procedure (Ky. RAP)",
+        "examples": [
+          "Ky. RAP 41",
+          "Ky. R. App. P. 41(A)",
+          "RAP 41 of the Kentucky Rules of Appellate Procedure"
+        ],
+        "regex": "Ky\\.\\s*RAP\\s*(?P<rule>\\d{1,2})|Ky\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2})|RAP\\s+(?P<rule3>\\d{1,2})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Kentucky\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+        "routes_to": [
+          "ky-rules-orders-kycourts",
+          "ky-rules-westlaw"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of Appellate Procedure (bare RAP)",
+        "examples": [
+          "RAP 41",
+          "RAP 32(A)(4)"
+        ],
+        "regex": "\\bRAP\\s+(?P<rule>\\d{1,2})(?!\\.\\d)",
+        "routes_to": [
+          "ky-rules-orders-kycourts",
+          "ky-rules-westlaw"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "court_rules",
+        "label": "Rules of the Supreme Court of Kentucky (SCR)",
+        "examples": [
+          "SCR 3.130(1.7)",
+          "SCR 3.130-1.7",
+          "SCR 1.030(3)",
+          "Ky. SCR 3.130"
+        ],
+        "regex": "(?:Ky\\.\\s*)?\\bSCR\\s+(?P<rule>\\d\\.\\d{3})(?:[-(](?P<subrule>\\d+\\.\\d+[a-z]?)\\)?)?",
+        "routes_to": [
+          "ky-rules-westlaw",
+          "ky-rules-orders-kycourts"
+        ]
+      },
+      {
+        "family": "court_rules",
+        "label": "Civil Rules (bare CR without dotted number)",
+        "examples": [
+          "CR 56"
+        ],
+        "regex": "(?<![A-Za-z.])CR\\s+(?P<rule>\\d{1,2})(?![.\\d])",
+        "routes_to": [
+          "ky-rules-westlaw"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "admin_code",
+        "label": "Kentucky Administrative Regulations (KAR)",
+        "examples": [
+          "201 KAR 9:260",
+          "401 KAR 5:005",
+          "13 KAR 2:020",
+          "907 KAR 1:005E",
+          "201 KAR 9:260, Section 1",
+          "201 Ky. Admin. Regs. 9:260"
+        ],
+        "regex": "(?P<title>\\d{1,3})\\s+(?:KAR|Ky\\.\\s*Admin\\.\\s*Regs\\.)\\s+(?P<chapter>\\d{1,3}):(?P<reg>\\d{1,3})(?P<emergency>E)?",
+        "routes_to": [
+          "ky-kar-lrc",
+          "ky-kar-lii"
+        ]
+      },
+      {
+        "family": "admin_register",
+        "label": "Administrative Register of Kentucky (Ky.R.)",
+        "examples": [
+          "47 Ky.R. 374",
+          "53 Ky.R. 1120"
+        ],
+        "regex": "(?P<volume>\\d{1,2})\\s+Ky\\.\\s?R\\.\\s+(?P<page>\\d+)",
+        "routes_to": [
+          "ky-register-lrc"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Kentucky cases, South Western Reporter with Kentucky parenthetical",
+        "examples": [
+          "Hoskins v. Maricle, 150 S.W.3d 1 (Ky. 2004)",
+          "Commonwealth v. Bredhold, 599 S.W.3d 409 (Ky. 2020)",
+          "123 S.W.3d 456 (Ky. App. 2021)",
+          "123 S.W.3d 456 (Ky. Ct. App. 2021)",
+          "Steelvest, Inc. v. Scansteel Serv. Ctr., Inc., 807 S.W.2d 476 (Ky. 1991)"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s?W\\.(?:\\s?(?P<series>2d|3d))?\\s+(?P<page>\\d+)(?:,\\s*\\d+(?:-\\d+)?)?\\s*\\((?P<court>(?:Ky\\.\\s*(?:Ct\\.\\s*)?App\\.|Ky\\.))\\s*(?P<year>\\d{4})\\)",
+        "routes_to": [
+          "ky-cases-justia",
+          "ky-coa-minutes",
+          "ky-sc-minutes"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Kentucky Reports (official, to 1951)",
+        "examples": [
+          "314 Ky. 1",
+          "290 Ky. 213"
+        ],
+        "regex": "(?P<volume>\\d{1,3})\\s+Ky\\.\\s+(?P<page>\\d+)(?![\\d.])",
+        "routes_to": [
+          "ky-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Kentucky unpublished / Westlaw opinion with Kentucky parenthetical",
+        "examples": [
+          "No. 2019-CA-001234-MR, 2021 WL 123456 (Ky. App. Jan. 8, 2021)",
+          "2020 WL 1234567 (Ky. Mar. 26, 2020)"
+        ],
+        "regex": "(?P<year>\\d{4})\\s+WL\\s+(?P<number>\\d+)\\s*\\((?P<court>(?:Ky\\.\\s*(?:Ct\\.\\s*)?App\\.|Ky\\.))\\s+[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s+\\d{4}\\)",
+        "routes_to": [
+          "ky-cases-justia",
+          "ky-coa-minutes"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "Kentucky appellate docket numbers",
+        "examples": [
+          "No. 2024-CA-0287-MR",
+          "2025-SC-0115-MR",
+          "2019-CA-001234-MR",
+          "2025-SC-0451-DG",
+          "2026-SC-0211-DGE"
+        ],
+        "regex": "(?P<year>(?:19|20)\\d{2})-(?P<court>SC|CA)-(?P<number>\\d{3,6})-(?P<type>MR|DGE|DG|WC|ME|OA|KB|TG|CL|KP|NA)\\b",
+        "routes_to": [
+          "ky-coa-minutes",
+          "ky-sc-minutes",
+          "ky-cases-justia"
+        ]
+      },
+      {
+        "family": "case_law",
+        "label": "South Western Reporter (bare, no court parenthetical)",
+        "examples": [
+          "150 S.W.3d 1",
+          "807 S.W.2d 476"
+        ],
+        "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s?W\\.(?:\\s?(?P<series>2d|3d))?\\s+(?P<page>\\d+)",
+        "routes_to": [
+          "ky-cases-justia"
+        ],
+        "context_required": true
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Discretionary review (Kentucky parenthetical)",
+        "examples": [
+          "disc. rev. denied (Ky. Mar. 15, 2023)",
+          "discretionary review denied (Ky. 2023)"
+        ],
+        "regex": "(?:disc\\.\\s*rev\\.|discretionary\\s+review)\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Ky\\.",
+        "routes_to": [
+          "ky-sc-minutes"
+        ]
+      },
+      {
+        "family": "subsequent_history",
+        "label": "Discretionary review (bare)",
+        "examples": [
+          "disc. rev. denied",
+          "discretionary review granted"
+        ],
+        "regex": "(?:disc\\.\\s*rev\\.|discretionary\\s+review)\\s+(?P<disposition>denied|granted|dismissed)",
+        "routes_to": [
+          "ky-sc-minutes"
+        ],
+        "context_required": true
+      }
+    ],
+    "law_aliases": {
+      "KRS": "KRS",
+      "Ky. Rev. Stat.": "KRS",
+      "Ky. Rev. Stat. Ann.": "KRS",
+      "KAR": "KAR",
+      "Ky. Admin. Regs.": "KAR",
+      "Ky.R.": "KyR",
+      "CR": "CR",
+      "Ky. R. Civ. P.": "CR",
+      "RCr": "RCr",
+      "Ky. R. Crim. P.": "RCr",
+      "KRE": "KRE",
+      "Ky. R. Evid.": "KRE",
+      "RAP": "RAP",
+      "Ky. R. App. P.": "RAP",
+      "SCR": "SCR"
+    },
+    "notes": "KRS sections are chapter.section (413.140, 342.0011, 422A.0702) and the insurance code uses chapter.article-section (304.20-450); chapters can carry a letter suffix (15A, 164A, 422A). 'KRS 311.530 to 311.620' or '311.530-311.620' is a range: the regex takes the first section, and the -NNN tail only binds to 2-4 digit article-section forms after a dot. KRS URLs are not constructible: statute.aspx?id= is an opaque id read from the chapter page. KRE are numbered rules (KRE 702); KRS chapter 422A holds only 'Renumbered as KRE nnn' stubs, so KRE text is not on the legislature site. Kentucky court rules carry no state marker in practice ('CR 12.02(f)', 'RCr 11.42', 'KRE 702', 'SCR 3.130(1.7)', 'RAP 41'). The dotted CR NN.NN, RCr, KRE and SCR d.ddd forms are treated as distinctive. Bare 'RAP 41' is shared with Washington's RAP and bare 'CR 56' with Washington's CR, so both are context_required. SCR is matched only in the d.ddd form, which keeps Wisconsin 'SCR 20:1.7' and other states' SCR forms out. Kentucky style is '(Ky. App. 2021)'; Bluebook is '(Ky. Ct. App. 2021)'. Before 1976 the Court of Appeals was the highest court, so cite '(Ky. 1970)'. No public-domain citation. Dockets: YYYY-SC-NNNNNN-XX and YYYY-CA-NNNNNN-XX, with type suffixes MR (matter of right), DG/DGE (discretionary review granted), WC (workers' comp), ME, OA (original action), KB (bar), TG (transfer granted). The suffix list keeps Mississippi '-COA/-SCT' and Florida trial '-CA-...-O' numbers out. Unpublished opinions are cited under RAP 41 (formerly CR 76.28(4)(c)); they must be attached to the brief and usually carry a WL cite. 'disc. rev. denied' is Kentucky's subsequent-history phrase, but North Carolina uses 'disc. review denied', so the bare form is context_required. CourtListener ids are from memory and unverified."
+  },
+  "sources": [
+    {
+      "id": "ky-krs-lrc",
+      "family": "statutes",
+      "title": "Kentucky Revised Statutes (KRS) online",
+      "publisher": "Kentucky Legislative Research Commission (LRC)",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "KRS page notice: the statutes on the site are 'an unofficial posting' and 'do not constitute official text'; the certified versions are to be consulted (https://legislature.ky.gov/Law/Statutes/Pages/default.aspx). The Certified Versions page says that under KRS 7.138(2) only the official LRC database or a certified print version (LexisNexis, Thomson Reuters) may be cited in court (https://legislature.ky.gov/Law/Statutes/Pages/KRSEDS.aspx). The same page bars commercial use without agreement (KRS 61.874).",
+      "coverage": "All KRS chapters, current text with history notes and LRC notes; repealed and renumbered sections remain as one-line stubs.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://apps.legislature.ky.gov/law/statutes/",
+        "navigation": "KRS title page (lists every chapter, 'CHAPTER 413 LIMITATION OF ACTIONS') -> chapter.aspx?id={opaque chapter id} (lists sections as '.140 Actions to be brought within one year.') -> statute.aspx?id={opaque section id}, which returns the section as a PDF. Ids are not derivable from the citation: always read them from the chapter page (fetch_doc.py links <chapter url> '^\\.140 ' --regex). The title page shows chapter numbers and names only; chapter pages show every section number.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "apps.legislature.ky.gov/robots.txt: 404 (no rules); fetch_doc.py check: permits",
+        "notes": "WebFetch on a built statute.aspx URL and on the title page returned PROVENANCE_REQUIRED (not retried); WebFetch read statute.aspx?id=50197 (a search-result URL) correctly, so it handles the PDFs when the URL has provenance. Use fetch_doc.py. Sections are short PDFs (KRS 413.140: 2 pages; 342.0011: 8 pages)."
+      },
+      "currency": {
+        "where": "title page and chapter pages, under the heading; chapter pages also show the database update date",
+        "observed": "Includes enactments through the 2026 Regular Session; KRS database was last updated on 10/17/2026"
+      },
+      "hazards": [
+        "unofficial online text: KRS 7.138(2) requires the official or certified version for citation in court",
+        "section ids are opaque (statute.aspx?id=58050 = 413.140): never guess, read from the chapter page",
+        "chapter-page link text is '.140 Title', without the chapter number: filter on '^\\.140 '",
+        "renumbered and repealed sections return a one-line PDF stub ('422A.0702 Renumbered as KRE 702.')",
+        "history and LRC notes follow the text in the same PDF: stop quoting at 'Effective:' / 'History:'"
+      ],
+      "probe": {
+        "citation": "KRS 413.140",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=58050",
+        "expect": "The following actions shall be commenced within one (1) year after the cause of"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: title page 42,632 chars -> chapter.aspx?id=39261 (KRS 413) -> statute.aspx?id=58050: PDF 2 pp, 5,536 chars, '413.140 Actions to be brought within one year.' Second citation: KRS 342.0011 via chapter.aspx?id=38914 -> statute.aspx?id=56771, PDF 8 pp, 'As used in this chapter, unless the context otherwise requires'. WebFetch on statute.aspx?id=50197 (KRS 304.20-450, a repealed stub): read correctly."
+      },
+      "notes": "KRS citations in the certified editions are 'KRS 413.140'; Bluebook uses 'Ky. Rev. Stat. Ann. § 413.140 (West 20xx)'."
+    },
+    {
+      "id": "ky-krs-justia",
+      "family": "statutes",
+      "title": "Kentucky Revised Statutes on Justia",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; the page says 'These codes may not be the most recent version.'",
+      "coverage": "KRS 2025 edition (unyeared URLs); earlier years 2023, 2024 and 2012 back to about 2011.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://law.justia.com/codes/kentucky/chapter-{chapter}/section-{chapter}-{section}/",
+        "pattern_rules": "{chapter} as cited, letter suffix kept lower-case (assumed: 422a); {section} = the digits after the dot, so 413.140 becomes chapter-413/section-413-140. For article-sections (304.20-450) the form is probably section-304-20-450 (not verified). Unyeared URLs serve the newest edition (2025); yeared editions are at /codes/kentucky/{year}/.",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com/robots.txt answers with a Cloudflare 'Just a moment...' challenge (curl 403)",
+        "notes": "fetch_doc.py: REFUSED (robots.txt challenge; host off for the day). WebFetch read both a linked and a built URL."
+      },
+      "currency": {
+        "where": "page heading / breadcrumb",
+        "observed": "2025 Kentucky Revised Statutes"
+      },
+      "hazards": [
+        "tier 2: disclose the edition year; lags the LRC database by up to a session"
+      ],
+      "probe": {
+        "citation": "KRS 413.140",
+        "url": "https://law.justia.com/codes/kentucky/chapter-413/section-413-140/",
+        "expect": "The following actions shall be commenced within one (1) year"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: KRS 413.140 YES, 'The following actions shall be commenced within one (1) year', '2025 Kentucky Revised Statutes'. Second citation: KRS 57.320 at /codes/kentucky/chapter-57/section-57-320/ YES, 'The state law librarian, under direction of the Supreme Court'."
+      }
+    },
+    {
+      "id": "ky-acts-lrc",
+      "family": "statutes",
+      "title": "Acts of the Kentucky General Assembly (session laws)",
+      "publisher": "Kentucky Legislative Research Commission",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "No authentication statement seen on the Acts pages (https://legislature.ky.gov/Law/Pages/KyActs.aspx).",
+      "coverage": "Regular and extraordinary sessions; the index lists sessions from 1998 or earlier through the 2026 Regular Session. Each session has a whole-volume PDF and per-chapter PDFs.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://apps.legislature.ky.gov/law/acts/{yy}RS/documents/{chapter4}.pdf",
+        "pattern_rules": "{yy} = last two digits of the session year; {chapter4} = Acts chapter zero-padded to 4 digits (2024 Ky. Acts ch. 1 -> 24RS/documents/0001.pdf). Extraordinary sessions use {yy}SS (22SS seen on the index), so check KyActs.aspx for the session code. Table by chapter: /law/acts/{yy}RS/acts_table_by_chapter.html; full volume: /law/acts/{yy}RS/actsmas.pdf.",
+        "index_url": "https://legislature.ky.gov/Law/Pages/KyActs.aspx",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "apps.legislature.ky.gov: 404 (no rules)",
+        "notes": "Built URLs would be gated for WebFetch; use fetch_doc.py."
+      },
+      "currency": {
+        "where": "KyActs.aspx session list",
+        "observed": "2026 Regular Session"
+      },
+      "hazards": [
+        "whole-session volume PDFs (actsmas.pdf) are very long; use per-chapter PDFs"
+      ],
+      "probe": {
+        "citation": "2024 Ky. Acts ch. 1",
+        "url": "https://apps.legislature.ky.gov/law/acts/24RS/documents/0001.pdf",
+        "expect": "CHAPTER 1 ( HB 161 ) AN ACT"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: 24RS/documents/0001.pdf PDF 1 p, 1,413 chars, 'CHAPTER 1 ( HB 161 ) AN ACT'; second citation 2023 Ky. Acts ch. 5 -> 23RS/documents/0005.pdf, 2 pp, 'CHAPTER 5 ( SB 72'. Chapter links confirmed on acts_table_by_chapter.html."
+      }
+    },
+    {
+      "id": "ky-constitution-lrc",
+      "family": "constitution",
+      "title": "Constitution of Kentucky",
+      "publisher": "Kentucky Legislative Research Commission",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "The index page gives no authentication statement (https://apps.legislature.ky.gov/law/constitution).",
+      "coverage": "The 1891 Constitution as amended, sections 1-263 plus the schedule.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://apps.legislature.ky.gov/law/constitution",
+        "navigation": "The index page lists every section as 'Section 115 ... Right of appeal -- Procedure.' and links it to /Law/Constitution/Constitution/ViewConstitution?rsn={opaque id}. The rsn is not the section number (Section 1 = rsn 3, Section 115 = rsn 131), so read it from the index (fetch_doc.py links <index> '^Section 115 ' --regex). Each link returns a one-section PDF.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "apps.legislature.ky.gov: 404 (no rules)",
+        "notes": "Built URLs would be gated for WebFetch (same host as the KRS)."
+      },
+      "currency": {
+        "where": "index page heading",
+        "observed": "(Includes Amendments Ratified On or Before November 5, 2024)"
+      },
+      "hazards": [
+        "rsn ids are opaque and offset from the section numbers"
+      ],
+      "probe": {
+        "citation": "Ky. Const. § 115",
+        "url": "https://apps.legislature.ky.gov/Law/Constitution/Constitution/ViewConstitution?rsn=131",
+        "expect": "In all cases, civil and criminal, there shall be allowed as a matter of right"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: index 36,907 chars; Section 115 -> rsn=131, PDF 1 p, 838 chars, 'Section 115 Right of appeal -- Procedure.' Index links for Sections 1, 2 and 110 resolve to rsn 3, 4 and 121."
+      }
+    },
+    {
+      "id": "ky-constitution-justia",
+      "family": "constitution",
+      "title": "Kentucky Constitution on Justia",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Page: 'This Constitution may not be the most recent version.'",
+      "coverage": "Sections grouped by subject on list pages (list1.html ...).",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://law.justia.com/constitution/kentucky/",
+        "navigation": "index -> grouped list page with an anchor (Sections 115 and 116 are at /constitution/kentucky/list1.html#Appellate)",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com: Cloudflare challenge on robots.txt",
+        "notes": "Only the index was fetched; no section text was probed."
+      },
+      "currency": {
+        "where": "index page",
+        "observed": "This Constitution may not be the most recent version."
+      },
+      "hazards": [
+        "sections are grouped several to a page under subject anchors"
+      ],
+      "probe": {
+        "citation": "Ky. Const. § 115",
+        "url": "https://law.justia.com/constitution/kentucky/list1.html#Appellate",
+        "expect": "In all cases, civil and criminal"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "WebFetch: index YES, grouped entry 'Appellate Policy -- Rule-Making Power - Sections 115 and 116' -> list1.html#Appellate; section text not fetched."
+      }
+    },
+    {
+      "id": "ky-rules-westlaw",
+      "family": "court_rules",
+      "title": "Kentucky Rules of Court (CR, RCr, KRE, RAP, SCR, FCRPP) on Westlaw govt",
+      "publisher": "Thomson Reuters for the Kentucky Supreme Court",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "kycourts.gov links it as 'Supreme Court Rules & Procedures (Westlaw)' and 'West's Rules & Procedures' (https://www.kycourts.gov/Courts/Pages/Rules-of-Practice.aspx).",
+      "coverage": "Consolidated current text of all Kentucky court rules: the only consolidated free source.",
+      "access": {
+        "mode": "link-only",
+        "index_url": "https://govt.westlaw.com/kyrules/Index?transitionType=Default&contextData=%28sc.Default%29",
+        "format": "html"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "blocked-challenge",
+        "robots_txt": "govt.westlaw.com answers robots.txt with a bot challenge (fetch_doc.py REFUSED, 2026-10-17)",
+        "notes": "Not attempted with WebFetch (a built or script-derived URL would be gated; other records report WebFetch SITE_BLOCKED on this host). Not retried by any route."
+      },
+      "currency": {
+        "where": "none observed",
+        "observed": "not fetched"
+      },
+      "hazards": [
+        "blocked host: cite the rule and link it, never quote from it"
+      ],
+      "probe": {
+        "citation": "CR 12.02",
+        "url": "https://govt.westlaw.com/kyrules/Index?transitionType=Default&contextData=%28sc.Default%29",
+        "expect": "n/a (blocked)"
+      },
+      "verification": {
+        "status": "blocked",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py --research: 'REFUSED: govt.westlaw.com refused automated access earlier (robots.txt challenge, 2026-10-17T09:38:19)'."
+      }
+    },
+    {
+      "id": "ky-rules-orders-kycourts",
+      "family": "court_rules",
+      "title": "Supreme Court of Kentucky orders adopting and amending rules",
+      "publisher": "Kentucky Court of Justice (Supreme Court)",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "The orders are the Supreme Court's own signed orders promulgating the rules (e.g. Order 2022-49 creating the RAP, effective January 1, 2023).",
+      "coverage": "Supreme Court orders from about 2005 to now (rule adoptions and amendments for CR, RCr, KRE, RAP, SCR, FCRPP, and administrative procedures). These are amendment texts, not a consolidated rulebook, except that Order 2022-49 sets out the full RAP as adopted.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.kycourts.gov/Courts/Supreme-Court/Pages/Administrative-Orders.aspx",
+        "navigation": "The Administrative Orders page lists every order by year with its title ('Amending Supreme Court Rule 2.112 2026 - 2026-36 Order'). It links /Courts/Supreme-Court/Supreme Court Orders/{yyyy}{nn}.pdf (order 2026-01 -> 202601.pdf). Find the latest order amending the rule by title, then read the PDF. The Court of Appeals page links the RAP adopting order directly as 'Rules of Appellate Procedure'.",
+        "url_pattern": "https://www.kycourts.gov/Courts/Supreme-Court/Supreme%20Court%20Orders/{year}{order2}.pdf",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok (truncated)",
+        "shell": "ok",
+        "robots_txt": "www.kycourts.gov/robots.txt: Azure Front Door 403 'The request is blocked.' to plain curl; fetch_doc.py check reports 'robots.txt permits' and fetches pages 200",
+        "notes": "WebFetch read 202601.pdf in full and stopped Order 2022-49 (89 pp) mid-RAP 32: 'RAP 41 NOT PRESENT'. fetch_doc.py reads the whole PDF (205,517 chars)."
+      },
+      "currency": {
+        "where": "each order's caption and effective-date sentence",
+        "observed": "amendments ... shall be effective April 1, 2026 (Order 2026-01)"
+      },
+      "hazards": [
+        "amendment orders only: the current text of a rule is the base order plus every later amending order",
+        "Order 2022-49 is cut off by WebFetch at RAP 32 of 75",
+        "order PDFs mix several rule sets (RAP plus CR/RCr/FCRPP amendments)"
+      ],
+      "probe": {
+        "citation": "RAP 41",
+        "url": "https://www.kycourts.gov/Courts/Supreme-Court/Supreme%20Court%20Orders/202249.pdf",
+        "expect": "Order Creating Rules of Appellate Procedure and Amending Rules of Civil Procedure"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: 202249.pdf 89 pp, 205,517 chars, last-modified 2022-10-25, opens 'IN RE: Order Creating Rules of Appellate Procedure'; 202601.pdf 12 pp 'amendments to the Rules of Appellate Procedure shall be effective April 1, 2026'. WebFetch on 202601.pdf: complete; on 202249.pdf: truncated at RAP 32(E)(1)(b)."
+      }
+    },
+    {
+      "id": "ky-kar-lrc",
+      "family": "admin_code",
+      "title": "Kentucky Administrative Regulations (KAR)",
+      "publisher": "Kentucky Legislative Research Commission",
+      "tier": 1,
+      "official_status": "unofficial",
+      "official_status_evidence": "KAR home: 'Unofficial WWW Version'; the regulations are 'an unofficial posting' of the LRC's official internal database (https://legislature.ky.gov/Law/kar/Pages/default.aspx).",
+      "coverage": "All current KAR titles (001-922), with emergency (E) and in-process versions; the PDFs carry the Register history line.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://apps.legislature.ky.gov/law/kar/titles/{title3}/{chapter3}/{reg3}/",
+        "pattern_rules": "Zero-pad title, chapter and regulation to 3 digits: 201 KAR 9:260 -> titles/201/009/260/; 13 KAR 2:020 -> titles/013/002/020/ (titles/13/... is 404). The page links 'Download PDF' -> /law/kar/downloads/docs/{opaque doc id}/document.engrossed.pdf (read that link from the page). Emergency regulations (E suffix) are not at .../005E/ (404): use the chapter page or EmergencyRegs.aspx.",
+        "index_url": "https://apps.legislature.ky.gov/law/kar/titles.htm",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "ok",
+        "robots_txt": "apps.legislature.ky.gov: 404 (no rules)",
+        "notes": "WebFetch read a KAR engrossed PDF from a search result; built regulation URLs are expected to be gated, as on the KRS pages. HTML pages are long (401 KAR 5:005: 164,689 chars) because the text appears twice: prefer the engrossed PDF."
+      },
+      "currency": {
+        "where": "KAR home page notice",
+        "observed": "Administrative regulations are updated approximately once a month"
+      },
+      "hazards": [
+        "the HTML page holds two copies of the text (an 'ALTERNATE VIEW' pre-engrossment copy first, then the engrossed text): quote from the engrossed PDF",
+        "some generated PDFs for old repealers contain only 'Not available' placeholders",
+        "history line '(47 Ky.R. 374, 944; eff. 11-19-2020.)' ends the text; 'Crt to Am' notes signal a pending amendment"
+      ],
+      "probe": {
+        "citation": "201 KAR 9:260",
+        "url": "https://apps.legislature.ky.gov/law/kar/titles/201/009/260/",
+        "expect": "Section 1. Applicability. (1) Any licensee who is authorized to prescribe, dispense, or administer"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: titles/201/009/260/ html 59,500 chars, '201 KAR 9:260.Professional standards for prescribing'; its 'Download PDF' docs/1885/document.engrossed.pdf has 8 pp, 30,012 chars and ends '47 Ky.R. 374, 944; eff. 11-19-2020.' Second and third: 401 KAR 5:005 (titles/401/005/005/, 164,689 chars) and 13 KAR 2:020 (titles/013/002/020/) ok. WebFetch on docs/845/document.engrossed.pdf (search result) matched the script (placeholder repealer)."
+      }
+    },
+    {
+      "id": "ky-kar-lii",
+      "family": "admin_code",
+      "title": "Kentucky Administrative Regulations on Cornell LII",
+      "publisher": "Legal Information Institute (Cornell)",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party compilation; the page says 'State regulations are updated quarterly'.",
+      "coverage": "All KAR titles; the pages fetched were last modified 2025-08-02, so the copy may be stale.",
+      "access": {
+        "mode": "constructible",
+        "url_pattern": "https://www.law.cornell.edu/regulations/kentucky/{title}-KAR-{chapter}-{reg}",
+        "pattern_rules": "Unpadded numbers as cited: 201 KAR 9:260 -> 201-KAR-9-260.",
+        "index_url": "https://www.law.cornell.edu/regulations/kentucky",
+        "format": "html"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "www.law.cornell.edu: User-agent * Crawl-delay 10; regulations paths allowed",
+        "notes": ""
+      },
+      "currency": {
+        "where": "foot of the regulation page",
+        "observed": "State regulations are updated quarterly; we currently have two versions available."
+      },
+      "hazards": [
+        "last-modified 2025-08-02 on the pages probed: check against the LRC page"
+      ],
+      "probe": {
+        "citation": "201 KAR 9:260",
+        "url": "https://www.law.cornell.edu/regulations/kentucky/201-KAR-9-260",
+        "expect": "Section 1. Applicability. (1) Any licensee who is authorized to prescribe"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: 201-KAR-9-260 html 32,166 chars, 'Section 1. Applicability.' present; 401-KAR-5-005 html 87,808 chars."
+      }
+    },
+    {
+      "id": "ky-register-lrc",
+      "family": "admin_register",
+      "title": "Administrative Register of Kentucky",
+      "publisher": "Kentucky Legislative Research Commission",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "The Register is the LRC's own monthly publication under KRS Chapter 13A; no authentication statement seen.",
+      "coverage": "Monthly issues, each volume running July-June (Volume 53 = 2026-27), with archive volumes listed on the same page.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://legislature.ky.gov/Law/kar/Pages/Registers.aspx",
+        "navigation": "The Registers page lists each issue by month: apps.legislature.ky.gov/law/kar/registers/{vol}Ky_R_{yyyy}-{yy}/{nn}_{Mon}.pdf (53Ky_R_2026-27/04_Oct.pdf). Month spellings vary ('01_July', '02_Aug', '03_Sep'), so take the link from the page. Ky.R. page numbers run through the volume, so find the issue for a page from the issue's page range.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "legislature.ky.gov: 403 'The request is blocked.' to plain curl; fetch_doc.py check permits",
+        "notes": "Issues are huge (Oct 2026: 242 pp, 2.2M chars): use fetch_doc.py grep, not WebFetch."
+      },
+      "currency": {
+        "where": "cover page",
+        "observed": "VOLUME 53, NUMBER 4 ... OCTOBER 1, 2026"
+      },
+      "hazards": [
+        "very long PDFs: WebFetch will truncate",
+        "Ky.R. cites give volume and page, not month"
+      ],
+      "probe": {
+        "citation": "53 Ky.R. (Oct. 2026)",
+        "url": "https://apps.legislature.ky.gov/law/kar/registers/53Ky_R_2026-27/04_Oct.pdf",
+        "expect": "VOLUME 53, NUMBER 4"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: 04_Oct.pdf 242 pp, 2,211,430 chars, last-modified 2026-10-01, opens 'VOLUME 53, NUMBER 4 ... ADMINISTRATIVE REGISTER OF KENTUCKY'."
+      }
+    },
+    {
+      "id": "ky-opinions-kycourts-legacy",
+      "family": "case_law",
+      "title": "Kentucky Court of Justice searchable opinions (dtSearch)",
+      "publisher": "Kentucky Court of Justice",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Linked as 'Searchable Opinions' from the Court of Appeals page (https://www.kycourts.gov/Courts/Court-of-Appeals/Pages/default.aspx).",
+      "coverage": "Supreme Court and Court of Appeals slip opinions (coverage not confirmed).",
+      "access": {
+        "mode": "search-only",
+        "index_url": "http://opinions.kycourts.net/dtsearch.html",
+        "format": "pdf"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "gated",
+        "shell": "tls-error",
+        "robots_txt": "not readable: robots.txt connection reset (curl); TLS chain fails for fetch_doc.py",
+        "notes": "fetch_doc.py: 'TLS certificate chain does not verify'. WebFetch on the linked dtsearch.html: PROVENANCE_REQUIRED (not retried)."
+      },
+      "currency": {
+        "where": "not reached",
+        "observed": "not fetched"
+      },
+      "hazards": [
+        "TLS failure: not usable by script"
+      ],
+      "probe": {
+        "citation": "n/a",
+        "url": "http://opinions.kycourts.net/dtsearch.html",
+        "expect": "search form"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py: TLS error; WebFetch: PROVENANCE_REQUIRED."
+      }
+    },
+    {
+      "id": "ky-opinions-appellatepublic",
+      "family": "case_law",
+      "title": "Kentucky appellate public access portal (dockets, documents, opinions)",
+      "publisher": "Kentucky Court of Justice",
+      "tier": 1,
+      "official_status": "unknown",
+      "official_status_evidence": "Court of Justice public-access application (the page title is 'publicaccess').",
+      "coverage": "Appellate case search with docket entries, documents and an opinions search type (from the app's JavaScript labels).",
+      "access": {
+        "mode": "search-only",
+        "index_url": "https://appellatepublic.kycourts.net/",
+        "format": "json"
+      },
+      "text": "link-only",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "http-error",
+        "robots_txt": "fetch_doc.py check: robots.txt permits",
+        "notes": "The page is a Vue app shell (0 chars of text). properties.js sets apiRoot '/api/api/v1'; /api/api/v1/searches/types returned HTTP 500 to fetch_doc.py."
+      },
+      "currency": {
+        "where": "n/a",
+        "observed": "not reached"
+      },
+      "hazards": [
+        "JavaScript-only app: no text without the API"
+      ],
+      "probe": {
+        "citation": "n/a",
+        "url": "https://appellatepublic.kycourts.net/",
+        "expect": "n/a"
+      },
+      "verification": {
+        "status": "reported",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "FAIL",
+        "evidence": "fetch_doc.py --research: 200, html 0 chars (app shell); API probe HTTP 500."
+      }
+    },
+    {
+      "id": "ky-sc-minutes",
+      "family": "subsequent_history",
+      "title": "Supreme Court of Kentucky minutes (opinions rendered and motions for discretionary review)",
+      "publisher": "Kentucky Court of Justice (Supreme Court Clerk)",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "The Clerk's official minutes of the Court's dispositions.",
+      "coverage": "Monthly minutes from about 2009 (MNT01222009.pdf) to now. They list each opinion rendered (case, docket, county, publication status, author, disposition) and the orders granting and denying discretionary review.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.kycourts.gov/Courts/Supreme-Court/Pages/Supreme-Court-Minutes.aspx",
+        "navigation": "The minutes page lists months by year -> apps.kycourts.net/Supreme/Minutes/MNT{mm}{yyyy}.pdf (special renditions MNT{mm}{dd}{yyyy}.pdf; older files use other date forms). Grep the PDF for the party name or the SC docket. Sections are headed 'ORDER GRANTING DISCRETIONARY REVIEW' and 'ORDER DENYING DISCRETIONARY REVIEW' with dates. The minutes give the Supreme Court docket and county, NOT the Court of Appeals docket, so a disposition below is found by party name.",
+        "format": "pdf"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "apps.kycourts.net: fetch_doc.py permits",
+        "notes": ""
+      },
+      "currency": {
+        "where": "each PDF's heading (minutes date)",
+        "observed": "MNT092026.pdf last-modified Thu, 24 Sep 2026"
+      },
+      "hazards": [
+        "Court of Appeals docket not listed: search by party name",
+        "monthly files can run 17+ pages"
+      ],
+      "probe": {
+        "citation": "2025-SC-0115-MR",
+        "url": "https://apps.kycourts.net/Supreme/Minutes/MNT092026.pdf",
+        "expect": "ORDER DENYING DISCRETIONARY REVIEW - September 16, 2026"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: MNT092026.pdf 17 pp, 24,004 chars; '2025-SC-0115-MR FAYETTE ... TO BE PUBLISHED OPINION OF THE COURT'; 'ORDER GRANTING DISCRETIONARY REVIEW (ORAL ARGUMENT) - September 16, 2026'. No '-CA-' docket strings in the file."
+      },
+      "notes": "The same minutes are the finding aid for Supreme Court opinions by (docket, date)."
+    },
+    {
+      "id": "ky-coa-minutes",
+      "family": "case_law",
+      "title": "Court of Appeals of Kentucky minutes (opinions rendered)",
+      "publisher": "Kentucky Court of Justice (Court of Appeals Clerk)",
+      "tier": 1,
+      "official_status": "official",
+      "official_status_evidence": "The Clerk's official minutes of opinions rendered each Friday.",
+      "coverage": "Weekly minutes; the page links files from 2025 and earlier years. Each entry gives the case, CA docket, county, 'TO BE PUBLISHED' / 'NOT TO BE PUBLISHED', the disposition and the panel.",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://www.kycourts.gov/Courts/Court-of-Appeals/Pages/Court-of-Appeals-Minutes.aspx",
+        "navigation": "The minutes page lists weekly dates -> apps.kycourts.net/Appeals/Minutes/MNT{mm}{dd}{yyyy}.pdf. Grep for the docket (2024-CA-1103-MR) to get the rendition date and publication status, then read the text on Justia (ky-cases-justia).",
+        "format": "pdf",
+        "read_via": "ky-cases-justia (opinion text); the official text hosts fail (ky-opinions-kycourts-legacy TLS error; ky-opinions-appellatepublic JS app)"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "untested",
+        "shell": "ok",
+        "robots_txt": "apps.kycourts.net: fetch_doc.py permits",
+        "notes": ""
+      },
+      "currency": {
+        "where": "PDF heading",
+        "observed": "JANUARY 09, 2026 MINUTES RELEASED: 10:00 A.M."
+      },
+      "hazards": [
+        "minutes only, not opinion text"
+      ],
+      "probe": {
+        "citation": "2024-CA-1103-MR",
+        "url": "https://apps.kycourts.net/Appeals/Minutes/MNT01092026.pdf",
+        "expect": "NOT TO BE PUBLISHED OPINION AFFIRMING"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "fetch_doc.py --research: MNT01092026.pdf 8 pp, 9,792 chars; '2024-CA-1103-MR ALLEN ELLIOT YOUNG, ET AL. NOT TO BE PUBLISHED OPINION AFFIRMING'."
+      }
+    },
+    {
+      "id": "ky-cases-justia",
+      "family": "case_law",
+      "title": "Kentucky Supreme Court and Court of Appeals opinions on Justia",
+      "publisher": "Justia",
+      "tier": 2,
+      "official_status": "unofficial",
+      "official_status_evidence": "Third-party host; the attached PDF is the court's slip opinion (cases.justia.com).",
+      "coverage": "Supreme Court of Kentucky 1976-2026; Court of Appeals 1894-2026 (before 1976 the Court of Appeals was the highest court).",
+      "access": {
+        "mode": "index-anchored",
+        "index_url": "https://law.justia.com/cases/kentucky/",
+        "navigation": "/cases/kentucky/{supreme-court|court-of-appeals}/{year}/ lists cases with docket and date -> /{year}/{docket-lower}.html (2024-ca-0287-mr.html; older ones may use a 6-digit docket and a '-1' suffix). The case page links the slip PDF at cases.justia.com/kentucky/{court}/{year}-{docket}.pdf?ts=... , which fetch_doc.py reads.",
+        "format": "html",
+        "read_via": "cases.justia.com slip PDF: fetch_doc.py ok"
+      },
+      "text": "fetch-and-quote",
+      "automation": {
+        "webfetch": "ok",
+        "shell": "blocked-challenge",
+        "robots_txt": "law.justia.com: Cloudflare challenge on robots.txt; cases.justia.com permitted",
+        "notes": "Use WebFetch on law.justia.com pages; use fetch_doc.py on the cases.justia.com PDF link taken from the page."
+      },
+      "currency": {
+        "where": "year listing",
+        "observed": "Kentucky Court of Appeals 2026 (latest year listed)"
+      },
+      "hazards": [
+        "slip pagination only (no S.W.3d pin pages)",
+        "unpublished opinions are included: check the 'NOT TO BE PUBLISHED' header (RAP 41)"
+      ],
+      "probe": {
+        "citation": "Scotty's Contracting & Stone, LLC v. Graves, No. 2024-CA-0287-MR (Ky. App. Aug. 28, 2026)",
+        "url": "https://law.justia.com/cases/kentucky/court-of-appeals/2026/2024-ca-0287-mr.html",
+        "expect": "appeals the Barren Circuit Court's"
+      },
+      "verification": {
+        "status": "verified",
+        "date": "2026-10-17",
+        "by": "research",
+        "result": "OK",
+        "evidence": "WebFetch: full text YES, 'TO BE PUBLISHED', Aug. 28, 2026, not truncated; PDF link cases.justia.com/kentucky/court-of-appeals/2026-2024-ca-0287-mr.pdf. fetch_doc.py on that PDF: 48 pp, 79,135 chars, 'RENDERED: AUGUST 28, 2026; 10:00 A.M. TO BE PUBLISHED'. Supreme Court listing (2000) shows docket and date."
+      }
+    }
+  ],
+  "absent": [
+    {
+      "family": "court_rules",
+      "what": "Consolidated current text of CR, RCr, KRE, SCR and RAP on a reachable government host",
+      "evidence": "kycourts.gov rules links go only to govt.westlaw.com/kyrules (blocked) or to adopting/amending order PDFs. KRS chapter 422A holds only 'Renumbered as KRE nnn' stubs (statute.aspx?id=18198).",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "case_law",
+      "what": "Public-domain (vendor-neutral) citation",
+      "evidence": "Kentucky cites S.W.3d / WL with docket numbers; RAP-adopting order 2022-49 gives the citation form 'Doe v. Roe, ___ S.W.3d ___ (Ky. App. [date])'.",
+      "date": "2026-10-17"
+    },
+    {
+      "family": "statutes",
+      "what": "Official bulk download / API for the KRS",
+      "evidence": "No bulk link on the KRS pages; the Statutes page bars commercial use without LRC agreement (KRS 61.874).",
+      "date": "2026-10-17"
+    }
+  ],
+  "script_candidates": [
+    {
+      "source_id": "ky-opinions-appellatepublic",
+      "why": "Vue app with a JSON API at /api/api/v1 (from properties.js); it would give opinions by docket if the endpoints were mapped (searches/types returned 500)."
+    },
+    {
+      "source_id": "ky-sc-minutes",
+      "why": "Stable month-named PDFs on apps.kycourts.net, parseable into docket -> disposition and date tables (discretionary-review grants and denials)."
+    },
+    {
+      "source_id": "ky-krs-lrc",
+      "why": "Chapter pages map section -> opaque id; a one-time crawl of about 600 chapter pages would make KRS URLs constructible."
+    }
+  ],
+  "corpus_candidates": [
+    {
+      "source_id": "ky-rules-orders-kycourts",
+      "url": "https://www.kycourts.gov/Courts/Supreme-Court/Supreme%20Court%20Orders/202249.pdf",
+      "why": "Full RAP as adopted (89 pp, 205K chars); WebFetch stops at RAP 32. Later amendments (e.g. Order 2026-01) must be merged in.",
+      "split_hint": "'RAP N Title' headings at left margin within ARTICLE headings; CR/RCr amendments follow the RAP",
+      "bulk": ""
+    },
+    {
+      "source_id": "ky-register-lrc",
+      "url": "https://apps.legislature.ky.gov/law/kar/registers/53Ky_R_2026-27/04_Oct.pdf",
+      "why": "Monthly issues are 200+ pages (2.2M chars); grep with fetch_doc.py rather than ingest",
+      "split_hint": "regulation headings 'NNN KAR N:NNN.'",
+      "bulk": ""
+    }
+  ],
+  "open_questions": [
+    "govt.westlaw.com/kyrules is blocked: is there a reachable government copy of the consolidated CR, RCr, KRE and SCR? (Check whether kycourts.gov posts rule PDFs elsewhere.)",
+    "opinions.kycourts.net fails TLS for the script and WebFetch is gated: retest with a provenance-bearing URL (e.g. one linked from a search result).",
+    "appellatepublic.kycourts.net API: map the opinion search endpoint (the /api/api/v1 root was seen; searches/types returned 500).",
+    "Justia KRS URL form for article-sections (304.20-450) and letter-suffixed chapters (422A) has not been verified.",
+    "Justia constitution section pages not probed; the constitution and KAR WebFetch rows are untested."
+  ]
+}

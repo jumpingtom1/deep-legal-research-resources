@@ -1119,6 +1119,191 @@
         }
       ]
     },
+    "ks": {
+      "name": "Kansas",
+      "file": "jurisdictions/ks.md",
+      "sha256": "4274ab9108b782c2a260c201005ca3b758b060b39f820d93825d36deec2251bb",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 14,
+        "reported": 3
+      },
+      "citation_patterns": [
+        {
+          "label": "Kansas Statutes Annotated (K.S.A.)",
+          "regex": "(?:K\\.\\s?S\\.\\s?A\\.|Kan\\.\\s*Stat\\.\\s*Ann\\.)\\s*(?:\u00a7+\\s*)?(?:(?P<supp>\\d{4})\\s+Supp\\.\\s*)?(?:\u00a7+\\s*)?(?P<chapter>\\d{1,2}[a-z]?)-(?P<section>\\d{1,4}(?:,\\d{1,3})?[a-z]{0,2})(?![\\d-])|(?:\u00a7+|sec(?:tion)?\\.?)\\s*(?P<chapter2>\\d{1,2}[a-z]?)-(?P<section2>\\d{1,4}(?:,\\d{1,3})?[a-z]{0,2})(?:\\([0-9a-z]+\\))*\\s+of\\s+the\\s+Kansas\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "Kansas Constitution",
+          "regex": "Kan\\.\\s*Const\\.\\s*(?:art\\.\\s*(?P<article>\\d{1,2}),?\\s*\u00a7+\\s*(?P<section>\\d{1,3}[a-z]?)|Bill\\s+of\\s+Rights,?\\s*\u00a7+\\s*(?P<bor>\\d{1,2}))|Article\\s+(?P<article2>\\d{1,2}),?\\s+(?:Section|\u00a7)\\s*(?P<section2>\\d{1,3}[a-z]?)\\s+of\\s+the\\s+Kansas\\s+Constitution|(?:Section|\u00a7)\\s*(?P<bor2>\\d{1,2})\\s+of\\s+the\\s+Kansas\\s+Constitution\\s+Bill\\s+of\\s+Rights",
+          "context_required": false
+        },
+        {
+          "label": "Kansas Supreme Court Rules (marked)",
+          "regex": "(?:Kan\\.\\s*(?:Sup|S)\\.\\s*Ct\\.\\s*R(?:ule)?\\.?|Kansas\\s+Supreme\\s+Court\\s+Rule)\\s*(?P<rule>\\d{1,4}(?:\\.\\d{1,2}[A-Z]?)?[A-Z]?)|(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule2>\\d{1,4}(?:\\.\\d{1,2}[A-Z]?)?[A-Z]?)(?:\\([0-9a-zA-Z]+\\))*\\s*\\(\\d{4}\\s+Kan\\.\\s*S\\.\\s*Ct\\.\\s*R\\.|(?:KRPC|Kan\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Kansas\\s+Rules?\\s+of\\s+Professional\\s+Conduct)\\s*(?P<krpc>\\d\\.\\d{1,2}[a-z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Kansas Supreme Court Rules (bare 'Supreme Court Rule 6.02', 'Rule 7.04')",
+          "regex": "(?:Supreme\\s+Court\\s+)?Rule\\s+(?P<rule>\\d{1,2}\\.\\d{2}[A-Z]?|\\d{3}[A-Z]?)(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Kansas Administrative Regulations (K.A.R.)",
+          "regex": "(?:K\\.\\s?A\\.\\s?R\\.|Kan\\.\\s*Admin\\.\\s*Regs?\\.)\\s*(?:\u00a7+\\s*)?(?:\\d{4}\\s+Supp\\.\\s*)?(?P<agency>\\d{1,3})-(?P<article>\\d{1,3})-(?P<section>\\d{1,4}[a-z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Kansas Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Kan\\.\\s*Reg\\.\\s*(?P<page>\\d{1,5})|Kansas\\s+Register,?\\s+Vol(?:ume|\\.)\\s*(?P<volume2>\\d{1,2}),?\\s*No\\.\\s*(?P<issue>\\d{1,2})",
+          "context_required": false
+        },
+        {
+          "label": "Kansas Reports / Kansas Court of Appeals Reports",
+          "regex": "(?<!\\d)(?P<volume>\\d{1,3})\\s+Kan\\.(?:\\s*App\\.\\s*(?P<series>2d)?)?\\s+(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Pacific Reporter with Kansas parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\(Kan\\.(?:\\s*(?:Ct\\.\\s*)?App\\.)?\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Unpublished Kansas opinions (WL with Kan. parenthetical)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Kan\\.",
+          "context_required": false
+        },
+        {
+          "label": "Kansas appellate docket number (No. 127,715)",
+          "regex": "No\\.\\s*(?P<docket>\\d{2,3},\\d{3})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Pacific Reporter (no state marker)",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Kansas petition for review disposition (rev. denied ... Kan. ...)",
+          "regex": "rev\\.\\s*(?P<disposition>denied|granted)\\s+(?P<volume>\\d{1,3})\\s+Kan\\.\\s+(?P<page>\\d{1,4})",
+          "context_required": false
+        },
+        {
+          "label": "Petition for review (generic phrase)",
+          "regex": "(?:petition\\s+for\\s+)?review\\s+(?:denied|granted)",
+          "context_required": true
+        }
+      ]
+    },
+    "ky": {
+      "name": "Kentucky",
+      "file": "jurisdictions/ky.md",
+      "sha256": "087b98c2d180c3d3d061f02fe7334b877a0f32b3b42e653ffe5d3f8bb472ff51",
+      "compiled": "2026-10-17",
+      "counts": {
+        "verified": 11,
+        "reported": 3,
+        "blocked": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Kentucky Revised Statutes (KRS)",
+          "regex": "(?:\\bKRS|Ky\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s*(?:\u00a7+\\s*)?(?P<chapter>\\d{1,3}[A-Z]?)\\.(?P<section>\\d{2,4}[A-Z]?(?:-\\d{2,4}(?![.\\d]))?)(?!\\d)|(?:\\bKRS|Ky\\.\\s*Rev\\.\\s*Stat\\.(?:\\s*Ann\\.)?)\\s+[Cc]h(?:apter|\\.)\\s*(?P<chapter_only>\\d{1,3}[A-Z]?)\\b|(?:[Ss]ec(?:tion|\\.)|\u00a7)\\s*(?P<chapter2>\\d{1,3}[A-Z]?)\\.(?P<section2>\\d{2,4}[A-Z]?(?:-\\d{2,4}(?![.\\d]))?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Kentucky\\s+Revised\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Acts (session laws)",
+          "regex": "(?P<year>\\d{4})\\s+Ky\\.\\s*Acts\\.?\\s*(?:ch\\.|chapter)\\s*(?P<chapter>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Constitution",
+          "regex": "Ky\\.\\s*Const\\.\\s*\u00a7+\\s*(?P<section>\\d+[A-Za-z]?)|Section\\s+(?P<section2>\\d+[A-Za-z]?)\\s+of\\s+the\\s+Kentucky\\s+Constitution|Kentucky\\s+Constitution,?\\s+(?:Section|\u00a7)\\s*(?P<section3>\\d+[A-Za-z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Rules of Civil Procedure (CR, dotted form)",
+          "regex": "(?<![A-Za-z.])CR\\s+(?P<rule>\\d{1,2}\\.\\d{2,3})|Ky\\.\\s*R\\.\\s*Civ\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d{2,3})?)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Rules of Criminal Procedure (RCr)",
+          "regex": "\\bRCr\\s+(?P<rule>\\d{1,2}\\.\\d{2,3})|Ky\\.\\s*R\\.\\s*Crim\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2}(?:\\.\\d{2,3})?)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Rules of Evidence (KRE)",
+          "regex": "\\bKRE\\s+(?P<rule>\\d{3}[A-Z]?)|Ky\\.\\s*R\\.\\s*Evid\\.\\s*(?P<rule2>\\d{3}[A-Z]?)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Rules of Appellate Procedure (Ky. RAP)",
+          "regex": "Ky\\.\\s*RAP\\s*(?P<rule>\\d{1,2})|Ky\\.\\s*R\\.\\s*App\\.\\s*P\\.\\s*(?P<rule2>\\d{1,2})|RAP\\s+(?P<rule3>\\d{1,2})(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Kentucky\\s+Rules\\s+of\\s+Appellate\\s+Procedure",
+          "context_required": false
+        },
+        {
+          "label": "Rules of Appellate Procedure (bare RAP)",
+          "regex": "\\bRAP\\s+(?P<rule>\\d{1,2})(?!\\.\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Rules of the Supreme Court of Kentucky (SCR)",
+          "regex": "(?:Ky\\.\\s*)?\\bSCR\\s+(?P<rule>\\d\\.\\d{3})(?:[-(](?P<subrule>\\d+\\.\\d+[a-z]?)\\)?)?",
+          "context_required": false
+        },
+        {
+          "label": "Civil Rules (bare CR without dotted number)",
+          "regex": "(?<![A-Za-z.])CR\\s+(?P<rule>\\d{1,2})(?![.\\d])",
+          "context_required": true
+        },
+        {
+          "label": "Kentucky Administrative Regulations (KAR)",
+          "regex": "(?P<title>\\d{1,3})\\s+(?:KAR|Ky\\.\\s*Admin\\.\\s*Regs\\.)\\s+(?P<chapter>\\d{1,3}):(?P<reg>\\d{1,3})(?P<emergency>E)?",
+          "context_required": false
+        },
+        {
+          "label": "Administrative Register of Kentucky (Ky.R.)",
+          "regex": "(?P<volume>\\d{1,2})\\s+Ky\\.\\s?R\\.\\s+(?P<page>\\d+)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky cases, South Western Reporter with Kentucky parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s?W\\.(?:\\s?(?P<series>2d|3d))?\\s+(?P<page>\\d+)(?:,\\s*\\d+(?:-\\d+)?)?\\s*\\((?P<court>(?:Ky\\.\\s*(?:Ct\\.\\s*)?App\\.|Ky\\.))\\s*(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky Reports (official, to 1951)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Ky\\.\\s+(?P<page>\\d+)(?![\\d.])",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky unpublished / Westlaw opinion with Kentucky parenthetical",
+          "regex": "(?P<year>\\d{4})\\s+WL\\s+(?P<number>\\d+)\\s*\\((?P<court>(?:Ky\\.\\s*(?:Ct\\.\\s*)?App\\.|Ky\\.))\\s+[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s+\\d{4}\\)",
+          "context_required": false
+        },
+        {
+          "label": "Kentucky appellate docket numbers",
+          "regex": "(?P<year>(?:19|20)\\d{2})-(?P<court>SC|CA)-(?P<number>\\d{3,6})-(?P<type>MR|DGE|DG|WC|ME|OA|KB|TG|CL|KP|NA)\\b",
+          "context_required": false
+        },
+        {
+          "label": "South Western Reporter (bare, no court parenthetical)",
+          "regex": "(?P<volume>\\d{1,4})\\s+S\\.\\s?W\\.(?:\\s?(?P<series>2d|3d))?\\s+(?P<page>\\d+)",
+          "context_required": true
+        },
+        {
+          "label": "Discretionary review (Kentucky parenthetical)",
+          "regex": "(?:disc\\.\\s*rev\\.|discretionary\\s+review)\\s+(?P<disposition>denied|granted|dismissed)\\s*\\(Ky\\.",
+          "context_required": false
+        },
+        {
+          "label": "Discretionary review (bare)",
+          "regex": "(?:disc\\.\\s*rev\\.|discretionary\\s+review)\\s+(?P<disposition>denied|granted|dismissed)",
+          "context_required": true
+        }
+      ]
+    },
     "la": {
       "name": "Louisiana",
       "file": "jurisdictions/la.md",
@@ -2138,7 +2323,7 @@
     "oh": {
       "name": "Ohio",
       "file": "jurisdictions/oh.md",
-      "sha256": "805201078bffd793277079a0ac0399e63cdb83270db6cf9512703a902a2ff62b",
+      "sha256": "617d36189b64213b0fc14dd6476fb66af56b95b51147834aec30af14cf231d43",
       "compiled": "2026-10-17",
       "counts": {
         "blocked": 3,
@@ -2208,8 +2393,13 @@
         },
         {
           "label": "Ohio Administrative Code",
-          "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:\u00a7\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code",
+          "regex": "Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:\u00a7\\s*)?(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Administrative\\s+Code",
           "context_required": false
+        },
+        {
+          "label": "Ohio Administrative Code (bare \"OAC\" / \"of the Administrative Code\", shared with Oklahoma)",
+          "regex": "\\bO\\.?A\\.?C\\.?\\s+(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Administrative\\s+Code",
+          "context_required": true
         },
         {
           "label": "Ohio public-domain webcite (YYYY-Ohio-N)",
@@ -2230,6 +2420,104 @@
           "label": "Supreme Court of Ohio case number",
           "regex": "(?:Case\\s+)?No\\.\\s*(?P<year>(?:19|20)\\d\\d)-(?P<seq>\\d{4})\\b",
           "context_required": true
+        }
+      ]
+    },
+    "ok": {
+      "name": "Oklahoma",
+      "file": "jurisdictions/ok.md",
+      "sha256": "6ce59a10aa51663e2b98258689b28c7ed4d042cf72e033258a4a904af4d900aa",
+      "compiled": "2026-10-17",
+      "counts": {
+        "blocked": 8,
+        "verified": 6,
+        "reported": 1
+      },
+      "citation_patterns": [
+        {
+          "label": "Oklahoma Statutes (O.S. / Okla. Stat.)",
+          "regex": "(?P<title>\\d{1,3}[A-Z]?)\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*(?:\u00a7(?!\u00a7)\\s*(?P<section>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|\u00a7\u00a7\\s*(?P<sectionr>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|Okla\\.\\s*Stat\\.\\s*(?:Ann\\.\\s*)?tit\\.\\s*(?P<title2>\\d{1,3}[A-Z]?),?\\s*(?:\u00a7(?!\u00a7)\\s*(?P<section2>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|\u00a7\u00a7\\s*(?P<section2r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|(?P<title3>\\d{1,3}[A-Z]?)\\s+Okla?\\.\\s*St(?:at)?\\.\\s*(?:Ann\\.\\s*)?(?:\u00a7(?!\u00a7)\\s*(?P<section3>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)|\u00a7\u00a7\\s*(?P<section3r>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?))|[Ss]ections?\\s+(?P<section4>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*)*)\\s+(?:(?:to|through|and)\\s+\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*\\s+)?of\\s+[Tt]itle\\s+(?P<title4>\\d{1,3}[A-Z]?)\\s+of\\s+the\\s+Oklahoma\\s+Statutes|[Tt]itle\\s+(?P<title5>\\d{1,3}[A-Z]?),\\s+[Ss]ection\\s+(?P<section5>\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?(?:-\\d{1,4}(?:\\.\\d{1,3})*[A-Z]?)*)\\s+of\\s+the\\s+Oklahoma\\s+Statutes",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma Constitution",
+          "regex": "Okla\\.\\s*Const\\.\\s*art\\.\\s*(?P<article>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|sec\\.?|section)\\s*(?P<section>\\d{1,3}[A-Z]?(?:-[A-Z])?)|[Aa]rt(?:\\.|icle)\\s*(?P<article2>[IVXL]+|\\d{1,2}),?\\s*(?:\u00a7|[Ss]ec\\.?|[Ss]ection)\\s*(?P<section2>\\d{1,3}[A-Z]?),?\\s+(?:of\\s+the\\s+)?(?:Okla\\.\\s*Const\\.|Oklahoma\\s+Constitution)|[Ss]ection\\s+(?P<section3>\\d{1,3}[A-Z]?)\\s+of\\s+[Aa]rticle\\s+(?P<article3>[IVXL]+|\\d{1,2})\\s+of\\s+the\\s+Oklahoma\\s+Constitution",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma court rules (marked: Supreme Court Rules, ORPC, RGDP, District Court Rules, OCCA Rules)",
+          "regex": "(?:Okla\\.\\s*Sup\\.\\s*Ct\\.\\s*R\\.|Okla\\.\\s*R\\.\\s*Prof'?l\\s*Conduct|Okla\\.\\s*Ct\\.\\s*Crim\\.\\s*App\\.\\s*R\\.|Okla\\.\\s*Dist\\.\\s*Ct\\.\\s*R\\.|\\bORPC|\\bRGDP)\\s*(?P<rule>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)|Rule\\s+(?P<rule2>\\d{1,2}(?:\\.\\d{1,3})?[A-Z]?)(?:\\([0-9A-Za-z]+\\))*,\\s*(?P<set>(?:Oklahoma\\s+)?Supreme\\s+Court\\s+Rules,\\s*12\\s+O\\.\\s*S\\.|Oklahoma\\s+Supreme\\s+Court\\s+Rules|Oklahoma\\s+Rules\\s+of\\s+Professional\\s+Conduct|Rules\\s+Governing\\s+Disciplinary\\s+Proceedings,\\s*5\\s+O\\.\\s*S\\.|Rules\\s+for\\s+District\\s+Courts\\s+of\\s+Oklahoma|Rules\\s+of\\s+the\\s+(?:Oklahoma\\s+)?Court\\s+of\\s+Criminal\\s+Appeals)|(?P<title>\\d{1,2})\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*[Cc]h\\.\\s*(?P<chapter>\\d{1,3}),\\s*[Aa]pp\\.\\s*(?P<app>\\d{1,2}(?:-[A-Z])?)?",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma Pleading Code / Evidence Code (court-rule-like statutes in Title 12)",
+          "regex": "(?P<title>12)\\s+O\\.\\s*S\\.\\s*(?:Supp\\.\\s*)?(?:\\d{4})?,?\\s*\u00a7\\s*(?P<section>[23]\\d{3}(?:\\.\\d{1,2})?)(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma court rules (bare 'Rule 1.36')",
+          "regex": "Rules?\\s+(?P<rule>\\d{1,2}\\.\\d{1,3}[A-Z]?)(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Oklahoma Administrative Code (OAC title:chapter-subchapter-section)",
+          "regex": "(?:\\bOAC|Okla\\.\\s*Admin\\.\\s*Code)\\s*(?:\u00a7\\s*)?(?P<title>\\d{1,3}):(?P<chapter>\\d{1,4})-(?P<subchapter>\\d{1,3})-(?P<section>\\d{1,4}(?:\\.\\d{1,2})?)",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma Administrative Code (bare 165:10-3-1)",
+          "regex": "(?<![\\d:])(?P<title>\\d{1,3}):(?P<chapter>\\d{1,4})-(?P<subchapter>\\d{1,3})-(?P<section>\\d{1,4})(?![\\d.-])",
+          "context_required": true
+        },
+        {
+          "label": "Oklahoma Register",
+          "regex": "(?P<volume>\\d{1,2})\\s+Ok(?:la)?\\.?\\s+Reg\\.?\\s+(?P<page>\\d{1,5})",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma public-domain citations (YYYY OK N / OK CIV APP / OK CR)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+OK\\s+(?:(?P<court>CIV\\s+APP|CR|AG|JC|JEAP)\\s+)?(?P<number>\\d{1,4})(?!\\d)(?:,\\s*\u00b6+\\s*(?P<para>\\d+))?",
+          "context_required": false
+        },
+        {
+          "label": "Pacific Reporter with Oklahoma parenthetical",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?:,\\s*\\d+(?:[-\u2013]\\d+)?)?\\s*\\((?P<court>Okla\\.(?:\\s*(?:Civ\\.|Crim\\.)\\s*App\\.)?)\\s*(?:[A-Z][a-z]{2,4}\\.?\\s+\\d{1,2},\\s*)?(?P<year>\\d{4})\\)",
+          "context_required": false
+        },
+        {
+          "label": "Old official Oklahoma reporters (Okla., Okla. Crim.)",
+          "regex": "(?P<volume>\\d{1,3})\\s+Okla\\.\\s*(?P<crim>Crim\\.\\s*)?(?P<page>\\d{1,4})(?!\\d)",
+          "context_required": false
+        },
+        {
+          "label": "Pacific Reporter without court parenthetical (generic)",
+          "regex": "(?P<volume>\\d{1,4})\\s+P\\.\\s*(?:(?P<series>[23])d\\s+)?(?P<page>\\d{1,5})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Oklahoma docket numbers with Oklahoma parenthetical (unpublished opinions)",
+          "regex": "No\\.\\s*(?P<docket>[A-Z]{1,2}-\\d{4}-\\d{1,5}|\\d{2,3},?\\d{3})\\s*\\((?:Okla\\.|OK\\s)",
+          "context_required": false
+        },
+        {
+          "label": "Oklahoma bare docket numbers (OCCA F-/C-/S-YYYY-N; Supreme Court No. 121,610; SCBD-N)",
+          "regex": "(?<![A-Z\\d-])(?P<docket>(?:F|C|S|RE|PC|M|J|D|MA|PR|O|SR|SCBD)-(?:(?:19|20)\\d\\d-)?\\d{1,5})(?![\\d-])|No\\.\\s*(?P<docket2>\\d{2,3},\\d{3})(?!\\d)",
+          "context_required": true
+        },
+        {
+          "label": "Westlaw unreported cites (Oklahoma parenthetical)",
+          "regex": "(?P<year>(?:19|20)\\d\\d)\\s+WL\\s+(?P<wl>\\d+)(?:,\\s*at\\s*\\*\\d+)?\\s*\\(Okla\\.",
+          "context_required": false
+        },
+        {
+          "label": "Certiorari history (cert. denied / granted)",
+          "regex": "cert(?:\\.|iorari)\\s+(?:denied|granted|dismissed)|certiorari\\s+previously\\s+granted",
+          "context_required": true
+        },
+        {
+          "label": "Court of Civil Appeals publication order",
+          "regex": "Released\\s+for\\s+publication\\s+by\\s+order\\s+of\\s+the\\s+Court\\s+of\\s+Civil\\s+Appeals",
+          "context_required": false
         }
       ]
     },

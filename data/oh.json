@@ -226,15 +226,27 @@
         "examples": [
           "Ohio Adm.Code 3701-17-01",
           "Ohio Admin. Code 4123-5-01",
-          "Ohio Adm. Code 4901:1-10-01(A)",
-          "OAC 3701-17-01",
-          "rule 3701-17-01 of the Administrative Code"
+          "Ohio Adm. Code 4901:1-10-01(A)"
         ],
-        "regex": "(?:Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:§\\s*)?|\\bO\\.?A\\.?C\\.?\\s+)(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+(?:Ohio\\s+)?Administrative\\s+Code",
+        "regex": "Ohio\\s+Adm(?:in)?\\.?\\s?Code\\s*(?:§\\s*)?(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Ohio\\s+Administrative\\s+Code",
         "routes_to": [
           "oh-oac-lii",
           "oh-oac-codes"
         ]
+      },
+      {
+        "family": "admin_code",
+        "label": "Ohio Administrative Code (bare \"OAC\" / \"of the Administrative Code\", shared with Oklahoma)",
+        "examples": [
+          "OAC 3701-17-01",
+          "rule 3701-17-01 of the Administrative Code"
+        ],
+        "regex": "\\bO\\.?A\\.?C\\.?\\s+(?P<rule>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)|\\brule\\s+(?P<rule2>\\d{3,4}(?::\\d{1,2})?-\\d{1,3}-\\d{1,3}(?:\\.\\d{1,2})?)(?:\\([A-Za-z0-9]+\\))*\\s+of\\s+the\\s+Administrative\\s+Code",
+        "routes_to": [
+          "oh-oac-lii",
+          "oh-oac-codes"
+        ],
+        "context_required": true
       },
       {
         "family": "case_law",
@@ -312,7 +324,7 @@
       "Ohio Const.": "ohio-constitution",
       "Ohio Constitution": "ohio-constitution"
     },
-    "notes": "Ohio style (Supreme Court of Ohio Writing Manual, from memory) differs from Bluebook: 'R.C. 2305.10' (no §), 'Ohio Adm.Code 3701-17-01', 'Civ.R. 12(B)(6)' with capital division letters, 'Section 16, Article I, Ohio Constitution' (section first), and case cites 'Name, 172 Ohio St.3d 471, 2023-Ohio-3005, ¶ 20' or for appeals 'Name, 2022-Ohio-1555, ¶ 10 (7th Dist.)'; pre-2023 manual form '7th Dist. Jefferson No. 21 JE 0013, 2022-Ohio-1555'. Pinpoint is the ¶ number, which is the same in the slip PDF, the official-version PDF and Ohio St.3d (Rep.Op.R. 2.5 requires numbered paragraphs). Rep.Op.R. 3.4: all court-of-appeals opinions issued after May 1, 2002 may be cited regardless of publication. The webcite alone does not name the court; the URL folder needs it: 0 = Supreme Court, 1-12 = district, 13 = Court of Claims. Take the district from the '(Nth Dist.)' parenthetical or the county ('Jefferson App. No.') via the county table in oh-opinions-rod; otherwise resolve with the ROD WebCite search. Routing guards: bare 'Civ.R. 12', 'Evid.R. 702', 'App.R. 26', 'Crim.R. 11' are Ohio house style, but a bare 'Rule 12' or a federal-rule cite must not route here — require the Ohio abbreviation or Ohio context. 'Revised Code' alone also names Washington's code (Revised Code of Washington): route 'R.C. NNNN.NN' (Ohio sections always contain a dot) or 'of the Revised Code' only with Ohio context. The webcite form YYYY-Ohio-N is unique to Ohio and routes on its own. Ranges like 'R.C. 2305.10 to 2305.12' or 'R.C. 2305.10-.12': take the first section; the regex stops at the first section number. 'Section 1.42' of the Revised Code is valid (Title 1 General Provisions). OAC rules may carry a colon in the agency number (4901:1-10-01) — keep it in the URL. Superintendence Rules were renumbered effective July 1, 2026 (e.g. old Sup.R. 44 → 11.09); older opinions cite old numbers. CourtListener ids (ohio, ohioctapp, ohioctcl) are from memory and unverified. ROUTING after the 2026-10-17 policy: codes.ohio.gov is robots-disallowed, so R.C. → oh-orc-justia, Ohio Const. → oh-constitution-justia, Ohio Adm.Code → oh-oac-lii (all tier 2, disclosed); the blocked official rows stay last in routes_to for link reference only. Regex extended 2026-10-17 for chapter cites ('R.C. Chapter 2744') and 'Ohio Const., Art. I, Sec. 16'."
+    "notes": "Ohio style (Supreme Court of Ohio Writing Manual, from memory) differs from Bluebook: 'R.C. 2305.10' (no §), 'Ohio Adm.Code 3701-17-01', 'Civ.R. 12(B)(6)' with capital division letters, 'Section 16, Article I, Ohio Constitution' (section first), and case cites 'Name, 172 Ohio St.3d 471, 2023-Ohio-3005, ¶ 20' or for appeals 'Name, 2022-Ohio-1555, ¶ 10 (7th Dist.)'; pre-2023 manual form '7th Dist. Jefferson No. 21 JE 0013, 2022-Ohio-1555'. Pinpoint is the ¶ number, which is the same in the slip PDF, the official-version PDF and Ohio St.3d (Rep.Op.R. 2.5 requires numbered paragraphs). Rep.Op.R. 3.4: all court-of-appeals opinions issued after May 1, 2002 may be cited regardless of publication. The webcite alone does not name the court; the URL folder needs it: 0 = Supreme Court, 1-12 = district, 13 = Court of Claims. Take the district from the '(Nth Dist.)' parenthetical or the county ('Jefferson App. No.') via the county table in oh-opinions-rod; otherwise resolve with the ROD WebCite search. Routing guards: bare 'Civ.R. 12', 'Evid.R. 702', 'App.R. 26', 'Crim.R. 11' are Ohio house style, but a bare 'Rule 12' or a federal-rule cite must not route here — require the Ohio abbreviation or Ohio context. 'Revised Code' alone also names Washington's code (Revised Code of Washington): route 'R.C. NNNN.NN' (Ohio sections always contain a dot) or 'of the Revised Code' only with Ohio context. The webcite form YYYY-Ohio-N is unique to Ohio and routes on its own. Ranges like 'R.C. 2305.10 to 2305.12' or 'R.C. 2305.10-.12': take the first section; the regex stops at the first section number. 'Section 1.42' of the Revised Code is valid (Title 1 General Provisions). OAC rules may carry a colon in the agency number (4901:1-10-01) — keep it in the URL. Superintendence Rules were renumbered effective July 1, 2026 (e.g. old Sup.R. 44 → 11.09); older opinions cite old numbers. CourtListener ids (ohio, ohioctapp, ohioctcl) are from memory and unverified. ROUTING after the 2026-10-17 policy: codes.ohio.gov is robots-disallowed, so R.C. → oh-orc-justia, Ohio Const. → oh-constitution-justia, Ohio Adm.Code → oh-oac-lii (all tier 2, disclosed); the blocked official rows stay last in routes_to for link reference only. Regex extended 2026-10-17 for chapter cites ('R.C. Chapter 2744') and 'Ohio Const., Art. I, Sec. 16'. Bare 'OAC …' is shared with the Oklahoma Administrative Code (also colon-numbered), so it routes here only once Ohio is established."
   },
   "sources": [
     {

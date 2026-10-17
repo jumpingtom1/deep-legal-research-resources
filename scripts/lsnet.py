@@ -194,6 +194,14 @@ def _is_storage_no_file(hl, body):
     return False
 
 
+def _robots_is_wall(hl, body):
+    if "html" not in hl.get("content-type", "").lower() and not body.lstrip()[:15].lower().startswith((b"<!doctype", b"<html")):
+        return False
+    low = body[:20000].decode("utf-8", "replace").lower()
+    return any(p in low for p in ("turnstile", "captcha", "verify you are human", "verify they are human",
+                                  "checking your browser", "challenge-platform", "just a moment"))
+
+
 def robots_check(url):
     """Raise RefusedError if robots.txt disallows url. Returns crawl delay."""
     parts = urllib.parse.urlsplit(url)
@@ -234,6 +242,10 @@ def robots_check(url):
             data = {"status": "none", "rules": [], "delay": None}
         elif code >= 500:
             data = {"status": "unreachable", "rules": [], "delay": None}
+        elif _robots_is_wall(hl, body):
+            # An HTML bot-check page served in place of robots.txt (e.g. Cloudflare
+            # Turnstile on oscn.net) is a challenge, not "no rules".
+            data = {"status": "challenge", "rules": [], "delay": None}
         else:
             rules, delay = _parse_robots(body.decode("utf-8", "replace"))
             data = {"status": "ok", "rules": rules, "delay": delay}
@@ -275,7 +287,8 @@ def _looks_like_bot_wall(headers, body, expect):
         low = body[:200000].decode("utf-8", "replace").lower()
         visible = re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", low, flags=re.S)
         visible = re.sub(r"\s+", " ", visible)
-        phrases = ("verify you are human", "are you a robot", "complete the captcha",
+        phrases = ("verify you are human", "verify they are human", "verify that you are human",
+                   "turnstile", "are you a robot", "complete the captcha",
                    "solve the captcha", "please complete the security check",
                    "checking your browser", "enable javascript and cookies to continue",
                    "request unsuccessful. incapsula", "access denied", "bot verification",
