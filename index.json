@@ -1760,27 +1760,27 @@
     "me": {
       "name": "Maine",
       "file": "jurisdictions/me.md",
-      "sha256": "a1b558dbd8255d6cf0869429ebaa2fffa03fc80568bf5a627fd49ab4889a1f91",
+      "sha256": "6146d746000a90fb7f0cffa3d9a77d3ac0100df062113b3bcb2e8b5a61d44452",
       "compiled": "2026-10-17",
       "counts": {
-        "verified": 15,
+        "verified_independent": 15,
         "blocked": 2,
         "reported": 1
       },
       "citation_patterns": [
         {
           "label": "Maine Revised Statutes",
-          "regex": "(?:(?P<title>\\d{1,2}(?:-[A-D])?)\\s+M\\.?\\s?R\\.?\\s?S\\.?(?:\\s?A\\.?)?|Me\\.\\s*(?:Rev\\.\\s*)?Stat\\.(?:\\s*Ann\\.)?\\s*tit\\.\\s*(?P<title2>\\d{1,2}(?:-[A-D])?),?)\\s*(?:\u00a7(?!\u00a7)\\s*(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?![\\d-])|\u00a7\u00a7\\s*(?P<section_first>\\d+(?:-[A-Z]{1,2})?))|Title\\s+(?P<title3>\\d{1,2}(?:-[A-D])?),?\\s+(?:section|\u00a7)\\s*(?P<section3>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?:,\\s*sub(?:section|\u00a7)\\s*\\w+)*\\s+of\\s+the\\s+Maine\\s+Revised\\s+Statutes",
+          "regex": "(?:(?P<title>\\d{1,2}(?:-[A-D])?)\\s+M\\.?\\s?R\\.?\\s?S\\.?(?:\\s?A\\.?)?|Me\\.\\s*(?:Rev\\.\\s*)?Stat\\.(?:\\s*Ann\\.)?\\s*tit\\.\\s*(?P<title2>\\d{1,2}(?:-[A-D])?),?)\\s*(?:\u00a7(?!\u00a7)\\s*(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?![\\d-])|\u00a7\u00a7\\s*(?P<section_first>\\d+(?:-[A-Z]{1,2})?))|Title\\s+(?P<title3>\\d{1,2}(?:-[A-D])?),?\\s+(?:section|\u00a7)\\s*(?P<section3>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?:,\\s*sub(?:section|\u00a7)\\s*\\w+)*\\s+of\\s+the\\s+Maine\\s+Revised\\s+Statutes|(?:section|\u00a7)\\s*(?P<section4>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title4>\\d{1,2}(?:-[A-D])?)\\s+of\\s+the\\s+Maine\\s+Revised\\s+Statutes",
           "context_required": false
         },
         {
-          "label": "Maine Revised Statutes (bare 'Title N, section N' house style)",
-          "regex": "Title\\s+(?P<title>\\d{1,2}(?:-[A-D])?),\\s+section\\s+(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)",
+          "label": "Maine Revised Statutes (bare 'Title N, section N' / 'section N of Title N')",
+          "regex": "Title\\s+(?P<title>\\d{1,2}(?:-[A-D])?),\\s+section\\s+(?P<section>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)|(?:section|\u00a7)\\s*(?P<section2>\\d+(?:-\\d+)?(?:-[A-Z]{1,2})?)(?:\\([a-z0-9]+\\))*\\s+of\\s+Title\\s+(?P<title2>\\d{1,2}(?:-[A-D])?)(?!\\d)",
           "context_required": true
         },
         {
           "label": "Laws of Maine (session laws, Bluebook / P. & S.L. forms)",
-          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Me\\.\\s*(?:Laws|Legis\\.\\s*Serv\\.)\\s*(?:ch?\\.|chapter)\\s*(?P<chapter>\\d+)|P\\.\\s*&\\s*S\\.\\s*L\\.\\s*(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:ch?\\.|chapter)\\s*(?P<chapter2>\\d+)",
+          "regex": "(?P<year>(?:18|19|20)\\d\\d)\\s+Me\\.\\s*(?:Laws|Legis\\.\\s*Serv\\.),?\\s*(?:ch?\\.|chapter)\\s*(?P<chapter>\\d+)|P\\.\\s*&\\s*S\\.\\s*L\\.\\s*(?P<year2>(?:18|19|20)\\d\\d),\\s*(?:ch?\\.|chapter)\\s*(?P<chapter2>\\d+)",
           "context_required": false
         },
         {
