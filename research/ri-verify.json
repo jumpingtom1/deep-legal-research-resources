@@ -1,0 +1,294 @@
+{
+ "jurisdiction": "ri",
+ "date": "2026-10-16",
+ "rows": [
+  {
+   "id": "ri-gl-legislature",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'Actions for words spoken shall be commenced...' 1,729 chars; Statutes.html 'Search the 2026 General Laws'",
+   "generalised_citation": "R.I. Gen. Laws § 21-28-4.01; § 34-18-15",
+   "generalised_url": "https://webserver.rilegislature.gov/Statutes/TITLE21/21-28/21-28-4.01.htm",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Article-divided chapters (21-28 Art. IV) still use flat chapter folder: pattern holds. Some sections last-modified 2021, so currency per page varies.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-public-laws",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'It is enacted by the General Assembly as follows' (law24001.htm)",
+   "generalised_citation": "P.L. 2023, ch. 100",
+   "generalised_url": "https://webserver.rilegislature.gov/PublicLaws/law23/law23100.htm",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Bluebook page form '2023 R.I. Pub. Laws 1520' matches the regex (page group) but the pattern is by chapter only; no route from a page cite.",
+   "suggested_fix": "State that page-form cites need the chapter (via pl{yyyy}nu.htm / subject index) or drop the page alternative."
+  },
+  {
+   "id": "ri-gl-justia",
+   "outcome": "discrepancy",
+   "probe_evidence": "WebFetch YES 'Actions for words spoken shall be commenced and sued within'; '2025 Rhode Island General Laws'",
+   "generalised_citation": "R.I. Gen. Laws § 21-28-4.01",
+   "generalised_url": "https://law.justia.com/codes/rhode-island/title-21/chapter-21-28/section-21-28-4-01/",
+   "generalised_outcome": "failed",
+   "instruction_problems": "Flat pattern silently served the '2021 Rhode Island General Laws' edition. 2025 chapter 21-28 is split into article-i..article-vi segments, not only UCC 'part-N'; a fresh run would quote a stale edition without noticing.",
+   "suggested_fix": "Generalise the hazard: any chapter with Articles/Parts gets an extra segment (article-iv, part-7); always check the edition label equals the current year and otherwise navigate from the chapter page."
+  },
+  {
+   "id": "ri-constitution-legislature",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'All free governments are instituted for the protection, safety, and happiness of the people.'",
+   "generalised_citation": "R.I. Const. art. VI, § 1",
+   "generalised_url": "https://www.rilegislature.gov/riconstitution/Constitution/C06.aspx",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-constitution-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'All free governments are instituted...'; 'This Constitution may not be the most recent version.'",
+   "generalised_citation": "R.I. Const. art. VI, § 1",
+   "generalised_url": "https://law.justia.com/constitution/rhode-island/C06.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-rules-evidence",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'These rules may be known and cited as the Rhode Island Rules of Evidence' p.1",
+   "generalised_citation": "R.I. R. Evid. 803(6)",
+   "generalised_url": "https://www.courts.ri.gov/Legal-Resources/Documents/RulesOfEvidence.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "WebFetch still untested (not tested here either).",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-rules-other-courts",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'FAMILY COURT RULES OF DOMESTIC RELATIONS PROCEDURE' p.1",
+   "generalised_citation": "R.I. Dist. Ct. R. Civ. P. 12(b)(6)",
+   "generalised_url": "https://www.courts.ri.gov/Courts/districtcourt/Documents/District_Civil_Rules.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "court-rules.aspx -> District-Court-Rules.aspx -> District_Civil_Rules.pdf followed via links; Rule 12(b)(6) text found p.18.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-rules-superior-civil",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'A party seeking to recover upon a claim...' p.80",
+   "generalised_citation": "Super. R. Civ. P. 12(b)(6)",
+   "generalised_url": "https://www.courts.ri.gov/Courts/superiorcourt/Documents/SuperiorCourtRulesOfCivilProcedure.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-rules-superior-criminal",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'In all criminal proceedings in the Superior Court' p.1",
+   "generalised_citation": "Super. R. Crim. P. 32(a)",
+   "generalised_url": "https://www.courts.ri.gov/Courts/superiorcourt/Documents/SuperiorCourtRulesOfCriminalProcedure.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-rules-supreme",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'These rules govern procedure in appeals to the Supreme Court' p.1",
+   "generalised_citation": "Article V, Rule 1.7 of the Supreme Court Rules of Professional Conduct",
+   "generalised_url": "https://www.courts.ri.gov/Courts/SupremeCourt/Documents/Supreme-Rules-Article5.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index links confirmed incl. Article4-2.pdf. Common prose 'Article V, Rule 1.7 of the Rules of Professional Conduct' (no 'Supreme Court') is not matched by the regex.",
+   "suggested_fix": "Add alternative: (?:Article\\s+V,?\\s+)?Rule\\s+\\d\\.\\d+[A-Z]?(?:\\([a-z0-9]+\\))*\\s+of\\s+the\\s+(?:Rhode\\s+Island\\s+)?(?:Supreme\\s+Court\\s+)?Rules\\s+of\\s+Professional\\s+Conduct (context_required without 'Rhode Island')."
+  },
+  {
+   "id": "ri-ricr-sos",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation, sale or purchase of'",
+   "generalised_citation": "250-RICR-140-05-1.1",
+   "generalised_url": "https://rules.sos.ri.gov/regulations/part/250-140-05-1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Part page 135K chars (beyond WebFetch window); 3-digit chapter 140 works; Download Regulation S3 link present.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-ricr-lii",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'This Part shall apply to any solicitation...' on 230-RICR-20-25-13.2",
+   "generalised_citation": "250-RICR-140-05-1.1",
+   "generalised_url": "https://www.law.cornell.edu/regulations/rhode-island/250-RICR-140-05-1.1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Page text opens with a site survey banner; heading '250 R.I. Code R. 250-RICR-140-05-1.1 - Purpose' found by grep.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-ricr-proposed",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'PROPOSED RULE' on /Promulgations/part/100-50-00-2",
+   "generalised_citation": "100-RICR-50-00-1 (proposed)",
+   "generalised_url": "https://rules.sos.ri.gov/Promulgations/part/100-50-00-1",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Index now lists 182 links (record says 296): count drifts as notices are adopted.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-decisions-trial",
+   "outcome": "discrepancy",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'Before this Court is an administrative' (Superior-PC-2025-3316.pdf)",
+   "generalised_citation": "Peña v. NCAA, C.A. No. WC-2026-0552",
+   "generalised_url": "https://www.courts.ri.gov/Decisions/Superior-WC-2026-0552.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Superior pattern holds. District files are zero-padded to 2 digits (District-AA26-08.pdf; AA26-8 = 404) and the order prints '6AA-2026–00008', a form neither the placeholder text nor any regex covers. ood.aspx also lists /Administrative%20Orders/ and EAP opinions not described.",
+   "suggested_fix": "District: take last 2 digits of year and sequence padded to at least 2 digits; document the '6AA-yyyy-nnnnn' docket form and add a context_required regex."
+  },
+  {
+   "id": "ri-opinions-supreme",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'This case came before the Supreme Court on February 28, 2024' p.2",
+   "generalised_citation": "Galindez v. R.I. Public Transit Authority, No. 2024-219-Appeal",
+   "generalised_url": "https://www.courts.ri.gov/Opinions/Supreme-24-219.pdf",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Listing prints '2024-0219-Appeal'; strip-zero rule correct. Cover carries 'subject to formal revision' notice and slip pages as described.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-cases-justia",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch YES 'The defendants, Brenda and Ernest Ricci'; July 30, 2026",
+   "generalised_citation": "No. 2024-219-Appeal; WC-2026-0552",
+   "generalised_url": "https://law.justia.com/cases/rhode-island/supreme-court/2026/24-219.html",
+   "generalised_outcome": "ok",
+   "instruction_problems": "Superior slug confirmed: /superior-court/2026/26-552.html = Peña v. NCAA (county dropped).",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-orders-supreme",
+   "outcome": "confirmed",
+   "probe_evidence": "fetch_doc.py --research verify: VERIFIED 'In the Matter of Brian T. Dougan' p.1",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Only one published order on ood.aspx; no second real order docket available to generalise without guessing.",
+   "suggested_fix": ""
+  },
+  {
+   "id": "ri-docket-publicportal",
+   "outcome": "confirmed",
+   "probe_evidence": "WebFetch: 'JavaScript must be enabled in order for you to use this application'",
+   "generalised_citation": "",
+   "generalised_url": "",
+   "generalised_outcome": "n/a",
+   "instruction_problems": "Landing page only; no docket data, as recorded.",
+   "suggested_fix": ""
+  }
+ ],
+ "regex_tests": [
+  {
+   "citation": "G.L. 1956 § 34-18-15(c)",
+   "matched_label": "Rhode Island General Laws",
+   "expected_label": "Rhode Island General Laws"
+  },
+  {
+   "citation": "R.I. Gen. Laws Ann. § 21-28-4.01(a)(4)",
+   "matched_label": "Rhode Island General Laws",
+   "expected_label": "Rhode Island General Laws"
+  },
+  {
+   "citation": "section 10-3-12 of the General Laws",
+   "matched_label": "Rhode Island General Laws",
+   "expected_label": "Rhode Island General Laws"
+  },
+  {
+   "citation": "G.L. 1956 (1997 Reenactment) § 42-35-15",
+   "matched_label": "Rhode Island General Laws",
+   "expected_label": "Rhode Island General Laws"
+  },
+  {
+   "citation": "Article VI, section 1 of the Rhode Island Constitution",
+   "matched_label": "Rhode Island Constitution",
+   "expected_label": "Rhode Island Constitution"
+  },
+  {
+   "citation": "R.I. Const. art. VI, sec. 1",
+   "matched_label": "Rhode Island Constitution",
+   "expected_label": "Rhode Island Constitution"
+  },
+  {
+   "citation": "Rule 803(6) of the Rhode Island Rules of Evidence",
+   "matched_label": "Rhode Island Rules of Evidence",
+   "expected_label": "Rhode Island Rules of Evidence"
+  },
+  {
+   "citation": "Rhode Island Rules of Evidence 803",
+   "matched_label": null,
+   "expected_label": "Rhode Island Rules of Evidence"
+  },
+  {
+   "citation": "R.I. Super. Ct. R. Civ. P. 26(b)(4)",
+   "matched_label": "Superior Court Rules of Civil Procedure",
+   "expected_label": "Superior Court Rules of Civil Procedure"
+  },
+  {
+   "citation": "Super. R. Crim. P. 32(f)",
+   "matched_label": "Superior Court Rules of Criminal Procedure",
+   "expected_label": "Superior Court Rules of Criminal Procedure"
+  },
+  {
+   "citation": "Article V, Rule 1.7 of the Rules of Professional Conduct",
+   "matched_label": null,
+   "expected_label": "Supreme Court Rules (Articles I-X)"
+  },
+  {
+   "citation": "Article V, Rule 1.16 of the Supreme Court Rules of Professional Conduct",
+   "matched_label": "Supreme Court Rules (Articles I-X)",
+   "expected_label": "Supreme Court Rules (Articles I-X)"
+  },
+  {
+   "citation": "Rule 12(b)(6) of the District Court Civil Rules",
+   "matched_label": "Family Court and District Court rules",
+   "expected_label": "Family Court and District Court rules"
+  },
+  {
+   "citation": "Mello v. DaLomba, 798 A.2d 405, 409 (R.I. 2002)",
+   "matched_label": "Reported Rhode Island cases (Atlantic Reporter)",
+   "expected_label": "Reported Rhode Island cases (Atlantic Reporter)"
+  },
+  {
+   "citation": "Galindez v. R.I. Public Transit Authority, 340 A.3d 1, 5 (R.I. 2026)",
+   "matched_label": "Reported Rhode Island cases (Atlantic Reporter)",
+   "expected_label": "Reported Rhode Island cases (Atlantic Reporter)"
+  },
+  {
+   "citation": "No. 2024-219-Appeal",
+   "matched_label": "Rhode Island Supreme Court docket number",
+   "expected_label": "Rhode Island Supreme Court docket number"
+  },
+  {
+   "citation": "Peña v. NCAA, C.A. No. WC-2026-0552",
+   "matched_label": "Superior Court civil action number (county prefix)",
+   "expected_label": "Superior Court civil action number (county prefix)"
+  },
+  {
+   "citation": "250-RICR-140-05-1.1",
+   "matched_label": "Rhode Island Code of Regulations (RICR)",
+   "expected_label": "Rhode Island Code of Regulations (RICR)"
+  },
+  {
+   "citation": "P.L. 2023, ch. 100, § 2",
+   "matched_label": "Rhode Island Public Laws (P.L. year, ch. N)",
+   "expected_label": "Rhode Island Public Laws (P.L. year, ch. N)"
+  },
+  {
+   "citation": "2023 R.I. Pub. Laws 1520",
+   "matched_label": "Rhode Island Public Laws (session laws, Bluebook) [page form: no chapter route]",
+   "expected_label": "Rhode Island Public Laws (session laws, Bluebook)"
+  },
+  {
+   "citation": "Hernandez v. R.I. DMV, 6AA-2026-00008",
+   "matched_label": null,
+   "expected_label": "District Court administrative appeal (ri-decisions-trial)"
+  }
+ ],
+ "overall": "17 VERIFIED rows re-probed (script route for courts.ri.gov, rilegislature, SOS, LII; WebFetch for Justia) and the REPORTED portal row: 16 confirmed, 2 discrepancies, 0 failed, no BLOCKED rows. Most serious: Justia statute pattern ignores article-N segments in article-divided chapters (21-28), and the flat URL silently returns the 2021 edition. District Court decision files are zero-padded (AA26-08) and the printed '6AA-2026-00008' docket has no regex. Regex misses: 'Article V, Rule 1.7 of the Rules of Professional Conduct' and 'Rhode Island Rules of Evidence 803'; Bluebook page-form Public Laws match but cannot be routed by chapter. Bare-section regex also fires on every marked G.L. cite (expected; context_required)."
+}
