@@ -94,6 +94,10 @@ A new user has no installed copy to take the key from, so they need the
 
 ## Publishing a new release (maintainer)
 
+The maintainer doesn't run these steps himself. He asks Claude for a release, in a
+session that has this repo attached. Claude does the steps below and hands
+back the `-with-key` zip. They're written out so any Claude session can follow them.
+
 1. Finish the release in a copy of the complete skill folder, including the
    skill's own checklist in `CHANGELOG.md`.
 2. Write the release notes: a short file of `- ` bullets (1–8, each at most
