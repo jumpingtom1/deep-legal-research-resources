@@ -1,14 +1,43 @@
 {
  "name": "deep-legal-research",
- "version": "10.4",
- "released": "2026-10-17",
- "published": "2026-10-17",
- "summary": "Update check: the skill compares itself with this repo and hands you the newest zip with upgrade steps.",
+ "version": "10.5",
+ "released": "2026-10-18",
+ "published": "2026-10-18",
+ "summary": "Statutes, constitutions, court rules and regulations for the other 48 states and D.C., from verified official or approved sources, with exact-text quote checks.",
+ "notes": [
+  "Statutes, constitutions, court rules and regulations for the other 48 states and D.C., from verified official or approved sources, with exact-text quote checks.",
+  "State citations such as \"R.I. Gen. Laws \u00a7 9-1-14\" or \"6 Del. C. \u00a7 18-101\" are recognized automatically and sent to that state's sources.",
+  "Review-history checks for state appellate decisions now start from each state's own official lists.",
+  "Upgrade offers now show what's new, and the skill tells you if your copy was changed locally.",
+  "Requests to change the skill are written up as a suggestion for the maintainer instead."
+ ],
+ "history": [
+  {
+   "version": "10.4",
+   "released": "2026-10-17",
+   "notes": [
+    "Update check: the skill compares itself with this repo and hands you the newest zip with upgrade steps."
+   ]
+  },
+  {
+   "version": "10.5",
+   "released": "2026-10-18",
+   "notes": [
+    "Statutes, constitutions, court rules and regulations for the other 48 states and D.C., from verified official or approved sources, with exact-text quote checks.",
+    "State citations such as \"R.I. Gen. Laws \u00a7 9-1-14\" or \"6 Del. C. \u00a7 18-101\" are recognized automatically and sent to that state's sources.",
+    "Review-history checks for state appellate decisions now start from each state's own official lists.",
+    "Upgrade offers now show what's new, and the skill tells you if your copy was changed locally.",
+    "Requests to change the skill are written up as a suggestion for the maintainer instead."
+   ]
+  }
+ ],
+ "feedback": "tbode@lvklaw.com",
  "zip_url": "https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/main/skill/deep-legal-research.zip",
- "sha256": "98e0838afcef2cdf6832560766899e4188869109d69c5eb5acd08e69904e6234",
- "bytes": 502374,
+ "sha256": "8bd83d8d2f95176ef84fba95f32c6dc826e3069e13ff1900c8a5c035b1f01b0e",
+ "bytes": 519012,
  "files": [
   "CHANGELOG.md",
+  "MANIFEST.sha256",
   "SKILL.md",
   "VERSION",
   "references/courtlistener-mcp.md",
@@ -24,6 +53,7 @@
   "references/pipeline.md",
   "references/report-format.md",
   "references/source-status.md",
+  "references/state-repo.lock.json",
   "references/state-sources.md",
   "references/statute-sources.md",
   "references/subagent-briefing.md",
@@ -31,6 +61,7 @@
   "scripts/govinfo.py",
   "scripts/or_corpus_build.py",
   "scripts/or_lookup.py",
+  "scripts/state_repo.py",
   "scripts/statecourts.py",
   "scripts/update_check.py"
  ],
