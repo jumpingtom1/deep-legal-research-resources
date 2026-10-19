@@ -33,6 +33,11 @@ that refuses (robots disallow, Cloudflare challenge, HTTP 401/403/451,
 | HTTP 429 | retry later, not a refusal | — |
 | TLS chain fails to verify | error; verification never disabled | — |
 
+**Owner decision (2026-10-18):** an explicit `Disallow` is respected for
+every route, the fetch tool included. Ohio and Michigan court hosts stay
+`blocked`, and their records route to other sources (Justia, Cornell LII,
+CourtListener) where they exist.
+
 Robots path rules are matched **case-insensitively**, which is stricter than
 RFC 9309. Many publisher sites run on IIS, where `/pdf/` and `/PDF/` are the
 same directory, so a `Disallow: /PDF/` is taken to cover `/pdf/…`
