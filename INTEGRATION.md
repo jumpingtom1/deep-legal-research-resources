@@ -1,7 +1,8 @@
 # Using this repo from the deep-legal-research skill
 
 Federal, Oregon and Washington stay bundled in the skill. For every other
-jurisdiction the skill reads this repo at run time, **pinned to a commit SHA**
+jurisdiction the skill (v10.5 and later) reads this repo at run time through
+its own `scripts/state_repo.py`, **pinned to a commit SHA**
 (`raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/<sha>/…`).
 A commit cannot be moved the way a tag or branch can, so the skill always gets
 exactly the reviewed content.
@@ -47,26 +48,38 @@ exactly the reviewed content.
    - `fetch_doc.py links <url>` lists a page's links, so index-anchored
      navigation can also be done entirely by script.
 
+## How the skill does it (v10.5)
+
+`scripts/state_repo.py` in the skill wraps steps 1–7:
+- `setup` downloads `index.json`, `hosts.json`, `corpus/index.json` and the
+  four reading scripts from the pinned commit and checks each against the
+  sha256 in the skill's `references/state-repo.lock.json`;
+- `route "<text>" [--known xx]` picks jurisdictions (step 1);
+- `rows <xx> --family …` prints one state's rows, read from `data/<xx>.json`
+  after checking it against `data_sha256` in the verified index;
+- `doc …` and `corpus …` run `fetch_doc.py` and `corpus.py` with
+  `LEGAL_SOURCES_BASE` set to the pinned commit.
+
+To move the skill to a newer commit: `state_repo.py pin <sha> --repo <clone>`
+in the skill folder, then `state_repo.py probe`, then a skill release.
+
 ## Network setup to tell users and admins
 
-The **script** route needs the official hosts to be reachable from the
-code-execution sandbox. The corpus route needs only GitHub.
+The repo itself needs only `raw.githubusercontent.com`. Reading a live
+official page also needs that page's host.
 
 - **Team / Enterprise.** An owner sets Organization settings → Capabilities →
-  network access to *Package managers plus specific domains* and adds:
-  - `raw.githubusercontent.com`, for the corpus and the instruction files;
-  - each `allowed` host in `hosts.json`, currently:
-    - courts.delaware.gov, delcode.delaware.gov, legis.delaware.gov, regulations.delaware.gov
-    - www.nysenate.gov, legislation.nysenate.gov, www.nycourts.gov, nycourts.gov, dos.ny.gov
-    - courts.ca.gov, www.courts.ca.gov, supreme.courts.ca.gov, oal.ca.gov
-    - www.law.cornell.edu, law.justia.com, california.public.law, newyork.public.law
+  network access. *All domains* is simplest. With *Package managers plus
+  specific domains*, add `raw.githubusercontent.com` and the `allowed` hosts
+  in `hosts.json` (273 at 2026-10-18).
 - **Free / Pro / Max.** Turn on network egress under Settings → Capabilities.
-- **Without access to a host**, `fetch_doc.py` fails with exit 4 (network) or
-  exit 3 (refused). The skill then falls back to the next route the row lists.
+- **Without access to a host**, `fetch_doc.py` fails with exit 4 (network)
+  and the skill takes the row's next route (usually the fetch tool). Exit 3
+  (refused) is never rerouted.
 
 Some hosts block scripts but let the fetch tool through (law.justia.com and,
 at times, www.nycourts.gov). `fetch_doc.py` reports those as refused, so the
-fetch tool remains their only route.
+fetch tool is their only route.
 
 ## Maintenance
 
@@ -76,7 +89,7 @@ fetch tool remains their only route.
   - re-ingest anything SOURCE CHANGED or STALE;
   - push to `main`.
 
-  Then bump the skill's pinned commit SHA.
+  Then bump the skill's pinned commit SHA (`state_repo.py pin`).
 - **Adding a collection:** write `corpus-config/<xx>-<name>.json`, run
   `ingest.py --dry-run` until every quality gate passes, ingest, then build.
 - **Adding a jurisdiction:** follow `research/BRIEF.md`, then
