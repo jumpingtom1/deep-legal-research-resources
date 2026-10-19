@@ -420,10 +420,13 @@ def main():
             "name": rec["name"],
             "file": f"jurisdictions/{rec['jurisdiction']}.md",
             "sha256": hashlib.sha256(md.encode()).hexdigest(),
+            "data_file": f"data/{f.name}",
+            "data_sha256": hashlib.sha256(f.read_bytes()).hexdigest(),
             "compiled": rec["compiled"],
             "counts": counts,
             "citation_patterns": [
                 {"label": p.get("label"), "regex": p.get("regex"),
+                 "family": p.get("family"), "routes_to": p.get("routes_to", []),
                  "context_required": bool(p.get("context_required"))}
                 for p in rec.get("citation_map", {}).get("citation_patterns", [])
             ],
