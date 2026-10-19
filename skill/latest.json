@@ -1,15 +1,11 @@
 {
  "name": "deep-legal-research",
- "version": "10.5",
+ "version": "10.6",
  "released": "2026-10-18",
  "published": "2026-10-18",
- "summary": "Statutes, constitutions, court rules and regulations for the other 48 states and D.C., from verified official or approved sources, with exact-text quote checks.",
+ "summary": "At the start of each run the skill checks whether your Claude settings let it reach its sources, and if not tells you exactly which setting to change.",
  "notes": [
-  "Statutes, constitutions, court rules and regulations for the other 48 states and D.C., from verified official or approved sources, with exact-text quote checks.",
-  "State citations such as \"R.I. Gen. Laws \u00a7 9-1-14\" or \"6 Del. C. \u00a7 18-101\" are recognized automatically and sent to that state's sources.",
-  "Review-history checks for state appellate decisions now start from each state's own official lists.",
-  "Upgrade offers now show what's new, and the skill tells you if your copy was changed locally.",
-  "Requests to change the skill are written up as a suggestion for the maintainer instead."
+  "At the start of each run the skill checks whether your Claude settings let it reach its sources, and if not tells you exactly which setting to change."
  ],
  "history": [
   {
@@ -29,12 +25,19 @@
     "Upgrade offers now show what's new, and the skill tells you if your copy was changed locally.",
     "Requests to change the skill are written up as a suggestion for the maintainer instead."
    ]
+  },
+  {
+   "version": "10.6",
+   "released": "2026-10-18",
+   "notes": [
+    "At the start of each run the skill checks whether your Claude settings let it reach its sources, and if not tells you exactly which setting to change."
+   ]
   }
  ],
  "feedback": "tbode@lvklaw.com",
  "zip_url": "https://raw.githubusercontent.com/jumpingtom1/deep-legal-research-resources/main/skill/deep-legal-research.zip",
- "sha256": "8bd83d8d2f95176ef84fba95f32c6dc826e3069e13ff1900c8a5c035b1f01b0e",
- "bytes": 519012,
+ "sha256": "95489ba755ad17be90104fe65757ce724198e043fad7275741464d7768312819",
+ "bytes": 523238,
  "files": [
   "CHANGELOG.md",
   "MANIFEST.sha256",
@@ -61,6 +64,7 @@
   "scripts/govinfo.py",
   "scripts/or_corpus_build.py",
   "scripts/or_lookup.py",
+  "scripts/preflight.py",
   "scripts/state_repo.py",
   "scripts/statecourts.py",
   "scripts/update_check.py"
